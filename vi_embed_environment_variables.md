@@ -99,13 +99,13 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
         
     1. Dấu chấm **.** dẫn đầu báo hiệu cho hệ điều hành biết là văn bản, hoặc thư mục, là một bản đặc biệt, không sử dụng thông thường và phải **ẩn giấu** đi, theo mặc định. 
     2. Dấu **$** báo hiệu là giá trị của nó nằm trong biến môi trường tên **HOME** (nhà), tức địa điểm ổ riêng của người dùng, 
-    3. Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không trong cùng quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
+    3. Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không nằm trong quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
     
     3. Lần xuống dòng có chữ **export** và mở một dòng mới ngay sau dòng đó, bắt đầu điền nội dung sau vào đó:
     ```shell
         export BLENDER_MO_PATH=$HOME
     ```
-    Tại vị trí cuối cùng, sau dấu **=**, bấm chuột phải và chọn **Paste** để dán nội dung có trong bộ nhớ của máy. Kết quả sẽ tương tự như sau:
+    Tại vị trí cuối cùng, sau chữ **HOME**, bấm chuột phải và chọn **Paste** để dán nội dung có trong bộ nhớ của máy vào đó. Kết quả sẽ tương tự như sau:
     ```shell
         export BLENDER_MO_PATH=$HOME/Blenders/blender-2.78c-linux-glibc219-x86_64/2.78/datafiles/locale/vi/LC_MESSAGES
     ```
@@ -118,6 +118,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
         BLENDER_MO_PATH=$HOME/Blenders/blender-2.78c-linux-glibc219-x86_64/2.78/datafiles/locale/vi/LC_MESSAGES
     ```
     sẽ hiện ra.
+   
     5. Thử chức năng của biến môi trường **BLENDER_MO_PATH** bằng 2 cách, như đã nói. Dùng lệnh **ls** (list=liệt kê) để xem các văn bản ở thư mục đó:
     ```shell
         ls $BLENDER_MO_PATH
