@@ -90,7 +90,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
         /blender.mo
     ```
     Bấm chuột phải và chọn **Copy** để lưu dòng đã chọn vào bộ nhớ máy tính.
-    2. Dùng **gedit** để biên soạn văn bản khởi tố **.bashrc**. Văn bản này có tính năng tương tự như bản **startup.bat** trong Windows, như nói ở trên, bằng dòng lệnh:
+    2. Dùng **gedit** để biên soạn văn bản khởi động **.bashrc**. Văn bản này có tính năng tương tự như bản **startup.bat** trong Windows, như nói ở trên, bằng dòng lệnh:
     ```shell
         gedit $HOME/.bashrc &
     ```
