@@ -24,7 +24,7 @@ ví dụ:
 ```                                
     
 **Để ý**: 
-1. Việc tạo biến môi trường BLENDER_MO_PATH sẽ làm đơn giản hóa số phím mình sẽ phải đánh. Trong cả hai hệ điều hành, Windows và Linux, chúng ta có thể sử dụng phím **Tab** để lợi dụng khả năng tự điền và hoàn chỉnh tên của thư mục hoặc của văn bản đã có trong thư mục, hòng làm giảm số phím mình cần phải bấm trên bàn đánh máy chữ. Khi mình điền vài chữ đầu của tên một thư mục, hoặc một văn bản, rồi bấm phím **Tab** thì môi trường đánh dòng lệnh sẽ tự động lùng tìm trong vị trí hiện tại mình đang đứng, xem trong đó có tên thư mục hoặc tên văn bản nào bắt đầu bằng những chữ mình đã đánh mà không, và nó sẽ tự điền cho mình tên mà nó tìm thấy.
+1. Việc tạo biến môi trường BLENDER_MO_PATH sẽ làm đơn giản hóa số phím mình sẽ phải đánh. Trong cả hai hệ điều hành, Windows và Linux, chúng ta có thể sử dụng phím **Tab** để lợi dụng khả năng tự điền và hoàn chỉnh tên của thư mục hoặc của văn bản đã có trong thư mục, hòng làm giảm số phím mình cần phải bấm trên bàn đánh máy chữ. Khi mình điền vài chữ đầu của tên một thư mục, hoặc một văn bản, rồi bấm phím **Tab** thì môi trường đánh dòng lệnh sẽ tự động lùng tìm trong vị trí hiện tại mình đang đứng, xem trong đó có tên thư mục hoặc tên văn bản nào bắt đầu bằng những chữ mình đã đánh hay không, và nó sẽ tự điền cho mình tên mà nó tìm thấy.
 2. Biến môi trường %USERPROFILE% trong hệ điều hành Windows là biến có sẵn, định vị thư mục của người dùng hiện tại.
 3. Biến môi trường $HOME trong hệ điều hành Linux/Unix là biến có sẵn, định vị thư mục của người dùng hiện tại.
 4. Từ nay trở đi, chúng ta sẽ sử dụng biến môi trường BLENDER_MO_PATH để chỉ thư mục của bản **blender.mo** trong bản Blender đã cài trên máy.
