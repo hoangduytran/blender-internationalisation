@@ -11,18 +11,38 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```
     Khi đã đến thư mục của bản **blender.mo** rồi thì bấm chuột trái vào hộp đề dòng địa chỉ ở trên, dường như muốn biên soạn nó, song bấm tổ hợp phím **Ctrl+C**, hoặc bấm chuột phải và chọn **Copy**, để sao chép dòng chữ này vào bộ nhớ của máy.
     
+    *hoặc*
+    
+    Mở cửa sổ dòng lệnh bằng cách bấm chuột trái vào hình tem **Dòng Lệnh** và đánh hai dòng sau:
+    ```batch
+        cd \
+        dir /s /b "C:\Program Files\*blender.mo" | findstr "vi"
+    ```
+    ---
+    **Lưu ý**:
+    - Lệnh **cd** là viết tắt của chữ **Change Directory=Đổi thư mục**.
+    - **\\** là dấu chỉ gốc của cây thư mục trong hệ điều hành. Cái này cả Windows và Linux/Unix đều giống nhau, chỉ khác dấu mà thôi, Windows dùng **\\** (ngả về trái), còn Linux thì dùng **/** (ngả về bên phải).
+    - Lệnh **dir** là viết tắt của chữ **Directory=Thư mục**, dùng để liệt kê nội dung của một thư mục nào đó. Ở trong ví dụ trên, chúng ta liệt kê toàn bộ thư mục **'C:\Program Files\'**. Tham số **/s** là **Sub-directories=Đi vào các thư mục nhánh** để tìm, **/b** là liệt kê ở dạng đơn giản, toàn bộ đường dẫn và tên tập tin được liệt kê ra thành một dòng.
+    ---
+    Dòng hiện ra sẽ là dòng mình cần phải sao chép. Bấm và giữ đầu chuột trái xuống trong khi quét và chọn từ đầu dòng cho đến hết chữ **LC_MESSAGE** thôi, bỏ qua phần cuối, tức chỉ sao chép đoạn này:
+    ```shell
+        C:\Program Files\Blender Foundation\Blender\2.78\datafiles\locale\vi\LC_MESSAGES
+    ```
+    
     2. Mở **Notepad** và đánh các dòng lệnh sau vào đó:
     ```batch
         @echo off
         set BLENDER_MO_PATH="C:\Program Files\Blender Foundation\Blender\2.78\datafiles\locale\vi\LC_MESSAGES"
         cd %USERPROFILE%
     ````
-    >Lưu ý: Sau khi đánh xong 
+    ---
+    **Lưu ý**: 
+    + Sau khi đánh xong 
     ```batch
         set BLENDER_MO_PATH="
     ```
-    Thì hoặc là bấm tổ hợp phím **Ctrl+V**, hoặc bấm chuột phải và chọn **Paste** để dán nội dung của bộ nhớ vào vị trí của con trỏ trên màn hình, tức cuối dòng của dòng chữ trên, sau dấu **=**. Kết quả sẽ tương tự như trên. Nhớ kết thúc nó bằng một dấu nháy kép **"**, mình đã mở ở cuối dòng, sau dấu **=** rồi thì phải đóng lại. Cái này cho phép toàn bộ đường dẫn được đối xử như một thực thể riêng biệt, kể cả nó có **dấu cách** ở trong nữa. Theo lệ thường thì **dấu cách** được cư xử như là dấu kết thúc một dòng chữ, phân tách các thực thể của tham số ra thành những phần riêng biệt trong dòng lệnh. Trong trường hợp **Program Files**, và **Blender Foundation** do giữa hai chữ có một dấu cách, chúng ta phải báo cho nó biết là không được tách các phần có dấu cách thành những phần riêng biệt, song phải coi chúng như một thực thể gắn liền, tức cả dòng là một thành phần không thể tách rời.
-            
+    + thì hoặc là bấm tổ hợp phím **Ctrl+V**, hoặc bấm chuột phải và chọn **Paste** để dán nội dung của bộ nhớ vào vị trí của con trỏ trên màn hình, tức cuối dòng của dòng chữ trên, sau dấu **="**. Kết quả sẽ tương tự như trên. Nhớ kết thúc nó bằng một dấu nháy kép **"**, mình đã mở ở cuối dòng, sau dấu **=** rồi thì phải đóng lại. Cái này cho phép toàn bộ đường dẫn được đối xử như một thực thể riêng biệt, kể cả nó có **dấu cách** ở trong nữa. Theo lệ thường thì **dấu cách** được cư xử như là dấu phân tách, phân các thực thể của tham số ra thành những phần riêng biệt trong dòng lệnh. Trong trường hợp **Program Files**, và **Blender Foundation** do giữa hai chữ có một dấu cách, chúng ta phải báo cho nó biết là không được tách các phần có dấu cách thành những phần riêng biệt, song phải coi chúng như một thực thể gắn liền, tức cả dòng là một thành phần không thể tách rời.
+    ---
     3. Lưu văn bản dùng tên là **startup.bat** vào thư mục người dùng, như đã xác định trong biến môi trường %USERPROFILE%, ví dụ:
     ```batch
         C:\Users\<tên người dùng>
@@ -35,7 +55,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     C:\Windows\System32\cmd.exe /K "%USERPROFILE%\startup.bat"
     ```
     ---
-    >Lưu ý:
+    **Lưu ý**:
     
     - **C:\Windows\System32\cmd.exe** là lệnh mô phỏng thiết bị đầu cuối, tạo một cửa sổ dòng lệnh để mình có thể đánh các lệnh bằng tay.        
     - **/K** là báo cho lệnh **cmd.exe** biết sau khi thi hành lệnh tiếp tới, đứng sau nó, tức **startup.bat** thì không tắt cửa sổ đi, để nguyên cửa sổ dòng lệnh đã mở để mình có thể tiếp tục tương tác với nó.    
@@ -94,13 +114,13 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```shell
         gedit $HOME/.bashrc &
     ```
-    
-    >Lưu ý: 
+    ---
+    **Lưu ý**: 
         
-    1. Dấu chấm **.** dẫn đầu báo hiệu cho hệ điều hành biết là văn bản, hoặc thư mục, là một bản đặc biệt, không sử dụng thông thường và phải **ẩn giấu** đi, theo mặc định. 
-    2. Dấu **$** báo hiệu là giá trị của nó nằm trong biến môi trường tên **HOME** (nhà), tức địa điểm ổ riêng của người dùng, 
-    3. Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không nằm trong quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
-    
+    + Dấu chấm **.** dẫn đầu báo hiệu cho hệ điều hành biết là văn bản, hoặc thư mục, là một bản đặc biệt, không sử dụng thông thường và phải **ẩn giấu** đi, theo mặc định. 
+    + Dấu **$** báo hiệu là giá trị của nó nằm trong biến môi trường tên **HOME** (nhà), tức địa điểm ổ riêng của người dùng, 
+    + Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không nằm trong quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
+    ---
     3. Lần xuống dòng có chữ **export** và mở một dòng mới ngay sau dòng đó, bắt đầu điền nội dung sau vào đó:
     ```shell
         export BLENDER_MO_PATH=$HOME
