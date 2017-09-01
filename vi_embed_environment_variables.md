@@ -130,9 +130,9 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```
     
 **Lưu ý**: 
-- Biến môi trường %USERPROFILE% trong hệ điều hành Windows là biến có sẵn, định vị thư mục của người dùng hiện tại.
-- Biến môi trường $HOME trong hệ điều hành Linux/Unix là biến có sẵn, định vị thư mục của người dùng hiện tại.
-- Từ nay trở đi, chúng ta sẽ sử dụng biến môi trường BLENDER_MO_PATH để chỉ thư mục của bản **blender.mo** trong bản Blender đã cài trên máy.
+- Biến môi trường **%USERPROFILE%** trong hệ điều hành Windows là biến có sẵn, định vị thư mục của người dùng hiện tại.
+- Biến môi trường **$HOME** trong hệ điều hành Linux/Unix là biến có sẵn, định vị thư mục của người dùng hiện tại.
+- Từ nay trở đi, chúng ta sẽ sử dụng biến môi trường **BLENDER_MO_PATH** để chỉ thư mục của bản **blender.mo** trong bản Blender đã cài trên máy.
 
 ---
 - [Hướng dẫn đổi tên bản blender.mo](vi_rename_blender_mo.md)
