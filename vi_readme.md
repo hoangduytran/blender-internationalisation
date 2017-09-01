@@ -21,7 +21,7 @@ Sau khi đã lấy xuống máy, vào thư mục **Downloads** chẳng hạn, th
 1. *Trong hệ điều hành Windows*:
 
     - Tạo một Shortcut (đường dẫn ngắn) cho lệnh 'cmd.exe' trên mặt bàn làm việc (*Desktop*) của mình bằng cách bấm chuột phải ở Desktop, chọn **New->Shortcut** (*Mới->đường ngắn*). Điền tên **cmd.exe** vào và bấm **Next** (*tiếp tục*). Điền tên hay hơn cho nó, ví dụ, *Dòng Lệnh*, rồi bấm OK để kết thúc.
-    - Bấm chuột phải vào đường dẫn ngắn mình vừa kiến tạo và chọn **Run as Administrator** (Chạy trong chế độ của người quản trị máy (không phải trong chế độ người dùng bình thường). Có thể một cửa sổ xuất hiện và hỏi là 
+    - Bấm chuột phải vào đường dẫn ngắn mình vừa kiến tạo và chọn **Run as Administrator** (Chạy trong chế độ của người quản trị máy, không phải trong chế độ người dùng bình thường). Có thể một cửa sổ xuất hiện và hỏi là 
     ``` 
         Do you want to allow this app to make changes to your device?
         (Bạn có muốn cho phép chương trình này tạo những thay đổi trên thiết bị của bạn hay không?)
