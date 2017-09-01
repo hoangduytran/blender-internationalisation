@@ -85,7 +85,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```shell
         find ./Blenders -name "blender.mo" -type f | grep vi
     ```
-    Dùng chuột trái bấm và giữ xuống để chọn toàn bộ dòng đường dẫn liệt kê ra cho bản **blender.mo** mà mình muốn thay đổi. Mình chỉ cần chọn đến chữ trước trên của văn bản, tức bỏ đi đoạn:
+    Dùng chuột trái bấm và giữ xuống để chọn toàn bộ dòng đường dẫn liệt kê ra cho bản **blender.mo** mà mình muốn thay đổi. Mình chỉ cần chọn đến chữ nằm trước tên của văn bản, tức bỏ, không chọn đoạn:
     ```shell
         /blender.mo
     ```
