@@ -58,6 +58,6 @@ Nên nhớ, tôi sẽ thường thường đăng bản thay đổi của cả ha
 
 1. Văn bản bao gồm các dòng tiếng Anh và tiếng Việt (để tham khảo và tìm hiểu) [vi.po](https://github.com/hoangduytran/blender-internationalisation/blob/master/trunk/po/vi.po).
 2. Bản [blender.mo](https://github.com/hoangduytran/blender-internationalisation/blob/master/trunk/locale/vi/LC_MESSAGES/blender.mo) phần mềm sử dụng để hiển thị tiếng Việt trong giao diện và các chú thích, v.v.
-3. Tôi đã thử và kiểm tra, bản này có thể chạy được cả trong Windows và Linux. Tôi không có iOS (Apple) nên không thể kiểm tra được là nó có chạy được trong hệ điều hành này hay không.
+3. Tôi đã thử và kiểm tra, bản này có thể chạy được cả trong Windows và Linux. Tôi không có iOS (Apple) nên không thể kiểm tra được là nó có chạy được trong hệ điều hành này hay không. Nếu bạn có iOS và đã thử nó trên hệ điều hành này thì làm ơn [gửi thư điện tử cho tôi](mailto:hoangduytran1960@gmail.com) và cho tôi biết là bản này có làm việc trên iOS hay không. Tôi rất cảm kích về những đóng góp của bạn. Cũng xin gửi thư cho tôi nếu có bất cứ vấn đề gì về nội dung bản dịch và về khả năng làm việc hoặc bất cứ vấn đề gì liên quan đến việc sử dụng nó trong phần mềm.
 ---
 Trở về [trang chính](https://github.com/hoangduytran/blender-internationalisation)

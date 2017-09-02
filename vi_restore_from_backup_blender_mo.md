@@ -29,9 +29,8 @@
     
         mv $BLENDER_MO_PATH/20170831_0001_blender.mo  mv $BLENDER_MO_PATH/blender.mo
 
-> Lưu ý:
-
-+ Sau khi làm xong, chúng ta có thể bật Blender lên và vào lại **File->User Preferences->System**, bấm nút hai cái (*tắt đi rồi bật lại lên*) **International Fonts**, để phần mềm nạp lại bản tiếng Việt, và xem các thay đổi. 
+> **Lưu ý**:
+> + Sau khi làm xong, chúng ta có thể bật Blender lên và vào lại **File->User Preferences->System**, bấm nút hai cái (*tắt đi rồi bật lại lên*) **International Fonts** :ballot_box_with_check:, để phần mềm nạp lại bản tiếng Việt, và xem các thay đổi. 
         
 ---
 - [Hướng dẫn đổi tên bản blender.mo](vi_rename_blender_mo.md).

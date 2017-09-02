@@ -13,17 +13,21 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     
     *hoặc*
     
-    Mở cửa sổ dòng lệnh bằng cách bấm chuột trái vào hình tem **Dòng Lệnh** và đánh hai dòng sau:
+    Mở cửa sổ dòng lệnh bằng cách bấm chuột trái vào hình tem **Dòng Lệnh** và đánh hai dòng sau, bấm **Enter** sau khi đánh xong để thi hành dòng lệnh:
     ```batch
-        cd \
         dir /s /b "C:\Program Files\*blender.mo" | findstr "vi"
     ```
-    ---
-    **Lưu ý**:
-    - Lệnh **cd** là viết tắt của chữ **Change Directory=Đổi thư mục**.
-    - **\\** là dấu chỉ gốc của cây thư mục trong hệ điều hành. Cái này cả Windows và Linux/Unix đều giống nhau, chỉ khác dấu mà thôi, Windows dùng **\\** (ngả về trái), còn Linux thì dùng **/** (ngả về bên phải).
-    - Lệnh **dir** là viết tắt của chữ **Directory=Thư mục**, dùng để liệt kê nội dung của một thư mục nào đó. Ở trong ví dụ trên, chúng ta liệt kê toàn bộ thư mục **'C:\Program Files\'**. Tham số **/s** là **Sub-directories=Đi vào các thư mục nhánh** để tìm, **/b** là liệt kê ở dạng đơn giản, toàn bộ đường dẫn và tên tập tin được liệt kê ra thành một dòng.
-    ---
+
+    > **Lưu ý**:
+    > - Lệnh **dir** là viết tắt của chữ **Directory=Thư mục**, dùng để liệt kê nội dung của một thư mục nào đó. Ở trong ví dụ trên, chúng ta liệt kê toàn bộ thư mục **'C:\Program Files\'**. 
+    > - Tham số **/s** là **Sub-directories=Đi vào các thư mục nhánh** để tìm, 
+    > - Tham số **/b** là liệt kê ở dạng đơn giản, toàn bộ đường dẫn và tên tập tin được liệt kê ra thành một dòng.
+    > - **C:** là tên ổ cứng, nơi hệ điều hành được cài đặt.
+    > - **\\** đầu tiên sau tên ổ là là dấu chỉ gốc của cây thư mục trong hệ điều hành. Cái này cả Windows và Linux/Unix đều có quan niệm giống nhau, chỉ khác về dấu mà thôi, Windows dùng **\\** (ngả về trái), còn Linux thì dùng **/** (ngả về bên phải).
+    > - Vì tên **Program Files** có dấu cách ở trong đó, xong chúng ta muốn hệ điều hành coi cả đoạn văn bản là một thực thể thống nhất, nên chúng ta phải sử dụng dấu nháy kép **"** ở đầu và cuối tên chỉ dùng thư mục.
+    > - Dấu **\*** sau **Program Files\** là một chỉ dấu của Biểu Thức Chính Quy (Regular Expression), báo cho hệ điều hành biết là biểu thức có thể bao gồm **bất cứ** cái gì tiếp theo đó, chỉ biết rằng biểu thức nhất định phải khởi đầu bằng **C:\Program Files\** và kết thúc bằng **blender.mo**. Hãy tìm bất cứ chuỗi ký tự nào giống như thế và in ra. 
+    > - Dấu **|** (tiếng Anh là *Vertical Bar* (thanh dựng đứng), song ngôn ngữ trong ngành lập trình còn gọi nó là dấu *pipe*) là một dấu đặc biệt vì nó được gán cho một ý nghĩa khá không bình thường. Dấu này báo cho hệ điều hành biết là đổi hướng các dòng kết quả của lệnh đứng trước, tức là lệnh **dir** và chuyển chúng thành các nhập liệu của lệnh tiếp theo, tức lệnh **findstr** (Find String=Tìm kiếm chuỗi ký tự). Chúng ta muốn lệnh **findstr** tìm trong các dòng chữ của lệnh **dir** chữ **vi** (đại biểu cho tiếng Việt).
+ 
     Dòng hiện ra sẽ là dòng mình cần phải sao chép. Bấm và giữ đầu chuột trái xuống trong khi quét và chọn từ đầu dòng cho đến hết chữ **LC_MESSAGE** thôi, bỏ qua phần cuối, tức chỉ sao chép đoạn này:
     ```shell
         C:\Program Files\Blender Foundation\Blender\2.78\datafiles\locale\vi\LC_MESSAGES
@@ -35,17 +39,17 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
         set BLENDER_MO_PATH="C:\Program Files\Blender Foundation\Blender\2.78\datafiles\locale\vi\LC_MESSAGES"
         cd %USERPROFILE%
     ````
-    ---
-    **Lưu ý**: 
-    + Sau khi đánh xong 
-    ```batch
-        set BLENDER_MO_PATH="
-    ```
-    + thì hoặc là bấm tổ hợp phím **Ctrl+V**, hoặc bấm chuột phải và chọn **Paste** để dán nội dung của bộ nhớ vào vị trí của con trỏ trên màn hình, tức cuối dòng của dòng chữ trên, sau dấu **="**. Kết quả sẽ tương tự như trên. Nhớ kết thúc nó bằng một dấu nháy kép **"**, mình đã mở ở cuối dòng, sau dấu **=** rồi thì phải đóng lại. Cái này cho phép toàn bộ đường dẫn được đối xử như một thực thể riêng biệt, kể cả nó có **dấu cách** ở trong nữa. Theo lệ thường thì **dấu cách** được cư xử như là dấu phân tách, phân các thực thể của tham số ra thành những phần riêng biệt trong dòng lệnh. Trong trường hợp **Program Files**, và **Blender Foundation** do giữa hai chữ có một dấu cách, chúng ta phải báo cho nó biết là không được tách các phần có dấu cách thành những phần riêng biệt, song phải coi chúng như một thực thể gắn liền, tức cả dòng là một thành phần không thể tách rời.
-    ---
+
+    > **Lưu ý**: 
+    > + Sau khi đánh xong 
+    > ```batch
+    >     set BLENDER_MO_PATH="
+    > ```
+    > + thì hoặc là bấm tổ hợp phím **Ctrl+V**, hoặc bấm chuột phải và chọn **Paste** để dán nội dung của bộ nhớ vào vị trí của con trỏ trên màn hình, tức cuối dòng của dòng chữ trên, sau dấu **="**. Kết quả sẽ tương tự như trên. Nhớ kết thúc nó bằng một dấu nháy kép **"**, mình đã mở ở cuối dòng, sau dấu **=** rồi thì phải đóng lại. Cái này cho phép toàn bộ đường dẫn được đối xử như một thực thể riêng biệt, kể cả nó có **dấu cách** ở trong nữa. Theo lệ thường thì **dấu cách** được cư xử như là dấu phân tách, phân các thực thể của tham số ra thành những phần riêng biệt trong dòng lệnh. Trong trường hợp **Program Files**, và **Blender Foundation** do giữa hai chữ có một dấu cách, chúng ta phải báo cho nó biết là không được tách các phần có dấu cách thành những phần riêng biệt, song phải coi chúng như một thực thể gắn liền, tức cả dòng là một thành phần không thể tách rời.
+
     3. Lưu văn bản dùng tên là **startup.bat** vào thư mục người dùng, như đã xác định trong biến môi trường %USERPROFILE%, ví dụ:
     ```batch
-        C:\Users\<tên người dùng>
+        C:\Users\<username>
     ```   
     
     4. Bấm phải chuột vào ảnh tem **Dòng Lệnh** như đã hướng dẫn làm trong mục [Hướng dẫn đổi tên bản blender.mo](vi_rename_blender_mo.md), lần xuống dưới của trình đơn thả bật lên và chọn **Properties** (Tính chất).
@@ -54,13 +58,15 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```batch
     C:\Windows\System32\cmd.exe /K "%USERPROFILE%\startup.bat"
     ```
-    ---
-    **Lưu ý**:
-    
-    - **C:\Windows\System32\cmd.exe** là lệnh mô phỏng thiết bị đầu cuối, tạo một cửa sổ dòng lệnh để mình có thể đánh các lệnh bằng tay.        
-    - **/K** là báo cho lệnh **cmd.exe** biết sau khi thi hành lệnh tiếp tới, đứng sau nó, tức **startup.bat** thì không tắt cửa sổ đi, để nguyên cửa sổ dòng lệnh đã mở để mình có thể tiếp tục tương tác với nó.    
-    - **"%USERPROFILE%\startup.bat"** là bản mình đã tạo ở trên và sẽ được lệnh **cmd.exe** thi hành.
-    ---
+
+    > **Lưu ý**:    
+    > - **C:\Windows\System32\cmd.exe** là lệnh mô phỏng thiết bị đầu cuối, tạo một cửa sổ dòng lệnh để mình có thể đánh các lệnh bằng tay.        
+    > - **/K** là một tham số báo cho lệnh **cmd.exe** biết sau khi thi hành lệnh tiếp tới, đứng sau nó, tức **startup.bat** thì không tắt cửa sổ đi, để nguyên cửa sổ dòng lệnh đã mở để mình có thể tiếp tục tương tác với nó. Xem thêm chi tiết các tham số khác tại [Thư viện tham chiếu của Microsoft - tiếng Anh](https://technet.microsoft.com/en-gb/library/bb490880.aspx) hoặc bằng cách đánh lệnh sau tại cửa sổ dòng lệnh. Dấu hỏi là dấu ra lệnh cho phần mềm in ra các tham số mình có thể sử dụng và chức năng của chúng:
+    > ```batch
+    >     cmd /?
+    > ```   
+    > - **"%USERPROFILE%\startup.bat"** là bản mình đã tạo ở trên và sẽ được lệnh **cmd.exe** thi hành.
+
     6. Đổi nội dung ô **Start in** (Khởi đầu ở) thành:
     ```batch
         %USERPROFILE%
@@ -73,7 +79,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     
     7. Để kiểm tra kết quả làm việc thì bấm chuột phải vào hình tem **Dòng Lệnh**, chọn **Run as administrator**, chọn **Yes**, như đã hướng dẫn. Mình sẽ thấy một cửa sổ dòng lệnh và thư mục mình đang đứng là thư mục người dùng của mình, ví dụ:
     ```batch
-        C:\Users\<tên người dùng>
+        C:\Users\<username>
     ```
     Đánh dòng lệnh sau và bấm **Enter** để khẳng định và thi hành:
     ```batch
@@ -95,7 +101,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```batch
         cd %USERPROFILE%
     ```
-    để quay lại vị trí của thư mục người dùng. Như vậy là biến môi trường **USERPROFILE** đã được ấn định và sử dụng có hiệu quả.
+    để quay lại vị trí của thư mục người dùng. Như vậy là biến môi trường **BLENDER_MO_PATH** đã được ấn định và sử dụng có hiệu quả.
     
 
 2. **Linux**:
@@ -104,7 +110,18 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     1. Sau khi khởi động **gnome-terminal** hoặc một trình mô phỏng thiết bị đầu cuối nào đó,  thì tìm đường dẫn đến bản **blender.mo** bằng dòng lệnh sau. Tôi cho rằng bạn lưu tất cả các bản **blender** tại thư mục $HOME/Blenders của mình:
     ```shell
         find ./Blenders -name "blender.mo" -type f | grep vi
-    ```
+    ```    
+    > **Lưu ý**
+    > + Dùng lệnh
+    > ```shell
+    >    man find
+    > ```
+    > để mở các trang hướng dẫn diễn giải tác dụng của dòng lệnh, hoặc dùng dòng lệnh:
+    > ```shell
+    >    find --help
+    > ```
+    > để xem những giải thích ngắn gọn ý nghĩa của các tham số mình có thể sử dụng.
+    
     Dùng chuột trái bấm và giữ xuống để chọn toàn bộ dòng đường dẫn liệt kê ra cho bản **blender.mo** mà mình muốn thay đổi. Mình chỉ cần chọn đến chữ nằm trước tên của văn bản, tức bỏ, không chọn đoạn:
     ```shell
         /blender.mo
@@ -114,13 +131,12 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```shell
         gedit $HOME/.bashrc &
     ```
-    ---
-    **Lưu ý**: 
-        
-    + Dấu chấm **.** dẫn đầu báo hiệu cho hệ điều hành biết là văn bản, hoặc thư mục, là một bản đặc biệt, không sử dụng thông thường và phải **ẩn giấu** đi, theo mặc định. 
-    + Dấu **$** báo hiệu là giá trị của nó nằm trong biến môi trường tên **HOME** (nhà), tức địa điểm ổ riêng của người dùng, 
-    + Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không nằm trong quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
-    ---
+
+    > **Lưu ý**:         
+    > + Dấu chấm **.** dẫn đầu báo hiệu cho hệ điều hành biết là văn bản, hoặc thư mục, là một bản đặc biệt, không sử dụng thông thường và phải **ẩn giấu** đi, theo mặc định. 
+    > + Dấu **$** báo hiệu là giá trị của nó nằm trong biến môi trường tên **HOME** (nhà), tức địa điểm ổ riêng của người dùng, 
+    > + Dấu **&** báo cho hệ điều hành biết là khởi động **gedit** trong một quá trình riêng biệt, không nằm trong quá trình của **gnome-terminal** và do đó, chúng ta có thể sử dụng **gnome-terminal** để thi hành các lệnh khác, không liên quan gì đến **gedit** cả.
+
     3. Lần xuống dòng có chữ **export** và mở một dòng mới ngay sau dòng đó, bắt đầu điền nội dung sau vào đó:
     ```shell
         export BLENDER_MO_PATH=$HOME
@@ -129,7 +145,19 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```shell
         export BLENDER_MO_PATH=$HOME/Blenders/blender-2.78c-linux-glibc219-x86_64/2.78/datafiles/locale/vi/LC_MESSAGES
     ```
-    4. Lưu các thay đổi và mở thử một cửa sổ của **gnome-terminal**, hoặc trình mô phỏng thiết bị đầu cuối mình đang sử dụng. Đánh dòng lệnh sau để kiểm tra xem biến môi trường **BLENDER_MO_PATH** đã được gắn hay chưa:
+    4. Lưu các thay đổi và hoặc là đánh dòng lệnh:
+    ```shell
+        source ~/.bashrc
+    ```
+    hoặc 
+    ```shell
+        . ~/.bashrc
+    ```    
+    > **Lưu ý**
+    > + Dấu chấm đầu tiên **.** là lệnh ngắn của **source**, dùng để nạp nội dung của văn bản **.bashrc** một cách năng động vào bộ nhớ mà không cần phải khởi động lại dòng lệnh.
+    > + Chữ dấu ngã **~** là dạng ngắn gọn của **$HOME**.    
+    
+    để nạp lại nội dung của bản **.bashrc**, hoặc mở thử một cửa sổ của **gnome-terminal**, hay một trình mô phỏng thiết bị đầu cuối nào mình muốn sử dụng. Đánh dòng lệnh sau để kiểm tra xem biến môi trường **BLENDER_MO_PATH** đã được gắn hay chưa:
     ```shell
         env | grep BLENDER_MO_PATH
     ```
@@ -139,7 +167,7 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
     ```
     sẽ hiện ra.
    
-    5. Thử chức năng của biến môi trường **BLENDER_MO_PATH** bằng 2 cách, như đã nói. Dùng lệnh **ls** (list=liệt kê) để xem các văn bản ở thư mục đó:
+    5. Thử chức năng của biến môi trường **BLENDER_MO_PATH** bằng 2 cách. Dùng lệnh **ls** (list=liệt kê) để xem các văn bản ở thư mục đó:
     ```shell
         ls $BLENDER_MO_PATH
     ```
@@ -149,10 +177,10 @@ Tự đánh biến môi trường **BLENDER_MO_PATH** mỗi khi sử dụng là 
         cd $HOME
     ```
     
-**Lưu ý**: 
-- Biến môi trường **%USERPROFILE%** trong hệ điều hành Windows là biến có sẵn, định vị thư mục của người dùng hiện tại.
-- Biến môi trường **$HOME** trong hệ điều hành Linux/Unix là biến có sẵn, định vị thư mục của người dùng hiện tại.
-- Từ nay trở đi, chúng ta sẽ sử dụng biến môi trường **BLENDER_MO_PATH** để chỉ thư mục của bản **blender.mo** trong bản Blender đã cài trên máy.
+> **Lưu ý**: 
+> - Biến môi trường **%USERPROFILE%** trong hệ điều hành Windows là biến có sẵn, định vị thư mục của người dùng hiện tại.
+> - Biến môi trường **$HOME** trong hệ điều hành Linux/Unix là biến có sẵn, định vị thư mục của người dùng hiện tại.
+> - Từ nay trở đi, chúng ta sẽ sử dụng biến môi trường **BLENDER_MO_PATH** để chỉ thư mục của bản **blender.mo**.
 
 ---
 - [Hướng dẫn đổi tên bản blender.mo](vi_rename_blender_mo.md)
