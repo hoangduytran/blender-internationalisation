@@ -30,16 +30,16 @@ After downloaded to the local machine, says to the **Downloads** directory for i
         C:\WINDOWS\system32>
     ```
     - Type the following command **cd** (change directory) and press *Enter* to confirm and execute it after finished typing:
-    ```
+    ```batch
         cd %USERPROFILE%\Downloads
-        dir
+        dir blender.mo
     ```
 
 2. *For Linux OS*: 
     - Use **gnome-terminal**, or any **xterm** (Terminal emulator) of your choice, type the following command line, press *Enter* to confirm the command and execute it after finished typing:
-    ```
+    ```shell
         cd $HOME/Downloads
-        ls
+        ls blender.mo
     ```
 You should see the file you have just downloaded. Now you need to do as following and I presumed that you have done this before:
 
