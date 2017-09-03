@@ -31,7 +31,7 @@ Sau khi đã lấy xuống máy, vào thư mục **Downloads** chẳng hạn, th
     ```batch
         C:\WINDOWS\system32>
     ```
-    - Đánh dòng lệnh **dir** (change directory=Đổi thư mục) như sau, bấm phím *Enter* để khẳng định và thi hành sau khi đã đánh xong:
+    - Đánh dòng lệnh **dir** (directory=Liệt kê nội dung của thư mục) như sau, bấm phím *Enter* để khẳng định và thi hành sau khi đã đánh xong:
     ```batch
         dir %USERPROFILE%\Downloads
     ```

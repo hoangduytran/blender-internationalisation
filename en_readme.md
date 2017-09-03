@@ -29,7 +29,7 @@ After downloaded to the local machine, says to the **Downloads** directory for i
     ```
         C:\WINDOWS\system32>
     ```
-    - Type the following command **dir** (Directory) and press *Enter* to confirm and execute it after finished typing:
+    - Type the following command **dir** (listing directory) and press *Enter* to confirm and execute it after finished typing:
     ```batch
         dir %USERPROFILE%\Downloads
     ```
