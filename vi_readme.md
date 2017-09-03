@@ -31,16 +31,14 @@ Sau khi đã lấy xuống máy, vào thư mục **Downloads** chẳng hạn, th
     ```batch
         C:\WINDOWS\system32>
     ```
-    - Đánh dòng lệnh **cd** (change directory=Đổi thư mục) như sau, bấm phím *Enter* để khẳng định và thi hành sau khi đã đánh xong:
+    - Đánh dòng lệnh **dir** (change directory=Đổi thư mục) như sau, bấm phím *Enter* để khẳng định và thi hành sau khi đã đánh xong:
     ```batch
-        cd %USERPROFILE%\Downloads
-        dir blender.mo
+        dir %USERPROFILE%\Downloads
     ```
 2. *Trong hệ điều hành Linux*:
     - Sử dụng **gnome-terminal**, hoặc bất cứ trình **xterm** (Terminal emulator=Mô phỏng thiết bị đầu cuối) nào đó, và đánh dòng lệnh sau, bấm phím *Enter* để khẳng định và thi hành sau khi đã đánh xong:
     ```shell
-        cd $HOME/Downloads
-        ls blender.mo
+        ls $HOME/Downloads
     ```
     Mình sẽ thấy bản mới lấy xuống được liệt kê. Bạn có thể tiếp tục làm như hướng dẫn sau đây. Tôi lấy giả sử là bạn đã từng làm như thế này:
 
