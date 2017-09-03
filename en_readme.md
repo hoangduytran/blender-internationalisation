@@ -34,7 +34,6 @@ After downloaded to the local machine, says to the **Downloads** directory for i
         cd %USERPROFILE%\Downloads
         dir blender.mo
     ```
-
 2. *For Linux OS*: 
     - Use **gnome-terminal**, or any **xterm** (Terminal emulator) of your choice, type the following command line, press *Enter* to confirm the command and execute it after finished typing:
     ```shell
