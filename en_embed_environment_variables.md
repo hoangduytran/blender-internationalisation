@@ -18,7 +18,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
     ```batch
         dir /s /b "C:\Program Files\*blender.mo" | findstr "vi"
     ```
-    > **Hints**:    
+    > **Note**:    
     > - Command **dir** is an abbreviation of **Directory**, used to list the content of directories. In the above example, we are listing out all items within the **'C:\Program Files\'** directory. 
     > - Parameter **/s** is for listing also all **Sub-directories** under it. 
     > - Parameter **/b** is to produce a simple form of output, that is listing the whole path and filename in one long string.
@@ -40,7 +40,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
         cd %USERPROFILE%
     ````
 
-    >**Hints**: 
+    >**Note**: 
     > + After finished typing: 
     > ```batch
     >        set BLENDER_MO_PATH="
@@ -59,7 +59,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
     C:\Windows\System32\cmd.exe /K "%USERPROFILE%\startup.bat"
     ```
     
-    > **Hints**:    
+    > **Note**:    
     > - **C:\Windows\System32\cmd.exe** is a terminal emulator, creating a window, in which you can type commands manually.        
     > - **/K** is a flag to inform **cmd.exe** that after executing the command at the end, that is the **startup.bat**, then terminate the command, but do not close down the emulator window, allowing users to continue interacting with the console. See more details of flags at the [Microsoft reference library](https://technet.microsoft.com/en-gb/library/bb490880.aspx) or by typing the following command at the console window. The question mark is the flag to tell commands to print out all list of all parameters that you can use and their significance:
     > ```batch
@@ -111,7 +111,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
     ```shell
         find ./Blenders -name "blender.mo" -type f | grep vi
     ```
-    > **Hints**
+    > **Note**
     > + Use the command
     > ```shell
     >    man find
@@ -132,7 +132,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
         gedit $HOME/.bashrc &
     ```
 
-    >**Hints**:         
+    >**Note**:         
     > + The leading period sign **.** signal the OS that the file, or the directory, is a special one, unlike the ordinary file, this must be **hidden**, by default. 
     > + The dollar sign **$** signifies that the actual value is contained in the environment variable named **HOME**, which is your own user directory, 
     > + The ampersand sign **&** informs the OS to start **gedit** in a separate process, and not dependent on the process of **gnome-terminal**, thus we can use **gnome-terminal** to carry out other commands, unaffecting **gedit**.
@@ -153,7 +153,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
     ```shell
         . ~/.bashrc
     ```    
-    > **Hints**
+    > **Note**
     > + The leading period **.** is the short form for **source** command, which is to reload the content of **.bashrc** into the memory dynamically without having to restart the shell.
     > + The tilde character is a short form for **$HOME**.    
 
@@ -178,7 +178,7 @@ To accomplish this we need to do the followings (remember there's a multitude of
         cd $HOME
     ```
     
-> **Hints**: 
+> **Note**: 
 > + Environment variable **%USERPROFILE%** in Windows is builtin, determining the current user's directory.
 > + Environment variable **$HOME** in Linux/Unix is builtin, determining the current user's directory.
 > + From now on, we will use the environment variable **BLENDER_MO_PATH** to refer to the path of **blender.mo**.

@@ -21,8 +21,8 @@ After downloaded to the local machine, says to the **Downloads** directory for i
 1. *For Windows OS*:
 
     - Create a shortcut for program **cmd.exe** on the Desktop of your computer by right click mouse button on Desktop, select **New->Shortcut**. Fill in the name **cmd.exe** and press **Next**. Type in a more pretty name for it, ie. *Command Line*, then press OK to finish.
-    - Right click on the shortcut you've just created and select **Run as Administrator**. You must run this with administrator priviledge because actions you will take requires modifications to the priviledged parts of the OS. A dialog window probably appear, asking: 
-    ``` 
+    - Right click on the shortcut you've just created and select **Run as Administrator**. You must run this with administrator priviledge because actions you will take requires modifications to the priviledged parts of the OS. A dialog window probably appear, asking:
+    ```
         Do you want to allow this app to make changes to your device?
     ```   
     - Click on **Yes**. A console window will appear, with black background and letters in white, listing that the current directory you are in is at:    
@@ -34,7 +34,7 @@ After downloaded to the local machine, says to the **Downloads** directory for i
         cd %USERPROFILE%\Downloads
         dir blender.mo
     ```
-2. *For Linux OS*: 
+2. *For Linux OS*:
     - Use **gnome-terminal**, or any **xterm** (Terminal emulator) of your choice, type the following command line, press *Enter* to confirm the command and execute it after finished typing:
     ```shell
         cd $HOME/Downloads
@@ -42,12 +42,12 @@ After downloaded to the local machine, says to the **Downloads** directory for i
     ```
 You should see the file you have just downloaded. Now you need to do as following and I presumed that you have done this before:
 
-1. **Windows**: 
+1. **Windows**:
     - Installed **Blender** using the downloaded file with extension such as **msi** or **exe**, which contains installation software and that you've used it to install Blender into the directory **Program Files** on drive **C:**.
 2. **Linux**:
     - You have downloaded **Blender** with extension **tar.bz2** and decompressed into a directory at your **$HOME** partition.
 ---
-The procedure is as follow:
+### The procedure is as follow:
 - Rename the existing **blender.mo** to reserve a copy in case of a faulty download or any unforeseen errors in the new file. This will allow you to return to the existing working version of the file. Please see [How to change the name of current blender.mo for backup purposes](en_rename_blender_mo.md).
 - Move the newly downloaded **blender.mo** into its reserved directory in **Blender** and testing its working conditions. Please see [How to move newly downloaded blender.mo into its directory in **Blender***](en_move_new_blender_mo_into_place.md)
 - For restoring, please see [How to restore previously backed-up blender.mo](en_restore_from_backup_blender_mo.md)

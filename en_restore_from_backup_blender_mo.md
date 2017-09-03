@@ -29,7 +29,7 @@
     ```shell
         mv $BLENDER_MO_PATH/20170831_0001_blender.mo  mv $BLENDER_MO_PATH/blender.mo
     ```
-> **Hints**:
+> **Note**:
 > + After completed, reaccess **Blender** and approach **File->User Preferences->System**, double clicking (*turn off and on again*) the **International Fonts** button :ballot_box_with_check: to reload the Vietnamese translation file and see all the changes. 
         
 ---

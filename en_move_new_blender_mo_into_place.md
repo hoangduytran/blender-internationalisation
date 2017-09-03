@@ -13,7 +13,7 @@ In order to move the newly downloaded *blender.mo* to the folder LC_MESSAGES of 
     mv $HOME/Downloads/blender.mo $BLENDER_MO_PATH
     ```
 
->**Hints**:
+>**Note**:
 > + After completed, we can access Blender and approach **File->User Preferences->System**, double clicking (*turn off and on again*) the **International Fonts** button :ballot_box_with_check:  to reload the Vietnamese translation file and see all the changes. 
 > + If there are problems, please read [How to restore previously backed-up blender.mo](en_restore_from_backup_blender_mo.md).
 ---
