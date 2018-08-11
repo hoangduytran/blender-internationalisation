@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вкладки -- Tabs &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/freestyle/parameter_editor/line_style/tabs.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Вузли -- Nodes" href="nodes/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Рушій нефотореалістичного рендерингу Freestyle</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core.html">Опції Ядра -- Core Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../view_map.html">Карти Огляду -- View Maps</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Параметрів -- Parameter Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../line_set.html">Набір Ліній -- Line Set</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Стиль Ліній і Модифікатори -- Line Style &amp; Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.html">Режим Скриптування на Python -- Python Scripting Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../line.html">Лінія -- Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../export_svg.html">Експортер Freestyle у SVG -- Freestyle SVG Exporter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Рушій нефотореалістичного рендерингу Freestyle</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Параметрів -- Parameter Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">Стиль Ліній і Модифікатори -- Line Style &amp; Modifiers</a> &raquo;</li>
+        
+      <li>Вкладки -- Tabs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/freestyle/parameter_editor/line_style/tabs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tabs">
+<h1>Вкладки -- Tabs<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stroke">
+<h2>Штрих -- Stroke<a class="headerlink" href="#stroke" title="Permalink to this headline">¶</a></h2>
+<p>Штрихи -- це фінально рендерені лінії. Тим не менш, ви можете підправляти їх, наприклад, вилучаючи довші/коротші з них за вказаний поріг, зчіплювати лінії в єдиний штрих або розбивати штрих на кілька різних на основі кутів, задавати пунктирний узор тощо.</p>
+<div class="section" id="chaining">
+<h3>Зчіплювання -- Chaining<a class="headerlink" href="#chaining" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-chaining.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-chaining.png" />
+<p class="caption"><span class="caption-text">Зчіплювання -- Chaining.</span></p>
+</div>
+<p>Стандартно всі отримані лінії з набору ліній зчіплюються між собою. Є два базових методи зчіплювання:</p>
+<dl class="docutils">
+<dt>Просто -- Plain</dt>
+<dd>Стандартний метод зчіплювання; він створює прості ланцюги.</dd>
+<dt>Нарисно -- Sketchy</dt>
+<dd>Цей варіант зчіплювання дозволяє генерувати ланцюги вирізнених ребер за допомогою нарисних багатьох штрихів. Базово, він генерує штрихи з обведеннями <em>Round</em> замість одиничних. Це тільки дійсно корисно, якщо ви використовуєте деякі випадково керовані модифікаторів у стилі ліній!</dd>
+<dt>Обведення -- Rounds</dt>
+<dd>Визначає кількість обводів у нарисних штрихах.</dd>
+</dl>
+<p>Зчіплювання також може бути вимкнено для рендерингу кожної лінії окремо, що може бути корисним для стилів ліній, які залежать від точного представлення набору ліній.</p>
+</div>
+<div class="section" id="splitting">
+<h3>Розділення -- Splitting<a class="headerlink" href="#splitting" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-splitting.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-splitting.png" />
+<p class="caption"><span class="caption-text">Розділення -- Splitting.</span></p>
+</div>
+<p>Ви можете розділяти ланцюги ліній Freestyle на основі одного з таких критеріїв:</p>
+<dl class="docutils">
+<dt>Мін -- Min, Макс 2D Кут -- Max 2D Angle</dt>
+<dd>Розділяє ланцюги вирізнених країв, коли вони утворюють 2D кут більше (чи менше) мінімального (чи максимального) порогу.</dd>
+<dt>2D Довжина -- 2D Length</dt>
+<dd>Розділяє ланцюги, коли вони є довшими, ніж задане значення.</dd>
+<dt>Рубіж Матеріалу -- Material Boundary</dt>
+<dd>Розділяє ланцюги вирізнених країв, якщо вони перетинаються на рубежі між двома матеріалами.</dd>
+<dt>Розділення за Рискою, Пропуском -- Split Dash, Gap</dt>
+<dd><p class="first">Розділяє ланцюги, використовуючи заданий взірець пунктиру на основі довжин рисок і пропусків (&quot;D&quot; означає &quot;dash&quot; -- риска, &quot;G&quot; означає &quot;gap&quot; -- пропуск; дивіться також <a class="reference internal" href="#dashed-line">Dashed Line</a>).</p>
+<p class="last">Р1, П1, Р2, П2, Р3, П3 -- D1, G1, D2, G2, D3, G3</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="sorting">
+<h3>Сортування -- Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-sorting.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-sorting.png" />
+<p class="caption"><span class="caption-text">Сортування -- Sorting.</span></p>
+</div>
+<p>Ви можете сортувати порядок ваших штрихів, дозволяючи лініям накладатися у заданому порядку.</p>
+<dl class="docutils">
+<dt>Ключ Сортування -- Sort key</dt>
+<dd><p class="first">Ключ сортування використовується для визначення порядку накладання ліній.</p>
+<dl class="last docutils">
+<dt>Відстань від Камери -- Distance from camera</dt>
+<dd>Лінії, що ближче до камери, будуть накладатися поверх дальших від неї ліній.</dd>
+<dt>2D Довжина -- 2D Length</dt>
+<dd>Довші лінії накладаються поверх коротших ліній.</dd>
+<dt>Проектоване X, Y -- Projected X, Y</dt>
+<dd>Сортує за проектованим по X або Y значенням у системі координат зображення.</dd>
+</dl>
+</dd>
+<dt>Тип Інтеграції -- Integration Type</dt>
+<dd><p class="first">Використовується у тандемі з Sort Key для визначення діапазону сортування. Оскільки відстань лінії від камери може варіюватися залежно від вершин, то дана опція обчислює ключ сортування для лінії залежно від значень відстаней, обчислених до окремих вершин.  Обчислене значення для лінії може бути:</p>
+<dl class="last docutils">
+<dt>Середнє -- Mean</dt>
+<dd>Середнє від значень, отриманих для вершин.</dd>
+<dt>Мін, мінімум -- Min</dt>
+<dd>Мінімальне зі значень, отриманих для вершин.</dd>
+<dt>Макс, максимум -- Max</dt>
+<dd>Максимальне зі значень, отримане для вершин.</dd>
+<dt>Перше -- First</dt>
+<dd>Значення, отримане для першої вершини.</dd>
+<dt>Останнє -- Last</dt>
+<dd>Значення, отримане для останньої вершини.</dd>
+</dl>
+</dd>
+<dt>Порядок Сортування -- Sort Order</dt>
+<dd>Для обраного типу сортування ви можете обрати стандартний прямий -- Default або зворотній -- &quot;Reverse&quot; порядок сортування.</dd>
+</dl>
+</div>
+<div class="section" id="selection">
+<h3>Виділення -- Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-selection.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-selection.png" />
+<p class="caption"><span class="caption-text">Виділення -- Selection.</span></p>
+</div>
+<p>Ви можете також вибирати для рендерингу тільки виділені ланцюги.</p>
+<dl class="docutils">
+<dt>Мін -- Min, Макс 2D Довжина -- Max 2D Length</dt>
+<dd>Ланцюги довше та/або коротше, ніж <em>2D Length</em>.</dd>
+<dt>Кількість Ланцюгів -- Chain Count</dt>
+<dd>Дозволяє виділення перших N ланцюгів.</dd>
+</dl>
+<div class="section" id="caps">
+<h4>Торці -- Caps<a class="headerlink" href="#caps" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id5">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps.png" />
+<p class="caption"><span class="caption-text">Торці кінців лінії.</span></p>
+</div>
+<p>Ви можете обирати між трьома типами торців ліній:</p>
+<dl class="docutils">
+<dt>Упритул -- Butt</dt>
+<dd>Плоский торець, точно у точці, де закінчується лінія.</dd>
+<dt>Round -- Округлено</dt>
+<dd>Півколо, центроване у кінцевій точці лінії.</dd>
+<dt>Квадрат -- Square</dt>
+<dd>Квадрат, центрований на кінцевій точці лінії (звідси, як і для округлості, прорис кінця лінії дещо розширеним у порівнянні з обчисленим значенням).</dd>
+</dl>
+<div class="figure" id="id6">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps-example.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps-example.png" />
+<p class="caption"><span class="caption-text">Приклад торців лінії.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="dashed-line">
+<h3>Пунктирна Лінія -- Dashed Line<a class="headerlink" href="#dashed-line" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id7">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-dashed-line.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-dashed-line.png" />
+<p class="caption"><span class="caption-text">Інтерфейс Dashes Line.</span></p>
+</div>
+<p>By enabling the <em>Dashed Line</em> checkbox,
+you can specify three pairs of dash and gap lengths.
+Dash values define the lengths of dash strokes,
+while gap values specify intervals between two dashes.</p>
+<p>Якщо пропуск визначено нульовим, то відповідна йому риска ігнорується, навіть якщо вона має не-нульове значення.</p>
+<p>Риски обробляються як окремі штрихи, що означає, що ви можете застосовувати до них торці ліній, а також модифікатори кольору, альфа та товщини.</p>
+</div>
+</div>
+<div class="section" id="color">
+<h2>Колір -- Color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id8">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_color.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_color.png" />
+<p class="caption"><span class="caption-text">Інтерфейс Color для стилю ліній.</span></p>
+</div>
+<p>У цій вкладці ви керуєте кольором ваших штрихів.</p>
+<dl class="docutils">
+<dt>Базовий Колір -- Base Color</dt>
+<dd>Базовий колір для цього стилю ліній.</dd>
+</dl>
+</div>
+<div class="section" id="alpha">
+<h2>Альфа -- Alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id9">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_alpha.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_alpha.png" />
+<p class="caption"><span class="caption-text">Інтерфейс Alpha для стилю ліній.</span></p>
+</div>
+<p>У цій вкладці ви керуєте альфа (прозорістю) ваших штрихів.</p>
+<dl class="docutils">
+<dt>Базова Прозорість -- Base Transparency</dt>
+<dd>Базове альфа для цього стилю ліній.</dd>
+</dl>
+</div>
+<div class="section" id="thickness">
+<h2>Товщина -- Thickness<a class="headerlink" href="#thickness" title="Permalink to this headline">¶</a></h2>
+<p>У цій вкладці ви керуєте товщиною ваших штрихів.</p>
+<div class="figure">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_thickness.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_thickness.png" />
+</div>
+<dl class="docutils">
+<dt>Базова Товщина</dt>
+<dd>Базова товщина для цього стилю ліній.</dd>
+<dt>Позиція Товщини -- Thickness Position</dt>
+<dd><p class="first">Керує позицією товщини штриха відносно оригінальної (стрижневої) геометрії штриха. Є чотири варіанти вибору:</p>
+<dl class="last docutils">
+<dt>Центр -- Center</dt>
+<dd>Товщина рівномірно розділяється на ліву і праву сторони геометрії штриха.</dd>
+<dt>Всередині -- Inside</dt>
+<dd>Штрихи рисуються у межах границі об'єкта.</dd>
+<dt>Зовні -- Outside</dt>
+<dd>Штрихи рисуються поза границею об'єкта.</dd>
+<dt>Відносно -- Relative</dt>
+<dd>Це дозволяє вам вказати відносну позицію у числовій кнопці «Пропорція Товщини» -- <em>Thickness Ratio</em> за допомогою числа між 0.0 (всередині) та 1.0 (зовні).</dd>
+</dl>
+</dd>
+</dl>
+<p>Опції позиції товщини застосовуються тільки для штрихів з типом країв <em>Silhouette</em> та <em>Border</em>, оскільки вони є єдиними типами країв, визначеними у термінах рубежу, границі об'єкта. Штрих інших типів країв завжди рисуються з використанням опції <em>Center</em>.</p>
+</div>
+<div class="section" id="geometry">
+<h2>Геометрія -- Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id10">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_geometry.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_geometry.png" />
+<p class="caption"><span class="caption-text">Інтерфейс Geometry для стилю ліній.</span></p>
+</div>
+<p>У цій вкладці ви керуєте геометрією ваших штрихів. Вона містить тільки опцію для додання модифікаторів.</p>
+</div>
+<div class="section" id="texture">
+<h2>Текстура -- Texture<a class="headerlink" href="#texture" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id11">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_texture.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_texture.png" />
+<p class="caption"><span class="caption-text">Інтерфейс Texture для стилю ліній.</span></p>
+</div>
+<dl class="docutils">
+<dt>Вжити Вузли/Текстури -- Use Nodes/Textures</dt>
+<dd>Blender Render використовує панелі Mapping та Influence для текстур. У Cycles текстури визначаються за допомогою вузлів -- <a class="reference internal" href="nodes/index.html"><span class="doc">nodes</span></a> відтінювача.</dd>
+<dt>Інтервал Уздовж Штриха -- Spacing Along Stroke</dt>
+<dd>Дозволяє задати «темп» текстур, розкладених уздовж довжини штрихів.</dd>
+<dt>Перейти до Властивостей Текстур Стилю Ліній -- Go to LineStyle Textures</dt>
+<dd>Кнопка &quot;Go to LineStyle Textures&quot; є ярликом для переходу до устав текстури в іншій вкладці.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nodes/index.html" class="btn btn-neutral float-right" title="Вузли -- Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

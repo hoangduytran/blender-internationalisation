@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Запускова Сцена -- Startup Scene" href="startup_scene.html" />
+    <link rel="prev" title="3D Огляд -- 3D View" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object/index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/3dview/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>3D Огляд -- 3D View використовується для взаємодії з 3D сценою для різних цілей, таких як моделювання, анімація, малювання текстур тощо.</p>
+<div class="section" id="header">
+<h2>Заголовок<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<p>Заголовок містить різні меню та контролери, що базуються на поточному режимі -- <a class="reference internal" href="modes.html"><span class="doc">mode</span></a>.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_3dview_introduction_header.png" src="../../_images/editors_3dview_introduction_header.png" />
+<p class="caption"><span class="caption-text">Заголовок 3D Огляду.</span></p>
+</div>
+<div class="section" id="menus">
+<h3>Меню<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Огляд -- View</dt>
+<dd>Це меню пропонує інструменти для навігації -- <a class="reference internal" href="navigate/index.html"><span class="doc">navigate</span></a> у 3D просторі.</dd>
+<dt>Виділ -- Select</dt>
+<dd>Містить інструменти для виділення -- <a class="reference internal" href="object/selecting/index.html"><span class="doc">selecting</span></a> об'єктів.</dd>
+<dt>Додання -- Add</dt>
+<dd>Надає список різних типів об'єктів -- <a class="reference internal" href="object/types.html#objects-types"><span class="std std-ref">objects types</span></a>, які можуть бути додані у сцену.</dd>
+<dt>Об'єкт -- Object</dt>
+<dd>Це меню показується у режимі об'єкта -- Object Mode. Воно містить інструменти для маніпуляції об'єктами -- <a class="reference internal" href="object/editing/transform/introduction.html"><span class="doc">objects</span></a>. У режимі правки -- Edit Mode воно змінюється на відповідне до типу виділеного об'єкта меню з інструментами правки, редагування -- <a class="reference internal" href="../../modeling/index.html"><span class="doc">editing tools</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="controls">
+<h3>Контролери<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Режим -- Mode</dt>
+<dd><p class="first">The 3D View has <a class="reference internal" href="modes.html"><span class="doc">several modes</span></a>
+used for editing different kinds of data:</p>
+<ul class="last simple">
+<li>Режим Об’єкта -- Object Mode</li>
+<li>Режим Правки -- Edit Mode</li>
+<li>Режим Ліпки -- Sculpt Mode</li>
+<li>Малювання Вершин -- Vertex Paint</li>
+<li>Малювання Вагомостей -- Weight Paint</li>
+<li>Малювання Текстур -- Texture Paint</li>
+<li>Правка Частинок -- Particle Editing</li>
+<li>Режим Пози -- Pose Mode</li>
+<li>Edit Strokes Mode</li>
+</ul>
+</dd>
+<dt>Відтінення Оглядвікна -- Viewport Shading</dt>
+<dd>Allows you to change the way objects are displayed in the viewport.
+Read more about the different <a class="reference internal" href="properties/shading.html"><span class="doc">shading modes</span></a>.</dd>
+<dt>Опорна Точка -- Pivot Point</dt>
+<dd><p class="first">Використовується для зміни орієнтирної точки (або опорної точки -- <a class="reference internal" href="../../glossary/index.html#term-pivot-point"><span class="xref std std-term">pivot point</span></a>), що використовується багатьма інструментами маніпуляції сіттю.</p>
+<p class="last">Read more about <a class="reference internal" href="object/editing/transform/control/pivot_point/index.html"><span class="doc">Pivot Points</span></a>.</p>
+</dd>
+<dt>Маніпулятор Трансформацій -- Transform Manipulator</dt>
+<dd><p class="first">Ці зручні вибірники дозволяють вам обертати або рухати об'єкти, захоплюючи за їх (клацком вашої миші) контролери та рухаючи мишу по певній осі.</p>
+<p class="last">Read more about <a class="reference internal" href="object/editing/transform/control/manipulators.html"><span class="doc">Transform Manipulators</span></a>.</p>
+</dd>
+<dt>Шар -- Layer</dt>
+<dd>Віджет Шарів описано тут -- <a class="reference internal" href="object/properties/relations/layers.html"><span class="doc">Layers</span></a>.</dd>
+<dt>Зблокування зі Сценою -- Lock to Scene</dt>
+<dd><p class="first">Стандартно, кнопка «зблокування», що знаходиться справа від кнопок шарів, увімкнена. Це означає, що у цьому огляді, активні шари й камера є такими для усієї сцени (і такими, що використовуються під час рендерингу, зображування). Звідси, усі 3D Огляди, зблоковані таким чином зі сценою, будуть мати спільними однакові активні шари й камеру. Коли ви змінюєте їх в одному огляді, то всі інші зблоковані будуть негайно відображати ці зміни.</p>
+<p>Проте, якщо ви вимкнете цю кнопку «зблокування» у певному огляді, то ви зможете визначати різні активні шари та камеру у цьому огляді. Це може бути корисно, якщо ви не хочете мати ваші робочі області (огляди) у безладі по всій сцені, а мати допоміжний повноцінний огляд (який буде розблокований з цією сценою і для нього, наприклад, усі шари будуть показуватися). Або, щоб мати кілька оглядів з різними активними камерами. Пам'ятайте, що ви можете скористатися <kbd class="kbd docutils literal notranslate">Ctrl-Numpad0</kbd>, щоб зробити з активного об'єкта умовну активну камеру.</p>
+<p class="last">Read more about <a class="reference internal" href="../../data_system/scenes/introduction.html"><span class="doc">Scenes</span></a>.</p>
+</dd>
+<dt>Пропорційна Правка -- Proportional Edit</dt>
+<dd>Детальніше тут -- <a class="reference internal" href="object/editing/transform/control/proportional_edit.html"><span class="doc">Proportional Edit</span></a>.</dd>
+<dt>Прилип -- Snap</dt>
+<dd>Керує інструментами прилипання -- <a class="reference internal" href="object/editing/transform/control/snap.html"><span class="doc">snapping tools</span></a>, що допомагають при трансформуванні та моделюванні об'єктів.</dd>
+<dt>OpenGL Зображ -- OpenGL Render</dt>
+<dd>Ці кнопки запуску зображування, рендерингу OpenGL-версії 3D Огляду. Дивіться більше тут -- <a class="reference internal" href="../../render/opengl.html"><span class="doc">OpenGL Rendering</span></a>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="tool-shelf">
+<h2>Полиця Інструментів -- Tool Shelf<a class="headerlink" href="#tool-shelf" title="Permalink to this headline">¶</a></h2>
+<p>The Tool Shelf is a context-sensitive region containing tools depending on the current mode
+(for example, modeling tools in <em>Edit Mode</em>, brush tools in <em>Sculpt Mode</em>...).</p>
+<p>Більше інформації про конкретні доступні інструменти дивіться:</p>
+<ul class="simple">
+<li><a class="reference internal" href="object/editing/transform/index.html"><span class="doc">Трансформації -- Transformations</span></a></li>
+<li><a class="reference internal" href="../../interface/undo_redo.html"><span class="doc">History</span></a></li>
+<li><a class="reference internal" href="../../modeling/meshes/editing/basics/adding.html"><span class="doc">Створення об'єктів -- Creating Objects</span></a></li>
+<li><a class="reference internal" href="object/properties/relations/parents.html"><span class="doc">Приріднення -- Parents</span></a></li>
+<li><a class="reference internal" href="object/properties/relations/groups.html"><span class="doc">Групи -- Groups</span></a></li>
+<li><a class="reference internal" href="../../animation/index.html#animation-index"><span class="std std-ref">Анімація -- Animation</span></a></li>
+<li><a class="reference internal" href="../../physics/rigid_body/index.html#rigid-body-index"><span class="std std-ref">Тверде Тіло -- Rigid Body</span></a></li>
+<li><a class="reference internal" href="../../interface/grease_pencil/index.html#grease-pencil-index"><span class="std std-ref">Нарисний Олівець -- Grease Pencil</span></a></li>
+<li><a class="reference internal" href="../../modeling/index.html#modeling-index"><span class="std std-ref">Моделювання</span></a></li>
+<li><a class="reference internal" href="../../sculpt_paint/sculpting/index.html#painting-sculpting-index"><span class="std std-ref">Ліплення -- Sculpting</span></a></li>
+<li><a class="reference internal" href="../../sculpt_paint/painting/vertex_paint/index.html#painting-vertex-index"><span class="std std-ref">Малювання Вершин -- Vertex Paint</span></a></li>
+<li><a class="reference internal" href="../../sculpt_paint/painting/weight_paint/index.html#painting-weight-index"><span class="std std-ref">Малювання Вагомостей -- Weight Paint</span></a></li>
+<li><a class="reference internal" href="../../sculpt_paint/painting/texture_paint/index.html#painting-texture-index"><span class="std std-ref">Малювання Текстур -- Texture Paint</span></a></li>
+</ul>
+</div>
+<div class="section" id="properties-region">
+<h2>Регіон «Властивості» -- Properties Region<a class="headerlink" href="#properties-region" title="Permalink to this headline">¶</a></h2>
+<p>Регіон «Властивості» -- Properties Region містить властиовсті активного об'єкта та виділених об'єктів (такі як їх локації), а також властивості самого редактора:</p>
+<ul class="simple">
+<li><a class="reference internal" href="object/editing/transform/introduction.html"><span class="doc">Трансформації -- Transform</span></a></li>
+<li><a class="reference internal" href="../../interface/grease_pencil/introduction.html"><span class="doc">Нарисний Олівець -- Grease Pencil</span></a></li>
+<li><a class="reference internal" href="properties/panels.html"><span class="doc">Панелі показу та огляду -- Display &amp; View Panels</span></a></li>
+<li><a class="reference internal" href="properties/background_images.html"><span class="doc">Фонові Зображення -- Background Images</span></a></li>
+<li><a class="reference internal" href="object/editing/transform/control/orientations.html"><span class="doc">Орієнтації Трансформацій -- Transform Orientations</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="startup_scene.html" class="btn btn-neutral float-right" title="Запускова Сцена -- Startup Scene" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="3D Огляд -- 3D View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

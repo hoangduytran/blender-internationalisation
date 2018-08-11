@@ -1,0 +1,333 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-30 21:29+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/render/cycles/world.rst:5
+msgid "World"
+msgstr "世界"
+
+#: ../../manual/render/cycles/world.rst:10
+msgid "Lighting with an HDR image."
+msgstr "使用 HDR 图像进行照明。"
+
+#: ../../manual/render/cycles/world.rst:12
+msgid "The world environment can emit light, ranging from a single solid color, physical sky model, to arbitrary textures."
+msgstr "世界环境可以提供光照，可以是单一色彩、或是天空模型，也可以是各种贴图。"
+
+#: ../../manual/render/cycles/world.rst:17 ../../manual/render/cycles/world.rst:136
+msgid "Surface"
+msgstr "面"
+
+#: ../../manual/render/cycles/world.rst:19 ../../manual/render/cycles/world.rst:43 ../../manual/render/cycles/world.rst:64 ../../manual/render/cycles/world.rst:95
+#: ../../manual/render/cycles/world.rst:129 ../../manual/render/cycles/world.rst:200
+msgid "Reference"
+msgstr "参考"
+
+#: ../../manual/render/cycles/world.rst
+msgid "Panel"
+msgstr "面板"
+
+#: ../../manual/render/cycles/world.rst:22
+msgid ":menuselection:`World --> Surface`"
+msgstr ":menuselection:`世界环境 --> 面`"
+
+#: ../../manual/render/cycles/world.rst:24
+msgid ""
+"The surface shader defines the light emission from the environment into the scene. The world surface is rendered as if it is very distant from the scene, and as such there is no two-way "
+"interacting between objects in the scene and the environment, only light coming in. The only shader accepted is the Background node with a color input and strength factor for the intensity of "
+"the light."
+msgstr ""
+"表面着色器定义了从环境照射到场景中的光照。环境表面的渲染似乎是在场景内容十分遥远的地方，而且这意味着在场景物体与环境背景之间不会产生双向作用，只是光照可以进入而已。唯一支持的着色器就是具有输入"
+"接口的Background（背景）结点，以及决定光线密度的强度因数。"
+
+#: ../../manual/render/cycles/world.rst:32
+msgid "Image Based Lighting"
+msgstr "基于图像照明"
+
+#: ../../manual/render/cycles/world.rst:34
+msgid ""
+"For image based lighting, use the Environment Texture node rather than the Image Texture node for correct mapping. This supports *Equirectangular* (also known as Lat/Long) for environment "
+"maps, and *Mirror Ball* mapping for converting photos of mirror balls to environment maps."
+msgstr ""
+"基于图像照明，最好使用做好映射的环境纹理节点而不要去用图像纹理节点。环境贴图是支持等距圆柱投影（Equirectangular ）的(也叫 经度/纬度)；也支持铬球反射映射，它是从铬球反射的环境图照片转换过来的映"
+"射贴图。"
+
+#: ../../manual/render/cycles/world.rst:41 ../../manual/render/cycles/world.rst:172
+msgid "Volume"
+msgstr "体积"
+
+#: ../../manual/render/cycles/world.rst:46
+msgid ":menuselection:`World --> Volume`"
+msgstr "面板： :menuselection:`世界环境 --> 体积`"
+
+#: ../../manual/render/cycles/world.rst:48
+msgid "A volume shader can be applied to the entirely world, filling the entire space."
+msgstr "体着色器可以在整个世界中应用，它会填满整个空间。"
+
+#: ../../manual/render/cycles/world.rst:50
+msgid ""
+"Currently this is most useful for night time or other dark scenes, as the world surface shader or sun lamps will have no effect if a volume shader is used. This is because the world "
+"background is assumed to be infinitely far away, which is accurate enough for the sun for example. However, for modeling effects such as fog or atmospheric scattering, it is not a good "
+"assumption that the volume fills the entire space, as most of the distance between the sun and the earth is empty space. For such effects it is be better to create a volume object surrounding "
+"the scene. The size of this object will determine how much light is scattered or absorbed."
+msgstr ""
+"面着色器非常适合夜景和灰暗的场景，如果面着色器被使用，世界表面着色器和太阳光将失去影响。由于世界背景被设定在无穷远的位置时，对太阳光来说是足够精确的。然而，对于诸如雾或大气散射等建模效应，体积"
+"填满整个空间并不是一个好的假设，因为太阳和地球之间的大部分距离都是空的空间（无阻碍光线物质）。这些效果最好是创建一个体物体包含整个场景。该物体的大小可以感知光线如何被散射或吸收。"
+
+#: ../../manual/render/cycles/world.rst:62
+msgid "Ambient Occlusion"
+msgstr "环境光遮蔽"
+
+#: ../../manual/render/cycles/world.rst:67
+msgid ":menuselection:`World --> Ambient Occlusion`"
+msgstr ":menuselection:`世界环境 --> 环境光遮罩`"
+
+#: ../../manual/render/cycles/world.rst:69
+msgid ""
+"Ambient occlusion is a lighting method based on how much a point on a surface is occluded by nearby surfaces. This is a trick that is not physically accurate, but it is useful to emphasize "
+"shapes of surfaces, or as a cheap way to get an effect that looks a bit like indirect lighting."
+msgstr ""
+"Ambient occlusion（以下简称\"AO\"）是一种照明方式，表示的是某表面上点被周围表面所遮蔽的程度，这并不是一种物理精确的手段，但却有助于突出表面的阴影效果，或者是作为作为生成一种类似于间接照明的快"
+"捷方法。"
+
+#: ../../manual/render/cycles/world.rst:74
+msgid "Factor"
+msgstr "系数"
+
+#: ../../manual/render/cycles/world.rst:75
+msgid "The strength of the ambient occlusion; value 1.0 is like a white world shader."
+msgstr "此值为AO的强度，值为1.0时，代表是个全白的世界着色器。"
+
+#: ../../manual/render/cycles/world.rst:79 ../../manual/render/cycles/world.rst:176
+msgid "Distance"
+msgstr "距离"
+
+#: ../../manual/render/cycles/world.rst:77
+msgid "Distance from shading point to trace rays. A shorter distance emphasizes nearby features, while longer distances make it also take objects farther away into account."
+msgstr "此值为着色点与追踪光线间的距离。距离较短时，将会突出近处的特征，距离较长时，它将会同时兼顾较远处的物体。"
+
+#: ../../manual/render/cycles/world.rst:81
+msgid ""
+"Lighting from ambient occlusion is only applied to diffuse reflection BSDFs; glossy or transmission BSDFs are not affected. Transparency of surfaces will be taken into account, i.e. a half-"
+"transparent surface will only half occlude."
+msgstr "AO照明方式仅适用于漫反射类BSDF、光泽或透射类BSDF将不受影响。表明的透明度将会一并计算，例如，一个透明度减半的表面，其遮蔽效果强度将会相应减半。"
+
+#: ../../manual/render/cycles/world.rst:86
+msgid "An alternative method of using Ambient Occlusion on a per-shader basis is to use the :doc:`Ambient Occlusion </render/cycles/nodes/types/shaders/ao>` shader."
+msgstr "另一种在预着色情况下使用环境遮蔽的方法是使用 :doc:`环境光遮罩（AO） </render/cycles/nodes/types/shaders/ao>` 着色器."
+
+#: ../../manual/render/cycles/world.rst:93
+msgid "Mist Pass"
+msgstr "雾场通过"
+
+#: ../../manual/render/cycles/world.rst:98
+msgid ":menuselection:`World --> Mist Pass`"
+msgstr ":menuselection:`世界环境 --> 雾场通过`"
+
+#: ../../manual/render/cycles/world.rst:100
+msgid "Shown when the Mist pass is enabled. Mist values will range from 0.0 - 1.0 and are available from the Render Layers node."
+msgstr "当启用Mist pass时显示。雾度值的范围为0.0 - 1.0，可从“渲染层”节点获取。"
+
+#: ../../manual/render/cycles/world.rst:103
+msgid "Start"
+msgstr "开始"
+
+#: ../../manual/render/cycles/world.rst:104
+msgid "Defines the beginning of the mist range from the camera."
+msgstr "定义摄像头雾气范围的开始。"
+
+#: ../../manual/render/cycles/world.rst:105
+msgid "Depth"
+msgstr "深度"
+
+#: ../../manual/render/cycles/world.rst:106
+msgid "Defines the length over which mist values will be provided."
+msgstr "定义雾值将提供的长度。"
+
+#: ../../manual/render/cycles/world.rst:117
+msgid "Falloff"
+msgstr "衰减"
+
+#: ../../manual/render/cycles/world.rst:108
+msgid "The curve function that determines the mist values within its depth."
+msgstr "确定其深度内的雾值的曲线函数。"
+
+#: ../../manual/render/cycles/world.rst:111
+msgid "Quadratic"
+msgstr "二次"
+
+#: ../../manual/render/cycles/world.rst:111
+msgid "Uses the same calculation as light falloff (:math:`1\\over{x^2}`) and provides the smoothest transition from transparent (0.0) to opaque (1.0)."
+msgstr "使用与光衰减相同的计算 (:math:`1\\over{x^2}`) 并提供从透明（0.0）到不透明（1.0）的最平滑过渡。"
+
+#: ../../manual/render/cycles/world.rst:113 ../../manual/render/cycles/world.rst:186
+msgid "Linear"
+msgstr "线性"
+
+#: ../../manual/render/cycles/world.rst:114
+msgid "Has a steeper start than quadratic (:math:`1\\over{x}`)."
+msgstr "开始陡峭的比二次方 (:math:`1\\over{x}`) 。"
+
+#: ../../manual/render/cycles/world.rst:117
+msgid "Inverse Quadratic"
+msgstr "逆二次方程"
+
+#: ../../manual/render/cycles/world.rst:116
+msgid "Has the steepest start (:math:`1\\over{\\sqrt{x}}`) and approaches 1.0 faster than the other two functions."
+msgstr "具有最陡峭的开始 (:math:`1\\over{\\sqrt{x}}`) 并且比其他两个函数接近1.0。"
+
+#: ../../manual/render/cycles/world.rst:121
+msgid "A visualization can be activated in the :menuselection:`Camera --> Display` panel."
+msgstr "可以在 :menuselection:`相机 --> 显示` 面板中激活可视化。"
+
+#: ../../manual/render/cycles/world.rst:127
+msgid "Settings"
+msgstr "设置"
+
+#: ../../manual/render/cycles/world.rst:132
+msgid ":menuselection:`World --> Settings`"
+msgstr ":menuselection:`世界环境 --> 设置`"
+
+#: ../../manual/render/cycles/world.rst:155
+msgid "Multiple Importance Sample"
+msgstr "多重重要性采样"
+
+#: ../../manual/render/cycles/world.rst:139
+msgid ""
+"Enabling this will sample the background texture such that lighter parts are favored, creating an importance map. It will producing less noise in the render in trade of artifacts (fireflies). "
+"It is almost always a good idea to enable this when using an image texture to light the scene, otherwise noise can take a very long time to converge."
+msgstr "开启该选项对灯光有用部分的背景纹理会被采样，渲染中会降低噪点。在使用图像文件对场景进行打光的时候，开启该功能是一个明智的选择，否则噪点会需要非常长的计算时间来消除。"
+
+#: ../../manual/render/cycles/world.rst:144
+msgid "Below is a comparison between *Multiple Importance Sample* off and on. Both images are rendered for 25 seconds (Off: 1500 samples, On: 1000 samples)."
+msgstr "下面是多重重要性采样开启和关闭的两张对比图-两张图都渲染了25秒钟（关闭时的采样是1500,开启时的采样是1000） 。"
+
+#: ../../manual/render/cycles/world.rst:151
+msgid "Multiple Importance Sample off."
+msgstr "多重重要性采样关闭。"
+
+#: ../../manual/render/cycles/world.rst:155
+msgid "Multiple Importance Sample on."
+msgstr "多重重要性采样开启。"
+
+#: ../../manual/render/cycles/world.rst:160
+msgid "Map Resolution"
+msgstr "贴图精度"
+
+#: ../../manual/render/cycles/world.rst:158
+msgid ""
+"Sets the resolution of the importance map. A higher resolution will better detect small features in the map and give more accurate sampling. but conversely will take up more memory and render "
+"slightly slower. Higher values also may produce less noise when using high-res images."
+msgstr "设置重要图的分辨率。更高的分辨率将更好地检测地图中的小特征并提供更准确的采样。但相反会占用更多的内存并且渲染速度稍慢。使用高分辨率图像时，较高的值也可能会产生较少的噪音。"
+
+#: ../../manual/render/cycles/world.rst:163
+msgid "Max Bounces"
+msgstr "最大反弹"
+
+#: ../../manual/render/cycles/world.rst:163
+msgid "Maximal number of bounces the background light will contribute to the render."
+msgstr "背景光的最大反弹次数将有助于渲染。"
+
+#: ../../manual/render/cycles/world.rst:167
+msgid "See :doc:`Reducing Noise </render/cycles/optimizations/reducing_noise>` for more information on how to reduce noise."
+msgstr "有关如何减少噪点的更多信息，请参阅 :doc:`降噪 </render/cycles/optimizations/reducing_noise>`  。"
+
+#: ../../manual/render/cycles/world.rst:181
+msgid "Sampling Method"
+msgstr "采样方式"
+
+#: ../../manual/render/cycles/world.rst:176
+msgid "If you have got a pretty dense volume that is lit from far away then *Distance* sampling is usually more efficient."
+msgstr "如果你有一个相当密集的音量从远处点亮，那么 *距离* 采样通常更有效率。"
+
+#: ../../manual/render/cycles/world.rst:178
+msgid "Equiangular"
+msgstr "等角"
+
+#: ../../manual/render/cycles/world.rst:179
+msgid "If you have got a light inside or near the volume then *equiangular* sampling is better."
+msgstr "如果你的内部或附近有光线，那么 *等角* 采样效果会更好。"
+
+#: ../../manual/render/cycles/world.rst:181
+msgid "Multiple Importance"
+msgstr "多重重要性采样"
+
+#: ../../manual/render/cycles/world.rst:181
+msgid "If you have a combination of both, then the multiple importance sampling will be better."
+msgstr "如果你有两者的组合，那么多重采样会更好。"
+
+#: ../../manual/render/cycles/world.rst:189
+msgid "Interpolation"
+msgstr "插值"
+
+#: ../../manual/render/cycles/world.rst:184
+msgid "Interpolation method to use for the volume."
+msgstr "用于体积的差值方式。"
+
+#: ../../manual/render/cycles/world.rst:187
+msgid "Good smoothness and speed."
+msgstr "良好的平滑度和速度。"
+
+#: ../../manual/render/cycles/world.rst:189
+msgid "Cubic"
+msgstr "矩形"
+
+#: ../../manual/render/cycles/world.rst:189
+msgid "Smoothed high-quality interpolation, but slower."
+msgstr "平滑高质量插值，但速度较慢。"
+
+#: ../../manual/render/cycles/world.rst:195
+msgid "Homogeneous Volume"
+msgstr "均质体积"
+
+#: ../../manual/render/cycles/world.rst:192
+msgid ""
+"Assume volume has the same density everywhere (not using any textures), for faster rendering. For example absorption in a glass object would typically not have any textures, and by knowing "
+"this we can avoid taking small steps to sample the volume shader."
+msgstr "假设体积在任何地方都具有相同的密度（不使用任何纹理），以便更快地进行渲染。例如，玻璃物体中的吸收通常不会有任何纹理，并且通过了解这一点，我们可以避免采取小的步骤来对体积着色器进行采样。"
+
+#: ../../manual/render/cycles/world.rst:198
+msgid "Ray Visibility"
+msgstr "射线可见性"
+
+#: ../../manual/render/cycles/world.rst:203
+msgid ":menuselection:`World --> Ray Visibility`"
+msgstr ":menuselection:`世界环境 --> 射线可见性`"
+
+#: ../../manual/render/cycles/world.rst:205
+msgid "As with other objects, *Ray Visibility* allows you to control which other shaders can \"see\" the environment."
+msgstr "和其他物体一样， *射线可见性* 允许你控制哪些着色器会在环境中被 \"看见\" 。"
+
+#: ../../manual/render/cycles/world.rst:210
+msgid "Tricks"
+msgstr "技巧"
+
+#: ../../manual/render/cycles/world.rst:212
+msgid ""
+"Sometimes it may be useful to have a different background that is directly visible versus one that is indirectly lighting the objects. A simple solution to this is to add a Mix node, with the "
+"Blend Factor set to Is Camera Ray. The first input color is then the indirect color, and the second the directly visible color. This is useful when using a high-res image for the background "
+"and a low-res image for the actual lighting."
+msgstr ""
+"有些时候，除了为物体提供间接光照的背景外，也会需要另一个直接可见的背景。一种简单的方法就是添加一个Mix（混合）结点，并将Blend Factor（混合因数）设为Is Camera Ray（摄像机光线），第一个输入接口颜"
+"色是预期的间接光颜色，而第二个输入接口决定的是直接可见的颜色。只要是使用高分辨率的图像作为背景，并使用低分辨率的图像作为照明的时候，这是非常管用的。"
+
+#: ../../manual/render/cycles/world.rst:218
+msgid "Similarly, adding the *Is Camera* and *Is Glossy* rays will mean that the high-res image will also be visible in reflections."
+msgstr "同样的，添加 *Is Camera Ray（摄像机光线）* 和 *Is Glossy （反射光线）* 意味着高分辨率图像会在反射的时候存在影响。"
+
+#: ../../manual/render/cycles/world.rst:223
+msgid "Nodes for the trick above."
+msgstr "以上情况的节点技巧。"

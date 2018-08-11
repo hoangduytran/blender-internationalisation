@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Підхоплення -- Snapping &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/editing/transform/control/snap.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Опорна Точка -- Pivot Point" href="pivot_point/index.html" />
+    <link rel="prev" title="Орієнтації трансформацій -- Transform Orientations" href="orientations.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Об'єкти -- Objects</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редагування або правка -- Editing</a> &raquo;</li>
+        
+          <li><a href="../index.html">Трансформації -- Transform</a> &raquo;</li>
+        
+          <li><a href="index.html">Керування Трансформаціями -- Transform Control</a> &raquo;</li>
+        
+      <li>Підхоплення -- Snapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/editors/3dview/object/editing/transform/control/snap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="snapping">
+<h1>Підхоплення -- Snapping<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h1>
+<p>Існує два типи операції підхопу -- snap, які ви можете використовувати у Blender'і. Перший тип дає підхоплення вашого виділу або курсора до заданої точки, тоді як другий тип використовується у ході трансформувань (пересув, оберт, масштаб) та дає підхоп вашого виділу до елементів у межах сцени.</p>
+<div class="section" id="snap-menu">
+<span id="bpy-ops-view3d-snap"></span><h2>Меню «Підхоп» -- Snap menu<a class="headerlink" href="#snap-menu" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Object type ‣ Snap</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Меню «Підхоп» -- <em>Snap</em> (також доступне із заголовка 3D Огляду в обох Режимі Об'єкта -- <em>Object Mode</em> та Режимі Правки -- <em>Edit Mode</em> «Об'єкт &gt; Підхоп» -- <span class="menuselection">Object ‣ Snap</span> та «Сіть &gt; Підхоп» -- <span class="menuselection">Mesh ‣ Snap</span>). Це меню надає ряд опцій для швидкого руху 3D курсора або вашого виділу до визначеної точки (3D курсор, виділене або координатна сітка).</p>
+<dl class="docutils">
+<dt>Виділ до Сітки -- Selection to Grid</dt>
+<dd>Підхоплює поточно виділені об'єкт(и) до найближчої поділки координатної сітки Blender'а.</dd>
+<dt>Виділ до Курсора -- Selection to Cursor</dt>
+<dd>Швидко переміщує поточно виділені об'єкт(и) у локацію 3D курсора.</dd>
+<dt>Виділ до Курсора (Зсув)</dt>
+<dd>Швидко рухає виділ у позицію 3D курсора. Якщо виділено кілька об'єктів, то вони не рухаються індивідуально у позицію курсора; натомість, вони центруються навколо 3D курсора, підтримуючи між собою відносні відстані.</dd>
+<dt>Виділ до Активного -- Selection to Active</dt>
+<dd>Швидко пересуває виділ в початок активного об'єкта.</dd>
+<dt>Курсор до Виділеного -- Cursor to Selected</dt>
+<dd>Швидко поміщає 3D курсор у центр поточного виділу.</dd>
+<dt>Курсор до Центру -- Cursor to Center</dt>
+<dd>Швидко розміщає курсор у початок світу (локація 0, 0, 0).</dd>
+<dt>Курсор до Сітки -- Cursor to Grid</dt>
+<dd>Швидко переміщає 3D курсор до найближчої поділки координатної сітки.</dd>
+<dt>Курсор до Активного -- Cursor to Active</dt>
+<dd>Миттєво рухає 3D курсор у початок <em>активного</em> (останньо виділеного) об'єкта.</dd>
+</dl>
+<p>На дію опції підхоплення «Курсор до Виділеного» -- <em>Cursor to Selected</em> також впливає поточна опорна точка -- <a class="reference internal" href="pivot_point/index.html#pivot-point-index"><span class="std std-ref">Опорна Точка -- Pivot Point</span></a>. Наприклад:</p>
+<ul class="simple">
+<li>При активній опорній точці типу «Центр Габаритної Коробки» -- <em>Bounding Box Center</em> опція «Курсор до Виділеного» -- <em>Cursor to Selected</em> дасть підхоплення 3D курсора до центру габаритної коробки, що оточує виділені об'єкти.</li>
+<li>При активній опорній точці типу «Серединна Точка» -- <em>Median Point</em> опція «Курсор до Виділеного» -- <em>Cursor to Selected</em> дасть підхоплення 3D курсора до середини -- <a class="reference external" href="https://en.wikipedia.org/wiki/Median">median</a> між початками виділених об'єктів.</li>
+</ul>
+</div>
+<div class="section" id="transform-snapping">
+<span id="transform-snap"></span><h2>Трансформаційне підхоплення<a class="headerlink" href="#transform-snapping" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Snap</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Здатність підхоплювати елементи Об'єктів або Сіті до різних типів елементів сцени у ході трансформування вмикається іконкою з магнітом (яка стає червоною) у заголовку 3D Огляду -- 3D View.</p>
+<div class="figure" id="id1">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_header-magnet-icon.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_header-magnet-icon.png" />
+<p class="caption"><span class="caption-text">Іконка з магнітом у заголовку 3D Огляду (червона, коли увімкнена).</span></p>
+</div>
+<div class="section" id="snap-element">
+<span id="transform-snap-element"></span><h3>Елемент Підхопу -- Snap Element<a class="headerlink" href="#snap-element" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Snap Element</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Ctrl-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id2">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_element-menu.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_element-menu.png" />
+<p class="caption"><span class="caption-text">Меню «Елемент Підхопу» -- Snap Element.</span></p>
+</div>
+<dl class="docutils">
+<dt>Об'єм -- Volume</dt>
+<dd>Snaps to regions within the volume of the first Object found below the mouse cursor.
+Unlike the other options, this one controls the depth
+(i.e. Z coordinates in current view space) of the transformed element.
+By toggling the button that appears to the right of the snap target menu (see below),
+target objects will be considered as a whole when determining the volume center.</dd>
+<dt>Грань -- Face</dt>
+<dd>Підхоплює до поверхонь граней сітьових об'єктів. Корисно для ретопології.</dd>
+<dt>Ребро -- Edge</dt>
+<dd>Підхоплює до ребер сітьових об'єктів.</dd>
+<dt>Вершина -- Vertex</dt>
+<dd>Підхоплює до вершин сітьових об'єктів.</dd>
+<dt>Поділка -- Increment</dt>
+<dd><p class="first">Підхоплює до поділок координатної сітки. При знаходженні в Ортогональному огляді поділки для підхоплення змінюються залежно від рівня зумування.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">У цьому контексті фактичні поділки сітки не відповідають їх візуальному показу. Підхоплення буде використовувати роздільність показуваної сітки, але всі трансформації будуть відносними до початкової позиції (перед операцією підхоплення).</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="snap-target">
+<h3>Ціль Підхопу -- Snap Target<a class="headerlink" href="#snap-target" title="Permalink to this headline">¶</a></h3>
+<p>Опції цілі підхопу стають активними, коли вибраним елементом підхопу є «Вершина» -- <em>Vertex</em>, «Ребро» -- <em>Edge</em>, «Грань» -- <em>Face</em> або «Об'єм» -- <em>Volume</em>. Ці опції визначають, яка частина виділу буде підхоплюватися до цільових об'єктів.</p>
+<dl class="docutils">
+<dt>Активне -- Active</dt>
+<dd>Рухає активний елемент (вершина у Режимі Правки -- Edit Mode, об'єкт у Режимі Об'єкта -- Object Mode) до цілі.</dd>
+<dt>Серединне -- Median</dt>
+<dd>Рухає середину виділу до цілі.</dd>
+<dt>Центр -- Center</dt>
+<dd>Рухає поточний центр трансформування до цілі. Може використовуватися разом з 3D курсором для підхоплення зі зсувом.</dd>
+<dt>Найближче -- Closest</dt>
+<dd>Рухає найближчу точку виділу до цілі.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-closest.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-closest.png" />
+<p class="caption"><span class="caption-text">«Найближче» -- Closest.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-active.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-active.png" />
+<p class="caption"><span class="caption-text">«Активне» -- Active.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-median.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-median.png" />
+<p class="caption"><span class="caption-text">«Серединне» -- Median.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="additional-snap-options">
+<h3>Додаткові опції підхоплення<a class="headerlink" href="#additional-snap-options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-object-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-object-mode.png" />
+<p class="caption"><span class="caption-text">In Object Mode.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-edit-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-edit-mode.png" />
+<p class="caption"><span class="caption-text">In Edit Mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Як видно по підсвічених жовтим ділянках на ілюстрації вище, доступні також додаткові контролери для зміни поведінки підхоплення. Ці опції відрізняться для режимів (Об'єкта -- Object та Правки -- Edit), як і опція «Елемент Підхопу» -- Snap Element. Доступні чотири варіанти:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Іконка</th>
+<th class="head">Подробиці</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Вирівнює обертання за ціллю підхоплення.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Проектує окремі елементи на поверхню інших об'єктів.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Підхоплює елементи до їх власної сіті.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Розглядає Об'єкти як ціле при знаходженні центру об'єму.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Підхоплює до сітки, замість підхоплення до поділок відносно поточної локації.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="multiple-snap-targets">
+<h4>Одночасно кілька цілей підхоплення<a class="headerlink" href="#multiple-snap-targets" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id8">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-multiple.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-multiple.png" />
+<p class="caption"><span class="caption-text">Одночасно кілька цілей підхоплення.</span></p>
+</div>
+<p>Після увімкнення функції Підхоплення при трансформуванні виділу (не тільки, коли утримується натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd>) ви можете натиснути <kbd class="kbd docutils literal notranslate">A</kbd> для мічення поточної точки підхоплення, а потім продовжити до мічення ще й інших точок підхоплення, скільки забажаєте, а виділ буде підхоплюватися до усередненої локації усіх цих помічених точок.</p>
+<p>Помітивши точку більше, ніж один раз, ви даєте їй більше вагомості при обчисленні усередненої локації.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pivot_point/index.html" class="btn btn-neutral float-right" title="Опорна Точка -- Pivot Point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="orientations.html" class="btn btn-neutral" title="Орієнтації трансформацій -- Transform Orientations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Векторний Розмив» -- Vector (Motion) Blur Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/filter/vector_blur.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Вузли типу «Вектор» -- Vector Nodes" href="../vector/index.html" />
+    <link rel="prev" title="Вузол «Сонячні Промені» -- Sun Beams Node" href="sun_beams.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Компонування -- Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Властивості</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Типи Вузлів -- Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Вузли типу «Увід» -- Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Вузли типу «Вивід» -- Output nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Вузли типу «Колір» -- Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Вузли типу «Конвертер» -- Converter Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bilateral_blur.html">Вузол «Двобічний Розмив» -- Bilateral Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blur_node.html">Вузол «Розмив» -- Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bokeh_blur.html">Вузол «Розмив Боке» -- Bokeh Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="defocus.html">Вузол «Розфокус» -- Defocus Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="despeckle.html">Вузол «Цятковивідник» -- Despeckle Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Вузол «Розширення/Звуження» -- Dilate/Erode Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Вузол «Напрямлений Розмив» -- Directional Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Вузол «Фільтр» -- Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glare.html">Вузол «Блиск» -- Glare Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inpaint.html">Вузол «Ретуш» -- Inpaint Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pixelate.html">Вузол «Пікселізація» -- Pixelate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sun_beams.html">Вузол «Сонячні Промені» -- Sun Beams Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вузол «Векторний Розмив» -- Vector (Motion) Blur Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Вузли типу «Вектор» -- Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Вузли типу «Маска» -- Matte Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Вузли типу «Спотворення» -- Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Групи Вузлів або Групові Вузли -- Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Вузли типу «Розстава» -- Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Компонування -- Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Векторний Розмив» -- Vector (Motion) Blur Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/filter/vector_blur.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vector-motion-blur-node">
+<span id="bpy-types-compositornodevecblur"></span><h1>Вузол «Векторний Розмив» -- Vector (Motion) Blur Node<a class="headerlink" href="#vector-motion-blur-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_filter_vector-blur_node.png" src="../../../_images/compositing_types_filter_vector-blur_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Векторний Розмив» -- Vector Blur Node.</span></p>
+</div>
+<p>Вузол «Векторний Розмив» -- Vector Blur -- це найшвидший метод для імітування «розмиву рухом» -- <a class="reference internal" href="../../../glossary/index.html#term-motion-blur"><span class="xref std std-term">Motion blur</span></a>. Він використовує прохід рендера «векторна швидкість» -- vector speed для розмивання пікселів зображення у 2D.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Увід зображення, пов'язується з проходом рендера &quot;Combined&quot;.</dd>
+<dt>Z</dt>
+<dd>Глибина Z, пов'язується з проходом рендера &quot;Depth&quot;.</dd>
+<dt>Швидкість -- Speed</dt>
+<dd>Увід для проходу зображу «Вектор» -- &quot;Vector&quot;. Дивіться <a class="reference internal" href="../../../render/cycles/settings/scene/render_layers/passes.html"><span class="doc">проходи зображу Cycles</span></a> або <a class="reference internal" href="../../../render/blender_render/settings/passes.html"><span class="doc">проходи зображу Blender internal</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Вибірки -- Samples</dt>
+<dd>Фактор якості.</dd>
+<dt>Розмив -- Blur</dt>
+<dd>Фактор масштабування для вектора руху (фактично «швидкість затвора» у кадрах).</dd>
+<dt>Швидкість -- Speed</dt>
+<dd><p class="first">Векторний розмив може продукувати артефакти, такі як стрічки, лінії тощо. Для боротьби з цими проблемами даний фільтр застосовує затискання, яке може використовуватися для лімітування того, які пікселі повинні розмиватися. Швидкість задається в одиницях пікселів.</p>
+<dl class="last docutils">
+<dt>Максимум Швидкості -- Maximum Speed</dt>
+<dd>Максимальний поріг швидкості. Більшість артефактів спричиняються пікселями, що надто швидко рухаються.</dd>
+<dt>Minimum Speed</dt>
+<dd>Мінімальний поріг для рухомих пікселів може відокремлювати важко рухомі пікселі від інших рухомих пікселів. Особливо, коли рухається сама камера, векторна маска може ставати цілим зображенням.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Вивід зображення з розмитим рухом.</dd>
+</dl>
+</div>
+<div class="section" id="usage">
+<h2>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Навіть з коректним укладом компонування з під'єднанням вузлів до всіх відповідних проходів Image, Z та Speed, все ще можливі артефакти. Ці 2D проходи рендера не містять 3D інформації, і тому ця інформація, що є позаду рухомого об'єкта або поза оглядом камери, втрачається.</p>
+<p>Кращі результати можуть бути досягнуті шляхом рендерингу сцени у кілька проходів рендера, застосування векторного розмиву до кожного проходу рендера, а потім компонування результатів разом. Типово анімований персонаж буде рендеритися в окремих шар рендера, ніж набір фону. Особливо, якщо задіяне волосся або прозорість є важливим.</p>
+<p>Для інших артефактів може допомогти деяке розмивання проходу Speed або задання ліміту для Maximum Speed. Це допомагає згладити рух, але надмірне розмивання призводить до своїх власних проблем.</p>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Цей <em>speed vector</em> у цьому прикладі було створено шляхом анімування узорчастої сфери горизонтально та використання кадру у серединній точці послідовності.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_vector-blur_example-base.jpg"><img alt="../../../_images/compositing_types_filter_vector-blur_example-base.jpg" src="../../../_images/compositing_types_filter_vector-blur_example-base.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Результат рендера, без після-обробки.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_vector-blur_example-1.jpg"><img alt="../../../_images/compositing_types_filter_vector-blur_example-1.jpg" src="../../../_images/compositing_types_filter_vector-blur_example-1.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Композиція, із заданими samples як 32 та blur як 1.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vector/index.html" class="btn btn-neutral float-right" title="Вузли типу «Вектор» -- Vector Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sun_beams.html" class="btn btn-neutral" title="Вузол «Сонячні Промені» -- Sun Beams Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

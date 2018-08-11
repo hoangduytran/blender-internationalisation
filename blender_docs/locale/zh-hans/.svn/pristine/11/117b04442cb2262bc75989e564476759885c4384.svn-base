@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Intl. License
+# This file is distributed under the same license as the Blender 2.77 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.77 Manual 2.77\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-30 21:24+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:4
+msgid "Shader Nodes"
+msgstr "材质节点"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:6
+msgid ""
+"Cycles applies a number of shader node optimizations both at compile time and "
+"run-time. By exploiting them it is possible to design complicated \"Uber "
+"Shader\" style node groups that incur minimal render time overhead for unused "
+"features."
+msgstr ""
+"循环在编译时和运行时都应用一些材质节点优化。利用它们可以设计复杂的 \"超级材质"
+"\" 风格的节点组，这些对未使用的特性引发最小的渲染时间开销。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:12
+msgid "Node Optimizations"
+msgstr "节点优化"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:14
+msgid ""
+"As the first step in preparing a node shader for execution, Cycles expands "
+"all node groups, as if using the Ungroup tool, and discards UI only features "
+"like frames and reroute nodes."
+msgstr ""
+"作为准备节点着色器执行的第一步，循环展开全部的节点组，就像使用取消组工具，丢弃"
+"UI 只剩像框架和重新路由节点的特性。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:18
+msgid ""
+"After that, it applies some obvious transformations For example, it can (the "
+"list is not exhaustive):"
+msgstr "此后，应用一些明显的变换。比如，它可以（这个列表不是详尽的）"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:21
+msgid ""
+"Replace the following nodes with the constant result of their evaluation, if "
+"all their inputs are determined to be constant:"
+msgstr "替代下面的节点为它们评估的恒定结果，如果所有的它们的输入是确定不变的:"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:24
+msgid ""
+"RGB, Value, Mix RGB, Math, Vector Math, RGB to BW, Gamma, Bright Contrast, "
+"Invert, Separate/Combine RGB/XYZ/HSV, Blackbody, RGB Curves, Vector Curves, "
+"Color Ramps."
+msgstr ""
+"RGB，值，混合 RGB，数学，向量数学，RGB 到BW，Gamma，明反差，反转，分离/组合 "
+"RGB/XYZ/HSV，黑体，RGB 曲线，向量曲线，颜色斜坡。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:27
+msgid ""
+"Detect Mix RGB, Math and Vector Math nodes that become no-op (without Clamp) "
+"or evaluate to 0 as a result of addition, subtraction, multiplication, "
+"division or dot/cross product with a known constant 0 or 1 input, and replace "
+"with the appropriate input link or constant result."
+msgstr ""
+"探测混合 RGB，数学和向量数学节点，这些变得没操作（没有夹具）或者作为与一个已知"
+"的常数0或1输入进行加、减、乘、除或内/外积的结果是0，并替代合适的输入链接或常数"
+"结果。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:31
+msgid ""
+"Eliminate Mix RGB Mix (without Clamp) and Mix Shader nodes when Factor is "
+"known to be 0 or 1 by replacing with the appropriate input value or link."
+msgstr ""
+"当用适当的输入值或链接替换，因子已知是0或1时，消除混合RGB混合（没有夹具）和混"
+"合材质节点。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:33
+msgid ""
+"Eliminate no-op Mix RGB (except Burn, Dodge, Lighten, or enabled Clamp), "
+"Invert, RGB Curves and Vector Curves nodes with known zero Factor."
+msgstr ""
+"消除无操作混合RGB（除了燃烧，躲避，发亮，或启动夹具），反转，RGB曲线和具有已知"
+"0因子的向量曲线节点。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:35
+msgid ""
+"Eliminate Emission and Background shader nodes that do not emit any light, "
+"and Add Shader nodes with one or both input arguments missing."
+msgstr ""
+"消除发射和不发射任何光的背景材质节点，和一个或两个输入参数缺失的情况下添加材质"
+"节点。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:37
+msgid ""
+"Eliminate Bump with constant Height input, using its Normal input or Geometry "
+"Normal instead."
+msgstr "消除具有不变的高度输入的凹凸，用它的法线输入或几何法线来代替。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:38
+msgid ""
+"Combine multiple copies of the same node with the same inputs into only one "
+"instance."
+msgstr "组合有相同输入的相同节点的多个拷贝成一个实例。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:40
+msgid ""
+"Finally, any nodes that end up not connected either directly or indirectly to "
+"the output node are removed."
+msgstr "最终，任何最终没有直接或间接连接到输出节点的节点被删除。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:44
+msgid "Run-Time Optimizations"
+msgstr "运行时优化"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:46
+msgid ""
+"When executing shaders, a special optimization is applied to Mix Shader "
+"nodes. If Factor evaluates to 0 or 1, any nodes that are only reachable via "
+"the unused branch of the mix are not evaluated."
+msgstr ""
+"当执行着色器，一个特殊的优化被用于混合材质节点。如果因子评估是0或1,任何只有通"
+"过混合的未使用分支才可达的节点不被评估。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:49
+msgid ""
+"This can substantially reduce the performance cost of combining multiple "
+"materials in one shader with vertex color, texture, or other input used as a "
+"switch."
+msgstr ""
+"这可以本质上减少在一个具有顶点颜色，纹理，和其他输入作为交换的着色器内组合多种"
+"材质的运行消耗。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:54
+msgid "Open Shading Language"
+msgstr "开放着色语言"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:56
+msgid ""
+"If Open Shading Language is chosen as the rendering back end, node shaders "
+"are translated to OSL code and then compiled and executed by the OSL runtime. "
+"In the process it applies its own extensive set of optimizations, both at "
+"compile time and run-time."
+msgstr ""
+"如果开放着色语言被选作渲染后端，节点着色器被翻译成开放着色语言代码，然后编译，"
+"并通过 OSL 运行时执行。在这个过程，它应用自己的大量优化，包括编译时和运行时。"
+
+#: ../../manual/render/cycles/optimizations/nodes.rst:60
+msgid ""
+"Open Shading Language can optimize out Script nodes if their outputs are "
+"unused or constant, even if their OSL shaders have side effects like debug "
+"tracing and message passing, which may be confusing. For that reason message "
+"passing with ``setmessage`` and ``getmessage`` should generally not be used "
+"for passing information forward in the graph; explicitly passing information "
+"through sockets should be preferred."
+msgstr ""
+"开放着色语言可以优化脚本节点，如果它们的输出未使用或不变的，即使它们的 OSL 着"
+"色器有令人困惑的调试追踪和消息传递的副作用。因此用  ``setmessage`` 和 "
+"``getmessage`` 的消息传递一般不应该用作在图中向前传递消息；准确地讲，通过套接"
+"字 （sockets）传递消息更好。"

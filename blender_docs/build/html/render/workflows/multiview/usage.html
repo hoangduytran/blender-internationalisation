@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Використання &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/workflows/multiview/usage.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Зображ з OpenGL -- OpenGL Render" href="../../opengl.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Хід роботи -- Workflows</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../animations.html">Рендеринг Анімацій -- Rendering Animations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../command_line.html">Командний Рядок -- Command Line</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Multi-View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Використання</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Хід роботи -- Workflows</a> &raquo;</li>
+        
+          <li><a href="index.html">Multi-View</a> &raquo;</li>
+        
+      <li>Використання</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/workflows/multiview/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<h1>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>For example, we will take an existing blend-file
+that was made for monoscopic rendering and transform it to be stereo 3D ready.</p>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_workflows_multiview_usage_anaglyph.png" src="../../../_images/render_workflows_multiview_usage_anaglyph.png" />
+<p class="caption"><span class="caption-text">Creature Factory 2 by Andy Goralczyk rendered in stereo 3D (anaglyph).</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Multi-view drawing requires capable graphics card and drivers with <em>Triple Buffer</em> support.
+If the <em>Automatic</em> mode does not work,
+set the <em>Window Draw Method</em> in the <a class="reference internal" href="../../../preferences/system.html"><span class="doc">System User Preferences</span></a>.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Почніть з відкриття вашого проекту файлу, у цьому випадку <code class="docutils literal notranslate"><span class="pre">turntable.blend</span></code> із серій Open Movie Workshop <em>Creature Factory 2</em> з Blender Institute від Andy Goralczyk.</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_workflows_multiview_usage_turntable-creature.png" src="../../../_images/render_workflows_multiview_usage_turntable-creature.png" />
+<p class="caption"><span class="caption-text">Turntable Creature Factory 2.</span></p>
+</div>
+</div>
+<div class="section" id="views-setup">
+<h2>Уклад Оглядів -- Views Setup<a class="headerlink" href="#views-setup" title="Permalink to this headline">¶</a></h2>
+<p>Перейдіть на панель <a class="reference internal" href="../../post_process/layers.html"><span class="doc">Render Layers</span></a> та увімкніть <em>Views</em> для цієї сцени.</p>
+<div class="figure" id="id3">
+<img alt="../../../_images/render_workflows_multiview_usage_views-panel.png" src="../../../_images/render_workflows_multiview_usage_views-panel.png" />
+<p class="caption"><span class="caption-text">Scene render views.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">При увімкненні вами <em>Views</em> для сцени ви отримуєте передогляд 3D в оглядвікні, а також кілька панелей, що відтепер доступні по всьому інтерфейсу користувача.</p>
+</div>
+<div class="figure" id="id4">
+<img alt="../../../_images/render_workflows_multiview_usage_viewport.png" src="../../../_images/render_workflows_multiview_usage_viewport.png" />
+<p class="caption"><span class="caption-text">Оглядвікно з візуалізацією 3D.</span></p>
+</div>
+</div>
+<div class="section" id="camera">
+<h2>Камера -- Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
+<p>Для підправлення параметрів стерео 3D виділіть камеру в Outliner. На панелі Camera перейдіть у вкладку Stereoscopy та змініть устави Відстані Збігання -- <em>Convergence Distance</em>.</p>
+<p>Оглядвікно буде відповідати у реальному часі на ці зміни, дозволяючи вам передоглядати поточне значення глибини сцени.</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/render_workflows_multiview_usage_camera-stereoscopy-panel.png" src="../../../_images/render_workflows_multiview_usage_camera-stereoscopy-panel.png" />
+<p class="caption"><span class="caption-text">Stereo convergence distance.</span></p>
+</div>
+</div>
+<div class="section" id="viewport">
+<h2>Оглядвікно -- Viewport<a class="headerlink" href="#viewport" title="Permalink to this headline">¶</a></h2>
+<p>Перед тонким підлаштуванням параметрів камери ви можете установити площину збігання в оглядвікні на основі розстави глибини вашої сцени. Вийдіть з огляду камери й ви одразу побачите площину збігання перед камерою.</p>
+<p>Ви можете перемикати цю та інші устави показу на панелі Stereoscopy регіону Properties у 3D View. На наступній ілюстрації також увімкнено видимість об'ємів усічених пірамід камери.</p>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/render_workflows_multiview_usage_stereo-preview.png"><img alt="../../../_images/render_workflows_multiview_usage_stereo-preview.png" src="../../../_images/render_workflows_multiview_usage_stereo-preview.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Viewport plane and volume stereo preview.</span></p>
+</div>
+</div>
+<div class="section" id="stereo-3d-display">
+<h2>Показ стерео 3D<a class="headerlink" href="#stereo-3d-display" title="Permalink to this headline">¶</a></h2>
+<p>Якщо ви маєте справжній 3D дисплей, то у певний момент ви можете змінити режим показу 3D у меню Window, викликавши оператор Stereo 3D. Майте на увазі, що деякі режими вимагають повноекранного режиму для роботи.</p>
+<div class="figure" id="id7">
+<img alt="../../../_images/render_workflows_multiview_usage_window-stereo-3d.png" src="../../../_images/render_workflows_multiview_usage_window-stereo-3d.png" />
+<p class="caption"><span class="caption-text">Window menu, stereo 3D operator.</span></p>
+</div>
+</div>
+<div class="section" id="opengl-preview">
+<h2>Передогляд з OpenGL -- OpenGL Preview<a class="headerlink" href="#opengl-preview" title="Permalink to this headline">¶</a></h2>
+<p>Перед рендерингом вашої сцени ви можете зберегти передогляд з OpenGL анімації для тестування при фінальному показі. На панелі Render: Output ви можете обрати потрібний вивід із секції <em>Views Format</em>.</p>
+<p>Опції тут включають окремі файли для кожного огляду, зверху-вниз, анагліф, серед інших. Виберіть той, що відповідає вашим вимогам показу.</p>
+<iframe src="https://www.youtube.com/embed/COmIIjlH-to" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+<div class="section" id="rendering-and-uv-image-editor">
+<h2>Рендеринг та UV/Image Editor<a class="headerlink" href="#rendering-and-uv-image-editor" title="Permalink to this headline">¶</a></h2>
+<p>Як тільки ви задоволені результатами, ви можете рендерити фінальну анімацію. В UV/Image Editor ви можете перевірити окремі огляди та результат стерео.</p>
+</div>
+<div class="section" id="image-formats">
+<h2>Формати зображень -- Image Formats<a class="headerlink" href="#image-formats" title="Permalink to this headline">¶</a></h2>
+<p>Ваша фінальна анімація може бути збережена у більш надійних форматах, ніж ті, що використовуються передоглядом рендера OpenGL. У цьому прикладі ми зберегли як навскісне пліч-о-пліч стерео 3D.</p>
+<div class="figure" id="id8">
+<img alt="../../../_images/render_workflows_multiview_usage_render-sidebyside.png" src="../../../_images/render_workflows_multiview_usage_render-sidebyside.png" />
+<p class="caption"><span class="caption-text">Side-by-side cross-eye format.</span></p>
+</div>
+</div>
+<div class="section" id="final-considerations">
+<h2>Фінальні міркування<a class="headerlink" href="#final-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Як цей посібник показав, що рендеринг стерео 3D -- це більше, ніж просте генерування двох зображень. Чим раніше у конвеєрі буде укладено устави стерео, тим плавнішим буде його процес. Наступні секції є більш глибоким оглядом окремих компонентів, які ми побачили при огляді ходу роботи.</p>
+</div>
+<div class="section" id="window-stereo-3d-display">
+<h2>Показ Стерео 3D у Вікні -- Window Stereo 3D Display<a class="headerlink" href="#window-stereo-3d-display" title="Permalink to this headline">¶</a></h2>
+<p>Важливим компонентом конвеєру Стереоскопії є можливість показу стерео зображення на належному дисплеї. Blender підтримує від високотехнологічних 3D дисплеїв до простих червоно-блакитних окуляр. До цього всього, ви можете задавати різний режим показу для кожного вікна.</p>
+<p>Режим показу можна змінити через меню Window або створене вами самостійно скорочення для оператора <code class="docutils literal notranslate"><span class="pre">wm.set_stereo_3d</span></code>.</p>
+<div class="figure" id="id9">
+<img alt="../../../_images/render_workflows_multiview_usage_window-stereo-3d.png" src="../../../_images/render_workflows_multiview_usage_window-stereo-3d.png" />
+<p class="caption"><span class="caption-text">Window menu, stereo 3D operator.</span></p>
+</div>
+<div class="section" id="display-mode">
+<h3>Режим Показу -- Display Mode<a class="headerlink" href="#display-mode" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Анагліф -- Anaglyph</dt>
+<dd>Рендерить два по-різному фільтровані кольорові зображення для кожного ока. Вимагаються анагліфні стереокуляри. Ми підтримуємо стереокуляри Red-Cyan, Green-Magenta та Yellow-Blue.</dd>
+<dt>Чергованість -- Interlace</dt>
+<dd>Рендерить два зображення для кожного ока в одне черговане зображення. Вимагається монітор з підтримкою 3D. Ми підтримуємо Row, Column and Checkerboard Interleaved. Опція обміну Swap Left/Right допомагає відкоригувати зображення на екрані. Цей метод працює краще у повному екрані.</dd>
+<dt>Послідовно у Часі -- Time Sequential</dt>
+<dd>Рендерить почергово огляди для очей -- зображування одного огляду дається в парних кадрах, іншого огляду -- у непарних. Цей метод також відомий як «Перегортувана Сторінка» -- Page Flip. Це вимагає, щоб відеокарта підтримувала почетверений буфер -- Quad Buffer, та працює лише у повному екрані.</dd>
+<dt>Пліч-о-Пліч -- Side-by-Side</dt>
+<dd>Рендерить зображення для лівого та правого ока пліч-о-пліч. Є опція для навскісних окулярів Cross-Eye. Це працює тільки у повному екрані та повинно використовуватися з оператором Full Editor.</dd>
+<dt>Зверху-Вниз -- Top-Bottom</dt>
+<dd>Рендерить зображення для лівого та правого ока одне над іншим. Це працює тільки у повному екрані та повинно використовуватися з оператором Full Editor.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Режими повного екрана для стерео 3D</p>
+<p class="last">Якщо використовуєте 3D дисплей більшість часу і будете вживати його для перегляду у стерео 3D, то ви повинні перейти у повноекранний режим. Фактично, деякі режими стерео працюють тільки у повноекранному режимі, що ховає більшість інтерфейсу користувача. У цьому випадку рекомендується працювати з двома моніторами, використовуючи екран 3D для візуалізації результату стерео, тоді як інший екран може використовуватися для звичайної роботи у Blender'і.</p>
+</div>
+</div>
+</div>
+<div class="section" id="stereo-3d-camera">
+<h2>Стерео 3D Камера -- Stereo 3D Camera<a class="headerlink" href="#stereo-3d-camera" title="Permalink to this headline">¶</a></h2>
+<p>При використанні укладу огляду сцени Stereo 3D стереопара створюється на льоту та використовується для рендерингу та передвізуалізації. Для всіх цілей це працює як дві камери, що мають спільними більшість параметрів (фокусна відстань, відсікання ...). Камери у стерео парі, однак, зсунутими та можуть мати унікальне обертання та зміщення між собою.</p>
+<div class="figure" id="id10">
+<img alt="../../../_images/render_workflows_multiview_usage_camera-stereoscopy-panel.png" src="../../../_images/render_workflows_multiview_usage_camera-stereoscopy-panel.png" />
+<p class="caption"><span class="caption-text">Stereo 3D camera settings.</span></p>
+</div>
+<dl class="docutils">
+<dt>Міжочна Відстань -- Interocular Distance</dt>
+<dd>Задає відстань між камерами у парі. Хоча збігання стерео пари може бути змінено на після обробці, різні міжочні відстані будуть продукувати різні результати через те, що частини сцени будуть загороджуватися з кожної точки зору.</dd>
+<dt>Відстань до Площини Збігання -- Convergence Plane Distance</dt>
+<dd>Точка збігання для стерео камери. Це часто відстань між проектором та екраном проектування. Ви можете візуалізувати це у 3D View.</dd>
+</dl>
+<div class="section" id="convergence-mode">
+<h3>Режим Збігання -- Convergence Mode<a class="headerlink" href="#convergence-mode" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Поза-Осьове -- Off-Axis</dt>
+<dd>Камери стереопари розділяються міжочною відстанню та можуть зсуватися у межах збігання збіжної площини. Це ідеальний режим збігання, оскільки він максимально наближений до того, як працює людське бачення.</dd>
+<dt>Паралельно -- Parallel</dt>
+<dd>Цей метод продукує дві паралельні камери, що не збігаються. Оскільки, цей метод потребує задання збігання вручну, то він не може використовуватися для перегляду. Цей метод є поширеним при комбінуванні реального фільмоматеріалу з рендереними елементами.</dd>
+<dt>Збіжне -- Toe-in</dt>
+<dd>Менш поширений підхід -- обертання камер замість зсування їх пірамід. Метод Toe-in рідко використовується у сучасних виробництвах 3D.</dd>
+<dt>Опорточка -- Pivot</dt>
+<dd>Стерео пара може бути вибудувана навколо активної камери з новою камерою для кожного ока (Center Pivot) або через використання наявних камер (Left або Right). Останнє використовується зазвичай для випадків, коли потрібне тільки одне око для зображування наявного 2D-моно проекту.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="viewport-stereo-3d">
+<h2>Стерео 3D в Оглядвікні -- Viewport Stereo 3D<a class="headerlink" href="#viewport-stereo-3d" title="Permalink to this headline">¶</a></h2>
+<p>При вмиканні вами 'Views' на у вкладці Render Layers нова панель стає доступною у регіоні Properties редактора 3D View. На цій панелі ви можете обрати, чи переглядати стерео 3D в оглядвікні, або яку камеру вжити для перегляду. Це також дозволяє вам бачити окремі Камери, Площину та Об'єм стерео камер.</p>
+<div class="figure" id="id11">
+<img alt="../../../_images/render_workflows_multiview_usage_3d-view-stereoscopy-panel.png" src="../../../_images/render_workflows_multiview_usage_3d-view-stereoscopy-panel.png" />
+<p class="caption"><span class="caption-text">Viewport stereo 3D settings.</span></p>
+</div>
+<dl class="docutils">
+<dt>Камери -- Cameras</dt>
+<dd>При роботі з укладом оглядів для стерео 3D ви можете перевіряти, те, що бачить кожна окрема генерована камера, або комбінований результат з них. У режимі Multi-View ви можете бачити комбінований результат лівої та правої камер (коли доступно) або поточно виділеної камери.</dd>
+<dt>Площина -- Plane</dt>
+<dd>Площина збігання представляє екран, як він сприймається аудиторією. Візуалізація його у 3D Огляді дозволяє вам розставляти вашу сцену на основі глибини поза оглядом камери.</dd>
+<dt>Об'єм -- Volume</dt>
+<dd><p class="first">Перетин пірамід стерео камер допомагає планувати показ, уникаючи елементів, що будуть видимі тільки для однієї камери. Об'єм визначається відстанями старту та кінця відсікання. Області, що знаходяться у піраміді тільки однієї камери відомі як «області суперництва сітчатки» -- <em>retinal rivalry areas</em>. Вони допускаються у від'ємному просторі (регіон від площини збігання до зображення), але повинні запобігатися за будь-яку ціну у додатному просторі (область від площини збігання до камери).</p>
+<div class="last figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/render_workflows_multiview_usage_volume.png"><img alt="../../../_images/render_workflows_multiview_usage_volume.png" src="../../../_images/render_workflows_multiview_usage_volume.png" style="width: 402px;" /></a>
+<p class="caption"><span class="caption-text">Viewport 3D: convergence plane and volume display.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="multi-view-and-stereo-3d-image-i-o">
+<h2>Імпорт-експорт зображення Багато-Огляду та Стерео 3D -- Multi-View and Stereo 3D Image I/O<a class="headerlink" href="#multi-view-and-stereo-3d-image-i-o" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Багато-Огляд та Стерео 3D</dt>
+<dd>Multi-view images can be saved in special formats according to the production requirements.
+By default the system saves each view as an individual file,
+thus generating as many files as views to be rendered.
+In stereo 3D productions, for the final deployment or
+even intermediary previews it is convenient to save stereo 3D images,
+that are ready to use with 3D displays or simple anaglyph glasses.
+The formats supported match the display modes available for the window.</dd>
+<dt>Формати з втратами -- Lossy-Formats</dt>
+<dd>Деякі формати стерео 3D представляються зі значною втратою даних. Наприклад, формат Anaglyph буде вирубати цілі колірні канали з оригінального зображення. Стиснений Top-Bottom буде відкидати половину ваших вертикальних даних роздільності. Формат Interlace буде значно розмішувати ваші дані. Після експорту у ці формати ви можете все ще імпортувати зображення назад у Blender для його обробки як Stereo 3D. Хоча, ви повинні узгодити режим показу стерео 3D у вікні та формат зображення стерео 3D.</dd>
+<dt>Формати без втрат -- Lossless Formats</dt>
+<dd>Деякі формати будуть зберігати оригінальні дані, що не призводить до жодних проблем при експорті та імпорті файлів назад у Blender. Опція Individual буде продукувати окремі зображення, що (якщо вони збережені з кодуванням без втрат як <code class="docutils literal notranslate"><span class="pre">PNG</span></code> або <code class="docutils literal notranslate"><span class="pre">OpenEXR</span></code>) можуть бути завантажені назад у виробництво без втрати жодних даних. Для форматів Stereo 3D варіантами без втрат є тільки <em>Top-Bottom</em> та <em>Side-by-Side</em> з вимкнутою опцією Squeezed Frame.</dd>
+<dt>Multi-View OpenEXR</dt>
+<dd>Another option is to use multi-view OpenEXR files.
+This format can save multiple views in a single file and is backward compatible
+with old OpenEXR viewers (you see only one view though).
+Multi-view native support is only available to OpenEXR.</dd>
+</dl>
+</div>
+<div class="section" id="image-editor">
+<h2>Редактор Зображень -- Image Editor<a class="headerlink" href="#image-editor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Меню «Огляд» -- View Menu</dt>
+<dd><p class="first">Після того, як ви рендерили вашу сцену з Stereo 3D, ви будете у змозі бачити рендерений результат у комбінованому стерео 3D або зможете перевіряти окремі огляди. Це працює для вузлів Viewer, результатів рендера або відкритих зображень.</p>
+<div class="last figure" id="id13">
+<img alt="../../../_images/render_workflows_multiview_usage_image-editor-header.png" src="../../../_images/render_workflows_multiview_usage_image-editor-header.png" />
+<p class="caption"><span class="caption-text">Stereo 3D and view menu.</span></p>
+</div>
+</dd>
+<dt>Формат Оглядів -- Views Format</dt>
+<dd><p class="first">When you drag and drop an image into the UV/Image Editor, Blender will open it as an individual images at first.
+If your image was saved with one of the Stereo 3D formats, you can change how
+Blender should interpret the image by switching the mode to Stereo 3D,
+turning on <em>Use Multi-View</em> and picking the corresponding stereo method.</p>
+<div class="last figure" id="id14">
+<img alt="../../../_images/render_workflows_multiview_usage_image-editor-multi-view.png" src="../../../_images/render_workflows_multiview_usage_image-editor-multi-view.png" />
+<p class="caption"><span class="caption-text">Views formats and stereo 3D.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="compositor">
+<h2>Компонівник -- Compositor<a class="headerlink" href="#compositor" title="Permalink to this headline">¶</a></h2>
+<p>The compositor works smoothly with multi-view images.
+The compositing of a view is completed before the remaining views start to be composited.
+The pipeline is the same as the single-view workflow, with the difference that you can use Images,
+Movies or Image Sequences in any of the supported multi-view formats.</p>
+<div class="figure" id="id15">
+<img alt="../../../_images/render_workflows_multiview_usage_compositor.png" src="../../../_images/render_workflows_multiview_usage_compositor.png" />
+<p class="caption"><span class="caption-text">Compositor, backdrop and Split Viewer node.</span></p>
+</div>
+<p>Огляди для зображування визначені у поточних оглядах сцени подібним чином, як ви визначаєте роздільність -- resolution на панелі «Зображ» -- Render для поточної сцени, незалежно від роздільностей для вузлів «Зображення» -- Image або «Шари Зображу» -- Render Layers з різних сцен.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Зображення одиничного огляду</p>
+<p class="last">If the image from an Image node does not have the view you are trying to render,
+the image will be treated as a single-view image.</p>
+</div>
+<dl class="docutils">
+<dt>Вузол «Перемикач Оглядів» -- Switch View Node</dt>
+<dd>If you need to treat the views separately, you can use
+the <a class="reference internal" href="../../../compositing/types/converter/switch_view.html"><span class="doc">Switch View node</span></a>
+to combine the views before an Output node.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Продуктивність -- Performance</p>
+<p class="last">Стандартно, при компонуванні та рендерингу з інтерфейсу користувача рендеряться та далі компонуються усі огляди. У ході повторів перевірки ви можете вимикати всі, окрім одного, огляди на панелі Views у вкладці Шари Зобража, та повторно вмикати їх, коли ви хочете отримати кінцевий вигляд.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../opengl.html" class="btn btn-neutral float-right" title="Зображ з OpenGL -- OpenGL Render" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

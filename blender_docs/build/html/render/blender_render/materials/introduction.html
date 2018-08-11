@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Панель «Матеріал» -- Material Panel" href="material_panel.html" />
+    <link rel="prev" title="Матеріали -- Materials" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="material_panel.html">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nodes/index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="special_effects/index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/materials/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>A material defines the artistic qualities of the substance that an object is made of.
+In its simplest form, you can use materials to show the substance an object is made of,
+or to &quot;paint&quot; the object with different colors. Usually,
+the substance is represented by its surface qualities (color, shininess, reflectance, etc.)
+but it can also exhibit more complicated effects such as transparency,
+diffraction and subsurface scattering. Typical materials might be brass, skin, glass, or linen.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_materials_introduction_demo.jpg"><img alt="../../../_images/render_blender-render_materials_introduction_demo.jpg" src="../../../_images/render_blender-render_materials_introduction_demo.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Різні базові матеріали (одиничний, багатоматеріал, прозорість, малювання вершин).</span></p>
+</div>
+<p>Базовий (не-текстурований) матеріал у Blender'і є однорідним по кожній грані об'єкта (хоча різні пікселі кожної грані об'єкта можуть виглядати по-різному через ефекти освітлення). Однак, різні грані об'єкта можуть використовувати різні матеріали (дивіться <a class="reference internal" href="assigning_a_material.html#bi-multiple-materials"><span class="std std-ref">Одночасно кілька матеріалів</span></a>).</p>
+<p>У Blender'і матеріали можуть (за бажанням) мати асоційовані з ними текстури. Текстури <em>описують</em> речовину: наприклад, <em>полірована</em> мідь, <em>брудне</em> скло або <em>вишита</em> тканина, Глава <a class="reference internal" href="../textures/index.html"><span class="doc">Textures</span></a> описує, як додавати текстури у матеріали.</p>
+<div class="section" id="how-materials-work">
+<h2>Як працюють матеріали<a class="headerlink" href="#how-materials-work" title="Permalink to this headline">¶</a></h2>
+<p>Перш ніж зрозуміти, як ефективно розробляти матеріали, ви повинні розуміти, як імітовані світло та поверхні взаємодіють у рушії зображування, рендерингу у Blender'і та як устави матеріалу керують цими взаємодіями. Глибоке розуміння рушія зображу допоможе вам максимально використовувати його.</p>
+<p>Зображене, рендерене зображення, створюване вами у Blender'і, -- це проекція сцени на уявну поверхню, що зветься «площиною огляду» -- <em>viewing plane</em>. Оглядова площина є аналогом плівки у традиційній камері або колбочок і паличок в людському оці, за винятком того, що вона сприймає імітоване, а не реальне, світло.</p>
+<p>Для зображу, рендеру зображення сцени ви повинні спершу визначити, яке світло зі сцени прибуватиме у кожну точку площини огляду. Найкращий спосіб відповісти на це питання -- це прослідкувати пряму лінію (імітований промінь світла) назад від точки на площині огляду та фокальної точки (локації камери) допоки він не потрапить на зображуваноздатну поверхню -- renderable surface -- у сцені, у точці якої ми зможемо визначити, яке світло потрапляє на цю точку.</p>
+<p>Властивості цієї поверхні та кут падіння світла -- incident light angle -- розкажуть, наскільки це світло було відбито назад уздовж кута падіння огляду -- incident viewing angle -- <em>(Базовий принцип рушія зображування, рендерингу)</em>.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_materials_introduction_basic-principle.svg"><img alt="../../../_images/render_blender-render_materials_introduction_basic-principle.svg" src="../../../_images/render_blender-render_materials_introduction_basic-principle.svg" width="480px" /></a>
+<p class="caption"><span class="caption-text">Базовий принцип рушія зображування, рендерингу.</span></p>
+</div>
+<p>У будь-якій точці на поверхні при потраплянні на неї променя світла відбуваються два базових типи явищ: розсіяння -- iffusion та відбиття бліків, відблисків -- specular reflection. Розсіяння та відбиття бліків відрізняються один від одного головно відношенням між кутом падіння світла та кутом відбивання світла.</p>
+<p>Відтінення -- shading (або забарвлення -- coloring) об'єкта у ході зображу, рендеру далі враховуватиме базовий колір (модифікований явищами розсіяння і відбиття бліків) та інтенсивність світла.</p>
+<p>При використанні внутрішнього простежника променів можуть траплятися інші (більш просунуті) явища. При промінь-простежених відбиттях точка поверхні, на яку потрапляє промінь світла, буде повертати колір навколишнього її середовища відповідно до норми відбиття матеріалу (змішування базового кольору і кольору навколишнього середовища) та кута огляду.</p>
+<p>З іншого боку, при промінь-простежених відбиттях точка поверхні, на яку потрапляє промінь світла, буде повертати колір фонового її середовища, відповідно до норми прозорості (змішування базового кольору і кольору фонового середовища згідно з його додатковим фільтрувальним значенням) матеріалу та додатковий вказівник заломлення, рефракції матеріалу, який буде спотворювати кут огляду.</p>
+<p>Of course, shading of the object hit by a light ray will be about mixing all these phenomena
+at the same time during the rendering. The appearance of the object, when rendered,
+depends on many interrelated settings:</p>
+<ul class="simple">
+<li>Світ сцени -- World (колір оточення -- Ambient Color, опромінюваність -- Radiosity, загорода оточення -- Ambient Occlusion)</li>
+<li>Освітлювачі -- Lights</li>
+<li>Устави Матеріалів (включаючи оточення -- ambient, емісію -- emission та всі інші устави на панелях у цій вкладці)</li>
+<li>Текстури -- Texture та як вони змішуються</li>
+<li>Матеріалові Вузли -- Material Nodes</li>
+<li>Камера -- Camera</li>
+<li>Кут Огляду -- Viewing angle</li>
+<li>Перешкоди -- obstructions та Загороди Прозорості -- transparent occlusions</li>
+<li>Тіні -- Shadows від інших безпрозорих/прозорих об'єктів</li>
+<li>Устави Зображування, рендерингу -- Render settings</li>
+<li>Розміри Об'єкта (устави підповерхневого розсіювання залежать від розмірів)</li>
+<li>Форма Об'єкта (заломлення, рефракції -- refractions, ефекти Френеля -- Fresnel)</li>
+</ul>
+</div>
+<div class="section" id="using-materials">
+<h2>Використання матеріалів<a class="headerlink" href="#using-materials" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Перевіряйте ваш Зображ, Рендер</p>
+<p class="last">При розробленні матеріалів (та текстур і освітлення) часто перевіряйте зображений, рендерений вигляд вашої сцени, використовуючи устави обраних вами рушія зображування, рендерингу / відтінювача. Цей рендерений вигляд може сильно відрізнятися від показу текстури у 3D Огляді.</p>
+</div>
+<p>Як зазначено вище, устави матеріалу зазвичай визначають властивості поверхні об'єкта. Існують кілька шляхів укладання матеріалів у Blender'і. Взагалі кажучи, вони не сумісні. Ви повинні обрати, який метод ви збираєтеся використати для кожного конкретного об'єкта у вашій сцені:</p>
+<ol class="arabic simple">
+<li>По-перше, ви можете задати властивості -- <a class="reference internal" href="properties/introduction.html"><span class="doc">Properties</span></a> на різних панелях для Матеріалу.</li>
+<li>По-друге, ви можете використати вузли -- <a class="reference internal" href="nodes/index.html"><span class="doc">Nodes</span></a>; доступний графічний редактор вузлів.</li>
+<li>Останнє, ви можете безпосередньо задати колір поверхонь об'єктів, використовуючи різні ефекти. Строго кажучи, вони не є взагалі матеріалами, але вони згадуються тут, оскільки впливають на вигляд ваших об'єктів. Це, зокрема, малювання вершин -- <a class="reference internal" href="../../../sculpt_paint/painting/vertex_paint/index.html#painting-vertex-index"><span class="std std-ref">Vertex Painting</span></a>, дротяне зображування -- <a class="reference internal" href="special_effects/wire.html"><span class="doc">Wire Rendering</span></a>, об'ємове зображування -- <a class="reference internal" href="special_effects/volume.html"><span class="doc">Volume Rendering</span></a> та ореолове зображування -- <a class="reference internal" href="special_effects/halo.html"><span class="doc">Halo Rendering</span></a>.</li>
+</ol>
+<p>The exact effect of Material settings can be affected by a number of system settings.
+First and foremost is the renderer used:
+Cycles and the Blender Renderer (aka Blender Internal or BI)
+require quite different illumination levels to achieve similar results,
+and even then the appearance of objects can be quite different.
+Also, the material properties settings can be affected by the texture method used
+(single-texture, multi-texture or GLSL). So it is recommended to always select
+the appropriate system settings before starting the design of materials.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="material_panel.html" class="btn btn-neutral float-right" title="Панель «Матеріал» -- Material Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Матеріали -- Materials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

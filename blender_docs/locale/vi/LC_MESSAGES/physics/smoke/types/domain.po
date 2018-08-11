@@ -1,0 +1,707 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is public domain as CC0
+# This file is distributed under the same license as the Blender 2.77 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2017-12-11 16:18+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/physics/smoke/types/domain.rst:5
+msgid "Smoke Domain"
+msgstr "Домен Диму -- Smoke Domain"
+
+#: ../../manual/physics/smoke/types/domain.rst:7
+#: ../../manual/physics/smoke/types/domain.rst:114
+#: ../../manual/physics/smoke/types/domain.rst:138
+#: ../../manual/physics/smoke/types/domain.rst:164
+#: ../../manual/physics/smoke/types/domain.rst:205
+#: ../../manual/physics/smoke/types/domain.rst:222
+#: ../../manual/physics/smoke/types/domain.rst:236
+msgid "Reference"
+msgstr "Орієнтир -- Reference"
+
+#: ../../manual/physics/smoke/types/domain.rst
+msgid "Panel"
+msgstr ""
+
+#: ../../manual/physics/smoke/types/domain.rst:10
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke`"
+msgstr "Панель:    «Фізика > Дим» -- :menuselection:`Physics --> Smoke`"
+
+#: ../../manual/physics/smoke/types/domain.rst
+msgid "Type"
+msgstr ""
+
+#: ../../manual/physics/smoke/types/domain.rst:11
+#: ../../manual/physics/smoke/types/domain.rst:117
+#: ../../manual/physics/smoke/types/domain.rst:141
+#: ../../manual/physics/smoke/types/domain.rst:167
+#: ../../manual/physics/smoke/types/domain.rst:208
+#: ../../manual/physics/smoke/types/domain.rst:225
+#: ../../manual/physics/smoke/types/domain.rst:239
+msgid "Domain"
+msgstr ""
+
+#: ../../manual/physics/smoke/types/domain.rst:13
+msgid ""
+"The domain object contains the entire simulation. Smoke and fire cannot "
+"leave the domain, it will either collide with the edge or disappear, "
+"depending on the domain's settings."
+msgstr ""
+"Об'єкт домену вміщує усю імітацію диму. Дим і вогонь не можуть виходити "
+"за межі домену, вони або будуть відштовхуватися від його країв, або "
+"зникати, залежно від устав домену."
+
+#: ../../manual/physics/smoke/types/domain.rst:16
+msgid ""
+"Keep in mind that large domains require higher resolutions and longer "
+"bake times. You will want to make it just large enough that the "
+"simulation will fit inside it, but not so large that it takes too long to"
+" compute the simulation."
+msgstr ""
+"Майте на увазі, що великі домени вимагають вищої роздільності та більше "
+"часу на запікання. Вам бажано робити його достатньо великим, щоб імітація"
+" помістилася у ньому, але не настільки великим, щоб вона надто довго "
+"обчислювалася."
+
+#: ../../manual/physics/smoke/types/domain.rst:20
+msgid ""
+"To create a domain, add a cube :menuselection:`Add --> Mesh --> Cube`, "
+":kbd:`Shift-A` and transform it until it encloses the area where you want"
+" smoke. Translation, rotation, and scaling are all allowed. To turn it "
+"into a smoke domain, click *Smoke* in :menuselection:`Properties --> "
+"Physics`, then select *Domain* as the *Smoke Type*."
+msgstr ""
+"Для створення домену додайте куб за допомогою «Додання > Сіть > Куб» -- "
+":menuselection:`Add --> Mesh --> Cube`, :kbd:`Shift-A` та трансформуйте "
+"його, допоки він не охопить усю область, потрібну для диму. Дозволені всі"
+" його трансформації -- пересування, обертання та масштабування. Для "
+"перетворення куба у домен диму клацніть на кнопці «Дим» -- *Smoke* у "
+"вкладці «редактор Властивостей > Фізика» -- :menuselection:`Properties "
+"--> Physics`, або потім увімкніть кнопку «Домен» -- *Domain* серед кнопко"
+" опції «Тип Диму» -- *Smoke Type*."
+
+#: ../../manual/physics/smoke/types/domain.rst:27
+msgid ""
+"You *can* use other shapes of mesh objects as domain objects, but the "
+"smoke simulator will use the shape's :term:`bounding box` as the domain "
+"bounds. In other words, the actual shape of the domain will still be "
+"rectangular."
+msgstr ""
+"Ви *можете* використовувати і інші форми сітьових об'єктів як об'єкта "
+"домену, але імітатор диму буде використовувати кубоїдну габаритну коробку"
+" -- :term:`bounding box` такої форми для визначення меж домену. Іншими "
+"словами, фактична форма домену залишатиметься все одно прямокутною, "
+"кубічною."
+
+#: ../../manual/physics/smoke/types/domain.rst:34
+msgid "*Smoke Domain* options."
+msgstr "Опції домену диму -- *Smoke Domain*."
+
+#: ../../manual/physics/smoke/types/domain.rst:38
+msgid "Options"
+msgstr "Опції"
+
+#: ../../manual/physics/smoke/types/domain.rst:50
+msgid "Resolution"
+msgstr "Роздільність -- Resolution"
+
+#: ../../manual/physics/smoke/types/domain.rst:43
+msgid ""
+"The smoke domain is subdivided into many \"cells\" called voxels (see "
+":term:`voxel`) which make up \"pixels\" of smoke. This setting controls "
+"the number of subdivisions in the domain. Higher numbers of subdivisions "
+"are one way of creating higher resolution smoke (see `Smoke High "
+"Resolution`_)."
+msgstr ""
+"Домен диму підподіляється на багато «комірок», що називаються вокселями "
+"(дивіться детальніше про цей термін тут -- :term:`voxel`), які "
+"представляють «пікселі» диму. Ця устава керує кількістю таких підподілів "
+"у домені. Вища кількість цих підподілів -- це один зі способів створення "
+"високо роздільного диму (дивіться `Smoke High Resolution`_)."
+
+#: ../../manual/physics/smoke/types/domain.rst:47
+msgid ""
+"Since the resolution is defined in terms of *subdivisions*, larger "
+"domains will need more divisions to get an equivalent resolution to a "
+"small domain."
+msgstr ""
+"Оскільки ця роздільність визначається у термінах «підподілів» -- "
+"*subdivisions*, то більші домени вимагають більше поділень для отримання "
+"еквівалентної роздільності у порівнянні з невеликим доменом."
+
+#: ../../manual/physics/smoke/types/domain.rst:50
+msgid "Also see `Note on Divisions and High Resolution`_."
+msgstr "Також дивіться тут -- `Note on Divisions and High Resolution`_."
+
+#: ../../manual/physics/smoke/types/domain.rst:55
+msgid "Time Scale"
+msgstr "Час: Масштаб -- Time Scale"
+
+#: ../../manual/physics/smoke/types/domain.rst:53
+msgid ""
+"Controls the speed of the simulation. Low values result in a \"slow "
+"motion\" simulation, while higher values can be used to advance the "
+"simulation faster (useful for generating smoke for use in still renders)."
+msgstr ""
+"Керує швидкістю імітації. Нижчі значення дають «уповільнено рухому» "
+"імітацію, тоді як вищі значення можуть використовуватися для отримання "
+"більш швидкої імітації (корисно для генерування диму для використання у "
+"нерухомих рендерах, зображах)."
+
+#: ../../manual/physics/smoke/types/domain.rst:67
+msgid "Border Collisions"
+msgstr "Зіткнення з Границею -- Border Collisions"
+
+#: ../../manual/physics/smoke/types/domain.rst:58
+msgid ""
+"Controls which sides of the domain will allow smoke \"through\" the "
+"domain, making it disappear without influencing the rest of the "
+"simulation, and which sides will deflect smoke as if colliding with a "
+":doc:`Collision Object </physics/smoke/types/collision>`."
+msgstr ""
+"Керує тим, через які сторони домену дозволяється «проходити» диму та "
+"зникати без впливу на решту імітації та від яких сторін дим має "
+"відбиватися, відхилятися, ніби він стикається з об'єктом зіткнення -- "
+":doc:`Collision Object </physics/smoke/types/collision>`."
+
+#: ../../manual/physics/smoke/types/domain.rst:63
+msgid "Vertically Open"
+msgstr "Відкрито Вертикально -- Vertically Open"
+
+#: ../../manual/physics/smoke/types/domain.rst:64
+msgid ""
+"Smoke disappears when it hits the top or bottom of the domain, but "
+"collides with the walls."
+msgstr ""
+"Дим зникає, коли він стикається з верхом або низом домену, та "
+"відштовхується від його стін."
+
+#: ../../manual/physics/smoke/types/domain.rst:65
+msgid "Open"
+msgstr "Відкрито -- Open"
+
+#: ../../manual/physics/smoke/types/domain.rst:66
+msgid "Smoke disappears when it hits any side of the domain."
+msgstr "Дим зникає, коли він стикається з будь-якою межею домену."
+
+#: ../../manual/physics/smoke/types/domain.rst:67
+msgid "Collide All"
+msgstr "Зіткнення з Усіма -- Collide All"
+
+#: ../../manual/physics/smoke/types/domain.rst:68
+msgid "Smoke collides with all sides of the domain."
+msgstr "Дим відштовхується від усіх меж домену."
+
+#: ../../manual/physics/smoke/types/domain.rst:73
+msgid "Density"
+msgstr "Щільність -- Density"
+
+#: ../../manual/physics/smoke/types/domain.rst:70
+msgid "Controls how much smoke is affected by density."
+msgstr "Керує тим, наскільки дим буде густим."
+
+#: ../../manual/physics/smoke/types/domain.rst:72
+msgid ""
+"Values above 0 will cause the smoke to rise (simulating smoke which is "
+"lighter than ambient air)."
+msgstr ""
+"Значення вище 0 призводять до піднімання диму (імітування диму, який "
+"легший за навколишнє повітря)."
+
+#: ../../manual/physics/smoke/types/domain.rst:73
+msgid ""
+"Values below 0 will cause smoke to sink (simulating smoke which is "
+"heavier than ambient air)."
+msgstr ""
+"Значення нижче 0 будуть давати опускання диму (імітування диму, який "
+"важчий за навколишнє повітря)."
+
+#: ../../manual/physics/smoke/types/domain.rst:91
+msgid "Temperature Difference"
+msgstr "Різниця Температур -- Temperature Difference"
+
+#: ../../manual/physics/smoke/types/domain.rst:78
+msgid ""
+"The *Temperature Difference* setting controls how much smoke is affected "
+"by temperature."
+msgstr ""
+"Устава *Temperature Difference* керує тим, наскільки на дим впливає "
+"температура."
+
+#: ../../manual/physics/smoke/types/domain.rst:80
+msgid ""
+"The effect this setting has on smoke depends on the per flow object "
+":ref:`Temperature Difference <smoke-flow-temp-diff>`:"
+msgstr ""
+"Ефект цієї устави залежить від різниці температур -- :ref:`Temperature "
+"Difference <smoke-flow-temp-diff>` об'єкта потоку:"
+
+#: ../../manual/physics/smoke/types/domain.rst:83
+msgid ""
+"Values above 0 will result in the smoke rising when the flow object "
+"*Temperature Difference* is set to a positive value, and smoke sinking "
+"when the flow object *Temperature Difference* is set to a negative value."
+msgstr ""
+"Значення вище 0 даватимуть піднімання диму, коли *Temperature Difference*"
+" для об'єкта потоку задана як додатне значення, та опускання диму, коли "
+"*Temperature Difference* для об'єкта потоку задана як від'ємне значення."
+
+#: ../../manual/physics/smoke/types/domain.rst:86
+msgid ""
+"Values below 0 will result in the opposite of positive values, i.e. smoke"
+" emitted from flow objects with a positive *Temperature Difference* will "
+"sink, and smoke from flow objects with a negative *Temperature "
+"Difference* will rise."
+msgstr ""
+"Значення нижче 0 даватимуть протилежний ефект, тобто дим, емітований від "
+"об'єктів з додатною *Temperature Difference* буде опускатися, а дим від "
+"об'єктів потоку з від'ємною *Temperature Difference* -- буде підніматися."
+
+#: ../../manual/physics/smoke/types/domain.rst:90
+msgid ""
+"Note that smoke from multiple flow objects with different temperatures "
+"will mix and warm up/cool down until an equilibrium is reached."
+msgstr ""
+"Зауважте, що дим від кількох об'єктів потоку з різними температурами буде"
+" змішуватися та тепліти/охолоджуватися, допоки не буде досягнута "
+"рівновага."
+
+#: ../../manual/physics/smoke/types/domain.rst:101
+#: ../../manual/physics/smoke/types/domain.rst:125
+msgid "Vorticity"
+msgstr "Завихреність -- Vorticity"
+
+#: ../../manual/physics/smoke/types/domain.rst:94
+msgid ""
+"Controls the amount of turbulence in the smoke. Higher values will make "
+"lots of small swirls, while lower values make smoother shapes."
+msgstr ""
+"Керує величиною турбулентності у димі. Вищі значення будуть давати багато"
+" маленьких вихорів, тоді як нижчі значення даватиму більш згладжені "
+"форми."
+
+#: ../../manual/physics/smoke/types/domain.rst:100
+msgid ""
+"Comparison of different amounts of vorticity. The domain on the left has "
+"a vorticity of 3, while the domain on the right has a vorticity of 0.01."
+msgstr ""
+"Порівняння різних величин завихреності. Домен зліва має значення "
+"завихреності як 3, тоді як домен справа -- значення завихреності як 0.01."
+
+#: ../../manual/physics/smoke/types/domain.rst:103
+msgid "Dissolve"
+msgstr "Розчинення -- Dissolve"
+
+#: ../../manual/physics/smoke/types/domain.rst:104
+msgid "Allow smoke to dissipate over time."
+msgstr "Дозволяє диму розсіюватися з часом."
+
+#: ../../manual/physics/smoke/types/domain.rst:105
+msgid "Time"
+msgstr "Час -- Time"
+
+#: ../../manual/physics/smoke/types/domain.rst:106
+msgid "Speed of smoke's dissipation in frames."
+msgstr "Швидкість розсіювання диму у кадрах."
+
+#: ../../manual/physics/smoke/types/domain.rst:109
+msgid "Slow"
+msgstr "Повільно -- Slow"
+
+#: ../../manual/physics/smoke/types/domain.rst:108
+msgid ""
+"Dissolve smoke in a logarithmic fashion. Dissolves quickly at first, but "
+"lingers longer."
+msgstr ""
+"Розчиняє дим у логарифмічному порядку. Розчиняє швидко на початку та "
+"більш повільно далі."
+
+#: ../../manual/physics/smoke/types/domain.rst:112
+msgid "Smoke Flames"
+msgstr "Полум'я в Димі -- Smoke Flames"
+
+#: ../../manual/physics/smoke/types/domain.rst:118
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke Flames`"
+msgstr "Панель:    «Полум'я в Димі» -- :menuselection:`Physics --> Smoke Flames`"
+
+#: ../../manual/physics/smoke/types/domain.rst:121
+msgid "Speed"
+msgstr "Швидкість -- Speed"
+
+#: ../../manual/physics/smoke/types/domain.rst:121
+msgid ""
+"How fast fuel burns. Larger values result in smaller flames (fuel burns "
+"before it can go very far), smaller values result in larger flames (fuel "
+"has time to flow farther before being fully consumed)."
+msgstr ""
+"Наскільки швидко горить паливо. Вищі значення дають менше полум'я (паливо"
+" згорає перед тим, як воно зможе віддалитися від свого джерела), менші "
+"значення дають більше полум'я (паливо повільніше згорає при віддаленні "
+"від джерела)."
+
+#: ../../manual/physics/smoke/types/domain.rst:123
+msgid "Smoke"
+msgstr "Дим -- Smoke"
+
+#: ../../manual/physics/smoke/types/domain.rst:124
+msgid "Amount of extra smoke created automatically to simulate burnt fuel."
+msgstr ""
+"Величина додаткового диму, що створюється автоматично для імітації "
+"згорання палива."
+
+#: ../../manual/physics/smoke/types/domain.rst:126
+msgid "Additional vorticity for flames."
+msgstr "Додаткова завихреність для полум'я."
+
+#: ../../manual/physics/smoke/types/domain.rst:127
+msgid "Ignition"
+msgstr "Запалення -- Ignition"
+
+#: ../../manual/physics/smoke/types/domain.rst:128
+msgid "Minimum temperature of flames."
+msgstr "Мінімальна температура полум'я."
+
+#: ../../manual/physics/smoke/types/domain.rst:129
+msgid "Maximum"
+msgstr "Максимум -- Maximum"
+
+#: ../../manual/physics/smoke/types/domain.rst:130
+msgid "Maximum temperature of flames."
+msgstr "Максимальна температура полум'я."
+
+#: ../../manual/physics/smoke/types/domain.rst:133
+msgid "Smoke Color"
+msgstr "Колір Диму -- Smoke Color"
+
+#: ../../manual/physics/smoke/types/domain.rst:132
+msgid "Color of smoke created by burnt fuel."
+msgstr "Колір диму, створюваного спаленням палива."
+
+#: ../../manual/physics/smoke/types/domain.rst:136
+msgid "Smoke Adaptive Domain"
+msgstr "Адаптивний Домен Диму -- Smoke Adaptive Domain"
+
+#: ../../manual/physics/smoke/types/domain.rst:142
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke Adaptive Domain`"
+msgstr ""
+"Панель:    «Фізика > Адаптивний Домен Диму» -- :menuselection:`Physics "
+"--> Smoke Adaptive Domain`"
+
+#: ../../manual/physics/smoke/types/domain.rst:144
+msgid ""
+"When enabled, the domain will adaptively shrink to best fit the smoke, "
+"saving computation time by leaving voxels without smoke out of the "
+"simulation. Unless the *Additional* option is used, the adaptive domain "
+"will not exceed the bounds of the original domain."
+msgstr ""
+"При увімкненні, домен буде адаптивно звужуватися для найкращого "
+"вписування у ньому диму, заощаджуючи час на обчислення, залишаючи вокселі"
+" без диму поза імітацією. Якщо устава «Доповняльно» -- *Additional* не "
+"використовується, то адаптивний домен не буде виходити за межі "
+"оригінального домену."
+
+#: ../../manual/physics/smoke/types/domain.rst:148
+msgid "Additional"
+msgstr "Доповняльно -- Additional"
+
+#: ../../manual/physics/smoke/types/domain.rst:149
+msgid "Number of voxels to add around the outside of the domain."
+msgstr "Кількість вокселів, додатково доданих поза межами оригінального домену."
+
+#: ../../manual/physics/smoke/types/domain.rst:152
+msgid "Margin"
+msgstr "Припуск -- Margin"
+
+#: ../../manual/physics/smoke/types/domain.rst:151
+#, fuzzy
+msgid ""
+"Amount of extra space to leave around smoke, measured in voxels. With "
+"very fast-moving smoke larger margins may be required to prevent the "
+"smoke from being cut off by the adaptive boundary, but note this will "
+"increase the number of voxels which need to be computed."
+msgstr ""
+"Величина додаткового простору, залишеного навколо диму, вимірюється у "
+"вокселях. При дуже швидкому рухові диму можуть вимагатися більші припуски"
+" для запобігання відсікання диму адаптивною границею, але, зауважте, що "
+"це буде збільшувати кількість вокселів, необхідних для обчислення."
+
+#: ../../manual/physics/smoke/types/domain.rst:157
+msgid "Threshold"
+msgstr "Поріг -- Threshold"
+
+#: ../../manual/physics/smoke/types/domain.rst:155
+msgid ""
+"Smallest amount of smoke a voxel can contain before it is considered "
+"empty and the adaptive domain is allowed to cut it out of the simulation."
+msgstr ""
+"Найменша величина диму, яку може містити воксель, нижче якої останній "
+"вважається порожнім та адаптивному домену дозволяється відсікати "
+"імітацію."
+
+#: ../../manual/physics/smoke/types/domain.rst:162
+msgid "Smoke High Resolution"
+msgstr "Дим з Високою Роздільністю -- Smoke High Resolution"
+
+#: ../../manual/physics/smoke/types/domain.rst:168
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke High Resolution`"
+msgstr ""
+"Панель:    «Фізика > Дим з Високою Роздільністю» -- "
+":menuselection:`Physics --> Smoke High Resolution`"
+
+#: ../../manual/physics/smoke/types/domain.rst:170
+#, fuzzy
+msgid ""
+"The High Resolution option lets you simulate at a low resolution and then"
+" it uses noise techniques to enhance the resolution without actually "
+"computing it. This allows animators to set up a low resolution simulation"
+" quickly and later add details without changing the overall fluid motion."
+" Also see `Note on Divisions and High Resolution`_."
+msgstr ""
+"Ця опція Високої Роздільності дозволяє вам імітувати дим з низькою "
+"роздільністю і далі, використовуючи техніки шумування, збільшувати "
+"роздільність без фактичного її обчислення. Це дозволяє аніматорам швидко "
+"укладати низько роздільну імітацію та пізніше додавати деталі без зміни "
+"загальної текучості руху. Також дивіться тут -- `Note on Divisions and "
+"High Resolution`_."
+
+#: ../../manual/physics/smoke/types/domain.rst:175
+msgid "Resolution: Divisions"
+msgstr "Роздільність: Поділи -- Resolution: Divisions"
+
+#: ../../manual/physics/smoke/types/domain.rst:176
+msgid ""
+"Factor by which to enhance the resolution of smoke using the specified "
+"noise method."
+msgstr ""
+"Фактор, на основі якого збільшується роздільність диму при використанні "
+"вказаного методу шумування."
+
+#: ../../manual/physics/smoke/types/domain.rst:178
+msgid "Show High Resolution"
+msgstr "Показ з Високою Роздільністю -- Show High Resolution"
+
+#: ../../manual/physics/smoke/types/domain.rst:178
+#, fuzzy
+msgid ""
+"Show the high resolution version in the viewport (may cause viewport "
+"responsiveness to suffer)."
+msgstr ""
+"Показ диму з високою роздільністю в оглядвікні (може спричиняти "
+"гальмування відклику оглядвікна)."
+
+#: ../../manual/physics/smoke/types/domain.rst:200
+msgid "Noise Method"
+msgstr "Метод Шуму -- Noise Method"
+
+#: ../../manual/physics/smoke/types/domain.rst:181
+msgid "The two options, *Wavelet* and *FFT*, are very similar."
+msgstr ""
+"Ці два його варіанти, «Брижі» -- *Wavelet* та «Швидке Перетворення Фур'є»"
+" -- *FFT* є дуже подібними."
+
+#: ../../manual/physics/smoke/types/domain.rst:186
+msgid "Comparison of noise methods. *Wavelet* on the left, *FFT* on the right."
+msgstr "Порівняння методів шумування. *Wavelet* -- зліва, *FFT* -- справа."
+
+#: ../../manual/physics/smoke/types/domain.rst:190
+msgid ""
+"*Wavelet* is an implementation of `Turbulence for Fluid Simulation "
+"<https://web.archive.org/web/20140911163550/https://graphics.ethz.ch/research/physics_animation_fabrication/simulation/turb.php>`__."
+msgstr ""
+"Метод *Wavelet* -- «Брижі» є імплементацією наукової роботи `Turbulence "
+"for Fluid Simulation "
+"<https://web.archive.org/web/20140911163550/https://graphics.ethz.ch/research/physics_animation_fabrication/simulation/turb.php>`__."
+
+#: ../../manual/physics/smoke/types/domain.rst:200
+msgid "Strength"
+msgstr "Сила -- Strength"
+
+#: ../../manual/physics/smoke/types/domain.rst:194
+msgid "Strength of noise."
+msgstr "Сила шумування."
+
+#: ../../manual/physics/smoke/types/domain.rst:199
+msgid ""
+"From left to right, the domains' high resolution strengths are set to 0, "
+"2, and 6."
+msgstr ""
+"Зліва направо, значення сили домену з високою роздільністю задано як 0, 2"
+" та 6."
+
+#: ../../manual/physics/smoke/types/domain.rst:203
+msgid "Smoke Groups"
+msgstr "Групи Диму -- Smoke Groups"
+
+#: ../../manual/physics/smoke/types/domain.rst:209
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke Groups`"
+msgstr ""
+"Панель:    «Фізика > Групи Диму» -- :menuselection:`Physics --> Smoke "
+"Groups`"
+
+#: ../../manual/physics/smoke/types/domain.rst:212
+msgid "Flow Group"
+msgstr "Група Потоку -- Flow Group"
+
+#: ../../manual/physics/smoke/types/domain.rst:212
+msgid ""
+"If set, only objects in the specified :doc:`Group "
+"</editors/3dview/object/properties/relations/groups>` will be allowed to "
+"act as flow objects in this domain."
+msgstr ""
+"При заданні, тільки об'єктам, визначеним у цій групі -- :doc:`Group "
+"</editors/3dview/object/properties/relations/groups>`, буде дозволено "
+"діяти як об'єкти потоку у цьому домені."
+
+#: ../../manual/physics/smoke/types/domain.rst:217
+msgid "Collision Group"
+msgstr "Група Зіткнення -- Collision Group"
+
+#: ../../manual/physics/smoke/types/domain.rst:215
+msgid ""
+"If set, only objects in the specified :doc:`Group "
+"</editors/3dview/object/properties/relations/groups>` will be allowed to "
+"act as collision objects in this domain."
+msgstr ""
+"При заданні, тільки об'єктам, визначеним у цій групі -- :doc:`Group "
+"</editors/3dview/object/properties/relations/groups>`, буде дозволено "
+"діяти як об'єкти зіткнення у цьому домені."
+
+#: ../../manual/physics/smoke/types/domain.rst:220
+msgid "Smoke Cache"
+msgstr "Кеш Диму -- Smoke Cache"
+
+#: ../../manual/physics/smoke/types/domain.rst:226
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke Cache`"
+msgstr "Панель:    «Фізика > Кеш Диму» -- :menuselection:`Physics --> Smoke Cache`"
+
+#: ../../manual/physics/smoke/types/domain.rst:228
+msgid "See :doc:`Baking </physics/smoke/baking>`."
+msgstr "Дивіться детальніше тут -- :doc:`Baking </physics/smoke/baking>`."
+
+#: ../../manual/physics/smoke/types/domain.rst:234
+msgid "Smoke Field Weights"
+msgstr "Вагомості Полів Диму -- Smoke Field Weights"
+
+#: ../../manual/physics/smoke/types/domain.rst:240
+#, fuzzy
+msgid ":menuselection:`Physics --> Smoke Field Weights`"
+msgstr ""
+"Панель:    «Фізика > Вагомості Полів Диму» -- :menuselection:`Physics -->"
+" Smoke Field Weights`"
+
+#: ../../manual/physics/smoke/types/domain.rst:242
+msgid ""
+"These settings determine how much gravity and :doc:`Force Fields "
+"</physics/force_fields/index>` affect the smoke."
+msgstr ""
+"Ці устави визначають, наскільки гравітація та силові поля -- :doc:`Force "
+"Fields </physics/force_fields/index>` впливатимуть на дим."
+
+#: ../../manual/physics/smoke/types/domain.rst:244
+msgid "Effector Group"
+msgstr "Група Ефекторів -- Effector Group"
+
+#: ../../manual/physics/smoke/types/domain.rst:245
+msgid ""
+"When set, smoke can only be influenced by force fields in the specified "
+"group."
+msgstr ""
+"При заданні, на дим зможуть впливати тільки об'єкти із силовими полями, "
+"що входять у вказану групу."
+
+#: ../../manual/physics/smoke/types/domain.rst:246
+msgid "Gravity"
+msgstr "Гравітація -- Gravity"
+
+#: ../../manual/physics/smoke/types/domain.rst:247
+msgid "How much the smoke is affected by Gravity."
+msgstr "Наскільки Гравітація -- Gravity впливає на дим."
+
+#: ../../manual/physics/smoke/types/domain.rst:249
+msgid "All"
+msgstr "Усе -- All"
+
+#: ../../manual/physics/smoke/types/domain.rst:249
+msgid "Overall influence of all force fields."
+msgstr "Загальний вплив усіх силових полів."
+
+#: ../../manual/physics/smoke/types/domain.rst:251
+msgid ""
+"The other settings determine how much influence individual force field "
+"types have."
+msgstr "Інші устави визначають величини впливів окремих силових полів."
+
+#: ../../manual/physics/smoke/types/domain.rst:256
+msgid "Smoke with a wind force field."
+msgstr "Дим, на який впливає силове поле «Вітер» -- Wind."
+
+#: ../../manual/physics/smoke/types/domain.rst:260
+msgid "Note on Divisions and High Resolution"
+msgstr "Примітки щодо поділів та високої роздільності"
+
+#: ../../manual/physics/smoke/types/domain.rst:262
+msgid ""
+":ref:`High Resolution Divisions <smoke-high-resolution>` and :ref:`Domain"
+" Subdivisions <smoke-resolution>` are not equivalent. By using different "
+"combinations of these resolution settings, you can obtain a variety of "
+"different styles of smoke."
+msgstr ""
+"Поділи Високої Роздільності -- :ref:`High Resolution Divisions <smoke-"
+"high-resolution>` та Підподіли Домену -- :ref:`Domain Subdivisions "
+"<smoke-resolution>` не еквівалентні. Використовуючи різні комбінації цих "
+"устав роздільності, ви можете отримувати варіації різних стилів диму."
+
+#: ../../manual/physics/smoke/types/domain.rst:269
+msgid ""
+"Comparison between a domain with 24 divisions and 4 *High Resolution* "
+"divisions (left), and a domain with 100 divisions and 1 *High Resolution*"
+" division (right)."
+msgstr ""
+"Порівняння між доменом з 24 підподілами та 4 поділами *High Resolution* "
+"(зліва) та доменом з 100 підподілами та 1 поділом *High Resolution* "
+"(справа)."
+
+#: ../../manual/physics/smoke/types/domain.rst:272
+msgid ""
+"Low division simulations with lots of *High Resolution* divisions "
+"generally appear smaller in real-world scale (larger flames, etc.) and "
+"can be used to achieve pyroclastic plumes such as this:"
+msgstr ""
+"Імітації з низькою кількістю підподілів та великою кількістю поділів "
+"*High Resolution* загалом виглядають меншими у масштабі реального світу "
+"(більше полум'я тощо) та можуть використовуватися для досягнення "
+"пірокластичних стовпів виверження або вибуху, таких як це:"
+
+#: ../../manual/physics/smoke/types/domain.rst:280
+msgid ""
+"High *Domain Division* simulations tend to appear larger in real-world "
+"scale, with many smaller details."
+msgstr ""
+"Імітації з високим значенням підподілів домену *Domain Division* та "
+"низьким значенням деталей *High Resolution* тяжіють виглядати більшими у "
+"масштабі реального світу."
+
+#~ msgid "Type:     Domain"
+#~ msgstr "Тип:     «Домен» -- Domain"
+

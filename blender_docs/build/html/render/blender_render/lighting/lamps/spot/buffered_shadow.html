@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Буферовані тіні Прожектора -- Spot Buffered Shadow &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/lighting/lamps/spot/buffered_shadow.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Об&#39;ємні ефекти Прожектора -- Spot Volumetric Effects" href="halo.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Освітлення -- Lighting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lights/index.html">Освітлювачі -- Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shadows/index.html">Тіні -- Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../volumetric_lights.html">Об'ємне освітлення -- Volumetric Lighting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Типи Ламп -- Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lighting_rigs.html">Оснастки Освітлення -- Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Освітлення -- Lighting</a> &raquo;</li>
+        
+          <li><a href="../index.html">Типи Ламп -- Lamp Types</a> &raquo;</li>
+        
+          <li><a href="index.html">Лампа типу «Прожектор» -- Spot</a> &raquo;</li>
+        
+      <li>Буферовані тіні Прожектора -- Spot Buffered Shadow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/lighting/lamps/spot/buffered_shadow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spot-buffered-shadow">
+<h1>Буферовані тіні Прожектора -- Spot Buffered Shadow<a class="headerlink" href="#spot-buffered-shadow" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" />
+<p class="caption"><span class="caption-text">Увімкнено режим «Буферна Тінь» -- Buffer Shadow для лампи «Прожектор» -- Spot.</span></p>
+</div>
+<p>Spotlights can use either
+<a class="reference internal" href="../../shadows/raytraced_properties.html"><span class="doc">Ray-traced Shadows</span></a>
+or buffered shadows. Either of the two can provide various extra options.</p>
+<p>Ray-traced shadows are generally more accurate,
+with extra capabilities such as transparent shadows, although they are quite slower to render.</p>
+<p>Буферовані тіні є більш складними для укладання та вимагають більше хитрування, але швидкість їх зображування, рендерингу є визначальною перевагою їх вживання. Як би там не було, прожектор має спільні, як і для інших типів ламп, опції тіней, що описані тут -- <a class="reference internal" href="../../shadows/shadow_panel.html"><span class="doc">Панель «Тінь» -- Shadow Panel</span></a>.</p>
+<div class="section" id="shadow-buffer-types">
+<h2>Типи буферних тіней<a class="headerlink" href="#shadow-buffer-types" title="Permalink to this headline">¶</a></h2>
+<p>When the <em>Buffer Shadow</em> button is activated,
+the currently selected <em>Spot</em> light generates shadows,
+using a &quot;shadow buffer&quot; rather than using ray tracing,
+and various extra options and buttons appear in the <em>Shadow</em> panel.</p>
+<dl class="docutils">
+<dt>Тип Буфера -- Buffer Type</dt>
+<dd>Існує більше ніж один спосіб генерування буферованих тіней. Тип буфера генерування тіні керує тим, який буде використовуватися генератор.</dd>
+<dt>Є чотири типи генерування тіні:</dt>
+<dd><ul class="first last simple">
+<li>Класично -- Classical</li>
+<li>Класично-Усереднено -- Classic-Halfway</li>
+<li>Нерегулярно -- Irregular</li>
+<li>Глибоко -- Deep</li>
+</ul>
+</dd>
+</dl>
+<p>Детальніше про ці різні методи генерування тіні дивіться інформацію за наступними посиланнями:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.blender.org/development/release-logs/blender-243/irregular-shadow-buffer/">Development Release Logs 2.43: Irregular Shadow Buffer</a>.</li>
+<li><a class="reference external" href="http://www.blendernation.com/2006/10/15/blender-gets-irregular-shadow-buffers/">Blender Nation: Blender Gets Irregular Shadow Buffers</a>.</li>
+<li><a class="reference external" href="https://www.blender.org/development/release-logs/blender-243/shadow-buffer-halfway-average/">Development Release Logs 2.43: Shadow Buffer Halfway Average</a>.</li>
+</ul>
+<div class="section" id="classical-and-classic-halfway">
+<h3>«Класично» -- &quot;Classical&quot; та «Класично-Усереднено» -- &quot;Classic-Halfway&quot;<a class="headerlink" href="#classical-and-classic-halfway" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" />
+<p class="caption"><span class="caption-text">Тип буфера для Буферної Тіні -- «Класично-Усереднено» -- Classic-Halfway.</span></p>
+</div>
+<dl class="docutils">
+<dt>Класично -- Classical</dt>
+<dd><p class="first">Даний тип генерації тіні раніше використовувався Blender'ом як стандарт та є унікальним методом генерування буферованих тіней. Він використовував старий спосіб генерування буферованих тіней, але мав певні проблеми з точністю генерованих тіней і міг бути дуже чутливим до роздільності розміру буфера тіні -- <span class="menuselection">Shadow Buffer ‣ Size</span>, різних значень <em>Bias</em>, а також мав усі проблеми щодо само-затінення.</p>
+<p class="last">Метод генерування тіней <em>Classical</em> є застарілим та фактично ще присутній тут лише для зворотної сумісності зі старшими версіями Blender'а. У більшості інших випадків вам бажано використовувати замість нього метод <em>Classic-Halfway</em>.</p>
+</dd>
+<dt>Класично-Усереднено -- Classic-Halfway</dt>
+<dd><p class="first">Цей тип буфера тіні є покращеним методом буферування тіні та є наразі стандартного вибраною для цього опцією у Blender'і. Він працює, беручи усереднене зчитування першого та другого найближчих значень глибини Z, що дозволяє знизити значення устави <em>Bias</em> та не мати багато проблем із само-затіненням.</p>
+<p>Відсутність необхідності збільшення значень <em>Bias</em> допомагає з точністю тіні, оскільки великі значення <em>Bias</em> можуть означати, що малі грані можуть втрачати їх тіні, а також давати надмірний зсув тіней.</p>
+<p class="last"><em>Classic-Halfway</em> не працює дуже добре при перекриванні граней і можуть траплятися проблеми з відхилянням.</p>
+</dd>
+</dl>
+<p>Наразі такі опції є специфічні для цих методів генерування:</p>
+<dl class="docutils">
+<dt>Розмір -- Size</dt>
+<dd><p class="first">Кнопка з числом <em>Size</em> може мати значення від (512 до 10240). <em>Size</em> представляє роздільність, що використовується для створення розкладки, карти тіні. Ця карта, розкладка тіні далі використовується для визначення місць, де лягатимуть тіні у межах сцени.</p>
+<p>Як приклад, якщо ви маєте <em>Size</em> зі значенням 1024, то це для вас вказує, що дані цієї тіні будуть записані у буфер, що матиме <em>квадратну</em> роздільність 1024×1024 пікселів/вибірок з даного прожектора.</p>
+<p>Чим вище значення <em>Size</em>, тим вище роздільність та точність результатних тіней, при цьому припускається, що всі інші властивості освітлювача і сцени залишаються без змін, хоча, при цьому, буде використовуватися більше пам'яті та часу на обчислення. Зворотне також вірно -- якщо значення <em>Size</em> знижене, то результатні тіні можуть мати нижчу якість, але буде використовуватися менше пам'яті та часу на обчислення.</p>
+<p>Окрім значення <em>Size</em>, вплив на якість генерованих тіней має й інша властивість ламп типу <em>Spot</em> -- кут прожектора (що задається однойменною уставою <em>Size</em> на панелі <em>Spot Shape</em>).</p>
+<p>При збільшенні значення <em>Size</em> на панелі <em>Spot Shape</em> якість відкинутих тіней знижується. Це стається тому, що, коли світлова область лампи <em>Spot</em> робиться більшою (через збільшення розміру форми прожектора), то й область буферу тіні розтягується та масштабується, щоб вписатися у розмір нової освітленої області.</p>
+<p class="last">Устава <em>Size</em> на панелі <em>Shadow</em> для роздільності буферованої тіні не змінюється, щоб компенсувати розмір світлової плями, а тому якість тіней знижується. Якщо ви хочете зберегти для генерованих тіней ту ж якість, то при збільшенні значення <em>Size</em> на панелі Spot Shape ви повинні також збільшити відповідно значення <em>Size</em> на панелі Shadow для буфера тіні.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Вищенаведене базово зводиться до такого</p>
+<p class="last">Якщо ви маєте світлову пляму прожектора, яка збільшена, то вам необхідно мати збільшений розмір <em>Size</em> і для буфера тіні, щоб зберегти для тіней добру якість. Зворотне також вірно -- якість генерованих тіней буде зазвичай покращуватися (до певного моменту) при зменшенні площі світлової плями лампи <em>Spot</em>.</p>
+</div>
+<dl class="docutils">
+<dt>Тип Фільтра -- Filter Type</dt>
+<dd><p class="first">Типи фільтрів <em>Box</em>, <em>Tent</em> та <em>Gauss</em> керують тим, як алгоритм фільтрування використовується для загладжування буферованих тіней.</p>
+<p>Вони тісно пов'язані зі значенням устави <em>Samples</em>, оскільки при заданні для неї значення як 1 фільтрування тіні вимикається та жоден з цих фільтрів не матиме жодного ефекту.</p>
+<dl class="docutils">
+<dt>Коробка -- Box</dt>
+<dd>Буферовані тіні будуть загладжуватися за допомогою методу фільтрування &quot;box&quot;. Це оригінальний фільтр, використовуваний у Blender'і. Він дає відносно низьку якість та використовується для низько роздільних зображів, рендерів, оскільки продукує дуже різке загладжування. Коли це фільтр використовується, то враховуються тільки ті дані перебору, які потрапляють у межі одиничного пікселя, та не враховуються вибірки навколишніх пікселів. Це часто корисно для зображень, які мають елементи з гострими кутами та горизонтальними/вертикальними лініями.</dd>
+<dt>Намет -- Tent</dt>
+<dd>The buffered shadows will be anti-aliased using the &quot;tent&quot; filtering method.
+It is a simple filter that gives sharp results, an excellent general-purpose filtering method.
+This filter also takes into account the sample values of neighboring pixels when
+calculating its final filtering value.</dd>
+<dt>Гаус -- Gauss</dt>
+<dd>Буферні тіні будуть загладжуватися за допомогою методу фільтрування &quot;Gaussian&quot;. Він продукує дуже м'яке/розмите загладжування. Як результат, цей фільтр є відмінним для високо роздільних зображів, рендерів.</dd>
+</dl>
+<p class="last">Більше інформації про різні методи фільтрування/розподілу дивіться тут -- <a class="reference internal" href="../../../settings/antialiasing.html"><span class="doc">Anti-Aliasing page</span></a>.</p>
+</dd>
+<dt>Вибірки -- Samples</dt>
+<dd><p class="first">Числова кнопка <em>Samples</em> може мати значення між (1 та 16). Вона керує кількість вибірок, взятих на піксель, при обчисленні карт, розкладок тіней.</p>
+<p>Чим вище це значення, тим будуть більш фільтрованими, згладженими та загладженими тіні, відкинуті для поточної лампи, але й потрібно буде більше пам'яті та часу на їх обчислення. Використовуваний метод загладжування визначається активованою кнопкою <em>Box</em>, <em>Tent</em> або <em>Gauss</em> (дивіться вище).</p>
+<p class="last">Наявність значення <em>Samples</em> як 1 аналогічна вимкненню загладжування для буферованих тіней.</p>
+</dd>
+<dt>М'якість -- Soft</dt>
+<dd>Кнопка з числом <em>Soft</em> може мати значення між (1.0 до 100.0). Вона визначає, наскільки широко вибирається область при здійсненні загладжування буферованих тіней. Чим більше значення <em>Soft</em>, тим більш градуйована/м'яка область, що загладжується/пом'якшується, на краях генерованих тіней.</dd>
+<dt>Буфери Вибірок -- Sample Buffers</dt>
+<dd><p class="first">Устава <em>Sample Buffers</em> може мати значення (1, 4 або 9) та представляє кількість буферів тіні, що буде використовуватися при здійсненні загладжування буферованих тіней.</p>
+<p>Ця опція використовується в особливих випадках, зокрема, коли маленькі об'єкти рухаються та потребують генерування дійсно маленьких тіней (наприклад, пасма, нитки). Це з'являється, коли звичайним чином тіні з шириною у піксель не загладжуються належно, збільшення <em>Buffer Size</em> більше не допомагає.</p>
+<p>Тому, ця опція дозволяє вам мати свого роду додатковий прохід вибірки, що здійснюється поверх звичайного (який керується уставами <em>Box</em> / <em>Tent</em> / <em>Gauss</em>, <em>Samples</em> та <em>Soft</em>).</p>
+<p>Стандартне значення 1 вимикає цю опцію.</p>
+<p class="last">Вищі значення продукують плавніше загладжування -- але будьте обережні: використання значення <em>Sample Buffers</em> як 4 буде вимагати у чотири рази більше пам'яті та часу на обчислення, оскільки Blender'у прийдеться таку кількість раз обчислювати кожну вибірку.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="irregular">
+<h3>«Нерегулярно» -- &quot;Irregular&quot;<a class="headerlink" href="#irregular" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_irregular.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_irregular.png" />
+<p class="caption"><span class="caption-text">Тип буфера для Буферної Тіні -- «Нерегулярно» -- Irregular.</span></p>
+</div>
+<p>Irregular shadow method is used to generate sharp/hard shadows that are placed as accurately as ray-traced shadows.
+This method offers very good performance because it can be done as a multi-threaded process.</p>
+<p>Цей метод підтримує прозорі тіні. Для цього вам спершу необхідно укласти властивості -- опцію «Відкидати Буферні Тіні» та уставу «Відхил Буфера», для об'єкта, який буде отримувати прозору тінь -- <span class="menuselection">Material ‣ Shadow ‣ Cast Buffer Shadows and Buffer Bias</span>.</p>
+</div>
+<div class="section" id="deep-generation-method">
+<h3>Метод генерування «Глибоко» -- Deep<a class="headerlink" href="#deep-generation-method" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_deep.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_deep.png" />
+<p class="caption"><span class="caption-text">Тип буфера для Буферної Тіні -- «Глибоко» -- Deep.</span></p>
+<div class="legend">
+Типу буфера тіні «Глибоко» підтримує прозорість та краще фільтрування, за рахунок більших затрат пам'яті та часу на обчислення.</div>
+</div>
+<dl class="docutils">
+<dt>Стиснення -- Compress</dt>
+<dd>Поріг стиснення карти, розкладки глибоких тіней.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-options">
+<h2>Загальні опції<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>Наступні устави є загальними для усіх методів генерування буферованої тіні.</p>
+<dl class="docutils">
+<dt>Відхил -- Bias</dt>
+<dd><p class="first">Кнопка з числом <em>Bias</em> може мати значення між (0.001 to 5.0). <em>Bias</em> використовується для додання невеликого зсуву відстані між об'єктом та тінню, яку він відкидає. Це іноді необхідно, через неточності в обчисленні, яке визначає чи є ця область об'єктом, чи є тінню.</p>
+<p>Making the <em>Bias</em> value smaller results in the distance between the object and its shadow being smaller.
+If the <em>Bias</em> value is too small, an object can get artifacts,
+which can appear as lines and interference patterns on objects.
+This problem is usually called &quot;self-shadowing&quot;,
+and can usually be fixed by increasing the <em>Bias</em> value, which exists for that purpose!</p>
+<p>Other methods for correcting self-shadowing include increasing the size of the <em>Shadow Buffer Size</em>
+or using a different buffered shadow calculation method such as <em>Classic-Halfway</em> or <em>Irregular</em>.</p>
+<p>Self-shadowing interference tends to affect curved surfaces more than flat ones,
+meaning that if your scene has a lot of curved surfaces it may be necessary to increase
+the <em>Bias</em> value or <em>Shadow Buffer Size</em> value.</p>
+<p class="last">Наявність надмірно великих значень <em>Bias</em> не тільки розмістить тіні дуже далеко від об'єктів, що їх відкидають, але може також те, що дуже маленькі об'єкти взагалі не будуть відкидати тіні. У такий момент для виправлення цієї проблеми може вимагатися, серед інших, і зміна значень <em>Bias</em>, <em>Shadow Buffer Size</em> або <em>Spot Size</em>.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Тонке підлаштування Bias</p>
+<p class="last">Тепер ви можете тонко підлаштовувати <em>Bias</em> окремо для кожного матеріалу -- <a class="reference internal" href="../../../materials/index.html"><span class="doc">Material</span></a>, використовуючи повзунок <em>Buffer Bias</em> (вкладка <em>Material</em>, панель <em>Shadow</em>). Це значення є фактором, на який множиться значення устави <em>Bias</em> буферованої тіні кожної лампи типу <em>Spot</em> кожен раз, коли світло від неї потрапляє на об'єкт з цим матеріалом. Значення (0.0 та 1.0) є еквівалентними. Вони не змінюють оригінальне значення <em>Bias</em> для лампи.</p>
+</div>
+<dl class="docutils">
+<dt>Старт Відсіку -- Clip Start та Кінець Відсіку -- Clip End</dt>
+<dd><p class="first">При увімкненні Буферованої Тіні для лампи <em>Spot</em> на візуальної її представленні у 3D Огляді -- 3D View з'являється додаткова лінія.</p>
+<p>Стартова точка цієї лінії представляє значення устави <em>Clip Start</em>, а кінцева точка -- значення устави <em>Clip End</em>. <em>Clip Start</em> може мати значення між (0.1 до 1000.0), а <em>Clip End</em> -- між (1.0 до 5000.0). Обидва значення вимірюються в Одиницях Blender.</p>
+<p><em>Clip Start</em> вказує на точку, після якої буферовані тіні можуть бути присутніми у межах світлової області лампи <em>Spot</em>. Будь-яка тінь, яка може бути представлена перед цією точкою, ігнорується та жодна тінь не генерується.</p>
+<p><em>Clip End</em> вказує на точку, після якої буферовані тіні не будуть генеруватися у межах світлової області лампи <em>Spot</em>. Будь-яка тінь, яка може бути представлена після цієї точки, ігнорується та жодна тінь не генерується.</p>
+<p>Область між <em>Clip Start</em> та <em>Clip End</em> буде здатна мати генеровані буферовані тіні.</p>
+<p>Зміна значень <em>Clip Start</em> та <em>Clip End</em> допомагає керувати тим, де тіні можуть бути генеровані. Зміна діапазону між <em>Clip Start</em> та <em>Clip End</em> може допомогти пришвидшити зображування, рендеринг, заощадити пам'ять та зробити результатні тіні більш точними.</p>
+<p class="last">При використанні лампи <em>Spot</em> з буферованими тінями для збереження або покращення якості генерованих тіней корисно коригувати ці <em>Clip Start</em> та <em>Clip End</em>, оскільки їх значення тісно пов'язані з областями, в яких генеруються тіні. Мінімізація діапазону між <em>Clip Start</em> та <em>Clip End</em> мінімізує область, в якій обчислюються тіні та, звідси, може допомогти збільшити якість тіні у більш обмеженій області.</p>
+</dd>
+<dt>Старт Авто відсіку -- Autoclip Start / Кінець Авто відсіку -- Autoclip End</dt>
+<dd><p class="first">Окрім ручного задання устав <em>Clip Start</em> та <em>Clip End</em> для керування тим, де буферовані тіні починаються і закінчуються, також є можливим дозволити Blender'у автоматично самостійно вибирати найкраще значення для кожної з цих <em>Clip Start</em> та <em>Clip End</em> устав.</p>
+<p class="last">Blender робить це, переглядаючи, де знаходяться видимі вершини з позиції лампи <em>Spot</em>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>Будь-який об'єкт у Blender'і може діяти як камера у 3D Огляді -- 3D View. Звідси, ви можете виділити освітлювач <em>Spot</em> та перемкнутися на погляд з його точки зору, натиснувши <kbd class="kbd docutils literal notranslate">Ctrl-Numpad0</kbd>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="halo.html" class="btn btn-neutral float-right" title="Об&#39;ємні ефекти Прожектора -- Spot Volumetric Effects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

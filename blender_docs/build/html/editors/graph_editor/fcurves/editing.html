@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Редагування -- Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/fcurves/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Властивості -- Properties" href="properties.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Канали</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">F-Криві -- F-Curves</a> &raquo;</li>
+        
+      <li>Редагування -- Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/graph_editor/fcurves/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing">
+<h1>Редагування -- Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
+<p>By default, when new channels are added, the <em>Graph Editor</em> sets them to <em>Edit Mode</em>.</p>
+<p>Many of the hotkeys are the same as the <a class="reference internal" href="../../3dview/object/index.html"><span class="doc">3D View ones</span></a>,
+for example:</p>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">G</kbd> для пересуву</li>
+<li><kbd class="kbd docutils literal notranslate">R</kbd> для обертання</li>
+<li><kbd class="kbd docutils literal notranslate">S</kbd> для масштабування</li>
+<li><kbd class="kbd docutils literal notranslate">B</kbd> для виділу/зневиділу рамкою</li>
+</ul>
+<p>And of course you can lock the transformation along the X axis (time frame) or
+Y axis (value) by pressing <kbd class="kbd docutils literal notranslate">X</kbd> or <kbd class="kbd docutils literal notranslate">Y</kbd> during transformation.</p>
+<p>Для точного керування позицією та значенням ключкадра ви можете задавати значення на панелі «Активний Ключкадр» -- <em>Active Keyframe</em> у регіоні Властивості -- Properties Region редактора.</p>
+<div class="section" id="insert-keyframe">
+<h2>Вставлення Ключкадрів -- Insert Keyframe<a class="headerlink" href="#insert-keyframe" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> inserts a keyframe to the active F-Curve at the mouse position.
+The newly added keyframes will be selected, making it easier to quickly tweak the newly added keyframes.
+All previously selected keyframes are kept selected by using <kbd class="kbd docutils literal notranslate">Shift-Ctrl-LMB</kbd>.</p>
+</div>
+<div class="section" id="transform-snapping">
+<h2>Трансформаційне Підхоплення -- Transform Snapping<a class="headerlink" href="#transform-snapping" title="Permalink to this headline">¶</a></h2>
+<p>При трансформуванні ключкадрів з <kbd class="kbd docutils literal notranslate">G</kbd>, <kbd class="kbd docutils literal notranslate">R</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd> таке трансформування може бути підхоплене до поділок сітки.</p>
+<p>Підхоп трансформування кроками по 1.0 здійснюється з утримуваною натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd>.</p>
+<p>Поділений підхоп трансформування кроками по 0.1 здійснюється з утримуваною натисненою <kbd class="kbd docutils literal notranslate">Shift</kbd>.</p>
+<div class="section" id="snap">
+<h3>Підхоп -- Snap<a class="headerlink" href="#snap" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Snap</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ключкадри можуть підхоплюватися до різних властивостей за допомогою засобу «Підхоп Ключів» -- <em>Snap Keys</em>.</p>
+<dl class="docutils">
+<dt>Поточний Кадр -- Current Frame</dt>
+<dd>Підхоплює виділені ключкадри до горизонтальної позиції Курсора Часу -- <em>Time Cursor</em>.</dd>
+<dt>Значення Курсора -- Cursor Value</dt>
+<dd>Підхоплює виділені ключкадри до вертикальної позиції Курсора -- <em>Cursor</em>.</dd>
+<dt>Найближчий Кадр -- Nearest Frame</dt>
+<dd>Підхоплює виділені ключкадри до їх найближчих кадрів кожен окремо.</dd>
+<dt>Найближча Секунда -- Nearest Second</dt>
+<dd>Підхоплює виділені ключкадри до їх найближчої секунди кожен окремо на основі частоти кадрів -- <em>FPS</em> сцени.</dd>
+<dt>Найближча Мітка -- Nearest Marker</dt>
+<dd>Підхоплює виділені ключкадри до їх найближчої мітки кожен окремо.</dd>
+<dt>Сплющені Держаки -- Flatten Handles</dt>
+<dd><p class="first">Підхоплює, сплющуючи держаки Безьє -- <em>Bézier</em> для виділених ключкадрів.</p>
+<table border="1" class="last docutils" id="flatten-handles">
+<caption><span class="caption-text">Приклад підхоплення зі сплющенням держаків -- опція Flatten Handles.</span><a class="headerlink" href="#flatten-handles" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png" src="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png" style="width: 204px;" /></a>
+<p class="caption"><span class="caption-text">Перед підхопу зі сплющенням -- опція Flatten Handles.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png" src="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png" style="width: 204px;" /></a>
+<p class="caption"><span class="caption-text">Після підхопу зі сплющенням -- опція Flatten Handles.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="mirror">
+<h2>Дзеркалення -- Mirror<a class="headerlink" href="#mirror" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Mirror</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділені ключкадри можуть бути віддзеркалені через різні властивості за допомогою засобу «Дзеркалити Ключі» -- <em>Mirror Keys</em>.</p>
+<dl class="docutils">
+<dt>За Часом Через Поточний Кадр -- By Times Over Current Frame</dt>
+<dd>Дзеркалить горизонтально через Курсор Часу -- <em>Time Cursor</em>.</dd>
+<dt>За Значеннями через Значення Курсора -- By Values over Cursor Value</dt>
+<dd>Дзеркалить вертикально через Курсор -- <em>Cursor</em>.</dd>
+<dt>За Часом через Кадр «0» -- By Times over Time 0</dt>
+<dd>Дзеркалить горизонтально через кадр «0».</dd>
+<dt>За Значеннями через Значення «0» -- By Values over Value 0</dt>
+<dd>Дзеркалить вертикально через значення «0».</dd>
+<dt>За Часом через Першу Виділену Мітку -- By Times over First Selected Marker</dt>
+<dd>Дзеркалить горизонтально через першу виділену Мітку -- <em>Marker</em>.</dd>
+</dl>
+</div>
+<div class="section" id="clean-keyframes">
+<h2>Вичистити Ключкадри -- Clean Keyframes<a class="headerlink" href="#clean-keyframes" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Clean Keyframes</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Команда «Вичистити Ключкадри» -- <em>Clean Keyframes</em> скидає дотичні, тангенси ключкадрів на виділених ключкадрах в їх авто-затиснуту форму, якщо вони були модифіковані.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива перед вичищенням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean2.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива після вичищення.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="clean-channels">
+<h2>Вичистити Канали -- Clean Channels<a class="headerlink" href="#clean-channels" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Channels</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Діє подібно до «Вичистити Ключкадри» -- <em>Clean Keyframes</em>, але також видаляє сам канал, якщо він залишається тільки з одним ключкадром, що містить стандартне значення властивості, та не використовується генеративними модифікаторами F-Кривої або драйверами.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The modified curve left after the Clean tool is run is not the same as the original,
+so this tool is better used before doing custom editing of f-curves and after initial keyframe insertion,
+to get rid of any unwanted keyframes inserted while doing mass keyframe insertion
+(by selecting all bones and pressing <kbd class="kbd docutils literal notranslate">I</kbd> for instance).</p>
+</div>
+</div>
+<div class="section" id="smoothing">
+<h2>Згладження -- Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Smooth Keys</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-O</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is also an option to smooth the selected curves, but beware: its algorithm seems to be
+to divide by two the distance between each keyframe and the average linear value of the curve,
+without any setting, which gives quite a strong smoothing! Note that the first and last keys
+seem to be never modified by this tool.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива перед згладженням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_smooth.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_smooth.png" src="../../../_images/editors_graph-editor_fcurves_editing_smooth.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива після згладження.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sampling-and-baking-keyframes">
+<h2>Вибірка та Запікання Ключкадрів -- Sampling and Baking Keyframes<a class="headerlink" href="#sampling-and-baking-keyframes" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Вибірка Ключкадрів -- Sample Keyframes <kbd class="kbd docutils literal notranslate">Shift-O</kbd></dt>
+<dd><p class="first">Sampling a set of keyframes replaces interpolated values with a new keyframe for each frame.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_sample.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_sample.png" src="../../../_images/editors_graph-editor_fcurves_editing_sample.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива перед відбиранням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_sample2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_sample2.png" src="../../../_images/editors_graph-editor_fcurves_editing_sample2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Крива після відбирання.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Запекти Криву -- Bake Curve <kbd class="kbd docutils literal notranslate">Alt-C</kbd></dt>
+<dd>Запікання кривої замінює її набором відібраних точок та вилучає здатність до редагування для неї.</dd>
+</dl>
+</div>
+<div class="section" id="bake-sound-to-f-curves">
+<h2>Запекти Звук у F-Криві -- Bake Sound to F-Curves<a class="headerlink" href="#bake-sound-to-f-curves" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Bake Sound to F-Curves</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <em>Bake Sound to F-Curves</em> tool takes a sound file and uses its sound wave to create the animation data.</p>
+<dl class="docutils">
+<dt>Найнижча частота -- Lowest frequency</dt>
+<dd>Високочастотний фільтр відрізу частоти, що застосовується до звукових даних.</dd>
+<dt>Найвища частота -- Highest frequency</dt>
+<dd>Низькочастотний фільтр відрізу частоти, що застосовується до звукових даних.</dd>
+<dt>Час атаки -- Attack time</dt>
+<dd>Значення для обчислення корпусу кривої, що показує, як швидко цей корпус може зростати. Чим нижче значення, тим крутіше він буде зростати.</dd>
+<dt>Час відпуску -- Release time</dt>
+<dd>Значення для обчислення корпусу кривої, що показує, як швидко цей корпус може спадати. Чим нижче значення, тим крутіше він спадає.</dd>
+<dt>Поріг -- Threshold</dt>
+<dd>Необхідне мінімальне значення для впливу на корпус кривої.</dd>
+<dt>Накопичення -- Accumulate</dt>
+<dd>Тільки додатні різниці амплітуд корпусу кривої підсумовуються для продукування виводу.</dd>
+<dt>Доповняльно -- Additive</dt>
+<dd>Амплітуди корпусу кривої підсумовуються. Якщо опція «Накопичення» -- <em>Accumulate</em> увімкнена, то накопичуються як додатні, так і від'ємні різниці.</dd>
+<dt>Квадрат -- Square</dt>
+<dd><p class="first">Дає вивід у вигляді квадратової кривої. Від'ємні значення завжди дають -1, а додатні -- 1.</p>
+<dl class="last docutils">
+<dt>Поріг Квадрата -- Square Threshold</dt>
+<dd>Усі значення, нижчі за цей поріг, обнуляються у 0.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="show-hide">
+<h2>Показ/Схов -- Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Схов -- Hide <kbd class="kbd docutils literal notranslate">H</kbd></dt>
+<dd>Ховає виділені криві.</dd>
+<dt>Сховати Невиділене -- Hide Unselected <kbd class="kbd docutils literal notranslate">Shift-H</kbd></dt>
+<dd>Показує тільки виділену криву (та ховає все інше).</dd>
+<dt>Показати Сховане -- Show Hidden <kbd class="kbd docutils literal notranslate">Alt-H</kbd></dt>
+<dd>Показує усіх попередньо сховані криві.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="Властивості -- Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

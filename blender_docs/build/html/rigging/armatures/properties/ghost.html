@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Привиди -- Ghosts &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/properties/ghost.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Структура -- Structure" href="../structure.html" />
+    <link rel="prev" title="Панель «Бібліотека Поз» -- Pose Library Panel" href="pose_library.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bones/index.html">Кістки -- Bones</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Властивості -- Properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skeleton.html">Скелет -- Skeleton</a></li>
+<li class="toctree-l4"><a class="reference internal" href="display.html">Панель «Показ» -- Display Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bone_groups.html">Групи Кісток -- Bone Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pose_library.html">Панель «Бібліотека Поз» -- Pose Library Panel</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Привиди -- Ghosts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості -- Properties</a> &raquo;</li>
+        
+      <li>Привиди -- Ghosts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/armatures/properties/ghost.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ghost">
+<h1>Привиди -- Ghosts<a class="headerlink" href="#ghost" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Armature ‣ Ghost</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ghosts are black outlines (more or less opaque) of the bones as they are positioned at certain frames.
+This visualization is only shown in <em>Pose Mode</em>.</p>
+<p>In traditional cartoon creation, animators use tracing paper,
+to see several frames preceding the one they are working on.
+This allows them to visualize the overall movement of their character,
+without having to play it back.
+Blender features something very similar for armatures: the &quot;ghosts&quot;.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Приклади привидів.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_ghost_example1.png"><img alt="../../../_images/rigging_armatures_properties_ghost_example1.png" src="../../../_images/rigging_armatures_properties_ghost_example1.png" style="width: 240px;" /></a>
+</div>
+</td>
+<td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_ghost_example2.png"><img alt="../../../_images/rigging_armatures_properties_ghost_example2.png" src="../../../_images/rigging_armatures_properties_ghost_example2.png" style="width: 240px;" /></a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../_images/rigging_armatures_properties_ghost_panel.png" src="../../../_images/rigging_armatures_properties_ghost_panel.png" />
+<p class="caption"><span class="caption-text">Панель «Привид» -- Ghost.</span></p>
+</div>
+<p>The ghosts settings are found in the <em>Armature</em> tab.</p>
+<dl class="docutils">
+<dt>Тип</dt>
+<dd><dl class="first last docutils">
+<dt>Навколо Кадру -- Around Frame</dt>
+<dd>Це дає показ заданої кількості привидів перед та після поточного кадру. Привиди показуються більш безпрозорими для кадрів біля поточного кадру і більше прозорими для кадрів, що дальше від поточного кадру.</dd>
+<dt>У Діапазоні -- In Range</dt>
+<dd>Це дає показ привидів кісток арматури всередині заданого діапазону кадрів. Привиди показуються більш прозорими для перших кадрів діапазону і більше безпрозорими для останніх кадрів діапазону. Цей тип має чотири опції.</dd>
+<dt>На Ключкадрах -- On Keyframes</dt>
+<dd>This is very similar to the <em>In Range</em> option,
+but there are ghosts only for keyframes in the armature animation
+(i.e. frames at which you keyed one or more of the bones).
+So it has the same options as above, except for the <em>Step</em> one (as only keyframes generate ghosts).
+Oddly, the shading of ghosts is reversed compared to <em>In Range</em> -- from opaque for the first keyframe,
+to transparent for the last keyframe.</dd>
+</dl>
+</dd>
+<dt>Діапазон -- Range</dt>
+<dd>Ця кнопка з числом визначає, скільки привидів ви будете мати на обидвох «боках» (тобто значення 5 буде давати десять привидів, п'ять перед поточним кадром та п'ять після нього).</dd>
+<dt>Старт -- Start, Кінець -- End</dt>
+<dd>Ця числова кнопка визначає стартовий/кінцевий кадр діапазону (виключно). Зауважте, що на жаль це не може бути нульовим або від'ємним значенням, що означає, що ви можете бачити тільки привиди, починаючи з кадру 2 включно....</dd>
+<dt>Крок -- Step</dt>
+<dd>Ця кнопка з числом визначає, чи буде у кожному кадрі у вас привид (стандартне значення 1), чи один на два кадри, один на три кадри тощо.</dd>
+</dl>
+<div class="section" id="display">
+<h3>Показ -- Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Лише Виділене -- Selected Only</dt>
+<dd>При увімкненні, ви будете бачити привиди тільки виділених кісток (інакше, кожна кістка в арматурі буде мати привиди...).</dd>
+</dl>
+<p>Наостанок, ці привиди є також активними при програванні анімації за <kbd class="kbd docutils literal notranslate">Alt-A</kbd> -- це корисно тільки з опцією <em>Around Frame</em>, звичайно ж, ....</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Там не має жодного «глобального перемикача» для вимкнення цієї функції показу. Щоб її вимкнути, вам необхідно або задати значення устави <em>Ghost</em> як 0 (для опції <em>Around Frame</em>), або однакове значення для устав <em>Start</em> та <em>End</em> (для двох інших типів привидів).</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../structure.html" class="btn btn-neutral float-right" title="Структура -- Structure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pose_library.html" class="btn btn-neutral" title="Панель «Бібліотека Поз» -- Pose Library Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

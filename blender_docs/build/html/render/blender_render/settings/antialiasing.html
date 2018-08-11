@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Загладжування -- Anti-Aliasing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/settings/antialiasing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Запікання Зобража -- Render Baking" href="../bake.html" />
+    <link rel="prev" title="Розмив Рухом -- Motion Blur" href="motion_blur.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Устави Зображування, рендерингу -- Render Settings</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="layers.html">Шари Зобража -- Render Layers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="passes.html">Проходи Зобража -- Render Passes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shading.html">Відтінення -- Shading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="motion_blur.html">Розмив Рухом -- Motion Blur</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Загладжування -- Anti-Aliasing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Устави Зображування, рендерингу -- Render Settings</a> &raquo;</li>
+        
+      <li>Загладжування -- Anti-Aliasing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/settings/antialiasing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anti-aliasing">
+<h1>Загладжування -- Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h1>
+<p>Генероване комп'ютером зображення складається з пікселів; кожен піксель може, звичайно, бути тільки одного кольору. У процесі зображування, рендерингу рушій зобража повинен призначати один колір для кожного пікселя на основі того, який об'єкт показується у тому пікселі. Це часто призводить до поганих результатів, особливо на різких границях або у місцях тонких ліній, і це особливо очевидно для похилих ліній.</p>
+<p>Для долання цієї проблеми, яка називається «ступінчатість» -- <em>Aliasing</em>, можна вдатися до техніки «анти-ступінчатість» чи «загладжування» -- Anti-Aliasing. Базово, кожен піксель «перебирається» через зображування, рендеринг його, ніби це п'ять або більше пікселів, та на основі цього призначається для рендереного пікселя «усереднений» колір.</p>
+<p>The buttons to control Anti-Aliasing, or Oversampling (OSA),
+are below the rendering button in the <em>Render</em> Panel.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Anti-Aliasing (checkbox)</dt>
+<dd>Вмикає перебирання.</dd>
+<dt>Вибірки -- Samples</dt>
+<dd><p class="first">Кількість вибірок на піксель. Вищі значення дають кращі краї, але уповільнюють зображування, рендеринг.</p>
+<p class="last">5, 8, 11, 16</p>
+</dd>
+</dl>
+<p>Стандартно, ми використовуємо у Blender'і фіксовану таблицю «розподіленого тремтіння» -- &quot;Distributed Jitter&quot;. Вибірки у межах пікселя розподіляються та відхиляються у спосіб, що забезпечує дві характеристики:</p>
+<ol class="arabic simple">
+<li>Кожна вибірка має рівні відстані до сусідніх для неї вибірок.</li>
+<li>Вибірки охоплюються усі під-піксельні позиції однаково, як горизонтально, так і вертикально.</li>
+</ol>
+<p>Ілюстрація нижче показує взірці вибірок у Blender'і для 5, 8, 11 та 16 вибірок. Для показу того, що розподіл вирівнюється по кільком пікселям, також прорисовані взірці сусідніх пікселів. Зауважте, що кожен піксель має ідентичний взірець.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-5.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-5.jpg" />
+<p class="caption"><span class="caption-text">5 вибірок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-8.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-8.jpg" />
+<p class="caption"><span class="caption-text">8 вибірок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-11.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-11.jpg" />
+<p class="caption"><span class="caption-text">11 вибірок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-16.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-16.jpg" />
+<p class="caption"><span class="caption-text">16 вибірок.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils" id="render-internal-aa-full-sample">
+<dt>Повна Вибірка -- Full Sample</dt>
+<dd>Для кожної вибірки загладжування зберігає результати всього Шару Зобража -- Render Layer. Це вирішує проблеми загладжування при компонуванні.</dd>
+</dl>
+</div>
+<div class="section" id="filtering">
+<h2>Фільтрування -- Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<p>Після зображування, рендерингу вибірок ми отримали інформацію про колір та альфа для кожної вибірки. Далі важливо визначити, наскільки кожна вибірка робить внесок для пікселя.</p>
+<p>Найпростіший метод -- усереднити усі вибірки та зробити результат кольором пікселя. Це називається -- скористатися «коробковим -- Box фільтруванням». Недоліком цього методу -- він не враховує те, що деякі вибірки є дуже близько до краю пікселя, і, звідси, можуть також впливати на колір сусіднього(іх) пікселя(ів).</p>
+<p>Меню «Фільтр Пікселя» -- Pixel Filter дозволяє обрати тип для «усереднення» вибірок:</p>
+<dl class="docutils">
+<dt>Коробка -- Box</dt>
+<dd><p class="first">Низько якісна коробково-формова крива.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Цей фільтр дає відносно низьку якість. Ви можете бачити, що вибірки у межах тільки самого пікселя додаються у колір пікселя. Для інших фільтрів їх формула гарантує, що певна кількість кольору вибірки розподіляється також на інші пікселі.</p>
+</div>
+</dd>
+<dt>Намет -- Tent</dt>
+<dd>Найпростіший фільтр, що дає різкі результати.</dd>
+<dt>Квадратично -- Quadratic</dt>
+<dd>Квадратична крива.</dd>
+<dt>Кубічно -- Cubic</dt>
+<dd>Кубічна крива.</dd>
+<dt>Гаус -- Gauss</dt>
+<dd>Гаусовий розподіл, найбільше розмиття.</dd>
+<dt>Катмул-Ром -- Catmull-Rom</dt>
+<dd>Фільтр за Катмул-Ромом, дає найбільшу різкість.</dd>
+<dt>Мітчел-Нетравалі -- Mitchell-Netravali</dt>
+<dd>Хороший всеосяжний фільтр, що дає розумну різкість.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-box.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-box.jpg" />
+<p class="caption"><span class="caption-text">Коробка -- Box.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-tent.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-tent.jpg" />
+<p class="caption"><span class="caption-text">Намет -- Tent.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-quadratic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-quadratic.jpg" />
+<p class="caption"><span class="caption-text">Квадратично -- Quadratic.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-cubic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-cubic.jpg" />
+<p class="caption"><span class="caption-text">Кубічно -- Cubic.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id9">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-gaussian.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-gaussian.jpg" />
+<p class="caption"><span class="caption-text">Гаусове -- Gaussian.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-catmullrom.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-catmullrom.jpg" />
+<p class="caption"><span class="caption-text">Катмул-Ром -- Catmull-Rom.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-mitchell-netravali.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-mitchell-netravali.jpg" />
+<p class="caption"><span class="caption-text">Мітчел-Нетравалі -- Mitchell-Netravali.</span></p>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filter-size">
+<h2>Розмір фільтру -- Filter Size<a class="headerlink" href="#filter-size" title="Permalink to this headline">¶</a></h2>
+<p>Зменшення значення «Розмір» -- Size для фільтру буде стискати вибірки більше до центру та більше розмивати зображення. Більший Розмір фільтру дає різкіший результат. Зауважте, що два останні фільтри також мають від'ємну частину; це дає результат з додатковою різкістю.</p>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-box.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-box.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Box.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-tent.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-tent.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Tent.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id14">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-quad.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-quad.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Quadratic.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-cubic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-cubic.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Cubic.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id16">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-gauss.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-gauss.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Gaussian.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-catrom.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-catrom.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Catmull-Rom.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id18">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-mitch.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-mitch.jpg" />
+<p class="caption"><span class="caption-text">AA 8, фільтр Mitchell-Netravali.</span></p>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bake.html" class="btn btn-neutral float-right" title="Запікання Зобража -- Render Baking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="motion_blur.html" class="btn btn-neutral" title="Розмив Рухом -- Motion Blur" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

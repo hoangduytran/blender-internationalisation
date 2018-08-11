@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Примус «Дія» -- Action Constraint &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/constraints/relationship/action.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Примус «Нащадок» -- Child Of Constraint" href="child_of.html" />
+    <link rel="prev" title="Примус «Стеження За» -- Track To Constraint" href="../tracking/track_to.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Примуси -- Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Інтерфейс -- Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#motion-tracking">Простеження Руху -- Motion Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Трансформації -- Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Простеження -- Tracking</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#relationship">Відношення -- Relationship</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Примус «Дія» -- Action Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="child_of.html">Примус «Нащадок» -- Child Of Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="floor.html">Примус «Підлога» -- Floor Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow_path.html">Примус «Слідування Шляхом» -- Follow Path Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pivot.html">Примус «Опорточка» -- Pivot Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigid_body_joint.html">Примус «Зчленування Твердого Тіла» -- Rigid Body Joint Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Примус «Обтягування» -- Shrinkwrap Constraint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Арматури -- Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Примуси -- Constraints</a> &raquo;</li>
+        
+      <li>Примус «Дія» -- Action Constraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/relationship/action.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="action-constraint">
+<span id="bpy-types-actionconstraint"></span><h1>Примус «Дія» -- Action Constraint<a class="headerlink" href="#action-constraint" title="Permalink to this headline">¶</a></h1>
+<p>Примус «Дія» -- <em>Action</em> є потужним. Він дозволяє вам керувати анімаційною дією -- <a class="reference internal" href="../../../editors/dope_sheet/action.html"><span class="doc">Action</span></a>, використовуючи трансформування іншого об'єкта.</p>
+<p>Ідея в основі примусу <em>Action</em> дуже подібна до ідеї в основі драйверів -- <a class="reference internal" href="../../../animation/drivers/index.html"><span class="doc">Drivers</span></a>, за винятком того, що перший використовує дію цілком (тобто, купу Ф-Кривих -- F-Curves однакового типу), тоді як останні керують одиничною Ф-Кривою свого «володільця»...</p>
+<p>Зауважте, що хоча цей примус приймає для дії тип даних «Сіть» -- <em>Mesh</em>, однак тільки типи «Об'єкт» -- <em>Object</em>, «Поза» -- <em>Pose</em> та «Примус» -- <em>Constraint</em> будуть реально працювати, оскільки примуси можуть впливати лише на трансформаційні властивості об'єктів або кісток, а не на форми сітей. Також, зверніть увагу, що цей примус впливає тільки на властивості трансформування об'єкта (локація, оберт, масштаб), і якщо дія містить ключкадри для інших, ніж ці, властивостей, то вони ігноруються, оскільки примуси на них не впливають.</p>
+<p>As an example, let us assume you have defined an <em>Object</em> action
+(it can be assigned to any object, or even no object at all),
+and have mapped it on your owner through an <em>Action</em> constraint,
+so that moving the target in the (0.0 to 2.0)
+range along its X axis maps the action content on the owner in the (0 to 100)
+frame range. This will mean that when the target's <em>X</em> property is 0.0
+the owner will be as if in frame 0 of the linked action;
+with the target's <em>X</em> property at 1.0
+the owner will be as if in frame 50 of the linked action, etc.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_relationship_action_panel.png" src="../../../_images/rigging_constraints_relationship_action_panel.png" />
+<p class="caption"><span class="caption-text">Панель примусу «Дія» -- Action.</span></p>
+</div>
+<dl class="docutils">
+<dt>Ціль -- Target</dt>
+<dd>Поле <a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Ідентифікатор даних --- Data ID</span></a> використовується для вибору цілі для примусу, і поки вона не вибрана, то примус буде не функціональним (фон поля імені буде забарвлений червоним).</dd>
+<dt>Кістка</dt>
+<dd>Коли ціль -- це об'єкт арматури, використовуйте цей поле для вибору цільової кістки.</dd>
+<dt>Канал Трансформацій -- Transform Channel</dt>
+<dd>Цей вибірник керує тим, яка властивість трансформування (локація, оберт або масштаб вздовж/навколо її осей) з цілі буде використовуватися як «драйвер дії».</dd>
+<dt>Простір Цілі -- Target Space</dt>
+<dd>Це примус дозволяє вам вибрати, в якому просторі цілі обчислювати його трансформаційні властивості.</dd>
+<dt>У Дії -- To Action</dt>
+<dd><p class="first">Дає на вибір ім'я дії, яку ви хочете використати.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Хоча це і не позначується як червоний стан (проблеми освіження інтерфейсу користувача...), однак це примус очевидно не буде функціональним, якщо це поле не містить дійсної дії.</p>
+</div>
+</dd>
+<dt>Дія Об'єкта -- Object Action</dt>
+<dd>Для кісток <strong>тільки</strong>, при увімкненні, ця опція змушує примушену кістку використовувати частину «об'єкта», пов'язану з дією, замість частини з таким же іменем «пози». Це дозволяє вам застосовувати дію об'єкта до кістки.</dd>
+<dt>Мін/Макс Діапазон Цілі -- Target Range Min/Max</dt>
+<dd><p class="first">Нижня та верхня межі значення керувальної трансформаційної властивості.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>Unfortunately, here again we find the constraint's limitations:</p>
+<ul class="last simple">
+<li>Коли використовується властивість обертання як «драйвер», то ці значення «розкладаються назад» по діапазону (-180.0 до 180.0).</li>
+<li>Коли використовується властивість масштабу як «драйвер», то ці значення можуть бути тільки нуль або додатні значення.</li>
+</ul>
+</div>
+</dd>
+<dt>Старт/Кінець Діапазон Дії -- Action Range Start/End</dt>
+<dd><p class="first">Стартовий та кінцевий кадри дії, що буде розкладатися.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<ul class="last simple">
+<li>Ці значення повинні бути строго додатними.</li>
+<li>Стандартно, якщо обидва значення задані як 0, то це вимикає розкладання (тобто, володілець тільки отримує властивості, визначені у кадрі 0 пов'язаної дії...).</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="notes">
+<h2>Примітки<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Коли пов'язана дія впливає на деякі властивості локації, наявна локація володільця додається до результату обчислення цього примусу (точно так, як коли увімкнена кнопка <em>Offset</em> для примусу «Копіювання Локації» -- doc:<cite>Copy Location constraint &lt;/rigging/constraints/transform/copy_location&gt;</cite> ...).</li>
+<li>Коли пов'язана дія впливає на деякі властивості масштабу, наявний масштаб володільця множиться на результат обчислення цього примусу.</li>
+<li>Коли пов'язана дія впливає на деякі властивості обертання, то наявний оберт володільця заміщується результатом обчислення цього примусу.</li>
+<li>На відміну від звичайної ситуації, ви можете мати значення <em>Start</em> вищим за значення <em>End</em>, або <em>Min</em> вище за <em>Max</em>: це буде розвертати розкладання дії (тобто, вона буде «відтворюватися» розвернено...), допоки ви матимете ці устави розверненими, очевидно!</li>
+<li>Коли використовується дія типу <em>Constraint</em>, то <em>імена каналів</em> цього використовуваного примусу визначатимуть, до яких примусів володільця застосовувати цю дію. Наприклад, якщо ви маєте ім'я каналу примусу &quot;trackto_empt1&quot;, то його ключовані значення устав <em>Influence</em> та/або <em>Head/Tail</em> (тільки один з цих, ви можете ключувати) буде розкладено на такі ж устави примусу з іменем &quot;trackto_empt1&quot; для володільця.</li>
+<li>Подібно, коли ви використовуєте дію типу <em>Pose</em> (яка є очевидно значущою та працює, коли примушується кістка!), то ім'я використовуваної кістки визначатиме, які використовуватимуться <em>імена каналів</em> з дії для цієї кістки (наприклад, якщо примушена кістка має ім'я &quot;arm&quot;, то в дії буде використано тільки канал кістки, що має ім'я &quot;arm&quot;...). На жаль, використання дії типу <em>Pose</em> на увесь об'єкт арматури (для впливу на усі ключовані кістки в дії за раз) не працює...</li>
+<li>Зауважте також, що ви можете використовувати функцію «Бібліотека Поз» -- <a class="reference internal" href="../../armatures/properties/pose_library.html"><span class="doc">pose library feature</span></a> для створення/редагування блоку даних дії типу <em>Pose</em>... тільки пам'ятайте, що у такій ситуації передбачена тільки одна поза на один кадр!</li>
+</ul>
+<iframe src="https://player.vimeo.com/video/171554048" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="child_of.html" class="btn btn-neutral float-right" title="Примус «Нащадок» -- Child Of Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tracking/track_to.html" class="btn btn-neutral" title="Примус «Стеження За» -- Track To Constraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

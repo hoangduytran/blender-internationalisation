@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Приріднення -- Parenting &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/parenting.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Властивості -- Properties" href="properties.html" />
+    <link rel="prev" title="Іменування -- Naming" href="naming.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Приріднення -- Parenting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/editing/parenting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parenting">
+<h1>Приріднення -- Parenting<a class="headerlink" href="#parenting" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Bones ‣ Relations</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Parent</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-P</kbd>, <kbd class="kbd docutils literal notranslate">Alt-P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете редагувати відношення між кістками (і звідси створювати/модифікувати ланцюги кісток) як у 3D Огляді -- 3D View, так і Редакторі Властивостей -- Properties Editor. Незалежно від методу, якому ви надаєте перевагу, завжди слід для кожної кістки вирішувати питання, чи вона має бути приріднена до іншої і якщо так, то чи повинна вона бути ще й з'єднана з нею.</p>
+<p>Для приріднення та/або з'єднання кісток ви можете:</p>
+<p>In a <em>3D View</em>, select the bone and <em>then</em> its future parent, and press <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd>
+(or <span class="menuselection">Armature ‣ Parent ‣ Make Parent...</span>).
+In the small <em>Make Parent</em> menu that pops up, choose <em>Connected</em>
+if you want the child to be connected to its parent, else click on <em>Keep Offset</em>.
+If you have selected more than two bones, they will all be parented to the last selected one.
+If you only select one already-parented bone, or all selected bones are already parented to the last selected one,
+your only choice is to connect them, if not already done.
+If you select only one non-parented bone, you will get the <em>Need selected bone(s)</em> error message...</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">При даному методі кістки, що стали нащадками не будуть ні масштабовані, ні обернуті -- вони тільки будуть пересунуті, якщо ви вибрали з'єднати їх з верхівкою предка.</p>
+</div>
+<p>In the <em>Properties editor</em>, Bones tab, for each selected bone,
+you can select its parent in the <em>Parent</em> data ID to the upper right corner of its Relations panel.
+If you want them to be connected, just enable the checkbox to the right of the list.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">При цьому методі верхівка нащадкової кістки ніколи не буде пересунута -- а тому, якщо увімкнено стяг <em>Connected</em>, то ця нащадкова кістка буде повністю трансформована цією операцією.</p>
+</div>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Приклад приріднення.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_parenting_start.png"><img alt="../../../../_images/rigging_armatures_bones_editing_parenting_start.png" src="../../../../_images/rigging_armatures_bones_editing_parenting_start.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Стартова арматура з Bone.005 прирідненою та з'єднаною до Bone.004.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_parenting_unconnected.png"><img alt="../../../../_images/rigging_armatures_bones_editing_parenting_unconnected.png" src="../../../../_images/rigging_armatures_bones_editing_parenting_unconnected.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bone.005 re-parented to Bone.002, but not connected to it
+(same result, using either <kbd class="kbd docutils literal notranslate">Ctrl-P 2</kbd> in 3D View, or the Bones tab settings).</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_parenting_connected.png"><img alt="../../../../_images/rigging_armatures_bones_editing_parenting_connected.png" src="../../../../_images/rigging_armatures_bones_editing_parenting_connected.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bone.005 parented and connected to Bone.002, using <kbd class="kbd docutils literal notranslate">Ctrl-P 1</kbd> in 3D View.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_parenting_data-id.png"><img alt="../../../../_images/rigging_armatures_bones_editing_parenting_data-id.png" src="../../../../_images/rigging_armatures_bones_editing_parenting_data-id.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bone.005 приріднена та з'єднана з Bone.002.</span></p>
+<div class="legend">
+Using the Parent data ID of Bone.005 Relations panel.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Для роз'єднання та/або звільнення (відріднення та роз'єднання) ви можете:</p>
+<ul class="simple">
+<li>У 3D Огляді -- 3D View виділіть бажані кістки та натисніть <kbd class="kbd docutils literal notranslate">Alt-P</kbd> (або виберіть «Арматура &gt; Приріднення &gt; Зчистити Приріднення» -- <span class="menuselection">Armature ‣ Parent ‣ Clear Parent...</span>). У спливному меню «Зчистити Приріднення» -- <em>Clear Parent</em> виберіть <em>Clear Parent</em> для повного звільнення (від приріднення і з'єднання) усіх виділених кісток, або «Роз'єднати Кістки» -- <em>Disconnect Bone</em>, якщо ви хочете тільки роз'єднати з'єднання (залишивши приріднення).</li>
+<li>In the Properties editor, <em>Bones</em> tab, for each selected bone, you can select no parent
+in the <em>Parent</em> data ID of its Relations panel, to free it completely.
+If you just want to disconnect it from its parent, disable the <em>Connected</em> checkbox.</li>
+</ul>
+<p>Зауважте, що відношення з не-виділеними нащадками ніколи не модифікується.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="Властивості -- Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="naming.html" class="btn btn-neutral" title="Іменування -- Naming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

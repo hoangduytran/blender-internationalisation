@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Пасма -- Strands &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/properties/strands.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Опції -- Options" href="options.html" />
+    <link rel="prev" title="Підповерхневе Розсіювання -- Subsurface Scattering" href="subsurface_scattering.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості Матеріалу -- Material Properties</a> &raquo;</li>
+        
+      <li>Пасма -- Strands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/strands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="strands">
+<span id="bpy-types-materialstrand"></span><h1>Пасма -- Strands<a class="headerlink" href="#strands" title="Permalink to this headline">¶</a></h1>
+<p>Панель «Пасмо» -- Strand у вкладці «Матеріал» -- Material є спеціально призначеною для зображування, рендерингу частинок Волосся -- Hair. Існує два доступних різних методи зображування пасма:</p>
+<dl class="docutils">
+<dt>Полігональні пасма -- Polygon strands</dt>
+<dd>Це стандартний (старий) метод. Пасма зображуються, рендеряться як плоскі полігони. Кількість полігонів залежить від устави «Кроки» -- <em>Steps</em> на панелі «Зображ» -- Render у вкладці «Частинка» -- <em>Particle</em> Редактора Властивостей -- Properties Editor.</dd>
+<dt>Примітив Пасма -- Strand Primitive</dt>
+<dd>You activate Strand Primitive with the button <em>Strand render</em> in the <em>Render</em> panel of the particle system.
+The hair curves are not stored as polygons; only the key points are stored,
+which are then converted to polygons on-the-fly.
+A second difference is the way transparency works.
+Rather than rendering using the existing system,
+all strand segments in a part are sorted front to back and rendered in that order.</dd>
+</dl>
+<p class="rubric">Примітиви Пасма -- Strand Primitives</p>
+<ul class="simple">
+<li>Є більш заощадливі щодо пам'яті та швидші, дають змогу зображувати, рендерити велику кількість частинок хутра та трави. Для гарної продуктивності значення устави Render: Steps повинне бути доволі низьким (наприклад, значення 2 має бути досить достатнім навіть для хутра), оскільки результат у будь-якому разі буде згладженою кривою. Вам необхідно від 1 до 2 кроків зображу Render: Steps, менш ніж кроків показу Display: Steps у 3D Огляді -- 3D View. Також, використання більше частин зображу допомагає скоротити використання пам'яті.</li>
+<li>Мають відстань скорочення бачення (на панелі <em>Render</em> під <em>Child Simplification</em>) для нащадків, емітованих з граней.</li>
+<li>Можуть щезати у напрямку верхівки без додаткової текстури.</li>
+<li>Are not ray-traced.
+So they are not visible through ray-transparent materials or in a ray mirror
+(you can use <em>Environment Mapping</em> for that).</li>
+<li>Мають проблеми з формою, якщо рендеряться, зображуються з більшою шириною.</li>
+<li>Cannot carry a UV texture along the strand.</li>
+</ul>
+<p class="rubric">Полігональні пасма -- Polygon strands</p>
+<ul class="simple">
+<li>Добре працюють з більшою шириною, а тому ви можете вживати їх, як альтернативу плакатним частинкам, оскільки пасма можуть мати анімовану форму.</li>
+<li>Can be textured with a UV texture along the strands.</li>
+<li>Є видимими при промінь-простеженні.</li>
+</ul>
+<div class="section" id="strands-shading">
+<h2>Відтінення пасм -- Strands Shading<a class="headerlink" href="#strands-shading" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/render_blender-render_materials_properties_strands_panel.png" src="../../../../_images/render_blender-render_materials_properties_strands_panel.png" />
+<p class="caption"><span class="caption-text">Strands panel.</span></p>
+</div>
+<p>Strands are rendered with the material of the underlying face/vertex,
+including shading with a UV texture. Since you can assign more than one material to each face,
+each particle system may have its own material and the material of the underlying face can be
+different from the material of the strands.</p>
+<p>Additionally strands can be shaded along the strand (from root to tip)
+with a mono-dimensional texture; only polygon strands can carry a two-dimensional UV texture.</p>
+<p>Опції для відтінення пасма знаходяться на панелі «Пасмо» -- <em>Strand</em> у вкладці «Матеріал» -- <em>Material</em>.</p>
+<dl class="docutils">
+<dt>Корінь -- Root</dt>
+<dd>Ширина волосинки на корені.</dd>
+<dt>Верхівка -- Tip</dt>
+<dd><p class="first">Ширина волосинки на верхівці.</p>
+<dl class="last docutils">
+<dt>Мінімум -- Minimum</dt>
+<dd>Це мінімальна товщина (у пікселях) для пасм. Пасма, що мають розмір, нижчий за значення цієї устави, не зображуються, рендеряться меншими, а щезають в альфа прозорість (ну, зникання працює тільки для примітивів пасма). Це дає набагато кращий результат зображування, рендерингу для тонкого волосся.</dd>
+</dl>
+</dd>
+<dt>Одиниці Blender -- Blender Units</dt>
+<dd>Зазвичай пасма є досить тонкими; їх товщина задається в екранних пікселях. Якщо ви використаєте Одиниці Blender (BU), то можете задавати значення ширини на корені до 2 Одиниць, а значення на верхівці -- до 1 Одиниці. Ви повинні зважати на загальний розмір об'єкта, оскільки найменший можливий розмір -- 0.001 Одиниці Blender. А тому, якщо ви використовуєте 1 Одиницю як 1 метр, то найменший можливий розмір може бути 1 мм (надмірна товщина для тонкого волосся).</dd>
+<dt>Дотичне Відтінення -- Tangent Shading</dt>
+<dd>Обчислює світло ніби пасма є дуже тонкими і круглими. Це дає яскравіший та блискучіший вигляд волосся. Вимкнення стяга &quot;Tangent Shading&quot; буде все ще давати гарний зображ, рендер, але пасма здаватимуться більш жорсткими, ніби вони зроблені з металу або дерева.</dd>
+<dt>Форма -- Shape</dt>
+<dd><p class="first">Цей повзунок дозволяє вам керувати інтерполяцією уздовж пасма. Стандарт (0.0) -- це лінеарна, прямолінійна інтерполяція між коренем -- <em>Root</em> та верхівкою -- <em>Tip</em>. Від'ємні значення даватимуть більш вузько загострені пасма, а додатні -- більш товсто округлі пасма.</p>
+<div class="last figure" id="id2">
+<span id="fig-bi-material-shadow-shapes"></span><img alt="../../../../_images/render_blender-render_materials_properties_strands_shapes.png" src="../../../../_images/render_blender-render_materials_properties_strands_shapes.png" />
+<p class="caption"><span class="caption-text">Різні значення устави Shape.</span></p>
+<div class="legend">
+Зліва направо: 0 (для першого корінь та верхівка рівні), 0, -0.4, -0.9, 0.4, 0.9.</div>
+</div>
+</dd>
+<dt>Ширина Зникання -- Width Fade</dt>
+<dd>Щезання уздовж ширини пасма. Це працює тільки для Примітивів Пасма. 0.0 -- зникання немає взагалі, 1.0 -- прямолінійне щезання.</dd>
+<dt>Карта UV -- UV Map</dt>
+<dd>You can texture polygon strands with a UV texture.
+Fill in the name of the UV map (not the texture) here.
+You also have to load the texture in the <em>Texture</em> tab and <em>Material</em> tab
+(<em>Mapping</em>: <em>UV</em>; you may use every <em>Influence</em> setting you like --
+especially the alpha value; see Fig. <a class="reference internal" href="#fig-bi-material-shadow-shapes"><span class="std std-ref">Різні значення устави Shape.</span></a>).</dd>
+<dt>Розсіяння Поверхні -- Surface Diffuse</dt>
+<dd><p class="first">Обчислює нормаль пасма, беручи до уваги нормаль поверхні. Це значно полегшує забарвлення та освітлення волосся, особливо для Примітивів Пасма. По суті, волосся реагує подібно до звичайних поверхонь та не показуються перебільшені сильні та великі блікові підсвітки.</p>
+<dl class="last docutils">
+<dt>Відстань -- Distance</dt>
+<dd>Відстань в Одиницях Blender, понад яку підмішується нормаль поверхні (якщо ви хочете вжити <em>Surface Diffuse</em> тільки для трави/хутра можуть бути більші відстані).</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="texturing-along-the-strand">
+<h2>Текстурування уздовж пасма<a class="headerlink" href="#texturing-along-the-strand" title="Permalink to this headline">¶</a></h2>
+<p>Пасма можуть бути текстуровані уздовж, тобто від кореня до верхівки. Для цього ви повинні задати значення «Пасмо/Частинка» -- <em>Strand/Particle</em> для опції «Координати» -- <em>Coordinates</em> на панелі «Розкладка» -- <em>Mapping</em> у вкладці «Текстура» -- <em>Texture</em>.</p>
+<p>Набагато важливішою є устава, показана на Ілюстрації <a class="reference internal" href="#fig-bi-material-strands-alpha"><span class="std std-ref">Зникання пасма в альфа прозорість.</span></a>, яка показує, як зробити зникання в альфа прозорість у напрямку верхівки пасма, що отримати гарне, розпливчасте на вигляд волосся. Зазвичай, ви будете використовувати лінеарне, прямолінійне змішування текстури для цього.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<span id="fig-bi-material-strands-alpha"></span><img alt="../../../../_images/render_blender-render_materials_properties_strands_texture-mapping.png" src="../../../../_images/render_blender-render_materials_properties_strands_texture-mapping.png" />
+<p class="caption"><span class="caption-text">Зникання пасма в альфа прозорість.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../../_images/render_blender-render_materials_properties_strands_fading.png" src="../../../../_images/render_blender-render_materials_properties_strands_fading.png" />
+<p class="caption"><span class="caption-text">Результат зображування, рендерингу.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ви можете, звичайно, задати й будь-який бажаний для вас інший атрибут, особливо, колір. Будьте обережні з бліковістю; волосинки тяжіють бути надто блискучими.</p>
+</div>
+<div class="section" id="strand-render-simplification">
+<h2>Спрощення зображу, рендеру пасма<a class="headerlink" href="#strand-render-simplification" title="Permalink to this headline">¶</a></h2>
+<p>Якщо ви використовуєте Примітиви Пасма (увімкнено стяг <em>Strand Render</em> у вкладці «Частинка» -- Particle) та маєте активованим режим «Нащадки: Інтерпольовано» -- <em>Children: Interpolated</em>, то на панелі <em>Render</em> з'явиться опція «Спрощення Нащадків» -- <em>Child Simplification</em>. Зображ Пасма має опції для вилучення нащадків пасм у ході того, як грані об'єкта стають меншими.</p>
+<div class="figure" id="id5">
+<img alt="../../../../_images/render_blender-render_materials_properties_strands_simplification.png" src="../../../../_images/render_blender-render_materials_properties_strands_simplification.png" />
+<p class="caption"><span class="caption-text">Спрощення Нащадків при Зображі Пасма.</span></p>
+</div>
+<dl class="docutils">
+<dt>Орієнтувальний Розмір -- Reference Size</dt>
+<dd>Це приблизний розмір об'єкта на екрані (у пікселях), після якого починається спрощення.</dd>
+<dt>Частота -- Rate</dt>
+<dd>Наскільки швидко вилучаються пасма.</dd>
+<dt>Перехід -- Transition</dt>
+<dd>Період переходу для зникання пасм при їх вилученні.</dd>
+<dt>Оглядвікно -- Viewport</dt>
+<dd><p class="first">Це вилучає пасма на гранях, що знаходяться поза оглядвікном.</p>
+<dl class="last docutils">
+<dt>Частота -- Rate</dt>
+<dd>Керує тим, як швидко ці пасма вилучаються.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="options.html" class="btn btn-neutral float-right" title="Опції -- Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="subsurface_scattering.html" class="btn btn-neutral" title="Підповерхневе Розсіювання -- Subsurface Scattering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

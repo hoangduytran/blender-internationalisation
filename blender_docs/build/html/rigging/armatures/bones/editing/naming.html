@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Іменування -- Naming &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/naming.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Приріднення -- Parenting" href="parenting.html" />
+    <link rel="prev" title="Редагування Кісток -- Editing Bones" href="bones.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Іменування -- Naming</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/editing/naming.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="naming">
+<span id="armature-editing-naming-bones"></span><h1>Іменування -- Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Item</span>,
+<span class="menuselection">Bones tab ‣ Bones panel</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете перейменовувати ваші кістки за допомогою поля «імені» -- <em>name</em> на панелі «Елемент» -- <em>Item</em> в регіоні Властивості 3D Огляду або використовуючи поле <em>name</em> у вкладці «Кістка» -- <em>Bone</em> Редактора Властивостей у Режимі Правки -- <em>Edit Mode</em>, для активної кістки.</p>
+<p>Blender також надає вам деякі засоби, що використовують переваги іменованих кісток для симетрії зліва/справа, а також що можуть автоматично іменувати кістки арматури. Давайте гляньмо на це детальніше.</p>
+<div class="section" id="naming-conventions">
+<span id="armature-editing-naming-conventions"></span><h2>Умовності іменування або називання -- Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline">¶</a></h2>
+<p>Умовності іменування або називання у Blender'і корисні не тільки для пошуку вами потрібної кістки, але також вказують Blender'у, коли будь-які дві з них є дзеркальними відображеннями.</p>
+<p>In case your armature can be mirrored in half (i.e. it is bilaterally symmetrical),
+it is worthwhile to stick to a left/right naming convention.
+This will enable you to use some tools that will probably save you time and effort
+(like the <em>X-Axis Mirror</em> editing tool).</p>
+<div class="figure" id="id1">
+<img alt="../../../../_images/rigging_armatures_bones_editing_naming_example.png" src="../../../../_images/rigging_armatures_bones_editing_naming_example.png" />
+<p class="caption"><span class="caption-text">Приклад іменування кісток за умовністю «зліва/справа» на простій оснастці.</span></p>
+</div>
+<ol class="arabic">
+<li><p class="first">Спершу ви повинні дати своїм кісткам значущі базові імена, як &quot;leg&quot; -- «нога», &quot;arm&quot; -- «рука», &quot;finger&quot; -- «палець», &quot;back&quot; -- «спина», &quot;foot&quot; -- «ступня» тощо.</p>
+</li>
+<li><p class="first">Якщо у вас є кістка, яка має копію з іншої сторони (пара), як рука, то додайте до через наступні роздільники такі префікси або суфікси:</p>
+<ul class="simple">
+<li>Роздільники для «зліва/справа» можуть спереду у другій позиції -- &quot;L<strong>_</strong>calfbone&quot; або позаду у передостанній позиції -- &quot;calfbone<strong>.</strong>R&quot;</li>
+<li>Якщо вибрано однаково для обох з пари нижній або верхній регістр літер &quot;L&quot;, &quot;R&quot;, &quot;left&quot; або &quot;right&quot;,то Blender обробляє відображення коректно. Дивіться нижче про список допустимих роздільників. Виберіть один та дотримуйтеся його максимально при оснащенні: це окупиться.</li>
+</ul>
+<p>Examples of valid separators:</p>
+<ul class="simple">
+<li>(нічого): handLeft --&gt; handRight</li>
+<li><code class="docutils literal notranslate"><span class="pre">_</span></code> (підкреслення): hand<strong>_</strong>L --&gt; hand<strong>_</strong>R</li>
+<li><code class="docutils literal notranslate"><span class="pre">.</span></code> (крапка): hand<strong>.</strong>l --&gt; hand<strong>.</strong>r</li>
+<li><code class="docutils literal notranslate"><span class="pre">-</span></code> (тире): hand<strong>-</strong>l --&gt; hand<strong>-</strong>r</li>
+<li>`` `` (пробіл): hand LEFT --&gt; hand RIGHT</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Note that all examples above are also valid with the left/right part placed before the name.
+You can only use the short &quot;L&quot;/ &quot;R&quot; code if you use a separator (e.g. &quot;handL&quot;/ &quot;handR&quot; will not work!).</p>
+</div>
+</li>
+<li><p class="first">Перед тим, як Blender обробляє арматуру для дзеркалення або перевертання, то він спершу вилучає числове розширення в імені кісток, наприклад, &quot;.001&quot;.</p>
+</li>
+<li><p class="first">Ви можете копіювати кістку, іменовану &quot;bla.L&quot; та перевернути її ім'я за допомогою «Спеціальне &gt; Перевернути Імена» -- <span class="menuselection">Specials ‣ Flip Left-Right Names</span>. Blender іменує копію як &quot;bla.L.001&quot; та при переверті імені змінить його на &quot;bla.R&quot;.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="flip-name">
+<h2>Перевернути Імена -- Flip Names<a class="headerlink" href="#flip-name" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Flip Name</span>,
+<span class="menuselection">Specials ‣ Flip Name</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете перевернути мітки «зліва/справа» (дивіться вище) для імен виділених кісток за допомогою «Арматура &gt; Перевернути Імена» -- <span class="menuselection">Armature ‣ Flip Name</span>. Це може бути корисним, якщо ви вибудували половину симетричної оснастки (позначеної з лівого або правого боку), дублювали та віддзеркалили її, та хочете оновити імена на новій стороні. Blender замінить текст в іменах кісток відповідно до вище згаданих умовностей іменування та вилучить числові розширення при можливості.</p>
+</div>
+<div class="section" id="autoname">
+<h2>АвтоІм'я -- AutoName<a class="headerlink" href="#autoname" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ AutoName Left/Right</span>,
+<span class="menuselection">Armature ‣ AutoName Front/Back</span>,
+<span class="menuselection">Armature ‣ AutoName Top/Bottom</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ці три команди, що починаються з <em>AutoName</em>, меню «Арматура» -- <em>Armature</em> та «Спеціальне» -- <em>Specials</em>, <kbd class="kbd docutils literal notranslate">W</kbd>, дозволяють вам автоматично додавати суфікс до усіх виділених кісток на основі позиції їх кореня відносно центра арматури та її локальних координат:</p>
+<dl class="docutils">
+<dt>АвтоІм'я Ліве/Праве -- AutoName Left/Right</dt>
+<dd>will add the &quot;.L&quot; suffix to all bones with a <em>positive</em> X-coordinate root,
+and the &quot;.R&quot; suffix to all bones with a <em>negative</em> X-coordinate root.
+If the root is exactly at 0.0 on the X axis, the X coordinate of the tip is used.
+If both joints are at 0.0 on the X axis, the bone will just get a period suffix, with no &quot;L&quot;/ &quot;R&quot;
+(as Blender cannot decide whether it is a left or right bone...).</dd>
+<dt>АвтоІм'я Переднє/Заднє -- AutoName Front/Back</dt>
+<dd>додасть суфікс &quot;.Bk&quot; до імен усіх костей, корінь яких розміщено на <em>додатній</em>, та суфікс &quot;.Fr&quot; до імен усіх костей, корінь яких розміщено на <em>від'ємній</em> стороні локальної осі Y арматури. Подібно, для координат кісток в 0.0 по Y осі, як і для команди <em>AutoName Left-Right</em>...</dd>
+<dt>АвтоІм'я Верхнє/Нижнє -- AutoName Top/Bottom</dt>
+<dd>додасть суфікс &quot;.Top&quot; до імен усіх костей, корінь яких розміщено на <em>додатній</em>, та суфікс &quot;.Bot&quot; до імен усіх костей, корінь яких розміщено на <em>від'ємній</em> стороні локальної осі Z арматури. Подібно, для координат кісток в 0.0 по Z осі, як і для команди <em>AutoName Left-Right</em>...</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="parenting.html" class="btn btn-neutral float-right" title="Приріднення -- Parenting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bones.html" class="btn btn-neutral" title="Редагування Кісток -- Editing Bones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

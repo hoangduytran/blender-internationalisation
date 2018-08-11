@@ -1,0 +1,592 @@
+#
+# urko <urkokul@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2017-12-15 19:14+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/render/blender_render/bake.rst:4
+msgid "Render Baking"
+msgstr "Запікання Зобража -- Render Baking"
+
+#: ../../manual/render/blender_render/bake.rst:6
+msgid ""
+"Baking, in general, is the act of pre-computing something in order to "
+"speed up some other process later down the line. Rendering from scratch "
+"takes a lot of time depending on the options you choose. Therefore, "
+"Blender allows you to \"bake\" some parts of the render ahead of time, "
+"for select objects. Then, when you press Render, the entire scene is "
+"rendered much faster, since the colors of those objects do not have to be"
+" recomputed."
+msgstr ""
+"Запікання -- baking, у загальному, -- це акт перед-обчислення чогось, щоб"
+" пришвидшити деякі інші процеси, що йдуть далі по конвеєру. Зображування,"
+" рендеринг з нуля забирає багато часу, залежно від обраних вами опцій. "
+"Тому, Blender дозволяє вам «запекти» деякі частини зобража, рендера "
+"наперед для обраних об'єктів. Звідси, коли ви далі натиснете команду "
+"Render, то вся сцена буде зображуватися, рендеритися набагато швидше, "
+"оскільки кольори запечених даних для цих об'єктів не треба бути повністю "
+"обчислювати."
+
+#: ../../manual/render/blender_render/bake.rst:13
+msgid ""
+"Render baking creates 2D bitmap images of a mesh object's rendered "
+"surface. These images can be re-mapped onto the object using the object's"
+" UV coordinates. Baking is done for each individual mesh, and can only be"
+" done if that mesh has been UV-unwrapped. While it takes time to set up "
+"and perform, it saves render time. If you are rendering a long animation,"
+" the time spent baking can be much less than time spent rendering out "
+"each frame of a long animation."
+msgstr ""
+"Запікання зобража створює 2D растрові зображення зображеної, рендереної "
+"поверхні сітьових об'єктів. Ці зображення можуть бути пере-розкладені на "
+"об'єкт за допомогою координат UV цього об'єкта. Запікання здійснюється "
+"для кожної окремої сіті і може бути зроблене, якщо така сіть була "
+"попередньо розгорнута по UV. Хоча це забирає час для укладання і самого "
+"процесу, однак, це далі заощаджує час на зображування, рендеринг. Якщо ви"
+" зображуєте, рендерите тривалу анімацію, то час, витрачений на запікання,"
+" може бути набагато меншим, ніж час, витрачений на зображування, "
+"рендеринг кожного кадру тривалої анімації."
+
+#: ../../manual/render/blender_render/bake.rst:19
+msgid ""
+"Use Render Bake in intensive light/shadow solutions, such as AO or soft "
+"shadows from area lights. If you bake AO for the main objects, you will "
+"not have to enable it for the full render, saving render time."
+msgstr ""
+"Запікання Зобража вживається для таких ресурсо-затратних випадків, таких "
+"як «Загорода Оточення» -- Ambient Occlusion (AO) або м'які тіні для "
+"площинних -- area освітлювачів. Якщо ви запекли Загороду Оточення (AO) "
+"для головних об'єктів, вам не треба бути вмикати її для повного "
+"зображування, що заощаджує час для нього."
+
+#: ../../manual/render/blender_render/bake.rst:23
+#, fuzzy
+msgid ""
+"Use *Full Render* or *Textures* to create an image texture; baked "
+"procedural textures can be used as a starting point for further texture "
+"painting. Use *Normals* to make a low resolution mesh look like a high "
+"resolution mesh. To do that, UV unwrap a high resolution, finely sculpted"
+" mesh and bake its normals. Save that normal map, and *Mapping* (texture "
+"settings) the UV of a similarly unwrapped low resolution mesh. The low "
+"resolution mesh will look just like the high resolution, but will have "
+"much fewer faces/polygons."
+msgstr ""
+"Опції запікання «Повний Зображ» -- *Full Render* або «Текстури» -- "
+"*Textures* вживаються для створення зображеннєвої текстури, текстури типу"
+" «зображення»; запечені процедурні текстури можуть бути використі як "
+"стартова точка для подальшого малювання текстур. Використання режиму "
+"запікання «Нормалі» -- *Normals* дає вигляд низько роздільної сіті, як у "
+"високо роздільної сіті. Для цього, розгорніть високо роздільну, остаточно"
+" виліплену сіть по UV та запечіть її нормалі. Збережіть розкладку, карту "
+"нормалей та розкладіть -- *Mapping* (через устави текстур) її по UV "
+"подібним чином розгорнутої низько роздільної сіті. Низько роздільна сіть "
+"буде мати вигляд, подібний як і у високо роздільної сіті, однак, "
+"складатиметься з набагато менше граней/полігонів."
+
+#: ../../manual/render/blender_render/bake.rst:34
+msgid "Advantages"
+msgstr "Переваги"
+
+#: ../../manual/render/blender_render/bake.rst:35
+msgid "Can significantly reduce render times."
+msgstr "Можливість значно скоротити час на зображування, рендеринг."
+
+#: ../../manual/render/blender_render/bake.rst:36
+msgid "Texture painting made easier."
+msgstr "Легше здійснення малювання текстур."
+
+#: ../../manual/render/blender_render/bake.rst:37
+msgid "Reduced polygon count."
+msgstr "Скорочений рахунок, кількість полігонів, з яких складається сіть."
+
+#: ../../manual/render/blender_render/bake.rst:38
+msgid "Repeated renders are made faster, multiplying the time savings."
+msgstr ""
+"Повторні зображі, рендери здійснюється швидше, багато заощаджуючи час для"
+" них."
+
+#: ../../manual/render/blender_render/bake.rst:42
+msgid "Disadvantages"
+msgstr "Недоліки"
+
+#: ../../manual/render/blender_render/bake.rst:43
+msgid "Object must be UV-unwrapped."
+msgstr "Об'єкт повинен бути розгорнутий по UV."
+
+#: ../../manual/render/blender_render/bake.rst:44
+msgid ""
+"If shadows are baked, lights and object cannot move with respect to each "
+"other."
+msgstr ""
+"Якщо запікаються тіні, освітлювачі та об'єкт не можуть рухатися один "
+"відносно одного."
+
+#: ../../manual/render/blender_render/bake.rst:45
+msgid ""
+"Large textures (e.g. 4096×4096) can be memory intensive, and be just as "
+"slow as the rendered solution."
+msgstr ""
+"Запікання великих текстур (наприклад, 4096×4096) може бути сильно "
+"ресурсно-затратним, особливо щодо оперативної пам'яті, і звідси може "
+"здійснюватися так же повільно, як і повне зображування, рендеринг."
+
+#: ../../manual/render/blender_render/bake.rst:46
+msgid ""
+"Human (labor) time must be spent unwrapping and baking and saving files "
+"and applying the textures to a channel."
+msgstr ""
+"На розгортання, запікання, збереження файлів та застосування текстур на "
+"канал має бути витрачено людський (робочий) час."
+
+#: ../../manual/render/blender_render/bake.rst:50
+msgid "Options"
+msgstr "Опції"
+
+#: ../../manual/render/blender_render/bake.rst:53
+msgid "Bake Mode"
+msgstr "Режим Запікання -- Bake Mode"
+
+#: ../../manual/render/blender_render/bake.rst:56
+msgid "Full Render"
+msgstr "Повний Зображ -- Full Render"
+
+#: ../../manual/render/blender_render/bake.rst:58
+msgid "Bakes all materials, textures, and lighting except specularity and SSS."
+msgstr ""
+"Запікає усі матеріали, текстури та освітлення, за винятком бліковості "
+"(specularity) та підповерхневого розсіювання (SSS)."
+
+#: ../../manual/render/blender_render/bake.rst:62
+msgid "Ambient Occlusion"
+msgstr "Загорода Оточення -- Ambient Occlusion"
+
+#: ../../manual/render/blender_render/bake.rst:64
+msgid ""
+"Bakes ambient occlusion as specified in the World panels. Ignores all "
+"lights in the scene."
+msgstr ""
+"Запікає загороду оточення, як вона визначена на панелях вкладки «Світ» --"
+" World. Ігнорує усі освітлювачі у сцені."
+
+#: ../../manual/render/blender_render/bake.rst:68
+msgid "Ambient Occlusion."
+msgstr "Загорода Оточення -- Ambient Occlusion."
+
+#: ../../manual/render/blender_render/bake.rst:72
+#: ../../manual/render/blender_render/bake.rst:126
+msgid "Normalized"
+msgstr "Нормалізовано -- Normalized"
+
+#: ../../manual/render/blender_render/bake.rst:71
+msgid "Normalize without using material's settings."
+msgstr "Вмикає нормалізацію, використовуючи устави матеріалу."
+
+#: ../../manual/render/blender_render/bake.rst:75
+msgid "Shadow"
+msgstr "Тінь -- Shadow"
+
+#: ../../manual/render/blender_render/bake.rst:77
+msgid "Bakes shadows and lighting."
+msgstr "Запікає тіні та освітлення."
+
+#: ../../manual/render/blender_render/bake.rst:81
+msgid "Normals"
+msgstr "Нормалі -- Normals"
+
+#: ../../manual/render/blender_render/bake.rst:83
+#, fuzzy
+msgid ""
+"Bakes tangent and camera-space normals (among many others) to an RGB "
+"image."
+msgstr ""
+"Запікає дотичні та з простору камери нормалі (серед багатьох інших) у "
+"зображення RGB."
+
+#: ../../manual/render/blender_render/bake.rst:87
+msgid "Normals."
+msgstr "Нормалі -- Normals."
+
+#: ../../manual/render/blender_render/bake.rst:101
+msgid "Normal Space"
+msgstr "Простір Нормалей -- Normal Space"
+
+#: ../../manual/render/blender_render/bake.rst:90
+msgid "Normals can be baked in different spaces:"
+msgstr "Нормалі можуть бути запечені у різних просторах:"
+
+#: ../../manual/render/blender_render/bake.rst:92
+msgid "Camera space"
+msgstr "Простір Камери -- Camera space"
+
+#: ../../manual/render/blender_render/bake.rst:93
+msgid "Default method."
+msgstr "Стандартний метод."
+
+#: ../../manual/render/blender_render/bake.rst:94
+msgid "World space"
+msgstr "Простір Світу -- World space"
+
+#: ../../manual/render/blender_render/bake.rst:95
+msgid ""
+"Normals in world coordinates, dependent on object transformation and "
+"deformation."
+msgstr ""
+"Нормалі у координатах світу, залежно від трансформацій та деформацій "
+"об'єкта."
+
+#: ../../manual/render/blender_render/bake.rst:96
+msgid "Object space"
+msgstr "Простір Об'єкта -- Object space"
+
+#: ../../manual/render/blender_render/bake.rst:97
+msgid ""
+"Normals in object coordinates, independent of object transformation, but "
+"dependent on deformation."
+msgstr ""
+"Нормалі у координатах об'єкта, незалежно від трансформацій об'єкта, але "
+"залежно від його деформацій."
+
+#: ../../manual/render/blender_render/bake.rst:101
+msgid "Tangent space"
+msgstr "Простір, дотичний до об'єкта -- Tangent space"
+
+#: ../../manual/render/blender_render/bake.rst:99
+msgid ""
+"Normals in tangent space coordinates, independent of object "
+"transformation and deformation. This is the new default, and the right "
+"choice in most cases, since then the normal map can be used for animated "
+"objects too."
+msgstr ""
+"Нормалі у координатах дотичного простору, незалежно від трансформацій та "
+"деформацій об'єкта. Це є новий стандарт, та є правильним вибором у "
+"більшості випадків, оскільки далі така карта нормалей може "
+"використовуватися також для анімованих об'єктів."
+
+#: ../../manual/render/blender_render/bake.rst:103
+msgid ""
+"For materials the same spaces can be chosen as well, in the image texture"
+" options, next to the existing *Normal Map* setting. For correct results,"
+" the setting here should match the setting used for baking."
+msgstr ""
+"Такі ж простори можуть бути вибрані також для матеріалів серед опцій "
+"зображеннєвої текстури для устави «Карта Нормалей» -- *Normal Map*. Для "
+"коректних результатів ця устава для текстури повинна відповідати уставі, "
+"що використовується для запікання."
+
+#: ../../manual/render/blender_render/bake.rst:109
+msgid "Textures"
+msgstr "Текстури -- Textures"
+
+#: ../../manual/render/blender_render/bake.rst:111
+msgid "Bakes colors of materials and textures only, without shading."
+msgstr "Запікає тільки кольори матеріалів та текстур без відтінення."
+
+#: ../../manual/render/blender_render/bake.rst:115
+msgid "Displacement"
+msgstr "Зміщення -- Зміщення"
+
+#: ../../manual/render/blender_render/bake.rst:117
+msgid ""
+"Similar to baking normal maps, displacement maps can also be baked from a"
+" high-res object to an unwrapped low-res object, using the *Selected to "
+"Active* option."
+msgstr ""
+"Подібно до запікання карт нормалей, карти зміщення можуть також бути "
+"запечені з високо роздільного об'єкта та розкладені на низько роздільний "
+"об'єкт, використовуючи опцію «Виділене на Активне» -- *Selected to "
+"Active*."
+
+#: ../../manual/render/blender_render/bake.rst:123
+msgid "Displacement."
+msgstr "Зміщення -- Зміщення."
+
+#: ../../manual/render/blender_render/bake.rst:126
+msgid "Normalize to the distance."
+msgstr "Нормалізує відстань."
+
+#: ../../manual/render/blender_render/bake.rst:128
+#, fuzzy
+msgid ""
+"When using this in conjunction with a Subdivision Surface and "
+"Displacement modifiers within Blender, it is necessary to temporarily add"
+" a heavy Subdivision Surface Modifier to the 'low-res' model before "
+"baking. This means that if you then use a Displacement Modifier on top of"
+" the Subdivision Surface, the displacement will be correct, since it is "
+"stored as a relative difference to the subdivided geometry, rather than "
+"the original base mesh (which can get distorted significantly by a "
+"Subdivision Surface). The higher the render subdivision level while "
+"baking, the more accurate the displacements will be. This technique may "
+"also be useful when saving the displacement map out for use in external "
+"renderers."
+msgstr ""
+"Використання цього у поєднанні з модифікаторами «Підподіл Поверхні» -- "
+"Subdivision Surface та «Зміщення» -- Displacement у Blender'і необхідно "
+"тимчасового додавати важки модифікатор Subdivision Surface для низько "
+"роздільної моделі перед запіканням. Це означає, що якщо ви далі "
+"використаєте модифікатор Displacement поверх Subdivision Surface, то "
+"зміщення буде коректним, оскільки воно збережеться як відносна відстань "
+"до підподіленої геометрії, а не до базової сіті (яка може, у протилежному"
+" випадку значно спотворитися модифікатором Subdivision Surface). Чим вище"
+" рівень підподілення при запіканні зобража, тим більш точним буде "
+"зміщення. Ця техніка може також бути корисною при збереженні карти "
+"зміщень для використання у зовнішніх зображувачах, рендерерах."
+
+#: ../../manual/render/blender_render/bake.rst:138
+msgid "Emission"
+msgstr "Емісія -- Emission"
+
+#: ../../manual/render/blender_render/bake.rst:140
+msgid "Bakes Emit, or the Glow color of a material."
+msgstr "Запікає колір емітування -- Emit або сяяння -- Glow матеріалу."
+
+#: ../../manual/render/blender_render/bake.rst:144
+msgid "Alpha"
+msgstr "Альфа -- Alpha"
+
+#: ../../manual/render/blender_render/bake.rst:146
+msgid "Bakes Alpha values, or transparency of a material."
+msgstr "Запікає значення альфа або, іншими словами, прозорість матеріалу."
+
+#: ../../manual/render/blender_render/bake.rst:150
+msgid "Mirror Color and Intensity"
+msgstr ""
+"Колір Дзеркалення -- Mirror Color та Інтенсивність Дзеркалення -- Mirror "
+"Intensity"
+
+#: ../../manual/render/blender_render/bake.rst:152
+msgid "Bakes Mirror color or intensity values."
+msgstr ""
+"Запікають значення кольору або інтенсивності дзеркалення -- Mirror, "
+"відповідно."
+
+#: ../../manual/render/blender_render/bake.rst:156
+msgid "Specular Color and Intensity"
+msgstr ""
+"Колір Бліків -- Specular Color та Інтенсивність Бліків -- Specular "
+"Intensity"
+
+#: ../../manual/render/blender_render/bake.rst:158
+msgid "Bakes specular color or specular intensity values."
+msgstr ""
+"Запікають значення кольору або інтенсивності бліків -- Specular, "
+"відповідно."
+
+#: ../../manual/render/blender_render/bake.rst:162
+#, fuzzy
+msgid "Full render."
+msgstr "Повний Зображ -- Full Render."
+
+#: ../../manual/render/blender_render/bake.rst:166
+msgid "Additional Options"
+msgstr "Додаткові опції"
+
+#: ../../manual/render/blender_render/bake.rst:168
+msgid "Clear"
+msgstr "Зчищення -- Clear"
+
+#: ../../manual/render/blender_render/bake.rst:169
+msgid ""
+"If selected, clears the image to selected background color (default is "
+"black) before baking render."
+msgstr ""
+"Якщо увімкнено, то зчищає зображення в обраний фоновий колір (стандартним"
+" є чорний) перед запіканням зобража."
+
+#: ../../manual/render/blender_render/bake.rst:171
+msgid "Margin"
+msgstr "Припуск -- Margin"
+
+#: ../../manual/render/blender_render/bake.rst:171
+#, fuzzy
+msgid ""
+"Baked result is extended this many pixels beyond the border of each UV "
+"\"island\", to soften seams in the texture."
+msgstr ""
+"Запечений результат розширюється на цю кількість пікселів поза границею "
+"кожного «острова» UV для пом'якшення швів у текстурі."
+
+#: ../../manual/render/blender_render/bake.rst:179
+msgid "Split"
+msgstr "Розділення -- Split"
+
+#: ../../manual/render/blender_render/bake.rst:174
+msgid "Fixed"
+msgstr "Фіксовано -- Fixed"
+
+#: ../../manual/render/blender_render/bake.rst:175
+msgid "Slit quads predictably (0, 1, 2) (0, 2, 3)."
+msgstr "Розділяє передбачувано чотирибічники (0, 1, 2) (0, 2, 3)."
+
+#: ../../manual/render/blender_render/bake.rst:176
+#, fuzzy
+msgid "Fixed Alternate"
+msgstr "Фіксовано Альтернативно -- Fixed Alternate"
+
+#: ../../manual/render/blender_render/bake.rst:177
+msgid "Slit quads predictably (1, 2, 3) (1, 3, 0)."
+msgstr "Розділяє передбачувано чотирибічники (0, 1, 2) (0, 2, 3)."
+
+#: ../../manual/render/blender_render/bake.rst:179
+msgid "Automatic"
+msgstr "Автоматично -- Automatic"
+
+#: ../../manual/render/blender_render/bake.rst:179
+msgid "Split quads to give the least distortion while baking."
+msgstr ""
+"Розділяє чотирибічники так, щоб у результаті запікання було найменше "
+"спотворення."
+
+#: ../../manual/render/blender_render/bake.rst:191
+msgid "Select to Active"
+msgstr "Виділене на Активне -- Select to Active"
+
+#: ../../manual/render/blender_render/bake.rst:182
+msgid "Enable information from other objects to be baked onto the active object."
+msgstr "Вмикає інформацію з інших об'єктів для запікання на активному об'єкті."
+
+#: ../../manual/render/blender_render/bake.rst:188
+msgid "Distance"
+msgstr "Відстань -- Distance"
+
+#: ../../manual/render/blender_render/bake.rst:185
+#, fuzzy
+msgid ""
+"Controls how far a point on another object can be away from the point on "
+"the active object. Only needed for *Selected to Active*. A typical use "
+"case is to make a detailed, high-poly object, and then bake its normals "
+"onto an object with a low polygon count. The resulting normal map can "
+"then be applied to make the low-poly object look more detailed."
+msgstr ""
+"Керує тим, як далеко точка на іншому об'єкті може бути від точки на "
+"активному об'єкті. Необхідно тільки для *Selected to Active*. Типовим "
+"випадком використання є зроблення деталізованого, високо роздільного "
+"об'єкта та подальше запечення його нормалей на об'єкт з низьким рахунком "
+"полігонів. Ця результатна карта нормалей може далі бути застосована, щоб "
+"зробити цей низько полігональний об'єкт на вигляд більш деталізованим."
+
+#: ../../manual/render/blender_render/bake.rst:191
+msgid "Bias"
+msgstr "Відхил -- Bias"
+
+#: ../../manual/render/blender_render/bake.rst:191
+#, fuzzy
+msgid "Bias towards further away from the object (in Blender units)."
+msgstr "Відхил у напрямку далі від об'єкта (в Одиницях Blender)"
+
+#: ../../manual/render/blender_render/bake.rst:193
+msgid "Mesh Must be Visible in Render"
+msgstr "Сіть повинна бути видима для зобража, рендера"
+
+#: ../../manual/render/blender_render/bake.rst:195
+msgid ""
+"If a mesh is not visible in regular render, for example because it is "
+"disabled for rendering in the Outliner or has the DupliVerts setting "
+"enabled, it cannot be baked to."
+msgstr ""
+"Якщо сіть не є видимою для звичайного рендера, зобража, наприклад, через "
+"те, що така властивість вимкнута для зображування, рендерингу у "
+"Структураторі -- Outliner або увімкнено для неї уставу DupliVerts, то "
+"вона не може бути запечена."
+
+#: ../../manual/render/blender_render/bake.rst:201
+msgid "Workflow"
+msgstr "Робхід"
+
+#: ../../manual/render/blender_render/bake.rst:203
+#, fuzzy
+msgid "In a 3D View editor, select a mesh and enter UV/Face Select mode."
+msgstr ""
+"У редакторі 3D Огляду -- 3D View виділіть потрібну сіть та увімкніть для "
+"неї режим виділу граней/UV -- Face Select"
+
+#: ../../manual/render/blender_render/bake.rst:204
+#, fuzzy
+msgid ":ref:`Unwrap the mesh object <editors-uv-image-index>`."
+msgstr ""
+"Розгорніть цей сітьовий об'єкт -- :ref:`Unwrap the mesh object <editors-"
+"uv-image-index>`"
+
+#: ../../manual/render/blender_render/bake.rst:205
+msgid ""
+"In a UV/Image Editor, either create a new image or open an existing one. "
+"If your 3D View is in textured display mode, you should now see the image"
+" mapped to your mesh. Ensure that all faces are selected."
+msgstr ""
+"У редакторі UV/Зображень -- UV/Image Editor створіть нове або відкрийте "
+"наявне зображення. Якщо для 3D Огляду -- 3D View задано режим показу "
+"«Текстуровано» -- Textured, то ви повинні тепер побачити це зображення, "
+"розкладене на вашу сіть. Переконайтеся, що усі її грані виділені."
+
+#: ../../manual/render/blender_render/bake.rst:208
+#, fuzzy
+msgid ""
+"In the Bake panel at the bottom of the *Render menu*, bake your desired "
+"type of image (*Full Render*, etc.)."
+msgstr ""
+"На панелі «Запікання» -- Bake у вкладці *Render* виберіть бажаний тип "
+"запеченого зображення (*Full Render* тощо) та запустіть запікання."
+
+#: ../../manual/render/blender_render/bake.rst:210
+msgid ""
+"When rendering is complete, Blender replaces the image with the Baked "
+"image."
+msgstr ""
+"Після завершення зображування/запікання Blender замінить задане "
+"зображення Запеченим зображенням."
+
+#: ../../manual/render/blender_render/bake.rst:211
+msgid "Save the image."
+msgstr "Збережіть запечене зображення."
+
+#: ../../manual/render/blender_render/bake.rst:212
+msgid ""
+"Apply the image to the mesh as a UV texture. For displacement and normal "
+"maps, refer to :doc:`Bump and Normal Maps "
+"</render/blender_render/textures/properties/influence/bump_normal>`. For "
+"full and texture bakes, refer to :doc:`Textures "
+"</render/blender_render/textures/index>`."
+msgstr ""
+
+#: ../../manual/render/blender_render/bake.rst:215
+msgid ""
+"Refine the image using the process described below, or embellish with "
+":ref:`painting-texture-index` or an external image editor."
+msgstr ""
+"Покращіть це зображення за допомогою процесу, описаного нижче, за "
+"допомогою :ref:`painting-texture-index` або скориставшись зовнішнім "
+"редактором зображень."
+
+#~ msgid ""
+#~ "Apply the image to the mesh as "
+#~ "a UV texture. For displacement and "
+#~ "normal maps, refer to :doc:`Bump and "
+#~ "Normal Maps "
+#~ "</render/blender_render/textures/properties/influence/bump_and_normal>`."
+#~ " For full and texture bakes, refer"
+#~ " to :doc:`Textures "
+#~ "</render/blender_render/textures/index>`."
+#~ msgstr ""
+#~ "Розкладіть запечене на сіть як текстуру"
+#~ " UV. Про карти зміщень та нормалей"
+#~ " зверніться сюди -- :doc:`Bump and "
+#~ "Normal Maps "
+#~ "</render/blender_render/textures/properties/influence/bump_and_normal>`."
+#~ " Про запікання повністю та текстур "
+#~ "дивіться тут -- :doc:`Textures "
+#~ "</render/blender_render/textures/index>`."
+
+#~ msgid "Normal Space."
+#~ msgstr "Простір Нормалей -- Normal Space."
+

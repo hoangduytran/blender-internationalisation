@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Кнопки з числом &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/controls/buttons/number.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Піпетка" href="eye_dropper.html" />
+    <link rel="prev" title="Кнопки перемикання та радіокнопки" href="toggle_radio.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#window-system">Система вікон</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#interface-controls">Контролери інтерфейсу</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#buttons-and-controls">Кнопки й контролери</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="buttons.html">Кнопки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="menus.html">Меню</a></li>
+<li class="toctree-l4"><a class="reference internal" href="toggle_radio.html">Кнопки перемикання та радіокнопки</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Кнопки з числом</a></li>
+<li class="toctree-l4"><a class="reference internal" href="eye_dropper.html">Піпетка</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#extended-controls">Просунуті контролери</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tools">Інструменти</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+      <li>Кнопки з числом</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/interface/controls/buttons/number.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="number-buttons">
+<h1>Кнопки з числом<a class="headerlink" href="#number-buttons" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/interface_controls_buttons_number_number-button.png" src="../../../_images/interface_controls_buttons_number_number-button.png" />
+<p class="caption"><span class="caption-text">Кнопки з числом.</span></p>
+<div class="legend">
+(груповані або одиничні).</div>
+</div>
+<p>Кнопки з числом (number buttons) або кнопки для вказування числових значень -- це кнопки, що містять числові значення.</p>
+<p>Кнопки з числом можуть ідентифікуватися за наявністю трикутників на них, що вказують вліво (◂) та вправо (▸) по боках кнопки. Другий тип повзунків з числом має на своєму фоні смужку та використовується для значень у діапазоні, наприклад, відсоткових значень. Обидва типи мають заокруглені кутки. У більшості випадків вони містять ім'я та двокрапку, за якими слідує число. Це числом може редагуватися кількома способами:</p>
+<dl class="docutils">
+<dt>Прирістні кроки</dt>
+<dd>Для зміни значення покроково клацайте <kbd class="kbd docutils literal notranslate">LMB</kbd> по маленьких трикутниках (лише кнопки з числом).</dd>
+<dt>Перетягування</dt>
+<dd>Для зміни значення у широкому діапазоні утримуйте натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd> та тягніть мишу вліво або вправо. Утримуйте натисненою клавішу <kbd class="kbd docutils literal notranslate">Ctrl</kbd> для прилипання змін до дискретних кроків або клавішу <kbd class="kbd docutils literal notranslate">Shift</kbd> для більш точного уводу, у ході перетягування.</dd>
+<dt>Увід тексту</dt>
+<dd><p class="first">Press <kbd class="kbd docutils literal notranslate">LMB</kbd> or <kbd class="kbd docutils literal notranslate">Return</kbd> to edit the value as a text field.</p>
+<p>При уведенні значень вручну кнопка цього типу працює подібно до будь-якого іншого поля уводу тексту:</p>
+<ul class="last simple">
+<li>Press <kbd class="kbd docutils literal notranslate">Return</kbd> or <kbd class="kbd docutils literal notranslate">LMB</kbd> outside the field to apply the change.</li>
+<li>Натиснення <kbd class="kbd docutils literal notranslate">Esc</kbd> або <kbd class="kbd docutils literal notranslate">RMB</kbd> дасть скасування уводу значення.</li>
+<li>Натиснення <kbd class="kbd docutils literal notranslate">Tab</kbd> дасть перехід до наступної кнопки з числом, а <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> -- до попередньої.</li>
+<li>Натиснення <kbd class="kbd docutils literal notranslate">Minus</kbd> при нависанні курсора миші над кнопкою дає зміну значення на від'ємне.</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="multi-value-editing">
+<h2>Одночасне редагування кількох значень<a class="headerlink" href="#multi-value-editing" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id2">
+<img alt="../../../_images/interface_controls_buttons_number_multi-value-edit.png" src="../../../_images/interface_controls_buttons_number_multi-value-edit.png" />
+<p class="caption"><span class="caption-text">Одночасне редагування кількох значень.</span></p>
+</div>
+<p>Number buttons can edit multiple values at once (object scale or render resolution for example).
+This can be done by clicking on the button and dragging vertically to include buttons above/below.
+After the vertical motion you can drag from side to side, or release the <kbd class="kbd docutils literal notranslate">LMB</kbd> to type in a value.</p>
+</div>
+<div class="section" id="limits">
+<h2>Ліміти<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h2>
+<p>Most <em>Number Buttons</em> have two types of &quot;limits&quot; imposed on them. The first of these is a &quot;soft limit&quot;,
+this means that the property cannot surpass the value of the &quot;soft limit&quot; without having to <kbd class="kbd docutils literal notranslate">LMB</kbd>
+and input the value with the numpad. The second is the &quot;hard limit&quot;,
+this is the value that cannot be surpassed even by <kbd class="kbd docutils literal notranslate">LMB</kbd> and inputing a value.</p>
+</div>
+<div class="section" id="expressions">
+<h2>Вирази<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете також уводити у кнопки з числом математичні вирази, як <code class="docutils literal notranslate"><span class="pre">3*2</span></code> замість <code class="docutils literal notranslate"><span class="pre">6</span></code>. або <code class="docutils literal notranslate"><span class="pre">5/10+3</span></code>. Можуть використовуватися навіть константи, як <code class="docutils literal notranslate"><span class="pre">pi</span></code> (3.142), або функції, як <code class="docutils literal notranslate"><span class="pre">sqrt(2)</span></code> (квадратний корінь з 2).</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">These expressions are evaluated by Python; for all available math expressions see:
+<a class="reference external" href="https://docs.python.org/3/library/math.html">Math module reference</a>.</p>
+</div>
+<div class="section" id="expressions-as-drivers">
+<h3>Вирази як Драйвери<a class="headerlink" href="#expressions-as-drivers" title="Permalink to this headline">¶</a></h3>
+<p>Ви можете хотіти, щоб ваш вираз повторно обчислювався після його уводу. Blender підтримує таку можливість за допомогою драйверів -- <a class="reference internal" href="../../../animation/drivers/index.html"><span class="doc">Drivers</span></a> (функція системи анімації).</p>
+<p>Вираз, що починається з <code class="docutils literal notranslate"><span class="pre">#</span></code>, має спеціальне використання. Замість обчислення значення та відкидання виразу додається драйвер для потрібної властивості з уведеним виразом.</p>
+<p>Драйверний вираз <code class="docutils literal notranslate"><span class="pre">#frame</span></code> -- це швидкий спосіб доступу до карти, розкладки значень у поточному кадрі, але також підтримуються більш складні вирази, як приклад, <code class="docutils literal notranslate"><span class="pre">#fmod(frame,</span> <span class="pre">24)</span> <span class="pre">/</span> <span class="pre">24</span></code>.</p>
+<p>Це просто зручне скорочення для додання драйверів, які також можуть додаватися через меню за <kbd class="kbd docutils literal notranslate">RMB</kbd>.</p>
+</div>
+</div>
+<div class="section" id="units">
+<h2>Одиниці виміру<a class="headerlink" href="#units" title="Permalink to this headline">¶</a></h2>
+<p>Як і вирази, ви можете змішувати одиниці виміру (units) із числами; для того, щоб це працювало, одиниці необхідно задати в уставах сцени <a class="reference internal" href="../../../data_system/scenes/properties.html#data-scenes-props-units"><span class="std std-ref">scene settings</span></a>.</p>
+<p>Для використання одиниць просто після числа додатково впишіть її абревіатуру або повне ім'я англійською.</p>
+<p>Приклади включення дійсних одиниць:</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">1cm</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">1m</span> <span class="pre">3mm</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">1m,</span> <span class="pre">3mm</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">2ft</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">3ft/0.5km</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">2.2mm</span> <span class="pre">+</span> <span class="pre">5'</span> <span class="pre">/</span> <span class="pre">3&quot;</span> <span class="pre">-</span> <span class="pre">2yards</span></code></li>
+</ul>
+</td></tr></table>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Using Units</p>
+<ul class="last simple">
+<li>Коми є необов'язковими (для десяткових розрядів -- 1,000 -- обчислюється однаково, що й 1000).</li>
+<li>Ви можете змішувати між собою метричні -- metric та імперські британські -- imperial одиниці, хоча показуватися результатна одиниця буде лише в одній з цих систем.</li>
+<li>Множити англійських імен одиниць також розпізнаються, а тому можуть використовуватися як <code class="docutils literal notranslate"><span class="pre">meter</span></code>, так і <code class="docutils literal notranslate"><span class="pre">meters</span></code>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="eye_dropper.html" class="btn btn-neutral float-right" title="Піпетка" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="toggle_radio.html" class="btn btn-neutral" title="Кнопки перемикання та радіокнопки" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

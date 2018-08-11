@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Структура -- Structure &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/structure.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Виділення -- Selecting" href="selecting.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="index.html">Кістки -- Bones</a> &raquo;</li>
+        
+      <li>Структура -- Structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/armatures/bones/structure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure">
+<h1>Структура -- Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/rigging_armatures_bones_structure_bones-elements.png" src="../../../_images/rigging_armatures_bones_structure_bones-elements.png" />
+<p class="caption"><span class="caption-text">Елементи кістки.</span></p>
+</div>
+<p>Всі кістки мають три елемент:</p>
+<ol class="arabic simple">
+<li>The &quot;start joint&quot; named <em>root</em> or <em>head</em>.</li>
+<li>The &quot;body&quot; itself.</li>
+<li>And the &quot;end joint&quot; named <em>tip</em> or <em>tail</em>.</li>
+</ol>
+<p>With the default armature in Edit Mode,
+you can select the root and the tip, and move them as you do with mesh vertices.</p>
+<p>Обидва корінь та верхівка («суглоби») визнають своєю відповідною позицією кістку.</p>
+<p>Вони також мають властивість радіусу, корисну тільки для деформувального методу оболонки (дивіться нижче).</p>
+<div class="section" id="roll">
+<h2>Вертіння -- Roll<a class="headerlink" href="#roll" title="Permalink to this headline">¶</a></h2>
+<p>Активація стяга «Осі» -- <em>Axes</em> на панелі «Арматура &gt; Показ» -- <span class="menuselection">Armature tab ‣ Display panel</span> увімкне показ локальних осей для кожного суглоба кістки. Вісь Y завжди вирівняна вздовж кістки та орієнтована від кореня до верхівки. А тому, вона є віссю «вертіння» кістки -- &quot;roll&quot; axis.</p>
+</div>
+<div class="section" id="bones-influence">
+<span id="armature-bone-influence"></span><h2>Вплив костей<a class="headerlink" href="#bones-influence" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id2" style="width: 180px">
+<img alt="../../../_images/rigging_armatures_bones_structure_envelope-edit-mode.png" src="../../../_images/rigging_armatures_bones_structure_envelope-edit-mode.png" />
+<p class="caption"><span class="caption-text">Кістка при типі візуалізації «Оболонка» -- Envelope у Режимі Правки -- Edit Mode.</span></p>
+</div>
+<p>Базово, кістка керує геометрією через «слідування» вершин за нею. Це подібно до того, як м'язи або шкіра вашого пальця слідує за пальцевою кісткою, коли ви рухаєте цим пальцем.</p>
+<p>Для того, щоб зробити це, ви повинні визначити силу <em>впливів</em> кістки на певну вершину.</p>
+<p>Найпростіший спосіб полягає у тому, щоб кожна кістка впливала на ті частини геометрії, які знаходяться у певному діапазоні від місця знаходження кістки. Це називається «технікою оболонки -- <em>envelope technique</em>, оскільки кожна кістка може керувати тільки геометрією, що «обгорнута» її зоною впливу.</p>
+<p>Якщо режим візуалізації кістки увімкнено як «Оболонка» -- <em>Envelope</em>, то у Режимі Правки -- <em>Edit Mode</em> та у Режимі Пози -- <em>Pose Mode</em> ви можете бачити цю зону впливу, яка залежить від:</p>
+<ul class="simple">
+<li>Властивості «відстані» -- <em>distance</em> для оболонки та</li>
+<li>радіусу кореня і радіусу верхівки.</li>
+</ul>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png"><img alt="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png" src="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Наша арматура у типі візуалізації «Оболонка» -- Envelope у Режимі Пози -- Pose Mode.</span></p>
+</div>
+<p>Усі ці параметри впливу докладно описані тут -- <a class="reference internal" href="../skinning/index.html"><span class="doc">skinning pages</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="selecting.html" class="btn btn-neutral float-right" title="Виділення -- Selecting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

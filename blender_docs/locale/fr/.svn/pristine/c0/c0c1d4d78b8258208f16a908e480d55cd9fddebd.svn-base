@@ -1,0 +1,787 @@
+#
+# phan <phahoatho@gmail.com>, 2017, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 21:38-0400\n"
+"PO-Revision-Date: 2018-05-20 09:52+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:5
+msgid "Editing"
+msgstr "Édition"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:10
+msgid "Pose Tools."
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:12
+msgid ""
+"In *Pose Mode*, bones behave like objects. So the transform actions "
+"(grab/rotate/scale, etc.) are very similar to the same ones in *Object* "
+"mode (all available ones are regrouped in the :menuselection:`Pose --> "
+"Transform` submenu). However, there are some important specificities:"
+msgstr ""
+"En *Mode Pose*, les os se comportent comme des objets. Ainsi les actions "
+"de transformation (grab/rotate/scale, etc.) sont très semblables aux "
+"mêmes actions en *Mode Objet* (toutes celles disponibles sont regroupées "
+"dans le sous-menu :menuselection:`Pose --> Transform`). Cependant, il y a"
+" quelques spécificités importantes : "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:17
+msgid "Bones' relationships are crucial (see :ref:`bone-relations-parenting`)."
+msgstr ""
+"Les relations des os sont cruciales (voir "
+":ref:`bone_relations_parenting`)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:18
+#, fuzzy
+msgid ""
+"The \"transform center\" of a given bone (i.e. its default pivot point, "
+"when it is the only selected one) is *its root*. Note by the way that "
+"some pivot point options seem to not work properly. In fact, except for "
+"the *3D Cursor* one, all others appear to always use the median point of "
+"the selection (and not e.g. the active bone's root when *Active Object* "
+"is selected, etc.)."
+msgstr ""
+"Le \"centre de transformation\" d'un os donné (càd. son point pivot par "
+"défaut, quand il est le seul sélectionné) est *sa racine*. Notez "
+"d'ailleurs que certains options de point pivot semblent ne pas "
+"fonctionner proprement. En fait, à l'exception de celle du *Curseur 3D*, "
+"toutes les autres semblent toujours utiliser le point médian de la "
+"sélection (et pas par ex. la racine de l'os actif quand *Active Object* "
+"est activé, etc.)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:26
+msgid "Basic Posing"
+msgstr "Posing de base"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:28
+msgid ""
+"As previously noted, bones' transformations are performed based on the "
+"*Rest Position* of the armature, which is its state as defined in *Edit "
+"Mode*. This means that in rest position, in *Pose Mode*, each bone has a "
+"scale of 1.0, and null rotation and position (as you can see it in the "
+"*Transform* panel, in the 3D Views)."
+msgstr ""
+"Comme noté précédemment, les transformations d'os sont effectuées par "
+"rapport à la *Position de repos* de l'armature, qui est l'état tel que "
+"défini en *Mode Édition*. Ce qui signifie qu'en position de repos, en "
+"*Mode pose*, chaque os a une échelle de 1.0, et une rotation et une "
+"position nulles (comme vous pouvez le voir dans le panneau *Transform*, "
+"dans les Vues 3D)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:36
+msgid "An example of locally-Y-axis locked rotation, with two bones selected."
+msgstr ""
+"un exemple de rotation verrouillée sur l'axe Y local, avec deux os "
+"sélectionnés."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:38
+msgid ""
+"Note that the two green lines materializing the axes are centered on the "
+"armature's center, and not each bone's root..."
+msgstr ""
+"Notez que les deux lignes vertes matérialisant les axes sont centrées sur"
+" le centre de l'armature, et non sur la racine de chaque os..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:41
+msgid ""
+"Moreover, the local space for these actions is the bone's own one "
+"(visible when you enable the *Axes* option of the *Armature* panel). This"
+" is especially important when using axis locking, for example, there is "
+"no specific \"bone roll\" tool in *Pose Mode*, as you can rotate around "
+"the bone's main axis just by locking on the local Y axis :kbd:`R Y Y`... "
+"This also works with several bones selected; each one is locked to its "
+"own local axis!"
+msgstr ""
+"De plus, l'espace local pour ces actions est celui propre à l'os (visible"
+" quand vous activez l'option *Axes* du panneau *Armature*), C'est "
+"particulièrement important dans le verrouillage d'axes, par exemple, il "
+"n'y a pas d'outil de \"roulis d'os\" spécifique en *Mode Pose*, étant "
+"donné que vous pouvez tourner autour de l'axe principal de l'os "
+"simplement en verrouillant l'axe Y local :kbd:`R-Y-Y`... Cela fonctionne "
+"aussi avec plusieurs os sélectionnés ; chaque os est verrouillé sur son "
+"propre axe local !  "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:49
+#, fuzzy
+msgid ""
+"When you pose your armature, you are supposed to have one or more objects"
+" skinned on it! And obviously, when you transform a bone in *Pose Mode*, "
+"its related objects or object's shape is moved/deformed accordingly, in "
+"real-time. Unfortunately, if you have a complex rig set-up and/or a heavy"
+" skin object, this might produce lag, and make interactive editing very "
+"painful. If you experience such troubles, try enabling the *Delay Deform*"
+" button of the *Armature* panel the skin objects will only be updated "
+"once you validate the transform operation."
+msgstr ""
+"Quand vous posez votre armature, vous êtes sensé y avoir un ou plusieurs "
+"objets skinnés ! Et évidemment, quand vous transformez un os en *Mode "
+"Pose*, la forme de ses objets associés ou de l'objet test "
+"déplacée/déformée en conséquence, en temps réel. Malheureusement, si vous"
+" avez une configuration de rigs complexe et/ou un objet skin lourd, cela "
+"pourrait produire un retard et rendre l'édition interactive très "
+"douloureuse. Si vous éprouvez des problèmes, essayez d'activer le bouton "
+"*Delay Deform* du panneau *Armature*, les objets skin seront seulement "
+"mis à jour une fois l'opération de transformation validée."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:61
+msgid "Auto IK"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:63
+#: ../../manual/rigging/armatures/posing/editing.rst:78
+#: ../../manual/rigging/armatures/posing/editing.rst:108
+#: ../../manual/rigging/armatures/posing/editing.rst:137
+#: ../../manual/rigging/armatures/posing/editing.rst:151
+#: ../../manual/rigging/armatures/posing/editing.rst:168
+#: ../../manual/rigging/armatures/posing/editing.rst:190
+#: ../../manual/rigging/armatures/posing/editing.rst:266
+#: ../../manual/rigging/armatures/posing/editing.rst:311
+msgid "Reference"
+msgstr "Référence"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Mode"
+msgstr "Mode "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:66
+#: ../../manual/rigging/armatures/posing/editing.rst:81
+#: ../../manual/rigging/armatures/posing/editing.rst:111
+#: ../../manual/rigging/armatures/posing/editing.rst:140
+#: ../../manual/rigging/armatures/posing/editing.rst:154
+#: ../../manual/rigging/armatures/posing/editing.rst:171
+#: ../../manual/rigging/armatures/posing/editing.rst:193
+#: ../../manual/rigging/armatures/posing/editing.rst:269
+msgid "Pose Mode"
+msgstr "Mode Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Panel"
+msgstr "Panneau "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:67
+msgid ":menuselection:`Tool Shelf --> Options --> Pose Options`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:69
+msgid ""
+"The auto IK option in the Tool Shelf enables a temporary IK constraint "
+"when posing bones. The chain acts from the tip of the selected bone to "
+"root of the uppermost parent bone. Note that this mode lacks options, and"
+" only works by applying the resulting transform to the bones in the "
+"chain."
+msgstr ""
+"L'option *auto IK* dans le Tool Shelf active une contrainte IK temporaire"
+" au positionnement des os. La chaîne agit depuis la pointe de l'os "
+"sélectionné à la racine de l'os parent du plus haut rang. Notez que ce "
+"mode manque d'options, et fonctionne uniquement en appliquant la "
+"transformation résultante aux os de la chaîne."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:76
+msgid "Clear Transform"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Menu"
+msgstr "Menu "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:82
+msgid ":menuselection:`Pose --> Clear Transform`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Hotkey"
+msgstr "Raccourci "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:83
+msgid ":kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:85
+msgid ""
+"Once you have transformed some bones, if you want to return to their rest"
+" position, just clear their transformations."
+msgstr ""
+"Une fois certains os transformés, si vous voulez revenir à leur position "
+"de repos, effacez simplement leurs transformations."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:88
+msgid "Location, Rotation, Scale :kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:89
+msgid "Clears individual transforms."
+msgstr "Efface les transformations individuelles."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:90
+msgid "All"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:91
+msgid "To clear everything at once."
+msgstr "Pour tout effacer d'un coup. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Reset Unkeyed"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:93
+#, fuzzy
+msgid ""
+"Clears the transforms to their keyframe state. This operator is also "
+"available in the :menuselection:`Specials --> Clear User Transform` menu."
+msgstr ""
+"Efface les transformations de leur état de trame clé. Cet opérateur est "
+"aussi disponible dans le menu :menuselection:`Specials --> Clear User "
+"Transform`."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Only Selected"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Operate on just the selected or all bones."
+msgstr "Opérer sur les seuls os sélectionnés ou tous les os. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:99
+msgid ""
+"Note that in *Envelope* visualization, :kbd:`Alt-S` does not clear the "
+"scale, but rather scales the *Distance* influence area of the selected "
+"bones (also available through the :menuselection:`Pose --> Scale Envelope"
+" Distance` menu entry, which is only effective in *Envelope* "
+"visualization, even though it is always available...)."
+msgstr ""
+"Notez que dans la visualisation *Envelope*, :kbd:`Alt-S` n'efface pas "
+"l'échelle, mais met plutôt à l'échelle la zone d'influence *Distance* des"
+" os sélectionnés (aussi disponibles à travers l'entrée de menu "
+":menuselection:`Pose --> Scale Envelope Distance`, qui est uniquement "
+"effective dans la visualisation *Envelope*, même si elle est toujours "
+"disponible...)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:106
+msgid "Apply"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:112
+msgid ":menuselection:`Pose --> Apply`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:113
+msgid ":kbd:`Ctrl-A`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:115
+msgid ""
+"Conversely, you may define the current pose as the new rest position "
+"(i.e. \"apply\" current transformations to the *Edit Mode*), using the "
+":menuselection:`Pose --> Apply Pose as Restpose` menu entry (or "
+":kbd:`Ctrl-A` and confirm the pop-up menu). When you do so, the skinned "
+"objects/geometry is **also** reset to its default, undeformed state, "
+"which generally means you will have to skin it again."
+msgstr ""
+"Inversement, vous pouvez définir la pose courante comme la nouvelle "
+"position de repos (càd. \"appliquer\" les transformations courantes au "
+"*Mode Édition*), en utilisant l'entrée de menu :menuselection:`Pose --> "
+"Apply Pose as Restpose` (ou :kbd:`Ctrl-A` et confirmer le menu "
+"déroulant). Quand vous procédez ainsi, les objets/géométrie skinné(s) "
+"sont/est **aussi** remis à leur/sa valeur par défaut, état non déformé, "
+"ce qui signifie généralement que vous devrez le skinner de nouveau. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:124
+msgid "In-Betweens"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:126
+msgid "There are several tools for editing poses in an animation."
+msgstr "Il y a plusieurs outils pour l'édition des poses dans une animation."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:128
+msgid ""
+"There are also in *Pose Mode* a bunch of armature-specific editing "
+"options/tools, like :ref:`auto-bones naming <armature-editing-naming-"
+"bones>`, :ref:`properties switching/enabling/disabling <armature-bone-"
+"properties>`, etc., that we already described in the armature editing "
+"pages. See the links above..."
+msgstr ""
+"Il y a aussi en *Mode Pose* un ensemble d'options/outils d'édition "
+"spécifiques d'armature, comme :ref:`auto-bones naming <armature-editing-"
+"naming-bones>`, :ref:`properties switching/enabling/disabling <armature-"
+"bone-properties>`, etc., que nous avons déjà décrits dans les pages "
+"d'édition d'armature. Voir les liens ci-dessus..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:135
+msgid "Push Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:141
+msgid ""
+":menuselection:`Tool Shelf --> Tool --> Tool --> Pose Tools --> In-"
+"Betweens: Push`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:142
+msgid ":menuselection:`Pose --> In-Betweens --> Push Pose`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:143
+msgid ":kbd:`Ctrl-E`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:145
+msgid "Push pose exaggerates the current pose."
+msgstr "*Push pose* exagère la pose courante. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:149
+msgid "Relax Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:155
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> In-Betweens: Relax`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:156
+msgid ":menuselection:`Pose --> In-Betweens --> Relax Pose`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:157
+msgid ":kbd:`Alt-E`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:159
+#, fuzzy
+msgid ""
+"Relax pose is somewhat related to the above topic, but it is only useful "
+"with keyframed bones. When you edit such a bone (and hence take it "
+"\"away\" from its \"keyed position\"), using this tool will progressively"
+" \"bring it back\" to its \"keyed position\", with smaller and smaller "
+"steps as it comes near it."
+msgstr ""
+"*Relax pose* est quelque part en rapport avec le sujet ci-dessus, mais "
+"c'est seulement utile avec les os en trames clés. Quand vous éditez un "
+"tel os (et ainsi le), en utilisant cet outil va progressivement \"le "
+"ramener\" à sa \"position clé\", avec des pas de plus en plus petits au "
+"fur à mesure qu'il s'en approche. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:166
+msgid "Breakdowner"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:172
+msgid ""
+":menuselection:`Tool Shelf --> Tool --> Pose Tools --> In-Betweens: "
+"Breakdowner`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:173
+msgid ":menuselection:`Pose --> In-Betweens --> Pose Breakdowner`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:174
+msgid ":kbd:`Shift-E`"
+msgstr ":kbd:`Maj-E`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:176
+msgid "Creates a suitable breakdown pose on the current frame."
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:178
+msgid ""
+"The Breakdowner tool can be constrained to work on specific transforms "
+"and axes, by pressing the following keys while the tool is active:"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:181
+msgid ":kbd:`G`, :kbd:`R`, :kbd:`S`: translate, rotate, scale"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:182
+msgid ":kbd:`B`: Bendy bones"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:183
+msgid ":kbd:`C`: custom properties"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:184
+msgid ":kbd:`X`, :kbd:`Y`, :kbd:`Z`: to the corresponding axes"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:188
+msgid "Copy/Paste Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Header"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:194
+msgid "Copy/Paste (|copy-paste|)"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:195
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> Pose: Copy, Paste`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:196
+msgid ""
+":menuselection:`Pose --> Copy Current Pose`, :menuselection:`Pose --> "
+"Paste Pose`, :menuselection:`Pose --> Paste X-Flipped Pose`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:200
+#, fuzzy
+msgid ""
+"Blender allows you to copy and paste a pose, either through the *Pose* "
+"menu, or directly using the three copy/paste buttons found at the right "
+"part of the 3D View's header:"
+msgstr ""
+"Blender vous permet de copier et de coller une pose, soit via le menu "
+"*Pose*, soit directement en utilisant les trois boutons de copier/coller "
+"dans la partie droite de l'entête de la Vue 3D :"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:203
+msgid "Copy Current Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:204
+#, fuzzy
+msgid "Copy the current pose of selected bones into the pose buffer."
+msgstr "Copier la pose courante des os sélectionnés dans le tampon pose."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:205
+msgid "Paste Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:206
+msgid "Paste the buffered pose to the currently posed armature."
+msgstr "Coller la pose en tampon dans l'armature en cours de posing."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:208
+msgid "Paste X-Flipped Pose"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:208
+msgid "Paste the *X axis mirrored* buffered pose to the currently posed armature."
+msgstr ""
+"Coller la pose en tampon *X axis mirrored* dans l'armature en cours de "
+"posing."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:210
+msgid "Here are important points:"
+msgstr "Voici des points importants :"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:212
+msgid ""
+"This tool works at the Blender session level, which means you can use it "
+"across armatures, scenes, and even files. However, the pose buffer is not"
+" saved, so you lose it when you close Blender."
+msgstr ""
+"Cet outil fonctionne au niveau d'une session de Blender, ce qui signifie "
+"que vous pouvez l'utiliser avec les armatures, les scènes, et même les "
+"fichiers. Cependant, le tampon pose n'est pas enregistré, de sorte que "
+"vous le perdez quand vous fermez Blender."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:214
+msgid "There is only one pose buffer."
+msgstr "il y a un seul tampon pose."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:215
+msgid ""
+"Only the selected bones are taken into account during copying (i.e. you "
+"copy only selected bones' pose)."
+msgstr ""
+"Seules les os sélectionnés sont pris en compte pendant la copie (càd. que"
+" vous copiez uniquement la pose des os sélectionnés)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:216
+msgid ""
+"During pasting, on the other hand, bone selection has no importance. The "
+"copied pose is applied on a per-name basis (i.e. if you had a ``forearm``"
+" bone selected when you copied the pose, the ``forearm`` bone of the "
+"current posed armature will get its pose when you paste it -- and if "
+"there is no such named bone, nothing will happen...)."
+msgstr ""
+"Pendant le collage, d'un autre côté, la sélection des os n'a pas "
+"d'importance. La pose copiée est appliquée sur la base par nom (càd. si "
+"vous aviez un os \"avant-bras\" sélectionné quand vous copiez la pose, "
+"l'os \"avant-bras\" de l'armature posée courante va obtenir sa pose quand"
+" vous la collez -- et s'il y a aucun os portant ce nom, rien ne se "
+"passe...). "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:221
+msgid ""
+"What is copied and pasted is in fact the position/rotation/scale of each "
+"bone, in its own space. This means that the resulting pasted pose might "
+"be very different from the originally copied one, depending on: - The "
+"rest position of the bones, - and the current pose of their parents."
+msgstr ""
+"Ce qui est copié et collé est en fait la position/rotation/échelle de "
+"chaque os, dans son propre espace. Ce qui signifie que la pose collée "
+"résultante pourrait être très différente de celle copiée originellement, "
+"selon : - la position de repos des os, et - la pose courante de leurs "
+"parents."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:230
+msgid "The rest position of our original armature."
+msgstr "La position de repos de notre armature d'origine."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:234
+msgid "The rest position of our destination armature."
+msgstr "La position de repos de notre armature de destination."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:236
+msgid "Examples of pose copy/paste."
+msgstr "Exemples de copie/collage de pose."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:240
+msgid ""
+"The first copied pose (note that only two bones are selected and hence "
+"copied)."
+msgstr ""
+"la première pose copiée (notez que seuls deux os sont sélectionnés et par"
+" conséquent copiés)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:244
+msgid "...pasted on the destination armature..."
+msgstr "... collés sur l'armature de destination..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:248
+#: ../../manual/rigging/armatures/posing/editing.rst:260
+msgid "...and mirror-pasted on the destination armature."
+msgstr "... et collés en miroir sur l'armature de destination."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:252
+msgid ""
+"The same pose as above is copied, but this time with all bones selected, "
+"..."
+msgstr ""
+"La même pose que ci-dessus est copiée, mais cette fois avec tous les os "
+"sélectionnés, ..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:256
+#, fuzzy
+msgid "... pasted on the destination armature..."
+msgstr "... collés sur l'armature de destination..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:264
+msgid "Propagate"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:270
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> Pose: Propagate`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:271
+msgid ":menuselection:`Pose --> Propagate`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:272
+msgid ":kbd:`Alt-P`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:274
+#, fuzzy
+msgid ""
+"The Propagate tool copies the pose of the selected bones on the current "
+"frame over to the keyframes delimited by the *Termination Mode*. It "
+"automates the process of copying and pasting."
+msgstr ""
+"L'outil *Propagate* copie la pose des os sélectionnés sur la trame "
+"courante dans les trames clés délimitées par le *Mode Termination*. Il "
+"automatise le processus de copie et de collage. "
+
+#: ../../manual/rigging/armatures/posing/editing.rst:280
+msgid "Options"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:301
+msgid "Termination Mode"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:283
+msgid "Modes which determine how it decides when to stop overwriting keyframes."
+msgstr ""
+"Modes qui déterminent la manière dont il décide quand arrêter "
+"l'écrasement des trames clés."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:287
+msgid "While Held"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:286
+msgid ""
+"The most complicated of the modes available, as it tries to guess when to"
+" stop propagating by examining the pauses in the animation curves per "
+"control (i.e. all F-Curves for a bone, instead of per F-Curve)."
+msgstr ""
+"Le plus compliqué des modes disponibles, étant donné qu'il essaie de "
+"deviner quand arrêter la propagation en examinant les pauses dans les "
+"courbes d'animation par contrôle (toutes les F-Curses pour un os, au lieu"
+" d'un par F-Curve)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:289
+msgid "To Next Keyframe"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:290
+msgid ""
+"Simply copies the pose to the first keyframe after (but not including any"
+" keyframe on) the current frame."
+msgstr ""
+"Copie simplement la pose dans la première kexframe après (mais ne "
+"comprenant aucune kexframe) la frame courante."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:291
+msgid "To Last Keyframe"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:292
+msgid "Will simply replace the last keyframe. (i.e. making action cyclic)."
+msgstr ""
+"Va simplement remplacer la dernière keyframe (càd en rendant l'action "
+"cyclique)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:295
+msgid "Before Frame"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:294
+msgid ""
+"To all keyframes between current frame and the *End frame* option. This "
+"option is best suited for use from scripts due to the difficulties in "
+"setting this frame value, though it is possible to set this manually via "
+"the Operator panel if necessary."
+msgstr ""
+"À toutes les trames clés entre la trame courante et l'option *End frame*."
+" Cette option est mieux adaptée pour une utilisation dans des scripts du "
+"fait des difficultés dans le réglage de la valeur de cette trame, bien "
+"qu'il est possible de la définir manuellement via le panneau *Operator* "
+"si nécessaire."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:297
+msgid "Before Last Keyframe"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:298
+msgid "To all keyframes from current frame until no more are found."
+msgstr ""
+"Ã toutes les trames clés depuis la trame courante jusqu'à ce qu'il y en "
+"ait plus aucune."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:299
+msgid "On Selected Keyframes"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:300
+msgid "Will apply the pose of the selected bones to all selected keyframes."
+msgstr ""
+"Va appliquer la pose des os sélectionnés à toutes les trames clés "
+"sélectionnées."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:301
+msgid "On Selected Markers"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:302
+msgid ""
+"To all keyframes occurring on frames with Scene Markers after the current"
+" frame."
+msgstr ""
+"À toutes les trames clés apparaissant dans des trames avec des marqueurs "
+"de scène après la trame courante."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:306
+msgid "End Frame"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:304
+msgid ""
+"Defines the upper-bound for the frame range within which keyframes will "
+"be affected (with the lower bound being the current frame)."
+msgstr ""
+"Définit la limite supérieure de l'intervalle de trames dans laquelle des "
+"trames clés seront affectées (avec la trame courante comme la limite "
+"inférieure)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:309
+msgid "Show/Hide"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:314
+msgid "All Modes"
+msgstr "Tous modes"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:315
+msgid ":menuselection:`Properties editor --> Bone --> Display`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:316
+msgid ":menuselection:`... --> Show/Hide`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:318
+msgid ""
+"You do not have to use bone layers to show/hide some bones. As with "
+"objects, vertices or control points, you can use :kbd:`H`:"
+msgstr ""
+"Vous n'avez pas à utiliser les calques d'os pour afficher/cacher "
+"certtains os. Comme avec les objets, les sommets ou les points de "
+"contrôles, vous pouvez utiliser :kbd:`H` :"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:321
+msgid ":kbd:`H` will hide the selected bone(s)."
+msgstr ":kbd:`H` va cacher le(s) os sélectionné(s)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:322
+msgid ":kbd:`Shift-H` will hide all bones *but the selected one(s)*."
+msgstr ":kbd:`Maj-H` va cacher tous les os *sauf le(s) os sélectionné(s)*."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:323
+msgid ":kbd:`Alt-H` will show all hidden bones."
+msgstr ":kbd:`Alt-H` va afficher tous les os cachés."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:325
+msgid ""
+"You can also use the *Hide* checkbox of the :menuselection:`Bone tab --> "
+"Display panel`."
+msgstr ""
+"Vous pouvez aussi utiliser la case à cocher *Hide* de "
+":menuselection:`Bone tab --> Display panel`."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:327
+msgid ""
+"Note that hidden bones are specific to a mode, i.e. you can hide some "
+"bones in *Edit Mode*, they will still be visible in *Pose Mode*, and vice"
+" versa. Hidden bones in *Pose Mode* are also invisible in *Object Mode*. "
+"And in *Edit Mode*, the bone to hide must be fully selected, not just his"
+" root or tip."
+msgstr ""
+"Notez que les os cachés sont spécifiques à un mode, càd. que vous pouvez "
+"cacher certains os en *Mode Édition*, ils seront toujours visibles en "
+"*Mode Pose*, et vice-versa. Les os cachés en *Mode Pose* sont aussi "
+"invisibles en *Mode Objet*. Et en *Mode Édition*, l'os à cacher doit être"
+" entièrement sélectionné, pas simplement sa racine ou sa pointe."
+
+#~ msgid "Mode:     Pose Mode"
+#~ msgstr "Mode :     Mode Pose"
+
+#~ msgid "Hotkey:   :kbd:`Ctrl-A`"
+#~ msgstr "Raccourci :   :kbd:`Ctrl-A`"
+
+#~ msgid "Hotkey:   :kbd:`Alt-E`"
+#~ msgstr "Raccourci :   :kbd:`Alt-E`"
+
+#~ msgid "Hotkey:   :kbd:`Alt-P`"
+#~ msgstr "Raccourci :   :kbd:`Alt-P`"
+
+#~ msgid "Mode:     All Modes"
+#~ msgstr "Mode:     Tous Modes"
+

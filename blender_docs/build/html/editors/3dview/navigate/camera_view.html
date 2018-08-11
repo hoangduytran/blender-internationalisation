@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Огляд Камери -- Camera View &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/navigate/camera_view.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="3D Курсор -- 3D Cursor" href="../3d_cursor.html" />
+    <link rel="prev" title="Contextual Views" href="views.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../object/index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a> &raquo;</li>
+        
+      <li>Огляд Камери -- Camera View</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/3dview/navigate/camera_view.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="camera-view">
+<h1>Огляд Камери -- Camera View<a class="headerlink" href="#camera-view" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Camera</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Camera ‣ Active Camera</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Numpad0</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../_images/editors_3dview_navigate_camera-view_example.png" src="../../../_images/editors_3dview_navigate_camera-view_example.png" />
+<p class="caption"><span class="caption-text">Демонстрація огляду камери -- Camera View.</span></p>
+</div>
+<p>Огляд через камеру або Огляд Камери -- Camera view показує поточну сцену з точки зору поточно активної камери. Він може бути активований натисканням <kbd class="kbd docutils literal notranslate">Numpad0</kbd>. Огляд Камери може використовуватися для віртуального компонування зйомок та передогляду того, як сцена буде виглядати при зображуванні, рендерингу. Відзображене, рендерене зображення буде містити все, що знаходиться у межах пунктирної лінії огляду камери. У цьому огляді ви можете також установити «Зображ у Межах» -- <em>Render Border</em> -- рамка, у межах якої буде зображуватися, рендеритися частина 3D Огляду.</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Огляд Камери надає передогляд фінального рендереного, відзображеного зображення.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_navigate_camera-view_preview.png"><img alt="../../../_images/editors_3dview_navigate_camera-view_preview.png" src="../../../_images/editors_3dview_navigate_camera-view_preview.png" style="width: 335px;" /></a>
+<p class="caption"><span class="caption-text">Огляд Камери.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/editors_3dview_navigate_camera-view_render.png"><img alt="../../../_images/editors_3dview_navigate_camera-view_render.png" src="../../../_images/editors_3dview_navigate_camera-view_render.png" style="width: 335px;" /></a>
+<p class="caption"><span class="caption-text">Відзображене, рендерене зображення.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="camera-navigation">
+<h2>Навігація камери<a class="headerlink" href="#camera-navigation" title="Permalink to this headline">¶</a></h2>
+<p>Існує кілька різних способів навігації та розташування камери у вашій сцені, деякі з них пояснюються нижче.</p>
+<p>Присування і відсування можливе у цьому огляді, але, щоб змінити точку зору, ви повинні пересунути або обернути камеру.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Пам'ятайте, що активною «камерою» може бути будь-який вид об'єктів у сцені. Тому, ці дії можуть бути використані також, наприклад, для розташування та націлення і лами.</p>
+</div>
+<div class="section" id="move-active-camera-to-view">
+<h3>Пересування активної камери за оглядом<a class="headerlink" href="#move-active-camera-to-view" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-Numpad0</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ця функція, що має назву «Вирівняти Активну Камеру за Оглядом» -- Align Active Camera to View, позиціонує та орієнтує активну камеру так, щоб вона відповідала поточному оглядвікну.</p>
+<p>Виділіть камеру, далі перемістіть, зорієнтуйте 3D Огляд у бажані позицію і напрямок його поточної точки зору для майбутнього огляду камери (так, щоб ви бачили в 3D Огляді те, що повинна бачити далі камера). Потім натисніть <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Numpad0</kbd> і ваша камера сама займе позицію і прийме орієнтацію відповідно до налаштованого перед цим огляду, а також відбудеться перемикання в огляд камери.</p>
+</div>
+<div class="section" id="camera-view-positioning">
+<h3>Позиціонування огляду камери<a class="headerlink" href="#camera-view-positioning" title="Permalink to this headline">¶</a></h3>
+<p>При увімкненні опції «Зблокувати Камеру з Оглядом» -- <a class="reference internal" href="../properties/panels.html#dview-lock-camera-to-view"><span class="std std-ref">Lock Camera to View</span></a> на панелі «Огляд» -- View регіону «Властивості» -- Properties region і при знаходженні у режимі огляду камери -- Camera View ви можете переміщатися у 3D Огляді -- 3D View, як звичайно, при цьому залишаючись в огляді камери. Контролери для цього є такими ж самими, як і при звичайному переміщенні у 3D.</p>
+</div>
+<div class="section" id="roll-pan-dolly-and-track">
+<h3>Вертіння, панорамування, наїзд-від'їзд та простеження<a class="headerlink" href="#roll-pan-dolly-and-track" title="Permalink to this headline">¶</a></h3>
+<p>Для здійснення цих рухів камери вона повинна бути спершу <em>виділена</em>, щоб стати активним об'єктом (при перегляді через огляд камери для її виділення ви можете клацнути <kbd class="kbd docutils literal notranslate">RMB</kbd> на рамку прямокутника її країв зі суцільних ліній). Наступні дії також передбачають, що ви знаходитися в огляді камери -- Camera View <kbd class="kbd docutils literal notranslate">Numpad0</kbd>! Зробивши вище сказане, ви можете тепер маніпулювати камерою за допомогою тих же інструментів, що використовуються для маніпулювання будь-яким іншим об'єктом:</p>
+<dl class="docutils">
+<dt>Вертіння -- Roll</dt>
+<dd>Press <kbd class="kbd docutils literal notranslate">R</kbd> to enter object rotation mode. The default will be to rotate the camera in its local Z axis
+(the axis orthogonal to the camera view), which is the definition of a camera &quot;roll&quot;.</dd>
+<dt>Вертикальне панорамування -- Vertical Pan або Тангаж -- Pitch</dt>
+<dd>This is just a rotation along the local X axis. Press <kbd class="kbd docutils literal notranslate">R</kbd> to enter object rotation mode, then <kbd class="kbd docutils literal notranslate">X</kbd> twice
+(the first press selects the <em>global</em> axis, pressing the same letter a second time selects the <em>local</em> axis --
+this works with any axis;
+see the <a class="reference internal" href="../object/editing/transform/control/precision/axis_locking.html"><span class="doc">axis locking page</span></a>).</dd>
+<dt>Горизонтальне панорамування -- Horizontal Pan або Риск -- Yaw</dt>
+<dd>Це відповідно обертання навколо локальної осі Y камери. Натисніть <kbd class="kbd docutils literal notranslate">R</kbd>, а потім двічі <kbd class="kbd docutils literal notranslate">Y</kbd>.</dd>
+<dt>Наїзд-Від'їзд -- Dolly</dt>
+<dd>Для наїзду-від'їзду камери -- dolly натисніть <kbd class="kbd docutils literal notranslate">G</kbd>, а потім рухайте з натисненою <kbd class="kbd docutils literal notranslate">MMB</kbd> (або двічі <kbd class="kbd docutils literal notranslate">Z</kbd> і просто рухайте мишею).</dd>
+<dt>Простеження Убік -- Sideways Tracking</dt>
+<dd>Натисніть <kbd class="kbd docutils literal notranslate">G</kbd> та рухайте мишею (ви можете двічі клацнути на <kbd class="kbd docutils literal notranslate">X</kbd> або <kbd class="kbd docutils literal notranslate">Y</kbd> для чисто-горизонтального або чисто-вертикально простеження убік).</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<dl class="last docutils">
+<dt>Режим Політ/Ходьба -- <a class="reference internal" href="walk_fly.html#dview-walk-fly"><span class="std std-ref">Fly/Walk Mode</span></a></dt>
+<dd>When you are in walk/fly mode, navigation actually moves your camera.</dd>
+<dt>Зблокувати Камеру з Оглядом -- <a class="reference internal" href="../properties/panels.html#dview-lock-camera-to-view"><span class="std std-ref">Lock Camera to View</span></a></dt>
+<dd>При увімкненні здійснення типових операцій маніпулювання з оглядом буде рухати також і сам об'єкт камери.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../3d_cursor.html" class="btn btn-neutral float-right" title="3D Курсор -- 3D Cursor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="views.html" class="btn btn-neutral" title="Contextual Views" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

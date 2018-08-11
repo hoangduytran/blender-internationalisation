@@ -1,0 +1,554 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/fcurves/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Редагування -- Editing" href="editing.html" />
+    <link rel="prev" title="F-Криві -- F-Curves" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Канали</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">F-Криві -- F-Curves</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/graph_editor/fcurves/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>After animating some property in Blender using keyframes you can edit their corresponding curves.
+When something is &quot;animated&quot;, it changes over time. This curve is shown as something called an F-Curve.
+Basically what an F-Curve does is an interpolation between two animated properties. In Blender,
+animating an object means changing one of its properties, such as the object's location, or its scale.</p>
+<p>As mentioned, Blender's fundamental unit of time is the &quot;frame&quot;,
+which usually lasts just a fraction of a second, depending on the <em>frame rate</em> of the scene.
+As animation is composed of incremental changes spanning multiple frames,
+usually these properties are <strong>not</strong> manually modified <em>frame-by-frame</em>, because:</p>
+<ul class="simple">
+<li>Це може тривати віки!</li>
+<li>Може бути дуже важко отримати плавні варіації властивості (допоки ви обчислите математичні функції та уведете точне значення для кожного кадру, то зможете збожеволіти).</li>
+</ul>
+<p>Через це майже уся пряма анімація робиться за допомогою інтерполяції -- <em>interpolation</em>.</p>
+<p>Ідея тут проста: ви визначаєте кілька ключкадрів, які знаходяться між собою на відстані через кілька кадрів. Між цими ключкадрами значення властивостей автоматично обчислюються (інтерполюються) та заповнюються сами Blender'ом. Таким чином, об'єм роботи аніматорів значно зменшується.</p>
+<div class="figure align-right" id="id1">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_f-curves-concept.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_f-curves-concept.png" src="../../../_images/editors_graph-editor_fcurves_introduction_f-curves-concept.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Example of an interpolation.</span></p>
+</div>
+<p>Наприклад, якщо ви маєте:</p>
+<ul class="simple">
+<li>Керувальну точку зі значенням 0 у кадрі 0,</li>
+<li>іншу керувальну точку зі значенням 10 у кадрі 25,</li>
+<li>and you use linear interpolation, then, at frame 5 we get a value of 2.</li>
+</ul>
+<p>The same goes for all intermediate frames: with just two points,
+you get a smooth increase from (0 to 10) along the 25 frames.
+Obviously, if you would like the frame 15 to have a value of 9,
+you would have to add another control point (or keyframe)...</p>
+<div class="section" id="direction-of-time">
+<h2>Напрямок Часу -- Direction of Time<a class="headerlink" href="#direction-of-time" title="Permalink to this headline">¶</a></h2>
+<p>Хоча F-Криві є дуже подібними до кривих Безьє -- <a class="reference internal" href="../../../modeling/curves/structure.html#curve-bezier"><span class="std std-ref">Криві Безьє -- Bézier Curves</span></a>, однак між ними є деякі важливі відмінності.</p>
+<p>З очевидних причин, властивість, представлена F-Кривою, не може мати більше, ніж <strong>одне</strong> значення у певний момент, звідси:</p>
+<ul class="simple">
+<li>Коли ви рухаєте керувальну точку вперед керувальної точки, що була попередньо спереду від точки, яку ви рухаєте, то ці дві керувальні точки змінять свій порядок на редагованій кривій, щоб крива не рухалася назад у часі.</li>
+<li>З цієї причини неможливо мати замкнуту F-Криву.</li>
+</ul>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Перемикання порядку двох керувальних точок: крива не може йти назад у часі!</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<img alt="../../../_images/editors_graph-editor_fcurves_introduction_moving1.png" src="../../../_images/editors_graph-editor_fcurves_introduction_moving1.png" />
+<p class="caption"><span class="caption-text">Перед рухом другого ключкадру.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../_images/editors_graph-editor_fcurves_introduction_moving2.png" src="../../../_images/editors_graph-editor_fcurves_introduction_moving2.png" />
+<p class="caption"><span class="caption-text">Після руху другого ключкадру.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="settings">
+<h2>Устави -- Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<p>F-Криві мають три додаткові властивості, які керують інтерполяцією між точками, розширенням поведінки та типами держаків.</p>
+<div class="section" id="interpolation-mode">
+<span id="editors-graph-fcurves-settings-interpolation"></span><h3>Режим Інтерполяції -- Interpolation Mode<a class="headerlink" href="#interpolation-mode" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Interpolation Mode</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">T</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Режим для інтерполяції -- <a class="reference internal" href="../../../glossary/index.html#term-interpolation"><span class="xref std std-term">Interpolation</span></a> між поточним та наступним ключкадрами.</p>
+<div class="section" id="interpolation">
+<h4>Інтерполяція -- Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Постійно -- Constant</dt>
+<dd><p class="first">Передбачає відсутність інтерполяції взагалі. Крива утримує значення її останнього ключкадра, даючи дискретну (східчасту) на вигляд «криву». Зазвичай, використовується тільки у ході початкового «намічання» у процесі анімування «від пози до пози».</p>
+<div class="last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_constant.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_constant.png" src="../../../_images/editors_graph-editor_fcurves_introduction_constant.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">«Постійно» -- Constant.</span></p>
+</div>
+</dd>
+<dt>Лінеарно -- Linear</dt>
+<dd><p class="first">This simple interpolation creates a straight segment, giving a non-continuous line.
+It can be useful when using only two keyframes and the <em>Extrapolation</em> extend mode,
+to easily get an infinite straight line (i.e. a linear curve).</p>
+<div class="last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_linear.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_linear.png" src="../../../_images/editors_graph-editor_fcurves_introduction_linear.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">«Лінеарно» -- Linear.</span></p>
+</div>
+</dd>
+<dt>Безьє -- Bézier</dt>
+<dd><p class="first">Найбільш потужна і корисна інтерполяція, а також стандартно установлена. Дає гарні згладжені криві, тобто плавні анімації!</p>
+<div class="last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">«Безьє» -- Bézier.</span></p>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Пам'ятайте, що деякі F-Криві можуть мати тільки дискретні значення, та у цьому випадку, вони завжди будуть показуватися, як постійно інтерпольовані, незалежно від обраного вами типу інтерполяції.</p>
+</div>
+</div>
+<div class="section" id="easing-by-strength">
+<h4>Полегшення (за силою) -- Easing (by strength)<a class="headerlink" href="#easing-by-strength" title="Permalink to this headline">¶</a></h4>
+<p>Різні методи полегшення інтерполяцій для сегмента F-Кривої. Це «Рівняння Роберта Пеннера -- Robert Penner полегшення, послаблення» (базово, це рівняння, що визначають деякі передуставлені шляхи переходу від одного ключкадру до іншого), які скорочують об'єм ручної роботи (вставлення та уточнення ключкадрів), з метою досягнення певних поширених ефектів. Наприклад, підхоплених рухів.</p>
+<ul class="simple">
+<li>Лінеарно -- Linear</li>
+<li>Синусоїдально -- Sinusoidal</li>
+<li>Квадратично -- Quadratic</li>
+<li>Кубічно -- Cubic</li>
+<li>Квартово -- Quartic</li>
+<li>Квінтово -- Quintic</li>
+<li>Експоненціально -- Exponential</li>
+<li>Кругово -- Circular</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Детальніше про це дивіться тут -- <a class="reference external" href="http://easings.net">http://easings.net</a> та <a class="reference external" href="http://www.robertpenner.com/easing/">http://www.robertpenner.com/easing/</a></p>
+</div>
+</div>
+<div class="section" id="dynamic-effects">
+<h4>Динамічні Ефекти -- Dynamic Effects<a class="headerlink" href="#dynamic-effects" title="Permalink to this headline">¶</a></h4>
+<p>Ці додаткові типи полегшення імітують (підробляють) базовані на фізиці ефекти, як ефекти відскакування/пружинення. Відповідні устави можуть бути знайдені у «регіон Властивості &gt; панель Активний Ключкадр» -- <span class="menuselection">Properties region ‣ Active Keyframe panel</span>.</p>
+<dl class="docutils">
+<dt>Еластично -- Elastic</dt>
+<dd><p class="first">Експоненціально затухальна синусоїдна хвиля, як еластична смужка. Це подібно до згинання жорстко затиснутої з однієї сторони деякої поверхні та відскоку її назад у початковий стан.</p>
+<dl class="last docutils">
+<dt>Амплітуда -- Amplitude</dt>
+<dd>Властивість амплітуди керує, наскільки сильно коливання розходиться з базовою кривою. В 0.0 відсутнє будь-яке коливання (тобто, це просто підхоплює до В-значення, як екстремум експоненціального переходу), а в 1.0 профіль подібний до показаної на іконці цієї опції.</dd>
+<dt>Період -- Period</dt>
+<dd>Властивість періоду керує частотою, з якою відбуваються коливання. Вищі значення дають щільніші коливання.</dd>
+</dl>
+</dd>
+<dt>Відскок -- Bounce</dt>
+<dd>Експоненціальний затухальний параболічний відскок, подібно до того, коли зіштовхуються об'єкти. наприклад, при відскоках м'яча тощо.</dd>
+<dt>Позаду -- Back</dt>
+<dd><p class="first">Кубічне полегшення з проскоченням та просіданням. Використовуйте його, коли ви хочете, щоб щось проскочило у наступний ключкадр або можливо для деякого завершального випередження.</p>
+<dl class="last docutils">
+<dt>Позаду -- Back</dt>
+<dd>Властивість позаду керує розміром та напрямком (тобто над/під кривою) проскоку.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="easing-type">
+<span id="editors-graph-fcurves-settings-easing"></span><h3>Тип Полегшення -- Easing Type<a class="headerlink" href="#easing-type" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Easing Type</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Тип Полегшення керує, який ефект полегшення застосувати у кінці сегмента між двома ключкадрами.</p>
+<dl class="docutils">
+<dt>Автоматичне Полегшення -- Automatic Easing</dt>
+<dd>Використовується як найбільш поширена очікувана поведінка. Для перехідних ефектів, це базово «увід легко» -- <em>ease in</em>, тоді як для фізичних ефектів -- це «вивід легко» -- <em>ease out</em>.</dd>
+<dt>Увід Легко -- Ease In</dt>
+<dd>Ефект вибудовується до другого ключкадру.</dd>
+<dt>Вивід Легко -- Ease Out</dt>
+<dd>Ефект затухає від першого ключкадру.</dd>
+<dt>Увід та Вивід Легко -- Ease In and Out</dt>
+<dd>Ефект відбувається на обох кінцях сегмента.</dd>
+</dl>
+</div>
+<div class="section" id="extrapolation">
+<span id="editors-graph-fcurves-settings-extrapolation"></span><h3>Екстраполяція -- Extrapolation<a class="headerlink" href="#extrapolation" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Channel ‣ Extrapolation Mode</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Екстраполяція визначає поведінку кривої перед першим та після останнього ключкадрів.</p>
+<p>Є два базові режими екстраполяції:</p>
+<dl class="docutils">
+<dt>Постійно -- Constant</dt>
+<dd><p class="first">Стандартно, криві перед їх першим ключкадром та після їх останнього ключкадру мають постійне значення (таке, як у першого та останнього ключкадрів, відповідно).</p>
+<div class="last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate1.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate1.png" src="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate1.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Постійна Екстраполяція -- Constant extrapolation.</span></p>
+</div>
+</dd>
+<dt>Лінеарно -- Linear</dt>
+<dd><p class="first">Кінці кривих є прямими лініями (лінеарно), як визначено їх першими та останніми ключкадрами (відповідно).</p>
+<div class="last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate2.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate2.png" src="../../../_images/editors_graph-editor_fcurves_introduction_extrapolate2.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Лінеарна Екстраполяція -- Linear extrapolation.</span></p>
+</div>
+</dd>
+</dl>
+<p>Additional extrapolation tools (e.g. the &quot;Cycles&quot; F-Modifier)
+are located in the <a class="reference internal" href="modifiers.html"><span class="doc">F-Curve Modifiers</span></a>.</p>
+</div>
+<div class="section" id="handle-types">
+<span id="editors-graph-fcurves-settings-handles"></span><h3>Типи Держаків -- Handle Types<a class="headerlink" href="#handle-types" title="Permalink to this headline">¶</a></h3>
+<p>There is another curve option quite useful for Bézier-interpolated curves.
+You can set the type of handle to use for the curve points <kbd class="kbd docutils literal notranslate">V</kbd>.</p>
+<dl class="docutils">
+<dt>Автоматично -- Automatic</dt>
+<dd><p class="first">Ключкадри автоматично інтерполюються.</p>
+<div class="last figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_auto.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_auto.png" src="../../../_images/editors_graph-editor_fcurves_introduction_auto.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Авто Держаки -- Auto Handles.</span></p>
+</div>
+</dd>
+<dt>Вектор -- Vector</dt>
+<dd><p class="first">Створює лінеарну інтерполяцію між ключкадрами. Лінеарні сегменти залишаються, якщо центри ключкадрів рухаються. Якщо рухаються держаки, то вони перемикаються на тип «Вільно» -- Free.</p>
+<div class="last figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_vector.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_vector.png" src="../../../_images/editors_graph-editor_fcurves_introduction_vector.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Векторні держаки -- Vector handles.</span></p>
+</div>
+</dd>
+<dt>Вирівняно -- Aligned</dt>
+<dd><p class="first">Держак утримує обертання при русі та підтримується тангенс, дотична кривої.</p>
+<div class="last figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_aligned.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_aligned.png" src="../../../_images/editors_graph-editor_fcurves_introduction_aligned.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Вирівняні держаки -- Aligned handles.</span></p>
+</div>
+</dd>
+<dt>Вільно -- Free</dt>
+<dd><p class="first">Тангенси держаків, дотичні кривої розірвані.</p>
+<div class="last figure" id="id13">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_free.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_free.png" src="../../../_images/editors_graph-editor_fcurves_introduction_free.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Вільні держаки -- Free handles.</span></p>
+</div>
+</dd>
+<dt>Авто-Затиснуто -- Auto Clamped</dt>
+<dd><p class="first">Авто держаки затиснуті, щоб не було проскоку.</p>
+<div class="last figure" id="id14">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_introduction_autoclamped.png"><img alt="../../../_images/editors_graph-editor_fcurves_introduction_autoclamped.png" src="../../../_images/editors_graph-editor_fcurves_introduction_autoclamped.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Авто затисну держаки -- Auto clamped handles.</span></p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="editing.html" class="btn btn-neutral float-right" title="Редагування -- Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="F-Криві -- F-Curves" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

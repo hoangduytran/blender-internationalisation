@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Фільтр» -- Filter Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/filter/filter_node.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Вузол «Блиск» -- Glare Node" href="glare.html" />
+    <link rel="prev" title="Вузол «Напрямлений Розмив» -- Directional Blur Node" href="directional_blur.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Компонування -- Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Властивості</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Типи Вузлів -- Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Вузли типу «Увід» -- Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Вузли типу «Вивід» -- Output nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Вузли типу «Колір» -- Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Вузли типу «Конвертер» -- Converter Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bilateral_blur.html">Вузол «Двобічний Розмив» -- Bilateral Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blur_node.html">Вузол «Розмив» -- Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bokeh_blur.html">Вузол «Розмив Боке» -- Bokeh Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="defocus.html">Вузол «Розфокус» -- Defocus Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="despeckle.html">Вузол «Цятковивідник» -- Despeckle Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Вузол «Розширення/Звуження» -- Dilate/Erode Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Вузол «Напрямлений Розмив» -- Directional Blur Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вузол «Фільтр» -- Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glare.html">Вузол «Блиск» -- Glare Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inpaint.html">Вузол «Ретуш» -- Inpaint Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pixelate.html">Вузол «Пікселізація» -- Pixelate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sun_beams.html">Вузол «Сонячні Промені» -- Sun Beams Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vector_blur.html">Вузол «Векторний Розмив» -- Vector (Motion) Blur Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Вузли типу «Вектор» -- Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Вузли типу «Маска» -- Matte Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Вузли типу «Спотворення» -- Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Групи Вузлів або Групові Вузли -- Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Вузли типу «Розстава» -- Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Компонування -- Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Фільтр» -- Filter Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/filter/filter_node.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filter-node">
+<span id="bpy-types-compositornodefilter"></span><h1>Вузол «Фільтр» -- Filter Node<a class="headerlink" href="#filter-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_filter_filter-node_node.png" src="../../../_images/compositing_types_filter_filter-node_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Фільтр» -- Filter Node.</span></p>
+</div>
+<p>Вузол «Фільтр» -- Filter node надає різні загальні фільтри покращення зображення.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Фактор -- Factor</dt>
+<dd>Керує величиною впливу цього вузла на вивідне результатне зображення.</dd>
+<dt>Зображення -- Image</dt>
+<dd>Стандартний увід зображення.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Тип</dt>
+<dd><p class="first">Типи Soften, Laplace, Sobel, Prewitt та Kirsch здійснюють виявлення країв (дещо різними способами), базуючись на обчисленні вектора та наборі теоретичних рівнянь.</p>
+<dl class="last docutils">
+<dt>Пом'якшення -- Soften</dt>
+<dd>Трохи розмиває зображення.</dd>
+<dt>Різкішання -- Sharpen</dt>
+<dd>Збільшує контраст, особливо на краях.</dd>
+<dt>Лаплас -- Laplace</dt>
+<dd>Пом'якшує навколо країв.</dd>
+<dt>Собель -- Sobel</dt>
+<dd>Створює негатив зображення з підсвіткою країв.</dd>
+<dt>Прюїтт -- Prewitt</dt>
+<dd>Намагається робити, те що робить «Собель», але краще.</dd>
+<dt>Кірш -- Kirsch</dt>
+<dd>Дає краще змішання, ніж «Собель» і «Прюїтт», при наближенні до країв.</dd>
+<dt>Тінь -- Shadow</dt>
+<dd>Здійснює рельєфний, карбувальний ефект, затемнюючи зовнішні краї.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Стандартний вивід зображення.</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="filter">
+<caption><span class="caption-text">Тут показані сім режимів вузла «Фільтр» -- Filter.</span><a class="headerlink" href="#filter" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-1-original.png" src="../../../_images/compositing_types_filter_filter-node_example-1-original.png" />
+<p class="caption"><span class="caption-text">Оригінальне зображення.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-2-soften.png" src="../../../_images/compositing_types_filter_filter-node_example-2-soften.png" />
+<p class="caption"><span class="caption-text">Пом'якшення -- Soften.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-3-sharpen.png" src="../../../_images/compositing_types_filter_filter-node_example-3-sharpen.png" />
+<p class="caption"><span class="caption-text">Різкішання -- Sharpen.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-4-laplace.png" src="../../../_images/compositing_types_filter_filter-node_example-4-laplace.png" />
+<p class="caption"><span class="caption-text">Лаплас -- Laplace.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-5-sobel.png" src="../../../_images/compositing_types_filter_filter-node_example-5-sobel.png" />
+<p class="caption"><span class="caption-text">Собель -- Sobel.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-6-prewitt.png" src="../../../_images/compositing_types_filter_filter-node_example-6-prewitt.png" />
+<p class="caption"><span class="caption-text">Прюїтт -- Prewitt.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id8">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-7-kirsch.png" src="../../../_images/compositing_types_filter_filter-node_example-7-kirsch.png" />
+<p class="caption"><span class="caption-text">Кірш -- Kirsch.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<img alt="../../../_images/compositing_types_filter_filter-node_example-8-shadow.png" src="../../../_images/compositing_types_filter_filter-node_example-8-shadow.png" />
+<p class="caption"><span class="caption-text">Тінь -- Shadow.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="glare.html" class="btn btn-neutral float-right" title="Вузол «Блиск» -- Glare Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="directional_blur.html" class="btn btn-neutral" title="Вузол «Напрямлений Розмив» -- Directional Blur Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

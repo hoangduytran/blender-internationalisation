@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Дзеркалення» -- Mirror Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/generate/mirror.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатор «Багатороздільність» -- Multiresolution Modifier" href="multiresolution.html" />
+    <link rel="prev" title="Модифікатор «Маска» -- Mask Modifier" href="mask.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">Модифікатор «Масив» -- Array Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">Модифікатор «Скіс» -- Bevel Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">Модифікатор «Булів» -- Boolean Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">Модифікатор «Побудова» -- Build Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">Модифікатор «Спрощення» -- Decimate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">Модифікатор «Розділ Ребром» -- Edge Split Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">Модифікатор «Маска» -- Mask Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Дзеркалення» -- Mirror Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">Модифікатор «Багатороздільність» -- Multiresolution Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">Модифікатор «Перебудова» -- Remesh Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">Модифікатор «Гвинт» -- Screw Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">Модифікатор «Покрив» -- Skin Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">Модифікатор «Потовщення» -- Solidify Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">Модифікатор «Підподіл Поверхні» -- Subdivision Surface Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">Модифікатор «Трикутникування» -- Triangulate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">Модифікатор «Каркас» -- Wireframe Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Дзеркалення» -- Mirror Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/mirror.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mirror-modifier">
+<span id="bpy-types-mirrormodifier"></span><h1>Модифікатор «Дзеркалення» -- Mirror Modifier<a class="headerlink" href="#mirror-modifier" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_mirror_example-cube.png"><img alt="../../../_images/modeling_modifiers_generate_mirror_example-cube.png" src="../../../_images/modeling_modifiers_generate_mirror_example-cube.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">Куток куба, відзеркалений через три осі для формування... ну... куба.</span></p>
+</div>
+<p>The Mirror Modifier mirrors a mesh along its <em>local</em> X, Y and/or Z axes, across the object's center
+(the mirror plane is then defined by the two other axes).</p>
+<p>Він може також використовувати інший об'єкт як центр дзеркалення, і далі використовувати локальні осі такого об'єкта замість власних.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../../../_images/modeling_modifiers_generate_mirror_panel.png" src="../../../_images/modeling_modifiers_generate_mirror_panel.png" />
+<p class="caption"><span class="caption-text">Модифікатор «Дзеркалення» -- Mirror.</span></p>
+</div>
+<div class="section" id="axis">
+<h3>Вісь -- Axis<a class="headerlink" href="#axis" title="Permalink to this headline">¶</a></h3>
+<p>The X, Y, Z axis along which to mirror
+(i.e. the axis perpendicular to the mirror plane of symmetry).</p>
+<p>Щоб зрозуміти, як дана вісь застосовується до напрямку дзеркалення, якщо ви були до дзеркалення на осі X, то додатні значення по X оригінальної сіті стануть від'ємними значеннями по X віддзеркаленої сторони.</p>
+<p>Ви можете вибирати більше, ніж одну з цих осей. І потім отримуватимете більше дзеркалених копій. З однією віссю ви отримуєте одиничне дзеркалення, з двома осями -- чотири дзеркалення, а з усіма трьома осями -- вісім дзеркалень.</p>
+</div>
+<div class="section" id="id1">
+<h3>Опції<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Об'єднання -- Merge</dt>
+<dd>Коли вершина знаходиться у тому ж місці (у межах відстані заданої <em>Merge Limit</em>), що і її дзеркалення, то вона буде об'єднана з цією дзеркаленою вершиною.</dd>
+<dt>Відсікання -- Clipping</dt>
+<dd><p class="first">Запобігає пересуванню вершин крізь площину(и) дзеркалення, коли користувач трансформує їх у режимі правки Edit Mode.</p>
+<p>При увімкненій <em>Clipping</em> та знаходженні вершин поза площиною дзеркалення і за межами <em>Merge Limit</em> такі вершини не будуть об'єднані. Але, як тільки, ці вершини є у межах <em>Merge Limit</em>, то вони підхопляться одна до одної та не зможуть пересуватися поза площиною дзеркалення.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Вершини на площині дзеркалення будуть не у змозі пересуватися від неї при увімкненій <em>Clipping</em>. Ви повинні вимкнути <em>Clipping</em>, що могти рухати вершини по осі дзеркалення знову.</p>
+</div>
+</dd>
+<dt>Групи Вершин -- Vertex Groups</dt>
+<dd><p class="first">При увімкненні, модифікатор Mirror намагатиметься дзеркалити наявні групи вершин.</p>
+<p>Дуже гарна функція, але така, що має дуже специфічні передумови:</p>
+<ul class="last simple">
+<li>Групи вершин, які ви хочете дзеркалити, повинні іменуватися відповідно до звичайного взірця «ліво/право» (тобто, із суфіксом на кшталт &quot;.R&quot;, &quot;.right&quot;, &quot;.L&quot; тощо).</li>
+<li>Група вершин на дзеркаленій стороні повинна вже існувати (вона не буде створюватися автоматично). Також вона повинна бути повністю порожньою (без жодних вершин, призначених в неї).</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="textures">
+<h3>Текстури -- Textures<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h3>
+<p>Опції U та V дозволяють вам дзеркалити координати UV текстури через середину зображення.</p>
+<p>Наприклад, якщо ви маєте вершину з координатами UV (0.3, 0.9), то її дзеркальна копія буде мати координати UV (0.7, 0.1).</p>
+<dl class="docutils">
+<dt>Зсуви U та V -- UV Offsets</dt>
+<dd>Величина зсування дзеркалених UV від точки 0.5 на осі U/V.</dd>
+</dl>
+</div>
+<div class="section" id="further-options">
+<h3>Додаткові опції<a class="headerlink" href="#further-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Ліміт Об'єднання -- Merge Limit</dt>
+<dd>Максимальна відстань між вершиною та її дзеркальною копією перед тим, як вони будуть об'єднані. Іншими словами, вершина може бути на половині цієї відстані від площини дзеркалення, щоб вона була ним підхоплена.</dd>
+<dt>Об'єкт Дзеркалення -- Mirror Object</dt>
+<dd>Вибірний об'єкта -- <a class="reference internal" href="../../../interface/controls/buttons/eye_dropper.html#ui-eye-dropper"><span class="std std-ref">Object Selector</span></a> для вибору об'єкта (зазвичай, порожняка), що буде використовуватися, як орієнтир для процесу дзеркалення: його центр та осі будуть керувати площиною(ами) симетрії. Ви можете, звичайно, анімувати його позицію/обертання для анімування ефекту дзеркалення.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>Many modeling tasks involve creating objects that are symmetrical. However, there used to be
+no quick way to model both halves of an object without using one of the workarounds that have
+been discovered by clever Blender artists over the years. A common technique was to model one
+half of an object and use <kbd class="kbd docutils literal notranslate">Alt-D</kbd> to create a linked duplicate which can then be
+scaled on one axis by -1 to produce a perfect mirror-image copy which updates in real-time as you edit.</p>
+<p>The Mirror Modifier offers a simpler way to do this. Once your modeling is completed you can either
+click <em>Apply</em> to make a real version of your mesh or leave it as-is for future editing.</p>
+<div class="section" id="using-the-mirror-modifier-with-a-subdivision-surface-modifier">
+<h3>Використання модифікатора Mirror з модифікатором Subdivision Surface<a class="headerlink" href="#using-the-mirror-modifier-with-a-subdivision-surface-modifier" title="Permalink to this headline">¶</a></h3>
+<p>При використанні модифікатора Mirror разом з модифікатором «Підподіл Поверхні» -- <a class="reference internal" href="subsurf.html"><span class="doc">Subdivision Surface</span></a>, порядок в стеку, в якому ці модифікатори розміщені, є важливим.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_mirror_subsurf2.png"><img alt="../../../_images/modeling_modifiers_generate_mirror_subsurf2.png" src="../../../_images/modeling_modifiers_generate_mirror_subsurf2.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Модифікатор Subdivision Surface перед модифікатором Mirror.</span></p>
+</div>
+<p>Ілюстрація вище показує модифікатор «Підподіл Поверхні», поміщений перед модифікатором «Дзеркалення»; як ви можете бачити результатом цього є те, що сіть розділяється центральною лінією ефекту дзеркалення. Це через те, що розрахунок Підподілення пересуває вершини від площини дзеркалення надто далеко за межі <em>Ліміту Об'єднання</em>.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_mirror_subsurf1.png"><img alt="../../../_images/modeling_modifiers_generate_mirror_subsurf1.png" src="../../../_images/modeling_modifiers_generate_mirror_subsurf1.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Модифікатор Mirror перед модифікатором Subdivision Surface.</span></p>
+</div>
+<p>Ілюстрація вище показує модифікатор «Дзеркалення», поміщений перед модифікатором «Підподіл Поверхні». При такому порядку спочатку здійснюється обчислення дзеркалення і вершини об'єднуються. І вже після цього модифікатор «Підподіл Поверхні» пересуває вершини.</p>
+</div>
+<div class="section" id="accurately-positioning-the-mirror-plane">
+<h3>Точне розміщення площини дзеркалення<a class="headerlink" href="#accurately-positioning-the-mirror-plane" title="Permalink to this headline">¶</a></h3>
+<p>Для застосування модифікатора «Дзеркалення» зазвичай потрібно пересунути центр об'єкта на ребро або грань, що буде віссю для дзеркалення. Це може бути складно намагатися робити на око.</p>
+<p>Хорошою технікою для досягнення точної такої позиції є виділити потрібне ребро, натиснути <kbd class="kbd docutils literal notranslate">Shift-S</kbd> та вказати команду «Курсор до Виділеного» -- <em>Cursor to Selected</em>. Це розмістить позицію 3D Курсора у центрі цього ребра. Наостанок, натиснути <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-C</kbd> для виклику меню «Задати Початок» -- <em>Set Origin</em> та вибрати у ньому «Початок до 3D Курсора» -- <em>Origin to 3D Cursor</em>. Це пересуне центр об'єкта (і звідси, площину дзеркалення) на місце, де розміщується 3D Курсор, а дзеркалення буде точним.</p>
+<p>Альтернативою цьому є використання порожняка Empty як об'єкта дзеркалення <em>Mirror Object</em>, який ви поміщаєте у правильну потрібну позицію.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multiresolution.html" class="btn btn-neutral float-right" title="Модифікатор «Багатороздільність» -- Multiresolution Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mask.html" class="btn btn-neutral" title="Модифікатор «Маска» -- Mask Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

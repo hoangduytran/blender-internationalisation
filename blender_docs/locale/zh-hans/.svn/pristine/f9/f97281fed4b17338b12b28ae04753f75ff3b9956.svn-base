@@ -1,0 +1,709 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is public domain as CC0
+# This file is distributed under the same license as the Blender Reference
+# Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-02-15 13:05+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:4
+msgid "Transparency"
+msgstr "透明"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:6
+msgid "Reference"
+msgstr "参考"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst
+msgid "Mode"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:9
+msgid "All Modes"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst
+msgid "Panel"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:10
+#, fuzzy
+msgid ":menuselection:`Material --> Transparency`"
+msgstr "面板:    :menuselection:`材质 --> 透明`"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:12
+msgid ""
+"Materials in Blender can be set to be transparent, so that light can pass"
+" through any objects using the material. Transparency is controlled using"
+" an \"alpha\" channel, where each pixel has an additional value, range "
+"0-1, in addition to its RGB color values. If alpha=0, then the pixel is "
+"transparent, and the RGB values for the surface contribute nothing to the"
+" pixel's appearance; for alpha=1, the surface is fully opaque, and the "
+"color of the surface determines the final color of the pixel."
+msgstr ""
+"Blender可以设置材质为透明，光线可以穿透所有使用该材质的物体。透明是通过 *Alpha* "
+"通道控制的，除RGB颜色值之外，为每个像素增加一个介于0-1之间的值。如果Alpha=0，该像素点完全透明，RGB值不影响该像素的显示结果；当Alpha=1，该表面完全不透明，RGB颜色值决定最终显示结果。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:22
+#, fuzzy
+msgid "Transparency panel."
+msgstr "透明面板。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:24
+#, fuzzy
+msgid ""
+"In Blender, there are three ways in which the transparency of a material "
+"can be set: Mask, Z-Buffer and Raytrace. Each of these is explained in "
+"more detail below. The :doc:`Material Preview "
+"</render/blender_render/materials/properties/preview>` option with a "
+"sphere object gives a good demonstration of the capabilities of these "
+"three options."
+msgstr ""
+"Blender提供了3种设置材质透明的方式：遮罩、Z透明 和光线追踪。 下文将分别详述。球形物体的 :doc:`材质预览 "
+"</render/blender_render/materials/properties/preview>` 可以很好的展示这三个选项的功能。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:32
+msgid "Common Options"
+msgstr "通用选项"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:34
+msgid ""
+"The following property controls are available for all transparency "
+"options:"
+msgstr "以下参数适用于所有透明选项："
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:36
+msgid "Alpha"
+msgstr "Alpha"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:37
+msgid ""
+"Sets the transparency of the material by setting all pixels in the alpha "
+"channel to the given value."
+msgstr "通过设置所有像素点的Alpha通道为给定值，定义材质的透明度。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:42
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:179
+msgid "Fresnel"
+msgstr "菲涅尔"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:39
+msgid ""
+"Sets the power of the Fresnel effect. The Fresnel effect controls how "
+"transparent the material is, depending on the angle between the surface "
+"normal and the viewing direction. Typically, the larger the angle, the "
+"more opaque a material becomes (this generally occurs on the outline of "
+"the object)."
+msgstr "设置菲涅尔透视的强度。菲涅尔透视根据表面法向和观察方向的夹角，控制材质的透明效果。通常，夹角越大，材质变得更加不透明(这通常表现在物体的轮廓位置)。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:44
+msgid "Specular"
+msgstr "高光"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:45
+msgid "Controls the alpha/falloff for the specular color."
+msgstr "控制高光颜色的透明度/衰减。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:48
+msgid "Blend"
+msgstr "混合"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:47
+msgid ""
+"Controls the blending between transparent and non-transparent areas. Only"
+" used if Fresnel is greater than 0."
+msgstr "控制透明区域和非透明区域的混合。仅用于菲涅尔数值大于0时。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:51
+msgid "Mask"
+msgstr "遮罩"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:53
+msgid ""
+"This option simply masks the Background. It uses the alpha channel to mix"
+" the color of each pixel on the active object plane with the color of the"
+" corresponding background pixel, according to the alpha channel of the "
+"pixel. Thus for alpha = 1, the object color is seen -- the object is "
+"completely opaque; but if alpha = 0, only the background is seen -- the "
+"object is transparent (but note that any other object behind the active "
+"object disappears)."
+msgstr ""
+"该选项仅仅是掩盖了背景。根据像素点的Alpha通道，使用Alpha值混合活动物体的像素颜色和对应的背景像素颜色。对于Alpha = "
+"1的情况，只能看到物体的颜色 -- 整个物体完全不透明；但如果Apha = 0，则只能看到背景 -- "
+"物体是透明的(不过注意活动物体背后的其他物体会消失)。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:60
+#, fuzzy
+msgid ""
+"This is useful for making textures of solid or semitransparent objects "
+"from photographic reference material, i.e. a mask is made with alpha "
+"opaque for pixels within the object, and transparent for pixels outside "
+"the object."
+msgstr "这对于根据照片参考材质制作实体或半透明物体的纹理很有用，例如对物体内的像素使用alpha不透明，对物体外部的像素透明。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:66
+msgid ""
+":doc:`Mask Transparency "
+"</render/blender_render/materials/properties/transparency>`."
+msgstr ":doc:`遮罩透明 </render/blender_render/materials/properties/transparency>`."
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:70
+#, fuzzy
+msgid "Z-Buffer"
+msgstr "Z透明"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:72
+msgid ""
+"This uses the alpha buffer for transparent faces. The alpha value of each"
+" pixel determines the mix of the basic color of the material, and the "
+"color of the pixel is determined from the objects/background behind it. "
+"Only basic settings are available with this option; it does not calculate"
+" refractions."
+msgstr "该选项对透明表面使用alpha缓冲。每个像素上的Alpha值决定了材质基础颜色与其背后的物体/背景像素颜色的混合。该选项仅使有基础设置，不计算折射。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:81
+#, fuzzy
+msgid "Ray-Traced Transparency"
+msgstr "光线追踪"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:83
+msgid ""
+"Uses ray tracing to calculate refractions. Ray tracing allows for complex"
+" refractions, falloff, and blurring, and is used for simulating the "
+"refraction of light rays through a transparent material, like a lens."
+msgstr "使用射线追踪来计算折射。光线追踪允许复杂的折射，衰减和模糊，并用于模拟透过透明材料（如透镜）的光线折射。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:88
+msgid ""
+"The Raytrace option is only available in the Blender Render and Cycles "
+"render engines, but not in the Game Engine."
+msgstr "Raytrace选项仅在Blender Render和Cycles渲染引擎中可用，并非在Game Engine中。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:91
+msgid ""
+"A ray is sent from the camera and travels through the scene until it "
+"encounters an object. If the first object hit by the ray is non-"
+"transparent, then the ray takes the color of the object."
+msgstr "光线从相机发出并穿过场景，直到遇到物体。如果射线碰到的第一个物体不透明，那么射线就会获取物体的颜色。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:94
+msgid ""
+"If the object is transparent, then the ray continues its path through it "
+"to the next object, and so on, until a non-transparent object is finally "
+"encountered which gives the whole chain of rays its color. Eventually, "
+"the first transparent object inherits the colors of its background, "
+"proportional to its *Alpha* value (and the Alpha value of each "
+"transparent Material hit in between)."
+msgstr "如果物体是透明的，那么光线通过它继续到达下一个物体，等等，直到最终遇到一个不透明的物体，从而使整个光线链变成它的颜色。最终，第一个透明对象继承其背景的颜色，与其Alpha值（以及每个透明材质中间的Alpha值）成比例。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:99
+msgid ""
+"But while the ray travels through the transparent object, it can be "
+"deflected from its course according to the Index of Refraction (IOR) of "
+"the material. When you actually look through a plain sphere of glass, you"
+" will notice that the background is upside-down and distorted: this is "
+"all because of the Index of Refraction of glass."
+msgstr "但是，当射线穿过透明物体时，它可以根据材料的折射率（IOR）从其过程偏转。当你通过一个普通的玻璃球体看时，你会发现背景是颠倒的和扭曲的：这完全是因为玻璃的折射率。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:105
+#, fuzzy
+msgid "Enable Ray Tracing"
+msgstr "启用光线追踪"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:107
+msgid "To get ray-traced transparency, you need to:"
+msgstr "要获得光线追踪透明度，您需要："
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:109
+msgid ""
+"Enable ray tracing in your Render settings. This is done in the "
+":menuselection:`Render --> Shading` panel. Ray tracing is enabled by "
+"default."
+msgstr "在渲染设置中启用光线追踪。这在 :menuselection:`渲染 --> 着色` 面板中完成。光线跟踪默认启用。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:111
+msgid "Set your Alpha value to something other than 1.0."
+msgstr "将您的Alpha值设置为1.0以外的值。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:112
+msgid ""
+"In order for the background material to receive light passing through "
+"your transparent object, *Receive Transparent* must be turned on for that"
+" material in the :menuselection:`Material --> Shadow` panel."
+msgstr "为了让背景材质接收穿过透明物体的光线， 必须在 :menuselection:`材质 --> 阴影` 面板中为该材质打开 *接收* 。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:117
+msgid "Options"
+msgstr "选项"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:121
+#, fuzzy
+msgid "The Transparency panel."
+msgstr "透明度小组。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:123
+msgid ""
+"In addition to the common options given above, the following property "
+"controls are available:"
+msgstr "除上面提供的常用选项外，还提供以下属性控件："
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:127
+msgid "IOR"
+msgstr "IOR折射率"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:126
+msgid ""
+"Index of Refraction. Sets how much a ray traveling through the material "
+"will be refracted, hence producing a distorted image of its background. "
+"See `IOR values for Common Materials`_ below."
+msgstr ""
+"折射率。设置穿过材质的光线会折射多少，从而产生其背景的扭曲图像。请参阅页面下方的 `IOR values for Common "
+"Materials`_ 。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:132
+msgid "Filter"
+msgstr "滤镜"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:130
+msgid ""
+"Amount of filtering for transparent ray trace. The higher this value, the"
+" more the base color of the material will show. The material will still "
+"be transparent but it will start to take on the color of the material. "
+"Disabled (0.0) by default."
+msgstr "透明光线追踪的数量。此值越高，材料的基本颜色就越多。材料仍然是透明的，但它会开始呈现材料的颜色。禁用（0.0）默认情况下。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:134
+msgid "Falloff"
+msgstr "衰减"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:135
+msgid ""
+"How fast light is absorbed as it passes through the material. Gives "
+"'depth' and 'thickness' to glass."
+msgstr "光在穿过材料时吸收的速度有多快。为玻璃提供“深度”和“厚度”。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:137
+msgid "Limit"
+msgstr "限制"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:137
+msgid ""
+"Materials thicker than this are not transparent. This is used to control "
+"the threshold after which the filter color starts to come into play."
+msgstr "比这更厚的材料不透明。这用于控制滤色器开始起作用的阈值。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:146
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:218
+msgid "Depth"
+msgstr "深度"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:140
+msgid ""
+"Sets the maximum number of transparent surfaces a single ray can travel "
+"through. There is no typical value. Transparent objects outside the "
+"*Depth* range will be rendered pitch black if viewed through the "
+"transparent object that the *Depth* is set for. In other words, if you "
+"notice black areas on the surface of a transparent object, the solution "
+"is probably to increase its *Depth* value (this is a common issue with "
+"ray tracing transparent objects). You may also need to turn on "
+"transparent shadows on the background object."
+msgstr "设置单个光线可以穿过的透明表面的最大数量。没有典型的价值。如果通过Depth设置的透明对象查看深度范围以外的透明对象将呈现为黑色。换句话说，如果您注意到透明物体表面有黑色区域，则解决方案可能会增加深度值（这是光线追踪透明物体的常见问题）。您可能还需要打开背景对象上的透明阴影。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:158
+msgid "Gloss"
+msgstr "光泽"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:149
+msgid "Settings for the glossiness of the material."
+msgstr "设置材质的光泽度。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:151
+msgid "Amount"
+msgstr "数量"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:152
+msgid ""
+"The clarity of the refraction. Set this to something lower than zero to "
+"get a blurry refraction."
+msgstr "折射的清晰度。将其设置为低于零的值以获得模糊的折射。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:154
+msgid "Threshold"
+msgstr "阈值"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:154
+msgid ""
+"Threshold for adaptive sampling. If a sample contributes less than this "
+"amount (as a percentage), sampling is stopped."
+msgstr "自适应采样的阈值。如果样本的贡献小于此数量（以百分比表示），则停止采样。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:158
+msgid "Samples"
+msgstr "采样"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:157
+msgid "Number of cone samples averaged for blurry refraction."
+msgstr "锥形样品的数量平均用于模糊折射。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:161
+msgid "Examples"
+msgstr "例子"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:164
+msgid "Index of Refraction"
+msgstr "折射率"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:170
+msgid "Influence of the IOR of an Object on the distortion of the background."
+msgstr "对象的IOR对背景变形的影响。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:172
+msgid "Spheres of Water, Glass and Diamond (top to bottom)."
+msgstr "水，玻璃和钻石球（从上到下）。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:174
+msgid ""
+"There are different values for typical materials: Air: 1.000 (no "
+"refraction), Alcohol: 1.329, Glass: 1.517, Plastic: 1.460, Water: 1.333 "
+"and Diamond: 2.417."
+msgstr "典型材料有不同的值：空气：1.000（不折射），酒精：1.329，玻璃：1.517，塑料：1.460，水：1.333，钻石：2.417。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:181
+msgid ""
+"Pieces of glass rotated in various directions to demonstrate the angle-"
+"dependent Fresnel effect. Note that the major difference is the lack of "
+"IOR effect in the latter case. (Download `blend-file "
+"<https://wiki.blender.org/index.php/:File:Manual25-Material-"
+"FresnelExample.blend>`__)."
+msgstr ""
+"玻璃碎片沿各个方向旋转以展示依赖于角度的菲涅耳效应。请注意，主要区别在于后者情况下IOR效应不足。（下载 `Blender文件 "
+"<https://wiki.blender.org/index.php/:File:Manual25-Material-"
+"FresnelExample.blend>`__）。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:188
+msgid "With ray-traced transparency."
+msgstr "随着光线追踪透明度。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:193
+msgid "With alpha buffered transparency."
+msgstr "具有alpha缓冲透明度。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:200
+msgid "Settings for Fresnel using ray-traced."
+msgstr "使用射线追踪的菲涅耳的设置。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:205
+msgid "Settings for Fresnel using Z transparency."
+msgstr "使用Z透明度设置菲涅耳。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:209
+msgid ""
+"The specular highlight in the F4 glass tile (which is facing midway "
+"between the light and the camera); the Fresnel effect can be seen in row "
+"C and column 6 where the faces are turned away from the camera."
+msgstr "F4玻璃砖（面向灯光和照相机中间）的镜面高光; 菲涅耳效应可以在行C和列6中看到，这些面在转向远离相机的位置。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:213
+msgid ""
+"The amount of Fresnel effect can be controlled by either increasing the "
+"*Blend* value or decreasing the *Alpha* value."
+msgstr "可以通过增加 *混合* 值或减小 *Alpha* 值来控制菲涅耳效应的量。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:222
+msgid ""
+"A simple scene with three glasses on a surface, and three lamps. Depth "
+"was set to 4, 8, 12, and 14, resulting in render times of 24 sec, 34 sec,"
+" 6 min, and 11 min respectively. (Download `blend-file "
+"<https://wiki.blender.org/index.php/:File:Manual25-Material-"
+"3GlassesExample.blend>`__)."
+msgstr ""
+"一个简单的场景，表面上有三个玻璃杯，还有三盏灯。深度设置为4,8,12和14，导致渲染时间分别为24秒，34秒，6分钟和11分钟。 (下载 "
+"`Blend文件 <https://wiki.blender.org/index.php/:File:Manual25-Material-"
+"3GlassesExample.blend>`__)。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:226
+msgid ""
+"Increasing *Depth* also considerably increases render time. Each time a "
+"light ray passes through a surface, the ray-tracing algorithm is called "
+"recursively. In the example above, each side of each glass has an "
+"exterior and an interior surface. Light rays thus have to pass through "
+"four surfaces for each glass."
+msgstr ""
+"增加 *深度* "
+"也大大增加了渲染时间。每次光线通过一个表面时，光线跟踪算法都会被递归地调用。在上面的例子中，每块玻璃的每一面都有一个外表面和一个内表面。光线因此必须穿过每个玻璃的四个表面。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:232
+msgid ""
+"But not only that, at every point on a surface, some of the light can be "
+"reflected, or mirrored off the surface in various directions. This "
+"results in multiple rays needing to be calculated for each point (often "
+"referred to as a `tree of rays <https://www.cs.unc.edu/~rademach/xroads-"
+"RT/RTarticle.html>`__). In each of the rendered images above there are "
+"640×400=256 000 pixels. By increasing *Depth*, at least one tree of rays "
+"is added to each pixel."
+msgstr ""
+"但不仅如此，在表面上的每个点上，一些光线可以在各个方向上被反射或反射离开表面。这导致需要为每个点计算多个射线(通常称为 `射线树 "
+"<https://www.cs.unc.edu/~rademach/xroads-"
+"RT/RTarticle.html>`__)。在上面的每个渲染图像中都有640×400 = "
+"256000像素。通过增加深度，每个像素至少添加一棵光线树。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:239
+msgid ""
+"Be kind to your computer. Carefully placing objects in a scene to avoid "
+"overlapping transparent objects is often an interesting alternative."
+msgstr "善待你的电脑。小心地将物体放置在场景中以避免重叠的透明物体通常是一个有趣的选择。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:244
+msgid "Hints"
+msgstr "提示"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:247
+msgid "Transparent Shadows"
+msgstr "透明阴影"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:254
+msgid "No transparent shadows."
+msgstr "没有透明阴影。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:259
+msgid "No transparent shadows, environment lighting enabled."
+msgstr "没有透明阴影，启用环境照明。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:264
+msgid "Transparent shadows enabled, alpha set to 0.0."
+msgstr "启用透明阴影，alpha设置为0.0。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:269
+msgid "As previous, alpha set to 0.25."
+msgstr "如前所述，alpha设置为0.25。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:274
+msgid ""
+"Transparent shadows with ambient occlusion set to multiply, distance 1 "
+"(radius of sphere)."
+msgstr "环境光遮蔽的透明阴影设置为乘，距离1（球体半径）。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:279
+msgid "As previous, distance increased to 2 (diameter of sphere)."
+msgstr "如前所述，距离增加到2（球体直径）。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:281
+msgid ""
+"By default, the shadows of transparent objects are rendered solid black, "
+"as if the object was not transparent at all. But in reality, the more "
+"transparent an object is, the lighter its shadow will be."
+msgstr "默认情况下，透明对象的阴影呈现纯黑色，就好像对象完全不透明一样。但事实上，一个物体透明度越高，它的影子就越小。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:285
+#, fuzzy
+msgid ""
+"In Blender, transparent shadows are set on the materials that receive the"
+" shadows from the transparent object. This is enabled and disabled with "
+"the *Receive Transparent* button, in the :menuselection:`Material --> "
+"Shadow` panel. The shadow's brightness is dependent on the *Alpha* value "
+"of the shadow-casting material."
+msgstr ""
+"在Blender中，透明阴影设置在从透明物体接收阴影的材质上。使用 :menuselection:`材料 --> 阴影` 面板中的 *接收透明* "
+"按钮启用和禁用此功能。阴影的亮度取决于阴影投射材料的Alpha值。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:291
+msgid ""
+"Alternatives to transparent ray-traced shadows can be found in the "
+"*World* tab, namely the *Ambient Occlusion*, *Environment Lighting*, and "
+"*Gather* panels. Alternatively, a texture can be used to control the "
+"*Intensity* value of the shadow-receiving material."
+msgstr ""
+"透明光线跟踪阴影的替代方法可以在 *世界* 选项卡中找到，即 *环境光遮蔽(AO)* ， * 天光照明* 和 *采集* "
+"面板。或者纹理可用于控制阴影接收材料的强度值。"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:300
+msgid "IOR Values for Common Materials"
+msgstr "常见材料的IOR值"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:302
+msgid ""
+"The following list provides some index of refraction values to use when "
+"ray-traced transparency is used for various liquids, solids (gems), and "
+"gases:"
+msgstr "以下列表提供了在使用光线跟踪透明度用于各种液体，固体（宝石）和气体时使用的一些折射率值："
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:309
+msgid "Gases"
+msgstr "气体"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:314
+msgid "Air ``1.000``"
+msgstr "空气 ``1.000``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:315
+msgid "Carbon Dioxide ``1.000449``"
+msgstr "二氧化碳 ``1.000449``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:316
+msgid "Oxygen ``1.000276``"
+msgstr "氧气 ``1.000276``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:320
+msgid "Common Liquids"
+msgstr "常见液体"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:325
+msgid "Alcohol ``1.329``"
+msgstr "酒精 ``1.329``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:326
+msgid "Milk ``1.35``"
+msgstr "牛奶 ``1.35``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:327
+msgid "Oil, vegetable (50° C) ``1.47``"
+msgstr "植物油 (50° C) ``1.47``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:328
+msgid "Shampoo ``1.362``"
+msgstr "洗发水 ``1.362``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:329
+msgid "Water (0° C) ``1.33346``"
+msgstr "水 (0° C) ``1.33346``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:330
+msgid "Water (100° C) ``1.31766``"
+msgstr "水 (100° C) ``1.31766``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:331
+msgid "Water (20° C) ``1.33283``"
+msgstr "水 (20° C) ``1.33283``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:332
+msgid "Water (gas) ``1.000261``"
+msgstr "水 (气) ``1.000261``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:333
+msgid "Water (35° C, room temp) ``1.33157``"
+msgstr "水 (35° C, 室温) ``1.33157``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:334
+msgid "Vodka ``1.363``"
+msgstr "伏特加 ``1.363``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:338
+msgid "Common Transparent Materials"
+msgstr "常见透明材质"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:343
+msgid "Glass ``1.51714``"
+msgstr "玻璃 ``1.51714``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:344
+msgid "Ice ``1.309``"
+msgstr "冰 ``1.309``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:345
+msgid "Rock Salt ``1.544``"
+msgstr "矿盐 ``1.544``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:349
+msgid "Common Opaque Materials"
+msgstr "常见不透明材质"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:354
+msgid "Asphalt ``1.635``"
+msgstr "沥青 ``1.635``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:355
+msgid "Chalk ``1.510``"
+msgstr "粉笔 ``1.510``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:356
+msgid "Plastic ``1.46``"
+msgstr "塑料 ``1.46``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:357
+msgid "Rubber, Natural ``1.5191``"
+msgstr "天然橡胶 ``1.5191``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:358
+msgid "Silicon ``4.24``"
+msgstr "硅 ``4.24``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:362
+msgid "Gemstones"
+msgstr "宝石"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:367
+msgid "Diamond ``2.417``"
+msgstr "钻石 ``2.417``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:368
+msgid "Jade, Nephrite ``1.61``"
+msgstr "翡翠, 软玉 ``1.61``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:369
+msgid "Opal ``1.45``"
+msgstr "蛋白石 ``1.45``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:370
+msgid "Ruby ``1.757 - 1.779``"
+msgstr "红宝石 ``1.757 - 1.779``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:374
+msgid "Metals"
+msgstr "金属"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:379
+msgid "Aluminum ``1.44``"
+msgstr "铝 ``1.44``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:380
+msgid "Bronze ``1.18``"
+msgstr "青铜 ``1.18``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:381
+msgid "Copper ``1.10``"
+msgstr "黄铜 ``1.10``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:382
+msgid "Gold ``0.47``"
+msgstr "金 ``0.47``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:383
+msgid "Iron ``1.51``"
+msgstr "铁 ``1.51``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:384
+msgid "Lead ``2.01``"
+msgstr "铅 ``2.01``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:385
+msgid "Platinum ``2.33``"
+msgstr "铂 ``2.33``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:386
+msgid "Silver ``0.18``"
+msgstr "银 ``0.18``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:387
+msgid "Steel ``2.50``"
+msgstr "钢 ``2.50``"
+
+#: ../../manual/render/blender_render/materials/properties/transparency.rst:388
+msgid "Titanium ``2.16``"
+msgstr "钛 ``2.16``"
+
+#~ msgid "Mode:     All Modes"
+#~ msgstr "模式:     所有模式"
+

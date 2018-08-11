@@ -1,0 +1,479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Смужки -- Strips &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/nla/strips.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Властивості й Модифікатори -- Properties &amp; Modifiers" href="properties_modifiers.html" />
+    <link rel="prev" title="Стежки -- Tracks" href="tracks.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph_editor/index.html">Редактор Графів -- Graph Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редактор НЛА -- NLA Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracks.html">Стежки -- Tracks</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Смужки -- Strips</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties_modifiers.html">Властивості й Модифікатори -- Properties &amp; Modifiers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактор НЛА -- NLA Editor</a> &raquo;</li>
+        
+      <li>Смужки -- Strips</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/nla/strips.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="strips">
+<span id="bpy-types-nlastrip"></span><h1>Смужки -- Strips<a class="headerlink" href="#strips" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="types">
+<h2>Типи -- Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<p>Існують чотири види смужок: Дія -- Action, Перехід -- Transition, Кліп Звуку -- Sound clip та Мета -- Meta.</p>
+<div class="section" id="action-strips">
+<h3>Смужки Дій -- Action Strips<a class="headerlink" href="#action-strips" title="Permalink to this headline">¶</a></h3>
+<p>Смужка Дії -- Action Strip -- це контейнер ключкадрованих даних дії. Будь-яка дія, що використовується НЛА, спершу повинна бути перетворена в Смужку Дії. Це робиться клацком на кнопці «Опущення» -- Push Down, яка знаходиться на стежці. Альтернативно, ви можете додати цей вид у меню «Додання &gt; Смужка Дії» -- <span class="menuselection">Add ‣ Action Strip</span>.</p>
+</div>
+<div class="section" id="transition-strips">
+<h3>Смужки Переходів -- Transition Strips<a class="headerlink" href="#transition-strips" title="Permalink to this headline">¶</a></h3>
+<p>Переходи інтерполюють між Діями. Вони повинні розміщуватися між іншими смужками. Виділяйте дві або більше смужок на одній стежці та додавайте їх у меню «Додання &gt; Перехід» -- <span class="menuselection">Add ‣ Transition</span>.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_nla_strips_basics-transition.png" src="../../_images/editors_nla_strips_basics-transition.png" />
+<p class="caption"><span class="caption-text">Смужка Переходу -- Transition Strip.</span></p>
+</div>
+</div>
+<div class="section" id="sound-clip-strips">
+<h3>Смужки Кліпів Звуку -- Sound Clip Strips<a class="headerlink" href="#sound-clip-strips" title="Permalink to this headline">¶</a></h3>
+<p>Керують, коли гучномовець відтворює звуковий кліп. «Додання &gt; Кліп Звуку» -- <span class="menuselection">Add ‣ Sound Clip</span>.</p>
+</div>
+<div class="section" id="meta-strips">
+<h3>Мета Смужки -- Meta Strips<a class="headerlink" href="#meta-strips" title="Permalink to this headline">¶</a></h3>
+<p>Мета смужки групують смужки разом в єдине ціле, так що ви можете рухати їх як одне. Якщо вам треба пересунути багато смужок за раз, то ви можете групувати їх у Мета Смужку. Мета смужка може пересуватися та дублюватися, як звичайна смужка.</p>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Add ‣ Add Meta-Strips</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/editors_nla_strips_meta1.png"><img alt="../../_images/editors_nla_strips_meta1.png" src="../../_images/editors_nla_strips_meta1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Утримуйте натисненою Shift для виділення двох або більше смужок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/editors_nla_strips_meta2.png"><img alt="../../_images/editors_nla_strips_meta2.png" src="../../_images/editors_nla_strips_meta2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Комбінуйте їх в мета смужку.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Мета смужка все ще вміщує утворювальні її смужки. Ви можете розгрупувати Мета смужку.</p>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Add ‣ Remove Meta-Strips</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="editing">
+<h2>Редагування -- Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="start-tweaking-strips-action">
+<h3>Почати Підправку Дій Смужок -- Start Tweaking Strips Actions<a class="headerlink" href="#start-tweaking-strips-action" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Edit ‣ Start Tweaking Strips Action</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Вміст смужок Дій може бути редаговано, але ви повинні для цього перейти у режим підправки -- <em>Tweak Mode</em>. Ключкадри цієї дії можуть далі бути редаговані в Аркуші Експозицій -- Dope Sheet.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/editors_nla_strips_nla-mode.png"><img alt="../../_images/editors_nla_strips_nla-mode.png" src="../../_images/editors_nla_strips_nla-mode.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Смужка у режимі НЛА -- NLA.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/editors_nla_strips_edit-mode.png"><img alt="../../_images/editors_nla_strips_edit-mode.png" src="../../_images/editors_nla_strips_edit-mode.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Смужка у режимі Підправки -- Tweak.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Коли ви завершите редагування смужки, просто скористайтеся командою «Правка &gt; Зупинити Підправку Дій Смужок» -- <span class="menuselection">Edit ‣ Stop Tweaking Strips Action</span> або натисніть <kbd class="kbd docutils literal notranslate">Tab</kbd>.</p>
+</div>
+<div class="section" id="start-editing-stashed-action">
+<h3>Почати Правку Запасеної Дії -- Start Editing Stashed Action<a class="headerlink" href="#start-editing-stashed-action" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Edit ‣ Start Editing Stashed Action</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Це буде входити й виходити у режим Підправки -- Tweak Mode, як звичайно, але також це гарантуватиме, що дія може редагуватися в ізоляції (перемикаючи стежку НЛА так, що дія смужки стає, як «соло»). Це корисно для редагування запасених дій без втручання у решту стеку, стосу НЛА.</p>
+</div>
+<div class="section" id="duplicate">
+<h3>Дублювання -- Duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Edit ‣ Duplicate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Створює новий примірник виділених смужок з копією дії.</p>
+</div>
+<div class="section" id="linked-duplicate">
+<h3>Пов'язане Дублювання -- Linked Duplicate<a class="headerlink" href="#linked-duplicate" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Edit ‣ Linked Duplicate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Вміст однієї смужки Дії може бути дубльовано у пов'язані примірники кілька разів. Для дублювання пов'язано іншої смужки, виділіть смужку та скористайтеся «Правка &gt; Пов'язане Дублювання» -- <span class="menuselection">Edit ‣ Linked Duplicate</span>. Це буде використовувати одну дію кількома смужками.</p>
+<p>Тепер, коли будь-яка зі смужок підправляється, інші автоматично змінюватимуться також. Якщо смужка, інша ніж оригінал буде підправлятися, то оригінал забарвиться червоним.</p>
+<div class="figure" id="id6">
+<img alt="../../_images/editors_nla_strips_linked-strip-edit.png" src="../../_images/editors_nla_strips_linked-strip-edit.png" />
+<p class="caption"><span class="caption-text">Пов'язано дубльована смужка редагується.</span></p>
+</div>
+</div>
+<div class="section" id="make-single-user">
+<h3>Зробити Однокористувацьким -- Make Single User<a class="headerlink" href="#make-single-user" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Edit ‣ Make Single User</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">U</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Цей засіб гарантує, що виділена смужка буде використовувати копію дії, яка належатиме тільки їй і жодній з інших смужок.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties_modifiers.html" class="btn btn-neutral float-right" title="Властивості й Модифікатори -- Properties &amp; Modifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tracks.html" class="btn btn-neutral" title="Стежки -- Tracks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

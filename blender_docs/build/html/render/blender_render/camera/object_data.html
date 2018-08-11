@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Дані Об&#39;єкта -- Object Data &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/camera/object_data.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Устави Зображування, рендерингу -- Render Settings" href="../settings/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Камера -- Camera</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Дані Об'єкта -- Object Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Камера -- Camera</a> &raquo;</li>
+        
+      <li>Дані Об'єкта -- Object Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/camera/object_data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-data">
+<span id="camera-settings"></span><h1>Дані Об'єкта -- Object Data<a class="headerlink" href="#object-data" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Editor:</th><td class="field-body"><span class="menuselection">Properties ‣  Camera</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Камери є невидимі на зображах, рендерах, а тому вони не мають жодних устав для матеріалів чи текстур. Однак, вони мають панелі устав «Об'єкт» -- <em>Object</em> та «Правка» -- <em>Editing</em>, які доступні та показуються, коли камера є виділеним активним! об'єктом.</p>
+<div class="section" id="lens">
+<h2>Об'єктив -- Lens<a class="headerlink" href="#lens" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_camera_object-data_lens-panel.png" src="../../../_images/render_blender-render_camera_object-data_lens-panel.png" />
+<p class="caption"><span class="caption-text">Панель «Об'єктив» -- Lens.</span></p>
+</div>
+<p>Опції об'єктива камери керують способом, яким 3D об'єкти представлені на 2D зображенні.</p>
+<div class="section" id="lens-type">
+<span id="camera-lens-type"></span><h3>Тип Об'єктива -- Lens Type<a class="headerlink" href="#lens-type" title="Permalink to this headline">¶</a></h3>
+<p>Є три різних типи об'єктивів:</p>
+<ol class="arabic simple">
+<li>Перспектива -- <a class="reference internal" href="#perspective">Perspective</a></li>
+<li>Ортогонально -- <a class="reference internal" href="#orthographic">Orthographic</a></li>
+<li>Панорамно -- <a class="reference internal" href="#panoramic">Panoramic</a></li>
+</ol>
+<div class="section" id="perspective">
+<h4>Перспектива -- Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">¶</a></h4>
+<p>This matches how you view things in the real world.
+Objects in the distance will appear smaller than objects in the foreground,
+and parallel lines (such as the rails on a railroad) will appear to converge as they get farther away.</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks.jpg" src="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks.jpg" />
+<p class="caption"><span class="caption-text">Зображ сцени залізничної колії через камеру з об'єктивом типу <em>Perspective</em>.</span></p>
+</div>
+<p>Устави, які коригують цю проекцію включають:</p>
+<ul class="simple">
+<li>Фокусна Відстань -- Focal Length</li>
+<li>Зсув -- <a class="reference internal" href="#shift">Shift</a></li>
+<li>Розмір Датчика -- <a class="reference internal" href="#render-camera-sensor-size"><span class="std std-ref">Sensor size</span></a></li>
+</ul>
+<dl class="docutils">
+<dt>Фокусна Відстань -- Focal Length</dt>
+<dd><p class="first">Устава «Фокусна Відстань» -- <a class="reference internal" href="../../../glossary/index.html#term-focal-length"><span class="xref std std-term">focal length</span></a> керує величиною зумування, тобто обсягом сцени, який видимий за раз. Довші фокусні відстані дають менше Поле Зору -- <abbr title="Field of View">FOV</abbr> (більше зумування), тоді як короткі фокусні відстані дозволяють вам бачити більше зі сцени за раз (більше Поле Зору -- <abbr title="Field of View">FOV</abbr>, менше зумування).</p>
+<div class="last figure" id="id3">
+<img alt="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-telephoto.jpg" src="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-telephoto.jpg" />
+<p class="caption"><span class="caption-text">Зображ тієї, що вище сцени колії, але з фокусною відстанню 210 мм замість 35 мм.</span></p>
+</div>
+</dd>
+<dt>Одиниця Об'єктива -- Lens Unit</dt>
+<dd>Фокусна відстань може бути задана у міліметрах або у градусах як фактичний кут Поля Зору -- <a class="reference internal" href="../../../glossary/index.html#term-field-of-view"><span class="xref std std-term">Field of View</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="orthographic">
+<h4>Ортогонально -- Orthographic<a class="headerlink" href="#orthographic" title="Permalink to this headline">¶</a></h4>
+<p>При типі об'єктива «Ортогонально» -- <em>Orthographic</em> об'єкти завжди виглядають в їх фактичному розмірі, незалежно від відстані. Це означає, що паралельні лінії виглядають паралельними та не збігаються, як при типі <em>Perspective</em>.</p>
+<div class="figure" id="id4">
+<img alt="../../../_images/render_blender-render_camera_object-data_perspective-orthographic-ortho-example.jpg" src="../../../_images/render_blender-render_camera_object-data_perspective-orthographic-ortho-example.jpg" />
+<p class="caption"><span class="caption-text">Зображ тієї, що вище сцени колії, але типом об'єктива Orthographic.</span></p>
+</div>
+<dl class="docutils">
+<dt>Ортогональний Масштаб -- Orthographic Scale</dt>
+<dd><p class="first">Ця устава керує розміром видимості об'єктів в огляді камери.</p>
+<p class="last">Зауважте, це ефективного єдина устава, що застосовується при ортогональному вигляді. Оскільки, паралельні лінії не збігаються при ортогональному режимі (немає точок збігу, то устави зсуву об'єктива є еквівалентними уставам пересування камери у 3D Огляді -- 3D View.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="panoramic">
+<h4>Панорамно -- Panoramic<a class="headerlink" href="#panoramic" title="Permalink to this headline">¶</a></h4>
+<p>Panoramic cameras are only supported in the Cycles Renderer.
+See <a class="reference internal" href="../../cycles/camera.html#cycles-panoramic-camera"><span class="std std-ref">the Cycles documentation</span></a>.</p>
+</div>
+</div>
+<div class="section" id="shift">
+<h3>Зсув -- Shift<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h3>
+<p>Устава «Зсув» -- <em>Shift</em> дозволяє коригувати точки збігу -- <em>vanishing points</em>. <em>Точки збігу</em> стосуються позицій, в яких збігаються паралельні лінії. У цьому прикладі, найбільш очевидна точка збігу знаходиться у кінці залізничної колії.</p>
+<p>Щоб побачити, як це працює, розберемо наступні приклади:</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-lens-shift.jpg" src="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-lens-shift.jpg" />
+<p class="caption"><span class="caption-text">Зображ сцени залізничної колії зі значенням 0.330 зсуву об'єктива горизонтально.</span></p>
+</div>
+<div class="figure" id="id6">
+<img alt="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-camera-rotate.jpg" src="../../../_images/render_blender-render_camera_object-data_perspective-perspective-traintracks-camera-rotate.jpg" />
+<p class="caption"><span class="caption-text">Зображ сцени залізничної колії з обертанням об'єкта камери замість зсуву об'єктива.</span></p>
+</div>
+<p>Зверніть увагу, як горизонтальні лінії залишаються ідеально горизонтальними при використанні зсуву об'єктива та отримують перекіс при обертанні об'єкта камери.</p>
+<p>Використання зсуву об'єктива є еквівалентом зображування, рендерингу зображення з більшим Полем Зору -- <abbr title="Field of View">FOV</abbr> та обрізкою його від центру.</p>
+</div>
+<div class="section" id="clipping">
+<span id="camera-clipping"></span><h3>Відсікання -- Clipping<a class="headerlink" href="#clipping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Старт Відсіку -- Clip Start та Кінець Відсіку -- Clip End</dt>
+<dd>Це інтервал, в якому об'єкти є безпосередньо видимими; тільки об'єкти у межах цих лімітів зображуються, рендеряться.</dd>
+</dl>
+<p>Для показу з OpenGL задання відстаней відсікання лімітованими значеннями є важливим для гарантування достатньої точності растеризації. Зображі з промінь-трасуванням не страждають від цієї проблеми так сильно, і тому для них можуть задаватися безпечно більш крайні значення.</p>
+<p>При увімкненні опції «Ліміти» -- <em>Limits</em> на панелі «Показ» -- <em>Display</em> стають видимі ці межі відсікання у вигляді двох жовтих точок на лінії зору камери.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Змінення значень відсікання може мати серйозний вплив на продуктивність зобража, рендера. Важливо завжди задавати ці значення <em>Start</em> та <em>End</em> на безпечних відстанях, щоб вони обидва не були надто екстремальними або надто малими, з метою отримання оптимальної тривалості зображування.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>Відсікання огляду Камери -- <a class="reference internal" href="#camera-clipping"><span class="std std-ref">Blender Render Camera Clipping</span></a>.</li>
+<li>Відсікання 3D Огляду -- <a class="reference internal" href="../../../editors/3dview/properties/panels.html"><span class="doc">3D View clipping</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="camera">
+<h2>Камера -- Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id7">
+<img alt="../../../_images/render_blender-render_camera_object-data_camera-panel.png" src="../../../_images/render_blender-render_camera_object-data_camera-panel.png" />
+<p class="caption"><span class="caption-text">Панель «Камера» -- Camera.</span></p>
+</div>
+<dl class="docutils">
+<dt>Передустави Камери -- Camera Presets</dt>
+<dd>Передустави -- <a class="reference internal" href="../../../interface/controls/templates/list_presets.html#ui-presets"><span class="std std-ref">Presets</span></a>, що відповідають реальним камерам.</dd>
+</dl>
+<dl class="docutils" id="render-camera-sensor-size">
+<dt>Датчик: Розмір -- Sensor: Size</dt>
+<dd>This setting is an alternative way to control the focal length,
+it is useful to match the camera in Blender to a physical camera &amp; lens combination,
+e.g. for <a class="reference internal" href="../../../editors/movie_clip_editor/index.html"><span class="doc">motion tracking</span></a>.</dd>
+<dt>Підгонка Датчика -- Sensor Fit</dt>
+<dd>Опція для керування тим, в якому вимірі (вертикально чи горизонтально) припасовувати кут поля зору камери.</dd>
+</dl>
+</div>
+<div class="section" id="depth-of-field">
+<h2>Глибина Різкості -- Depth of Field<a class="headerlink" href="#depth-of-field" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id8">
+<img alt="../../../_images/render_blender-render_camera_object-data_depth-of-field-panel.png" src="../../../_images/render_blender-render_camera_object-data_depth-of-field-panel.png" />
+<p class="caption"><span class="caption-text">Camera Depth of Field panel.</span></p>
+</div>
+<p>Real-world cameras transmit light through a lens that bends and focuses it onto the sensor.
+Because of this, objects that are a certain distance away are in focus,
+but objects in front and behind that are blurred.</p>
+<p>Ділянка у фокусі називається «фокальною точкою» -- <em>focal point</em> та може задаватися як точне значення або за допомогою відстані між камерою та обраним об'єктом:</p>
+<dl class="docutils">
+<dt>Об'єкт Фокуса -- Focus Object</dt>
+<dd>Дає вибрати об'єкт, який буде визначати фокальну точку. Підв'язування такого об'єкта буде дезактивувати параметр відстані. Зазвичай, це використовується для задання точного контролю за позицією фокальної точки, а також дозволяє анімувати та зосереджувати її на іншому об'єкті.</dd>
+<dt>Відстань -- Distance</dt>
+<dd><p class="first">Задає відстань до фокальної точки, якщо об'єкт фокуса -- <em>Focus Object</em> не вказано. Якщо увімкнено опцію «Ліміти» -- <em>Limits</em>, то ця відстань показується жовтим хрестиком на лінії зору камери.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Наведення вказівника миші над властивістю «Відстань» -- <em>Distance</em> та натиснення <kbd class="kbd docutils literal notranslate">E</kbd> вмикає спеціальний відбірник глибини -- <em>Depth Picker</em>. Далі слід клацнути на точці у 3D Огляді для вибору відстані до цієї точки від камери.</p>
+</div>
+</dd>
+<dt>Висока Якість -- High Quality</dt>
+<dd>Для точного представлення глибини різкості в оглядвікні (обчислення радіусу розмиву), як на зображі, рендері, ви маєте вмикати цю опцію High Quality. При її вимкненні ви можете помічати різницю у відтіненні. (Затьмарюється сірим, якщо не підтримується GPU відеокарти).</dd>
+<dt>Діафрагмове число Оглядвікна -- Viewport F-stop</dt>
+<dd>Керує реально-часовим ефектом фокального розмиву у відеоряднику або при зображуванні з OpenGL, а також, при увімкненні огляду камери, в оглядах камер у 3D Огляді. Величина розмиву залежить від цієї устави, а також від устав Focal Length та Sensor Size. Менше значення Viewport F-stop дає більше розмиву.</dd>
+<dt>Пелюстки -- Blades</dt>
+<dd>Add a number of polygonal <em>blades</em> to the blur effect,
+in order to achieve a <em>bokeh effect</em> in the viewport.
+To enable this feature, the blades must be set to at least 3 (3 sides, triangle).</dd>
+</dl>
+<div class="figure" id="id9">
+<img alt="../../../_images/render_blender-render_camera_object-data_depth-of-field-bokeh.png" src="../../../_images/render_blender-render_camera_object-data_depth-of-field-bokeh.png" />
+<p class="caption"><span class="caption-text">Ефект боке в оглядвікні при заданні кількості пелюсток як 3.</span></p>
+</div>
+</div>
+<div class="section" id="display">
+<h2>Показ -- Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id10">
+<img alt="../../../_images/render_blender-render_camera_object-data_display-panel.png" src="../../../_images/render_blender-render_camera_object-data_display-panel.png" />
+<p class="caption"><span class="caption-text">Camera Display panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Ліміти -- Limits</dt>
+<dd>Показує лінію зору, на якій позначаються значення <em>Start</em> and <em>End</em> відсікання.</dd>
+<dt>Імла -- Mist</dt>
+<dd>Перемикає показ лімітів імли. Ці ліміти показуються як дві білі точки на лінії зору камери. Ці ліміти імли та інші опції задаються у вкладці «Світ» -- <em>World</em> на панелі the «Імла» -- <a class="reference internal" href="../world/mist.html"><span class="doc">Mist</span></a>.</dd>
+</dl>
+<div class="figure" id="id11">
+<img alt="../../../_images/render_blender-render_camera_object-data_display-view.png" src="../../../_images/render_blender-render_camera_object-data_display-view.png" />
+<p class="caption"><span class="caption-text">Огляд камери з показом безпечної області, датчика та імені.</span></p>
+</div>
+<dl class="docutils">
+<dt>Датчик -- Sensor</dt>
+<dd>Показує пунктирну рамку датчика в огляді камери.</dd>
+<dt>Ім'я -- Name</dt>
+<dd>Перемикає показ імені цієї камери в її огляді.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Розмір візуалізації об'єкта камери у 3D Огляді -- 3D View. Ця устава <strong>не</strong> має жодного впливу на вивід зобража з камери. Візуалізація камери може також бути масштабована за допомогою стандартної команди Масштабування -- Scale, <kbd class="kbd docutils literal notranslate">S</kbd>.</dd>
+<dt>Затінювальна маска -- Passepartout</dt>
+<dd><p class="first">Ця опція затемняє область поза полем зору камери.</p>
+<dl class="last docutils">
+<dt>Альфа -- Alpha</dt>
+<dd>Керує прозорістю затінювальної маски.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="composition-guides">
+<h3>Напрямні Композиції -- Composition Guides<a class="headerlink" href="#composition-guides" title="Permalink to this headline">¶</a></h3>
+<p><em>Composition Guides</em> -- Напрямні Композиції, що доступні з цього меню, можуть допомогти при кадруванні знімка. Доступні вісім типів таких напрямних:</p>
+<dl class="docutils">
+<dt>Центр -- Center</dt>
+<dd>Додає лінії, що ділять кадр навпіл по вертикалі та по горизонталі.</dd>
+<dt>Центр Діагоналей -- Center Diagonal</dt>
+<dd>Додає лінії, що з'єднують протилежні кути кадру.</dd>
+<dt>Третини -- Thirds</dt>
+<dd>Додає лінії, що ділять кадр на третини вертикально і горизонтально.</dd>
+<dt>Золотий перетин -- Golden</dt>
+<dd>Додає лінії, що ділять ширину та висоту кадру на основі пропорцій Золотого перетину (близько 0.618 з усіх боків кадру).</dd>
+<dt>Золотий Трикутник А -- Golden Triangle A</dt>
+<dd>Draws a diagonal line from the lower left to upper right corners,
+then adds perpendicular lines that pass through the top left and bottom right corners.</dd>
+<dt>Золотий Трикутник Б -- Golden Triangle B</dt>
+<dd>Рисує лінії так само, як і версія А, але з протилежних кутів.</dd>
+<dt>Гармонійний Трикутник А -- Harmonious Triangle A</dt>
+<dd>Draws a diagonal line from the lower left to upper right corners,
+then lines from the top left and bottom right corners to 0.618 the lengths of the opposite side.</dd>
+<dt>Гармонійний Трикутник Б -- Harmonious Triangle B</dt>
+<dd>Рисує лінії так само, як і версія А, але з протилежних кутів.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="safe-areas">
+<span id="camera-safe-areas"></span><span id="bpy-ops-safe-areas"></span><span id="bpy-types-displaysafeareas"></span><h2>Безпечні Області -- Safe Areas<a class="headerlink" href="#safe-areas" title="Permalink to this headline">¶</a></h2>
+<p>Безпечні Області -- це напрямні рамки, що використовуються для розміщення елементів, щоб гарантувати, що найбільш важливі частини вмісту будуть видимі на всіх екранах.</p>
+<p>Різні екрани мають різні величини лямівки -- <a class="reference internal" href="../../../glossary/index.html#term-overscan"><span class="xref std std-term">overscan</span></a> (особливо старі телевізори). Це означає, що не увесь вміст буде видимим для усіх глядачів, оскільки частини зображення біля країв не показуються. Для вирішення цієї проблеми виробник телевізорів визначили дві області, у межах яких вміст гарантовано буде показуватися: безпечна область -- action safe та область титрів -- title safe.</p>
+<p>Сучасні рідкокристалічні/плазмові -- LCD/plasma екрани з суто цифровими сигналами не мають жодної лямівки -- <a class="reference internal" href="../../../glossary/index.html#term-overscan"><span class="xref std std-term">overscan</span></a>, але дотримання безпечних областей все ще вважається найкращим на практиці та може бути юридично необхідним для трансляції.</p>
+<p>У Blender'і безпечні області можуть бути задані для оглядів Камери -- Camera та Відеорядника -- Sequencer.</p>
+<div class="figure" id="id12">
+<img alt="../../../_images/render_blender-render_camera_object-data_safe-areas-panel.png" src="../../../_images/render_blender-render_camera_object-data_safe-areas-panel.png" />
+<p class="caption"><span class="caption-text">Панель «Безпечні Області» - Safe Areas доступна серед властивостей камери у Редакторі Властивостей, а також серед властивостей огляду у Редакторі Відеорядів.</span></p>
+</div>
+<p>Безпечні Області можуть налаштовуватися на основі їх зовнішнього поля, яке є відсотковим масштабом від області між центром та розміром зобража, рендера. Ці значення є спільними для Редактора Відеорядів та огляду камери.</p>
+<div class="section" id="main-safe-areas">
+<h3>Головні безпечні області<a class="headerlink" href="#main-safe-areas" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id13">
+<img alt="../../../_images/render_blender-render_camera_object-data_safe-areas-main.png" src="../../../_images/render_blender-render_camera_object-data_safe-areas-main.png" />
+<p class="caption"><span class="caption-text">Червона лінія: Область Дійства -- Action Safe. Зелена лінія: Область Титрів -- Title Safe.</span></p>
+</div>
+<dl class="docutils">
+<dt>Область Титрів -- Title Safe</dt>
+<dd>Також відома як «Область Графіки» -- <em>Graphics Safe</em>. Розміщення усієї важливої інформації (графіки або тексту) всередині цієї області гарантує, що вона буде видима для більшості глядачів.</dd>
+<dt>Область Дійства -- Action Safe</dt>
+<dd>Впевнюйтеся, що будь-які значні дійство або персонажі у знімку знаходяться всередині цієї області. Ця зона також подвоюється як вид «припуску» для екрану, який може використовуватися для вберігання елементів від нагромадження елементів на краях кадру.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Правові стандарти -- Legal Standards</p>
+<p class="last">Кожна країна установлює правовий стандарт для трансляції. Вони включають, серед інших речей, специфічні значення для безпечних областей. Стандарти у Blender'і для безпечних областей відповідають стандарту Європейського Союзу EBU (European Union). Переконайтеся, що ви використовуєте коректні значення при роботі для транслювання для запобігання будь-яким проблемам.</p>
+</div>
+</div>
+<div class="section" id="center-cuts">
+<h3>Центровано-Обрізані Безпечні Області -- Center-Cut Safe Areas<a class="headerlink" href="#center-cuts" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id14">
+<img alt="../../../_images/render_blender-render_camera_object-data_safe-areas-cuts.png" src="../../../_images/render_blender-render_camera_object-data_safe-areas-cuts.png" />
+<p class="caption"><span class="caption-text">Блакитна лінія: центрована область дійства. Синя лінія: центрована область титрів.</span></p>
+</div>
+<p>Центровано-обрізані області -- це другий набір безпечних областей, що гарантують, що вміст буде коректно показуватися на екранах з різними пропорціями сторін. Старі телевізори, що отримують відео з пропорцією <code class="docutils literal notranslate"><span class="pre">16:9</span></code> або <code class="docutils literal notranslate"><span class="pre">21:9</span></code>, будуть відрізати зображення по сторонах. Позиціювання вмісту всередину таких центровано-обрізаних областей гарантує, що більшість важливих елементів вашої композиції зможуть залишатися видимими на таких екранах.</p>
+<p>Blender стандартно показує пропорцію <code class="docutils literal notranslate"><span class="pre">4:3</span></code> (квадрат) всередині пропорції <code class="docutils literal notranslate"><span class="pre">16:9</span></code> (широкий екран).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../settings/index.html" class="btn btn-neutral float-right" title="Устави Зображування, рендерингу -- Render Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

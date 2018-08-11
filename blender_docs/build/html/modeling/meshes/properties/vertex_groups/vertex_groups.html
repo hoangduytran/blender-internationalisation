@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Панель Груп Вершин &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/properties/vertex_groups/vertex_groups.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Присвоєння Групи Вершин (Assigning a Vertex Group)" href="assigning_vertex_group.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Властивості</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../object_data.html">Дані Об'єкта (Object Data)</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Групи Вершин (Vertex Groups)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../custom_data.html">Custom Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+          <li><a href="../index.html">Властивості</a> &raquo;</li>
+        
+          <li><a href="index.html">Групи Вершин (Vertex Groups)</a> &raquo;</li>
+        
+      <li>Панель Груп Вершин</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modeling/meshes/properties/vertex_groups/vertex_groups.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vertex-groups-panel">
+<h1>Панель Груп Вершин<a class="headerlink" href="#vertex-groups-panel" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Довідка</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Object Data tab ‣ Vertex Groups</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/modeling_meshes_properties_vertex-groups_introduction_panel.png" src="../../../../_images/modeling_meshes_properties_vertex-groups_introduction_panel.png" />
+<p class="caption"><span class="caption-text">The Vertex Group panel.</span></p>
+</div>
+<p>Групи Вершин підтримуються Редактором Властивостей (Properties Editor) <em>Даних Об'єкта (Object Data)</em> на панелі <em>Груп Вершин (Vertex Groups)</em>.</p>
+<dl class="docutils">
+<dt>Активна Група Вершин</dt>
+<dd><p class="first">A <a class="reference internal" href="../../../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">Огляди списків</span></a>.</p>
+<dl class="last docutils">
+<dt>Заблокувати (Lock)</dt>
+<dd>Locks the group from being editable. You can only rename or delete the group.</dd>
+<dt>Додати <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Створити порожню групу вершин.</dd>
+<dt>Видалити <code class="docutils literal notranslate"><span class="pre">-</span></code></dt>
+<dd>Видалити активну групу вершин.</dd>
+<dt>Specials</dt>
+<dd><dl class="first last docutils">
+<dt>Сортувати Групи Вершин (Sort Vertex Groups)</dt>
+<dd>Сортує Групи Вершин у алфавітному порядку.</dd>
+<dt>Копіювати Групу Вершин (Copy Vertex Group)</dt>
+<dd>Додати Копію активної Групи Вершин як нову Групу. Вона буде називатися так само, як і оригінальна з приставкою &quot;_copy (копія)&quot;. Та буде містити присвоєння тих самих вершин з такими ж вагами, як і вихідна група.</dd>
+<dt>Копіювати Групи Вершин до Пов'язаного (Copy Vertex Groups to Linked)</dt>
+<dd>Копіювати Групи Вершин цієї Сітки до всіх пов'язаних Об'єктів, що використовують ті ж дані сітки (mesh data) (всі користувачі даних).</dd>
+<dt>Копіювати Групу Вершин до Вибраного (Copy Vertex Group to Selected)</dt>
+<dd>Копіювати всі Групи Вершин до інших Вибраних Об'єктів з відповідними індексами (зазвичай підходить для копій сітки, що лише деформовані та не редаговані ніяк інакше).</dd>
+<dt>Віддзеркалити Групу Вершин (Mirror Vertex Group)</dt>
+<dd>Mirror all Vertex Groups, flip weights and/or names, editing only selected vertices,
+flipping when both sides are selected; otherwise copy from unselected.</dd>
+<dt>Mirror Vertex Group (Topology)</dt>
+<dd>The <a class="reference internal" href="../../editing/mesh_options.html#modeling-meshes-editing-topology-mirror"><span class="std std-ref">Топологічне Дзеркалення -- Topology Mirror</span></a> option is enabled.</dd>
+<dt>Видалити з Усіх Груп (Remove from All Groups)</dt>
+<dd>(не доступно для заблокованих груп) Скасувати призначення вибраних Вершин з усіх груп. Після виконання цієї операції, вершини не будуть належати жодній групі вершин.</dd>
+<dt>Очистити Активну Групу (Clear Active Group)</dt>
+<dd>Видалити всі призначені вершини з активної Групи. Група стане порожньою. Зауважте, що вершини можуть досі бути призначені іншим Групам Вершин об'єкта. (не доступно для заблокованих груп).</dd>
+<dt>Delete All Unlocked Groups</dt>
+<dd>Remove all Vertex Groups from the Object that are <em>not</em> locked.</dd>
+<dt>Видалити Всі Групи (Delete All Groups)</dt>
+<dd>Видалити всі Групи Вершин з Об'єкта.</dd>
+<dt>Заблокувати Все (Lock All)</dt>
+<dd>Заблокувати всі групи.</dd>
+<dt>Розблокувати Все (Unlock All)</dt>
+<dd>Розблокувати всі групи.</dd>
+<dt>Lock Invert All</dt>
+<dd>Інвертувати Блокування Груп.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="editing-vertex-groups">
+<h2>Редагування Груп Вершин (Editing Vertex Groups)<a class="headerlink" href="#editing-vertex-groups" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Довідка</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Object Data tab ‣ Vertex Groups</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Vertex ‣ Vertex Groups</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id2">
+<img alt="../../../../_images/modeling_meshes_properties_vertex-groups_vertex-groups_panel-edit.png" src="../../../../_images/modeling_meshes_properties_vertex-groups_vertex-groups_panel-edit.png" />
+<p class="caption"><span class="caption-text">Панель Групи Вершин у Режимі Редагування або Малювання Вагів.</span></p>
+</div>
+<p>Коли ви переходите до <em>Режиму Редагування (Edit Mode)</em> або до- <em>Режиму Малювання Вагів (Weight Paint Mode)</em>, ви можете редагувати ваги Вершин. Ті ж операції доступні і в меню 3D-переглядача <span class="menuselection">Сітка (Mesh) ‣ Вершини (Vertices) ‣ Групи Вершин (Vertex Groups)</span> або <kbd class="kbd docutils literal notranslate">Ctrl-G</kbd>.</p>
+<dl class="docutils">
+<dt>Призначити (Assign)</dt>
+<dd>Щоб призначити вибрані вершини активній групі з вагами, що визначені на <em>Вагах (Weight)</em> (див. нижче).</dd>
+<dt>Видалити (Remove)</dt>
+<dd>Щоб видалити вибрані вершини з активної групи (і, отже, видалити значення їхніх вагів).</dd>
+<dt>Вибрати (Select)</dt>
+<dd>Щоб вибрати всі вершини в групі.</dd>
+<dt>Скасувати вибір (Deselect)</dt>
+<dd>Щоб скасувати вибір всіх вершин у групі.</dd>
+<dt>Вага (Weight)</dt>
+<dd>Значення ваги, що призначається вибраним вершинам.</dd>
+<dt>Встановити Активну Групу</dt>
+<dd>Дозволяє вам вибрати групу, що стане активною (тільки в меню).</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Декілька об'єктів, що поділяють однакові дані, мають особливу властивість, коли назви груп зберігаються на об'єкті, а ваги - на сітці. Це дозволяє називати групи по-різному на кожному об'єкті, але будьте обережні, бо видалення групи вершин видалить цю групу з усіх об'єктів, що поділяють цю сітку.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="assigning_vertex_group.html" class="btn btn-neutral float-right" title="Присвоєння Групи Вершин (Assigning a Vertex Group)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

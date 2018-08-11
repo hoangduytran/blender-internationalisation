@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Редагування цього довідника &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/about/contribute/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Латка і фіксування -- Patch &amp; Commit" href="patch_commit.html" />
+    <link rel="prev" title="Вибудування на Linux" href="build/linux.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ до Довідника Blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Ліцензування</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../whats_new.html">Thay đổi gần đây</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Đóng Góp</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#how-it-works">Phương Pháp Điều Hành</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#getting-started">Khởi Đầu</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="install/index.html">Установлення</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build/index.html">Вибудування</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Редагування цього довідника</a></li>
+<li class="toctree-l4"><a class="reference internal" href="patch_commit.html">Латка і фіксування -- Patch &amp; Commit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#guidelines">Hướng dẫn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#translations">Phiên Dịch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#contacts">Mối Liên Lạc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a> &raquo;</li>
+        
+          <li><a href="index.html">Đóng Góp</a> &raquo;</li>
+        
+      <li>Редагування цього довідника</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/about/contribute/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing-the-manual">
+<h1>Редагування цього довідника<a class="headerlink" href="#editing-the-manual" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="update">
+<h2>Оновлення<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>Спершу, переконайтеся, що ваша локальна копія довідника є актуальною з онлайн-репозиторієм за допомогою:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>svn update
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing">
+<h2>Писання<a class="headerlink" href="#writing" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете редагувати файли цієї документації, що є файлами <code class="docutils literal notranslate"><span class="pre">.rst</span></code> всередині теки <code class="docutils literal notranslate"><span class="pre">manual</span></code>, використовуючи будь-який текстовий редактор на ваш вибір.</p>
+<p>Переконайтесь, що ви ознайомилися із <a class="reference internal" href="guides/writing_guide.html"><span class="doc">Путівник зі стилю написання</span></a> про умовності та <a class="reference internal" href="guides/markup_guide.html"><span class="doc">Путівник зі стилю розмітки</span></a>, щоб дізнатися, як писати мовою розмітки reStructuredText.</p>
+<p>Щасливого писання!</p>
+<div class="section" id="bigger-changes">
+<h3>Більші зміни<a class="headerlink" href="#bigger-changes" title="Permalink to this headline">¶</a></h3>
+<p>Якщо ви збираєтеся додати або переписати секцію, то переконайтеся, що ретельно перевірили, що така вже не існує. У деяких місцях, документи є так дезорганізовані, що секції можуть бути дубльовані або знаходитися у дивному місці. У такому випадку, якщо ви виявите дублікат або секцію не у тому місці, створіть завдання -- <a class="reference external" href="https://developer.blender.org/maniphest/task/edit/form/default/?project=PHID-PROJ-c4nvvrxuczix2326vlti">create a task</a> з поясненням проблеми та додатковим вкладенням ревізії (фактичні зміни).</p>
+<p>Перед тим, як робити будь-які правки, які не є простими та явно виправданими (наприклад, переміщення тек), ви повинні перевірити у головного підтримувача, що ваш внесок відповідає баченню спільноти щодо цього довідника. Це гарантує найкраще використання вашого часу та доброзичливість, інакше можливо, що з якоїсь причини, ваші зміни будуть конфліктувати та будуть відкинуті або потребуватимуть трудомісткої перевірки. Наприклад, інша особа можливо вже працює над секцією, яку ви бажаєте змінити, ця секція може бути запланована для видалення або для оновлення відповідно до запланованої зміни у Blender.</p>
+<p>Спілкування -- <a class="reference internal" href="index.html#contribute-contact"><span class="std std-ref">Communicating</span></a> заздалегідь та часто -- це ключ до продуктивного середовища без витрачання зайвих зусиль людей та отримання кращого довідника Blender у результаті.</p>
+</div>
+<div class="section" id="getting-help-answers">
+<h3>Отримання довідки/відповідей<a class="headerlink" href="#getting-help-answers" title="Permalink to this headline">¶</a></h3>
+<p>Якщо ви сумніваєтеся з приводу функціональності, яку ви бажаєте задокументувати, ви повинні поставити питання розробникам Blender, відповідальним за відповідну ділянку розробки, або запитати на неофіційному каналі підтримки користувачів <code class="docutils literal notranslate"><span class="pre">#blender</span></code> <a class="reference internal" href="../../getting_started/about/community.html#irc-channels"><span class="std std-ref">IRC channel</span></a>.</p>
+<p>Blender має власну систему власників модулів з розробниками та учасниками-митцями, котрі відповідальні за розробку та підтримку у відповідних областях Blender'а. Дивіться сторінку власників модулів -- <a class="reference external" href="https://wiki.blender.org/index.php/Dev:Doc/Process/Module_Owners/List">module owners page</a> для отримання додаткової інформації.</p>
+</div>
+</div>
+<div class="section" id="preview">
+<h2>Передогляд -- Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h2>
+<p>Для перегляду ваших змін вибудуйте цей довідник, як вказано тут -- <a class="reference internal" href="build/index.html"><span class="doc">as instructed</span></a>. Майте на увазі, що ви можете також вибудувати лише главу, щойно вами відредаговану, для швидкого її перегляду. Відкрийте згенеровані <code class="docutils literal notranslate"><span class="pre">.html</span></code> файли всередині теки <code class="docutils literal notranslate"><span class="pre">build/html</span></code> , використовуючи ваш веб-оглядач, або оновіть сторінку, якщо потрібна сторінка вже відкрита у ньому.</p>
+</div>
+<div class="section" id="upload">
+<h2>Вивантаження<a class="headerlink" href="#upload" title="Permalink to this headline">¶</a></h2>
+<p>Коли ви щасливі вашими змінами, ви можете вивантажити їх, щоб вони були доступні в онлайн-довіднику. Спершу, це робиться шляхом подання латок (патчів), щоб кожен зміг перевірити ваші зміни та дати вам відзив. Після, ви можете зафіксувати ваші зміни безпосередньо. Цей процес описується детально у наступній секції.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="patch_commit.html" class="btn btn-neutral float-right" title="Латка і фіксування -- Patch &amp; Commit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="build/linux.html" class="btn btn-neutral" title="Вибудування на Linux" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

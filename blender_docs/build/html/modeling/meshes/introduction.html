@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Структура" href="structure.html" />
+    <link rel="prev" title="Сітки (Meshes)" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Вступ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modeling-modes">Режими Моделювання (Modeling Modes)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization">Візуалізація</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tool-shelf">Полиця Інструментів (Tool Shelf)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#properties-region">Регіон Властивостей (Properties region)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/meshes/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Сіткове моделювання (Mesh Modeling) зазвичай починається з <a class="reference internal" href="primitives.html"><span class="doc">базових Сіткових Примітивів (Mesh Primitive)</span></a> (наприклад, коло, куб, циліндр тощо). З них ви можете почати редагування для створення більших і складніших форм.</p>
+<div class="section" id="modeling-modes">
+<h2>Режими Моделювання (Modeling Modes)<a class="headerlink" href="#modeling-modes" title="Permalink to this headline">¶</a></h2>
+<p>3D-переглядач (3D View) має три основні режими, які дозволяють створювати, редагувати та управляти сітковими моделями (mesh models). Кожен з трьох режимів має різні інструменти. Деякі інструменти можуть бути знайдені в одному або декількох режимах.</p>
+<p>Режими, що використовуються для моделювання:</p>
+<ul class="simple">
+<li>Об'єктний Режим (Object Mode)</li>
+<li>Режим Редагування (Edit Mode)</li>
+<li>Режим Ліпки (Sculpt Mode)</li>
+</ul>
+<p>Зазвичай створення сіткового примітива (mesh primitive) починається з додавання сіткового об'єкта (mesh object) в <em>Об'єктному Режимі (Object Mode)</em>. Обмежені типи редагування, такі як розмір, місце розташування та орієнтація, можна виконати в <em>Об'єктному режимі (Object Mode)</em>. <em>Об'єктний Режим (Object Mode)</em> також забезпечує засоби для Приєднання (Join) та Групування (Group ) декількох сіткових примітивів (mesh primitive).</p>
+<p>Більш детальне редагування форми моделі відбувається в <em>Режимі Редагування (Edit Mode)</em> та в <em>Режимі Ліпки (Scuplt Mode)</em>. Природа цих трьох режимів визначає доступні інструменти на різних панелях 3D-переглядача (3D View). Перемикання між цими режимами під час моделювання є поширеним. Деякі інструменти можуть бути доступні у більш ніж одному режимі, в той час як інші можуть бути унікальними для окремого режиму.</p>
+<p>Ви можете працювати з геометричними об'єктами у двох режимах.</p>
+<div class="section" id="object-mode">
+<h3>Об'єктний Режим (Object Mode)<a class="headerlink" href="#object-mode" title="Permalink to this headline">¶</a></h3>
+<p>Операції з <a class="reference internal" href="../../editors/3dview/object/editing/transform/introduction.html"><span class="doc">Об'єктами</span></a> в <em>Об'єктному Режимі (Object Mode)</em> впливають на весь об'єкт. <em>Об'єктний Режим (Object Mode)</em> має наступний заголовок у 3D-переглядачі (3D View):</p>
+<div class="figure" id="id1">
+<img alt="../../_images/modeling_meshes_introduction_3d-view-header-object-mode.png" src="../../_images/modeling_meshes_introduction_3d-view-header-object-mode.png" />
+<p class="caption"><span class="caption-text">Object Mode header.</span></p>
+</div>
+</div>
+<div class="section" id="edit-mode">
+<h3>Режим Редагування (Edit Mode)<a class="headerlink" href="#edit-mode" title="Permalink to this headline">¶</a></h3>
+<p>Операції у <em>Режимі Редагування (Edit Mode)</em> впливаються лише на геометрію об'єкта, але не на глобальні властивості, такі як розташування або обертання.</p>
+<p>Ви можете модифікувати лише сітку об'єкта під час редагування. Для модифікації інших об'єктів, вам потрібно вийти до <em>Об'єктного Режиму</em>, виділити їх на знову увійти у <em>Режим Редагування (Edit Mode)</em>.</p>
+<p><em>Режим Редагування (Edit Mode)</em> має наступний вигляд у 3D-переглядачі (3D View):</p>
+<div class="figure" id="id2">
+<img alt="../../_images/modeling_meshes_introduction_3d-view-header-edit-mode.png" src="../../_images/modeling_meshes_introduction_3d-view-header-edit-mode.png" />
+<p class="caption"><span class="caption-text">Edit Mode header.</span></p>
+</div>
+<p>Інструменти на режими у заголовку 3D-переглядача (3D View) (зліва направо):</p>
+<ul class="simple">
+<li>Меню Перегляд, Вибір та Сітка (View, Select, and Mesh menus)</li>
+<li>Режим Blender'а (Blender Mode)</li>
+<li>Метод відображення у 3D-переглядачі (Display method for 3D View)</li>
+<li>Центр точки опори (Pivot center)</li>
+<li>Віджет 3D маніпулятора (3D manipulator widget)</li>
+<li>Режим Вибору (Selection mode)</li>
+<li>Обмежити вибір до Видимого (Limit Selection to Visible)</li>
+<li>Пропорційне редагування (Proportional editing)</li>
+<li>Ухопитися (Snap)</li>
+<li>OpenGL візуалізація (OpenGL render)</li>
+</ul>
+<p>Ви можете перемикатися між Об'єктним на Режимом Редагування клавішою <kbd class="kbd docutils literal notranslate">Tab</kbd>. Ви можете перейти до будь-якого <em>Режиму (Mode)</em> із меню у заголовку 3D переглядача (3D View).</p>
+</div>
+</div>
+<div class="section" id="visualization">
+<h2>Візуалізація<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_introduction_edit-mode-cube-select1.png"><img alt="../../_images/modeling_meshes_introduction_edit-mode-cube-select1.png" src="../../_images/modeling_meshes_introduction_edit-mode-cube-select1.png" style="width: 315px;" /></a>
+<p class="caption"><span class="caption-text">Вибрано один Куб.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_introduction_edit-mode-cube-select2.png"><img alt="../../_images/modeling_meshes_introduction_edit-mode-cube-select2.png" src="../../_images/modeling_meshes_introduction_edit-mode-cube-select2.png" style="width: 315px;" /></a>
+<p class="caption"><span class="caption-text">Вибрано два Куба перед тим, як увійти до Режиму Редагування.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>За замовчуванням, Blender підсвічує вибрану геометрію помаранчевим як у <em>Об'єктному Режимі (Object Mode)</em> так і у <em>Режимі Редагування (Edit Mode)</em>.</p>
+<p>У <em>Об'єктному Режимі (Object Mode)</em> з увімкненим <em>Каркасним (Wireframe)</em> затіненням (shading) <kbd class="kbd docutils literal notranslate">Z</kbd> об'єкти відображаються чорним, коли не вибрані, та помаранчевим, коли вибрані. Якщо вибрано більше ніж один об'єкт, усі вибрані об'єкти окрім активного, зазвичай останнього вибраного, відображаються темно-помаранчевим кольором.</p>
+<p>Аналогічно, у <em>Режимі Редагування (Edit Mode)</em> невибрана геометрія відображається чорним, у той час як вибрані грані, ребра або вершини відображаються помаранчевим. Активні грані підсвічуються білим. Якщо дві вершини, з'єднані ребром, вибрані у <em>Режимі вибору Вершин (Vertex selection mode)</em>, ребро між ними також підсвічується. Так само, якщо вибрано достатньо вершин чи ребер для описання грані, вона також підсвічується.</p>
+<p>Якщо вибрано декілька об'єктів перед тим, як увійти у <em>Режим Редагування (Edit Mode)</em>, усі вибрані об'єкти залишаються підсвіченими помаранчевим, вказуючи, що вони є частиною активного набору вибору (selection set).</p>
+</div>
+<div class="section" id="tool-shelf">
+<h2>Полиця Інструментів (Tool Shelf)<a class="headerlink" href="#tool-shelf" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id5">
+<img alt="../../_images/modeling_meshes_introduction_tool-shelf-region.png" src="../../_images/modeling_meshes_introduction_tool-shelf-region.png" />
+<p class="caption"><span class="caption-text">Панель Полиці Інструментів (Tool Shelf) у Режимі Редагування (Edit Mode).</span></p>
+</div>
+<p>Відкрити/Закрити панель <em>Сіткових Інструментів (Mesh Tools)</em> можна за допомогою <kbd class="kbd docutils literal notranslate">T</kbd>. Під час переходу у <em>Режим Редагування (Edit Mode)</em>, стають доступними кілька інструментів для роботи із Сітками (Meshes).</p>
+<p>Більшість цих інструментів доступні також за гарячими клавішами (відображаються як <em>Підказки (Tooltips)</em> для кожного інструмента) та/або у меню <em>Спеціальних пропозицій (Specials)</em> <kbd class="kbd docutils literal notranslate">W</kbd>, меню <em>Ребро (Edge)</em> <kbd class="kbd docutils literal notranslate">Ctrl-E</kbd> та меню <em>Грань (Face)</em><kbd class="kbd docutils literal notranslate">Ctrl-F</kbd>. Властивості кожного інструмента відображені на панелі оператора (operator panel) унизу <em>Полиці Інструментів (Tool Shelf)</em>.</p>
+<p>Ще більше інструментів для редагування Сітки можуть бути увімкнені у <span class="menuselection">Параметрах Користувача (User Preferences) ‣ Додатки (Add-ons)</span>.</p>
+</div>
+<div class="section" id="properties-region">
+<h2>Регіон Властивостей (Properties region)<a class="headerlink" href="#properties-region" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id6">
+<img alt="../../_images/modeling_meshes_introduction_properties-region.png" src="../../_images/modeling_meshes_introduction_properties-region.png" />
+<p class="caption"><span class="caption-text">Регіон Властивостей (Properties region) у режимі редагування.</span></p>
+</div>
+<p>Відкрити/Закрити <em>Регіон Властивостей (Properties region)</em> можна за допомогою <kbd class="kbd docutils literal notranslate">N</kbd>.</p>
+<p>У <em>Регіоні Властивостей (Properties region)</em> панелями, що напряму стосуються редагування Сітки є панель <em>Трансформацій (Transform)</em>, де можна вводити числові значення, та панель <em>Відображення Сітки (Mesh Display)</em>, в якій, наприклад, можуть бути увімкнені нормалі або числові значення відстаней, кутів або площ.</p>
+<p>Інші корисні інструменти можна знайти у <em>Редакторі Властивостей (Properties Editor)</em> у вкладках <em>Об'єкт (Object)</em> та <em>Об'єктні Дані (Object Data)</em>, включаючи варіанти відображення та <em>Групи Вершин (Vertex groups)</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structure.html" class="btn btn-neutral float-right" title="Структура" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Сітки (Meshes)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

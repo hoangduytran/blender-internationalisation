@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Перенос Даних» -- Data Transfer Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/modify/data_transfer.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатор «Кеш Сітей» -- Mesh Cache Modifier" href="mesh_cache.html" />
+    <link rel="prev" title="Вступ" href="../introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Перенос Даних» -- Data Transfer Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_cache.html">Модифікатор «Кеш Сітей» -- Mesh Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_sequence_cache.html">Модифікатор «Кеш Послідовності Сіті» -- Mesh Sequence Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="normal_edit.html">Модифікатор «Правка Нормалей» -- Normal Edit Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_project.html">Модифікатор «Проекція UV» -- UV Project Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_warp.html">Модифікатор «Жолоблення UV» -- UV Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_edit.html">Модифікатор «Правка Вагомостей Вершин» -- Vertex Weight Edit Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_mix.html">Модифікатор «Мікс Вагомостей Вершин» -- Vertex Weight Mix Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_proximity.html">Модифікатор «Близькість Вагомостей Вершин» -- Vertex Weight Proximity Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Перенос Даних» -- Data Transfer Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/modify/data_transfer.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-transfer-modifier">
+<span id="bpy-types-datatransfermodifier"></span><h1>Модифікатор «Перенос Даних» -- Data Transfer Modifier<a class="headerlink" href="#data-transfer-modifier" title="Permalink to this headline">¶</a></h1>
+<p>Модифікатор Data Transfer переносить різні типи даних з однієї сіті на іншу. До таких типів даних належать групи вершин, карти UV, кольори вершин, власні нормалі...</p>
+<p>Перенос працює шляхом генерування розкладок елементів (вершин, ребер тощо) джерельної та цільової сітей на основі один до одного або розкладання кількох елементів джерела та один елемент цілі, інтерполюючи розкладку.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_data-transfer_normals-example.jpg"><img alt="../../../_images/modeling_modifiers_modify_data-transfer_normals-example.jpg" src="../../../_images/modeling_modifiers_modify_data-transfer_normals-example.jpg" style="width: 680px;" /></a>
+<p class="caption"><span class="caption-text">Transferring normals between objects,
+<a class="reference external" href="https://en.blender.org/uploads/a/ad/Data_Transfer_Normal_Torus.blend">see example blend-file</a>.</span></p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../_images/modeling_modifiers_modify_data-transfer_panel.png" src="../../../_images/modeling_modifiers_modify_data-transfer_panel.png" />
+<p class="caption"><span class="caption-text">Модифікатор «Перенос Даних» -- Data Transfer.</span></p>
+</div>
+<dl class="docutils">
+<dt>Об'єкт Джерела -- Source Object</dt>
+<dd><p class="first">Сітьовий об'єкт, з якого копіюються дані.</p>
+<p class="last">Якщо кнопка справа від поля цієї устави вимкнена, то геометрії джерела та призначення (цілі) розглядаються у глобальному просторі при генеруванні розкладки, інакше вони обчислюються у локальному просторі (тобто, ніби початки обох цих об'єктів були в одному і тому ж місці).</p>
+</dd>
+<dt>Макс Відстані -- Max Distance</dt>
+<dd><p class="first">При увімкнені кнопки з іконкою «рукою та вдавленням у синій лінії» справа від цієї устави, це буде максимальна відстань між джерелом та призначенням для отримання успішного розкладання. Якщо елемент призначення не може знайти елемент джерела у межах такого діапазону, то він не отримає жодних перенесених даних.</p>
+<p class="last">Це дозволяє переносити мало деталізовану сіть на більш повну (наприклад, із сіті «рука» на «тіло повністю»).</p>
+</dd>
+<dt>Радіус Променя -- Ray Radius</dt>
+<dd>Для методів розкладання на базі відкидання променя, радіус відкидання променів. Особливо важливо для 1D та 2D елементів (тобто, вершин і ребер), без деякої ширини майже б не було відповідностей з відкиданням променів...</dd>
+<dt>Режим Міксу -- Mix Mode</dt>
+<dd><p class="first">Керує тим, як задіюються дані призначення:</p>
+<dl class="last docutils">
+<dt>All -- Усе</dt>
+<dd>Замінює все в призначенні (зауважте, що <em>Mix Factor</em> все ще використовується).</dd>
+<dt>Вище Порогу -- Above Threshold</dt>
+<dd>Замінює значення призначення тільки, якщо воно є вище заданого порогу уставою <em>Mix Factor</em>. Як цей поріг тлумачиться, залежить від типу даних, зауважте, що для булевих значень ця опція підробляє логічне І.</dd>
+<dt>Нижче Порогу -- Below Threshold</dt>
+<dd>Замінює значення призначення тільки, якщо воно є нижче заданого порогу уставою <em>Mix Factor</em>. Як цей поріг тлумачиться, залежить від типу даних, зауважте, що для булевих значень ця опція підробляє логічне АБО.</dd>
+<dt>Мікс -- Mix, Додання -- Add, Відняття -- Subtract, Множення -- Multiply</dt>
+<dd>Застосовує одну з цих операцій, використовуючи Фактор Міксу для керування тим, скільки значення джерела або призначення використовувати. Доступно тільки для кількох типів (групи вершин, кольори вершин).</dd>
+</dl>
+</dd>
+<dt>Фактор Міксу -- Mix Factor</dt>
+<dd>Наскільки перенесені дані змішуються з наявними вже на цілі даними (не підтримується для усіх типів даних).</dd>
+<dt>Група Вершин -- Vertex Group</dt>
+<dd>Дозволяє тонко керувати фактором міксу по кожному елементу. Вплив групи вершин може бути розвернуто, використовуючи маленьку кнопку з «двобічною стрілкою» справа.</dd>
+<dt>Генерувати Шари Даних -- Generate Data Layers</dt>
+<dd>Цей модифікатор не може генерувати необхідні шари даних сам. Після вибору набору даних джерела для переносу ця кнопка використовуватиметься для генерування відповідних шарів на призначенні.</dd>
+</dl>
+<div class="section" id="selection-of-data-to-transfer">
+<h3>Вибір даних для переносу<a class="headerlink" href="#selection-of-data-to-transfer" title="Permalink to this headline">¶</a></h3>
+<p>Для збереження розумного розміру модифікатора, спочатку потрібно вибрати вид елементів, які будуть задіяні (вершини, ребра, кутки граней та/або грані).</p>
+<dl class="docutils">
+<dt>Тип Розкладки -- Mapping Type</dt>
+<dd>Як генерується розкладка між елементами джерела та призначення. Кожен тип має власні опції, дивіться детальніше нижче <a class="reference internal" href="#geometry-mapping">Geometry Mapping</a>.</dd>
+<dt>Типи Даних -- Data Types</dt>
+<dd>Лівий стовпець перемикальних кнопок для вибору, які типи даних переносити.</dd>
+<dt>Опції Багатошарів Типів Даних -- Multi-layers Data Types Options</dt>
+<dd>У цих випадках (групи вершин, кольори вершин, UV) ви можете вибрати, які шари джерела переносити (зазвичай, або всі з них, або окремо визначений) і як впливати на призначення (на основі відповідності імен, порядку/позиції або, якщо обрано одиничне джерело, визначаючи вручну шар призначення).</dd>
+<dt>Уточнення Оброблення Островів -- Islands Handling Refinement</dt>
+<dd>This setting only affects UV transfer currently. It allows to avoid a given destination face to get
+UV coordinates from different source UV islands. Keeping it at 0.0 means no island handling at all.
+Typically, small values like 0.02 are enough to get good results, but if you are mapping from
+a very high-poly source towards a very low-poly destination, you may have to raise it quite significantly.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Першою ключовою річчю, яку слід мати на увазі, при використанні цього модифікатора, є те, що він <strong>не</strong> буде створювати шари даних на призначенні. Для цієї мети завжди слід використовувати кнопку <em>Generate Data Layers</em> після вибору набору даних джерела для переносу. Слід також добре розуміти, що створення таких шарів даних на сіті призначення <strong>не</strong> є частиною стеку модифікаторів, а це означає, наприклад, що вони будуть залишатися там, навіть після видалення цього модифікатора або якщо вибір даних джерела буде модифіковано.</p>
+<div class="section" id="geometry-mapping">
+<h3>Розкладка Геометрії -- Geometry Mapping<a class="headerlink" href="#geometry-mapping" title="Permalink to this headline">¶</a></h3>
+<p>Розкладання геометрії -- це процес, за допомогою якого дані вершина/ребро/... призначення знають з <strong>якої частини</strong> сіті джерела отримувати дані. Дуже важливо розуміти цю тему для отримання добрих результатів за допомогою цього модифікатора.</p>
+<dl class="docutils">
+<dt>Топологія -- Topology</dt>
+<dd>Найпростіша опція, очікує, що обидві сіті мають ідентичну кількість елементів та їх порядки збігаються (індекси). Корисно, наприклад, між сітями, що були ідентичними копіями, а деформувалися по-різному.</dd>
+<dt>Розкладки Один-на-Один -- One-To-One Mappings</dt>
+<dd><p class="first">Вони завжди вибирають тільки один елемент джерела для одного елемента призначення, часто базуючись на найкоротшій відстані.</p>
+<dl class="last docutils">
+<dt>Вершини -- Vertices</dt>
+<dd><dl class="first last docutils">
+<dt>Найближча Вершина -- Nearest Vertex</dt>
+<dd>Використовує найближчу вершину джерела.</dd>
+<dt>Вершина Найближчого Ребра -- Nearest Edge Vertex</dt>
+<dd>Використовує найближчу вершину джерела найближчого ребра джерела.</dd>
+<dt>Вершина Найближчої Грані -- Nearest Face Vertex</dt>
+<dd>Використовує найближчу вершину джерела найближчої грані джерела.</dd>
+</dl>
+</dd>
+<dt>Ребра -- Edges</dt>
+<dd><dl class="first last docutils">
+<dt>Найближчі Вершини -- Nearest Vertices</dt>
+<dd>Використовує ребро джерела, вершини якого є найближчим до вершин ребра призначення.</dd>
+<dt>Найближче Ребро -- Nearest Edge</dt>
+<dd>Використовує найближче ребро джерела (використовуючи середини ребер).</dd>
+<dt>Ребро Найближчої Грані -- Nearest Face Edge</dt>
+<dd>Використовує найближче ребро джерела найближчої грані джерела (використовуючи середини ребер).</dd>
+</dl>
+</dd>
+<dt>Кутки Граней -- Face Corners</dt>
+<dd><p class="first">Куток грані не є сам по собі реальним елементом, це певний вид відділеної вершини, прикріпленої до певної грані. Звідси, обидва аспекти, вершин (локація) та граней (нормаль, ...), використовуються для відповідності.</p>
+<dl class="last docutils">
+<dt>Найближчий Кут та Найбільш Підхожа Нормаль -- Nearest Corner and Best Matching Normal</dt>
+<dd>Використовує куток джерела, що має найбільш подібну <em>розділену</em> нормаль, як і у призначення, з тими кутками, що мають спільну найближчу вершину джерела.</dd>
+<dt>Найближчий Кут та Найбільш Підхожа Нормаль Грані -- Nearest Corner and Best Matching Face Normal</dt>
+<dd>Використовує куток джерела, що має найбільш подібну нормаль <em>грані</em>, як і у призначення, з тими кутками, що мають спільну найближчу вершину джерела.</dd>
+<dt>Найближчий Кут Найближчої Грані -- Nearest Corner of Nearest Face</dt>
+<dd>Використовує найближчий куток джерела найближчої грані джерела.</dd>
+</dl>
+</dd>
+<dt>Грані -- Faces</dt>
+<dd><dl class="first last docutils">
+<dt>Найближча Грань -- Nearest Face</dt>
+<dd>Використовує найближчу грань джерела.</dd>
+<dt>Найбільш Підхожа Нормаль -- Best Normal-Matching</dt>
+<dd>Використовує грань джерела, нормаль якої є найбільш подібною, як і для грані на призначенні.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Інтерпольовані Розкладки -- Interpolated Mappings</dt>
+<dd><p class="first">Ці використовують кілька елементів джерела для кожного елемента призначення, інтерполюючи їх дані у ході переносу.</p>
+<dl class="last docutils">
+<dt>Вершини -- Vertices</dt>
+<dd><dl class="first last docutils">
+<dt>Найближче Ребро Інтерпольовано -- Nearest Edge Interpolated</dt>
+<dd>Використовує найближчу точку на найближчому ребрі джерела, інтерполюючи дані з обох вершин ребра джерела.</dd>
+<dt>Найближча Грань Інтерпольовано -- Nearest Face Interpolated</dt>
+<dd>Використовує найближчу точку на найближчому грані джерела, інтерполюючи дані з усіх вершин грані джерела.</dd>
+<dt>Проектована Грань Інтерпольовано -- Projected Face Interpolated</dt>
+<dd>Використовує точку грані на джерелі, що потрапляє шляхом проектування на вершину призначення уздовж її власної нормалі, інтерполює дані з усіх таких вершин грані джерела.</dd>
+</dl>
+</dd>
+<dt>Ребра -- Edges</dt>
+<dd><dl class="first last docutils">
+<dt>Проектоване Ребро Інтерпольовано -- Projected Edge Interpolated</dt>
+<dd>Це процес відбирання. Кілька променів відкидаються уздовж ребра призначення (інтерполюючи обидві нормалі вершин ребра) і, якщо достатньо з них потрапляє на ребро джерела, то усі дані потраплених ребер джерела інтерполюються на ребро призначення.</dd>
+</dl>
+</dd>
+<dt>Кутки Граней -- Face Corners</dt>
+<dd><p class="first">Куток грані не є сам по собі реальним елементом, це певний вид відділеної вершини, прикріпленої до певної грані. Звідси, обидва аспекти, вершин (локація) та граней (нормаль, ...), використовуються для відповідності.</p>
+<dl class="last docutils">
+<dt>Найближча Грань Інтерпольовано -- Nearest Face Interpolated</dt>
+<dd>Використовує найближчу точку найближчої грані джерела, інтерполює дані з усіх таких кутків грані джерела.</dd>
+<dt>Проектована Грань Інтерпольовано -- Projected Face Interpolated</dt>
+<dd>Використовує точку грані на джерелі, що потрапляє шляхом проектування на куток призначення уздовж її власної нормалі, інтерполює дані з усіх таких кутків грані джерела.</dd>
+</dl>
+</dd>
+<dt>Грані -- Faces</dt>
+<dd><dl class="first last docutils">
+<dt>Проектована Грань Інтерпольовано -- Projected Face Interpolated</dt>
+<dd>Це процес відбирання. Кілька променів відкидаються з усієї грані призначення (уздовж її власної нормалі) і, якщо достатньо з них потрапляє на грань джерела, то усі дані потраплених граней джерела інтерполюються на грань призначення.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="../../meshes/editing/data_transfer.html"><span class="doc">Data Transfer Operator</span></a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mesh_cache.html" class="btn btn-neutral float-right" title="Модифікатор «Кеш Сітей» -- Mesh Cache Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

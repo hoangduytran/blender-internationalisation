@@ -1,0 +1,857 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 21:38-0400\n"
+"PO-Revision-Date: 2017-10-22 08:59+0300\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:5
+msgid "Editing"
+msgstr "Редагування -- Editing"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:10
+msgid "Pose Tools."
+msgstr "Панель «Інструменти Пози» -- Pose Tools."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:12
+#, fuzzy
+msgid ""
+"In *Pose Mode*, bones behave like objects. So the transform actions "
+"(grab/rotate/scale, etc.) are very similar to the same ones in *Object* "
+"mode (all available ones are regrouped in the :menuselection:`Pose --> "
+"Transform` submenu). However, there are some important specificities:"
+msgstr ""
+"У Режимі Пози -- *Pose Mode* кістки поводять себе як об'єкти. Тому, "
+"трансформаційні дії (пересув/оберт/масштаб тощо) є дуже подібними до "
+"аналогічних у Режимі Об'єкта -- *Object Mode* (усі доступні для поз "
+"засоби згруповані у підменю «Поза > Трансформації» -- "
+":menuselection:`Pose --> Transform`). Однак, тут є деякі важливі "
+"особливості:"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:17
+#, fuzzy
+msgid "Bones' relationships are crucial (see :ref:`bone-relations-parenting`)."
+msgstr ""
+"Відношення кісток мають вирішальне значення (дивіться "
+":ref:`bone_relations_parenting`)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:18
+#, fuzzy
+msgid ""
+"The \"transform center\" of a given bone (i.e. its default pivot point, "
+"when it is the only selected one) is *its root*. Note by the way that "
+"some pivot point options seem to not work properly. In fact, except for "
+"the *3D Cursor* one, all others appear to always use the median point of "
+"the selection (and not e.g. the active bone's root when *Active Object* "
+"is selected, etc.)."
+msgstr ""
+"Для заданої кістки «центр трансформацій) (тобто, її стандартна опорна "
+"точка, коли виділена тільки вона одна) -- це *її корінь*. Зауважте, до "
+"речі, що деякі опції опорної точки, здається, не працюють належно. "
+"Фактично, за винятком *3D Cursor*, усі інші, видається, завжди працюють "
+"як серединна точка виділу (а не, наприклад, як корінь активної кістки при"
+" виборі типу *Active Object*, тощо)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:26
+msgid "Basic Posing"
+msgstr "Базове позування -- Basic Posing"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:28
+#, fuzzy
+msgid ""
+"As previously noted, bones' transformations are performed based on the "
+"*Rest Position* of the armature, which is its state as defined in *Edit "
+"Mode*. This means that in rest position, in *Pose Mode*, each bone has a "
+"scale of 1.0, and null rotation and position (as you can see it in the "
+"*Transform* panel, in the 3D Views)."
+msgstr ""
+"Як зазначалося вище, трансформації кісток здійснюються на основі Позиції "
+"Спокою -- *Rest Position* для арматури, яка є її станом, визначеним в її "
+"Режим Правки -- *Edit Mode*. Це означає, що у позиції спокою, у Режимі "
+"Пози -- *Pose Mode*, кожна кістка має масштаб в 1.0, нульові оберт та "
+"позицію (як ви можете побачити це на панелі «Трансформації» -- "
+"*Transform* у 3D Огляді -- 3D View, :kbd:`N`)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:36
+msgid "An example of locally-Y-axis locked rotation, with two bones selected."
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:38
+#, fuzzy
+msgid ""
+"Note that the two green lines materializing the axes are centered on the "
+"armature's center, and not each bone's root..."
+msgstr ""
+"Приклад зблокованого з локальною Y-віссю обертання виділених двох кісток."
+" Зауважте, що ці дві зелені лінії матеріалізують осі, центр яких "
+"знаходиться у центрі арматури, а не на корені кожної з кістки..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:41
+#, fuzzy
+msgid ""
+"Moreover, the local space for these actions is the bone's own one "
+"(visible when you enable the *Axes* option of the *Armature* panel). This"
+" is especially important when using axis locking, for example, there is "
+"no specific \"bone roll\" tool in *Pose Mode*, as you can rotate around "
+"the bone's main axis just by locking on the local Y axis :kbd:`R Y Y`... "
+"This also works with several bones selected; each one is locked to its "
+"own local axis!"
+msgstr ""
+"До того ж, локальний простір для цих дій -- це власний простір кістки "
+"(видимий, якщо ви увімкнете опцію «Осі» -- *Axes* на панелі «Показ» -- "
+"*Display* у вкладці «Арматура» -- *Armature*). Це особливо важливо при "
+"використанні функції зблокування з віссю, наприклад, у Режимі Пози -- "
+"*Pose Mode* немає жодного специфічного засобу «вертіння кістки» -- \"bone"
+" roll\", яким ви могли б обертати кістку навколо її головної осі, а "
+"тільки, як аналог, доступне загальне зблокування з локальною віссю ігрек:"
+" kbd:`R-Y-Y`... Це також працює з виділеними одночасно кількома без "
+"відношень кістками; кожна з них буде обертатися по зблокованій зі своєю "
+"власною локальною віссю!"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:49
+#, fuzzy
+msgid ""
+"When you pose your armature, you are supposed to have one or more objects"
+" skinned on it! And obviously, when you transform a bone in *Pose Mode*, "
+"its related objects or object's shape is moved/deformed accordingly, in "
+"real-time. Unfortunately, if you have a complex rig set-up and/or a heavy"
+" skin object, this might produce lag, and make interactive editing very "
+"painful. If you experience such troubles, try enabling the *Delay Deform*"
+" button of the *Armature* panel the skin objects will only be updated "
+"once you validate the transform operation."
+msgstr ""
+"Коли ви позуєте вашу арматуру, то припускається, що ви вже маєте один чи "
+"кілька об'єктів, що покрили (skin) її! І очевидно, коли ви трансформуєте "
+"кістку у Режимі Пози -- *Pose Mode*, то співвідносні з нею об'єкти та "
+"форми об'єктів пересуваються/деформуються відповідно, у реальному часі. "
+"На жаль, якщо ви маєте складний уклад оснастки та/або важкий об'єкт "
+"покриву, то це може давати запізнювання та робити інтерактивне "
+"редагування дуже болісним. Якщо ви зіткнулися з такими турботами, "
+"спробуйте увімкнути кнопку «Відкласти Освіження» -- *Delay Refresh* на "
+"панелі «Показ» -- *Display* у вкладці «Арматура» -- *Armature*, щоб "
+"об'єкти покриву оновлювалися тільки після підтвердження операції "
+"трансформування."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:61
+msgid "Auto IK"
+msgstr "Авто ІК -- Auto IK"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:63
+#: ../../manual/rigging/armatures/posing/editing.rst:78
+#: ../../manual/rigging/armatures/posing/editing.rst:108
+#: ../../manual/rigging/armatures/posing/editing.rst:137
+#: ../../manual/rigging/armatures/posing/editing.rst:151
+#: ../../manual/rigging/armatures/posing/editing.rst:168
+#: ../../manual/rigging/armatures/posing/editing.rst:190
+#: ../../manual/rigging/armatures/posing/editing.rst:266
+#: ../../manual/rigging/armatures/posing/editing.rst:311
+msgid "Reference"
+msgstr "Орієнтир -- Reference"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Mode"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:66
+#: ../../manual/rigging/armatures/posing/editing.rst:81
+#: ../../manual/rigging/armatures/posing/editing.rst:111
+#: ../../manual/rigging/armatures/posing/editing.rst:140
+#: ../../manual/rigging/armatures/posing/editing.rst:154
+#: ../../manual/rigging/armatures/posing/editing.rst:171
+#: ../../manual/rigging/armatures/posing/editing.rst:193
+#: ../../manual/rigging/armatures/posing/editing.rst:269
+msgid "Pose Mode"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Panel"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:67
+#, fuzzy
+msgid ":menuselection:`Tool Shelf --> Options --> Pose Options`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Опції > Опції Пози» -- "
+":menuselection:`Tool Shelf --> Options --> Pose Options`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:69
+msgid ""
+"The auto IK option in the Tool Shelf enables a temporary IK constraint "
+"when posing bones. The chain acts from the tip of the selected bone to "
+"root of the uppermost parent bone. Note that this mode lacks options, and"
+" only works by applying the resulting transform to the bones in the "
+"chain."
+msgstr ""
+"Опція автоматичної інверсної кінематики ІК на Панелі Інструментів -- Tool"
+" Shelf вмикає тимчасово примус ІК (інверсна кінематика) при позуванні "
+"(трансформуванні) кісток. Ланцюжок діє у напрямку від верхівки виділеної "
+"кістки до кореня найвищої предківської кістки. Зауважте, що це режим "
+"немає опцій, і працює тільки, застосовуючи результатне трансформування до"
+" кісток у ланцюгу."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:76
+msgid "Clear Transform"
+msgstr "Зчистити Трансформації -- Clear Transform"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Menu"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:82
+#, fuzzy
+msgid ":menuselection:`Pose --> Clear Transform`"
+msgstr ""
+"Меню:    «Поза > Зчистити Трансформації» -- :menuselection:`Pose --> "
+"Clear Transform`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Hotkey"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:83
+#, fuzzy
+msgid ":kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+msgstr "Скорочення:   :kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:85
+msgid ""
+"Once you have transformed some bones, if you want to return to their rest"
+" position, just clear their transformations."
+msgstr ""
+"Після того, як ви трансформували деякі кістки, якщо ви хочете повернутися"
+" до їх позиції спокою, просто зчистіть їх трансформації."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:88
+msgid "Location, Rotation, Scale :kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+msgstr ""
+"Локація -- Location, Обертання -- Rotation, Масштаб -- Scale "
+":kbd:`Alt-G`, :kbd:`Alt-R`, :kbd:`Alt-S`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:89
+msgid "Clears individual transforms."
+msgstr "Зчищає трансформації кожну з цих окремо."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:90
+msgid "All"
+msgstr "Усе -- All"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:91
+msgid "To clear everything at once."
+msgstr "Зчищає усі наявні трансформації за раз."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Reset Unkeyed"
+msgstr "Скинути Неключоване -- Reset Unkeyed"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:93
+msgid ""
+"Clears the transforms to their keyframe state. This operator is also "
+"available in the :menuselection:`Specials --> Clear User Transform` menu."
+msgstr ""
+"Зчищає трансформації, як не були ключовані (не зафіксовані ключкадром), "
+"до попереднього ключкадрованого стану. Цей оператор також доступний у "
+"меню «Спеціальне > Зчистити Користувацькі Трансформації» -- "
+":menuselection:`Specials --> Clear User Transform`."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Only Selected"
+msgstr "Лише Виділене -- Only Selected"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:97
+msgid "Operate on just the selected or all bones."
+msgstr "Оперує тільки на виділених (або при вимкненні усіх) кістках."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:99
+msgid ""
+"Note that in *Envelope* visualization, :kbd:`Alt-S` does not clear the "
+"scale, but rather scales the *Distance* influence area of the selected "
+"bones (also available through the :menuselection:`Pose --> Scale Envelope"
+" Distance` menu entry, which is only effective in *Envelope* "
+"visualization, even though it is always available...)."
+msgstr ""
+"Зауважте, що при візуалізації «Оболонка» -- *Envelope*, :kbd:`Alt-S` не "
+"зчищає масштаб, а скоріше масштабує «Відстань» -- *Distance* області "
+"впливу виділених кісток (що також доступно через команду меню «Поза > "
+"Масштабувати Відстань Оболонки» -- :menuselection:`Pose --> Scale "
+"Envelope Distance`, яка ефективна тільки при візуалізації *Envelope*, "
+"навіть хоча є завжди доступною...)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:106
+msgid "Apply"
+msgstr "Застосування -- Apply"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:112
+#, fuzzy
+msgid ":menuselection:`Pose --> Apply`"
+msgstr "Меню:    «Поза > Застосування» -- :menuselection:`Pose --> Apply`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:113
+#, fuzzy
+msgid ":kbd:`Ctrl-A`"
+msgstr "Скорочення:   :kbd:`Ctrl-E`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:115
+msgid ""
+"Conversely, you may define the current pose as the new rest position "
+"(i.e. \"apply\" current transformations to the *Edit Mode*), using the "
+":menuselection:`Pose --> Apply Pose as Restpose` menu entry (or "
+":kbd:`Ctrl-A` and confirm the pop-up menu). When you do so, the skinned "
+"objects/geometry is **also** reset to its default, undeformed state, "
+"which generally means you will have to skin it again."
+msgstr ""
+"З іншого боку, ви можете визначити поточну позу як нову позицію спокою "
+"(тобто «застосувати» поточні трансформації у Режимі Правки -- *Edit "
+"Mode*), скориставшись командою «Поза > Застосувати Позу як Позу Спокою» "
+"-- :menuselection:`Pose --> Apply Pose as Restpose` (або :kbd:`Ctrl-A` та"
+" підтвердити цю команду у спливному меню). Коли ви це зробите, то "
+"покривні об'єкти/геометрія **також** скинеться до їх стандартного, "
+"недеформованого стану, що, як правило, означає, що ви маєте здійснити "
+"покривання знову."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:124
+msgid "In-Betweens"
+msgstr "Проміжні -- In-Betweens"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:126
+msgid "There are several tools for editing poses in an animation."
+msgstr "Існує кілька засобів редагування поз в анімації."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:128
+msgid ""
+"There are also in *Pose Mode* a bunch of armature-specific editing "
+"options/tools, like :ref:`auto-bones naming <armature-editing-naming-"
+"bones>`, :ref:`properties switching/enabling/disabling <armature-bone-"
+"properties>`, etc., that we already described in the armature editing "
+"pages. See the links above..."
+msgstr ""
+"Також у Режимі Пози -- *Pose Mode* є ряд специфічних для арматур "
+"опції/засобів редагування, як авто іменування кісток -- :ref:`auto-bones "
+"naming <armature-editing-naming-bones>`, перемикання/вмикання/вимикання "
+"властивостей -- :ref:`properties switching/enabling/disabling <armature-"
+"bone-properties>` тощо, які ми вже описали на сторінках про редагування "
+"кісток арматури. Дивіться за цими посиланнями..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:135
+msgid "Push Pose"
+msgstr "Уштовх Пози -- Push Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:141
+#, fuzzy
+msgid ""
+":menuselection:`Tool Shelf --> Tool --> Tool --> Pose Tools --> In-"
+"Betweens: Push`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Інструменти > Інструменти Пози > "
+"Проміжні: Уштовх» -- :menuselection:`Tool Shelf --> Tool --> Tool --> "
+"Pose Tools --> In-Betweens: Push`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:142
+#, fuzzy
+msgid ":menuselection:`Pose --> In-Betweens --> Push Pose`"
+msgstr ""
+"Меню:    «Поза > Проміжні > Уштовх Пози» -- :menuselection:`Pose --> In-"
+"Betweens --> Push Pose`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:143
+#, fuzzy
+msgid ":kbd:`Ctrl-E`"
+msgstr "Скорочення:   :kbd:`Ctrl-E`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:145
+msgid "Push pose exaggerates the current pose."
+msgstr "Уштовх пози перебільшує, надмірно підкреслює поточну позу."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:149
+msgid "Relax Pose"
+msgstr "Розслаб Пози -- Relax Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:155
+#, fuzzy
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> In-Betweens: Relax`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Інструменти > Інструменти Пози > "
+"Проміжні: Розслаб» -- :menuselection:`Tool Shelf --> Tool --> Pose Tools "
+"--> In-Betweens: Relax`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:156
+#, fuzzy
+msgid ":menuselection:`Pose --> In-Betweens --> Relax Pose`"
+msgstr ""
+"Меню:    «Поза > Проміжні > Розслаб Пози» -- :menuselection:`Pose --> In-"
+"Betweens --> Relax Pose`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:157
+msgid ":kbd:`Alt-E`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:159
+msgid ""
+"Relax pose is somewhat related to the above topic, but it is only useful "
+"with keyframed bones. When you edit such a bone (and hence take it "
+"\"away\" from its \"keyed position\"), using this tool will progressively"
+" \"bring it back\" to its \"keyed position\", with smaller and smaller "
+"steps as it comes near it."
+msgstr ""
+"Розслаб пози дещо пов'язаний з темою вище, але він корисне тільки для "
+"ключкадрованих кісток. Коли ви редагуєте таку кістку (і хочете «забрати» "
+"її з її «ключованої позиції»), то використання цього засобу поступово "
+"«повертає її назад» в її «ключовану позицію», з меншими та меншими "
+"кроками, допоки вона не наблизиться до неї."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:166
+msgid "Breakdowner"
+msgstr "Розбивник -- Breakdowner"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:172
+#, fuzzy
+msgid ""
+":menuselection:`Tool Shelf --> Tool --> Pose Tools --> In-Betweens: "
+"Breakdowner`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Інструменти > Інструменти Пози > "
+"Проміжні: Розбивник» -- :menuselection:`Tool Shelf --> Tool --> Pose "
+"Tools --> In-Betweens: Breakdowner`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:173
+#, fuzzy
+msgid ":menuselection:`Pose --> In-Betweens --> Pose Breakdowner`"
+msgstr ""
+"Меню:    «Поза > Проміжні > Розбивник Пози» -- :menuselection:`Pose --> "
+"In-Betweens --> Pose Breakdowner`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:174
+#, fuzzy
+msgid ":kbd:`Shift-E`"
+msgstr "Скорочення:   :kbd:`Shift-E`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:176
+msgid "Creates a suitable breakdown pose on the current frame."
+msgstr "Створює підхожий розбив пози на поточному кадрі."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:178
+msgid ""
+"The Breakdowner tool can be constrained to work on specific transforms "
+"and axes, by pressing the following keys while the tool is active:"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:181
+msgid ":kbd:`G`, :kbd:`R`, :kbd:`S`: translate, rotate, scale"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:182
+msgid ":kbd:`B`: Bendy bones"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:183
+msgid ":kbd:`C`: custom properties"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:184
+msgid ":kbd:`X`, :kbd:`Y`, :kbd:`Z`: to the corresponding axes"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:188
+msgid "Copy/Paste Pose"
+msgstr "Копіювання/Вставляння Пози -- Copy/Paste Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst
+msgid "Header"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:194
+#, fuzzy
+msgid "Copy/Paste (|copy-paste|)"
+msgstr "Заголовок:   «Копіювання/Вставляння» -- Copy/Paste (|copy-paste|)"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:195
+#, fuzzy
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> Pose: Copy, Paste`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Інструменти > Інструменти Пози > Поза: "
+"Копіювання, Вставляння» -- :menuselection:`Tool Shelf --> Tool --> Pose "
+"Tools --> Pose: Copy, Paste`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:196
+#, fuzzy
+msgid ""
+":menuselection:`Pose --> Copy Current Pose`, :menuselection:`Pose --> "
+"Paste Pose`, :menuselection:`Pose --> Paste X-Flipped Pose`"
+msgstr ""
+"Меню:     «Поза > Копіювати Позу» -- :menuselection:`Pose --> Copy Pose`,"
+" «Поза > Вставити Позу» -- :menuselection:`Pose --> Paste Pose`, «Поза > "
+"Вставити Позу Х-Перевернуто» -- :menuselection:`Pose --> Paste X-Flipped "
+"Pose`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:200
+#, fuzzy
+msgid ""
+"Blender allows you to copy and paste a pose, either through the *Pose* "
+"menu, or directly using the three copy/paste buttons found at the right "
+"part of the 3D View's header:"
+msgstr ""
+"Blender дозволяє вам копіювати та вставляти позу через меню *Pose* або "
+"безпосередньо кнопками «копіювання/вставляння», що знаходяться у правій "
+"частини заголовка 3D Огляду -- 3D View:"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:203
+msgid "Copy Current Pose"
+msgstr "Копіювати Позу -- Copy Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:204
+#, fuzzy
+msgid "Copy the current pose of selected bones into the pose buffer."
+msgstr "Копіює поточну позу виділених кісток у буфер поз."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:205
+msgid "Paste Pose"
+msgstr "Вставити Позу -- Paste Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:206
+msgid "Paste the buffered pose to the currently posed armature."
+msgstr "Вставляє буферовану (з буфера) позу у поточно позовану арматуру."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:208
+msgid "Paste X-Flipped Pose"
+msgstr "Вставити Позу Х-Перевернуто -- Paste X-Flipped Pose"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:208
+msgid "Paste the *X axis mirrored* buffered pose to the currently posed armature."
+msgstr ""
+"Вставляє буферовану позу *дзеркалено по осі ікс* у поточно позовану "
+"арматуру."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:210
+msgid "Here are important points:"
+msgstr "Тут є важливі моменти:"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:212
+msgid ""
+"This tool works at the Blender session level, which means you can use it "
+"across armatures, scenes, and even files. However, the pose buffer is not"
+" saved, so you lose it when you close Blender."
+msgstr ""
+"Цей засіб працює на рівні сесії Blender'а, що означає, що ви можете "
+"використовувати його через арматури, сцени та навіть файли. Однак, буфер "
+"поз не зберігається, а тому ви втрачаєте дані у ньому при закритті "
+"Blender'а."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:214
+msgid "There is only one pose buffer."
+msgstr "Існує тільки один буфер поз."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:215
+msgid ""
+"Only the selected bones are taken into account during copying (i.e. you "
+"copy only selected bones' pose)."
+msgstr ""
+"Тільки виділені кістки враховуються у ході копіювання (тобто, ви копіюєте"
+" позу тільки з виділених кісток)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:216
+msgid ""
+"During pasting, on the other hand, bone selection has no importance. The "
+"copied pose is applied on a per-name basis (i.e. if you had a ``forearm``"
+" bone selected when you copied the pose, the ``forearm`` bone of the "
+"current posed armature will get its pose when you paste it -- and if "
+"there is no such named bone, nothing will happen...)."
+msgstr ""
+"У ході вставляння, з іншого боку, виділення кісток не має значення. "
+"Копійована поза застосовується на основі імені (тобто, якщо ви маєте "
+"виділену кістку ``forearm`` при копіюванні пози, то при вставлянні її у "
+"поточно позованій арматурі повинна існувати кістка ``forearm`` -- інакше,"
+" якщо немає кістки з таким іменем, то нічого не відбудеться...)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:221
+#, fuzzy
+msgid ""
+"What is copied and pasted is in fact the position/rotation/scale of each "
+"bone, in its own space. This means that the resulting pasted pose might "
+"be very different from the originally copied one, depending on: - The "
+"rest position of the bones, - and the current pose of their parents."
+msgstr ""
+"Те, що фактично копіюється та вставляється -- це позиція/оберт/масштаб "
+"кожної кістки в її власному локальному просторі. Це означає, що "
+"результатна вставлена поза може дуже відрізнятися від оригінально "
+"скопійованої, залежно від: - Позиція спокою цих кісток, та - Поточна поза"
+" їх предків."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:230
+msgid "The rest position of our original armature."
+msgstr "Позиція спокою оригінальної арматури."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:234
+msgid "The rest position of our destination armature."
+msgstr "Позиція спокою цільової арматури."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:236
+msgid "Examples of pose copy/paste."
+msgstr "Приклади копіювання/вставляння пози."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:240
+msgid ""
+"The first copied pose (note that only two bones are selected and hence "
+"copied)."
+msgstr ""
+"Перша скопійована поза (зауважте, що тільки дві кістки виділено, а тому, "
+"з них і копіюється)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:244
+msgid "...pasted on the destination armature..."
+msgstr "...вставлена у цільову арматуру..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:248
+#: ../../manual/rigging/armatures/posing/editing.rst:260
+msgid "...and mirror-pasted on the destination armature."
+msgstr "...та вставлена зі дзеркаленням у цільову арматуру."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:252
+msgid ""
+"The same pose as above is copied, but this time with all bones selected, "
+"..."
+msgstr ""
+"Ця ж поза, що й вище, скопійована, але на цей раз з виділенням усіх "
+"кісток, ..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:256
+#, fuzzy
+msgid "... pasted on the destination armature..."
+msgstr "...вставлена у цільову арматуру..."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:264
+msgid "Propagate"
+msgstr "Поширення -- Propagate"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:270
+#, fuzzy
+msgid ":menuselection:`Tool Shelf --> Tool --> Pose Tools --> Pose: Propagate`"
+msgstr ""
+"Панель:    «Полиця Інструментів > Інструменти > Інструменти Пози > Поза: "
+"Поширення» -- :menuselection:`Tool Shelf --> Tool --> Pose Tools --> "
+"Pose: Propagate`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:271
+#, fuzzy
+msgid ":menuselection:`Pose --> Propagate`"
+msgstr "Меню:     «Поза > Поширення» -- :menuselection:`Pose --> Propagate`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:272
+msgid ":kbd:`Alt-P`"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:274
+msgid ""
+"The Propagate tool copies the pose of the selected bones on the current "
+"frame over to the keyframes delimited by the *Termination Mode*. It "
+"automates the process of copying and pasting."
+msgstr ""
+"Засіб Поширення копіює позу виділених кісток на поточному кадрі та "
+"вставляє на ключкадри, визначені опцією «Режим Завершення» -- "
+"*Termination Mode*. Це автоматизує процес копіювання та вставляння."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:280
+msgid "Options"
+msgstr "Опції"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:301
+msgid "Termination Mode"
+msgstr "Режим Завершення -- Termination Mode"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:283
+msgid "Modes which determine how it decides when to stop overwriting keyframes."
+msgstr "Режими, які визначають, як і коли зупиняється перезапис ключкадрів."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:287
+msgid "While Held"
+msgstr "Доки Утримується -- While Held"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:286
+msgid ""
+"The most complicated of the modes available, as it tries to guess when to"
+" stop propagating by examining the pauses in the animation curves per "
+"control (i.e. all F-Curves for a bone, instead of per F-Curve)."
+msgstr ""
+"Найбільш складний з доступних режимів, оскільки він намагається вгадати, "
+"коли зупинити поширення, досліджуючи паузи в анімаційний кривих по "
+"контролерах (тобто, по усіх Ф-Кривих для кістки, а не по кожній "
+"Ф-Кривій)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:289
+msgid "To Next Keyframe"
+msgstr "До Наступного Ключкадру -- To Next Keyframe"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:290
+msgid ""
+"Simply copies the pose to the first keyframe after (but not including any"
+" keyframe on) the current frame."
+msgstr ""
+"Просто копіює позу у перший ключкадр після (але не включаючи будь-який "
+"інший ключкадр у цьому кадрі) поточно кадру."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:291
+msgid "To Last Keyframe"
+msgstr "До Останнього Ключкадру -- To Last Keyframe"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:292
+msgid "Will simply replace the last keyframe. (i.e. making action cyclic)."
+msgstr "Просто замінить останній ключкадр. (тобто, зробить дію зацикленою)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:295
+msgid "Before Frame"
+msgstr "Перед Кадром -- Before Frame"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:294
+msgid ""
+"To all keyframes between current frame and the *End frame* option. This "
+"option is best suited for use from scripts due to the difficulties in "
+"setting this frame value, though it is possible to set this manually via "
+"the Operator panel if necessary."
+msgstr ""
+"Поширює на усі ключкадри між поточним кадром та кадром, визначеним опцією"
+" «Кінцевий Кадр» -- *End Frame*. Ця опція найкраще підходить для "
+"використання зі скриптів через труднощі установлення цього значення "
+"кадру, хоча це можливо задати його вручну через панель Оператора, при "
+"необхідності."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:297
+msgid "Before Last Keyframe"
+msgstr "Перед Останнім Ключкадром -- Before Last Keyframe"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:298
+msgid "To all keyframes from current frame until no more are found."
+msgstr ""
+"Поширює на усі ключкадри від поточного кадру до тих пір, поки більше не "
+"буде знайдено інших ключкадрів."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:299
+msgid "On Selected Keyframes"
+msgstr "На Виділені Ключкадри -- On Selected Keyframes"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:300
+msgid "Will apply the pose of the selected bones to all selected keyframes."
+msgstr "Застосує цю позу виділених кісток на усі виділені ключкадри."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:301
+msgid "On Selected Markers"
+msgstr "На Виділені Мітки -- On Selected Markers"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:302
+msgid ""
+"To all keyframes occurring on frames with Scene Markers after the current"
+" frame."
+msgstr ""
+"Поширює на усі ключкадри, що стаються на кадрах з Мітками часу після "
+"поточного кадру."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:306
+msgid "End Frame"
+msgstr "Кінцевий Кадр -- End Frame"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:304
+msgid ""
+"Defines the upper-bound for the frame range within which keyframes will "
+"be affected (with the lower bound being the current frame)."
+msgstr ""
+"Визначає верхню межу для діапазону кадрів, у межах якого поширення вплине"
+" на ключкадри (нижня межа визначається поточним кадром)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:309
+msgid "Show/Hide"
+msgstr "Показ/Схов -- Show/Hide"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:314
+msgid "All Modes"
+msgstr ""
+
+#: ../../manual/rigging/armatures/posing/editing.rst:315
+#, fuzzy
+msgid ":menuselection:`Properties editor --> Bone --> Display`"
+msgstr ""
+"Панель:    «Редактор Властивостей > Кістка > Показ» -- "
+":menuselection:`Properties editor --> Bone --> Display`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:316
+#, fuzzy
+msgid ":menuselection:`... --> Show/Hide`"
+msgstr "Меню:    «...> Показ/Схов» -- :menuselection:`... --> Show/Hide`"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:318
+msgid ""
+"You do not have to use bone layers to show/hide some bones. As with "
+"objects, vertices or control points, you can use :kbd:`H`:"
+msgstr ""
+"Ви не маєте використовувати шари кісток для показу/схову певних кісток. "
+"Як і для об'єктів, вершин або керувальних точок, ви можете використати "
+":kbd:`H`:"
+
+#: ../../manual/rigging/armatures/posing/editing.rst:321
+msgid ":kbd:`H` will hide the selected bone(s)."
+msgstr ":kbd:`H` буде ховати виділені кістку(ки)."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:322
+msgid ":kbd:`Shift-H` will hide all bones *but the selected one(s)*."
+msgstr ""
+":kbd:`Shift-H` буде ховати усі невиділені кістки, *не чіпаючи "
+"виділену(і)*."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:323
+msgid ":kbd:`Alt-H` will show all hidden bones."
+msgstr ":kbd:`Alt-H` буде вмикати показ усіх схованих кісток."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:325
+msgid ""
+"You can also use the *Hide* checkbox of the :menuselection:`Bone tab --> "
+"Display panel`."
+msgstr ""
+"Ви можете також скористатися стягом «Схов» -- *Hide* на «вкладка «Кістка»"
+" > панель «Показ» -- :menuselection:`Bone tab --> Display panel`."
+
+#: ../../manual/rigging/armatures/posing/editing.rst:327
+#, fuzzy
+msgid ""
+"Note that hidden bones are specific to a mode, i.e. you can hide some "
+"bones in *Edit Mode*, they will still be visible in *Pose Mode*, and vice"
+" versa. Hidden bones in *Pose Mode* are also invisible in *Object Mode*. "
+"And in *Edit Mode*, the bone to hide must be fully selected, not just his"
+" root or tip."
+msgstr ""
+"Зауважте, що ховання кісток є специфічним для кожного режиму, тобто ви "
+"можете сховати деякі кістки у Режимі Правки -- *Edit Mode*, але вони "
+"залишаться видимими у Режимі Пози -- *Pose Mode*, та навпаки. Схована "
+"кістка у Режимі Пози -- *Pose Mode* також невидима у Режимі Об'єкта -- "
+"*Object Mode*. Також, у Режимі Правки -- *Edit Mode*, для схову повинна "
+"бути повністю виділена кістка, а не тільки її корінь або верхівка."
+
+#~ msgid "ToDo."
+#~ msgstr "ToDo."
+
+#~ msgid ":kbd:`G`,  :kbd:`R`, :kbd:`S`:  translate, rotate, scale"
+#~ msgstr ""
+
+#~ msgid "Mode:     Pose Mode"
+#~ msgstr "Режим:     «Режим Пози» -- Pose Mode"
+
+#~ msgid "Hotkey:   :kbd:`Ctrl-A`"
+#~ msgstr "Скорочення:   :kbd:`Ctrl-A`"
+
+#~ msgid "Hotkey:   :kbd:`Alt-E`"
+#~ msgstr "Скорочення:   :kbd:`Alt-E`"
+
+#~ msgid "Hotkey:   :kbd:`Alt-P`"
+#~ msgstr "Скорочення:   :kbd:`Alt-P`"
+
+#~ msgid "ToDo 2.75."
+#~ msgstr ""
+
+#~ msgid "Mode:     All Modes"
+#~ msgstr "Режим:     Усі режими"
+

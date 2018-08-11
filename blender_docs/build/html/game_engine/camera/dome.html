@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Купольна Камера -- Dome Camera &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/camera/dome.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Фізика -- Physics" href="../physics/index.html" />
+    <link rel="prev" title="Стерео Камера -- Stereo Camera" href="stereo.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Камера -- Camera</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo.html">Стерео Камера -- Stereo Camera</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Купольна Камера -- Dome Camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dome-camera-settings">Устави Купольної Камери</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Приклади</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Камера -- Camera</a> &raquo;</li>
+        
+      <li>Купольна Камера -- Dome Camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/camera/dome.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dome-camera">
+<h1>Купольна Камера -- Dome Camera<a class="headerlink" href="#dome-camera" title="Permalink to this headline">¶</a></h1>
+<p>Ця функціональна можливість дозволяє митцям візуалізувати їх інтерактивні проекти у межах вражального купольного середовища. Щоб зробити його розширюваним інструментом, ми підтримуємо Повний купол, Урізані (спереду і ззаду) куполи, Планетарії та куполи зі сферичними дзеркалами.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">The Dome camera uses a multi-pass texture algorithm as developed by Paul Bourke and
+was implemented by Dalai Felinto with sponsorship from SAT -- Society for Arts and
+Technology within the SAT Metalab
+<a class="reference external" href="http://paulbourke.net/miscellaneous/domemirror/BlenderiDome/">immersion research program</a>,
+that involves rendering the scene four times and placing the subsequent images
+onto a mesh designed especially such that the result,
+when viewed with an orthographic camera, is a fisheye projection.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Не забувайте використовувати Blender у «повноекранному режимі», щоб максимально використати ваш проектор.</p>
+<p class="last">To accomplish that launch Blender with the command-line argument <code class="docutils literal notranslate"><span class="pre">-W</span></code>.
+Also to get away of the top menu on Blender try to join all areas
+(buttons, 3D View, text, etc.) in a single one. Otherwise if you only maximize it (<kbd class="kbd docutils literal notranslate">Ctrl-Up</kbd>)
+you cannot get the whole screen free to run your game
+(the top menu bar takes about 20 pixels).</p>
+</div>
+<div class="section" id="dome-camera-settings">
+<h2>Устави Купольної Камери<a class="headerlink" href="#dome-camera-settings" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="../../_images/game-engine_camera_dome_dome.png" src="../../_images/game-engine_camera_dome_dome.png" />
+</div>
+<dl class="docutils">
+<dt>Тип Купола -- Dome Type</dt>
+<dd>Це меню дозволяє вам обрати, який тип купольної камери використовувати. Вони наведені нижче з відповідними їх уставами.</dd>
+</dl>
+<ul class="simple">
+<li>Режим Риб'ячого ока -- <a class="reference internal" href="#fisheye-mode">Fisheye Mode</a></li>
+<li>Режим Урізаного Спереду Купола -- <a class="reference internal" href="#front-truncated-dome-mode">Front-Truncated Dome Mode</a></li>
+<li>Режим Урізаного Ззаду Купола -- <a class="reference internal" href="#rear-truncated-dome-mode">Rear-Truncated Dome Mode</a></li>
+<li>Режим Кубічної Карти -- <a class="reference internal" href="#cube-map-mode">Cube Map Mode</a></li>
+<li>Режим Сферичної Панорами -- <a class="reference internal" href="#spherical-panoramic-mode">Spherical Panoramic Mode</a></li>
+</ul>
+<p>Доступні устави камери змінюються залежно від обраного Типу Купола:</p>
+<dl class="docutils">
+<dt>Роздільність -- Resolution</dt>
+<dd>Задає роздільність Буфера. Зменшення цього значення збільшує швидкість, але зменшує якість.</dd>
+<dt>Теселяція -- Tessellation</dt>
+<dd>This is the tessellation level of the mesh (not available in Cube Map mode).</dd>
+<dt>Кут -- Angle</dt>
+<dd>Задає поле зору купола у градусах, від 90 до 250. (Доступно у режимах Fisheye та обох Truncated).</dd>
+<dt>Відхил -- Tilt</dt>
+<dd>Set the camera rotation in the horizontal axis (available in Fisheye and Truncated modes).</dd>
+<dt>Дані Жолоблення Сіті -- <a class="reference internal" href="#warp-data-mesh">Warp Data Mesh</a></dt>
+<dd>Використовує власний файл даних жолоблення сіті.</dd>
+</dl>
+<div class="section" id="fisheye-mode">
+<h3>Режим Риб'ячого ока -- Fisheye Mode<a class="headerlink" href="#fisheye-mode" title="Permalink to this headline">¶</a></h3>
+<p>Ортогональний огляд з ефектом «Риб'яче око» від 90º до 250º градусів.</p>
+<ul class="simple">
+<li>З 90º до 180º ми використовуємо чотири рендери.</li>
+<li>З 181º до 250º ми використовуємо п'ять рендерів.</li>
+</ul>
+<div class="figure" id="id1">
+<img alt="../../_images/game-engine_camera_dome_fisheye.jpg" src="../../_images/game-engine_camera_dome_fisheye.jpg" />
+<p class="caption"><span class="caption-text">Режим Риб'ячого ока.</span></p>
+</div>
+</div>
+<div class="section" id="front-truncated-dome-mode">
+<h3>Режим Урізаного Спереду Купола -- Front-Truncated Dome Mode<a class="headerlink" href="#front-truncated-dome-mode" title="Permalink to this headline">¶</a></h3>
+<p>Розроблено для урізаних куполів, цей режим вирівнює зображення з риб'ячим оком з верхом вікна та торкаючись боків.</p>
+<ul class="simple">
+<li>Поле зору поширюється від 90º до 250º градусів.</li>
+<li>З 90º до 180º ми використовуємо чотири рендери.</li>
+<li>З 181º до 250º ми використовуємо п'ять рендерів.</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="../../_images/game-engine_camera_dome_front-truncated.jpg" src="../../_images/game-engine_camera_dome_front-truncated.jpg" />
+<p class="caption"><span class="caption-text">Режим Урізаного Спереду Купола.</span></p>
+</div>
+</div>
+<div class="section" id="rear-truncated-dome-mode">
+<h3>Режим Урізаного Ззаду Купола -- Rear-Truncated Dome Mode<a class="headerlink" href="#rear-truncated-dome-mode" title="Permalink to this headline">¶</a></h3>
+<p>Розроблено для урізаних куполів, цей режим вирівнює зображення з риб'ячим оком з низом вікна та торкаючись боків.</p>
+<ul class="simple">
+<li>Поле зору поширюється від 90º до 250º градусів.</li>
+<li>З 90º до 180º ми використовуємо чотири рендери.</li>
+<li>З 181º до 250º ми використовуємо п'ять рендерів.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="../../_images/game-engine_camera_dome_rear-truncated.jpg" src="../../_images/game-engine_camera_dome_rear-truncated.jpg" />
+<p class="caption"><span class="caption-text">Режим Урізаного Ззаду Купола.</span></p>
+</div>
+</div>
+<div class="section" id="cube-map-mode">
+<h3>Режим Кубічної Карти -- Cube Map Mode<a class="headerlink" href="#cube-map-mode" title="Permalink to this headline">¶</a></h3>
+<p>Режим Cube Map може використовуватися для попереднього генерування анімованих зображень для Кубічних Карт.</p>
+<p>Ми використовуємо шість рендерів для цього. Порядок зображень слідує формату файлу внутрішніх карт середовища EnvMap у Blender'і: - перший ряд: справа, ззаду. - Другий ряд: знизу, зверху, спереду.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/game-engine_camera_dome_envmap.jpg" src="../../_images/game-engine_camera_dome_envmap.jpg" />
+<p class="caption"><span class="caption-text">Режим Карти Середовища.</span></p>
+</div>
+</div>
+<div class="section" id="spherical-panoramic-mode">
+<h3>Режим Сферичної Панорами -- Spherical Panoramic Mode<a class="headerlink" href="#spherical-panoramic-mode" title="Permalink to this headline">¶</a></h3>
+<p>Режим повної сферичної панорами.</p>
+<ul class="simple">
+<li>Ми використовуємо тут шість камер.</li>
+<li>Нижня і верхня починають отримувати точність за допомогою <em>Definition</em>, задану зі значенням як 5 чи більше.</li>
+</ul>
+<div class="figure" id="id5">
+<img alt="../../_images/game-engine_camera_dome_panoramic.jpg" src="../../_images/game-engine_camera_dome_panoramic.jpg" />
+<p class="caption"><span class="caption-text">Режим Повної Сферичної Панорами.</span></p>
+</div>
+</div>
+<div class="section" id="warp-data-mesh">
+<h3>Дані Жолоблення Сіті -- Warp Data Mesh<a class="headerlink" href="#warp-data-mesh" title="Permalink to this headline">¶</a></h3>
+<p>Багато середовищ проектування вимагають зображень, що не є простими перспективними проекціями, які є нормою для плоско екранних дисплеїв. Приклади включають корекцію геометрії для циліндричних показів та деякі нові методи проектування на планетарні куполи або прямовисні куполи, призначені для віртуальної реальності VR.</p>
+<p>Детальніше про цей формат сіті дивіться -- <a class="reference external" href="http://paulbourke.net/dataformats/meshwarp/">Paul Bourke's article</a>.</p>
+<div class="figure">
+<img alt="../../_images/game-engine_camera_dome_warped.jpg" src="../../_images/game-engine_camera_dome_warped.jpg" />
+</div>
+<p>Для продукування цих зображень ми використовуємо специфічний формат файлу.</p>
+<p>Шаблон файлу:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mode
+width height
+n0_x n0_y n0_u n0_v n0_i
+n1_x n1_y n1_u n1_v n1_i
+n2_x n1_y n2_u n2_v n2_i
+n3_x n3_y n3_u n3_v n3_i
+(...)
+</pre></div>
+</div>
+<p>First line is the image type the mesh is support to be applied to:
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">=</span> <span class="pre">rectangular</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">=</span> <span class="pre">radial</span></code> Next line has the mesh dimensions in
+pixels. Rest of the lines are the nodes of the mesh.</p>
+<p>Each line is compound of <em>x</em>, <em>y</em>, <em>u</em>, <em>v</em>, <em>i</em>. (x, y)
+are the normalized screen coordinates, (u, v)
+texture coordinates, <em>i</em> a multiplicative intensity factor.</p>
+<p><em>x</em> varies from negative screen aspect to positive screen aspect.
+<em>y</em> varies from -1 to 1. <em>u</em> and <em>v</em> vary from 0 to 1.
+<em>i</em> ranges from 0 to 1, if negative do not draw that mesh node.</p>
+<ol class="arabic simple">
+<li>Вам необхідно створити файл та додати його у Редактор Тексту, щоб вибрати як файл даних Warp Mesh.</li>
+<li>Відкрити Редактор Тексту <span class="menuselection">Editor Types ‣ Text Editor</span>.</li>
+<li>Відкрити файл даних сіті (наприклад, myDome.data) у Редакторі Тексту (<span class="menuselection">Text ‣ Open</span> чи <kbd class="kbd docutils literal notranslate">Alt-O</kbd>).</li>
+<li>Перейти у Game Framing Settings -- <span class="menuselection">Editor Types ‣ Properties editor ‣ Scene</span>.</li>
+<li>Увімкнути режим Dome.</li>
+<li>Увести ім'я файлу у поле Warp Data (наприклад, myDome.data).</li>
+</ol>
+<p>Для створення вами власних Warp Meshes доступний інтерактивний інструмент під назвою meshmapper, який є частиною програмного пакета <a class="reference external" href="http://paulbourke.net/miscellaneous/domemirror/warpplayer/">Paul Bourke's Warpplayer</a> (вимагає повну версію).</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://wiki.blender.org/uploads/8/81/Dev-GameEngine-Dome-Standard_4x3.data">Spherical Mirror Dome 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/9/9b/Dev-GameEngine-Dome-Truncated_4x3.data">Truncated Dome 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/d/d4/Dev-GameEngine-Dome-Sample-FullScreen_4x3.data">Sample Fullscreen File 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/3/3d/Dev-GameEngine-Dome-Sample-FullBuffer_4x3.data">Sample Fullbuffer File 4×3</a>.</li>
+</ul>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">Оглядвікно розраховується на основі пропорції ширини полотна до його висоти. Звідси, різні розміри екрану будуть вимагати різні файли жолоблення сіті. Також, щоб отримати коректну пропорцію вашого проектора, вам необхідно використовувати Blender у Повноекранному режимі.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../physics/index.html" class="btn btn-neutral float-right" title="Фізика -- Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stereo.html" class="btn btn-neutral" title="Стерео Камера -- Stereo Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

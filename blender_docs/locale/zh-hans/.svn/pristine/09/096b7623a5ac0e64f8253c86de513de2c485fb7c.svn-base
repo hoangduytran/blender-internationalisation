@@ -1,0 +1,355 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-02 14:45+0800\n"
+"PO-Revision-Date: 2018-04-29 12:10+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:8
+msgid "Node Groups"
+msgstr "节点组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:10
+msgid ""
+"Grouping nodes can simplify a node tree by allowing instancing and hiding"
+" parts of the tree. Both material and composite nodes can be grouped."
+msgstr "节点组可以通过允许实例化和隐藏部分树来简化节点树。材质和复合节点都可以分组。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:13
+msgid ""
+"Conceptually, grouping nodes allows you to specify a *set* of nodes that "
+"you can treat as though it were \"just one node\". Node groups are "
+"similar to functions in programming. You can then reuse them inside, "
+"which are then called \"NodeGroups\", or in other blend-file(s), when "
+"appending called \"NodeTrees\"."
+msgstr ""
+"从概念上讲，通过对节点进行分组，你可以指定一 *组* "
+"节点，你可以将它视为“只是一个单一节点”。节点组与编程中的函数类似。然后，你可以在内部重复使用它们，这些内容称为“节点组”，或者在其它blend文件追加时称为“节点树”。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:18
+msgid ""
+"As an example: If you have created a material that you would like to use "
+"with different inputs e.g. diffuse color: red plastic, green plastic. You"
+" could create different materials with *Make Single User* for each "
+"different color with a copy of the tree part describing the plastic "
+"material. If you like to edit the material you would need to redo the "
+"edit on all materials. A better method of reuse is to create node groups,"
+" exposing only the variable inputs (e.g. diffuse color)."
+msgstr ""
+"举个例子：如果你创建一个你希望能够用于不同输入的材质，例如漫反射颜色：红色塑料，绿色塑料。你可以使用 "
+"*制作单一用户*，使用描述塑料材质的树部分的副本为每种不同颜色创建不同的材质。如果你想编辑材质，则需要重新编辑所有材质。更好的重用方法是创建节点组，只显示变量输入（例如漫反射颜色）。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:24
+msgid ""
+"Also nested node groups are supported. I.e. a node group can be inserted "
+"or created inside another node group."
+msgstr "也支持嵌套节点组。即节点组可以插入或创建在另一个节点组内。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:26
+msgid "Recursion"
+msgstr "递归"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:28
+msgid ""
+"Recursive node groups are prohibited for all the current node systems to "
+"prevent infinite recursion. A node group can never contain itself (or "
+"another group that contains it)."
+msgstr "所有当前节点系统都禁止递归节点组以防止无限递归。即节点组永远不能包含自己（或包含它的另一个组）。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:33
+msgid "Make Group"
+msgstr "建立组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:35
+#: ../../manual/editors/node_editor/nodes/groups.rst:68
+#: ../../manual/editors/node_editor/nodes/groups.rst:107
+#: ../../manual/editors/node_editor/nodes/groups.rst:132
+#: ../../manual/editors/node_editor/nodes/groups.rst:154
+#: ../../manual/editors/node_editor/nodes/groups.rst:173
+msgid "Reference"
+msgstr "参考"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+msgid "Mode"
+msgstr "模式"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:38
+#: ../../manual/editors/node_editor/nodes/groups.rst:71
+#: ../../manual/editors/node_editor/nodes/groups.rst:110
+#: ../../manual/editors/node_editor/nodes/groups.rst:135
+#: ../../manual/editors/node_editor/nodes/groups.rst:157
+#: ../../manual/editors/node_editor/nodes/groups.rst:177
+msgid "All Modes"
+msgstr "所有模式"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+msgid "Menu"
+msgstr "菜单"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:39
+msgid ":menuselection:`Group --> Make Group`"
+msgstr ":menuselection:`群组 --> 建立组`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+msgid "Hotkey"
+msgstr "快捷键"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:40
+msgid ":kbd:`Ctrl-G`"
+msgstr ":kbd:`Ctrl-G`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:42
+msgid ""
+"To create a node group, in the Node editor, select the nodes you want to "
+"include, then press :kbd:`Ctrl-G`, :menuselection:`Group --> Make Group`."
+" A node group will have a green title bar. All of the selected nodes will"
+" now be contained within the node group. Default naming for the node "
+"group is \"NodeGroup\", \"NodeGroup.001\" etc. There is a name field in "
+"the node group you can click into to change the name of the group. Change"
+" the name of the node group to something meaningful. When appending node "
+"groups from one blend-file to another, Blender does not make a "
+"distinction between material node groups or composite node groups, so it "
+"is recommended to use some naming convention that will allow you to "
+"easily distinguish between the two types."
+msgstr ""
+"要创建节点组，请在节点编辑器中选择要包含的节点，然后按 :kbd:`Ctrl-G`，或 :menuselection:`群组 - "
+">建立组`。节点组将有一个绿色的标题栏。所有选定的节点现在都将包含在节点组中。节点组的默认命名为“NodeGroup”，“NodeGroup.001”等。节点组中有一个名称字段，你可以单击该名称字段来更改群组的名称。将节点组的名称更改为有意义的名称。将节点组从一个Blender文件附加到另一个Blender文件时，Blender不区分材质节点组或复合节点组，因此建议使用一些命名约定，以便你可以轻松区分这两种类型。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:52
+msgid "What **not** to include in your groups (all modes of Node editors)"
+msgstr "什么 *不* 包括在你的组中（所有节点编辑器模式）"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:54
+msgid ""
+"Remember that the essential idea is that a group should be an easily-"
+"reusable, self-contained software component. Material node groups should "
+"**not** include:"
+msgstr "请记住，最基本的是，一个组应该是一个易于重用，自给自足的组件。材质节点组  **不**  应包含："
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:59
+msgid "Input nodes"
+msgstr "输入节点"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:58
+msgid ""
+"If you include a source node in your group, you will end up having the "
+"source node appearing *twice*: once inside the group, and once outside "
+"the group in the new material node-network."
+msgstr "如果你的群组中包含源节点，则最终会让源节点显示 *两次*：一次在组内，一次在新材质节点网络中出现在群组之外。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:61
+msgid "Output node"
+msgstr "输出节点"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:62
+msgid ""
+"If you include an output node in the group, there will not be an output "
+"socket available *from* the group!"
+msgstr "如果在组中包含输出节点，则不会有可 *用于* 群组的输出接口！"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:66
+msgid "Edit Group"
+msgstr "编辑组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:72
+msgid ":menuselection:`Group --> Edit Group`"
+msgstr ":menuselection:`群组 --> 编辑组`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+msgid "Header"
+msgstr "标题栏"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:73
+msgid ":menuselection:`Go to Parent Node Tree`"
+msgstr ":menuselection:`进入父节点树`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:74
+msgid ":kbd:`Tab`, :kbd:`Ctrl-Tab`"
+msgstr ":kbd:`Tab`, :kbd:`Ctrl-Tab`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:76
+#, fuzzy
+msgid ""
+"With a node group selected, :kbd:`Tab` expands the node to a frame, and "
+"the individual nodes within it are shown. You can move them around, play "
+"with their individual controls, re-thread them internally, etc. just like"
+" you can if they were a normal part of the editor view. You will not be "
+"able, though, to thread them to a node outside the group; you have to use"
+" the external sockets on the side of the node group. To add or remove "
+"nodes from the group, you need to ungroup them. While :kbd:`Tab` can be "
+"used to both enter and exit a group, :kbd:`Ctrl-Tab` only exits."
+msgstr ""
+"选择群组节点后， :kbd:`Tab`  "
+"将节点展开为一个帧（框架），并显示其中的各个节点。可以移动它们，使用各自的控件进行播放，在内部重新排列它们，等等，只要它们是编辑器视图的正常部分即可。但是，你将无法将它们连接到组外的节点;你必须使用群组节点一侧的外部接口。要添加或删除组中的节点，你需要将它们取消组合。而"
+" :kbd:`Tab`  可以用来输入和退出一个群组，  :kbd:`Ctrl-Tab` 只能退出群组。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:85
+msgid "Interface"
+msgstr "界面"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:88
+msgid "Interactively"
+msgstr "交互"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:90
+msgid ""
+"When a node group is created, new *Group Input* and *Group Output* nodes "
+"are generated to represent the data flow into and out of the group. When "
+"created, connections to input sockets coming from unselected nodes will "
+"become attached to new sockets on the *Group Input* node. Similarly, "
+"outgoing connections to input sockets of unselected nodes will become "
+"attached to the new *Group Output* node."
+msgstr ""
+"当创建节点组时，会生成新的 *组输入* 和 *组输出* 节点，以表示进出组的数据流。 创建时， 来自未选定的节点将会附加到 *组输入* "
+"节点上的新输入接口。 同样，到未选定节点的输入接口将连接到新的 *组输出* 节点的输出接口。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:96
+msgid ""
+"If during node group development an additional parameter needs to be "
+"passed into the group, an additional socket must be added to the *Group "
+"Input* node. This is easily done by adding a connection from the hollow "
+"socket on the right side of the *Group Input* node to the desired input "
+"socket on the node requiring input. The process is similar for the *Group"
+" Output* regarding data you want to be made available outside the group."
+msgstr ""
+"如果在节点组开发期间需要将一个附加参数传递到组中，则必须将另一个接口添加到 *组输入* 节点。通过将来自 *组输入* "
+"节点右侧的空心接口的连接添加到需要输入的节点上所需的输入接口，可轻松完成此操作。对于希望在组外使用的数据，该过程对 *组输出* 类似。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+#: ../../manual/editors/node_editor/nodes/groups.rst:105
+msgid "Panel"
+msgstr "面板"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:111
+msgid ":menuselection:`Properties region --> Interface`"
+msgstr ":menuselection:`属性栏 --> 界面`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:116
+msgid "The interface panel for editing groups."
+msgstr "用于编辑群组的界面面板。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:118
+msgid ""
+"Sockets can be added, re-ordered, or removed, descriptive names can be "
+"added and the details of the input data value defined here."
+msgstr "可以添加，重新排序或删除接口，可以添加描述性名称以及此处定义的输入数据值的详细信息。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:121
+msgid ""
+"If you have multiple inputs or outputs, they can be re-ordered by "
+"selecting the socket in the list and then moving it up or down with the "
+"arrow buttons on the right side of the panel. The larger plus sign "
+"buttons below the list will add an unconnected socket of the same type as"
+" the selected socket or a value socket if there is no selection. The "
+"small circled plus sign at the bottom of the list has filtering functions"
+" to facilitate finding nodes if the group has a large number of sockets."
+msgstr "如果你有多个输入或输出，可以通过选择列表中的接口重新排序，然后使用面板右侧的箭头按钮向上或向下移动它。如果没有选择，列表下方较大的加号按钮将添加与所选接口或接口相同类型的未连接接口。列表底部的小圆圈加号具有过滤功能，以便在组中有大量接口时容易找到节点。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:130
+msgid "Ungroup"
+msgstr "解散组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:136
+msgid ":menuselection:`Group --> Ungroup`"
+msgstr ":menuselection:`群组 --> 解散组`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:137
+msgid ":kbd:`Alt-G`"
+msgstr ":kbd:`Alt-G`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:139
+msgid ""
+"The :kbd:`Alt-G` tool removes the group and places the individual nodes "
+"into your editor workspace. No internal connections are lost, and now you"
+" can thread internal nodes to other nodes in your workspace."
+msgstr ":kbd:`Alt-G` 工具将删除组并将单个节点放入你的编辑器工作区。不会丢失内部连接，现在可以将内部节点连线到工作区中的其他节点。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:149
+msgid "Separate :kbd:`P`"
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:143
+msgid "Separate selected nodes from the node group."
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:145
+msgid "Copy"
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:146
+msgid "Copy to parent node tree, keep group intact."
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:149
+msgid "Move"
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:148
+msgid "Move to parent node tree, remove from group."
+msgstr ""
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:152
+msgid "Group Insert"
+msgstr "插入到组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:158
+msgid ":menuselection:`Group --> Group Insert`"
+msgstr ":menuselection:`群组 --> 插入到组`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:162
+msgid ""
+"Selecting a set of nodes, ending with the destination group node, and "
+"pressing :menuselection:`Group --> Group Insert` will move those nodes "
+"into that group. The moved nodes are collected into a group of their own "
+"to preserve their connection context, having their own group input and "
+"output nodes. The group's existing input and output nodes are updated "
+"with new sockets, if any, from the new nodes. The node group must be "
+"edited to contain a single *Group Input* and a single *Group Output* "
+"node."
+msgstr ""
+"选择一组节点，最后选择目标组节点，然后按 :menuselection:`群组 --> 插入到组` "
+"将这些节点移动到该组中。移动的节点被收集到它们自己的一组中以保持它们的连接，并具有它们自己的组输入和输出节点。该组的现有输入和输出节点将使用新节点的新接口（如果有）进行更新。必须对节点组进行编辑以包含一个"
+" *组输入* 和一个 *组输出* 节点。"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:171
+msgid "Appending Node Groups"
+msgstr "追加节点组"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst
+msgid "Editor"
+msgstr "编辑器"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:176
+msgid "Info Editor"
+msgstr "信息编辑器"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:178
+msgid ":menuselection:`File --> Link/Append`"
+msgstr ":menuselection:`信息编辑器 --> 文件 --> 关联/追加`"
+
+#: ../../manual/editors/node_editor/nodes/groups.rst:180
+msgid ""
+"Once you have appended a Node Tree to your blend-file, you can make use "
+"of it in the Node editor by pressing :kbd:`Shift-A`, :menuselection:`Add "
+"--> Group`, then selecting the appended group. The \"control panel\" of "
+"the Group include the individual controls for the grouped nodes. You can "
+"change them by working with the Group node like any other node."
+msgstr ""
+"将节点树添加到blend文件后，你可以通过按下 :kbd:`Shift-A`， :menuselection:`添加 --> 群组`, "
+"在节点编辑器中使用它，然后选择追加组。本群组的“控制面板”包括分组节点的单独控制。你可以像使用其他任何节点一样使用组节点来更改它们。"
+
+#~ msgid "Mode:     All Modes"
+#~ msgstr "模式：所有模式"
+
+#~ msgid "Hotkey:   :kbd:`Alt-G`"
+#~ msgstr "热键：   :kbd:`Alt-G`"
+

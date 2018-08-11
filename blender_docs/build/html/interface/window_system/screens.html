@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Екрани -- Screens &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/window_system/screens.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Області -- Areas" href="areas.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#window-system">Система вікон</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Екрани -- Screens</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#controls">Контролери</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-and-override">Збереження і заміщення</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#additional-layouts">Додаткові розстави</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="areas.html">Області -- Areas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regions.html">Регіони -- Regions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tabs_panels.html">Вкладки й Панелі -- Tabs &amp; Panels</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">Контролери інтерфейсу</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tools">Інструменти</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+      <li>Екрани -- Screens</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/window_system/screens.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="screens">
+<span id="bpy-ops-screen"></span><span id="bpy-types-screen"></span><h1>Екрани -- Screens<a class="headerlink" href="#screens" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/interface_window-system_screens_data-block.png" src="../../_images/interface_window-system_screens_data-block.png" />
+<p class="caption"><span class="caption-text">Спливне меню блоку даних Екран -- Screen.</span></p>
+</div>
+<p><em>Screens</em> are essentially predefined window layouts.
+Blender's flexibility with areas lets you create customized working environments for
+different tasks such as modeling, animating, and scripting.
+It is often useful to quickly switch between different environments within the same file.
+See <a class="reference internal" href="areas.html"><span class="doc">area controls</span></a> for how to move frame borders,
+split and consolidate areas.</p>
+<p>Меню блоку даних з екранами, що дозволяє вам вибирати ці розстави, розміщене у заголовку Редактора Інфо.</p>
+<div class="section" id="controls">
+<h2>Контролери<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Розстава Екрану -- Screen Layout</dt>
+<dd>Список доступних розстав екрану. Дивіться нижче <a class="reference internal" href="#default-screens">Стандартні екрани</a>.</dd>
+<dt>Додання -- Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Клацок ЛКМ на кнопці «Додання» -- <em>Add</em> дає створення нової розстави на основі поточної.</dd>
+<dt>Видалення -- Delete <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Ви можете видаляти обраний екран за допомогою кнопки «Видалення» -- <em>Delete</em>.</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Стандартно, кожна розстава екрану «запам'ятовує» останню сцену -- <a class="reference internal" href="../../data_system/scenes/introduction.html"><span class="doc">scene</span></a>, в якій вона використовувалася. Вибір іншої розстави екрану буде перемикати на потрібну розставу <strong>та</strong> переходити на її пам'ятну сцену.</p>
+</div>
+<div class="section" id="shortcuts">
+<h3>Скорочення<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h3>
+<p>Для циклічного переходу між екранами використовуйте <kbd class="kbd docutils literal notranslate">Ctrl-Right</kbd> та <kbd class="kbd docutils literal notranslate">Ctrl-Left</kbd>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">На macOS вам можливо необхідно буде вимкнути ці скорочення для &quot;Mission Control&quot; у ваших уподобання комп'ютера. Це може бути знайдено у <span class="menuselection">System Preferences ‣ Keyboard ‣ Shortcuts</span>.</p>
+</div>
+</div>
+<div class="section" id="default-screens">
+<h3>Стандартні екрани<a class="headerlink" href="#default-screens" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">3D View Full -- 3D Огляд Повністю:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">3D Огляд на повний екран, використовується для передогляду вашої сцени.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Animation -- Анімація:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Для створення рухів акторів та інших об'єктів, зміни форми або кольору тощо.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Compositing -- Компонування:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Комбінування різних частин сцени (наприклад, фону, акторів, спеціальних ефектів) та їх фільтрування (наприклад, корекція кольору).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Default -- Стандарт:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Стандартна розстава, використовувана Blender'ом для нових файлів. Корисна для моделювання нових об'єктів.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Game Logic -- Ігрова Логіка:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Планування і програмування ігор у Blender'і.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Motion Tracking -- Простеження Руху:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Used for motion tracking with the Movie Clip editor.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Scripting -- Скриптування:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Документування вашої роботи та/або написання власних скриптів для автоматизації Blender'а.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">UV Editing -- Правка UV:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Розпластання проекції сіті об'єкта у 2D для керування розкладанням текстури на його поверхні.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Video Editing -- Правка Відео:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Нарізання та монтування послідовностей анімації.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="save-and-override">
+<h2>Збереження і заміщення<a class="headerlink" href="#save-and-override" title="Permalink to this headline">¶</a></h2>
+<p>The screen layouts are saved in the blend-file.
+When you open a file, enabling the <em>Load UI</em> in the File Browser indicates that Blender should
+use the file's screen layouts and overriding the current layout.
+See <a class="reference internal" href="../../data_system/files/open.html#file-load-ui"><span class="std std-ref">Load UI</span></a>.</p>
+<p>Власний набір розстав екрану може бути збережений як частина запускового файлу -- <a class="reference internal" href="../../data_system/files/startup_file.html"><span class="doc">Запусковий Файл -- Startup File</span></a>.</p>
+</div>
+<div class="section" id="additional-layouts">
+<h2>Додаткові розстави<a class="headerlink" href="#additional-layouts" title="Permalink to this headline">¶</a></h2>
+<p>Як ви ставатимете більш досвідченим у роботі з Blender'ом, розгляньте питання додання деяких інших розстав екрану, відповідних для вашого робочого процесу, що могли б вам допомогти підвищити вашу продуктивність. Наприклад, це можуть бути:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Modeling -- Моделювання:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Чотири 3D Огляди -- 3D Views (зверху, спереду, збоку і перспектива), Редактор Властивостей -- Properties editor для редагування.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Lighting -- Освітлення:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">3D Огляди -- 3D Views для переміщення освітлювачів, Редактор UV/Зображень -- UV/Image editor для показу результату зображування, рендерингу, Редактор Властивостей -- Properties editor для рендерингу, зображування та властивостей і контролерів ламп.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Materials -- Матеріали:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Properties editor for Material settings, 3D View for selecting objects, Outliner,
+Library script (if used), Node Editor
+(if using <a class="reference internal" href="../../render/blender_render/materials/nodes/index.html"><span class="doc">Node-based materials</span></a>).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Painting -- Малювання:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Редактор UV/Зображень -- UV/Image Editor для малювання зображень текстур, 3D Огляд -- 3D View для малювання безпосередньо на об'єкті у режимі виділення UV граней -- UV Face Select, три міні 3D Огляди -- 3D Views внизу збоку, що заповнені фоновими орієнтувальними картинками, Редактор Властивостей -- Properties editor.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="areas.html" class="btn btn-neutral float-right" title="Області -- Areas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

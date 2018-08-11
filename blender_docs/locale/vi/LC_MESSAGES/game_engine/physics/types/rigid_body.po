@@ -1,0 +1,647 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-02-23 11:20+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:4
+msgid "Rigid Body Physics"
+msgstr "Фізика «Тверде Тіло» -- Rigid Body Physics"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:6
+#, fuzzy
+msgid ""
+"Probably the most common type of object in the Game Engine. It will "
+"give/receive collisions and react with a change in its velocity and its "
+"rotation. A rigid body ball would begin rotating and roll down (where a "
+":doc:`Dynamic </game_engine/physics/types/dynamic>` ball would only hit "
+"and slide down the ramp)."
+msgstr ""
+"Напевно, це найбільш вживаний тип фізики об'єкта у рушії Game Engine. Він"
+" буде давати/приймати зіткнення та реагувати на зміни скорості та "
+"обертання. М'яч з Rigid Body буде починати обертатися та скочуватися (де "
+"м'яч з фізикою :doc:`Dynamic </game_engine/physics/types/dynamic>` буде "
+"тільки потрапляти та сковзати вниз по схилу)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:11
+#, fuzzy
+msgid ""
+"The idea behind rigid body dynamics is that the mesh does not deform. If "
+"you need deformation you will need to either go to :doc:`Soft Body "
+"</game_engine/physics/types/soft_body>` or else fake it with animated "
+"Actions."
+msgstr ""
+"Ідея динаміки в основі Rigid Body полягає у тому, що сіть не "
+"деформується. Якщо вам потрібне деформування, то вам необхідно "
+"скористатися типом :doc:`Soft Body "
+"</game_engine/physics/types/soft_body>` або іншим чином підробити його за"
+" допомогою анімованих Actions."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:15
+msgid ""
+"For more documentation, see the general :doc:`physics page "
+"</game_engine/physics/index>`."
+msgstr ""
+"Детальніше дивіться тут -- :doc:`physics page "
+"</game_engine/physics/index>`."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:19
+#: ../../manual/game_engine/physics/types/rigid_body.rst:207
+msgid "Options"
+msgstr "Опції"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:21
+msgid "bpy Access"
+msgstr "Доступ до bpy"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:23
+#, fuzzy
+msgid ""
+"Note that, most of these properties are accessible through the non-BGE "
+"scripting API via ``bpy.data.objects[\"ObjectName\"].game``, which is of "
+"type ``bpy.types.GameObjectSetting``. This is useful so you can, for "
+"example, set a range of objects to have gradated values via a for-loop."
+msgstr ""
+"Зауважте, що більшість цих властивостей доступні за допомогою "
+"скриптування не- BGE API через ``bpy.data.objects[\"ObjectName\"].game``,"
+" яке є типом ``bpy.types.GameObjectSetting``. Це корисно, так що ви "
+"можете, наприклад, задати діапазон об'єктів, що мають градуйовані "
+"значення через цикл for."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:28
+msgid "Actor"
+msgstr "Актор -- Actor"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:29
+msgid "Enables detection by Near and Radar Sensors."
+msgstr "Вмикає виявлення сенсорами Near та Radar."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:30
+msgid "Ghost"
+msgstr "Привид -- Ghost"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:31
+msgid ""
+"Disables collisions completely, similar to :doc:`No collision "
+"</game_engine/physics/types/no_collision>`."
+msgstr ""
+"Вимикає зіткнення повністю, подібно до :doc:`No collision "
+"</game_engine/physics/types/no_collision>`."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:33
+msgid "Invisible"
+msgstr "Невидимо -- Invisible"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:33
+msgid ""
+"Does not display, the same as setting the object to unrendered (such as "
+"unchecking the camera icon in the :doc:`Outliner </editors/outliner>`)."
+msgstr ""
+"Робить об'єкт не показуваним, так само, як вимкнення для об'єкта "
+"здатності рендеритися (вимкнення іконки з камерою в :doc:`Outliner "
+"</editors/outliner>`)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:37
+msgid "Use Material Force Field"
+msgstr "Вжити Силове Поле Матеріалу -- Use Material Force Field"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:36
+msgid ""
+"Materials can have physics settings on them as well: Friction, "
+"Elasticity, Force Field (positive or negative force), and also Dampening "
+"to other materials. When you turn on this checkbox, you are enabling the "
+"Material to exhibit this spring force."
+msgstr ""
+"Матеріали можуть мати устави фізики на собі також: Тертя -- Friction, "
+"Еластичність -- Elasticity, Силове Поле -- Force Field (позитивна або "
+"негативна сила), а також Згасання -- Dampening до інших матеріалів. Коли "
+"ви вмикаєте цей стяг, то ви дозволяєте Матеріалу проявляти таке пружинне "
+"поле."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:39
+msgid "Rotate From Normal"
+msgstr "Обертати Від Нормалі -- Rotate From Normal"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:40
+msgid "Todo."
+msgstr "Todo."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:43
+msgid "No Sleeping"
+msgstr "Без Спання -- No Sleeping"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:42
+msgid ""
+"Prevents simulation meshes from sleeping. When an object has a linear "
+"velocity or angular velocity, it is in motion. It will detect collisions,"
+" receive gravity, etc. Once these thresholds are close to zero, it will "
+"cease these calculations -- until another object interacts with it wake "
+"it up."
+msgstr ""
+"Запобігає спанню сітей в імітації. Коли об'єкт має лінеарну або кутову "
+"скорість, то він знаходиться у русі. Це дасть виявлення зіткнення, "
+"прийняття гравітації тощо. Після цього, як ці пороги наближаються до "
+"нуля, це дасть припинення цих розрахунків -- допоки інший об'єкт не "
+"вступить у взаємодію з ним, розбудивши його."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:48
+msgid "Mass"
+msgstr "Маса -- Mass"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:46
+msgid ""
+"Affects the reaction due to collision between objects -- more massive "
+"objects have more inertia. Will also affect material force fields. Will "
+"also change behaviors if you are using the suspension and steering "
+"portions of Bullet physics."
+msgstr ""
+"Впливає на реакцію при зіткненні між об'єктами -- більш масивні об'єкти "
+"мають більшу інерцію. Це також буде впливати на силові поля матеріалів. "
+"Також це буде змінювати поведінку, якщо ви використовуєте такі частини "
+"фізики Bullet як підвішування та кермування."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:57
+msgid "Radius"
+msgstr "Радіус -- Radius"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:53
+msgid ""
+"If you have the \"Collision Bounds: Sphere\" set explicitly (or "
+"implicitly through having the Collision Bounds subpanel unchecked), this "
+"will multiply with the Object's (unapplied) Scale. Note that none of the "
+"other bounds types are affected. Also note that in the 3D View the "
+"display will show this for all types, even though it is only actually "
+"used with Sphere."
+msgstr ""
+"Якщо ви маєте задано явно \"Collision Bounds: Sphere\" (або неявно через "
+"вимкнену панель Collision Bounds), то це буде множитися на масштаб "
+"(незастосований) Scale такого Об'єкта. Зауважте, що жоден з інших типів "
+"меж не задіюється. Також, зверніть увагу, що у 3D Огляді показ буде буде "
+"для усіх типів, навіть хоча фактично це використовується тільки з типом "
+"Sphere."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:62
+msgid "Basic"
+msgstr "Базово"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:63
+msgid "Radius= 1.5"
+msgstr "Радіус=1.5"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:64
+msgid "Unapplied Scale"
+msgstr "Незастосований Масштаб"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:65
+msgid "Applied Scale"
+msgstr "Застосований Масштаб"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:66
+#: ../../manual/game_engine/physics/types/rigid_body.rst:126
+msgid "Collision Bounds"
+msgstr "Межі Зіткнення -- Collision Bounds"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:68
+msgid "Rolls, radius of 1 BU"
+msgstr "Вертіння, радіус 1 BU"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:69
+msgid "Rolls, radius of 1.5 BU (after \"popping\" upward)"
+msgstr "Вертіння, радіус 1.5 BU (після «виставляння» уверх)"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:70
+msgid "Rolls, radius of 1.5 BU"
+msgstr "Вертіння, радіус 1 BU"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:71
+msgid "Rolls, radius of 1 BU (!)"
+msgstr "Вертіння, радіус 1 BU (!)"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:72
+msgid "Default (which is Sphere)"
+msgstr "Стандартно (це Sphere)"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:74
+#: ../../manual/game_engine/physics/types/rigid_body.rst:75
+#: ../../manual/game_engine/physics/types/rigid_body.rst:76
+#: ../../manual/game_engine/physics/types/rigid_body.rst:77
+msgid "Slides, extent of 1 BU"
+msgstr "Сковзання, протяг 1 BU"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:78
+#: ../../manual/game_engine/physics/types/rigid_body.rst:169
+msgid "Box"
+msgstr "Коробка -- Box"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:80
+#: ../../manual/game_engine/physics/types/rigid_body.rst:81
+#: ../../manual/game_engine/physics/types/rigid_body.rst:82
+#: ../../manual/game_engine/physics/types/rigid_body.rst:83
+msgid "\"\""
+msgstr "\"\""
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:84
+#: ../../manual/game_engine/physics/types/rigid_body.rst:187
+msgid "Convex Hull"
+msgstr "Опукла Оболонка -- Convex Hull"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:86
+#: ../../manual/game_engine/physics/types/rigid_body.rst:87
+msgid "Slides, extent of 1 BU (but with more friction than above)"
+msgstr "Сковзання, протяг 1 BU (але з більшим тертям, ніж вище)"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:88
+msgid "Acts insane"
+msgstr "Діє ненормально"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:89
+msgid "Slides extent of 1.5 BU"
+msgstr "Сковзання, протяг 1.5 BU"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:90
+msgid "Triangle Mesh"
+msgstr "Трибічна Сіть -- Triangle Mesh"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:95
+msgid "Form Factor"
+msgstr "Фактор Форми -- Form Factor"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:93
+msgid ""
+"For affecting the Inertia Tensor. The higher the value, the greater the "
+"rotational inertia, and thus the more resistant to torque. You might "
+"think this is strange, considering Dynamic types do not have torque in "
+"response to collisions -- but you can still see this value's effects when"
+" you manually apply Torque."
+msgstr ""
+"Для впливу тензора інерції -- Inertia Tensor. Чим вище це значення, тим "
+"більша обертальна інерція і звідси більший опір до крутного моменту. Ви "
+"можете подумати, що це дивно, що типи Dynamic не мають крутного моменту у"
+" відповідь на зіткнення -- але ви можете все ще бачити впливи цього "
+"значення, коли вручну застосовуєте Крутний момент -- Torque."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:98
+msgid "Anisotropic Friction"
+msgstr "Анізотропне Тертя -- Anisotropic Friction"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:98
+msgid ""
+"Isotropic friction is identical at all angles. Anisotropic is "
+"directionally-dependent. Here you can vary the coefficients for the three"
+" axes individually, or disable friction entirely."
+msgstr ""
+"Ізотропне тертя є ідентичним в усіх кутах. Анізотропія є залежною від "
+"напрямку. Тут ви можете варіювати коефіцієнтами для трьох осей "
+"індивідуально або повністю вимкнути тертя."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:106
+msgid "Velocity"
+msgstr "Скорість -- Velocity"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:101
+msgid "Limit the speed of an object."
+msgstr "Ліміт швидкості об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:104
+msgid "Minimum"
+msgstr "Мінімум -- Minimum"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:104
+msgid ""
+"The object is allowed to be at complete rest, but as soon as it "
+"accelerates it will immediately jump to the minimum speed."
+msgstr ""
+"Об'єкту дозволяється бути повністю у спокої, але як тільки він "
+"прискорюється, то він негайно стрибне у цю мінімальну швидкістю."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:106
+msgid "Maximum"
+msgstr "Максимум -- Maximum"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:107
+msgid "Top speed of the object."
+msgstr "Найвища швидкість об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:114
+msgid "Damping"
+msgstr "Згасання -- Damping"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:109
+msgid "Increase the \"sluggishness\" of the object."
+msgstr "Збільшує «млявість» об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:111
+msgid "Translation"
+msgstr "Пересування -- Translation"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:112
+msgid "Resist movement (0 - 1). At 1 the object is completely immobile."
+msgstr "Опирання переміщенню (0 - 1). В 1 об'єкт є повністю нерухомим."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:114
+msgid "Rotation"
+msgstr "Обертання -- Rotation"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:114
+msgid ""
+"Resist rotation, but not the kind of rotation that comes from a "
+"collision. For example, if a Motion Controller applies Torque to an "
+"object, this damping will be a factor."
+msgstr ""
+"Опирання обертанню, але це не вид обертання, що походить від зіткнення. "
+"Наприклад, якщо Контролер Motion застосовує Torque до об'єкта, то це "
+"згасання буде фактором."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:117
+msgid "Lock Translation"
+msgstr "Блокувати Пересування -- Lock Translation"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:117
+msgid ""
+"Seize the object in the world along one or more axes. Note that this is "
+"global coordinates, not local or otherwise."
+msgstr ""
+"Схоплює об'єкт у світі уздовж однієї чи кількох осей. Зауважте, що це "
+"глобальні координати, на локальні чи інші."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:121
+msgid "Lock Rotation"
+msgstr "Блокувати Обертання -- Lock Rotation"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:120
+msgid ""
+"Rigid body only -- Same, but for rotation (also with respect to the "
+"global coordinates)."
+msgstr ""
+"Тільки для Rigid Body -- Так само, але для обертання (також відносно "
+"глобальних координат)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:128
+msgid ""
+"The first thing you must understand is the idea of the 3D Bounding Box. "
+"If you run through all the vertices of a mesh and record the lowest and "
+"highest x values, you have found the *x min/max* the complete boundary "
+"for all x values within the mesh. Do this again for y and z, then make a "
+"rectangular prism out of these values, and you have a *Bounding Box*. "
+"This box could be oriented relative globally to the world or locally to "
+"the object's rotation."
+msgstr ""
+"Перша річ, яку ви повинні розуміти, -- це ідея межової або Габаритної "
+"Коробки -- 3D Bounding Box. Якщо ви пройдете через усі вершини сіті та "
+"запишете найнижчі та найвищі значення X, ви знайшли *x min/max* повної "
+"границі для усіх значень X у межах сіті. Зробіть це знову для Y та Z, "
+"далі зробіть прямокутну призму з цих значень і ви маєте габаритну коробку"
+" -- *Bounding Box*. Ця коробка може бути орієнтована глобально відносно "
+"світу або локально відносно обертання об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:136
+msgid ""
+"Demonstration of a Local Bounding Box (left) and a Global Bounding Box "
+"(right)."
+msgstr ""
+"Демонстрація Локальної Габаритної Коробки (зліва) та Глобальної "
+"Габаритної Коробки (справа)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:138
+msgid "The *x extent*, then, is half of the distance between the x min/max."
+msgstr "Далі, протяг *x extent* -- це половина відстані між x min/max."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:140
+msgid ""
+"Throughout all of this you must be cognizant of the Object Origin. For "
+"the Game engine, the default :kbd:`Shift-Ctrl-Alt-C`, :kbd:`3` or "
+":menuselection:`Set Origin --> Origin to Geometry` is unlikely to get the"
+" desired placement of the Collision Bounds that you want. Instead, you "
+"should generally set the origin by looking at the Tool Shelf after you do"
+" the *Set Origin*, and changing the *Center* from *Median Center* to "
+"*Bounds Center*. Blender will remember this change for future :kbd"
+":`Shift-Ctrl-Alt-C` executions."
+msgstr ""
+"При цьому всьому ви повинні бути обізнані про початок об'єкта -- Object "
+"Origin. Для рушія Game engine, стандартні :kbd:`Shift-Ctrl-Alt-C`, "
+":kbd:`3` чи :menuselection:`Set Origin --> Origin to Geometry` навряд чи "
+"дадуть бажане поміщення Меж Зіткнення, як ви бажаєте. Натомість, ви "
+"повинні, як правило, задати початок, змінивши у нижній частині Tool Shelf"
+" після задіяння команди *Set Origin* для опції *Center* значення з "
+"*Median Center* на *Bounds Center*. Blender запам'ятає цю зміну для "
+"майбутніх виконань :kbd:`Shift-Ctrl-Alt-C`."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:147
+msgid ""
+"All Collision Bounds are centered on this origin. All boxes are oriented "
+"locally, so object rotation matters."
+msgstr ""
+"Усі Межі Зіткнення центруються на цьому початку. Усі коробки орієнтуються"
+" локально, а тому має значення обертання об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:151
+msgid "Setting the origin to Bounds Center instead of Median Center."
+msgstr "Установлення початку у Bounds Center замість Median Center."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:153
+msgid ""
+"A final introductory comment: When you set the Collision Bounds on an "
+"object, Blender will attempt to display a visualization of the bounds in "
+"the form of a dotted outline. Currently, there is a bug: *The 3D View* "
+"does not display this bounds preview where it actually will be during the"
+" game. To see it, go to :menuselection:`Game --> Show Physics "
+"Visualization` and look for the white (or green, if sleeping) geometry."
+msgstr ""
+"Фінальний ввідний коментар: Коли ви установлюєте Collision Bounds на "
+"об'єкті, Blender спробує показати візуалізацію цих меж у формі "
+"пунктирного контуру. Поточно це вада: *3D View* не показує передогляд цих"
+" меж там, де він фактично буде у ході гри. Щоб бачити його, увімкніть "
+":menuselection:`Game --> Show Physics Visualization` та віднайдіть білу "
+"(або зелену, при спанні) геометрію."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:160
+msgid ""
+"Now we can explain the various options for the *Collision Bounds* "
+"settings:"
+msgstr "Тепер, ми можемо пояснити різні опції для устав *Collision Bounds*:"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:163
+msgid "Default"
+msgstr "Стандартно -- Default"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:163
+msgid ""
+"For Dynamic and Static objects, it is a Triangle Mesh (see below). For "
+"everything else, it is a Sphere (see below)."
+msgstr ""
+"Для об'єктів з типами Dynamic та Static це є Трибічникова Сіть -- "
+"Triangle Mesh (дивіться нижче). Для всього іншого -- це Сфера -- Sphere "
+"(дивіться нижче)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:167
+msgid "Capsule"
+msgstr "Капсула -- Capsule"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:166
+msgid ""
+"Which is a cylinder with hemispherical caps, like a pill. Radius of the "
+"hemispheres is the greater of the X or Y extent. Height is the Z bounds."
+msgstr ""
+"Що є циліндром з півсферичними торцями, як пігулка. Радіус цих півсфер є "
+"більшим від протягу X чи Y. Висота -- це межі по Z."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:170
+msgid "The X, Y, Z bounding box, as defined above."
+msgstr "Габаритна коробка по X, Y, Z, як визначено вище."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:173
+msgid "Sphere"
+msgstr "Сфера -- Sphere"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:172
+msgid ""
+"Radius is defined by the object's scale (visible in the N properties "
+"panel) times the physics radius (can be found in :menuselection:`Physics "
+"--> Attributes --> Radius`). Note: This is the only bounds that respects "
+"the Radius option."
+msgstr ""
+"Радіус визначається масштабом об'єкта (видимий в регіоні N Properties), а"
+" не радіусом фізики (може бути знайдений у :menuselection:`Physics --> "
+"Attributes --> Radius`). Примітка: Це єдині межі, на які діє опція "
+"Radius."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:176
+msgid "Cylinder"
+msgstr "Циліндр -- Cylinder"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:176
+msgid "Radius is the greater of the x or y extent. Height is the z bounds."
+msgstr "Радіус є більшим, ніж протяг X або Y. Висота -- це межі по Z."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:179
+msgid "Cone"
+msgstr "Конус -- Cone"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:179
+msgid "Base radius is the greater of the x or y extent. Height is the z bounds."
+msgstr "Базовий радіус є більшим, ніж протяг X або Y. Висота -- це межі по Z."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:182
+msgid "Forms a shrink-wrapped, simplified geometry around the object."
+msgstr "Формує обгортальну, спрощену геометрію навколо об'єкта."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:187
+msgid "A convex hull sketch."
+msgstr "Обрис опуклою оболонкою."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:190
+msgid "Triangle mesh"
+msgstr "Трикутникова Сіть Сіть -- Triangle Mesh"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:190
+msgid ""
+"Most expensive, but most precise. Collision will happen with all of "
+"triangulated polygons, instead of using a virtual mesh to approximate "
+"that collision."
+msgstr ""
+"Більш ресурсозатратно, але й більш точно. Зіткнення будуть відбуватися з "
+"усіма тріангульованими полігонами, замість використання віртуальної сіті "
+"для приблизного імітування такого зіткнення."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:204
+msgid "By Hand"
+msgstr "Межі вручну -- By Hand"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:193
+msgid ""
+"This is not an option in the Physics tab's Collision Bounds settings, but"
+" a different approach, entirely. You create a second mesh, which is "
+"invisible, to be the physics representation. This becomes the parent for "
+"your display object. Then, your display object is set to ghost so it does"
+" not fight with the parent object. This method allows you to strike a "
+"balance between the accuracy of *Triangle Mesh* with the efficiency of "
+"some of the others. See the demo of this in the dune buggy to the right."
+msgstr ""
+"Це не опція в уставах Collision Bounds вкладки Physics, а цілком інший "
+"підхід зроблення меж зіткнення. Ви створюєте другу сіть, яка є невидимою,"
+" що буде представленням фізики. Вона стане предком для вашого "
+"показуваного об'єкта. Далі, ваш показуваний установлюється як Ghost, щоб "
+"він не боровся з цим предківським об'єктом. Цей метод дозволяє вам "
+"отримати баланс між точністю *Triangle Mesh* та ефективністю деяких "
+"інших. Дивіться демо цього на ілюстрації з баггі."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:203
+msgid "Another way to create Collision Bounds -- By hand."
+msgstr "Інший спосіб створення Collision Bounds -- Вручну."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:209
+msgid "There are only two options in the Collision Bounds subpanel."
+msgstr "Є тільки дві опції на панелі Collision Bounds."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:218
+msgid "Margin"
+msgstr "Припуск -- Margin"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:212
+msgid ""
+"\"Add extra margin around object for collision detection, small amount "
+"required for stability.\" If you find your objects are getting stuck in "
+"places they should not, try increasing this to, say, 0.06."
+msgstr ""
+"«Додає додатковий припуск навколо об'єкта для виявлення зіткнення, "
+"вимагається мала величина для стабільності». Якщо ви виявите, що ваші "
+"об'єкти застрягли у місцях, де вони не повинні це робити, спробуйте "
+"збільшити це, скажімо, до 0.06."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:215
+msgid ""
+"Sometimes 0.06 is the default (such as on the Default Cube), but "
+"sometimes it is not. You have to keep an eye on the setting, or else "
+"learn the symptoms so you can respond when it gives you trouble. If you "
+"are lazy/paranoid/unsure/diligent/bored, you can always run this on the "
+"Python Console to bump all 0.0 margins to 0.06: for ``obj`` in "
+"``bpy.data.objects``: ``obj.game.collision_margin = "
+"obj.game.collision_margin`` or 0.06"
+msgstr ""
+"Інколи 0.06 є стандартом (наприклад, для Стандартного Куба), а іноді і "
+"ні. Ви повинні стежити за цією уставою або вивчити симптоми, щоб ви могли"
+" реагувати, коли це спричиняє проблему. Якщо ви "
+"ліниві/параноїдальні/невпевнені/ретельні/надокучливі, ви можете завжди "
+"виконувати це на консолі Python Console для вибивання усіх припусків від "
+"0.0 до 0.06: для ``obj`` в ``bpy.data.objects``: "
+"``obj.game.collision_margin = obj.game.collision_margin`` або 0.06"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:226
+msgid "Compound"
+msgstr "Поєднання -- Compound"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:221
+msgid ""
+"\"Add children to form compound collision object.\" Basically, if you "
+"have a child object and do not have this enabled, the child's collisions "
+"will not have an effect on that object \"family\" (though it will still "
+"push other objects around). If you do have it checked, the parent's "
+"physics will respond to the child's collision (thus updating the whole "
+"family)."
+msgstr ""
+"«Додає нащадків для формування складеного об'єкта зіткнення». Базово, "
+"якщо ви маєте нащадковий об'єкт та не увімкнули це, то зіткнення цього "
+"нащадка не буде впливати на «родину» об'єкта (хоча він все ще "
+"штовхатиметься іншими об'єктами навколо). Якщо ви увімкнули це, то фізика"
+" предка буде реагувати на зіткнення нащадка (звідси, оновиться уся "
+"родина)."
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:229
+msgid "Create Obstacle"
+msgstr "Створити Перешкоду -- Create Obstacle"
+
+#: ../../manual/game_engine/physics/types/rigid_body.rst:231
+msgid "Todo"
+msgstr "Todo"
+

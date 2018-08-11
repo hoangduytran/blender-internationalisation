@@ -1,0 +1,369 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Аналіз Полігональної Сітки (Mesh Analysis) &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/mesh_analysis.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Криві -- Curves" href="../curves/index.html" />
+    <link rel="prev" title="Відображення полігональної сітки (Mesh Display)" href="mesh_display.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Аналіз Полігональної Сітки (Mesh Analysis)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overhang">Нависання (Overhang)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#thickness">Товщина (Thickness)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intersections">Перетин (Intersections)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#distortion">Викривлення (Distortion)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sharp-edges">Гострі ребра (Sharp Edges)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+      <li>Аналіз Полігональної Сітки (Mesh Analysis)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/meshes/mesh_analysis.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mesh-analysis">
+<span id="bpy-types-meshstatvis"></span><h1>Аналіз Полігональної Сітки (Mesh Analysis)<a class="headerlink" href="#mesh-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Довідка</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Mesh Analysis</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Аналіз полігональної сітки є корисним для відображення атрибутів сітки, що може вплинути на певні випадки використання.</p>
+<p>Аналіз полігональної сітки працює в <em>Режимі редагування (Edit Mode)</em> та із затіненням вікна перегляду <em>Solid</em>. Він показує області із найвищими значеннями червоним кольором та області із найнижчими - синім. Геометрія поза діапазоном відображається сірим кольором.</p>
+<p>Currently the different modes target 3D printing as their primary use.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>Є кілька відомих обмежень з аналізу полігональної сітки:</p>
+<ul class="last simple">
+<li>У даний час відображається лише з Модифікаторами Деформування (Deform Modifiers).</li>
+<li>For high-poly meshes the performance is low while editing.</li>
+</ul>
+</div>
+<div class="section" id="overhang">
+<h2>Нависання (Overhang)<a class="headerlink" href="#overhang" title="Permalink to this headline">¶</a></h2>
+<p>Екструзійні 3D принтери мають фізичні обмеження щодо нависаючих частин, що можуть бути надруковані, цей режим відображення показує нависання з діапазоном кутів на вибором осі.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_mesh-analysis_overhang.png"><img alt="../../_images/modeling_meshes_mesh-analysis_overhang.png" src="../../_images/modeling_meshes_mesh-analysis_overhang.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">Нависання (Overhang).</span></p>
+</div>
+</div>
+<div class="section" id="thickness">
+<h2>Товщина (Thickness)<a class="headerlink" href="#thickness" title="Permalink to this headline">¶</a></h2>
+<p>Принтери мають обмежену <em>товщину стінки</em>, де не можна надрукувати дуже тонкі ділянки, цей тест використовує метод кидання променів (ray casting) та діапазон відстані до товщини геометрії.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_mesh-analysis_thickness.png"><img alt="../../_images/modeling_meshes_mesh-analysis_thickness.png" src="../../_images/modeling_meshes_mesh-analysis_thickness.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Товщина (Thickness).</span></p>
+</div>
+</div>
+<div class="section" id="intersections">
+<h2>Перетин (Intersections)<a class="headerlink" href="#intersections" title="Permalink to this headline">¶</a></h2>
+<p>Іншою поширеною причиною проблем для друку є перетин між поверхнями, де внутрішня/зовнішня частина моделі не може бути надійно виявлена.</p>
+<p>На відміну від інших режимів відображення, перетини не варіюються, а лише вмикаються або вимикаються.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_mesh-analysis_intersections.png"><img alt="../../_images/modeling_meshes_mesh-analysis_intersections.png" src="../../_images/modeling_meshes_mesh-analysis_intersections.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Грані, що перетинаються (Intersecting faces).</span></p>
+</div>
+</div>
+<div class="section" id="distortion">
+<h2>Викривлення (Distortion)<a class="headerlink" href="#distortion" title="Permalink to this headline">¶</a></h2>
+<p>Викривлення геометрії може викликати проблеми, оскільки триангуляція спотвореного багатокутника невизначена.</p>
+<p>Викривлення вимірюється гранями, які є не плоскими, з частинами грані, що вказують у різних напрямках.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_mesh-analysis_distortion.png"><img alt="../../_images/modeling_meshes_mesh-analysis_distortion.png" src="../../_images/modeling_meshes_mesh-analysis_distortion.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Викривлені грані (Distorted Faces).</span></p>
+</div>
+</div>
+<div class="section" id="sharp-edges">
+<h2>Гострі ребра (Sharp Edges)<a class="headerlink" href="#sharp-edges" title="Permalink to this headline">¶</a></h2>
+<p>Подібно до товщини стінки, гострі ребра можуть утворювати форми, які надто тонкі, щоб мати можливість друку.</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/modeling_meshes_mesh-analysis_sharp-edges.png"><img alt="../../_images/modeling_meshes_mesh-analysis_sharp-edges.png" src="../../_images/modeling_meshes_mesh-analysis_sharp-edges.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">Гострі ребра (Sharp Edges).</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../curves/index.html" class="btn btn-neutral float-right" title="Криві -- Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mesh_display.html" class="btn btn-neutral" title="Відображення полігональної сітки (Mesh Display)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

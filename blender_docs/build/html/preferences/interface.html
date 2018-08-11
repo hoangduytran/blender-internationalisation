@@ -1,0 +1,451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>«Інтерфейс» -- Interface &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/preferences/interface.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="«Правка» -- Editing" href="editing.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Уподобання Користувача -- User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Вкладки -- Tabs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">«Інтерфейс» -- Interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#display">Показ -- Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#warnings">Попередження -- Warnings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#view-manipulation">Маніпуляція Оглядом -- View Manipulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-viewports">2D Оглядвікна -- 2D Viewports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menus">Меню -- Menus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pie-menus">Кругові Меню -- Pie Menus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splash">Заставка -- Splash</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">«Правка» -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">«Увід» - Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addons.html">«Додатки» -- Add-ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">«Теми» -- Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html">«Файл» -- File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">Система -- System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Уподобання Користувача -- User Preferences</a> &raquo;</li>
+        
+      <li>«Інтерфейс» -- Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/interface.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="interface">
+<span id="bpy-types-userpreferencesview"></span><h1>«Інтерфейс» -- Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h1>
+<p>Конфігурація у вкладці «Інтерфейс» дозволяє вам змінювати те, як елементи КІ будуть показуватися те, як вони будуть реагувати.</p>
+<div class="figure">
+<img alt="../_images/preferences_interface_tab.png" src="../_images/preferences_interface_tab.png" />
+</div>
+<div class="section" id="display">
+<h2>Показ -- Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Scale</dt>
+<dd>Adjusts the size of fonts and buttons relative to the automatically detected DPI.
+During typical usage, you may prefer to use zoom which is available in many parts of Blender interface.</dd>
+<dt>Line Width</dt>
+<dd><p class="first">Scale of lines and points in the interface e.g. button outlines, edges and vertex points in the 3D View.</p>
+<p class="last">Thin, Auto, Thick</p>
+</dd>
+<dt>Підказки -- Tooltips</dt>
+<dd>При увімкненні спливна підказка показується при наведенні над контролером вказівника миші. Ця підказка пояснює функцію, контролер якого під вказівником, дає інфо про асоційоване з нею клавіатурне скорочення (якщо таке є) та функцію Python, яка посилається на неї.</dd>
+<dt>Підказки Python -- Python Tooltips</dt>
+<dd>Показує інформацію про властивість Python для функції нижче під основною підказкою.</dd>
+<dt>Інфо Об'єкта -- Object Info</dt>
+<dd>Показує ім'я активного Об'єкта та номер кадру у нижньому лівому кутку 3D Огляду -- 3D View.</dd>
+<dt>Великі Курсори -- Large Cursors</dt>
+<dd>При увімкненні показує курсори миші великими, наприклад, у Режимі Правки.</dd>
+<dt>Ім'я Огляду -- View Name</dt>
+<dd>Display the name and type of the current view in the top left corner of the 3D View.
+For example: <em>User Perspective</em> or <em>Top Orthographic</em>.</dd>
+<dt>Частота кадрів Відтворення -- Playback FPS</dt>
+<dd>Показує частоту оновлення екрану у кадрах за секунду при відтворенні анімації. Вона показується у лівому верхньому кутку оглядвікна та забарвлюється у червоний, якщо задана для анімації частота не може бути досягнута при перегляді відтворення.</dd>
+<dt>Сцена Глобально -- Global Scene</dt>
+<dd>Змушує показ поточної сцени у всіх екранах (проект може містити більше, ніж одну сцену).</dd>
+<dt>Розмір Початку Об'єкта -- Object Origin Size</dt>
+<dd>Diameter of 3D Object centers in the viewport (value in pixels from 4 to 10).</dd>
+<dt>Показувати Міні Осі -- Display Mini Axis</dt>
+<dd>Показує міні осі у нижньому лівому кутку оглядвікна.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Розмір міні осей.</dd>
+<dt>Яскравість -- Brightness</dt>
+<dd>Коригує яскравість міні осей.</dd>
+</dl>
+</div>
+<div class="section" id="warnings">
+<h2>Попередження -- Warnings<a class="headerlink" href="#warnings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Нагадування при Виході -- Prompt Quit</dt>
+<dd>When exiting Blender, a pop-up will ask you whether or not you really want to quit
+(currently only available on MS-Windows).</dd>
+</dl>
+</div>
+<div class="section" id="view-manipulation">
+<h2>Маніпуляція Оглядом -- View Manipulation<a class="headerlink" href="#view-manipulation" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Глибина під Курсором -- Cursor Depth</dt>
+<dd>Використовує глибину під вказівником миші при розміщенні курсора.</dd>
+</dl>
+<dl class="docutils" id="prefs-auto-depth">
+<dt>Авто-Глибина -- Auto Depth</dt>
+<dd>Використовує глибину під вказівником миші для покращеної функціональності панорамування, обертання та зумування огляду. Корисно у комбінації з увімкненою опцією «Зумування До Позиції Миші» -- <em>Zoom To Mouse Position</em>.</dd>
+</dl>
+<dl class="docutils" id="prefs-zoom-mouse-pos">
+<dt>Зумування До Позиції Миші -- Zoom to Mouse Position</dt>
+<dd>При увімкненні позиція вказівника миші стає фокусною точкою зумування замість центру 2D вікна. Корисно для уникання панорамування, якщо ви часто зумуєте (присуваєте та відсуваєте) огляд.</dd>
+<dt>Оберт Навколо Виділення -- Rotate Around Selection</dt>
+<dd><p class="first">Виділений об'єкт (центр габаритної коробки) стає центром обертання оглядвікна. При взагалі відсутності поточно будь-якого виділення використовується центр останнього зробленого виділення.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Це може здатися ідеальною поведінкою. Однак, це може стати і проблематичним з великими об'єктами такими, як сіть місцевості, де центр є не обов'язково вашою точкою інтересу.</p>
+</div>
+</dd>
+<dt>Глобальна Опорна точка -- Global Pivot</dt>
+<dd>Фіксує одну і ту ж опорточку обертання/масштабування у всіх 3D Оглядах.</dd>
+<dt>Зблокувати Камеру з Предком -- Camera Parent Lock</dt>
+<dd>Коли камера зблокована з оглядом та знаходиться у навігаційному режимі «Політ, трансформуватися буде предок-огляд, а не сама камера.</dd>
+</dl>
+<dl class="docutils" id="prefs-interface-auto-perspective">
+<dt>Авто Перспектива -- Auto Perspective</dt>
+<dd>Автоматично додатково перемикає на Ортогональні огляди Зверху/Збоку/Спереду після перемикання з перспективного огляду. При вимкненні, огляди Зверху/Збоку/Спереду залишатимуться при перемиканні Ортогональними або Перспективними (залежно від того, який вид був перед перемиканням).</dd>
+<dt>Згладжений Огляд -- Smooth View</dt>
+<dd>Тривалість часу анімування огляду при зміні виду огляду за допомогою цифроблоку (Зверху/Збоку/Спереду/Камера...). Нульове значення вилучає цю анімацію.</dd>
+<dt>Кут Обертання -- Rotation Angle</dt>
+<dd>Розмір кроку обертання 3D Огляду у градусах при використанні скорочень <kbd class="kbd docutils literal notranslate">Numpad4</kbd>, <kbd class="kbd docutils literal notranslate">Numpad6</kbd>, <kbd class="kbd docutils literal notranslate">Numpad8</kbd>, або <kbd class="kbd docutils literal notranslate">Numpad2</kbd>.</dd>
+</dl>
+</div>
+<div class="section" id="d-viewports">
+<h2>2D Оглядвікна -- 2D Viewports<a class="headerlink" href="#d-viewports" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Мінімум Проміжку Сітки -- Minimum Grid Spacing</dt>
+<dd>Мінімальна кількість пікселів між лініями сітки у 2D (тобто, ортогональному зверху) оглядвікні.</dd>
+<dt>Стиль Час-Коду -- Time Code Style</dt>
+<dd>Формат час-кодів, що показується, коли не відображається часування у термінах кадрів. Цей формат використовує '+' як роздільний для під-секундних номерів кадрів, з обрізанням зліва та справа часкоду при необхідності.</dd>
+<dt>Тип Зумування до Кадру -- Zoom To Frame Type</dt>
+<dd><p class="first">Як зумування до кадру фокусує навколо поточного кадру.</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Утримання Діапазону -- Keep Range:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Todo.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Секунди -- Seconds:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Todo.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ключкадри -- Keyframes:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Todo.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<dl class="docutils" id="prefs-interface-manipulator">
+<dt>Маніпулятор -- Manipulator</dt>
+<dd>Turns manipulator on and off.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Діаметр маніпулятора 3D трансформацій.</dd>
+<dt>Розмір Держака -- Handle Size</dt>
+<dd>Розмір держаків маніпулятора 3D трансформацій, як відсоток від радіусу маніпулятора (<em>size</em>/ 2).</dd>
+<dt>Активна зона -- Hotspot</dt>
+<dd>Розмір активної зони (у пікселях) для клацання на держаках маніпулятора.</dd>
+</dl>
+</div>
+<div class="section" id="menus">
+<h2>Меню -- Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Відкривати при Наведенні Миші -- Open on Mouse Over</dt>
+<dd>Вмикання цього дає відкривання меню після просто поміщення вказівника миші над його записом, замість необхідності здійснення клацку по ньому.</dd>
+<dt>Затримка Відкриття Меню -- Menu Open Delay</dt>
+<dd>Час для відкриття меню.</dd>
+<dt>Верхній Рівень -- Top Level</dt>
+<dd>Часова затримка в одиницях 1/10 секунди перед відкриттям меню (опція <em>Open on Mouse Over</em> повинна бути увімкнена).</dd>
+<dt>Під-Рівень -- Sub Level</dt>
+<dd>Подібно до «Верхній Рівень», але для під-меню (наприклад: <span class="menuselection">File ‣ Open Recent</span>).</dd>
+</dl>
+</div>
+<div class="section" id="pie-menus">
+<span id="prefs-pie-menu"></span><h2>Кругові Меню -- Pie Menus<a class="headerlink" href="#pie-menus" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Час Анімації -- Animation Timeout</dt>
+<dd>Тривалість анімації при відкритті Кругових Меню.</dd>
+<dt>Час Перецентрування -- Recenter Timeout</dt>
+<dd>Система вікон намагається зберігати кругові меню у межах вікна. Кругові меню будуть використовувати початкову позицію вказівника миші як центр задану тут тривалість часу, що вимірюється в одиницях 1/100 секунди. Це дозволяє швидко перетягувати виділення.</dd>
+<dt>Радіус -- Radius</dt>
+<dd>Розмір набору Кругового Меню з відстанню (у пікселях) елементів меню від його центру.</dd>
+<dt>Поріг -- Threshold</dt>
+<dd>Відстань від центру перед тим, як можна буде зробити вибір елемента меню.</dd>
+<dt>Поріг Підтвердження -- Confirm Threshold</dt>
+<dd>Поріг відстані, після якого робиться вибір (значення нуль його вимикає).</dd>
+</dl>
+</div>
+<div class="section" id="splash">
+<h2>Заставка -- Splash<a class="headerlink" href="#splash" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Показати Заставку -- Show Splash</dt>
+<dd>Показує <a class="reference internal" href="../interface/splash.html#splash"><span class="std std-ref">Екран Заставки -- Splash Screen</span></a> при запуску Blender'а.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="editing.html" class="btn btn-neutral float-right" title="«Правка» -- Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

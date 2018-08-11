@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Міркування щодо продуктивності -- Performance Considerations &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/optimizations/performance.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Cycles Renderer" href="../../cycles/index.html" />
+    <link rel="prev" title="Якість зобража, рендера -- Render Quality" href="quality.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="quality.html">Якість зобража, рендера -- Render Quality</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Міркування щодо продуктивності -- Performance Considerations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a> &raquo;</li>
+        
+      <li>Міркування щодо продуктивності -- Performance Considerations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/optimizations/performance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performance-considerations">
+<h1>Міркування щодо продуктивності -- Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="optimizing-render-performance">
+<h2>Оптимізація продуктивності зображування, рендерингу -- Optimizing Render Performance<a class="headerlink" href="#optimizing-render-performance" title="Permalink to this headline">¶</a></h2>
+<p>«Просто споглядуваний горщик ніколи не закипить» -- старе прислів'я, але ви можете дивуватися, чому для створення зобража треба так багато часу, або гірше, чому трапляються збої у ході рендерингу! Ну, там багато чого відбувається, і багато з чого ви можете зробити, щоб пришвидшити зображування, рендеринг, або довести до кінця складний зображ, рендер. Також, можливим є рендерити, зображувати дуже складну сцену на посередньому комп'ютері, будучи вправним у процесі зображування. Тут є «десятка» речей, що робити або не робити, щоб прискорити рендеринг або навіть запобігти збоям у ході зображування сцени. Деякі опції можуть зменшити якість зобража, але для його чорнових варіантів висока якість може і не знадобитися.</p>
+<p>Якщо ви отримали повідомлення &quot;Malloc returns nil&quot; -- «Розподільник пам'яті повертає нуль», то простою мовою це означає, що розподільник пам'яті намагається отримати більше фізичної пам'яті для Blender'а, якої немає. Це означає, що у вас немає достатньо пам'яті, доступної та зображування сцени, і Blender не може продовжувати. Вам потрібно буде зробити одну або кілька дій, описаних тут нижче, щоб зробити зображування, рендеринг.</p>
+</div>
+<div class="section" id="hardware-improvements">
+<h2>Покращення устаткування -- Hardware Improvements<a class="headerlink" href="#hardware-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Додайте у систему більше оперативної пам'яті.</li>
+<li>Оновіть процесор на багатоядерний.</li>
+<li>Оновіть відео драйвери OpenGL.</li>
+<li>Для пришвидшення пам'яті підвищіть ліміт материнської плати.</li>
+<li>Складіть рендер-ферму на базі усіх доступних комп'ютерів у вашому домі або скористайтеся зовнішньою рендер-фермою.</li>
+</ul>
+</div>
+<div class="section" id="operating-system-configuration">
+<h2>Конфігурування операційної системи -- Operating System Configuration<a class="headerlink" href="#operating-system-configuration" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Збільште пріоритет Blender'а в операційній системі.</li>
+<li>Збільште файл підкачки, використовуваний операційною системою, що також зветься «файл віртуальної пам'яті», до розміру, як у фізичної пам'яті.</li>
+<li>Скористайтеся монітором системи для перевірки, чи не можуть інші процеси, що суттєво використовують процесор або пам'ять, бути закриті.</li>
+<li>Зображуйте, рендеріть у <em>фоновому режимі</em> (з командного рядка), що дає заощадження пам'яті.</li>
+</ul>
+</div>
+<div class="section" id="blender-settings">
+<h2>Устави Blender'а -- Blender Settings<a class="headerlink" href="#blender-settings" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Збільште ліміт кешу MEM Cache Limit у параметрах системи та OpenGL у вікні «Уподобання Користувача» -- User Preferences.</li>
+<li>Перемкніться на Ортогональний огляд камери та рендерте частини сцени як окремі зображення, а потім складіть ці частини у редакторі GIMP. Стара хитрість отримання панорами за допомогою реальної камери -- відзняти три або більше картинок дуже широкої сцени (наприклад, захід сонця на пляжі), при якій ви знімаєте одну картинку, обертаєте камеру управо, знімаєте наступну, так само ще наступну, а потім складаєте їх докупи для отримання зображення дуже широкого пейзажу. Робіть так само у Blender'і: рендерте один знімок у файл, далі пересуньте камеру на іншу точку огляду сцени та рендерте наступний знімок. Кожен такий знімок буде містити меншу область і звідси охоплювати для обробки менше полігонів/граней. Переконайтеся, що ви розміщуєте вашу камеру так, щоб далі ви могли стикувати ці знімки. Якщо ви не хочете використовувати GIMP, то можете скористатися компонівними вузлами, зокрема, і вузлом «Пересув» -- Translate, для складання цих знімків у самому Blender'і.</li>
+<li>Minimize the render window (and the Blender window, if the UV/Image editor is used).
+ATI users report dramatic speed-up on a per-frame basis, which adds up over the frame range.</li>
+<li>Скористайтеся скриптами (Big Render, Render Regions тощо) для рендерингу окремих частин усього зображення, а потім складіть ці частини докупи.</li>
+</ul>
+</div>
+<div class="section" id="scene-and-specific-objects">
+<h2>Сцена та специфічні об'єкти -- Scene and Specific Objects<a class="headerlink" href="#scene-and-specific-objects" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Вилучіть лампи або перемістіть їх на шари, що не будуть рендеритися, чи розгрупуйте їх по шарам сцени.</li>
+<li>Вимкніть тіні для ламп, використавши лише одну чи дві головні сонцеві лампи для відкидання тіней. Кілька освітлювачів, увімкнені лише на відкидання тіней (&quot;shadows only&quot;), дадуть швидше зображування, ніж рендеринг і світла, і тіні на кожній лампі.</li>
+<li>Використайте, де можна Буферні Тіні -- Buffer Shadows, а не Промінь-простежені Тіні -- Ray-traced Shadows.</li>
+<li>Запечіть тіні за допомогою опції «Повний Зображ» -- Full Render на поверхнях, що не будуть рухатися у кадрі. Накладіть запечену текстуру на сіть та вимкніть тіні для матеріалів на ній.</li>
+<li>Спростіть сіті (вилучіть зайві полігони). Чим більше вершин потрапляє у кадр камери, тим більше часу треба на його зображ, рендер.</li>
+<li>Вилучіть дублі компонентів сіті або скористайтеся функцією очищення для сітей.</li>
+<li>Вилучіть з об'єктів модифікатори «Підподіл Поверхні» -- Subdivision Surface та «Багатороздільність» -- Multiresolution.</li>
+<li>Видаліть задні сторони сітей (вилучіть невидиму у кадрі геометрію).</li>
+<li>Рендерте, зображуйте лише кілька об'єктів за раз; на початку вашого проекту відрендерте об'єкти фону та реквізит, що не будуть змінюватися та завжди знаходитимуться на фоні.</li>
+<li>Розмістіть будівлі на іншому шарі, і, за допомогою шарів зобража, не рендерте їх поки. Потім додасте їх у композицію пізніше.</li>
+<li>Зробіть камеру статичною для кращого здійснення двох попередніх пунктів цього списку.</li>
+<li>Уникайте використання освітлювачів типу «Площина» -- Area.</li>
+<li>Увімкніть для матеріалів безвідтінковість Shadeless.</li>
+<li>Запечіть зображ Загороди Оточення -- AO та текстур і далі увімкніть для їх матеріалів безвідтінковість Shadeless.</li>
+<li>Зменште відстань Відсіку -- Clip для освітлювачів типу «Прожектор» -- Spot.</li>
+<li>Зменште відстань Відсіку -- Clip для камери.</li>
+<li>Вимкніть Загороду Оточення -- AO для світу сцени.</li>
+<li>Вимкніть для матеріалів опцію підповерхневого розсіювання SSS.</li>
+<li>Використовуйте зображеннєві текстури меншого розміру. Зображення з розміром 256×256 бере тільки 1% пам'яті, яку потребує зображення з розміром 2К (2048×...), часто без втрати якості на фінальному зображі.</li>
+<li>Скоротіть рівні Підподілів Поверхні. Кожен рівень множить на чотири (4х) кількість граней з попереднього рівня.</li>
+<li>Скоротіть рівні Багатороздільності.</li>
+<li>Зробіть матовий зображ фонових об'єктів, таких як будівлі, та поставте їх зображення на плакатні площини на фоні у сцені, замість самих повноцінних об'єктів. Це скоротить рахунок вершин/граней.</li>
+<li>Якщо ви маєте багато пов'язаних між собою екземплярів одного об'єкта, то скористайтеся функцією «Дубль-Грані» -- DupliFaces для їх примірникування. Якщо ви маєте 100 таких об'єктів, то за допомогою цієї функції Blender буде зберігати геометрію тільки для одного. (Примірники самі потребують незначну кількість пам'яті).</li>
+</ol>
+</div>
+<div class="section" id="render-settings">
+<h2>Устави Зображування, рендерингу -- Render Settings<a class="headerlink" href="#render-settings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Панелі «Вивід» -- <a class="reference internal" href="../../output/output.html"><span class="doc">Output Panel</span></a></dt>
+<dd><ul class="first last simple">
+<li>Вимкніть опцію «Контур» -- <em>Edge</em> на панелі «Після Обробка» -- Post Processing.</li>
+<li>Увімкніть опцію «Зберегти Буфери» -- <em>Save Buffers</em> на панелі «Продуктивність» -- Performance.</li>
+<li>Render to a <a class="reference internal" href="../../../editors/uv_image/index.html#editors-uv-image-index"><span class="std std-ref">UV/Image Editor</span></a>,
+not a pop-up. <a class="reference internal" href="../../output/render_panel.html"><span class="doc">Render Window</span></a>.</li>
+<li>Використовуйте на багатопроцесорному процесорі багато потоків <em>Threads</em> (з багатьма частинами <em>Parts</em>).</li>
+<li>Decrease the frame count of the animation (and use a lower frame rate for the same duration of animation).
+For example, render 30 frames at 10 frames per second for a 3-second animation,
+instead of 75 frames at 25 frames per second.</li>
+</ul>
+</dd>
+<dt>Панель «Шари Зобража» -- <a class="reference internal" href="../../post_process/layers.html"><span class="doc">Render Layers Panel</span></a></dt>
+<dd><ul class="first last simple">
+<li>Рендерте тільки Шари, що представляють інтерес.</li>
+<li>Рендерте за допомогою одного простого прожектора замість усіх освітлювачів (уведіть його ім'я у поле <em>Light</em>).</li>
+<li>Рендерте за допомогою заміщення матеріалів одним (уведіть його ім'я у поле Material).</li>
+<li>Вимкніть непотрібні Проходи Зобража -- Render Passes, такі як Z, або рендерте тільки потрібний прохід сам, як Diffuse.</li>
+</ul>
+</dd>
+<dt>Панель «Відтінення» -- Shading Panel</dt>
+<dd><ul class="first last simple">
+<li>Вимкніть «Тіні» -- Shadows.</li>
+<li>Вимкніть «Карта Середовища» -- Environment Mapping.</li>
+<li>Вимкніть Panoramic Rendering.</li>
+<li>Turn off Ray tracing.</li>
+<li>Вимкніть «Підповерхневе Розсіювання» -- Subsurface Scattering.</li>
+<li>Вимкніть або понизьте перебір/загладжування -- oversampling/aliasing OSA.</li>
+<li>Вимкніть або понизьте Розмив Рухом -- Motion Blur.</li>
+<li>Рендерте частинами. Це також дозволить вам рендерити <strong>величезні</strong> зображення на слабкому комп'ютері. На багатоядерному процесорі це призначатиме потік для кожної частини.</li>
+<li>Збільште роздільність октадерева.</li>
+<li>Рендерте у відсотковому розмірі від фінальної роздільності (наприклад, 25%).</li>
+<li>Вимкніть <em>Fields</em> на панелі устав після обробки.</li>
+<li>Використовуйте функцію «Границя Зобража» -- <em>Render Border</em> для зображування частини повного зображення.</li>
+</ul>
+</dd>
+<dt>Панель «Запікання» -- <a class="reference internal" href="../bake.html"><span class="doc">Bake Panel</span></a></dt>
+<dd><ul class="first last simple">
+<li>Bake Full Render creates a UV texture that colors the objects based on materials,
+and then uses that UV texture shadeless instead of the material.</li>
+<li>Запечіть тільки Загороду Оточення -- Ambient Occlusion.</li>
+<li>Запечіть текстури для об'єктів.</li>
+<li>Запечення Нормалей або Зміщення не пришвидшує зображування, рендеринг, та використовується для інших цілей.</li>
+</ul>
+</dd>
+<dt>Панель «Формат» -- <a class="reference internal" href="../../output/output.html"><span class="doc">Format Panel</span></a></dt>
+<dd><ul class="first last simple">
+<li>Рендерте з нижчою роздільністю. Менші картинки потребують менше часу на зображ, рендер.</li>
+<li>Виберіть швидші кодек або устави кодека.</li>
+<li>Рендерте у чорно-білому кольорі (кнопка <em>BW</em>).</li>
+<li>Якщо використовуєте <code class="docutils literal notranslate"><span class="pre">FFMPEG</span></code>, то не активуйте <em>Multiplex audio</em>.</li>
+<li>Якщо використовуєте <code class="docutils literal notranslate"><span class="pre">FFMPEG</span></code>, то увімкніть <em>Autosplit Output</em> (кнопка панелі <em>Video</em>).</li>
+<li>Рендерте тільки RGB, якщо вам просто потрібен колір; канал А (кнопка <em>RGBA</em>) потребує більше пам'яті та не використовується при збереженні файлу фільму.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="multi-pass-compositing">
+<h2>Багато-проходове компонування -- Multi-Pass Compositing<a class="headerlink" href="#multi-pass-compositing" title="Permalink to this headline">¶</a></h2>
+<p>Іншою стратегією, що може використовуватися для вирішення проблеми тривалого часу зображування, рендерингу, є структурування ходу роботи з націленням на етап <em>компонування</em>, що описаний у підрозділі &quot;Post-Production&quot;. Згідно з цим підходом ви розбиваєте кожен знімок на компоненти, які можуть рендеритися окремо, а далі ви комбінуєте ці окремо рендерені елементи у результатний кліп. Наприклад:</p>
+<ul class="simple">
+<li>If the camera is not moving, then neither is the background: only a single frame is needed.
+(The same is true of any non-moving object within the frame). These individual elements,
+having been generated <em>once</em>, can be reused as many times as necessary over as many frames as necessary.</li>
+<li>Тіні та підсвітки можуть бути захоплені окремо від об'єктів, що освітлюються або затінюються, і звідси інтенсивність, колір та глибина ефекту можуть коригуватися пізніше без повторного зображування.</li>
+<li>Починайте з використання освітлювачів, що не відкидають тіні (обчислення тіні є часозатратним). Далі, використовуйте освітлювачі з опцією &quot;shadow-only&quot; (які відкидають тіні, але не світять) для створення <em>тільки</em> тіні там, де потрібно (часто буває, що у сцені мають значення лише кілька тіней, а на інші глядач не звертає уваги).</li>
+<li>Складні ситуації освітлення можна уникати через зображування об'єктів окремо, а далі комбінувати їх окремі зображення та «підправляти» результат.</li>
+</ul>
+<p>Це дуже знайома ідея. Сучасні записи звуку, наприклад, завжди використовують «багато-доріжковий» підхід. Окремі компоненти пісні записуються окремо та в ізоляції, а потім ці компоненти змішуються, «мікшуються» разом. Фінальна суміш, «мікс» далі проходить через додаткові стадії обробки, що звуться <em>мастеринг</em>, для продукування фінального продукту(ів) (фактично, функції та дизайн сучасних програм обробки звуку безпосередньо порівняні з базованим на вузлах компонівником Blender'а).</p>
+<p>Існують переконливі переваги цього підходу:</p>
+<ul class="simple">
+<li>If something is &quot;not quite right&quot;, you do not necessarily have to start over from scratch.</li>
+<li>In practice, the deadline-killer is <em>re</em>-rendering, which ordinarily must be done (in its entirety)
+just because &quot;'one little thing' about the shot is wrong&quot;. Compositing helps to avoid this, because (ideally...)
+only the specific parts that are found to be in error must be repeated (or, maybe,
+the error can be blocked out with a &quot;garbage matte&quot; and a corrected version can be inserted in its place).</li>
+<li>Sometimes you might find that it is <em>almost</em> what you wanted, but now you would like to <em>add</em>
+this and maybe <em>take away</em> that. A compositing-based approach enables you to do just that, and furthermore,
+to do so <em>non-destructively.</em> In other words, having generated the &quot;addition&quot; (or the &quot;mask&quot;)
+as a separate channel of information, you can now fine-tune its influence in the overall &quot;mix&quot;,
+or even change your mind and remove it altogether, all without permanently altering anything.</li>
+<li>By and large, these stages work <em>two</em>-dimensionally, manipulating what is by that time
+&quot;a raster bitmap with R, G, B, Alpha and Z-depth information&quot;, so they are consistently fast.</li>
+<li>Оскільки кожне окреме зображування, рендеринг було спрощене, то комп'ютер здійснив їх з менши використанням ресурсів.</li>
+<li>Зображування можуть бути розподілені по різним комп'ютерам.</li>
+<li>&quot;After all, the scene does not actually have to be <em>physically perfect</em>, to be <em>convincing</em>&quot;.
+A compositing-based approach lets you take full advantage of this. You can focus your attention (and Blender's)
+upon those specific aspects of the scene which will actually make a noticeable difference.
+It is possible to save a considerable amount of time by consciously choosing to exclude
+less-important aspects which (although &quot;technically correct&quot;) probably will not be noticed.</li>
+</ul>
+<p>Of course, this approach is not without its own set of trade-offs. You must devise a workable
+asset management system for keeping track of exactly what material you have, where it is,
+whether it is up-to-date, and exactly how to re-create it. You must understand and
+use the &quot;library linking&quot; features of Blender to allow you to refer to
+objects, nodes, materials, textures and scenes in a carefully-organized collection of other files.
+You need to have a very clear notion, <em>in advance</em>,
+of exactly what the finished shot must consist of and what the task breakdown must be.
+You must be a scrupulous note-taker and record-keeper. But sometimes this is the best way,
+if not the <em>only</em> way, to accomplish a substantial production.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../cycles/index.html" class="btn btn-neutral float-right" title="Cycles Renderer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quality.html" class="btn btn-neutral" title="Якість зобража, рендера -- Render Quality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

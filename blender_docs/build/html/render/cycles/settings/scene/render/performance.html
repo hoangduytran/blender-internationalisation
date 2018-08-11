@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Продуктивність -- Performance &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/settings/scene/render/performance.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Устави Шару Зобража -- Render Layer Settings" href="../render_layers/index.html" />
+    <link rel="prev" title="Розмив Рухом -- Motion Blur" href="motion_blur.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Лампи -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">Вузли -- Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../features.html">Функціональні можливості Рендера, зобража -- Render Features</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Устави Cycles -- Cycles Settings</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Устави Сцени -- Scene Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../objects/index.html">Устави Об'єкта -- Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">Зображування, рендеринг за допомогою графічного процесора відеокарти -- GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Устави Cycles -- Cycles Settings</a> &raquo;</li>
+        
+          <li><a href="../index.html">Устави Сцени -- Scene Settings</a> &raquo;</li>
+        
+          <li><a href="index.html">Устави Рендеринга -- Render Settings</a> &raquo;</li>
+        
+      <li>Продуктивність -- Performance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/cycles/settings/scene/render/performance.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performance">
+<h1>Продуктивність -- Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render ‣ Performance</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="threads">
+<h2>Потоки -- Threads<a class="headerlink" href="#threads" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Режим -- Mode</dt>
+<dd><dl class="first last docutils">
+<dt>Автовизначення -- Auto-detect</dt>
+<dd>Automatically chooses the amount of threads to match the number of logical processors on your computer.</dd>
+<dt>Фіксовано -- Fixed</dt>
+<dd>Manually choose the amount of threads to use for rendering. This can be useful for example,
+if you want to use your computer while rendering, you can set the property
+to a thread count lower the amount of logical processors on your computer.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="tiles">
+<h2>Плитки -- Tiles<a class="headerlink" href="#tiles" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Порядок Плиток -- Tile Order</dt>
+<dd>Порядок рендерингу плиток. Це суттєво не впливає на продуктивність.</dd>
+<dt>Розмір плитки -- Tile size X/Y</dt>
+<dd><p class="first">Розмір плиток для рендерингу.</p>
+<p class="last">Залежно від використовуваного вами пристрою для рендерингу, різні розміри плиток можуть давати швидші рендери. Для рендерингу на CPU плитки малого розміру (наприклад, 32 x 32) дають швидший рендеринг, тоді як для рендерингу на відеокарті -- <a class="reference internal" href="../../../gpu_rendering.html"><span class="doc">GPU rendering</span></a> плитки великого розміру (наприклад, 256 x 256) дають кращу продуктивність та швидший рендеринг.</p>
+</dd>
+<dt>Прогресивне Уточнення -- Progressive Refine</dt>
+<dd><p class="first">Замість завершення рендерингу всіх вибірок кожної плитки вмикає рендеринг шляхом прогресивного уточнення зображення цілком. Зауважте, що прогресивний рендеринг є дещо повільнішим, ніж рендеринг плитками, але він дає можливість заощадження часу, дозволяючи вручну припиняти процес рендера, коли досягнуто досить низький рівень шуму.</p>
+<p class="last">Для рендерингу анімацій рекомендується вимикати цю опцію, оскільки раннє припинення рендерингу кадру не можливе.</p>
+</dd>
+</dl>
+<dl class="docutils" id="render-properties-save-buffers">
+<dt>Зберегти Буфери -- Save Buffers</dt>
+<dd>Saves all render layers and passes to the temp directory on a drive,
+and reads them back after rendering has finished. This saves memory (RAM) usage during rendering,
+particularly when using many render layers and passes. This can be read back in the Compositor
+and Image editor by using <a class="reference internal" href="../../../../../editors/node_editor/nodes/editing.html#bpy-ops-node-read-viewlayers"><span class="std std-ref">Шари -- Layers</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="viewport">
+<h2>Оглядвікно -- Viewport<a class="headerlink" href="#viewport" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Тип BVH Оглядвікна -- Viewport BVH Type</dt>
+<dd><dl class="first last docutils">
+<dt>Динамічно BVH -- Dynamic BVH</dt>
+<dd>Об'єкти під час рендерингу в оглядвікні можуть трансформуватися, додавати та видалятися інтерактивно ціною уповільнення зображування.</dd>
+<dt>Статично BVH -- Static BVH</dt>
+<dd>Модифікації об'єктів під час рендерингу вимагають повного перебудування <a class="reference internal" href="../../../../../glossary/index.html#term-bvh"><span class="xref std std-term">BVH</span></a> -- ієрархії межових об'ємів, що знижує інтерактивність, але прискорює зображування.</dd>
+</dl>
+</dd>
+<dt>Стартова Роздільність -- Start Resolution</dt>
+<dd>Роздільність передогляду на початку процесу рендерингу, яка прогресивно зростає до повного розміру оглядвікна.</dd>
+</dl>
+</div>
+<div class="section" id="final-render">
+<h2>Фінальний Зображ -- Final Render<a class="headerlink" href="#final-render" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Сталі Зображення -- Persistent Images</dt>
+<dd>Зберігає дані зображення у пам'ять після рендерингу для швидших повторних його запусків ціною додаткового використання пам'яті при здійсненні інших завдань у Blender'і.</dd>
+</dl>
+</div>
+<div class="section" id="acceleration-structure">
+<h2>Структура Прискорення -- Acceleration Structure<a class="headerlink" href="#acceleration-structure" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Вжити Просторові Розділи -- Use Spatial Splits</dt>
+<dd>Просторові розділи покращують продуктивність у сценах із сумішшю великих і малих багатобічників, полігонів. Недоліками є триваліший час побудови BVH та невелике зростання використання пам'яті.</dd>
+<dt>Вжити BVH Волосся -- Use Hair BVH</dt>
+<dd>Використовує спеціальний тип <a class="reference internal" href="../../../../../glossary/index.html#term-bvh"><span class="xref std std-term">BVH</span></a> для рендерингу волосся. Такі межові об'єми не вирівнюються по осям, що дозволяє щільніше вписувати їх у геометрію волосся. Вимкнення цієї опції дасть скорочення використання пам'яті ціною збільшення часу на рендеринг волосся.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../render_layers/index.html" class="btn btn-neutral float-right" title="Устави Шару Зобража -- Render Layer Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="motion_blur.html" class="btn btn-neutral" title="Розмив Рухом -- Motion Blur" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

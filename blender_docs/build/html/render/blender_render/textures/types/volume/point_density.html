@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Текстура «Щільність Точок» -- Point Density Texture &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/textures/types/volume/point_density.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Текстурові Вузли -- Texture Nodes" href="../../nodes/index.html" />
+    <link rel="prev" title="Дані Вокселя -- Voxel Data" href="voxel_data.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Текстури -- Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../texture_panel.html">Панель «Текстура» -- Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../assigning_a_texture.html">Призначення Текстури -- Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Властивості Текстури -- Texture Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Типи Текстур -- Texture Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nodes/index.html">Текстурові Вузли -- Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Текстури -- Textures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Типи Текстур -- Texture Type</a> &raquo;</li>
+        
+          <li><a href="index.html">Об'ємові Текстури -- Volumetric Textures</a> &raquo;</li>
+        
+      <li>Текстура «Щільність Точок» -- Point Density Texture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/textures/types/volume/point_density.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>.... _bpy.types.PointDensityTexture:</p>
+<div class="section" id="point-density-texture">
+<h1>Текстура «Щільність Точок» -- Point Density Texture<a class="headerlink" href="#point-density-texture" title="Permalink to this headline">¶</a></h1>
+<p>Щільність точок рендерить задану хмару точок (вершини об'єкта або систему частинок) як 3D об'єм, використовуючи визначений користувачем радіус для цих точок. Внутрішньо, ця система використовує структуру даних BVH (bounding volume hierarchy -- ієрархія межових об'ємів) для швидкого прогляду діапазону.</p>
+<p>Стандартно ці рендерені точки є сферичними з різними опціями спаду згладження, а також простими опціями Турбулентності для зміщення результату з шумом, що додає детальність. При використанні Point Density із системою частинок додаткова інформація, як скорість частинок, вік та швидкість, може бути візуалізована за допомогою градієнта кольорів/альфа.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../../../_images/render_blender-render_textures_types_volume_point-density_panel.png" src="../../../../../_images/render_blender-render_textures_types_volume_point-density_panel.png" />
+<p class="caption"><span class="caption-text">Панель Point Density.</span></p>
+</div>
+<dl class="docutils">
+<dt>Дані Точок -- Point Data</dt>
+<dd><dl class="first last docutils">
+<dt>Система Частинок -- Particle System</dt>
+<dd>Система Частинок, Генерує щільність точок на основі системи частинок.</dd>
+<dt>Вершини Об'єкта -- Object Vertices</dt>
+<dd>Вершини Об'єкта, Генерує щільність точок на основі вершин об'єкта.</dd>
+</dl>
+</dd>
+<dt>Об'єкт -- Object</dt>
+<dd>Об'єкт, з якого отримуються дані точок.</dd>
+<dt>Радіус -- Radius</dt>
+<dd><p class="first">Радіус точок.</p>
+<dl class="last docutils">
+<dt>Система -- System</dt>
+<dd>Використовувана система частинок.</dd>
+</dl>
+</dd>
+<dt>Спад -- Falloff</dt>
+<dd><dl class="first last docutils">
+<dt>Стандарт -- Standard</dt>
+<dd></dd>
+<dt>Згладження -- Smooth</dt>
+<dd></dd>
+<dt>М'яко -- Soft</dt>
+<dd></dd>
+<dt>М'якість -- Softness</dt>
+<dd></dd>
+<dt>Постійно -- Constant</dt>
+<dd>Density is constant within the look-up radius.</dd>
+<dt>Корінь -- Root</dt>
+<dd></dd>
+<dt>Вік Частинок -- Particle Age</dt>
+<dd></dd>
+<dt>Скорість Частинок -- Particle Velocity</dt>
+<dd></dd>
+<dt>Масштаб Скорості -- Velocity Scale</dt>
+<dd></dd>
+</dl>
+</dd>
+<dt>Крива Спаду -- Falloff Curve</dt>
+<dd>Використовує власний спад.</dd>
+<dt>Кеш -- Cache</dt>
+<dd><p class="first">Система координат для кешування частинок.</p>
+<dl class="last docutils">
+<dt>Глобальний Простір -- Global Space</dt>
+<dd></dd>
+<dt>Простір Об'єкта Емітування -- Emit Object Space</dt>
+<dd></dd>
+<dt>Локація Об'єкта Емітування -- Emit Object Location</dt>
+<dd></dd>
+</dl>
+</dd>
+<dt>Джерело Кольору -- Color Source</dt>
+<dd><p class="first">Дані для отримання колірних результатів.</p>
+<dl class="last docutils">
+<dt>Постійно -- Constant</dt>
+<dd>Постійний колір</dd>
+<dt>Джерела Кольору Частинок -- Particle Color Sources</dt>
+<dd><dl class="first last docutils">
+<dt>Вік Частинок -- Particle Age</dt>
+<dd>Час життя, розкладений як інтенсивність 0.0 - 1.0.</dd>
+<dt>Швидкість Частинок -- Particle Speed</dt>
+<dd><p class="first">Швидкість частинок (абсолютна величина скорості), розкладена як інтенсивність 0.0 - 1.0. Додатковий градієнт кольорів може використовуватися для конвертування інтенсивності у кольори RGB.</p>
+<dl class="last docutils">
+<dt>Масштаб -- Scale</dt>
+<dd>Множник для привнесення швидкості частинок у межі прийнятного діапазону.</dd>
+</dl>
+</dd>
+<dt>Скорість Частинок -- Particle Velocity</dt>
+<dd><p class="first">Скорість XYZ, розкладена на кольори RGB.</p>
+<dl class="last docutils">
+<dt>Масштаб -- Scale</dt>
+<dd>Множник для привнесення швидкості частинок у межі прийнятного діапазону.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Джерела Кольору Вершин -- Vertex Color Sources</dt>
+<dd><dl class="first last docutils">
+<dt>Колір Вершин -- Vertex Color</dt>
+<dd><p class="first">Використовує шар кольору вершин для забарвлення текстури Point Density.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Кольори вершин визначаються по кутках граней. Одинична вершина може мати стільки різних кольорів, скільки є граней, частиною яких вона є, Фактичний колір текстури Щільність Точок усереднюється з усіх вершинних кутків.</p>
+</div>
+</dd>
+<dt>Вагомість Вершини -- Vertex Weight</dt>
+<dd>Використовує вагомості з групи вершин як значення інтенсивності. Додатковий градієнт кольорів може використовуватися для конвертування інтенсивності у кольори RGB.</dd>
+<dt>Нормалі Вершин -- Vertex Normals</dt>
+<dd>Використовує нормалі вершин з об'єктного простору як значення RGB.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="turbulence">
+<h3>Турбулентність -- Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../../_images/render_blender-render_textures_types_volume_point-density_turbulence.png" src="../../../../../_images/render_blender-render_textures_types_volume_point-density_turbulence.png" />
+<p class="caption"><span class="caption-text">Панель Turbulence.</span></p>
+</div>
+<p>Додає направлений шум у щільність під час рендерингу.</p>
+<dl class="docutils">
+<dt>Вплив -- Influence</dt>
+<dd><p class="first">Метод керування доданим шумом турбулентності.</p>
+<dl class="last docutils">
+<dt>Статично -- Static</dt>
+<dd>Узори шуму залишатимуться без змін, швидше та підходить для статичних рендерів.</dd>
+<dt>Скорість Частинок -- Particle Velocity</dt>
+<dd>Турбулентний шум скеровується скорістю частинок.</dd>
+<dt>Вік Частинок -- Particle Age</dt>
+<dd>Турбулентний шум керується віком частинок між їх народженням і смертю.</dd>
+<dt>Глобальний Час -- Global Time</dt>
+<dd>Турбулентний шум скеровується глобальним поточним кадром.</dd>
+</dl>
+</dd>
+<dt>Базис Шуму -- Noise Basis</dt>
+<dd>Дивіться детальніше тут -- <a class="reference internal" href="../procedural/introduction.html"><span class="doc">Here</span></a>.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Масштаб турбулентного шуму.</dd>
+<dt>Глибина -- Depth</dt>
+<dd>Рівень деталізації у доданому турбулентному шумі.</dd>
+<dt>Сила Турбулентності -- Turbulence Strength</dt>
+<dd>Сила доданого турбулентного шуму.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../nodes/index.html" class="btn btn-neutral float-right" title="Текстурові Вузли -- Texture Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="voxel_data.html" class="btn btn-neutral" title="Дані Вокселя -- Voxel Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

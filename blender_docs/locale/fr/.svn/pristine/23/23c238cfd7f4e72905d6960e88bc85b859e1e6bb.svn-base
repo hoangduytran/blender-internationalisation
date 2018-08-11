@@ -1,0 +1,889 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Int. License
+# This file is distributed under the same license as the Blender 2.78 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# phan <phahoatho@gmail.com>, 2017, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 21:38-0400\n"
+"PO-Revision-Date: 2018-07-14 15:38+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:9
+msgid "Add-on Tutorial"
+msgstr "Tutoriel sur les add-ons"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:12
+msgid "Intended Audience"
+msgstr "Audience visée"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:14
+msgid ""
+"This tutorial is designed to help technical artists or developers learn to "
+"extend Blender. An understanding of the basics of Python is expected for "
+"those working through this tutorial."
+msgstr ""
+"Ce tutoriel est conçu pour aider les artistes techniciens ou les "
+"développeurs à apprendre à étendre Blender. Une compréhension des bases de "
+"Python est exigée de ceux qui mettent en œuvre ce tutoriel."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:19
+msgid "Prerequisites"
+msgstr "Prérequis"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:21
+msgid "Before going through the tutorial you should..."
+msgstr "Avant de poursuivre ce tutoriel, vous devriez..."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:23
+msgid "Be familiar with the basics of working in Blender."
+msgstr "Avoir une connaissance des bases de travail dans Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:24
+msgid "Know how to run a script in Blender's Text editor."
+msgstr "Savoir comment lancer un script dans l'Éditeur de texte de Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:25
+msgid ""
+"Have an understanding of Python primitive types (int, boolean, string, list, "
+"tuple, dictionary, and set)."
+msgstr ""
+"Avoir une compréhension des types de primitives de Python (int, boolean, "
+"string, list, tuple, dictionary, et set)."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:26
+msgid "Be familiar with the concept of Python modules."
+msgstr "Avoir une connaissance du concept des modules Python. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:27
+msgid "Have a basic understanding of classes (object orientation) in Python."
+msgstr ""
+"Avoir une compréhension de base des classes (orientation objet) dans Python."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:29
+msgid "Suggested reading before starting this tutorial."
+msgstr "Lectures suggérées avant de commencer ce tutoriel."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:31
+msgid ""
+"`Dive Into Python <http://getpython3.com/diveintopython3/index.html>`__ "
+"sections (1, 2, 3, 4, and 7)."
+msgstr ""
+"`Dive Into Python <http://getpython3.com/diveintopython3/index.html>`__ "
+"sections (1, 2, 3, 4, et 7)."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:32
+msgid ""
+":ref:`Blender API Quickstart <blender_api:info_quickstart>` to help become "
+"familiar with Blender/Python basics."
+msgstr ""
+":ref:`Blender API Quickstart <blender_api:info_quickstart>` pour se "
+"familiariser avec les bases de Blender/Python."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:35
+msgid ""
+"To best troubleshoot any error message Python prints while writing scripts, "
+"you run Blender from a terminal. See :ref:`Use The Terminal "
+"<use_the_terminal>`."
+msgstr ""
+"Pour mieux trouver des solutions à tout message d'erreur qu'envoie Python "
+"pendant l'écriture des scripts, vous lancez Blender depuis un terminal. "
+"Voir :ref:`Utilisation du Terminal <use_the_terminal>`."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:40
+msgid "Documentation Links"
+msgstr "Liens de documentation"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:42
+msgid ""
+"While going through the tutorial, you may want to look into our reference "
+"documentation."
+msgstr ""
+"Pendant le parcours de ce tutoriel, il se peut que vous vouliez étudier "
+"notre documentation de référence."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:44
+msgid ""
+":ref:`blender_api:Blender API Overview <info_overview>` -- *This document is "
+"rather detailed but helpful if you want to know more on a topic.*"
+msgstr ""
+":ref:`blender_api:Blender API Overview <info_overview>` -- *Ce document est "
+"plutôt détaillé mais utile si vous cherchez à savoir plus sur un sujet.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:46
+msgid ""
+":mod:`blender_api:bpy.context` API reference -- *Handy to have a list of "
+"available items your script may operate on.*"
+msgstr ""
+":mod:`blender_api:bpy.context` API reference -- *Pratique d'avoir une liste "
+"d'éléments disponibles sur lesquels votre script peut opérer.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:48
+msgid ""
+":class:`blender_api:bpy.types.Operator` -- *The following add-ons define "
+"operators, these docs give details and more examples of operators.*"
+msgstr ""
+":class:`blender_api:bpy.types.Operator` -- *Les add-ons suivants définissent "
+"des opérateurs, ces docs donnent des détails et plus d'exemples d'opérateurs."
+"*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:53
+msgid "What is an Add-on?"
+msgstr "Qu'est-ce qu'un add-on ?"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:55
+msgid ""
+"An add-on is simply a Python module with some additional requirements so "
+"Blender can display it in a list with useful information."
+msgstr ""
+"un add-on est un module Python avec quelques exigences supplémentaires de "
+"sorte que Blender peut l'afficher dans une liste avec des informations "
+"utiles. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:58
+msgid "To give an example, here is the simplest possible add-on::"
+msgstr "En guise d'exemple, voici l'add-on le plus simple possible ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:67
+msgid "``bl_info``"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:67
+msgid ""
+"is a dictionary containing add-on metadata such as the title, version and "
+"author to be displayed in the User Preferences add-on list."
+msgstr ""
+"est un dictionnaire contenant des métadonnées de l'add-on -- telles que le "
+"titre, la version et l'auteur -- à afficher dans la liste des add-ons de "
+"*User Preferences*."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:70
+msgid "``register``"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:70
+msgid ""
+"is a function which only runs when enabling the add-on, this means the "
+"module can be loaded without activating the add-on."
+msgstr ""
+"est une fonction qui se lance seulement une fois l'add-on activé, ce qui "
+"signifie que le module peut être chargé sans activation de l'add-on."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:75
+msgid "``unregister``"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:73
+msgid ""
+"is a function to unload anything setup by ``register``, this is called when "
+"the add-on is disabled."
+msgstr ""
+"est une fonction pour décharger tout ce qui a été installé par ``register``, "
+"celle-ci est appelée quand l'add-on est désactivé. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:77
+msgid ""
+"Notice this add-on does not do anything related to Blender (the :mod:"
+"`blender_api:bpy` module is not imported for example)."
+msgstr ""
+"Notez que cet add-on ne fait rien concernant Blender (le module :mod:"
+"`blender_api:bpy` n'est pas importé par exemple)."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:80
+msgid ""
+"This is a contrived example of an add-on that serves to illustrate the point "
+"that the base requirements of an add-on are simple."
+msgstr ""
+"Ceci est un exemple artificiel d'un add-on qui sert à illustrer le fait que "
+"les exigences de base d'un add-on sont simples."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:83
+msgid ""
+"An add-on will typically register operators, panels, menu items, etc, but "
+"it's worth noting that *any* script can do this, when executed from the Text "
+"editor or even the interactive console -- there is nothing inherently "
+"different about an add-on that allows it to integrate with Blender, such "
+"functionality is just provided by the :mod:`blender_api:bpy` module for any "
+"script to access."
+msgstr ""
+"Un add-on typiquement enregistrera des opérateurs, des panneaux, des "
+"éléments de menu, etc, mais il convient de noter que n'importe quel script "
+"peut faire cela, quand il a été exécuté depuis l'éditeur texte ou même "
+"depuis la console interactive -- il y a intrinsèquement aucune différence "
+"avec un  add-on qui s'autorise à s'intégrer dans Blender, une telle "
+"fonctionnalité est simplement offerte par le module :mod:`blender_api:bpy` "
+"pour que n'importe quel script puisse y accéder."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:89
+msgid ""
+"So an add-on is just a way to encapsulate a Python module in a way a user "
+"can easily utilize."
+msgstr ""
+"Aussi un add-on est simplement une manière d'encapsuler un module Python de "
+"manière qu'un utilisateur puisse aisément l'utiliser."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:93
+msgid ""
+"Running this script within the Text editor won't print anything, to see the "
+"output it must be installed through the User Preferences. Messages will be "
+"printed when enabling and disabling."
+msgstr ""
+"L'exécution de ce script dans l'éditeur texte n'affichera rien, pour voir le "
+"résultat il doit être installé via les *User Preferences*. Des messages "
+"seront affichés à son activation et à son désactivation."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:99
+msgid "Your First Add-on"
+msgstr "Votre premier add-on"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:101
+msgid ""
+"The simplest possible add-on above is useful as an example but not much "
+"else. This next add-on is simple but shows how to integrate a script into "
+"Blender using an ``Operator`` which is the typical way to define a tool "
+"accessed from menus, buttons and keyboard shortcuts."
+msgstr ""
+"L'add-on le plus simple possible ci-dessus est utile comme exemple mais pas "
+"plus. L'add-on suivant est simple mais montre comment intégrer un script "
+"dans Blender en utilisant un ``Operator`` qui est la manière typique de "
+"définir un outil accessible depuis les menus, boutons et raccourcis clavier."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:105
+msgid ""
+"For the first example we will make a script that simply moves all objects in "
+"a scene."
+msgstr ""
+"Pour le premier exemple, nous allons écrire un script qui déplace simplement "
+"tous les objets dans une scène. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:109
+#: ../../manual/advanced/scripting/addon_tutorial.rst:233
+msgid "Write the Script"
+msgstr "Écrire le script"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:111
+msgid "Add the following script to the Text editor in Blender::"
+msgstr "Ajoutez le script suivant à l'éditeur de texte de Blender ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:119
+msgid ""
+"Click the :ref:`Run Script button <editors-text-run-script>`, all objects in "
+"the active scene are moved by 1.0 Blender unit."
+msgstr ""
+"Cliquez le :ref:`bouton Run Script <editors-text-run-script>`, tous les "
+"objets dans la scène active sont déplacés d'une unité Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:124
+msgid "Write the Add-on (Simple)"
+msgstr "Écrire l'add-on (simple)"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:126
+msgid ""
+"This add-on takes the body of the script above, and adds it to an operator's "
+"``execute()`` function. ::"
+msgstr ""
+"Cet add-on prend le corps du script ci-dessus, et l'ajoute à la fonction "
+"``execute()`` d'un opérateur. ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:166
+msgid ""
+"``bl_info`` is split across multiple lines, this is just a style convention "
+"used to more easily add items."
+msgstr ""
+"``bl_info`` est réparti entre plusieurs lignes. C'est simplement une "
+"convention de style pour ajouter plus facilement des éléments."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:170
+msgid ""
+"Rather than using ``bpy.context.scene``, we use the ``context.scene`` "
+"argument passed to ``execute()``. In most cases these will be the same. "
+"However in some cases, operators will be passed a custom context so script "
+"authors should prefer the ``context`` argument passed to operators."
+msgstr ""
+"Plutôt que d'utiliser``bpy.context.scene``, nous utilisons l'argument "
+"``context.scene`` passé à``execute()``. Dans la plupart des cas, ceux-ci "
+"seront les mêmes. Cependant, dans certains cas, un contexte personnalisé "
+"sera passé aux opérateurs aussi les auteurs de scripts devraient préférer "
+"l'argument ``context`` passé aux opérateurs."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:174
+msgid ""
+"To test the script, you can copy and paste it into Blender's Text editor and "
+"run it. This will execute the script directly and call register immediately."
+msgstr ""
+"Pour tester le script, vous pouvez le copier et le coller dans l'éditeur "
+"Texte de Blender et le lancer. Ceci va exécuter le script directement et "
+"appeler *register* immédiatement."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:177
+msgid ""
+"However running the script won't move any objects. For this, you need to "
+"execute the newly registered operator."
+msgstr ""
+"Cependant le lancement du script ne va pas déplacer les objets. Pour cela, "
+"vous devez exécuter l'opérateur nouvellement enregistré."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:181
+msgid "Operator Search menu."
+msgstr "Menu Operator Search."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:183
+msgid ""
+"Do this by pressing :kbd:`Spacebar` to bring up the operator search menu and "
+"type in \"Move X by One\" (the ``bl_label``), then :kbd:`Return`."
+msgstr ""
+"Faites cela en pressant :kbd:`Espace` pour ouvrir le menu *operator search* "
+"et tapez \"Move X by One\" (le ``bl_label``), puis :kbd:`Entrée`."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:186
+msgid "The objects should move as before."
+msgstr "Les objets devraient se déplacer comme précédemment."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:188
+msgid "*Keep this add-on open in Blender for the next step - Installing.*"
+msgstr ""
+"*Gardez cet add-on ouvert dans Blender pour la prochaine étape - installer.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:192
+msgid "Install the Add-on"
+msgstr "Installer l'add-on"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:194
+msgid ""
+"Once you have your add-on within in Blender's Text editor, you will want to "
+"be able to install it so it can be enabled in the User Preferences to load "
+"on startup."
+msgstr ""
+"Une fois que vous avez votre add-on dans l'Éditeur de texte de Blender, vous "
+"allez souhaiter l'installer de sorte qu'il puisse être activé dans les *User "
+"Preferences* pour se lancer au démarrage."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:197
+msgid ""
+"Even though the add-on above is a test, let's go through the steps anyway so "
+"you know how to do it for later."
+msgstr ""
+"Même si l'add-on ci-dessus est un test, parcourons néanmoins les étapes et "
+"ainsi vous saurez comment faire pour plus tard. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:199
+msgid ""
+"To install the Blender text as an add-on, you will first have to save it to "
+"disk. Take care to obey the naming restrictions that apply to Python modules "
+"and end with a ``.py`` extension."
+msgstr ""
+"Pour installer le texte Blender comme un add-on, vous devrez d'abord "
+"l'enregistrer sur disque. Veuillez suivre les restrictions de nommage qui "
+"s'appliquent aux modules Python dont une extension ``.py``."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:202
+msgid ""
+"Once the file is on disk, you can install it as you would for an add-on "
+"downloaded online."
+msgstr ""
+"Une fois le fichier sur disque, vous pouvez l'installer comme vous le feriez "
+"pour un add-on téléchargé.  "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:204
+msgid ""
+"Open the user :menuselection:`File --> User Preferences`, select the *Add-"
+"on* tab, press *Install Add-on...* and select the file."
+msgstr ""
+"Ouvrez :menuselection:`File --> User Preferences`, sélectionnez la section "
+"*Add-on*, pressez *Install Add-on...* et sélectionnez le fichier."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:207
+msgid ""
+"Now the add-on will be listed and you can enable it by pressing the "
+"checkbox, if you want it to be enabled on restart, press *Save as Default*."
+msgstr ""
+"Maintenant l'add-on sera listé et vous pourrez l'activer en pressant la case "
+"à cocher, si vous voulez l'activer au démarrage, pressez *Save as Default*."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:212
+msgid ""
+"The destination of the add-on depends on your Blender configuration. When "
+"installing an add-on the source and destination paths are printed in the "
+"console. You can also find add-on path locations by running this in the "
+"Python Console."
+msgstr ""
+"La destination d'un add-on dépend de votre configuration de Blender. Pendant "
+"l'installation d'un add-on les chemins de la source et de la destination "
+"sont affichés sur la console. Vous pouvez aussi trouver les emplacements des "
+"chemins de l'add-on en lançant ceci dans la console Python."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:221
+msgid ""
+"More is written on this topic here: :ref:`Directory Layout <getting-started-"
+"installing-config-directories>`."
+msgstr ""
+"Plus sur ce sujet ici :  :ref:`structure de dossier <getting-"
+"started_installing-config-directories>`."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:226
+msgid "Your Second Add-on"
+msgstr "Votre second add-on"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:228
+msgid ""
+"For our second add-on, we will focus on object instancing -- this is -- to "
+"make linked copies of an object in a similar way to what you may have seen "
+"with the array modifier."
+msgstr ""
+"Pour notre second add-on, nous nous focaliserons sur l'instanciation d'objet "
+"-- ceci est -- pour faire des copies liées d'un objet d'une façon semblable "
+"à ce que vous avez pu voir avec le modificateur *Array*."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:235
+msgid ""
+"As before, first we will start with a script, develop it, then convert it "
+"into an add-on. ::"
+msgstr ""
+"Comme précédemment, d'abord nous allons commencer par un script, le "
+"développer, puis le convertir en un add-on. ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:258
+msgid ""
+"Now try copy this script into Blender and run it on the default Cube. Make "
+"sure you click to move the 3D cursor before running as the duplicate will "
+"appear at the cursor's location."
+msgstr ""
+"Maintenant essayons de copier ce script dans Blender et le lancer sur le "
+"Cube par défaut. Assurez-vous que vous avez déplacé le curseur 3D avant le "
+"lancement, étant donné que la copie va apparaître à l'emplacement du curseur."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:261
+msgid ""
+"After running, notice that when you go into *Edit Mode* to change the Cube "
+"-- all of the copies change. In Blender, this is known as *Linked "
+"Duplicates*."
+msgstr ""
+"Après le lancement, notez que lorsque vous passez en *Mode Édition* pour "
+"modifier le Cube -- toutes les copies changent. Dans Blender, ce point est "
+"connu comme *Copies liées*."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:264
+msgid ""
+"Next, we're going to do this in a loop, to make an array of objects between "
+"the active object and the cursor. ::"
+msgstr ""
+"Ensuite nous allons faire cela dans une boucle, pour faire un tableau "
+"(array) d'objets entre l'objet actif et le curseur. ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:286
+msgid ""
+"Try run this script with the active object and the cursor spaced apart to "
+"see the result."
+msgstr ""
+"Essayez de lancer ce script avec l'objet actif et le curseur à distance l'un "
+"de l'autre pour voir le résultat."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:288
+msgid ""
+"With this script you'll notice we're doing some math with the object "
+"location and cursor, this works because both are 3D :class:`blender_api:"
+"mathutils. Vector` instances, a convenient class provided by the :mod:"
+"`blender_api:mathutils` module which allows vectors to be multiplied by "
+"numbers and matrices."
+msgstr ""
+"Avec ce script vous allez noter que nous sommes en train de faire des maths "
+"avec la position de l'objet et le curseur. Ceci fonctionne parce que les "
+"deux sont des instances 3D de :class:`blender_api:mathutils.Vector`, une "
+"classe pratique fournie par le module :mod:`blender_api:mathutils` qui "
+"permet de multiplier les vecteurs par des nombres et des matrices. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:293
+msgid ""
+"If you are interested in this area, read into :class:`blender_api:mathutils."
+"Vector` -- there are many handy utility functions such as getting the angle "
+"between vectors, cross product, dot products as well as more advanced "
+"functions in :mod:`blender_api:mathutils.geometry` such as Bézier spline "
+"interpolation and ray-triangle intersection."
+msgstr ""
+"Si vous êtes intéressé par ce point, lisez :class:`blender_api:mathutils."
+"Vector` -- il y a beaucoup de fonctions utilitaires pratiques telles que "
+"l'obtention de l'angle entre deux vecteurs, le produit vectoriel, le produit "
+"scalaire ainsi que des fonctions plus avancées dans :mod:`blender_api:"
+"mathutils.geometry` telles que l'interpolation de courbe de Bézier et "
+"l'intersection rayon/triangle."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:298
+msgid ""
+"For now we will focus on making this script an add-on, but it's good to know "
+"that this 3D math module is available and can help you with more advanced "
+"functionality later on."
+msgstr ""
+"Pour l'instant nous allons nous focaliser à faire de ce script un add-on, "
+"mais il est bon de savoir que ce module de math 3D est disponible et peut "
+"vous aider avec une fonctionnalité plus avancée plus tard."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:303
+msgid "Write the Add-on"
+msgstr "Écrire l'add-on"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:305
+msgid "The first step is to convert the script as-is into an add-on::"
+msgstr "La première étape est de convertir le script tel quel en un add-on::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:348
+msgid ""
+"Everything here has been covered in the previous steps, you may want to try "
+"run the add-on still and consider what could be done to make it more useful."
+msgstr ""
+"Tout ici a été couvert dans les étapes précédentes, il se peut que vous "
+"vouliez encore essayer de lancer l'add-on et considérer ce qui pourrait être "
+"fait pour le rendre plus utile."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:351
+msgid ""
+"The two of the most obvious missing things are -- having the total fixed at "
+"10, and having to access the operator from space-bar is not very convenient."
+msgstr ""
+"Les deux choses les plus évidentes qui manquent sont -- avoir le total fixé "
+"à 10, et avoir l'accès à l'opérateur depuis la barre d'espace n'est pas très "
+"pratique."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:354
+msgid ""
+"Both these additions are explained next, with the final script afterwards."
+msgstr "Ces deux ajouts sont expliqués ci-après, avec le script final après."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:358
+msgid "Operator Property"
+msgstr "Propriété d'opérateur"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:360
+msgid ""
+"There are a variety of property types that are used for tool settings, "
+"common property types include: int, float, vector, color, boolean and string."
+msgstr ""
+"il y a une diversité de types de propriétés qui sont utilisés pour les "
+"réglages d'outils, les types de propriété habituels comprennent : int, "
+"float, vector, color, boolean et string."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:363
+msgid ""
+"These properties are handled differently to typical Python class attributes "
+"because Blender needs to display them in the interface, store their settings "
+"in key-maps and keep settings for reuse."
+msgstr ""
+"Ces propriétés sont gérées différemment des attributs de classe Python "
+"typiques parce que Blender a besoin de les afficher dans l'interface, "
+"enregistrer leurs réglages dans les configurations de clavier et garder les "
+"réglages pour une réutilisation. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:367
+msgid ""
+"While this is handled in a fairly Pythonic way, be mindful that you are in "
+"fact defining tool settings that are loaded into Blender and accessed by "
+"other parts of Blender, outside of Python."
+msgstr ""
+"Bien que ceci soit géré de manière clairement Pythonique, soyez conscient "
+"que vous êtes en fait en train de définir des réglages d'outils qui sont "
+"chargés dans Blender et accessibles par d'autres parties de Blender, en "
+"dehors de python."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:370
+msgid ""
+"To get rid of the literal 10 for ``total``, we'll use an operator property. "
+"Operator properties are defined via bpy.props module, this is added to the "
+"class body::"
+msgstr ""
+"Pour nous passer du littéral 10 pour ``total``, nous allons utiliser une "
+"propriété d'opérateur. Les propriétés d'opérateur sont définies via le "
+"module bpy.props, ceci est ajouté au corps de la classe::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:380
+msgid ""
+"These properties from :mod:`blender_api:bpy.props` are handled specially by "
+"Blender when the class is registered so they display as buttons in the user "
+"interface. There are many arguments you can pass to properties to set "
+"limits, change the default and display a tooltip."
+msgstr ""
+"Ces propriétés de :mod:`blender_api:bpy.props` sont gérées spécialement par "
+"Blender quand la classe est enregistrée de sorte qu'elles s'affichent comme "
+"des boutons dans l'interface utilisateur. Il y a un grand nombre d'arguments "
+"que vous pouvez passer aux propriétés pour définir des limites, modifier les "
+"valeurs par défaut et afficher une info-bulle."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:385
+msgid ":mod:`blender_api:bpy.props.IntProperty`"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:387
+msgid ""
+"This document doesn't go into details about using other property types. "
+"However, the link above includes examples of more advanced property usage."
+msgstr ""
+"Ce document n'entre pas dans les détails sur l'utilisation d'autres types de "
+"propriétés. Cependant le lien ci-dessus comprend des exemples plus avancés "
+"d'utilisation de propriété . "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:392
+msgid "Menu Item"
+msgstr "Élément de menu"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:394
+msgid ""
+"Add-ons can add to the user interface of existing panels, headers and menus "
+"defined in Python."
+msgstr ""
+"Les add-ons peuvent ajouter à l'interface utilisateur des panneaux "
+"existants, des entêtes et des menus définis dans Python."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:396
+msgid "For this example we'll add to an existing menu."
+msgstr "Pour cet exemple nous allons ajouter à un menu existant."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:400
+msgid "Menu Identifier."
+msgstr "Identifiant de menu."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:402
+msgid ""
+"To find the identifier of a menu, you can hover your mouse over the menu "
+"item and the identifier is displayed."
+msgstr ""
+"Pour trouver l'identifiant d'un menu, vous pouvez glisser votre souris par "
+"dessus l'élément de menu et l'identifiant s'affiche."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:404
+msgid ""
+"The method used for adding a menu item is to append a draw function into an "
+"existing class::"
+msgstr ""
+"La méthode utilisée pour ajouter un élément de menu est d'ajouter une "
+"fonction draw dans une classe existante::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:412
+msgid "For docs on extending menus, see: :doc:`blender_api:bpy.types.Menu`."
+msgstr ""
+"Pour les docs sur l'extension des menus, voir :doc:`blender_api:bpy.types."
+"Menu`."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:416
+msgid "Keymap"
+msgstr "Configuration de clavier"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:418
+msgid ""
+"In Blender, add-ons have their own keymaps so as not to interfere with "
+"Blender's built-in key-maps."
+msgstr ""
+"Dans Blender, les add-ons ont leur propre configuration de clavier de façon "
+"à ne pas interférer avec les configurations de clavier intégrées de Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:420
+msgid ""
+"In the example below, a new object mode :class:`blender_api:bpy.types."
+"KeyMap` is added, then a :class:`blender_api:bpy.types.KeyMapItem` is added "
+"to the key-map which references our newly added operator, using :kbd:`Shift-"
+"Ctrl-Spacebar` as the key shortcut to activate it. ::"
+msgstr ""
+"Dans l'exemple ci-dessous, un nouveau Mode Objet :class:`blender_api:bpy."
+"types.KeyMap` est ajouté, puis une :class:`blender_api:bpy.types.KeyMapItem` "
+"est ajoutée à la configuration de touches qui référence notre opérateur "
+"nouvellement ajouté, utilisant :kbd:`Maj-Ctrl-Espace` comme raccourci "
+"clavier pour l'activer. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:446
+msgid ""
+"Notice how the keymap item can have a ``total`` setting different than the "
+"default set by the operator, this allows you to have multiple keys accessing "
+"the same operator with different settings."
+msgstr ""
+"Remarquez comment l'élément de configuration de clavier peut avoir un "
+"réglage ``total``  différent de celui par défaut défini par l'opérateur. "
+"Ceci vous permet d'avoir de multiples clés d'accès au même opérateur avec "
+"des réglages différents. "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:451
+msgid ""
+"While :kbd:`Shift-Ctrl-Spacebar` is not a default Blender key shortcut, it "
+"is hard to make sure add-ons will not overwrite each other's keymaps, At "
+"least take care when assigning keys that they do not conflict with important "
+"functionality within Blender."
+msgstr ""
+"Bien que :kbd:`Maj-Ctrl-Espace` ne soit pas un raccourci clavier par défaut "
+"de Blender, il est difficile de s'assurer que certains add-ons n'écraseront "
+"pas la configuration de clavier des autres. Au moins prenez soin d'assigner "
+"les touches de sorte qu'elles n'entrent pas en conflit avec des "
+"fonctionnalité importantes dans Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:456
+msgid "For API documentation on the functions listed above, see:"
+msgstr ""
+"Pour la documentation de l'API sur les fonctions listées ci-dessus, voir : "
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:458
+msgid ":class:`blender_api:bpy.types.KeyMaps.new`,"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:459
+msgid ":class:`blender_api:bpy.types.KeyMap`,"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:460
+msgid ":class:`blender_api:bpy.types.KeyMapItems.new`,"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:461
+msgid ":class:`blender_api:bpy.types.KeyMapItem`."
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:465
+msgid "Bringing It All Together"
+msgstr "En les combinant tous ensemble"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:539
+msgid "In the menu."
+msgstr "Dans le menu."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:541
+msgid ""
+"Run the script (or save it and add it through the User Preferences like "
+"before) and it will appear in the menu."
+msgstr ""
+"Lancez le script (ou sauvegardez-le et ajoutez-le aux *User Preferences* "
+"comme précédemment) et il apparaîtra dans le menu."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:545
+msgid "Operator Property."
+msgstr "Propriété d'opérateur."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:547
+msgid ""
+"After selecting it from the menu, you can choose how many instances of the "
+"cube you want create."
+msgstr ""
+"Après l'avoir sélectionné dans le menu, vous pouvez choisir combien "
+"d'instances du cube vous voulez créer."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:551
+msgid ""
+"Directly executing the script multiple times will add the menu each time "
+"too. While not useful behavior, there's nothing to worry about since add-ons "
+"will not register themselves multiple times when enabled through the User "
+"Preferences."
+msgstr ""
+"L'exécution directe du script à plusieurs reprises va aussi ajouter le menu "
+"à chaque fois. Bien que ce ne soit pas un comportement utile, il n'y a rien "
+"à craindre puisque les add-ons ne vont pas enregistrer eux-mêmes plusieurs "
+"fois une fois activé via les *user preferences*."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:557
+msgid "Conclusions"
+msgstr ""
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:559
+msgid ""
+"Add-ons can encapsulate certain functionality neatly for writing tools to "
+"improve your workflow or for writing utilities for others to use."
+msgstr ""
+"Les add-ons peuvent encapsuler certaines fonctionnalités pour l'écriture "
+"d'outils pour améliorer votre flux de travail ou pour écrire des utilitaires "
+"pour les autres."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:562
+msgid ""
+"While there are limits to what Python can do within Blender, there is "
+"certainly a lot that can be achieved without having to dive into Blender's C/"
+"C++ code."
+msgstr ""
+"Bien qu'il y ait des limites à ce que Python peut faire dans Blender, il y a "
+"certainement beaucoup de choses qui peuvent être réalisées sans avoir à "
+"plonger dans le code C/C++ de Blender."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:565
+msgid ""
+"The example given in the tutorial is limited, but shows the Blender API used "
+"for common tasks that you can expand on to write your own tools."
+msgstr ""
+"L'exemple du tutoriel est limité, mais montre l'utilisation de l'API Blender "
+"dans des tâches courantes que vous pouvez étendre pour écrire vos propres "
+"outils."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:570
+msgid "Further Reading"
+msgstr "Lectures recommandées"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:572
+msgid ""
+"Blender comes with commented templates which are accessible from the Text "
+"editor's header. If you have specific areas you want to see example code "
+"for, this is a good place to start."
+msgstr ""
+"Blender est fourni avec des modèles commentés qui sont accessibles dans "
+"l'entête de l'éditeur de texte. Si vous avez des domaines spécifiques dont "
+"vous voulez voir le code exemple, c'est un bon point de départ."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:575
+msgid ""
+"Here are some sites you might like to check on after completing this "
+"tutorial."
+msgstr ""
+"Voici quelques sites que vous pourriez vouloir consulter après la lecture de "
+"ce manuel."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:577
+msgid ""
+":ref:`Blender/Python API Overview <blender_api:info_overview>` -- *For more "
+"background details on Blender/Python integration.*"
+msgstr ""
+":ref:`Blender/Python API Overview <blender_api:info_overview>` -- *pour plus "
+"de détails de fond sur l'intégration Blender/Python.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:579
+msgid ""
+"`How to Think Like a Computer Scientist <http://interactivepython.org/"
+"courselib/static/thinkcspy/index.html>`__ -- *Great info for those who are "
+"still learning Python.*"
+msgstr ""
+"`How to Think Like a Computer Scientist <http://interactivepython.org/"
+"courselib/static/thinkcspy/index.html>`__ -- *Très bonnes informations pour "
+"ceux qui apprennent encore Python.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:581
+msgid ""
+"`Blender Development (Wiki) <https://wiki.blender.org/index.php/Dev:"
+"Contents>`__ -- *Blender Development, general information and helpful links.*"
+msgstr ""
+"`Blender Development (Wiki) <https://wiki.blender.org/index.php/Dev:"
+"Contents>`__ -- *Développement de Blender, informations générales et liens "
+"utiles.*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:583
+msgid ""
+"`Blender Artists (Coding Section) <https://blenderartists.org/forum/"
+"forumdisplay.php?47-Coding>`__ -- *forum where people ask Python development "
+"questions.*"
+msgstr ""
+"`Blender Artists (Coding Section) <https://blenderartists.org/forum/"
+"forumdisplay.php?47-Coding>`__ -- *forum où les gens posent des questions "
+"sur le développement Python.*"
+
+#~ msgid "Spacebar Menu."
+#~ msgstr "Menu Spacebar."
+
+#~ msgid ""
+#~ "In the example below, a new object-mode :class:`blender_api:bpy.types."
+#~ "KeyMap` is added, then a :class:`blender_api:bpy.types.KeyMapItem` is "
+#~ "added to the key-map which references our newly added operator, using :"
+#~ "kbd:`Shift-Ctrl-Spacebar` as the key shortcut to activate it. ::"
+#~ msgstr ""
+#~ "Dans l'exemple ci-dessous, un nouveau mode Objet :class:`blender_api:bpy."
+#~ "types.KeyMap` est ajouté, puis un :class:`blender_api:bpy.types."
+#~ "KeyMapItem` est ajouté à la configuration de clavier qui référence notre "
+#~ "opérateur récemment ajouté, en utilisant :kbd:`Maj-Ctrl-Espace` comme "
+#~ "raccourci clavier pour l'activer. ::"

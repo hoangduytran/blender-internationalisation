@@ -1,0 +1,243 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-30 21:28+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/render/cycles/lamps.rst:4
+msgid "Lamps"
+msgstr "灯光"
+
+#: ../../manual/render/cycles/lamps.rst:6
+msgid "Reference"
+msgstr "参考"
+
+#: ../../manual/render/cycles/lamps.rst
+msgid "Panel"
+msgstr "面板"
+
+#: ../../manual/render/cycles/lamps.rst:9
+msgid ":menuselection:`Lamp --> Lamp`"
+msgstr ":menuselection:`灯光 --> 灯光`"
+
+#: ../../manual/render/cycles/lamps.rst:11
+msgid ""
+"Next to lighting from the background and any object with an emission shader, lamps are "
+"another way to add light into the scene. The difference is that they are not directly "
+"visible in the rendered image, and can be more easily managed as objects of their own "
+"type."
+msgstr ""
+"除了背景光照和场景中具有自发光着色器的物体，灯光是为场景提供光照的另一种方法。不同的是，"
+"在渲染图中，它们并不是能直接可见的，而且也可以作为特有的物体属性进行管理。"
+
+#: ../../manual/render/cycles/lamps.rst:18
+msgid "Point, Spot, and Area Lamps also have texture coordinates."
+msgstr "点光，聚光和面光也具有纹理坐标。"
+
+#: ../../manual/render/cycles/lamps.rst:22
+msgid "Common Settings"
+msgstr "通用设置"
+
+#: ../../manual/render/cycles/lamps.rst:25
+msgid "Type"
+msgstr "类型"
+
+#: ../../manual/render/cycles/lamps.rst:25
+msgid ""
+"Currently *Point*, *Spot*, *Area* and *Sun* lamps are supported. *Hemi* lamps are not "
+"supported, and will be rendered as sun lamps."
+msgstr ""
+"目前支持 *Point（点光）* 、 *Area（面光）* 、 *Sun（日光）* 以及 *Spot（聚光）* 四种灯光"
+"类型。暂不支持 *hemi（半光）* 类型，并且将会分别作为点光和日光灯光进行渲染。不过，在将来"
+"会获得支持，所以，为了提高兼容性，最好先不要使用它们。"
+
+#: ../../manual/render/cycles/lamps.rst:27
+msgid "Size"
+msgstr "尺寸"
+
+#: ../../manual/render/cycles/lamps.rst:28
+msgid ""
+"Size of the lamp in Blender Units; increasing this will result in softer shadows and "
+"shading."
+msgstr "灯光的尺寸，以blender单位计，值越大，则阴影和明暗过渡就会越柔和。"
+
+#: ../../manual/render/cycles/lamps.rst:30
+msgid "Samples"
+msgstr "采样"
+
+#: ../../manual/render/cycles/lamps.rst:30
+msgid ""
+"For the branch path tracing integrator, this specifies the number of direct light "
+"samples per AA sample. Point lamps might need only one sample, while area lamps "
+"typically need more."
+msgstr ""
+"对于分支路径追踪积分器，这指定每个AA样本的直接光样本数。点光可能只需要一个样本，而面光通"
+"常需要更多。"
+
+#: ../../manual/render/cycles/lamps.rst:33
+msgid "Max Bounces"
+msgstr "最多反弹次数"
+
+#: ../../manual/render/cycles/lamps.rst:33
+msgid ""
+"Maximum number of times light from the lamp is allowed to :term:`bounce <light "
+"bounces>`. Limited by :ref:`scene-wide bounce settings <cycles-bounces>`."
+msgstr ""
+"允许光发出的最大 :term:`反弹 <light bounces>` 。 收到 :ref:`场景范围反弹设置 <cycles-"
+"bounces>` 的限制."
+
+#: ../../manual/render/cycles/lamps.rst:36
+msgid "Cast Shadow"
+msgstr "投射阴影"
+
+#: ../../manual/render/cycles/lamps.rst:36
+msgid ""
+"By disabling this option, light from lamps will not be blocked by objects in between. "
+"This can speed up rendering by not having to trace rays to the light source."
+msgstr ""
+"禁用此选项，灯光发出的光线将不会被沿途的物体所遮挡。这会加快渲染速度，因为不必去对光源的"
+"光线进行追踪。"
+
+#: ../../manual/render/cycles/lamps.rst:42
+msgid "Multiple Importance Sample"
+msgstr "多重重要性采样"
+
+#: ../../manual/render/cycles/lamps.rst:39
+msgid ""
+"By default lamps use only direct light sampling. For area lights and sharp glossy "
+"reflections, however, this can be noisy, and enabling this option will enable indirect "
+"light sampling to be used in addition to reduce noise."
+msgstr ""
+"默认情况下，灯只使用直接光采样。但是，对于区域灯光和明亮的光泽反射，这可能会很嘈杂，而启"
+"用此选项将可以使用间接光采样，以减少噪音。"
+
+#: ../../manual/render/cycles/lamps.rst:45
+msgid "Lamp Types"
+msgstr "灯光类型"
+
+#: ../../manual/render/cycles/lamps.rst:48
+msgid "Point Lamp"
+msgstr "点光"
+
+#: ../../manual/render/cycles/lamps.rst:50
+msgid ""
+"Point lamps emit light equally in all directions. By setting the *Size* larger than "
+"zero, they become spherical lamps, which give softer shadows and shading. The strength "
+"of point lamps is specified in Watts."
+msgstr ""
+"点光的光线从某一点向各个方向均匀发出。将尺寸设置为正值的话，可以将其转变成球形光源，这会"
+"提高更加柔和的阴影及明暗过渡。点光灯的强度以瓦特为单位。"
+
+#: ../../manual/render/cycles/lamps.rst:56
+msgid "Spot Lamp"
+msgstr "聚光"
+
+#: ../../manual/render/cycles/lamps.rst:58
+msgid ""
+"Spot lamps emit light in a particular direction, inside a cone. By setting the *Size* "
+"larger than zero, they can cast softer shadows and shading. The size parameter defines "
+"the size of the cone, while the blend parameter can soften the edges of the cone."
+msgstr ""
+"聚光灯会沿着特定方向在锥形范围内投射光线。如果将它的Size（尺寸）值设为正数，那么将会得到"
+"柔和的阴影和着色效果。Size（尺寸）参数定义了锥形区域的尺寸，而 blend（混合）参数可以调节"
+"锥形边缘的柔化效果。"
+
+#: ../../manual/render/cycles/lamps.rst:67
+msgid "Area Lamp"
+msgstr "面光"
+
+#: ../../manual/render/cycles/lamps.rst:69
+msgid ""
+"Area lamps emit light from a square or rectangular area with a Lambertian distribution."
+msgstr "面光是从一个正方形或长方形区域发光，采用Lambertian distribution（朗伯分布）方式。"
+
+#: ../../manual/render/cycles/lamps.rst:78
+msgid "Shape"
+msgstr "形状"
+
+#: ../../manual/render/cycles/lamps.rst:72
+msgid "Shape of the lamp."
+msgstr "灯光的形状。"
+
+#: ../../manual/render/cycles/lamps.rst:74
+msgid "Rectangle"
+msgstr "长方形"
+
+#: ../../manual/render/cycles/lamps.rst:75
+msgid ""
+"The shape of the lamp can be represented as a rectangle and changed with the \"X\" and "
+"\"Y\" values."
+msgstr "灯的形状可以表示为一个矩形，并用 \"X\" 和 \"Y\" 值改变。"
+
+#: ../../manual/render/cycles/lamps.rst:78
+msgid "Square"
+msgstr "正方形"
+
+#: ../../manual/render/cycles/lamps.rst:77
+msgid ""
+"The shape of the lamp can be represented as a square and changed with the *Size* "
+"property."
+msgstr "灯的形状可以表示为一个正方形，并随 *尺寸* 属性更改。"
+
+#: ../../manual/render/cycles/lamps.rst:83
+msgid "Light Portals"
+msgstr "日光入口"
+
+#: ../../manual/render/cycles/lamps.rst:85
+msgid ""
+"Area lamps can also function as light portals to help sample the environment light, and "
+"significantly reduce noise in interior scenes. Note that rendering with portals is "
+"usually slower, but as it converges more quickly, less samples are required."
+msgstr ""
+"面光可以当做日光入口来帮助对环境光的采样，可以极大的减少室内渲染的噪点。注意渲染带日光入"
+"口的场景的时候会慢一些，但是收敛（降噪点）是非常快的，采样数要求也不高。"
+
+#: ../../manual/render/cycles/lamps.rst:89
+msgid ""
+"Light portals work by enabling the *Portal* option, and placing areas lamps in windows, "
+"door openings, and any place where light will enter the interior."
+msgstr ""
+"开启 *入口* 选项后日光入口开始工作，把面光源放到窗口，开门出或者室内其他光能进来的地方。"
+
+#: ../../manual/render/cycles/lamps.rst:92
+msgid ""
+"In outdoor scenes most rays do not bounce much and just fly off into the sky and "
+"therefore, light portals are not helpful for outdoor scenes."
+msgstr ""
+"在户外场景中，大多数光线不会反弹太多，只能飞向天空，因此，光线入口无助于户外场景。"
+
+#: ../../manual/render/cycles/lamps.rst:98
+msgid "White Room model by Jay Hardy."
+msgstr "Jay Hardy的白色房间模型。"
+
+#: ../../manual/render/cycles/lamps.rst:102
+msgid "Sun Lamp"
+msgstr "日光"
+
+#: ../../manual/render/cycles/lamps.rst:104
+msgid ""
+"Sun lamps emit light in a given direction. Their position is not taken into account; "
+"they are always located outside of the scene, infinitely far away, and will not result "
+"in any distance falloff."
+msgstr ""
+"日光光源沿着某一指定的方向发光。其位置无关紧要，它们通常位于场景外部，距离无限远，并且不"
+"会产生任何的距离衰减效果。"
+
+#: ../../manual/render/cycles/lamps.rst:108
+msgid ""
+"Because they are not located inside the scene, their strength uses different units, and "
+"should typically be set to lower values than other lights."
+msgstr ""
+"由于它们不在场景内部应用，因此使用了不同的强度单位，相对与其它种类光源而言，应被赋予相对"
+"较低的值。"

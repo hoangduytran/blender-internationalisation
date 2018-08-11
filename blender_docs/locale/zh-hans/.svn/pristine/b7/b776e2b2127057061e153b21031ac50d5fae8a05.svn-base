@@ -1,0 +1,544 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Intl. License
+# This file is distributed under the same license as the Blender 2.77 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.77 Manual 2.77\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-29 23:47+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:4
+msgid "Data Transfer"
+msgstr "数据传递"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:6
+msgid ""
+"The *Data Transfer* tool transfers several types of data from one mesh to "
+"another. Data types include vertex groups, UV maps, vertex colors, custom "
+"normals..."
+msgstr ""
+"*数据传递* 工具可以在网格之间传递几种类型的数据。数据类型包括顶点组、UV映射、顶"
+"点颜色、自定义法向..."
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:9
+msgid ""
+"Transfer works by generating a mapping between source mesh's items (vertices, "
+"edges, etc.) and destination ones, either on a one-to-one basis, or mapping "
+"several source items to a single destination one by interpolated mapping."
+msgstr ""
+"传递是通过在源网格与目标网格元素(顶点、边等)之间建立映射实现的，这可以是一一映"
+"射，或者通过插值实现的多对一映射。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:17
+msgid "Data"
+msgstr "数据"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:19
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:174
+msgid "Reference"
+msgstr "参考"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst
+msgid "Mode"
+msgstr "模式"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:22
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:177
+msgid "Object Mode"
+msgstr "物体模式"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst
+msgid "Panel"
+msgstr "面板"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:23
+msgid ":menuselection:`Tool Shelf --> Tools --> Edit --> Data`"
+msgstr ":menuselection:`工具栏 --> 工具 --> 编辑 --> 数据传递`"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst
+msgid "Menu"
+msgstr "菜单"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:24
+msgid ":menuselection:`Object --> Transfer Mesh Data`"
+msgstr ":menuselection:`物体 --> 传递网格数据`"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst
+msgid "Hotkey"
+msgstr "快捷键"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:25
+msgid ":kbd:`Shift-Ctrl-T`"
+msgstr ":kbd:`Shift-Ctrl-T`"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:27
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:181
+msgid "Transfers layout of data layer(s) from active to selected meshes."
+msgstr "将活动网格的数据层传递给选中网格。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:30
+msgid "Freeze Operator"
+msgstr "冻结操作项"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:30
+msgid ""
+"Prevent changes to settings to re-run the operator. This is useful if you are "
+"editing several settings at once with heavy geometry."
+msgstr ""
+"防止在调整设置时重新运行操作。在操作庞杂几何结构时，用于一次编辑多个设置。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:37
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:188
+msgid "Data Type"
+msgstr "数据类型"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:33
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:184
+msgid "Which data to transfer."
+msgstr "传递的数据类型。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:37
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:188
+msgid "Data types."
+msgstr "数据类型。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:39
+msgid "Create Data"
+msgstr "创建数据"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:40
+msgid "Add data layers on destination meshes if needed."
+msgstr "如有必要，为目标网格创建数据层。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:45
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:48
+msgid "Vertex Mapping"
+msgstr "点映射"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:42
+msgid ""
+"Method used to map source vertices to destination ones. Because the options "
+"change depending on the *Data Type* options are explained in `Vertex Mapping`_ "
+"below."
+msgstr ""
+"映射源顶点至目标顶点的方法。由于该选项会随选择映射的 *数据类型* 发生变化，所以将"
+"在 `点映射`_ 详述。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:51
+msgid "Topology"
+msgstr "拓扑"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:53
+msgid ""
+"The simplest option, expects both meshes to have identical number of items, and "
+"match them by order (indices). Useful e.g. between meshes that were identical "
+"copies, and got deformed differently."
+msgstr ""
+"最简单的选项，需两个网格有相同数量的对应几何元素，按次序(编号)匹配这些元素。使用"
+"情境如相同网格的副本，但存在不同变形。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:58
+msgid "One-To-One Mappings"
+msgstr "一一映射"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:60
+msgid ""
+"Those always select only one source item for each destination one, often based "
+"on shortest distance."
+msgstr "这些映射总是仅为一个来源元素选择一个目标元素，通常是依据距离最短原则。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:70
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:110
+msgid "Vertices"
+msgstr "顶点"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:64
+msgid "Nearest Vertex"
+msgstr "最近的顶点"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:64
+msgid "Uses source's nearest vertex."
+msgstr "使用源网格最近的顶点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:67
+msgid "Nearest Edge Vertex"
+msgstr "最近的边顶点"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:67
+msgid "Uses source's nearest vertex of source's nearest edge."
+msgstr "使用源网格最近边的顶点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:70
+msgid "Nearest Face Vertex"
+msgstr "最近的面顶点"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:70
+msgid "Uses source's nearest vertex of source's nearest face."
+msgstr "使用源网格最近面的顶点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:78
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:115
+msgid "Edges"
+msgstr "边"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:74
+msgid "Nearest Vertices"
+msgstr "最近的顶点"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:74
+msgid ""
+"Uses source's edge which vertices are nearest from destination edge's vertices."
+msgstr "使用源网格中距离目标边最近的顶点所在边的数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:76
+msgid "Nearest Edge"
+msgstr "最近的边"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:77
+msgid "Uses source's nearest edge (using edge's midpoints)."
+msgstr "用源网格中距离目标边最近的边线数据(使用边线的中点计算)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:78
+msgid "Nearest Face Edge"
+msgstr "最近的面边"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:79
+msgid ""
+"Uses source's nearest edge of source's nearest face (using edge's midpoints)."
+msgstr "用源网格中距离目标边最近的面的边线数据(使用边线的中点计算)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:90
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:124
+msgid "Face Corners"
+msgstr "面拐"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:81
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:118
+msgid ""
+"A face corner is not a real item by itself, it's some kind of split vertex "
+"attached to a specific face. Hence both vertex (location) and face "
+"(normal, ...) aspects are used to match them together."
+msgstr ""
+"面拐不是真实的元素，类似连在特定表面的拆分顶点。因此会同时匹配顶点(位置)和面(法"
+"向...)数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:85
+msgid "Nearest Corner and Best Matching Normal"
+msgstr "最近的拐角和最匹配的法向"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:85
+msgid ""
+"Uses source's corner having the most similar *split* normal with destination "
+"one, from those sharing the nearest source's vertex."
+msgstr "从最近的源拐点中，选取与目标拐点 *拆分* 法向最相近的源拐点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:88
+msgid "Nearest Corner and Best Matching Face Normal"
+msgstr "最近的拐角和最匹配的面法向"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:88
+msgid ""
+"Uses source's corner having the most similar *face* normal with destination "
+"one, from those sharing the nearest source's vertex."
+msgstr "从最近的源拐点中，选取与目标拐点 *面* 法向最相近的源拐点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:90
+msgid "Nearest Corner of Nearest Face"
+msgstr "最近面的最近拐角"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:91
+msgid "Uses source's nearest corner of source's nearest face."
+msgstr "使用最近来源面的最近拐点数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:97
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:130
+msgid "Faces"
+msgstr "面"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:93
+msgid "Nearest Face"
+msgstr "最近的面"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:94
+msgid "Uses source's nearest face."
+msgstr "使用最近的来源面数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:97
+msgid "Best Normal-Matching:"
+msgstr "最匹配法向："
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:96
+msgid "Uses source's face which normal is most similar with destination one."
+msgstr "使用与目标法向最匹配的来源面数据。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:100
+msgid "Interpolated Mappings"
+msgstr "插值映射"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:102
+msgid ""
+"Those use several source items for each destination one, interpolating their "
+"data during the transfer."
+msgstr "对每一个目标元素使用多个来源数据，传递时对这些数据进行插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:105
+msgid "Nearest Edge Interpolated"
+msgstr "最近边插值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:106
+msgid ""
+"Uses nearest point on nearest source's edge, interpolates data from both source "
+"edge's vertices."
+msgstr "使用最近来源边的最近点数据，对来源边的两个顶点数据插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:107
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:121
+msgid "Nearest Face Interpolated"
+msgstr "最近面插值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:108
+msgid ""
+"Uses nearest point on nearest source's face, interpolates data from all that "
+"source face's vertices."
+msgstr "使用最近来源面的最近点数据，对来源面的顶点数据插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:110
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:124
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:130
+msgid "Projected Face Interpolated"
+msgstr "投影面插值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:110
+msgid ""
+"Uses point of face on source hit by projection of destination vertex along its "
+"own normal, interpolates data from all that source face's vertices."
+msgstr "使用目标顶点沿自身法向投影到来源面的点数据，对该来源面的顶点数据插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:115
+msgid "Projected Edge Interpolated"
+msgstr "投影边插值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:114
+msgid ""
+"This is a sampling process. Several rays are cast from along the destination's "
+"edge (interpolating both edge's vertex normals), and if enough of them hit a "
+"source's edge, all hit source edges' data are interpolated into destination one."
+msgstr ""
+"这是一个采样的过程。沿目标边(对边的两个顶点都进行插值)发射多条射线，如果足以击中"
+"来源边，则将所有被击中的来源边数据插值到目标。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:122
+msgid ""
+"Uses nearest point of nearest source's face, interpolates data from all that "
+"source face's corners."
+msgstr "使用最近的来源面的最近点数据，对来源面的所有拐角插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:124
+msgid ""
+"Uses point of face on source hit by projection of destination corner along its "
+"own normal, interpolates data from all that source face's corners."
+msgstr "使用目标拐角沿自身法向投影到来源面的点数据，对该来源面的拐角数据插值。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:128
+msgid ""
+"This is a sampling process. Several rays are cast from the whole destination's "
+"face (along its own normal), and if enough of them hit a source's face, all hit "
+"source faces' data are interpolated into destination one."
+msgstr ""
+"这是一个采样的过程。从目标面(沿其自身法向)发射多条射线，如果足以击中来源面，则将"
+"所有被击中的来源面数据插值到目标。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:133
+msgid "Further Options"
+msgstr "其他选项"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:135
+msgid "Auto Transform"
+msgstr "自动变换"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:136
+msgid ""
+"Automatically computes the transformation to get the best possible match "
+"between source and destination meshes."
+msgstr "自动计算变换，以获得源网格与目标网格之间最可能的匹配。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:137
+msgid "Object Transform"
+msgstr "物体变换"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:138
+msgid "Evaluate source and destination meshes in global space."
+msgstr "在全局空间计算源网格与目标网格的变换。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:143
+msgid "Only Neighbor Geometry"
+msgstr "仅相邻几何"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:140
+msgid "Source elements must be closer than given distance from destination one."
+msgstr "来源元素与目标元素之间的距离必须小于指定距离。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:143
+msgid "Max Distance"
+msgstr "最大距离"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:143
+msgid ""
+"Maximum allowed distance between source and destination element (for non-"
+"topology mappings)."
+msgstr "来源元素与目标元素允许的最大距离(对非拓扑映射)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:147
+msgid "Ray Radius"
+msgstr "光线半径"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:148
+msgid "Width of rays. Useful when ray casting against vertices or edges."
+msgstr "光线的宽度。用于光线投射至顶点或边。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:163
+msgid "Mix Mode"
+msgstr "混合模式"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:150
+msgid "How to affect destination elements with source values."
+msgstr "如何使用来源数值影响目标元素。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:152
+msgid "All"
+msgstr "全部"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:153
+msgid "Replaces everything in destination (note that *Mix Factor* is still used)."
+msgstr "替换全部目标数据 (注意还是要用到 *混合系数*)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:156
+msgid "Above Threshold"
+msgstr "高于阈值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:155
+msgid ""
+"Only replaces destination value if it is above given threshold *Mix Factor*. "
+"How that threshold is interpreted depends on data type, note that for boolean "
+"values this option fakes a logical AND."
+msgstr ""
+"仅替换高于阈值 *混合系数* 的目标值。如何解读阈值取决于数据类型，注意对于布尔值，"
+"该选项充当逻辑 “与”。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:160
+msgid "Below Threshold"
+msgstr "低于阈值"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:159
+msgid ""
+"Only replaces destination value if it is below given threshold *Mix Factor*. "
+"How that threshold is interpreted depends on data type, note that for boolean "
+"values this option fakes a logical OR."
+msgstr ""
+"仅替换低于阈值 *混合系数* 的目标值。如何解读阈值取决于数据类型，注意对于布尔值，"
+"该选项充当逻辑 “或”。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:163
+msgid "Mix, Add, Subtract, Multiply"
+msgstr "混合、相加、相减、相乘"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:163
+msgid ""
+"Apply that operation, using mix factor to control how much of source or "
+"destination value to use. Only available for a few types (vertex groups, vertex "
+"colors)."
+msgstr ""
+"使用混合系数控制来源或目标值的混合方式，仅适用于少数类型(顶点组、顶点颜色)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:167
+msgid "Mix Factor"
+msgstr "混合系数"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:166
+msgid ""
+"How much of the transferred data gets mixed into existing one (not supported by "
+"all data types)."
+msgstr "传递的数据与现有数据的混合系数(不支持所有数据类型)。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:172
+msgid "Data Layout"
+msgstr "数据布局"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:178
+msgid ":menuselection:`Tool Shelf --> Tools --> Edit --> Data Layout`"
+msgstr ":menuselection:`工具栏 --> 工具 --> 编辑 --> 数据布局`"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:179
+msgid ":menuselection:`Object --> Transfer Mesh Data Layout`"
+msgstr ":menuselection:`物体 --> 传递网格数据布局t`"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:190
+msgid "Exact Match"
+msgstr "完全匹配"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:191
+msgid ""
+"Also Delete some data layers from destination if necessary, so that it matches "
+"the source exactly."
+msgstr "如必要，会从目标层删去一些数据层，以使其完全匹配来源层。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:198
+msgid "Source Layers Selection"
+msgstr "选择来源层"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:193
+msgid "Which layers to transfer, in case of multi-layer types."
+msgstr "选择需要传递的层，以防多层类型。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:195
+msgid "Active Layer"
+msgstr "活动层"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:196
+msgid "Only transfer the active data layer."
+msgstr "仅传递活动数据层。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:198
+msgid "All Layers"
+msgstr "全部层"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:198
+msgid "Transfer all data layers."
+msgstr "传递全部数据层。"
+
+#: ../../<generated>:1
+msgid "Destination Layers Matching"
+msgstr "匹配的目标层"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:201
+msgid "How to match source and destination layers."
+msgstr "如何匹配来源层与目标层。"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:203
+msgid "By Name"
+msgstr "按名称"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:204
+msgid "Match target data layers to affect by name."
+msgstr "按名称匹配受影响的目标数据层。"
+
+#: ../../<generated>:1
+msgid "By Order"
+msgstr "按排序"
+
+#: ../../manual/modeling/meshes/editing/data_transfer.rst:206
+msgid "Match target data layers to affect by order (indices)."
+msgstr "按顺序(编号)匹配受影响的目标数据层。"

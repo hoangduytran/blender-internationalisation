@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Запікання імітацій диму &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/physics/smoke/baking.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Тверде Тіло -- Rigid Body" href="../rigid_body/index.html" />
+    <link rel="prev" title="Матеріал Диму -- Smoke Material" href="material.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Фізика -- Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gravity.html">Гравітація -- Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../baking.html">Запікання Імітацій Фізики -- Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../force_fields/index.html">Силові Поля -- Force Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collision.html">Зіткнення -- Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloth/index.html">Імітація Тканини -- Cloth Simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dynamic_paint/index.html">Динамічне Малювання -- Dynamic Paint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../soft_body/index.html">М'яке Тіло -- Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid/index.html">Імітація Рідини -- Fluid Simulation</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Імітація Диму -- Smoke Simulation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="types/index.html">Типи Диму -- Smoke Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="material.html">Матеріал Диму -- Smoke Material</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Запікання імітацій диму</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../rigid_body/index.html">Тверде Тіло -- Rigid Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../particles/index.html">Система Частинок -- Particle System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Фізика -- Physics</a> &raquo;</li>
+        
+          <li><a href="index.html">Імітація Диму -- Smoke Simulation</a> &raquo;</li>
+        
+      <li>Запікання імітацій диму</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/physics/smoke/baking.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="baking-smoke-simulations">
+<h1>Запікання імітацій диму<a class="headerlink" href="#baking-smoke-simulations" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/physics_smoke_baking_interface.png" src="../../_images/physics_smoke_baking_interface.png" />
+<p class="caption"><span class="caption-text">Опції «Кеш Диму» -- <em>Smoke Cache</em>.</span></p>
+</div>
+<p>Запікання -- <a class="reference internal" href="../../glossary/index.html#term-baking"><span class="xref std std-term">Baking</span></a> використовується для збереження результату імітації, щоб не було потреби її перераховувати.</p>
+<p>Устави запікання диму знаходяться в «редактор Властивостей &gt; Фізика &gt; Дим &gt; Кеш Диму» -- <span class="menuselection">Properties ‣ Physics ‣ Smoke ‣ Smoke Cache</span>. На відміну від більшості імітацій фізики фізика диму має деякі устави, що є специфічними саме для диму.</p>
+<div class="section" id="file-format">
+<h2>Формат Файлу -- File Format<a class="headerlink" href="#file-format" title="Permalink to this headline">¶</a></h2>
+<p>Формат файлу, в якому зберігаються дані кешу.</p>
+<div class="section" id="point-cache">
+<h3>Кеш Точок -- Point Cache<a class="headerlink" href="#point-cache" title="Permalink to this headline">¶</a></h3>
+<p>Власний для Blender'а формат кешування.</p>
+</div>
+<div class="section" id="openvdb">
+<h3>OpenVDB<a class="headerlink" href="#openvdb" title="Permalink to this headline">¶</a></h3>
+<p>Просунутий та ефективний метод зберігання, розроблений <a class="reference external" href="http://www.dreamworksanimation.com/">DreamWorks Animation</a>.</p>
+<p>Поля імітації можна знайти у файлах <code class="docutils literal notranslate"><span class="pre">.vdb</span></code> під наступними іменами:</p>
+<ul class="simple">
+<li>&quot;color&quot; -- колір</li>
+<li>&quot;density&quot; -- щільність</li>
+<li>&quot;heat&quot; -- теплота</li>
+<li>&quot;heat old&quot; (the temperature at the previous frame)</li>
+<li>&quot;flame&quot; -- полум'я</li>
+<li>&quot;fuel&quot; -- паливо</li>
+<li>&quot;react&quot; -- реакція (координати реакції, використовувані для вогню)</li>
+<li>&quot;velocity&quot; -- скорість</li>
+<li>&quot;shadow&quot; -- тінь (тіні об'єму, обчислювані для рендерингу, зображування оглядвікна)</li>
+<li>&quot;texture coordinates&quot; -- координати текстури (використовуються для турбулентності)</li>
+</ul>
+<dl class="docutils">
+<dt>Стиснення -- Compression</dt>
+<dd><p class="first">Метод стиснення даних.</p>
+<dl class="last docutils">
+<dt>Zip</dt>
+<dd>Ефективний, але повільніший метод стиснення.</dd>
+<dt>Blosc</dt>
+<dd>Багатопотокове стиснення з приблизно такими ж якістю та розмірами як <code class="docutils literal notranslate"><span class="pre">Zip</span></code>.</dd>
+<dt>Нема -- None</dt>
+<dd>Стиснення даних не застосовується.</dd>
+</dl>
+</dd>
+<dt>Глибина Даних -- Data Depth</dt>
+<dd><p class="first">Бітова глибина для запису усіх скалярних (включаючи вектори) даних, нижчі значення зменшують розмір файлу кешу.</p>
+<dl class="last docutils">
+<dt>Дійсночислове (Половина)</dt>
+<dd>Половинні дійсночислові значення (16-ти бітні дані). Дає менше даних з вигодою менших розмірів файлів.</dd>
+<dt>Дійсночислове (Повне)</dt>
+<dd>Повні дійсночислові значення (32-х бітні дані). Дає більше даних за рахунок більших розмірів файлів.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Про інші опції дивіться детальніше тут -- <a class="reference internal" href="../baking.html"><span class="doc">General Baking</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Запікання може бути зроблене, тільки після того, як ваш blend-файл з імітацією попередньо збережено. Якщо такий blend-файл не було збережено, то панель <em>Smoke Cache</em> є недоступною.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rigid_body/index.html" class="btn btn-neutral float-right" title="Тверде Тіло -- Rigid Body" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="material.html" class="btn btn-neutral" title="Матеріал Диму -- Smoke Material" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

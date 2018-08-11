@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Командний Рядок -- Command Line &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/workflows/command_line.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Multi-View" href="multiview/index.html" />
+    <link rel="prev" title="Рендеринг Анімацій -- Rendering Animations" href="animations.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Хід роботи -- Workflows</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="animations.html">Рендеринг Анімацій -- Rendering Animations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Командний Рядок -- Command Line</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#platforms">Платформи</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Приклади</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="multiview/index.html">Multi-View</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Хід роботи -- Workflows</a> &raquo;</li>
+        
+      <li>Командний Рядок -- Command Line</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/workflows/command_line.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line">
+<h1>Командний Рядок -- Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h1>
+<p>У деяких ситуаціях ми хочемо збільшити швидкість рендерингу, мати доступ до Blender'а віддалено для зображування чогось або будувати скрипти, що використовують командний рядок -- command line.</p>
+<p>Однією з переваг використання командного рядка є те, що нам не потрібен графічний показ (наприклад, не потрібно для Х сервера на Linux), та, як наслідок, ми можемо рендерити через віддалену оболонку (зазвичай, SSH).</p>
+<p>Дивіться <a class="reference internal" href="../../advanced/command_line/arguments.html"><span class="doc">Command Line Arguments</span></a> про повний список аргументів (наприклад, для визначення того, яку сцену рендерити, номер кінцевого кадру тощо), або просто запустіть:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender --help
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Аргументи виконуються у порядку, в якому вони задані!</p>
+<p>Наступна команда не буде працювати, оскільки вивід та розширення задані після того, як дана Blender'у команда запустити рендеринг:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -a -x <span class="m">1</span> -o //render
+</pre></div>
+</div>
+<p>Наступна команда буде поводитися, як очікується:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -x <span class="m">1</span> -o //render -a
+</pre></div>
+</div>
+<p class="last"><strong>Завжди</strong> розміщуйте <code class="docutils literal notranslate"><span class="pre">-f</span></code> або <code class="docutils literal notranslate"><span class="pre">-a</span></code> як останній аргумент.</p>
+</div>
+<div class="section" id="platforms">
+<h2>Платформи<a class="headerlink" href="#platforms" title="Permalink to this headline">¶</a></h2>
+<p>Як фактично виконати Blender з командного рядка, залежить від платформи й того, де ви інсталювали Blender. Ось базові інструкції для різних платформ.</p>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Відкрийте термінал, далі перейдіть у каталог, де інстальовано Blender, та запустіть Blender так:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> &lt;blender installation directory&gt;
+./blender
+</pre></div>
+</div>
+<p>Якщо ви інсталювали Blender у ваш <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (зазвичай, коли Blender інстальовано через розподільний пакет), ви можете просто запустити:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender
+</pre></div>
+</div>
+</div>
+<div class="section" id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>Відкрийте застосунок терміналу, перейдіть у каталог, де інстальовано Blender, та запустіть виконуваний файл у межах пакеті застосунків, за допомогою таких команд:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /Applications/Blender
+./blender.app/Contents/MacOS/blender
+</pre></div>
+</div>
+<p>Якщо вам необхідно робити це часто, то ви можете створити псевдонім -- alias, щоб просто уводити <code class="docutils literal notranslate"><span class="pre">blender</span></code> у терміналі. Для цього ви можете запустити таку команду у терміналі (з відповідним шляхом).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;alias blender=/Applications/Blender/blender.app/Contents/MacOS/blender&quot;</span> &gt;&gt; ~/.bash_profile
+</pre></div>
+</div>
+<p>Якщо ви далі відкриєте новий термінал, то вже працюватиме наступна команда:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender
+</pre></div>
+</div>
+</div>
+<div class="section" id="ms-windows">
+<h3>MS-Windows<a class="headerlink" href="#ms-windows" title="Permalink to this headline">¶</a></h3>
+<p>Відкрийте командний рядок -- Command Prompt, перейдіть у каталог, де інстальовано Blender, і далі запустіть Blender:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> c:\<span class="p">&lt;</span>blender installation directory&gt;
+blender
+</pre></div>
+</div>
+<p>Ви можете також додати теку Blender'а у ваш системний <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, щоб вам не треба було уводити команду з <code class="docutils literal notranslate"><span class="pre">cd</span></code> кожен раз.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-image">
+<h3>Одиничне Зображення -- Single Image<a class="headerlink" href="#single-image" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -f <span class="m">10</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">-b</span></code></dt>
+<dd>Рендерить у фоні (без Інтерфейсу Користувача).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">file.blend</span></code></dt>
+<dd>Шлях до blend-файлу для рендерингу.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">10</span></code></dt>
+<dd>Рендерити тільки 10-й кадр.</dd>
+</dl>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -o /project/renders/frame_##### -F EXR -f -2
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">/project/renders/frame_#####</span></code></dt>
+<dd>Шлях до місця для збереження рендереного зображення, що використовує п'ять підставних нулів для номера кадру.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-F</span> <span class="pre">EXR</span></code></dt>
+<dd>Замістити формат зображення, визначений у цьому blend-файлі, та зберегти у зображення формату OpenEXR.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">-2</span></code></dt>
+<dd>Рендерити тільки другий останній кадр.</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Аргументи чутливі до регістру! <code class="docutils literal notranslate"><span class="pre">-F</span></code> та <code class="docutils literal notranslate"><span class="pre">-f</span></code> -- це не те ж саме.</p>
+</div>
+</div>
+<div class="section" id="animation">
+<h3>Анімація -- Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -a
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">-a</span></code></dt>
+<dd>Рендерити всієї анімації, використовуючи усі устави, збережені у цьому blend-файлі.</dd>
+</dl>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender -b file.blend -E BLENDER_RENDER -s <span class="m">10</span> -e <span class="m">500</span> -t <span class="m">2</span> -a
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">-E</span> <span class="pre">BLENDER_RENDER</span></code></dt>
+<dd>Використати рушій &quot;Blender Render&quot;. Для отримання списку, доступних рушії рендерингу, запустіть <code class="docutils literal notranslate"><span class="pre">blender</span> <span class="pre">-E</span> <span class="pre">help</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-s</span> <span class="pre">10</span> <span class="pre">-e</span> <span class="pre">500</span></code></dt>
+<dd>Задати стартовий кадр як <code class="docutils literal notranslate"><span class="pre">10</span></code> та кінцевий кадр як <code class="docutils literal notranslate"><span class="pre">500</span></code>.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">2</span></code></dt>
+<dd>Використати тільки два потоки.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="multiview/index.html" class="btn btn-neutral float-right" title="Multi-View" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="animations.html" class="btn btn-neutral" title="Рендеринг Анімацій -- Rendering Animations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

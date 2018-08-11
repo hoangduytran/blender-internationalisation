@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Канали" href="channels.html" />
+    <link rel="prev" title="Редактор Графів -- Graph Editor" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="channels.html">Канали</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fcurves/index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/graph_editor/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Редактор Графів -- Graph Editor -- це головний редактор анімування. Він дозволяє вам модифікувати анімацію за будь-якими властивостями з допомогою F-Кривих -- <a class="reference internal" href="fcurves/introduction.html"><span class="doc">F-Curves</span></a>.</p>
+<p>The Graph editor has two modes, <em>F-Curve</em> for <a class="reference internal" href="../../animation/actions.html"><span class="doc">Actions</span></a>,
+and <em>Drivers</em> for <a class="reference internal" href="../../animation/drivers/index.html"><span class="doc">Drivers</span></a>. Both are very similar in function.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_graph-editor_introduction_example.png" src="../../_images/editors_graph-editor_introduction_example.png" />
+<p class="caption"><span class="caption-text">Редактор Графів -- Graph Editor.</span></p>
+</div>
+<div class="section" id="curve-view">
+<h2>Огляд Кривої -- Curve View<a class="headerlink" href="#curve-view" title="Permalink to this headline">¶</a></h2>
+<p>The curve view allows you to view and edit F-Curves.
+An F-Curve has several key parts:</p>
+<dl class="docutils">
+<dt>Curve</dt>
+<dd><p class="first">The curve defines the value (Y axis) of the property over time (X axis).</p>
+<p class="last">See <a class="reference internal" href="fcurves/index.html"><span class="doc">F-Curves</span></a></p>
+</dd>
+<dt>Keyframes</dt>
+<dd><p class="first">Keyframes are user-defined values on certain frames and are represented by little black squares.
+These become orange if selected.</p>
+<p class="last">See <a class="reference internal" href="../../animation/keyframes/index.html"><span class="doc">Keyframes</span></a> for more information.</p>
+</dd>
+<dt>Handles</dt>
+<dd><p class="first">Each keyframe has a handle that helps determine the values of the curve between keyframes.
+These handles are represented by extruding lines with circular ends
+and can be selected and modified to change the shape of the curve.</p>
+<p class="last">See <a class="reference internal" href="fcurves/introduction.html#editors-graph-fcurves-settings-handles"><span class="std std-ref">Типи Держаків -- Handle Types</span></a> for more information.</p>
+</dd>
+</dl>
+<div class="figure" id="id2">
+<img alt="../../_images/editors_graph-editor_fcurves_introduction.png" src="../../_images/editors_graph-editor_fcurves_introduction.png" />
+<p class="caption"><span class="caption-text">A simple curve.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Детальніше дивіться тут -- <a class="reference internal" href="fcurves/introduction.html"><span class="doc">F-Curves</span></a>.</p>
+</div>
+<div class="section" id="navigation">
+<h3>Навігація -- Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+<p>Як і в більшості редакторів, ви можете здійснювати:</p>
+<dl class="docutils">
+<dt>Панорамування -- Pan</dt>
+<dd>Панорамує огляд вертикально (значення) або горизонтально (час) з допомогою клацку та перетягу (<kbd class="kbd docutils literal notranslate">MMB</kbd>).</dd>
+<dt>Зумування -- Zoom</dt>
+<dd>Присуває та відсуває огляд коліщам миші (<kbd class="kbd docutils literal notranslate">Wheel</kbd>).</dd>
+<dt>Масштабування Огляду -- Scale View</dt>
+<dd>Масштабує огляд вертикально або горизонтально (<kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd>).</dd>
+</dl>
+</div>
+<div class="section" id="d-cursor">
+<span id="bpy-types-spacegrapheditor-cursor"></span><span id="graph-editor-2d-cursor"></span><h3>2D Курсор -- 2D Cursor<a class="headerlink" href="#d-cursor" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/editors_graph-editor_introduction_2dcursor.png" src="../../_images/editors_graph-editor_introduction_2dcursor.png" />
+<p class="caption"><span class="caption-text">2D Курсор Редактора Графів.</span></p>
+</div>
+<p>Поточний кадр представляється зеленою вертикальною лінією, що називається «Курсор Часу» -- <em>Time Cursor</em>.</p>
+<p>Як і редакторі Часолінія -- <a class="reference internal" href="../timeline.html"><span class="doc">Timeline</span></a>, ви можете змінювати поточний кадр, клацнувши або тягнувши утримуваною натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<p>Зелена горизонтальна лінія називається «Курсор» -- <em>Cursor</em>. Її показ може бути вимкнено через меню «Огляд» -- <em>View Menu</em> або панель «Огляд» у регіоні «Властивості -- <em>View Properties</em>.</p>
+<p>Курсор Часу -- <em>Time Cursor</em> та Курсор -- <em>Cursor</em> разом утворюють 2D Курсор -- <em>2D Cursor</em>. 2D Курсор -- <em>2D Cursor</em> здебільшого використовується для засобів редагування.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">See Graph Editor's <a class="reference internal" href="fcurves/properties.html#graph-editor-view-properties"><span class="std std-ref">View Properties</span></a>.</p>
+</div>
+</div>
+<div class="section" id="view-axes">
+<h3>Осі Огляду -- View Axes<a class="headerlink" href="#view-axes" title="Permalink to this headline">¶</a></h3>
+<p>For <em>Actions</em> the X axis represents time,
+the Y axis represents the value to set the property.</p>
+<p>For <em>Drivers</em> the X axis represents the <em>Driver Value</em>,
+the Y axis represents the value to set the property.</p>
+<p>Залежно від виділених кривих ці значення можуть мати різне розуміння: наприклад, властивості обертання показуються у градусах, властивості локації показуються в Одиницях Blender'а -- Blender Units. Зауважте, що Драйвери -- <em>Drivers</em> використовують радіани для властивостей обертання.</p>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Заголовок -- Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="view-menu">
+<span id="graph-view-menu"></span><h3>Меню «Огляд» -- View Menu<a class="headerlink" href="#view-menu" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Реально-часові Оновлення -- Realtime Updates</dt>
+<dd>When transforming keyframes, changes to the animation data are propagated to other views.</dd>
+<dt>Показати Курсор -- Show Cursor</dt>
+<dd>Toggles the visibility of the <a class="reference internal" href="#d-cursor">2D Cursor</a>.</dd>
+<dt>Показати Повзунки -- Show Sliders</dt>
+<dd>Опція, що перемикає показ повзунки значень на каналах. Дивіться ілюстрацію <a class="reference internal" href="../dope_sheet/introduction.html#fig-dope-sheet-action"><span class="std std-ref">Регіон каналів у режимі «Редактор Дій» -- Action editor.</span></a>.</dd>
+<dt>Показати Кольори Груп -- Show Group Colors</dt>
+<dd>Прорисовує групи та канали кольорами, що відповідають їх відповідним групам.</dd>
+<dt>АвтоОб'єднання Ключкадрів -- AutoMerge Keyframes</dt>
+<dd>Автоматично об'єднує сусідні ключкадри.</dd>
+<dt>Вжити Високоякісне Рисування -- Use High Quality Drawing</dt>
+<dd>Draws F-Curves using anti-aliasing and other fancy effects (disable for better performance).</dd>
+<dt>Показати Держаки -- Show Handles <kbd class="kbd docutils literal notranslate">Ctrl-H</kbd></dt>
+<dd>Toggles the display of a curve's handles in the curve view.</dd>
+<dt>Лише Виділені Ключкадри Кривих -- Only Selected Curve Keyframes</dt>
+<dd>Only shows the keyframes markers on the selected curves.</dd>
+<dt>Лише Держаки Виділених Ключкадрів -- Only Selected Keyframe Handles</dt>
+<dd>Only shows the handles for the currently selected curves.</dd>
+<dt>Все в Огляд -- View All <kbd class="kbd docutils literal notranslate">Home</kbd></dt>
+<dd>Скидає видиму область так, щоб були видимі усі ключкадри.</dd>
+<dt>Виділене в Огляд -- View Selected <kbd class="kbd docutils literal notranslate">NumpadPeriod</kbd></dt>
+<dd>Скидає видиму область так, щоб були видимі виділені ключкадри.</dd>
+<dt>Кадр в Огляд -- View Frame <kbd class="kbd docutils literal notranslate">Numpad0</kbd></dt>
+<dd>Центрує область на Курсорі Часу -- Time Cursor.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>See Graph Editor's <a class="reference internal" href="fcurves/properties.html#graph-editor-view-properties"><span class="std std-ref">View Properties</span></a></li>
+<li>Дивіться детальніше тут -- <a class="reference internal" href="../timeline.html#timeline-view-menu"><span class="std std-ref">Меню «Огляд» -- View Menu</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="preview-range">
+<span id="graph-preview-range"></span><h4>Діапазон Передогляду -- Preview Range<a class="headerlink" href="#preview-range" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Задати Діапазон Перегляду -- Set Preview Range <kbd class="kbd docutils literal notranslate">P</kbd></dt>
+<dd>Interactively define frame range used for playback.
+Allow you to define a temporary preview range to use for the <kbd class="kbd docutils literal notranslate">Alt-A</kbd> real-time playback
+(this is the same thing as the <em>Playback Range</em> option of
+the <a class="reference internal" href="../timeline.html#animation-editors-timeline-headercontrols"><span class="std std-ref">Timeline editor header</span></a>).</dd>
+<dt>Зчистити Діапазон Перегляду -- Clear Preview Range <kbd class="kbd docutils literal notranslate">Alt-P</kbd></dt>
+<dd>Зчищає заданий діапазон передогляду.</dd>
+<dt>Авто-Задати Діапазон Передогляду -- Auto-Set Preview Range <kbd class="kbd docutils literal notranslate">Ctrl-Alt-P</kbd></dt>
+<dd>Автоматично задає діапазон передогляду для відтворення дії цілком або виділених смужок НЛА.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="markers-menu">
+<h3>Markers Menu<a class="headerlink" href="#markers-menu" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../../animation/markers.html"><span class="doc">Markers</span></a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/editors_graph-editor_introduction_markers.png" src="../../_images/editors_graph-editor_introduction_markers.png" />
+<p class="caption"><span class="caption-text">Markers in animation editor.</span></p>
+</div>
+<p>For descriptions of the different marker tools see <a class="reference internal" href="../../animation/markers.html#animation-markers-editing"><span class="std std-ref">Editing Markers</span></a>.</p>
+</div>
+<div class="section" id="mode">
+<h3>Режим -- Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
+<p>F-Крива -- F-Curve для Дій -- <a class="reference internal" href="../../animation/actions.html"><span class="doc">Actions</span></a> та Драйвери -- Drivers для Драйверів -- <a class="reference internal" href="../../animation/drivers/index.html"><span class="doc">Drivers</span></a>.</p>
+<div class="figure" id="id5">
+<img alt="../../_images/editors_graph-editor_introduction_header-mode.png" src="../../_images/editors_graph-editor_introduction_header-mode.png" />
+<p class="caption"><span class="caption-text">Режим графіка.</span></p>
+</div>
+</div>
+<div class="section" id="view-controls">
+<h3>Контролери Огляду -- View Controls<a class="headerlink" href="#view-controls" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<img alt="../../_images/editors_graph-editor_introduction_header-view.png" src="../../_images/editors_graph-editor_introduction_header-view.png" />
+<p class="caption"><span class="caption-text">View controls.</span></p>
+</div>
+<dl class="docutils">
+<dt>Показати Лише Виділене -- Show Only Selected (іконка вказівника миші)</dt>
+<dd>Включає криві, що стосуються тільки виділених об'єктів та даних.</dd>
+<dt>Показати Сховане -- Show Hidden (іконка з привидом)</dt>
+<dd>Включає криві для об'єктів/костей, що поточно невидимі.</dd>
+<dt>Показати Лише Помилки -- Show Only Errors (іконка з рятівним колом)</dt>
+<dd>Включає тільки криві та драйвери, що вимкнені або мають помилки. Корисно для налагодження.</dd>
+<dt>Фільтр Пошуку -- Search Filter (іконка з лупою) <kbd class="kbd docutils literal notranslate">F</kbd></dt>
+<dd><p class="first">Включає тільки криві, що у назві містять ключові слова, задані у полі пошуку.</p>
+<dl class="last docutils">
+<dt>Кілька Слів -- Multi-Word (іконка az)</dt>
+<dd>Fuzzy/Multi-Word name filtering matches word snippets/partial words,
+instead of having to match everything. It breaks down the search string based on white-space placement.
+e.g. &quot;lo ro&quot; will filter all location and rotation, while &quot;lc rt&quot; will <em>not</em> work.</dd>
+</dl>
+</dd>
+<dt>Фільтр за Типом -- Type Filter</dt>
+<dd><p class="first">Фільтрує криві за типом властивості.</p>
+<dl class="last docutils">
+<dt>Сортувати Блоки Даних -- Data-block Sort (іконка az)</dt>
+<dd><p class="first">Блоки даних об'єктів будуть відображатися в алфавітному порядку, щоб було легше знаходити, де вони відбуваються (або також зберігати разом анімацію по об'єктам в НЛА, наприклад).</p>
+<p class="last">Якщо ви виявите, що швидкість вашого відтворення страждає, коли це увімкнено (це повинно бути проблемою тільки, коли працюєте з багатьма об'єктами у сцені), то ви можете вимкнути це.</p>
+</dd>
+</dl>
+</dd>
+<dt>Нормалізація -- Normalize</dt>
+<dd><p class="first">Нормалізує криві так, щоб точки максимумів та мінімумів дорівнювали 1.0 та -1.0, відповідно.</p>
+<dl class="last docutils">
+<dt>Авто -- Auto</dt>
+<dd>Автоматично повторно обчислює нормалізацію кривої при кожній її правці. Це корисно для запобігання стрибкам кривої після її налаштування.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="curve-controls">
+<h3>Контролери Кривої -- Curve Controls<a class="headerlink" href="#curve-controls" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id7">
+<img alt="../../_images/editors_graph-editor_introduction_header-edit.png" src="../../_images/editors_graph-editor_introduction_header-edit.png" />
+<p class="caption"><span class="caption-text">Curve controls.</span></p>
+</div>
+<dl class="docutils">
+<dt>Пропорційна Правка -- Proportional Editing <kbd class="kbd docutils literal notranslate">O</kbd></dt>
+<dd>Дивіться детальніше тут -- <a class="reference internal" href="../3dview/object/editing/transform/control/proportional_edit.html"><span class="doc">Proportional editing</span></a>.</dd>
+<dt>Авто Підхоп -- Auto Snap</dt>
+<dd><p class="first">Автоматично підхоплює ключкадри для трансформувань.</p>
+<ul class="last simple">
+<li>Без Авто Підхопу -- No Auto-Snap</li>
+<li>Крок 1 Кадр -- Frame Step</li>
+<li>Крок 1 Секунда -- Second Step</li>
+<li>Найближчий Кадр -- Nearest Frame</li>
+<li>Найближча Секунда -- Nearest Second</li>
+<li>Найближча Мітка -- Nearest Marker</li>
+</ul>
+</dd>
+<dt>Опорна Точка -- Pivot Point</dt>
+<dd><p class="first">Опорна точка для обертання.</p>
+<dl class="last docutils">
+<dt>Центр Габаритної Коробки -- Bounding Box Center</dt>
+<dd>Центр виділених ключкадрів.</dd>
+<dt>2D Курсор -- 2D Cursor</dt>
+<dd>Центр 2D Курсора -- <em>2D Cursor</em>. Курсор Часу -- <em>Time Cursor</em> + Курсор -- <em>Cursor</em>.</dd>
+<dt>Індивідуальні Центри -- Individual Centers</dt>
+<dd>Обертає виділені держаки Безьє -- <em>Bézier</em> для ключкадру.</dd>
+</dl>
+</dd>
+<dt>Копіювати Ключкадри -- Copy Keyframes <kbd class="kbd docutils literal notranslate">Ctrl-C</kbd></dt>
+<dd>Копіює виділені ключкадри у пам'ять.</dd>
+<dt>Вставити Ключкадри -- Paste Keyframes <kbd class="kbd docutils literal notranslate">Ctrl-V</kbd></dt>
+<dd>Вставляє ключкадри з пам'яті у поточний кадр для виділених кривих.</dd>
+<dt>Створити Знімок -- Create Snapshot (іконка з привидом)</dt>
+<dd>Створює картинку з поточною формою кривих.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="properties-region">
+<h2>Регіон Властивості -- Properties Region<a class="headerlink" href="#properties-region" title="Permalink to this headline">¶</a></h2>
+<p>Панелі у Регіоні Властивості -- <em>Properties Region</em>.</p>
+<div class="section" id="view-tab">
+<h3>Вкладка «Огляд» -- View Tab<a class="headerlink" href="#view-tab" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="view-properties-panel">
+<h3>Панель «Властивості Огляду» -- View Properties Panel<a class="headerlink" href="#view-properties-panel" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id8">
+<img alt="../../_images/editors_graph-editor_fcurves_properties_view-panel.png" src="../../_images/editors_graph-editor_fcurves_properties_view-panel.png" />
+<p class="caption"><span class="caption-text">View Properties panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Показати Курсор -- Show Cursor</dt>
+<dd>Показує горизонтальний Курсор -- <em>Cursor</em>.</dd>
+<dt>Курсор з Виділу -- Cursor from Selection</dt>
+<dd>Установлює 2D Курсор -- <em>2D cursor</em> у центр виділених кадрів.</dd>
+<dt>Курсор X -- Cursor X</dt>
+<dd><p class="first">Позиція Курсора Часу -- <em>Time Cursor</em> по X осі.</p>
+<dl class="last docutils">
+<dt>У Ключі -- To Keys</dt>
+<dd>Підхоплює виділені ключкадри до горизонтальної позиції Курсора Часу -- <em>Time Cursor</em>.</dd>
+</dl>
+</dd>
+<dt>Курсор Y -- Cursor Y</dt>
+<dd><p class="first">Вертикальна позиція Курсора -- <em>Cursor</em> по Y осі.</p>
+<dl class="last docutils">
+<dt>У Ключі -- To Keys</dt>
+<dd>Підхоплює виділені ключкадри до вертикальної позиції Курсора -- <em>Cursor</em>.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="further-tabs">
+<h3>Інші вкладки<a class="headerlink" href="#further-tabs" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Вкладка «F-Крива» -- F-Curve Tab</dt>
+<dd>Дивіться детальніше тут -- <a class="reference internal" href="fcurves/properties.html"><span class="doc">F-Curve</span></a>.</dd>
+<dt>Вкладка «Драйвери» -- Drivers Tab</dt>
+<dd>Дивіться детальніше тут -- <a class="reference internal" href="../../animation/drivers/drivers_panel.html"><span class="doc">Панель «Драйвери» -- Drivers Panel</span></a>.</dd>
+<dt>Вкладка «Модифікатори» -- Modifiers Tab</dt>
+<dd>See <a class="reference internal" href="fcurves/modifiers.html"><span class="doc">F-Modifiers</span></a>.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="channels.html" class="btn btn-neutral float-right" title="Канали" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Редактор Графів -- Graph Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

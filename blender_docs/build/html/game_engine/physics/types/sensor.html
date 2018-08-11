@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Фізика «Сенсор» -- Sensor Physics &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/physics/types/sensor.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Фізика «Сіть Навігації» -- Navigation Mesh Physics" href="navigation_mesh.html" />
+    <link rel="prev" title="Фізика «Загороджувач» -- Occluder Object Physics" href="occluder.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Фізика -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">Фізика Світу -- World Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converting.html">Конвертування -- Converting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Типи Фізики -- Physic Types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="no_collision.html">Фізика «Без Зіткнення» -- No Collision Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="static.html">Фізика «Статично» -- Static Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dynamic.html">Фізика «Динамічно» -- Dynamic Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigid_body.html">Фізика «Тверде Тіло» -- Rigid Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="soft_body.html">Фізика «М'яке Тіло» -- Soft Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="occluder.html">Фізика «Загороджувач» -- Occluder Object Physics</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Фізика «Сенсор» -- Sensor Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation_mesh.html">Фізика «Сіть Навігації» -- Navigation Mesh Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character.html">Фізика «Персонаж» -- Character Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicle.html">Фізика контролера автотранспорту -- Vehicle Controller Physics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="../index.html">Фізика -- Physics</a> &raquo;</li>
+        
+      <li>Фізика «Сенсор» -- Sensor Physics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/game_engine/physics/types/sensor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sensor-physics">
+<h1>Фізика «Сенсор» -- Sensor Physics<a class="headerlink" href="#sensor-physics" title="Permalink to this headline">¶</a></h1>
+<p>Об'єкти з цим типом виявляють об'єкти з Static та Dynamic, але не об'єкти з іншими зіткненнями. Об'єкт з типом Sensor подібний до об'єктів фізики, що є під сенсорами Near та Radar. Як об'єкт з Near та Radar, цей об'єкт є:</p>
+<ul class="simple">
+<li>Статичним та привидом.</li>
+<li>Стандартно невидимим.</li>
+<li>Завжди активним для гарантування коректного виявлення зіткнення.</li>
+<li>Здатним для виявлення обох -- статичних і динамічних об'єктів.</li>
+<li>Ігнорує зіткнення зі своїм предком.</li>
+<li>Здатним до широкофазного фільтрування на основі:<ul>
+<li>Опції Actor: зіштовхуваний з ним об'єкт повинен мати увімкнений стяг Actor, щоб бути виявленим.</li>
+<li>Властивість/матеріал: як вказано у сенсорах типу Collision, прикріплених до нього.</li>
+</ul>
+</li>
+</ul>
+<p>Широкофазне фільтрування важливе з причини продуктивності: точки зіткнення будуть обчислюватися тільки для об'єктів, що проходять широкофазний фільтр.</p>
+<ul class="simple">
+<li>Автоматично вилучається із симуляції, коли жоден із сенсорів типу Collision не є активним на ньому.</li>
+</ul>
+<p>На відміну від об'єктів з Near та Radar, цей об'єкт може:</p>
+<ul class="simple">
+<li>Приймати будь-яку форму, включаючи трикутникову сіть.</li>
+<li>Бути зробленим видимим для налагодження (просто використайте актуатор Visibility).</li>
+<li>Мати одночасно кілька сенсорів типу Collision, що використовують його.</li>
+</ul>
+<p>Окрім цього всього, об'єкти з типом Sensor є звичайними об'єктами. Ви можете переміщувати їх вільно або приріднювати їх. При прирідненні до об'єкта Dynamic вони можуть давати просунуте керування зіткненнями для цього об'єкта.</p>
+<p>Тип спроможності зіткнення залежить від форми:</p>
+<ul class="simple">
+<li>Box, sphere, cylinder, cone, convex hull забезпечують виявлення об'єму.</li>
+<li>Triangle mesh забезпечує виявлення поверхні, але ви можете додати деякий об'єм до поверхні, збільшивши припуск -- margin. Припуск застосовується на обох сторонах поверхні.</li>
+</ul>
+<p class="rubric">Підказки щодо продуктивності</p>
+<ul class="simple">
+<li>Об'єкти із Sensor працюють краще, ніж з Near та Radar: вони зменшують синхронізацію через оптимізації графа сцени й вони можуть мати одночасно кілька сенсорів Collision на них (з різним фільтруванням властивості, наприклад).</li>
+<li>Завжди надавайте перевагу простій формі (коробка, сфера) перед складними формами, там де це можливо.</li>
+<li>Завжди використовуйте широкофазове фільтрування (уникайте сенсора типу Collision з порожніми властивістю/матеріалом).</li>
+<li>Використовуйте сенсор Collision тільки там, де це потрібно. Коли жоден сенсор Collision не активний на об'єкті з Sensor, то цей об'єкт вилучається з імітації та не витрачає жодний ресурс CPU.</li>
+</ul>
+<p class="rubric">Відомі обмеження</p>
+<ul>
+<li><p class="first">При виконанні Blender'а у режимі налагодження ви побачите один рядок попередження у консолі:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>warning btCollisionDispatcher::needsCollision: static-static collision!
+In release mode this message is not printed.
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Припуск зіткнення не впливає на форми Sphere, Cone та Cylinder.</p>
+</li>
+</ul>
+<div class="section" id="settings">
+<h2>Устави -- Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Невидимо -- Invisible</dt>
+<dd>Дивіться тут -- <a class="reference internal" href="static.html"><span class="doc">Here</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="collision-bounds">
+<h2>Межі Зіткнення -- Collision Bounds<a class="headerlink" href="#collision-bounds" title="Permalink to this headline">¶</a></h2>
+<p>Дивіться тут -- <a class="reference internal" href="../index.html#game-engine-physics-types"><span class="std std-ref">Here</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigation_mesh.html" class="btn btn-neutral float-right" title="Фізика «Сіть Навігації» -- Navigation Mesh Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="occluder.html" class="btn btn-neutral" title="Фізика «Загороджувач» -- Occluder Object Physics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Криві RGB» -- RGB Curves Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/nodes/types/color/rgb_curves.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Вузли типу «Конвертер» -- Converter Nodes" href="../converter/index.html" />
+    <link rel="prev" title="Вузол «Мікс» -- Mix Node" href="mix_rgb.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../material_panel.html">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../special_effects/index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Матеріалові Вузли -- Material Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Колір» -- Color Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Криві RGB» -- RGB Curves Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/render/blender_render/materials/nodes/types/color/rgb_curves.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rgb-curves-node">
+<h1>Вузол «Криві RGB» -- RGB Curves Node<a class="headerlink" href="#rgb-curves-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../../_images/compositing_types_color_rgb-curves_node.png" src="../../../../../../_images/compositing_types_color_rgb-curves_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Криві RGB» -- RGB Curves Node.</span></p>
+</div>
+<p>Вузол «Криві RGB» -- <em>RGB Curves Node</em> дозволяє коригувати кольори для кожного колірного каналу та регулювати рівні у контексті компонування.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Фактор -- Factor</dt>
+<dd>Керує величиною впливу цього вузла на вивідне результатне зображення.</dd>
+<dt>Зображення -- Image</dt>
+<dd>Стандартний увід зображення.</dd>
+<dt>Рівень Чорного -- Black Level</dt>
+<dd>Визначає увідний колір, що (лінеарно, прямолінійно) розкладається, як чорний колір.</dd>
+<dt>Рівень Білого -- White Level</dt>
+<dd>Визначає увідний колір, що (лінеарно) розкладається, як білий колір.</dd>
+</dl>
+<div class="lead docutils container">
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Для визначення цих рівнів, використовуйте піпетку -- <a class="reference internal" href="../../../../../../interface/controls/buttons/eye_dropper.html#ui-eye-dropper"><span class="std std-ref">eye dropper</span></a> для вибору зразка кольору показуваного зображення.</p>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Канал -- Channel</dt>
+<dd><p class="first">Клацання на одному з каналів показує відповідну йому криву.</p>
+<p class="last">C (Combined RGB -- Комбінований RGB), R (Red -- Червоний), G (Green -- Зелений), B (Blue -- Синій), L (Luminance -- Світність)</p>
+</dd>
+<dt>Крива -- Curve</dt>
+<dd>Крива Безьє, що варіює увідні рівні (вісь X) для продукування вивідного рівня (вісь Y). Про керувальники кривої дивіться: Віджет «Крива» -- <a class="reference internal" href="../../../../../../interface/controls/templates/curve.html#ui-curve-widget"><span class="std std-ref">Curve widget</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Стандартний вивід зображення.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Below are some common curves you can use to achieve desired effects.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png" src="../../../../../../_images/compositing_types_color_rgb-curves_example-common-use.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">From left to right: 1. Lighten shadows 2. Negative 3. Decrease contrast 4. Posterize.</span></p>
+</div>
+<div class="section" id="color-correction-using-curves">
+<h3>Корекція Кольорів за допомогою Кривих<a class="headerlink" href="#color-correction-using-curves" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.png" src="../../../../../../_images/compositing_types_color_rgb-curves_example-rgb.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Корекція кольорів за допомогою кривих.</span></p>
+</div>
+<p>In this example, the image has too much red in it,
+so we run it through an <em>RGB Curves</em> node and reduce the Red channel.</p>
+<p>Also, read on for examples of the Darken and Contrast Enhancement curves,
+<a class="reference internal" href="../../../../../../compositing/types/color/mix.html"><span class="doc">here</span></a>.</p>
+</div>
+<div class="section" id="color-correction-using-black-white-levels">
+<h3>Коригування Кольорів за допомогою Рівнів Чорного/Білого<a class="headerlink" href="#color-correction-using-black-white-levels" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png" src="../../../../../../_images/compositing_types_color_rgb-curves_black-white-levels.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Корекція кольорів за допомогою Рівнів Чорного/Білого.</span></p>
+</div>
+<p>Ручне регулювання RGB кривих для корекції кольорів може бути складним. Натомість, іншою опцією для корекції кольорів є використання Рівнів Чорного і Білого, що дійсно може бути їх головним призначенням.</p>
+<p>У цьому прикладі Рівень Білого -- White Level заданий, як колір яскравої плями піску з фону зображення, а Рівень Чорного -- Black Level -- як колір у центрі ока риби. Для того, щоб зробити це ефективно, найкраще викликати ще й вікно Редактора UV/Зображень -- UV/Image editor, в якому відкрити для показу початкове, оригінальне увідне зображення. Там ви далі можете використати колірний вказівник рівня для легшого вибору відповідних кольорів з увідного зображення, присунувши зображення, щоб показувався рівень пікселів, при потребі. Далі результат може ще бути уточнено за допомогою кривих R, G і B подібно, як і у попередньому прикладі.</p>
+<p>Крива для C використовується для компенсації збільшення контрасту, що є побічним ефектом задання Рівнів Чорного і Білого.</p>
+</div>
+<div class="section" id="effects">
+<h3>Ефекти<a class="headerlink" href="#effects" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_rgb-curves_ex.png"><img alt="../../../../../../_images/compositing_types_color_rgb-curves_ex.png" src="../../../../../../_images/compositing_types_color_rgb-curves_ex.png" style="width: 620px;" /></a>
+<p class="caption"><span class="caption-text">Changing colors by inverting the red channel.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../converter/index.html" class="btn btn-neutral float-right" title="Вузли типу «Конвертер» -- Converter Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mix_rgb.html" class="btn btn-neutral" title="Вузол «Мікс» -- Mix Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

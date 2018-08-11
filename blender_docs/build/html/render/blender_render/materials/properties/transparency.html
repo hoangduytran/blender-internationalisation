@@ -1,0 +1,639 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Прозорість -- Transparency &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/properties/transparency.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Дзеркальні Відбиття -- Mirror Reflections" href="mirror.html" />
+    <link rel="prev" title="Відтінення -- Shading" href="shading.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості Матеріалу -- Material Properties</a> &raquo;</li>
+        
+      <li>Прозорість -- Transparency</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/transparency.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transparency">
+<h1>Прозорість -- Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Transparency</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Матеріали у Blender'і можуть бути установлені як прозорі, щоб світло могло проходити крізь будь-які об'єкти за допомогою такого матеріалу. Прозорість керується за допомогою «альфа» каналу, де кожен піксель має додаткове значення у діапазоні 0-1, додатково до значень його кольорів RGB. Якщо альфа=0, то цей піксель вважається прозором, а значення RGB для поверхні нічого не привносять у вигляд пікселя; для альфа=1, поверхня є повністю безпрозорою, а її колір визначає фінальний колір такого пікселя.</p>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_panel.png" src="../../../../_images/render_blender-render_materials_properties_transparency_panel.png" />
+<p class="caption"><span class="caption-text">Transparency panel.</span></p>
+</div>
+<p>In Blender, there are three ways in which the transparency of a material can be set:
+Mask, Z-Buffer and Raytrace. Each of these is explained in more detail below.
+The <a class="reference internal" href="preview.html"><span class="doc">Material Preview</span></a>
+option with a sphere object gives a good demonstration
+of the capabilities of these three options.</p>
+<div class="section" id="common-options">
+<h2>Загальні опції<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>Наступні контролери властивостей доступні для усіх опцій прозорості:</p>
+<dl class="docutils">
+<dt>Альфа -- Alpha</dt>
+<dd>Задає прозорість матеріалу, установлюючи для усіх пікселів в альфа каналі задане значення.</dd>
+<dt>Френель -- Fresnel</dt>
+<dd>Задає силу ефекту Френеля. Ефект Френеля керує тим, наскільки прозорим є матеріал залежно від кута між нормаллю поверхні та напрямком огляду. Типово, чим більше цей кут, тим більш безпрозорим стає матеріал (це зазвичай відбувається на контурі об'єкта).</dd>
+<dt>Блікування -- Specular</dt>
+<dd>Керує альфа/спадом для блікового кольору.</dd>
+<dt>Змішання -- Blend</dt>
+<dd>Керує змішуванням між прозорими та не-прозорими областями. Використовується тільки, якщо значення Fresnel більше за 0.</dd>
+</dl>
+<div class="section" id="mask">
+<h3>Маска -- Mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h3>
+<p>Ця опція просто маскує фон. Вона використовує альфа канал для змішування кольору кожного пікселя на активному об'єкті з кольором відповідного фонового пікселя, згідно з альфа каналом цього пікселя. Звідси, для альфа = 1, колір об'єкта видимий -- цей об'єкт повністю безпрозорий; але якщо альфа = 0, то видимий тільки фон -- об'єкт є прозорим (але, зауважте, що будь-який інших об'єкт, що знаходиться позаду активного об'єкта, зникає).</p>
+<p>This is useful for making textures of solid or semitransparent objects from photographic
+reference material, i.e. a mask is made with alpha opaque for pixels within the object,
+and transparent for pixels outside the object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="#"><span class="doc">Mask Transparency</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="z-buffer">
+<h2>Z-Buffer<a class="headerlink" href="#z-buffer" title="Permalink to this headline">¶</a></h2>
+<p>Це використовує буфер альфа для прозорих граней. Значення альфа для кожного пікселя визначає суміш базового кольору матеріалу, а колір пікселя визначається з об'єктів/фону позаду нього. Для цієї опції доступні тільки базові устави; вона не обчислює заломлення, рефракції.</p>
+</div>
+<div class="section" id="ray-traced-transparency">
+<span id="bpy-types-materialraytracetransparency"></span><h2>Ray-Traced Transparency<a class="headerlink" href="#ray-traced-transparency" title="Permalink to this headline">¶</a></h2>
+<p>Використовує простеження променів для обчислення заломлень, рефракцій. Простеження променя дозволяє мати складні рефракції, спад та розмиття, а також використовується для імітування заломлення променів світла через прозорий матеріал, як через лінзу.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Опція «Простеження променя» -- Raytrace доступна тільки для рушіїв зобража, рендера Blender Render та Cycles, але не для ігрового рушія Game Engine.</p>
+</div>
+<p>Промінь посилається від камери та проходить крізь сцену, допоки він не зустріне об'єкт. Якщо перший об'єкт, на який натрапить промінь, є не-прозорим, то промінь бере колір цього об'єкта.</p>
+<p>Якщо такий об'єкт є прозорим, то промінь продовжує свій шлях до наступного об'єкта і так далі, допоки він зрештою не зустріне не-прозорий об'єкт, який задає колір для всього ланцюга променів. Зрештою, перший прозорий об'єкт успадковує кольори його фону, пропорційно до його значення <em>Alpha</em> (і значення Альфа кожного прозорого матеріалу по дорозі до нього).</p>
+<p>Але, хоча промінь проходить крізь прозорий об'єкт, він може бути відхилений від свого курсу відповідно до Показника Заломлення -- Index of Refraction (IOR) матеріалу. Коли ви фактично дивитися крізь поверхню скляної сфери, то ви помітите, що фон перевернутий та спотворений: це все через Показник Заломлення скла.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Enable Ray Tracing</p>
+<p>Для отримання промінь-простеженої прозорості вам необхідно:</p>
+<ul class="last simple">
+<li>Увімкнути простеження променя у ваших уставах зображування, рендерингу. Це робиться на панелі «Зображ &gt; Відтінення» -- <span class="menuselection">Render ‣ Shading</span>. Простеження променя стандартно увімкнене.</li>
+<li>Задати значення Альфа, якесь інше, ніж 1.0.</li>
+<li>Щоб матеріал фону приймав світло, що проходить крізь ваш прозорий об'єкт, повинна бути увімкнена опція «Приймати Прозоре» -- <em>Receive Transparent</em> для цього матеріалу на панелі «Матеріал &gt; Тінь» -- <span class="menuselection">Material ‣ Shadow</span>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_panel-raytrace.png" src="../../../../_images/render_blender-render_materials_properties_transparency_panel-raytrace.png" />
+<p class="caption"><span class="caption-text">The Transparency panel.</span></p>
+</div>
+<p>Окрім загальних опцій, зазначених вище, доступні наступні контролери для цієї властивості:</p>
+<dl class="docutils">
+<dt>Показник Заломлення -- IOR</dt>
+<dd>Показник заломлення світла -- Index of Refraction. Задає, наскільки промінь, що проходить крізь матеріал, буде заломленим, а звідси продукувати спотворене зображення його фону. Дивіться <a class="reference internal" href="#ior-values-for-common-materials">IOR values for Common Materials</a> нижче.</dd>
+<dt>Фільтр -- Filter</dt>
+<dd>Величина фільтрування для промінь-простеженої прозорості. Чим вище це значення, тим більше буде показаний базовий колір матеріалу. Цей матеріал все ще буде прозорим, але він почне брати колір матеріалу. Стандартно вимкнено (0.0).</dd>
+<dt>Спад -- Falloff</dt>
+<dd>Наскільки швидко світло поглинається при його проходженні крізь матеріал. Дає «глибину» та «товщину» скла.</dd>
+<dt>Ліміт -- Limit</dt>
+<dd>Матеріали, товстіші за це значення, є не прозорими. Це використовується для керування порогом, після якого починається фільтрування кольору.</dd>
+<dt>Глибина -- Depth</dt>
+<dd>Задає максимальну кількість прозорих поверхонь, крізь які може пройти одиничний промінь. Тут немає жодних типових значень. Прозорі об'єкти поза діапазоном <em>Depth</em> будуть зображуватися, рендеритися чорними при огляді крізь прозорий об'єкт, для якого задано <em>Depth</em>. Іншими словами, якщо ви помітите чорні області на поверхні прозорого об'єкта, то рішенням цього може бути збільшення значення <em>Depth</em> для нього (це поширена проблема з промінь-простеженими прозорими об'єктами). Вам можливо також необхідно буде увімкнути прозорі тіні на фоновому об'єкті.</dd>
+<dt>Глянець -- Gloss</dt>
+<dd><p class="first">Устави для глянсуватості матеріалу.</p>
+<dl class="last docutils">
+<dt>Величина -- Amount</dt>
+<dd>Чистота рефракції, заломлення. Задання цього меншим, ніж одиницю, дає розмите заломлення.</dd>
+<dt>Поріг -- Threshold</dt>
+<dd>Поріг для адаптивного відбору. Якщо відбір включає менше проб, ніж ця величина (у відсотках), то він зупиняється.</dd>
+<dt>Вибірки -- Samples</dt>
+<dd>Кількість конусних вибірок, усереднена для розмитого заломлення.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="index-of-refraction">
+<h3>Показник заломлення світла<a class="headerlink" href="#index-of-refraction" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_ior-examples.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_ior-examples.jpg" />
+<p class="caption"><span class="caption-text">Influence of the IOR of an Object on the distortion of the background.</span></p>
+<div class="legend">
+Spheres of Water, Glass and Diamond (top to bottom).</div>
+</div>
+<p>There are different values for typical materials: Air: 1.000 (no refraction),
+Alcohol: 1.329, Glass: 1.517, Plastic: 1.460, Water: 1.333 and Diamond: 2.417.</p>
+</div>
+<div class="section" id="fresnel">
+<h3>Френель -- Fresnel<a class="headerlink" href="#fresnel" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="download-blend-file">
+<caption><span class="caption-text">Шматки скла, обернуті у різних напрямках, для демонстрації залежного від кута ефекту Френеля. Зауважте, що головна відмінність полягає у відсутності ефекту Показника Заломлення в останньому випадку. (Download <a class="reference external" href="https://wiki.blender.org/index.php/:File:Manual25-Material-FresnelExample.blend">blend-file</a>).</span><a class="headerlink" href="#download-blend-file" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">З промінь-простеженою прозорістю.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">З альфа буферованою прозорістю.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Устави для ефекту Френеля при використанні промінь-простеженої прозорості.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Устави для ефекту Френеля при використанні прозорості Z.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Блікова підсвітка скла є на плитці F4 ілюстрації вище (яка середньо розвернута між світлом та камерою); ефект Френеля можна побачити у ряді С та стовпці 6 цієї ж ілюстрації, де грані розвернуті від камери.</p>
+</div>
+<p>Величина ефекту Френеля може керуватися збільшенням значення <em>Blend</em> або зменшенням значення <em>Alpha</em>.</p>
+</div>
+<div class="section" id="depth">
+<h3>Глибина -- Depth<a class="headerlink" href="#depth" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id8">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_3glasses-example.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_3glasses-example.jpg" />
+<p class="caption"><span class="caption-text">Проста сцена з трьома стаканами на поверхні та трьома лампами. Depth було задано як 4, 8, 12, та 14, що дало у результаті час зображування, рендерингу як 24 сек, 34 сек, 6 хвл та 11 хвл відповідно. (Download <a class="reference external" href="https://wiki.blender.org/index.php/:File:Manual25-Material-3GlassesExample.blend">blend-file</a>).</span></p>
+</div>
+<p>Збільшення <em>Depth</em> також значно збільшує час на рендеринг, зображування. Кожен раз, як промінь світла проходить крізь поверхню, алгоритм простеження променя викликається рекурсивно. У прикладі вищі кожен бік кожного стакана має зовнішню та внутрішню поверхню. Промені світла, звідси, мають проходити крізь чотири поверхні для кожного стакана.</p>
+<p>Але не тільки це, у кожній точці поверхні деяке світло може бути відбите або віддзеркалене від поверхні у різних напрямках. Це призводить до необхідності обчислення одночасно кількох променів для кожної точки (що часто називають «деревом променів» -- <a class="reference external" href="https://www.cs.unc.edu/~rademach/xroads-RT/RTarticle.html">tree of rays</a>). У кожному рендереному зображенні вище є 640×400=256 000 пікселів. При збільшенні <em>Depth</em> принаймні одне дерево променів додається для кожного пікселя.</p>
+<p>Будьте поблажливі до свого комп'ютера. Бережне розміщення об'єктів у сцені для запобігання перекриттю прозорих об'єктів -- це часто цікава альтернатива.</p>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transparent-shadows">
+<h3>Прозорі Тіні<a class="headerlink" href="#transparent-shadows" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Без прозорих тіней.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Без прозорих тіней, увімкнене освітлення середовища.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Увімкнені прозорі тіні, альфа задано як 0.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Як і попереднє, альфа задано як 0.25.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Прозорі тіні із загородою оточення, задані через множення, відстань 1 (радіус сфери).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Як і попереднє, відстань збільшено до 2 (діаметр сфери).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Стандартно, тіні прозорих об'єктів зображуються, рендеряться суцільно чорними, ніби такий об'єкт і не був прозорим взагалі. Але у реальності, чим прозоріший об'єкт, тим світліша тінь від нього.</p>
+<p>In Blender, transparent shadows are set on the materials
+that receive the shadows from the transparent object.
+This is enabled and disabled with the <em>Receive Transparent</em> button,
+in the <span class="menuselection">Material ‣ Shadow</span> panel. The shadow's brightness is
+dependent on the <em>Alpha</em> value of the shadow-casting material.</p>
+<p>Альтернативи прозорим промінь-простеженим тіням можна знайти у вкладці «Світ» -- <em>World</em> на панелях <em>Ambient Occlusion</em>, <em>Environment Lighting</em> та <em>Gather</em>. Альтернативно, може використовуватися текстура для керування значенням <em>Intensity</em> матеріалу, що приймає тіні.</p>
+</div>
+<div class="section" id="ior-values-for-common-materials">
+<span id="transparency-ior-common"></span><h3>Значення Показника Заломлення для поширених матеріалів<a class="headerlink" href="#ior-values-for-common-materials" title="Permalink to this headline">¶</a></h3>
+<p>Наступний список надає деякі значення показника заломлення для використання, коли промінь-простежена прозорість вживається для різних рідин, твердих тіл (коштовностей) та газів:</p>
+<div class="section" id="gases">
+<h4>Гази -- Gases<a class="headerlink" href="#gases" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Повітря -- Air <code class="docutils literal notranslate"><span class="pre">1.000</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Двоокис Вуглецю -- Carbon Dioxide <code class="docutils literal notranslate"><span class="pre">1.000449</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Кисень -- Oxygen <code class="docutils literal notranslate"><span class="pre">1.000276</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-liquids">
+<h4>Поширені рідини -- Common Liquids<a class="headerlink" href="#common-liquids" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Алкоголь -- Alcohol <code class="docutils literal notranslate"><span class="pre">1.329</span></code></li>
+<li>Молоко -- Milk <code class="docutils literal notranslate"><span class="pre">1.35</span></code></li>
+<li>Олія рослинна -- Oil, vegetable (50° C) <code class="docutils literal notranslate"><span class="pre">1.47</span></code></li>
+<li>Шампунь -- Shampoo <code class="docutils literal notranslate"><span class="pre">1.362</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Вода -- Water (0° C) <code class="docutils literal notranslate"><span class="pre">1.33346</span></code></li>
+<li>Вода -- Water (100° C) <code class="docutils literal notranslate"><span class="pre">1.31766</span></code></li>
+<li>Вода -- Water (20° C) <code class="docutils literal notranslate"><span class="pre">1.33283</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Водяна пара -- Water (gas) <code class="docutils literal notranslate"><span class="pre">1.000261</span></code></li>
+<li>Вода, кімнатна температура -- Water (35° C, room temp) <code class="docutils literal notranslate"><span class="pre">1.33157</span></code></li>
+<li>Горілка -- Vodka <code class="docutils literal notranslate"><span class="pre">1.363</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-transparent-materials">
+<h4>Поширені прозорі матеріали -- Common Transparent Materials<a class="headerlink" href="#common-transparent-materials" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Скло -- Glass <code class="docutils literal notranslate"><span class="pre">1.51714</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Лід -- Ice <code class="docutils literal notranslate"><span class="pre">1.309</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Кам'яна Сіль -- Rock Salt <code class="docutils literal notranslate"><span class="pre">1.544</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-opaque-materials">
+<h4>Поширені безпрозорі матеріали -- Common Opaque Materials<a class="headerlink" href="#common-opaque-materials" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Асфальт -- Asphalt <code class="docutils literal notranslate"><span class="pre">1.635</span></code></li>
+<li>Крейда -- Chalk <code class="docutils literal notranslate"><span class="pre">1.510</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Пластик -- Plastic <code class="docutils literal notranslate"><span class="pre">1.46</span></code></li>
+<li>Гума природна -- Rubber, Natural <code class="docutils literal notranslate"><span class="pre">1.5191</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Кремній -- Silicon <code class="docutils literal notranslate"><span class="pre">4.24</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="gemstones">
+<h4>Дорогоцінні камені -- Gemstones<a class="headerlink" href="#gemstones" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Діамант -- Diamond <code class="docutils literal notranslate"><span class="pre">2.417</span></code></li>
+<li>Нефрит -- Jade, Nephrite <code class="docutils literal notranslate"><span class="pre">1.61</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Опал -- Opal <code class="docutils literal notranslate"><span class="pre">1.45</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Рубін -- Ruby <code class="docutils literal notranslate"><span class="pre">1.757</span> <span class="pre">-</span> <span class="pre">1.779</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="metals">
+<h4>Метали -- Metals<a class="headerlink" href="#metals" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Алюміній -- Aluminum <code class="docutils literal notranslate"><span class="pre">1.44</span></code></li>
+<li>Бронза -- Bronze <code class="docutils literal notranslate"><span class="pre">1.18</span></code></li>
+<li>Мідь -- Copper <code class="docutils literal notranslate"><span class="pre">1.10</span></code></li>
+<li>Золото -- Gold <code class="docutils literal notranslate"><span class="pre">0.47</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Залізо -- Iron <code class="docutils literal notranslate"><span class="pre">1.51</span></code></li>
+<li>Свинець -- Lead <code class="docutils literal notranslate"><span class="pre">2.01</span></code></li>
+<li>Платина -- Platinum <code class="docutils literal notranslate"><span class="pre">2.33</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Срібло -- Silver <code class="docutils literal notranslate"><span class="pre">0.18</span></code></li>
+<li>Сталь -- Steel <code class="docutils literal notranslate"><span class="pre">2.50</span></code></li>
+<li>Титан -- Titanium <code class="docutils literal notranslate"><span class="pre">2.16</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mirror.html" class="btn btn-neutral float-right" title="Дзеркальні Відбиття -- Mirror Reflections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shading.html" class="btn btn-neutral" title="Відтінення -- Shading" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

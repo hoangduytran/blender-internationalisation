@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Властивості й Модифікатори -- Properties &amp; Modifiers &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/nla/properties_modifiers.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Редактор UV/Зображень -- UV/Image Editor" href="../uv_image/index.html" />
+    <link rel="prev" title="Смужки -- Strips" href="strips.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../graph_editor/index.html">Редактор Графів -- Graph Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редактор НЛА -- NLA Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tracks.html">Стежки -- Tracks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="strips.html">Смужки -- Strips</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Властивості й Модифікатори -- Properties &amp; Modifiers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактор НЛА -- NLA Editor</a> &raquo;</li>
+        
+      <li>Властивості й Модифікатори -- Properties &amp; Modifiers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/nla/properties_modifiers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="properties-modifiers">
+<h1>Властивості й Модифікатори -- Properties &amp; Modifiers<a class="headerlink" href="#properties-modifiers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="properties">
+<h2>Властивості -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>Властивості смужок можуть бути доступні у регіоні «Властивості» -- Properties редактора НЛА.</p>
+<div class="section" id="animation-data">
+<h3>Дані Анімації -- Animation Data<a class="headerlink" href="#animation-data" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Animations ‣ Animation Data</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_nla_properties-modifiers_animation-data-panel.png" src="../../_images/editors_nla_properties-modifiers_animation-data-panel.png" />
+<p class="caption"><span class="caption-text">Animation Data panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Дія -- Action</dt>
+<dd>A <a class="reference internal" href="../../interface/controls/templates/data_block.html#ui-data-block"><span class="std std-ref">Data-Block</span></a> menu that allows you to edit actions shown in the action track.
+See also the Action Editor's <a class="reference internal" href="../dope_sheet/action.html#dopesheet-action-action"><span class="std std-ref">Action</span></a>.</dd>
+<dt>Екстраполяція Дії -- Action Extrapolation</dt>
+<dd><p class="first">Дія для заповнення проміжків після смужки.</p>
+<dl class="last docutils">
+<dt>Утримання -- Hold</dt>
+<dd>Впливає на обидва боки смужки.</dd>
+<dt>Утримання Вперед -- Hold Forward</dt>
+<dd>Впливає на регіон після дії, тільки.</dd>
+<dt>Ніщо -- Nothing</dt>
+<dd>Ні те, ні інше.</dd>
+</dl>
+</dd>
+<dt>Змішання Дії -- Action Blending</dt>
+<dd><p class="first">Впливає на поведінку, коли дві стежки одночасно мають криву, що впливає на однакову їх властивість.</p>
+<dl class="last docutils">
+<dt>Заміна -- Replace</dt>
+<dd>Спричиняє, що верхня смужка має перевагу відповідно до параметрів Увід/Вивід Змішання -- Blend In/Out (дивіться наступну опцію, нижче).</dd>
+<dt>Множення -- Multiply, Відняття -- Subtract, Додання -- Add</dt>
+<dd>The weighted result of the strip is multiplied, subtracted, or added with the accumulated results.</dd>
+</dl>
+</dd>
+<dt>Вплив Дії -- Action Influence</dt>
+<dd>Amount the active Action contributes to the result of the NLA stack.</dd>
+</dl>
+</div>
+<div class="section" id="active-track">
+<h3>Активна Стежка -- Active Track<a class="headerlink" href="#active-track" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Animations ‣ Active Track</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Ім'я -- Name</dt>
+<dd>Ім'я стежки, якій поточно належить смужка.</dd>
+</dl>
+</div>
+<div class="section" id="active-strip">
+<h3>Активна Смужка -- Active Strip<a class="headerlink" href="#active-strip" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../_images/editors_nla_properties-modifiers_active-strip-panel.png" src="../../_images/editors_nla_properties-modifiers_active-strip-panel.png" />
+<p class="caption"><span class="caption-text">Active Strip panel.</span></p>
+</div>
+<p>Опції для власне смужки.</p>
+<dl class="docutils">
+<dt>Ім'я -- Name</dt>
+<dd>Перейменовує смужки.</dd>
+<dt>Тип -- Type</dt>
+<dd>Буде легше сказати «Кліп Дії» -- &quot;Action Clip&quot;, «Перехід» -- &quot;Transition&quot; або «Мета» -- &quot;Meta&quot; відповідно до трьох типів смужок.</dd>
+<dt>Протяги Смужки -- Strip Extents</dt>
+<dd>Границі власне смужки. Зауважте, це буде розтяг тривалості Дії, це не спричинить збільшення або зменшення ключкадрів з Дій для відтворення (дивіться нижче про цю опцію).</dd>
+<dt>Екстраполяція -- Extrapolation</dt>
+<dd>Дивіться вище про «Екстраполяція Дії» -- <em>Action Extrapolation</em>.</dd>
+<dt>Змішання -- Blending</dt>
+<dd>Дивіться вище про «Змішання Дії» -- <em>Action Blending</em>.</dd>
+<dt>Авто Увід/Вивід Змішання -- Auto Blend In/Out</dt>
+<dd>Створює градієнт, що починається з перекриття смужок. Перша смужка матиме повний контроль на початку, який лінеарно, прямолінійно через градієнт значень перенесеться у повний контроль другої смужки на кінці часового періоду їх перекриття.</dd>
+<dt>Увід Змішання -- Blend In</dt>
+<dd>Задає кадр, що представляє момент, коли ця смужка буде мати повний вплив.</dd>
+<dt>Вивід Змішання -- Blend Out</dt>
+<dd>Задає останній кадр повного впливу цієї смужки.</dd>
+<dt>Приглушено -- Muted</dt>
+<dd>Приглушує одиничну смужку (подібно до приглушення стежки, вище). Спричиняє появу контуру навколо смужки.</dd>
+<dt>Зворотно -- Reversed</dt>
+<dd>Спричиняє, що ця смужка буде відтворюватися повністю назад.</dd>
+</dl>
+</div>
+<div class="section" id="action-clip">
+<h3>Кліп Дії -- Action Clip<a class="headerlink" href="#action-clip" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Animations ‣ Active Clip</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id3">
+<img alt="../../_images/editors_nla_properties-modifiers_action-clip-panel.png" src="../../_images/editors_nla_properties-modifiers_action-clip-panel.png" />
+<p class="caption"><span class="caption-text">Action Clip panel.</span></p>
+</div>
+<p>Це представляє «дані об'єкта» для смужки. Схоче на значення трансформацій для об'єкта.</p>
+<dl class="docutils">
+<dt>Дія -- Action</dt>
+<dd>Орієнтир на Дію, що вміщена у смужці. Може бути зміненим заміною поточного значення смужки з іншої Дії.</dd>
+<dt>Протяги Дії -- Action Extents</dt>
+<dd><p class="first">Скільки дія буде використовуватися.</p>
+<p class="last">Примітка: Якщо ви виберете значення, що вище або нижче фактичного рахунку ключкадрів для Дії, то буде задіяна Екстраполяція F-Кривої. Яка може бути змінена у Редакторі Графів -- Graph Editor в «Канал &gt; Режим Екстраполяції» -- <span class="menuselection">Channel ‣ Extrapolation Mode</span>.</p>
+</dd>
+<dt>Синх Довжину -- Sync Length</dt>
+<dd>Спричиняє скидання значень устав «Стартовий Кадр» та «Кінцевий Кадр» -- &quot;Start&quot; and &quot;End&quot; Frames, що описані вище, у значення першого та останнього ключкадрованих кадрів Дії.</dd>
+<dt>«Зараз» Синхронізувати Довжину Дії -- Sync Action Length &quot;Now&quot;</dt>
+<dd>Спричиняє скидання значень устав «Стартовий Кадр» та «Кінцевий Кадр» -- &quot;Start&quot; and &quot;End&quot; Frames, що описані вище, у значення першого та останнього ключкадрованих кадрів Дії.</dd>
+<dt>Устави Відтворення -- Playback Settings</dt>
+<dd><dl class="first last docutils">
+<dt>Масштаб -- Scale</dt>
+<dd>Розтягує смужку, ще один спосіб збільшення розміру -- «Протяги Смужки: Кінцевий Кадр» -- <em>Strip Extents: End Frame</em>, дивіться вище.</dd>
+<dt>Повтор -- Repeat</dt>
+<dd>Також розширює смужку, але зациклюючи її від першого ключкадру вперед.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="evaluation">
+<h3>Оцінення -- Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Animations ‣ Evaluation</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id4">
+<img alt="../../_images/editors_nla_properties-modifiers_evaluation-panel.png" src="../../_images/editors_nla_properties-modifiers_evaluation-panel.png" />
+<p class="caption"><span class="caption-text">Evaluation panel.</span></p>
+</div>
+<p>Це визначає міру впливу, який має смужка, та впродовж якого часу.</p>
+<dl class="docutils">
+<dt>Анімований Вплив -- Animated Influence</dt>
+<dd><p class="first">Вмикає зміну міри впливу цієї смужки подібно до ключкадрованого значення. Якщо вплив не анімований, то смужки будуть втрачати силу прямолінійно під час перекриття.</p>
+<p class="last">Ці можуть бути значені у редакторах Аркуш Експозицій -- Dope Sheet або Редактор Графів -- Graph Editor під «Керівними Кривими НЛА -- <em>NLA Control Curves</em> та виглядають як група каналів. Вони з'являються перед усіма групами/F-Кривими для даного каналу.</p>
+</dd>
+<dt>Анімована Смужка</dt>
+<dd>Те ж саме, що й «Анімований Вплив» -- <em>Animated Influence</em>, але з «Часом Смужки» -- <em>Strip Time</em>.</dd>
+<dt>Час Циклу Смужки -- Cyclic Strip Time</dt>
+<dd>Цикл анімованого часу у межах старту і кінця дії.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="modifiers">
+<h2>Модифікатори -- Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Modifiers ‣ Modifiers</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Like its counterparts in graph and video editing,
+Modifiers can stack different combinations of effects for strips.</p>
+<p>See <a class="reference internal" href="../graph_editor/fcurves/modifiers.html"><span class="doc">F-Curve Modifiers</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../uv_image/index.html" class="btn btn-neutral float-right" title="Редактор UV/Зображень -- UV/Image Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="strips.html" class="btn btn-neutral" title="Смужки -- Strips" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,592 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Устави -- Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/physics/soft_body/settings.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Сили -- Forces" href="forces/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Фізика -- Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gravity.html">Гравітація -- Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../baking.html">Запікання Імітацій Фізики -- Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../force_fields/index.html">Силові Поля -- Force Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collision.html">Зіткнення -- Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloth/index.html">Імітація Тканини -- Cloth Simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dynamic_paint/index.html">Динамічне Малювання -- Dynamic Paint</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">М'яке Тіло -- Soft Body</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Устави -- Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="forces/index.html">Сили -- Forces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="collision.html">Зіткнення -- Collision</a></li>
+<li class="toctree-l4"><a class="reference internal" href="examples.html">Приклади</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid/index.html">Імітація Рідини -- Fluid Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../smoke/index.html">Імітація Диму -- Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rigid_body/index.html">Тверде Тіло -- Rigid Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../particles/index.html">Система Частинок -- Particle System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Фізика -- Physics</a> &raquo;</li>
+        
+          <li><a href="index.html">М'яке Тіло -- Soft Body</a> &raquo;</li>
+        
+      <li>Устави -- Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/physics/soft_body/settings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="settings">
+<span id="bpy-types-softbodysettings"></span><h1>Устави -- Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>М'яке Тіло -- Soft Body</dt>
+<dd>Створює модифікатор Soft Body на виділеному об'єкті.</dd>
+<dt>Зображ, Рендер -- Render</dt>
+<dd>Вмикає фізику м'якого тіла у ході рендера, зображу.</dd>
+<dt>Показ -- Display</dt>
+<dd>Display soft body in real-time.</dd>
+</dl>
+<div class="section" id="soft-body">
+<h2>М'яке Тіло -- Soft Body<a class="headerlink" href="#soft-body" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="object">
+<h3>Об'єкт -- Object<a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Тертя -- Friction</dt>
+<dd>Тертя навколишнього середовища. Загалом, тертя гасить, гальмує рух.</dd>
+<dt>Маса -- Mass</dt>
+<dd>Mass value for vertices.
+Larger mass slows down acceleration, except for gravity where the motion is constant regardless of mass.
+Larger mass means larger inertia, so also braking a soft body is more difficult.</dd>
+<dt>Маса: Група Вершин -- Mass: Vertex Group</dt>
+<dd>Використовує вказану групу вершин для значень маси.</dd>
+</dl>
+</div>
+<div class="section" id="simulation">
+<h3>Імітація -- Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Швидкість -- Speed</dt>
+<dd>You can control the internal timing of the soft body system with this value.</dd>
+<dt>Група Зіткнення -- Collision Group</dt>
+<dd>If set, soft body collides with objects from the group, instead of using objects that are on the same layer.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="soft-body-cache">
+<h2>Кеш М'якого Тіла -- Soft Body Cache<a class="headerlink" href="#soft-body-cache" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body Cache</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Кешування та його опції розглядаються тут -- <a class="reference internal" href="../baking.html"><span class="doc">Here</span></a>.</p>
+</div>
+</div>
+<div class="section" id="soft-body-goal">
+<h2>Ціль М'якого Тіла -- Soft Body Goal<a class="headerlink" href="#soft-body-goal" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body Goal</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Вжити Ціль -- Use Goal</dt>
+<dd>Soft Body Goal acts like a pin on a chosen set of vertices;
+controlling how much of an effect soft body has on them.
+Enabling this tells Blender to use the position / animated position of a vertex in the simulation.
+Animating the vertices can be done in all the usual ways before the soft body simulation is applied.
+The <em>goal</em> is the desired end-position for vertices.
+How a soft body tries to achieve this goal can be defined using stiffness forces and damping.</dd>
+</dl>
+<div class="section" id="goal-strength">
+<h3>Сила Цілі -- Goal Strength<a class="headerlink" href="#goal-strength" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Стандартно -- Default</dt>
+<dd>A <em>Goal</em> value of 1.0 means no soft body simulation, the vertex stays at its original (animated) position.
+When setting <em>Goal</em> to 0.0, the object is only influenced by physical laws.
+By setting goal values between 0.0 and 1.0,
+you can blend between having the object affected only by the animation system,
+and having the object affected only by the soft body effect.</dd>
+<dt>Мінімум -- Minimum / Максимум -- Maximum</dt>
+<dd>When you paint the values in vertex groups (using <em>Weight Paint Mode</em>),
+you can use the <em>G Min</em> and <em>G Max</em> to fine-tune (clamp) the weight values.
+The lowest vertex weight (blue) will become <em>G Min</em>, the highest value (red) becomes <em>G Max</em>
+(please note that the blue-red color scale may be altered by User Preferences).</dd>
+</dl>
+</div>
+<div class="section" id="goal-settings">
+<h3>Устави Цілі -- Goal Settings<a class="headerlink" href="#goal-settings" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Тугість -- Stiffness</dt>
+<dd>Тугість пружності для цілі <em>Goal</em>. Низькі значення створюють дуже слабкі пружини (більш гнучко «прикріплені» до цілі), вищі значення створюють сильну пружність (туге «прикріплення» до цілі).</dd>
+<dt>Згасання -- Damping</dt>
+<dd>Тертя для цілі <em>Goal</em>. Вищі значення гасять ефект цілі на м'якому тілі.</dd>
+</dl>
+</div>
+<div class="section" id="vertex-group">
+<h3>Група Вершин -- Vertex Group<a class="headerlink" href="#vertex-group" title="Permalink to this headline">¶</a></h3>
+<p>Використання групи вершин дозволяє задавати по-вершинні вагомості цілі (множиться на значення устави <em>Default</em> для цілі).</p>
+</div>
+</div>
+<div class="section" id="soft-body-edges">
+<h2>Ребра М'якого Тіла -- Soft Body Edges<a class="headerlink" href="#soft-body-edges" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body Edges</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Вжити Ребра -- Use Edges</dt>
+<dd>Ребра у сітьовому Mesh об'єкті можуть діяти як пружини, подібно до ниток у тканині.</dd>
+</dl>
+<div class="section" id="springs">
+<h3>Пружини -- Springs<a class="headerlink" href="#springs" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Виштовх -- Pull</dt>
+<dd>Тугість пружин для ребер (наскільки ребра розтягуються). Низькі значення створюють дуже слабкі пружини (дуже еластичний матеріал), вищі значення створюють сильні пружини (тугий матеріал), що опирається виштовханню. 0.5 -- латекс, 0.9 -- як светр, 0.999 -- високо розтягувана пелюшка або шкіра.</dd>
+<dt>Уштовх -- Push</dt>
+<dd>How much the soft body resist being scrunched together, like a compression spring. Low values for fabric,
+high values for inflated objects and stiff material.</dd>
+<dt>Згасання -- Damp</dt>
+<dd>Тертя для пружин ребер. Високі значення (макс -- 50) дає згасання ефекту пружності ребер та заспокоює фізику тканин.</dd>
+<dt>Пластичність -- Plasticity</dt>
+<dd>Постійне деформування об'єкта.</dd>
+<dt>Згинання -- Bending</dt>
+<dd>Ця опція створює віртуальні з'єднання між попередньою та наступною вершиною, одна за одною. Це включає діагональні ребра також. Згасання застосовується також до цих з'єднань.</dd>
+<dt>Довжина -- Length</dt>
+<dd>Ребра можуть стискатися або розтискатися. Це значення задається у відсотках, 0 вимикає цю функцію. 100% означає ніякі зміни, тіло зберігає 100% свого розміру.</dd>
+</dl>
+</div>
+<div class="section" id="stiff-quads">
+<h3>Тугість 4-бічників -- Stiff Quads<a class="headerlink" href="#stiff-quads" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Вжити Тугість 4-бічників -- Use Stiff Quads</dt>
+<dd>Для чотирибічних граней як пружини використовуються діагональні ребра. Це зупиняє повне згортання чотирибічних граней при зіткненнях (що стається в іншому випадку).</dd>
+<dt>Косування -- Shear</dt>
+<dd>Тугість віртуальних пружин для 4-бічних граней.</dd>
+</dl>
+</div>
+<div class="section" id="aerodynamics">
+<h3>Аеродинаміка -- Aerodynamics<a class="headerlink" href="#aerodynamics" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Тип</dt>
+<dd><dl class="first last docutils">
+<dt>Просто -- Simple</dt>
+<dd>If you turn on <em>Aero</em> the force is not confined to the vertices, but has an effect also on the edges.
+The angle and the relative speed between medium and edge is used to calculate the force on the edge.
+This force results that vertices with little connecting edges (front of a plane)
+fall faster than vertices with more connecting edges (middle of a plane).
+If all vertices have the same amount of edges in a direction they fall with equal speed.
+An edge moving in its own direction feels no force,
+and an edge moving perpendicular to its own direction feels maximum force
+(think of a straw moving through air). Try it with a <em>Factor</em> of 30 at first.</dd>
+<dt>Підйомна Сила -- Lift Force</dt>
+<dd>Використовує аеродинамічну модель, що є ближчою до фізичних законів та виглядає більш цікаво. Вимикайте для більш приглушеної імітації.</dd>
+</dl>
+</dd>
+<dt>Фактор -- Factor</dt>
+<dd>Наскільки використовується аеродинамічний ефект.</dd>
+</dl>
+</div>
+<div class="section" id="collision">
+<h3>Зіткнення -- Collision<a class="headerlink" href="#collision" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Ребро -- Edge</dt>
+<dd>Checks for edges of the soft body mesh colliding.</dd>
+<dt>Грань -- Face</dt>
+<dd>Checks for any portion of the face of the soft body mesh colliding (computationally intensive!).
+While <em>CFace</em> enabled is great, and solves lots of collision errors,
+there does not seem to be any dampening settings for it,
+so parts of the soft body object near a collision mesh tend to &quot;jitter&quot; as they bounce off and fall back,
+even when there is no motion of any meshes. Edge collision has dampening, so that can be controlled,
+but Deflection dampening value on a collision object does not seem to affect the face collision.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="soft-body-self-collision">
+<span id="physics-softbody-settings-self-collision"></span><h2>Само Зіткнення М'якого Тіла -- Soft Body Self Collision<a class="headerlink" href="#soft-body-self-collision" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body Self Collision</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last"><em>Self-Collision</em> is working only if you have activated <em>Use Edges</em>.</p>
+</div>
+<dl class="docutils">
+<dt>Само Зіткнення -- Self Collision</dt>
+<dd>When enabled, allows you to control how Blender will prevent the soft body from intersecting with itself.
+Every vertex is surrounded with an elastic virtual ball.
+Vertices may not penetrate the balls of other vertices.
+If you want a good result you may have to adjust the size of these balls.
+Normally it works pretty well with the default options.</dd>
+<dt>Тип Зіткнення -- Collision Type</dt>
+<dd><dl class="first last docutils">
+<dt>Вручну -- Manual</dt>
+<dd>Розмір кулі <em>Ball: Size</em> прямо задається фактичним розміром кулі (в Одиницях Blender'а).</dd>
+<dt>Усереднено -- Average</dt>
+<dd>Розраховується усереднена довжина усіх ребер, прикріплених до вершини та далі множиться на значення <em>Ball: Size</em>. Працює добре при рівномірно розподілених у поверхні вершинах.</dd>
+<dt>Мінімально -- Minimal / Максимально -- Maximal</dt>
+<dd>Розмір кулі є настільки більшим, наскільки найменшою/найбільшою є довжина пружини вершини, помножена на <em>Ball: Size</em>.</dd>
+<dt>Усереднено Мін Макс -- Average Min Max</dt>
+<dd>Розмір = ((Min + Max)/2) × <em>Ball: Size</em>.</dd>
+</dl>
+</dd>
+<dt>Розмір -- Size</dt>
+<dd>Частка довжини прикріплених ребер. Довжина ребра обчислюється на основі обраного вами алгоритму. Ви знаєте, коли хтось стоїть надто близько до вас, як відчуєте себе некомфортно? Ми називаємо це нашим «особистим простором» і ця устава є фактором, на який множиться довжина пружини. Це сферична відстань (радіус), при входженні у межі якого іншої вершини, ці вершини починають відхилятися одна від одної, щоб уникнути само-зіткнення. Задавайте це значення пропорційно до відстані між вершинами, для яких ви хочете, щоб вони мали свій «простір». Надто високе значення буде включати надто багато вершин увесь час та уповільнюватиме обчислення. Надто низьке значення буде дозволяти іншим вершинам підходити надто близько і звідси ймовірно перетинатися, оскільки не буде достатньо часу для їх уповільнення.</dd>
+<dt>Тугість -- Stiffness</dt>
+<dd>Наскільки еластичним є особистий простір кулі.</dd>
+<dt>Гасіння -- Dampening</dt>
+<dd>Як вершина реагує. Низьке значення просто уповільнює вершину при її наближенні надто близько. Високе значення дає її відштовхування.</dd>
+</dl>
+<p>Зіткнення з іншими об'єктами задаються в іншій панелі -- Зіткнення -- <a class="reference internal" href="../collision.html"><span class="doc">Collision panel</span></a>. Для зіткнення з іншим об'єктом м'яке тіло має знаходитися принаймні на одному спільному з ним шарі сцени.</p>
+</div>
+<div class="section" id="soft-body-solver">
+<span id="physics-softbody-settings-solver"></span><h2>Обчислювач М'якого Тіла -- Soft Body Solver<a class="headerlink" href="#soft-body-solver" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Soft Body Solver</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ці устави визначають точність імітації.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/physics_soft-body_settings_collision-solver-parameters.png" src="../../_images/physics_soft-body_settings_collision-solver-parameters.png" />
+<p class="caption"><span class="caption-text">Soft Body Solver settings.</span></p>
+</div>
+<div class="section" id="step-size">
+<h3>Розмір Кроку -- Step Size<a class="headerlink" href="#step-size" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Мін Крок -- Min Step</dt>
+<dd>Minimum simulation steps per frame. Increase this value, if the soft body misses fast-moving collision objects.</dd>
+<dt>Макс Крок -- Max Step</dt>
+<dd>Максимум кроків імітації за кадр. Зазвичай, кількість кроків імітації задається динамічно (за допомогою устави <em>Error Limit</em>), але ви можливо маєте вагому причину для зміни цього.</dd>
+<dt>Авто-Крок -- Auto-Step</dt>
+<dd>Допомагає Обчислювачу з'ясувати, скільки потрібно роботи на основі того, як швидко рухаються об'єкти.</dd>
+</dl>
+</div>
+<div class="section" id="error-limit">
+<h3>Ліміт Помилки -- Error Limit<a class="headerlink" href="#error-limit" title="Permalink to this headline">¶</a></h3>
+<p>Правила загальної якості представленого рішення. Стандартно -- 0.1. Цей найбільш важлива устава, що говорить, наскільки точним повинен бути обчислювач при перевірці зіткнень. Починайте зі значення, що є 1/2 усередненої довжини ребер. Якщо присутні видимі помилки, тремтіння або перебільшені реакції, зменште це значення. Обчислювач відстежує, наскільки «погано» він працює, а <em>Error Limit</em> змушує обчислювач робити деякі «адаптивні зміни розміру кроку».</p>
+</div>
+<div class="section" id="helpers">
+<h3>Помічники -- Helpers<a class="headerlink" href="#helpers" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Душення -- Choke</dt>
+<dd>Затискає у бік зменшення (скорочує скорість виходу) вершину або ребро, коли вони проникають у сіть об'єкта зіткнення.</dd>
+<dt>Розпливчато -- Fuzzy</dt>
+<dd>Розпливчатість при зіткненні, високі значення дають обробку зіткнення швидше, але менш стабільно.</dd>
+</dl>
+</div>
+<div class="section" id="diagnostics">
+<h3>Діагностика -- Diagnostics<a class="headerlink" href="#diagnostics" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Вивести Продуктивність на Консоль -- Print Performance to Console</dt>
+<dd>Виводить на консоль відомості, як працює обчислювач.</dd>
+<dt>Матриця Припущення -- Estimate Matrix</dt>
+<dd>Матриця припущення... розділяється на COM, ROT, SCALE</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="forces/index.html" class="btn btn-neutral float-right" title="Сили -- Forces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

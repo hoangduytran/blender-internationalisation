@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Робхід та Приклади &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/drivers/workflow_examples.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Усунення утруднень" href="troubleshooting.html" />
+    <link rel="prev" title="Панель «Драйвери» -- Drivers Panel" href="drivers_panel.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Ключкадри -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Дії -- Actions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Драйвери -- Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers_panel.html">Панель «Драйвери» -- Drivers Panel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Робхід та Приклади</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">Хід роботи</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Приклади</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drivers-and-multiple-relative-shape-keys">Драйвери та Одночасно кілька Відносних Ключів Форм</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Усунення утруднень</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Мітки -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Ключі Форм -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Шляхи Руху -- Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Анімація -- Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Драйвери -- Drivers</a> &raquo;</li>
+        
+      <li>Робхід та Приклади</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/drivers/workflow_examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow-examples">
+<h1>Робхід та Приклади<a class="headerlink" href="#workflow-examples" title="Permalink to this headline">¶</a></h1>
+<p>Ось деякі приклади використання драйверів і ходу роботи з ними.</p>
+<div class="section" id="workflow">
+<h2>Хід роботи<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transform-driver">
+<h3>Драйвер Трансформацій<a class="headerlink" href="#transform-driver" title="Permalink to this headline">¶</a></h3>
+<p>Цей приклад показує, як установити драйвер для керування трансформаційною властивістю. Спершу, переконайтеся, що ви перемкнулися на ортографічний огляд спереду Спереду Орто -- Front Ortho. <kbd class="kbd docutils literal notranslate">Numpad5</kbd>, <kbd class="kbd docutils literal notranslate">Numpad1</kbd>.</p>
+<ol class="arabic simple">
+<li>У режимі «Об'єкт» Object Mode виділимо, а потім здублюємо стандартний Куб. <kbd class="kbd docutils literal notranslate">Shift-D</kbd>. Перемістимо &quot;Cube.001&quot; у певну нову локацію.</li>
+<li>При виділеному &quot;Cube.001&quot; додамо одиничний драйвер для властивості обертання по осі Y <em>Rotation Y</em>.</li>
+<li>Відкриємо Редактор Графів <em>Graph Editor</em> та перемкнемось у ньому у режим «Драйвери» <em>Drivers</em>.</li>
+<li>Вимкнемо опцію «Показати Лише Виділене» <em>Show Only Selected</em> (обведена нижче на ілюстрації зеленим), бо це корисно для роботи з драйверами.</li>
+<li>У регіоні каналів зліва виділимо властивість <em>Y Euler Rotation</em>.</li>
+<li>Натиснемо клавішу <kbd class="kbd docutils literal notranslate">N</kbd> для відкриття правої боковини, регіону «Властивості» -- Properties та розгорнемо панель «Драйвери» -- Drivers.</li>
+<li>Змінимо на цій панелі тип драйвера  <em>Type</em> на значення «Усереднене Значення» -- <em>Averaged Value</em>, це повертатиме усереднене значення змінних драйвера.</li>
+<li>Модифікуємо устави змінної драйвера:<ul>
+<li>«Тип -- Канал Трансформацій» Type -- Transform Channel</li>
+<li>«Об/Кістка -- Куб» Ob/Bone -- Cube</li>
+<li>«Тип Трансформацій -- Х Локація» Transform Type -- X Location</li>
+<li>«Простір Трансформацій -- Простір Світу» Transform Space -- World Space</li>
+</ul>
+</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/animation_drivers_workflow-examples_transform-driver-1.png" src="../../_images/animation_drivers_workflow-examples_transform-driver-1.png" />
+</div>
+</td>
+<td><div class="first last figure">
+<img alt="../../_images/animation_drivers_workflow-examples_transform-driver-2.png" src="../../_images/animation_drivers_workflow-examples_transform-driver-2.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Після завершення цих модифікацій куб-дублікат &quot;Cube.001&quot; повинен автоматично обертатися навколо осі Y, коли куб-оригінал &quot;Cube&quot; буде переміщуватися зліва направо.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="driver-expression">
+<h3>Вираз Драйвера<a class="headerlink" href="#driver-expression" title="Permalink to this headline">¶</a></h3>
+<p>Ось кілька прикладів, що використовують скриптований вираз Expr для задання Значення Драйвера Driver Value.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/animation_drivers_workflow-examples_object-rotation.png" src="../../_images/animation_drivers_workflow-examples_object-rotation.png" />
+<p class="caption"><span class="caption-text">Приклад обертання об'єкта.</span></p>
+</div>
+<div class="section" id="orbit-a-point">
+<h4>Обертання по орбіті навколо певної Точки<a class="headerlink" href="#orbit-a-point" title="Permalink to this headline">¶</a></h4>
+<p>Тут до властивостей локації куба X Location та Y Location було додано два драйвери.</p>
+<p>Для задання локації об'єкта було використано такі наступні скриптовані вирази.</p>
+<dl class="docutils">
+<dt>X Location Expr</dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">(sin(frame</span> <span class="pre">/</span> <span class="pre">8)</span> <span class="pre">*</span> <span class="pre">4)</span></code></dt>
+<dd><code class="docutils literal notranslate"><span class="pre">(frame/8)</span></code> : номер поточного кадру анімації, поділений на 8 для уповільнення оберту вниз. <code class="docutils literal notranslate"><span class="pre">(sin(</span> <span class="pre">)*4)</span></code> : Це повертає значення синуса для (frame/8), яке потім множить на 4 для збільшення кола обертання. <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span></code> : використовується для керування зсувом значення X Location по орбіті.</dd>
+</dl>
+</dd>
+<dt>Y Location Expr</dt>
+<dd><dl class="first last docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span> <span class="pre">(cos(frame</span> <span class="pre">/</span> <span class="pre">8)</span> <span class="pre">*</span> <span class="pre">4)</span></code></dt>
+<dd><code class="docutils literal notranslate"><span class="pre">(frame/8)</span></code> : номер поточного кадру анімації, поділений на 8 для уповільнення оберту вниз. <code class="docutils literal notranslate"><span class="pre">(cos(</span> <span class="pre">)</span> <span class="pre">*</span> <span class="pre">4)</span></code> : Це повертає значення косинуса для (frame/8), яке потім множить на 4 для збільшення кола обертання. <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">+</span></code> : використовується для керування зсувом значення Y Location по орбіті.</dd>
+</dl>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">frame</span></code> -- це те ж саме, що й bpy.context.scene.frame_current.</p>
+</div>
+<div class="section" id="driver-namespace">
+<h4>Простір імен Драйвера<a class="headerlink" href="#driver-namespace" title="Permalink to this headline">¶</a></h4>
+<p>Існує список вбудованих функцій та властивостей драйвера. Вони можуть бути показані через консоль Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bpy</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">driver_namespace</span><span class="p">[</span><span class="s1">&#39;</span>
+<span class="go">                              __builtins__&#39;]</span>
+<span class="go">                              __doc__&#39;]</span>
+<span class="go">                              __loader__&#39;]</span>
+<span class="go">                              __name__&#39;]</span>
+<span class="go">                              __package__&#39;]</span>
+<span class="go">                              acos&#39;]</span>
+<span class="go">                              acosh&#39;]</span>
+<span class="go">                              asin&#39;]</span>
+<span class="go">                              asinh&#39;]</span>
+<span class="go">                              atan&#39;]</span>
+<span class="go">                              atan2&#39;]</span>
+<span class="go">                              atanh&#39;]</span>
+<span class="go">                              bpy&#39;]</span>
+<span class="go">                              ceil&#39;]</span>
+<span class="go">                              copysign&#39;]</span>
+<span class="go">                              cos&#39;]</span>
+<span class="go">                              cosh&#39;]</span>
+<span class="go">                              ..</span>
+</pre></div>
+</div>
+<p>Нижченаведений скрипт додає функцію у простір імен драйвера, яка потім може бути використана у виразі <code class="docutils literal notranslate"><span class="pre">driver_func(frame)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="k">def</span> <span class="nf">driver_func</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">val</span> <span class="o">*</span> <span class="n">val</span>    <span class="c1"># return val squared</span>
+
+<span class="c1"># add function to driver_namespace</span>
+<span class="n">bpy</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">driver_namespace</span><span class="p">[</span><span class="s1">&#39;driver_func&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">driver_func</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shape-key-driver">
+<h4>Драйвер для Ключа Форми<a class="headerlink" href="#shape-key-driver" title="Permalink to this headline">¶</a></h4>
+<p>Це приклад драйвера для ключа форми. Цей драйвер було додано до устави ключа форми «Значення» -- Value.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_shape-key.png"><img alt="../../_images/animation_drivers_workflow-examples_shape-key.png" src="../../_images/animation_drivers_workflow-examples_shape-key.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Драйвер для ключа форми.</span></p>
+</div>
+<p>У цьому прикладі використовується обертання Z Rotation Арматурної Кістки &quot;b&quot; для керування зміною значень параметра Value для Ключа Форми. Режим обертання цієї кістки установлено як XYZ Euler.</p>
+<p>Ф-Крива цього Драйвера розкладена так:</p>
+<ul class="simple">
+<li>Bone Z Rotation 0.0 (0.0): Shape Key value 0.0</li>
+<li>Bone Z Rotation -2.09 (-120.0): Shape Key value 1.0</li>
+</ul>
+<p>Цей тип драйвера може також установлюватися з таким типом змінної Variable Type як «Різниця Обертань» -- Rotational Difference.</p>
+<p>Дивіться детальніше про Ключі Форм -- <a class="reference internal" href="../shape_keys/index.html"><span class="doc">Shape Keys</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="drivers-and-multiple-relative-shape-keys">
+<h2>Драйвери та Одночасно кілька Відносних Ключів Форм<a class="headerlink" href="#drivers-and-multiple-relative-shape-keys" title="Permalink to this headline">¶</a></h2>
+<p>Екранознімки нижче ілюструють комбінування ключів форм, кісток та драйверів для зроблення причеплення кількох відносних ключів форм до одного кореня. Хоча йому і не вистачає зручності спільної устави, параметра «Оцінка Часу» -- Evaluation Time, яка доступна для абсолютних ключів форм, однак він дозволяє отримувати більш складні відношення між вашими ключами форм.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-base.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-base.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-base.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Ключ форми Basis.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-1.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-1.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Ключ форми Key1.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2a.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2a.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2a.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Ключ форми Key2A.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2b.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2b.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-shape-2b.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Ключ форми Key2B.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ключ форми Basis має стоси повністю відтягнені. Key1 має базу повністю розширену. Key2A має лівий стос повністю розширений. Key2B має правий стос повністю розширений. Key2A і Key2B є обидва відносними до Key1 (як ви можете побачити у полі внизу справа панелі Shape Keys.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key1.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key1.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Key1 повинен обробляти конфліктні значення з двох кісток.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2a.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2a.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2a.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Key2A має різні коефіцієнти генератора, а тому він активується у різних точках діапазону позиції кістки.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2b.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2b.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-key2b.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Key2B аналог Key2A, але скеровується, ведеться другою кісткою.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Значення Key1 прив'язане до позиції кісток драйвером за допомогою двох змінних. Кожна змінна використовує координату по осі Z (Z Location) у просторі світу World Space для кості та використовує максимальне значення (Maximum Value) для визначення, наскільки база повинна розширюватися. Генератор полінома (Generator: Expanded Polynomial) виставлено так, що верх домінантного стосу мав одну лінію з кісткою для цього стосу.</p>
+<p>Значення ключа Key2A прив'язане до позиції кістки &quot;Bone.L&quot;. Параметри його генератора виставлено так, що коли значення Key1 досягає «1», то значення Key2A починає зростання від нуля. Таким чином, верх лівого стосу буде рухатися кісткою bone.L (здебільшого).</p>
+<p>Значення ключа Key2B прив'язане до позиції кістки &quot;Bone.R&quot;. Параметри його генератора подібні до драйвера Key2A так, що верх правого стосу буде рухатися кісткою bone.R (здебільшого).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-retracted.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-retracted.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-retracted.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Коли обидві кістки переміщені вниз, то Key2B і Key2A дезактивуються, а на Key1 здійснюється низький вплив.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-extended.png"><img alt="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-extended.png" src="../../_images/animation_drivers_workflow-examples_for-multiple-shape-keys-extended.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Витягнено.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Оскільки, зовсім легко для кісток bone.L і bone.R перебувати у позиціях, що вказують на конфліктні значення для Key1, то бувають випадки, коли ці кістки не стають на одну лінію з відповідними їм стосами. Якщо драйвер для Key1 використовував значення Average чи Minimum замість Maximum для визначення значення цього ключа форми, то «конфлікти» між bone.L і bone.R вирішувалися би по-різному. Конкретні варіанти ви будете вибирати вже відповідно до потреб вашої анімації.</p>
+<iframe src="https://player.vimeo.com/video/173408647" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Усунення утруднень" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drivers_panel.html" class="btn btn-neutral" title="Панель «Драйвери» -- Drivers Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

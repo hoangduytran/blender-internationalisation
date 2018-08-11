@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Гнуті Кістки -- Bendy Bones &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/properties/bendy_bones.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Відношення -- Relations" href="relations.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості -- Properties</a> &raquo;</li>
+        
+      <li>Гнуті Кістки -- Bendy Bones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/properties/bendy_bones.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bendy-bones">
+<h1>Гнуті Кістки -- Bendy Bones<a class="headerlink" href="#bendy-bones" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Bone ‣ Bendy Bones</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Bendy Bones (B-Bones) are an easy way to replace long chains of many small rigid bones.
+A common use case for curved bones is to model spine columns or facial bones.</p>
+<div class="section" id="technical-details">
+<h2>Технічні деталі<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>Blender treats the bone as a section of a Bézier curve passing through the bones' joints.
+Each <em>Segments</em> will bend and roll them to follow this invisible curve
+representing a tessellated point of the Bézier curve.
+The control points at each end of the curve are the endpoints of the bone.
+The shape of the B-Bones can be controlled using a series of properties or
+indirectly through the neighboring bones (i.e. first child and parent).
+The properties construct handles on either end of the bone to control the curvature.</p>
+<p>Коли Г-Кістка використовується як ціль для примусу, то <a class="reference internal" href="../../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Ідентифікатор даних --- Data ID</span></a> пропонує опцію наслідування кривини.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Однак, якщо така кістка використовується як звичайна ціль, а не для деформування геометрії, то вертіння не враховується.</p>
+</div>
+</div>
+<div class="section" id="display">
+<h2>Показ<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете бачити ці сегменти такої кістки, тільки якщо увімкнено режим візуалізації «Г-Кістка» -- <em>B-Bone</em>.</p>
+<p>When not visualized as <em>B-Bone</em>s, bones are always shown as rigid sticks,
+even though the bone segments are still present and effective.
+This means that even in e.g. <em>Octahedron</em> visualization,
+if some bones in a chain have several segments,
+they will nonetheless smoothly deform their geometry...</p>
+</div>
+<div class="section" id="rest-pose">
+<h2>Поза спокою<a class="headerlink" href="#rest-pose" title="Permalink to this headline">¶</a></h2>
+<p>Початкова форма Г-Кістки може бути визначена у Режимі Правки -- Edit Mode як поза спокою -- rest pose такої кістки. Це корисно для вигнутих рис обличчя, як брови та рот.</p>
+<p>Г-Кістки мають два набори властивостей на панелі «Гнуті Кістки» -- Bendy Bones -- один у Режимі Правки -- Edit Mode (тобто, базова оснастка/поза спокою) та інший у Режимі Пози -- Pose Mode -- що складають свої значення для отримання остаточних трансформацій.</p>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<span id="fig-rig-bone-intro-bbone"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png"><img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Старі Г-Кістки у Режимі Правки -- Edit Mode. ToDo.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-2.png"><img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-2.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива Безьє накладена на ланцюг з її держаками, розміщеними у суглобах кісток.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<span id="fig-rig-bone-intro-same"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png"><img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Та ж сама арматура у Режимі Об'єкта -- Object Mode.</span></p>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>На Ілюстрації <a class="reference internal" href="#fig-rig-bone-intro-bbone"><span class="std std-ref">Старі Г-Кістки у Режимі Правки -- Edit Mode. ToDo.</span></a> ми з'єднали три кістки, кожна з яких складається з п'яти сегментів.</p>
+<p>Глянувши на Ілюстрацію <a class="reference internal" href="#fig-rig-bone-intro-same"><span class="std std-ref">Та ж сама арматура у Режимі Об'єкта -- Object Mode.</span></a>, ми можемо побачити, як сегменти цих кісток плавно «переходять» один в один, навіть при вертінні.</p>
+<div class="figure" id="id5">
+<img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_pose-mode.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_pose-mode.png" />
+<p class="caption"><span class="caption-text">Арматура у Режимі Пози -- Pose Mode, візуалізація «B-Bone»: Bone.003 має один сегмент, Bone.004 має чотири, а Bone.005 має шістнадцять.</span></p>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Опції -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="segments">
+<h3>Сегменти -- Segments<a class="headerlink" href="#segments" title="Permalink to this headline">¶</a></h3>
+<p>Кнопка з числом «Сегменти» -- <em>Segments</em> дозволяє вам задавати кількість сегментів, на які дана кістка буде підподілена. Сегменти -- це дрібні, цільні, пов'язані між собою нащадкові кістки, що інтерпольовані між коренем та верхівкою. Чим вище ця устава, тим плавніше буде «гнутися» ця кістка, але і тим важче буде її обчислення...</p>
+</div>
+<div class="section" id="curve-xy-offsets">
+<h3>XY Зсуви Кривої -- Curve XY Offsets<a class="headerlink" href="#curve-xy-offsets" title="Permalink to this headline">¶</a></h3>
+<p>Applies an offsets the curve handle positions on the plane perpendicular to the bone's primary (Y) axis.
+As a result, the handle moves per axis (XY) further from its original location, causing the curve to bend.</p>
+</div>
+<div class="section" id="roll">
+<h3>Вертіння -- Roll<a class="headerlink" href="#roll" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Увід -- In, Вивід -- Out</dt>
+<dd>The roll value (or twisting around the main Y axis of the bone) is interpolated per segment,
+between the start and end roll values.
+It is applied as a rotational offsets on top of the previous rotation.</dd>
+<dt>Спадкувати Вертіння Кінця -- Inherit End Roll</dt>
+<dd>ToDo ~2.78.</dd>
+</dl>
+</div>
+<div class="section" id="scale">
+<h3>Масштаб -- Scale<a class="headerlink" href="#scale" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Масштаб Уводу -- Scale In, Масштаб Виводу -- Scale Out</dt>
+<dd>Scaling factor that adjusts the thickness of each segment for X and Z axes only, i.e. length is not affected.
+Similar to <em>Roll</em> it is interpolated per segment.</dd>
+</dl>
+</div>
+<div class="section" id="easing">
+<h3>Полегшення -- Easing<a class="headerlink" href="#easing" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Увід Легко -- Ease In, Вивід Легко -- Ease Out</dt>
+<dd><p class="first">Ці кнопки з числом <em>Ease In/Out</em> змінюють «довжину» авто -- <a class="reference internal" href="../../../../modeling/curves/structure.html#curve-handle-type-auto"><span class="std std-ref">&quot;auto&quot;</span></a> держака Безьє для керування «держаком кореня» та «держаком верхівки» кістки, відповідно.</p>
+<p class="last">These values are proportional to the default length,
+which of course automatically varies depending on bone length,
+angle with the reference handle, and so on.</p>
+</dd>
+</dl>
+<table border="1" class="docutils" id="ease-in-out">
+<caption><span class="caption-text">Приклад устав Ease In/Out з матеріалізованою кривою Безьє.</span><a class="headerlink" href="#ease-in-out" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-1.png"><img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-1.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Подивіться на Bone.004: для неї задано стандартні значення (1.0) для устав Ease In та Ease Out.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-2.png"><img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-2.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_curve-in-out-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bone.004 зі значеннями для Ease In як 2.0 та для Ease Out як 0.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="custom-handle-reference">
+<h3>Власні орієнтири держаків<a class="headerlink" href="#custom-handle-reference" title="Permalink to this headline">¶</a></h3>
+<p>Г-Кістки можуть використовувати інші кістки як орієнтири для держаків замість використання предківської/нащадкових кісток. Для цього увімкніть стяг «Вжити Власні Орієнтири Держаків» -- <em>Use Custom Reference Handles</em> у Режимі Пози -- Pose Mode. Якщо у цих текстових полях нічого не визначено, то Г-Кістка буде використовувати взагалі тільки властивості з панелі Bendy Bones. Коли ця опція увімкнена, то будуть використовуватися тільки визначені тут інші кістки замість сусідів цієї кістки по ланцюгу.</p>
+<dl class="docutils">
+<dt>Відносно -- Relative</dt>
+<dd>Замість використання кінцевих точок цих кісток як абсолютних точок у 3D просторі, це обчислює, як далеко переміщена орієнтувальна кістка від їх позиції спокою. Далі застосовуються дельта трансформацій до власних кінцевих точок кістки для отримання локації держака. Це корисно, якщо власна керувальна орієнтирна кістка є надто далеко від її держака.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Набір Ключування</p>
+<p class="last">Набір Ключування -- Keying Set «Форми Г-Кістки» включає усі властивості з панелі Bendy Bones.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Приклад<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id8">
+<img alt="../../../../_images/rigging_armatures_bones_properties_bendy-bones_settings-demo.png" src="../../../../_images/rigging_armatures_bones_properties_bendy-bones_settings-demo.png" />
+<p class="caption"><span class="caption-text">Візуалізація властивостей Гнутих Кісток.</span></p>
+<div class="legend">
+Зліва направо: 1) Curve X/Y Offsets, 2) Scale In/Out, 3) Roll In/Out</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="relations.html" class="btn btn-neutral float-right" title="Відношення -- Relations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

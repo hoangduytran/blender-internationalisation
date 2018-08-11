@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Групи Вузлів або Групові Вузли -- Node Groups &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/nodes/types/groups.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Камера -- Camera" href="../../camera.html" />
+    <link rel="prev" title="Вузол «Скрипт» -- Script Node" href="script.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lamps.html">Лампи -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world.html">Світ -- World</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Вузли -- Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../osl.html">Відкрита Мова Відтінення -- Open Shading Language</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#node-types">Типи Вузлів -- Node Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../features.html">Функціональні можливості Рендера, зобража -- Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Устави Cycles -- Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gpu_rendering.html">Зображування, рендеринг за допомогою графічного процесора відеокарти -- GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../baking.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Вузли -- Nodes</a> &raquo;</li>
+        
+      <li>Групи Вузлів або Групові Вузли -- Node Groups</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/cycles/nodes/types/groups.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-shadernodegroup"></span><div class="section" id="node-groups">
+<h1>Групи Вузлів або Групові Вузли -- Node Groups<a class="headerlink" href="#node-groups" title="Permalink to this headline">¶</a></h1>
+<p>Групування вузлів може спрощувати дерево вузлів, дозволяючи примірникувати (використовувати повторно примірники частин дерева) та ховати частини дерева. Можуть групуватися, як матеріалові (material), так і компонівні (composite) вузли.</p>
+<p>Концептуально, групування вузлів дозволяє вам визначати <em>набір</em> вузлів, який ви можете обробляти, як ніби це був би «тільки один вузол». Вузлові групи подібні до функцій у програмуванні. Далі ви можете повторно використовувати такий груповий вузол у цьому ж файлі, який також називають «групою вузлів» -- &quot;NodeGroup&quot;, або в іншому blend-файлі(ах), прилучаючи його туди, і тоді він зветься «дерево вузлів» -- &quot;NodeTree&quot;.</p>
+<p>Як приклад: Якщо ви створили матеріал, який ви б хотіли використати з іншими уводами, наприклад, для дифузного кольору: червоний пластик, зелений пластик. Ви можете створити різні матеріали і зробити їх однокористувацькими за допомогою команди «Зробити Однокористувацьким» -- <em>Make Single User</em> для кожного відтінку кольору з копією частини дерева, що описує матеріал пластику. Якщо ви схочете редагувати, то вам необхідно буде повторити всі ці правки на усіх цих матеріалах. Кращим методом повторного використання є створення вузлових груп з виставленням тільки уводів, що будуть змінюватися (наприклад, дифузний колір).</p>
+<p>При групуванні також підтримуються вкладені один в один групові вузли. Тобто, група вузлів може бути вставлена або створена всередині іншої групи вузлів.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Рекурсія</p>
+<p class="last">Рекурсивні групові вузли заборонені для усіх поточних систем вузлів з метою запобігання безкінечної рекурсії, «замикання на собі». Група вузлів ніколи не може вміщувати сама себе (або іншу групу, що вміщує її).</p>
+</div>
+<div class="section" id="make-group">
+<h2>Зробити Групу -- Make Group<a class="headerlink" href="#make-group" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Make Group</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To create a node group, in the Node editor, select the nodes you want to include, then
+press <kbd class="kbd docutils literal notranslate">Ctrl-G</kbd>, <span class="menuselection">Group ‣ Make Group</span>.
+A node group will have a green title bar. All of the selected nodes will now be contained within the node group.
+Default naming for the node group is &quot;NodeGroup&quot;, &quot;NodeGroup.001&quot; etc.
+There is a name field in the node group you can click into to change the name of the group.
+Change the name of the node group to something meaningful.
+When appending node groups from one blend-file to another,
+Blender does not make a distinction between material node groups or composite node groups,
+so it is recommended to use some naming convention that will allow you to easily distinguish between the two types.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Що <strong>не</strong> включається у ваші групи (усі режими Редактора Вузлів)</p>
+<p>Пам'ятайте, що основоположна ідея полягає у тому, що група вузлів повинна бути легко повторно використовуваним, автономним програмним компонентом. Матеріалові групові вузли <strong>не</strong> повинні включати:</p>
+<dl class="last docutils">
+<dt>Вузли типу «Увід» -- Input nodes</dt>
+<dd>Якщо ви включите джерельний вузол у вашу групу, то у результаті джерельний вузол буде присутнім <em>двічі</em>: один всередині групи, а інший поза групою у новій мережі вузлів матеріалу.</dd>
+<dt>Вузли типу «Вивід» -- Output node</dt>
+<dd>Якщо ви включите вивідний вузол у групу, то будуть відсутні вивідні роз'єми для виводу даних <em>із</em> групи!</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="edit-group">
+<h2>Правка Групи -- Edit Group<a class="headerlink" href="#edit-group" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Edit Group</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Go to Parent Node Tree</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Tab</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>With a node group selected, <kbd class="kbd docutils literal notranslate">Tab</kbd> expands the node to a frame, and the individual nodes within
+it are shown. You can move them around, play with their individual controls, re-thread them internally, etc.
+just like you can if they were a normal part of the editor view. You will not be able, though,
+to thread them to a node outside the group; you have to use the external sockets on the side of the node group.
+To add or remove nodes from the group, you need to ungroup them.
+While <kbd class="kbd docutils literal notranslate">Tab</kbd> can be used to both enter and exit a group, <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> only exits.</p>
+<div class="section" id="interface">
+<h3>«Інтерфейс» -- Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="interactively">
+<h4>Інтерактивно<a class="headerlink" href="#interactively" title="Permalink to this headline">¶</a></h4>
+<p>При створенні групового вузла у ньому генеруються нові вузли «Увід Групи» -- <em>Group Input</em> та «Вивід Групи» -- <em>Group Output</em> для представлення потоку даних у та із цієї групи. При створенні з'єднання до увідних роз'ємів, що йдуть від невиділених вузлів, стають прикріпленими до нових роз'ємів на вузлі <em>Group Input</em>. Аналогічно, вихідні з'єднання до увідних роз'ємів невиділених вузлів стають прикріпленими до нового вузла <em>Group Output</em>.</p>
+<p>Якщо у ході розроблення групи вузлів необхідно увести додатковий параметр у групу, то повинен бути доданий додатковий роз'єм на вузол <em>Group Input</em>. Це легко робиться, доданням з'єднання з порожнього роз'єму з правої сторони вузла <em>Group Input</em> до бажаного увідного роз'єму потрібного вузла у групі. Цей процес є аналогічним для <em>Group Output</em> для даних, які ви хочете зробити доступними поза групою.</p>
+</div>
+<div class="section" id="panel">
+<h4>Панель<a class="headerlink" href="#panel" title="Permalink to this headline">¶</a></h4>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Панель:</th><td class="field-body"><span class="menuselection">Properties region ‣ Interface</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/editors_node-editor_nodes_groups_interface-panel.png" src="../../../../_images/editors_node-editor_nodes_groups_interface-panel.png" />
+<p class="caption"><span class="caption-text">Панель Interface для редагування груп.</span></p>
+</div>
+<p>Тут можуть бути додані, перевпорядковані або вилучені роз'єми, для них можуть бути визначені описові імена та інші дані.</p>
+<p>Якщо ви маєте багато уводів чи виводів, то вони можуть бути перевпорядковані шляхом виділення потрібного роз'єму у списку та далі пересуванням його уверх або вниз за допомогою кнопок зі стрілками, що справа від панелі. Кнопки з великим знаком «плюс» нижче списку додають нез'єднаний роз'єм того ж типу, що й й виділений роз'єм або роз'єм значення, якщо нічого не виділено. Кнопки з маленьким «плюсом» внизу списків надають функції фільтрування для знаходження потрібних роз'ємів, коли таких роз'ємів багато для групи.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ungroup">
+<h2>Розгрупування -- Ungroup<a class="headerlink" href="#ungroup" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Ungroup</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Засіб за скороченням <kbd class="kbd docutils literal notranslate">Alt-G</kbd> розгруповує, вилучаючи властивість групи, всі вкладені у груповому вузлі інші вузли та поміщає їх у робочому просторі редактора. Жодні внутрішні з'єднання не втрачаються і ви далі можете зв'язувати ці колишні елементи групи з іншими вузлами у вашому робочому просторі.</p>
+<dl class="docutils">
+<dt>Separate <kbd class="kbd docutils literal notranslate">P</kbd></dt>
+<dd><p class="first">Separate selected nodes from the node group.</p>
+<dl class="last docutils">
+<dt>Copy</dt>
+<dd>Copy to parent node tree, keep group intact.</dd>
+<dt>Move</dt>
+<dd>Move to parent node tree, remove from group.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="group-insert">
+<h2>Вставляння у Групу -- Group Insert<a class="headerlink" href="#group-insert" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Group Insert</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Для вставки у групу виділяється потрібний набір вузлів та останнім цільовий груповий вузол та натискається <span class="menuselection">Group ‣ Group Insert</span>. Згруповані вузли у групу для збереження своїх з'єднань мають відповідні з'єднання на увід та вивід групи. Наявні вузли Group Input та Group Output оновлюються новими роз'ємами, якщо такі є, з цих нових вузлів. При редагуванні групи вузлів у ній має залишитися по одному вузлу <em>Group Input</em> та <em>Group Output</em>.</p>
+</div>
+<div class="section" id="appending-node-groups">
+<h2>Прилучення Груп Вузлів<a class="headerlink" href="#appending-node-groups" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Info Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">File ‣ Link/Append</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Після прилучення дерева вузлів NodeTree іззовні у ваш blend-файл ви можете його використовувати у Редакторів Вузлів -- Node Editor, натиснувши <kbd class="kbd docutils literal notranslate">Shift-A</kbd> або «Додання &gt; Група» <span class="menuselection">Add ‣ Group</span>, далі вибрати потрібну з прилучених груп. «Контрольна панель» цієї Групи являє собою окремі контролери для згрупованих у ній вузлів. Ви можете змінювати їх, працюючи з таким Груповим вузлом так само, як і з іншими вузлами.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../camera.html" class="btn btn-neutral float-right" title="Камера -- Camera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="script.html" class="btn btn-neutral" title="Вузол «Скрипт» -- Script Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Режими об&#39;єктів &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/modes.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Навігація або переміщення точки зору оглядання сцени -- Navigating" href="navigate/index.html" />
+    <link rel="prev" title="Запускова Сцена -- Startup Scene" href="startup_scene.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object/index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+      <li>Режими об'єктів</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/3dview/modes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-modes">
+<h1>Режими об'єктів<a class="headerlink" href="#object-modes" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id11">
+<span id="fig-view3d-mode-select"></span><img alt="../../_images/editors_3dview_modes_menu.png" src="../../_images/editors_3dview_modes_menu.png" />
+<p class="caption"><span class="caption-text">Меню вибору режиму -- Mode.</span></p>
+</div>
+<p>Режими -- <em>Modes</em> -- це рівнева об'єктно-орієнтована функція у Blender'і, яка означає, що увесь застосунок Blender завжди знаходиться в єдиному режимі, і що доступні режими варіюються залежно від типу виділеного активного об'єкта -- більшість з яких мають доступним для них тільки стандартний Режим Об'єкта -- <em>Object Mode</em> (як камери, лампи тощо). Кожен режим передбачено для редагування певного аспекту виділеного об'єкта. Дивіться таблицю. <a class="reference internal" href="#tab-view3d-modes"><span class="std std-ref">Режими Blender'а -- Blender's Modes</span></a> нижче про подробиці.</p>
+<p>Ви установлюєте поточний режим у вибірнику «Режим» -- <em>Mode</em> заголовку 3D Огляду -- <em>3D View</em> (дивіться ілюстрацію <a class="reference internal" href="#fig-view3d-mode-select"><span class="std std-ref">Меню вибору режиму -- Mode.</span></a>).</p>
+<div class="lead docutils container">
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Ви можете виділяти об'єкти тільки у Режимі Об'єкта -- <em>Object Mode</em>. У всіх інших режимах виділення поточного об'єкта «заблоковане» (за винятком, певною мірою, у Режимі Пози -- <em>Pose Mode</em> для арматури).</p>
+</div>
+<p>Режими можуть впливати на багато речень у Blender'і:</p>
+<ul class="simple">
+<li>Вони можуть модифікувати панелі та/або контролери доступні у деяких вкладках Редактора Властивостей -- Properties editor.</li>
+<li>Вони можуть модифікувати поведінку цілого редактора, як наприклад Редактора UV/Зображень -- <em>UV/Image Editor</em> та 3D Огляду -- <em>3D View</em>.</li>
+<li>Вони можуть модифікувати доступні інструменти у заголовку (меню та/або пункти меню, а також інші контролери...). Наприклад, у редакторі 3D Огляд -- <em>3D View</em> меню «Об'єкт» -- <em>Object</em> у Режимі Об'єкта -- <em>Object Mode</em> змінюється на меню «Сіть» -- <em>Mesh</em> у Режимі Правки -- <em>Edit Mode</em> (при активному сітьовому об'єкті!) та на меню «Малювання» -- <em>Paint</em> у Режимі Малювання Вершин -- <em>Vertex Paint Mode</em>...</li>
+</ul>
+<span id="tab-view3d-modes"></span><table border="1" class="colwidths-given valign docutils" id="blender-blender-s-modes">
+<caption><span class="caption-text">Режими Blender'а -- Blender's Modes</span><a class="headerlink" href="#blender-blender-s-modes" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="10%" />
+<col width="24%" />
+<col width="16%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Іконка</th>
+<th class="head">Ім'я</th>
+<th class="head">Скорочення</th>
+<th class="head">Подробиці</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-object-mode.png" src="../../_images/editors_3dview_modes_icons-object-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="object/index.html"><span class="doc">Object Mode</span></a></td>
+<td><em>Нема</em> <a class="footnote-reference" href="#id9" id="id1">[1]</a></td>
+<td>Стандартний режим, доступний для всіх типів об'єктів, оскільки він призначений для модифікування блоку даних <em>Об'єкт</em> (наприклад, позиції, обертання, розміру).</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-edit-mode.png" src="../../_images/editors_3dview_modes_icons-edit-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../modeling/index.html"><span class="doc">Edit Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Tab</kbd> <a class="footnote-reference" href="#id9" id="id2">[1]</a></td>
+<td>A mode available for all renderable object types,
+as it is dedicated to their &quot;shape&quot; <em>Object Data</em> data-block editing
+(e.g. vertices/edges/faces for meshes, control points for curves/surfaces, etc.).</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-sculpt-mode.png" src="../../_images/editors_3dview_modes_icons-sculpt-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/sculpting/index.html"><span class="doc">Sculpt Mode</span></a></td>
+<td><em>Нема</em> <a class="footnote-reference" href="#id9" id="id3">[1]</a></td>
+<td>Режим тільки для сітей, що дає доступ до інструментів 3D-ліплення сіті у Blender'і.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-vertex-paint.png" src="../../_images/editors_3dview_modes_icons-vertex-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/vertex_paint/index.html"><span class="doc">Vertex Paint Mode</span></a></td>
+<td><em>Нема</em> <a class="footnote-reference" href="#id9" id="id4">[1]</a></td>
+<td>Режим тільки для сітей, що дозволяє вам задавати кольори для вершин сіті (тобто «малювати» по них).</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-weight-paint.png" src="../../_images/editors_3dview_modes_icons-weight-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/weight_paint/index.html"><span class="doc">Weight Paint Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> <a class="footnote-reference" href="#id10" id="id5">[2]</a></td>
+<td>Режим тільки для сітей, призначений для задання вагомостей для груп вершин.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-texture-paint.png" src="../../_images/editors_3dview_modes_icons-texture-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/texture_paint/index.html"><span class="doc">Texture Paint Mode</span></a></td>
+<td><em>Нема</em> <a class="footnote-reference" href="#id9" id="id6">[1]</a></td>
+<td>Режим тільки для сітей, що дозволяє вам малювати текстуру безпосередньо на сітьовій моделі у 3D Оглядах.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-particle-edit.png" src="../../_images/editors_3dview_modes_icons-particle-edit.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../physics/particles/mode.html"><span class="doc">Particle Edit Mode</span></a></td>
+<td><em>Нема</em> <a class="footnote-reference" href="#id9" id="id7">[1]</a></td>
+<td>Режим тільки для сітей, призначений для систем частинок, корисний для редагованих систем (волосся).</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-pose-mode.png" src="../../_images/editors_3dview_modes_icons-pose-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../rigging/armatures/posing/index.html"><span class="doc">Pose Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> <a class="footnote-reference" href="#id10" id="id8">[2]</a></td>
+<td>Режим тільки для арматур, призначений для позування (поставлення у пози) арматури.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-grease-pencil.png" src="../../_images/editors_3dview_modes_icons-grease-pencil.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../interface/grease_pencil/stroke_edit.html"><span class="doc">Edit Strokes Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">D-Tab</kbd></td>
+<td>Режим тільки для Нарисного Олівця -- Grease Pencil, призначений для редагування штрихів нарисного олівця.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>, <a class="fn-backref" href="#id4">4</a>, <a class="fn-backref" href="#id6">5</a>, <a class="fn-backref" href="#id7">6</a>)</em> <kbd class="kbd docutils literal notranslate">Tab</kbd> перемикає у Режим Правки -- <em>Edit Mode</em> і назад у цей режим.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> switches between the <em>Weight Paint Mode</em> (meshes)/<em>Pose Mode</em> (armatures),
+and the other current one (by default, the <em>Object Mode</em>).
+However, the same shortcut has other, internal meanings in some modes
+(e.g. in <em>Sculpt Mode</em>, it is used to select the current brush)...</td></tr>
+</tbody>
+</table>
+<p>Як ви можете бачити, використання скорочень для перемикання між режимами може стати зовсім заплутаним, особливо для сітей.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The cursor becomes a brush in <a class="reference internal" href="../../sculpt_paint/index.html"><span class="doc">Paint and Sculpt Modes</span></a>.</p>
+</div>
+<p>We will not go into any more detail on mode usages here, because most of them
+are tackled in their specific section.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Якщо ви читаєте цей посібник і деякі вказані кнопка або опція меню не показуються на вашому екрані, то можливо це через те, що ви не знаходитися у відповідному режимі, в якому ця опція доступна.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigate/index.html" class="btn btn-neutral float-right" title="Навігація або переміщення точки зору оглядання сцени -- Navigating" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="startup_scene.html" class="btn btn-neutral" title="Запускова Сцена -- Startup Scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

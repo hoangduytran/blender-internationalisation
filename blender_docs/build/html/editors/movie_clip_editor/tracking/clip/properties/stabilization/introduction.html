@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/movie_clip_editor/tracking/clip/properties/stabilization/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Панель «2D Стабілізація» -- 2D Stabilization Panel" href="panel.html" />
+    <link rel="prev" title="2D Стабілізація -- 2D Stabilization" href="index.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html#image-video">Зображення -- Image / Відео -- Video</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../../uv_image/index.html">Редактор UV/Зображень -- UV/Image Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html">Редактор Відеокліпів -- Movie Clip Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html">Простеження Руху -- Motion Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../masking/index.html">Маскування -- Masking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../vse/index.html">Редактор Відеорядів -- Video Sequence Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Редактор Відеокліпів -- Movie Clip Editor</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Простеження Руху -- Motion Tracking</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Огляд «Кліп» -- Clip View</a> &raquo;</li>
+        
+          <li><a href="../index.html">Властивості -- Properties</a> &raquo;</li>
+        
+          <li><a href="index.html">2D Стабілізація -- 2D Stabilization</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/editors/movie_clip_editor/tracking/clip/properties/stabilization/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>2D стабілізація відео -- це функція, вибудувана поверх здатностей простеження вирізнень у Blender'і: ми використовуємо деякі <em>точки простеження</em> для вилучення трясіння, вигинів та ривків з фільмоматеріалу. Типово, стабілізація зображення є частиною <strong>2D робходу</strong> з підготовки та покращення фільмоматеріалу перед подальшими етапами обробки або моделювання. Ця сторінка допоможе зрозуміти, як вона працює, ознайомить з відповідними термінами й концепціями, опише доступні контролери інтерфейсу в деталях та нарешті дасть деякі поради про використання на практиці.</p>
+<p>Типовий <strong>сценарій використання</strong> стабілізатора:</p>
+<ul class="simple">
+<li>Fix minor deficiencies (shaky tripod, jerk in camera movement).</li>
+<li>&quot;Poor man's steadycam&quot; (when a real steadycam was not available, affordable or applicable).</li>
+<li>As a preparation for masking, matching and rotoscoping.</li>
+</ul>
+<p>Нерідко для 2D стабілізації доводиться мати справу з дещо недосконалим та пошкодженим фільмоматеріалом.</p>
+<div class="section" id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>Для виявлення хибного руху у даному знімку ми припускаємо спрощену модель про цей рух. Далі, ми спробуємо підігнати рух простежених вирізнень під цю спрощену модель для отримання компенсації. Звичайно, це працює тільки у міру адекватності нашої моделі -- ще на практиці, цей спрощений підхід працює дивовижно добре з досить складними знімками, де наше базове припущення було просто наближенням набагато більш складних рухів.</p>
+<p>Ця спрощена модель лежить в основі 2D стабілізації, імплементованої тут, і припускає рух за «споріднено-прямолінійним трансформуванням» -- <strong>affine-linear transform</strong>:</p>
+<ul class="simple">
+<li>The camera is pushed up/down/sideways by some <strong>translation component</strong>.</li>
+<li>The image is then <strong>tilted</strong> and <strong>scaled</strong> around a <strong>pivot point</strong> (rotation center).</li>
+</ul>
+<p>Для компенсації руху відповідно до цієї спрощеної моделі 2D стабілізатор виконується у два кроки. Спершу, ми намагаємося визначити зсув пересування від виваженого усереднення усіх точок простеження пересуву -- <em>translation tracking points</em>. Після компенсування цього компонента пересуву далі ми використовуємо додаткові точки простеження обертання/масштабування -- <em>rotation/scale tracking points</em> для виявлення обертання навколо заданої опорної точки. Знову ж, ми виявляємо зміни оберту і масштабу через виважене усереднення усіх заданих точок простеження обертання/масштабування.</p>
+<p>У поточній версії опорна точка -- <strong>pivot point</strong> закріплюється у виваженому центрі точок простеження пересуву -- <em>weight center of the translation tracking points</em>. Тому, ефективно виявлений пересув вже врахований. У деяких випадках це не є оптимальним, особливо коли стежки мають проміжки або не охоплюють усю тривалість фільмоматеріалу -- ми плануємо подальше опції для кращого керування опорною точкою у майбутніх випусках.</p>
+<div class="section" id="stabilization-tracks">
+<h3>Стежки Стабілізації -- Stabilization Tracks<a class="headerlink" href="#stabilization-tracks" title="Permalink to this headline">¶</a></h3>
+<p>Thus, as foundation for any image stabilization, we need tracked image features to derive the movements.
+These <em>tracking points</em> or &quot;tracks&quot; can be established with Blender's
+<a class="reference internal" href="../../introduction.html"><span class="doc">image feature tracking component</span></a>
+The right choice of points to track is somewhat tricky, yet crucial for successful image stabilization.
+Often, we're here because we'll have to deal with imperfect footage. In such cases, the <em>averaging of tracks</em>
+helps to work around image or tracking errors at some point.
+Moreover, when the footage contains <em>perspective induced movements</em>, symmetrically placed tracking points above
+and below the horizon can be used to cancel out spurious movement and get stabilization to the focal area in between.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_perspective.jpg"><img alt="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_perspective.jpg" src="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_perspective.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Розбіжні рухи, спричинені перспективою.</span></p>
+</div>
+<p>Tracks can be added in two groups:</p>
+<ol class="arabic simple">
+<li>First of all is the list of tracks to be used to compensate for jumps in the camera location.
+From all the tracking points added to this group, we calculate a <em>weighted average.</em>
+We then try to keep this average location constant during the whole shot.
+Thus it is a good idea to use tracking markers close to and centered around the most important subject.</li>
+<li>A second selection of tracks is used to keep the rotation and scale of the image constant.
+You may use the same tracks for both selections. But usually it is best to use tracking points with large distance
+from the image center, and symmetrically, on both sides, to capture the angular movements more precisely.
+Similar to the &quot;location&quot; case, we calculate an <em>average angular contribution</em> and then try
+to keep this value constant during the whole shot.</li>
+</ol>
+</div>
+<div class="section" id="footage-image-and-canvas">
+<h3>Фільмоматеріал, Зображення і Полотно -- Footage, Image and Canvas<a class="headerlink" href="#footage-image-and-canvas" title="Permalink to this headline">¶</a></h3>
+<p>Коли мова йде про стабілізацію руху на відео, ми маємо розрізняти різні кадри орієнтиру. Елементи зображення, вирізнені рухом фільмоматеріалу навколо нерегулярно у межах границь оригінального зображення -- <strong>original image boundaries</strong> фільмоматеріалу -- саме через цю причину ми використовуємо стабілізатор. Коли ваша спроба стабілізації була успішною, то елементи зображення можуть тепер вважати <em>стабільними</em>, хоча і в обміні границь зображення фільмоматеріалу наявні нерегулярні рухи та стрибки. Це безпосередній наслідок діяльності стабілізатора.</p>
+<p>Since the actual image elements, i.e. the subject of our footage can be considered stable now, we may use these
+as a new frame of reference: we consider them attached to a fixed backdrop, which we call the <strong>canvas</strong>.
+Introducing this concept of a &quot;canvas&quot; helps to deal with deliberate movements of the camera. And beyond that,
+it yields an additional benefit: It is very frequent for the pixels of video footage to be <em>non-square</em>.
+So we have to stretch and expand those pixels, before we're able to perform any sensible rotation stabilization.
+Thus the canvas becomes, by definition, the reference for an undistorted display of the image contents.</p>
+<p>But when the camera was <em>moved intentionally</em>, we have to consider yet another frame of reference beyond the canvas:
+namely the frame (or <em>&quot;cadre&quot;</em>) of the <strong>final image</strong> we want to create. To understand this distinction,
+let's consider a hand-held, panning shot to the right: Since our camera was turned towards the right side,
+the actual image contents move towards the left side <em>within</em> the original image frame.
+But let's assume the stabilizer was successful with &quot;fixing&quot; any image contents relative to the <em>canvas</em> --
+which in turn means, that the original image boundaries start to move irregularly towards the right side,
+and the <em>contents</em> of the image will begin to disappear gradually behind the left boundary of the original image.
+After some amount of panning,
+we'll have lost all of our original contents and just see an empty black image backdrop.
+The only solution to deal with that problem is to <em>move the final image frame along to the right</em>,
+thus following the originally intended panning movement. Of course, this time, we do want to perform this
+newly added panning movement in a smooth and clean way.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_panning.jpg"><img alt="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_panning.jpg" src="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_panning.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">Стабілізування знімку панорамування.</span></p>
+</div>
+<div class="figure align-right" id="id3">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_canvas.jpg"><img alt="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_canvas.jpg" src="../../../../../../_images/editors_movie-clip-editor_tracking_clip_properties_stabilization_introduction_canvas.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Відновлення очікуваного руху камери.</span></p>
+</div>
+<p>Щоб дозволити таке компенсування та знову увести навмисне панорамування чи відхилення або зумування результатного зображення, стабілізатор забезпечує спеціальний набір контролерів: Очікувана позиція -- <em>Expected position</em>, Очікуваний Оберт -- <em>Expected rotation</em> та Очікуваний Масштаб -- <em>Expected scale</em>. Вони діють, як контролери віртуальної камери, фільмуючи вміст, що ми зафіксували на полотні. Ми, <em>анімуючи</em> ці параметри, стаємо у змозі здійснювати усі види навмисних рухів камери плавним способом.</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="the-dancing-black-borders">
+<h3>The &quot;Dancing&quot; Black Borders<a class="headerlink" href="#the-dancing-black-borders" title="Permalink to this headline">¶</a></h3>
+<p>Як пояснювалося вище, коли нам вдається стабілізувати вміст зображення, границі оригінального фільмоматеріалу починають стрибати навколо в протилежному напрямку компенсованих рухів. Це неминуче -- ще й дуже дратує, оскільки через нерегулярну природу цих рухів, ці «танцювальні чорні границі» тяжіють до відвертання уваги від фактичного суб'єкта та привнесення докучливого неспокою. Звідси, наша ціль повинна приховати ці танцювальні границі, наскільки це можливо. Просте рішення -- додати невелику величину зумування. Інколи, ми також потребуємо анімувати параметр «Очікувана Позиція» -- <em>Expected position</em>, щоб зберегти зображення центрованим, наскільки це можливо -- це допомагає скоротити величину зумування до необхідної для вилучення цих дратівливих границь.</p>
+<p>Функція «Автомасштаб» -- <strong>Autoscale</strong> може використовуватися для знаходження мінімальної величини зумування, достатньої для повного вилучення цих чорних границь. Однак, якщо камера стрибає сильно, то функція автомасштабу часто дає надто велике зумування, особливо, через те, що це обчислення націлене на знаходження єдиного, статичного фактора зумування для усієї тривалості фільмоматеріалу. Коли це трапляється, ви типово отримаєте у цілому кращі результати з одночасним ручним анімуванням як фактора зумування, так і очікуваної позиції.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="panel.html" class="btn btn-neutral float-right" title="Панель «2D Стабілізація» -- 2D Stabilization Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2D Стабілізація -- 2D Stabilization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/editing/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Трансформації -- Transform" href="transform/index.html" />
+    <link rel="prev" title="Редагування або правка -- Editing" href="index.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="../index.html">Об'єкти -- Objects</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування або правка -- Editing</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/3dview/object/editing/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>In this section will be described tools for manipulating objects in Object Mode.
+All editing tools can be found in Object menu and/or in Tool Shelf.</p>
+<div class="section" id="delete">
+<span id="bpy-ops-object-delete"></span><h2>Видалення -- Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Edit ‣ Delete</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Delete</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділені об'єкти видаляються, вилучаються зі сцени.</p>
+<dl class="docutils">
+<dt>Видалити Глобально -- Delete Globally <kbd class="kbd docutils literal notranslate">Shift-X</kbd></dt>
+<dd>Цей стяг на панелі Оператора спричиняє видалення цих об'єктів з усіх сцен, де вони були пов'язані.</dd>
+</dl>
+</div>
+<div class="section" id="show-hide">
+<span id="bpy-ops-object-hide-view"></span><span id="object-show-hide"></span><h2>Показ/Схов -- Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Show/Hide</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Показати Сховане -- Show Hidden <kbd class="kbd docutils literal notranslate">Alt-H</kbd></dt>
+<dd>Показує всі сховані об'єкти.</dd>
+<dt>Сховати Виділене -- Hide Selected <kbd class="kbd docutils literal notranslate">H</kbd></dt>
+<dd>Ховає усі поточно виділені об'єкти.</dd>
+<dt>Сховати Невиділене -- Hide Unselected <kbd class="kbd docutils literal notranslate">Shift-H</kbd></dt>
+<dd>Ховає усі поточно невиділені об'єкти сцени. Стяг «Невиділене» -- <em>Unselected</em> на панелі оператора «Задати Обмеження Огляду»/«Сховати Виділене» -- <em>Set Restrict View</em>/<em>Hide Selected</em> буде увімкнено.</dd>
+</dl>
+</div>
+<div class="section" id="convert-to">
+<span id="bpy-ops-object-convert"></span><span id="object-convert-to"></span><h2>Конвертувати у -- Convert To<a class="headerlink" href="#convert-to" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="curve-from-mesh-text">
+<h3>Curve from Mesh/Text<a class="headerlink" href="#curve-from-mesh-text" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Convert to ‣ Curve from Mesh/Text</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-C</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Сітьові (mesh) об'єкти та текстові (text) об'єкти можуть бути конвертовані у кривові (curve) об'єкти. При цьому, для сітьових (mesh) об'єктів будуть братися для конвертування тільки ребра, що не утворюють граней. Результатна крива буде за типом «Багатобічна» або «Полі» -- Poly, але може бути конвертована у плавно, згладжено сегментовану, як описано тут -- <a class="reference internal" href="../../../../modeling/curves/editing/introduction.html#curve-convert-type"><span class="std std-ref">Задати Тип Сплайна -- Set Spline Type</span></a>.</p>
+</div>
+<div class="section" id="mesh-from-curve-metaball-surface-text">
+<h3>Mesh from Curve/Metaball/Surface/Text<a class="headerlink" href="#mesh-from-curve-metaball-surface-text" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Convert to ‣ Mesh from Curve/Metaball/Surface/Text</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-C</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Конвертує виділений об'єкт кривої, метакулі, поверхні або тексту у сітьовий об'єкт. При цьому для деталізації сіті буде братися фактично визначена роздільність цього об'єкта. Зауважте, що конвертація також зберігає грані та об'єми, створені закритими та видавленими кривими.</p>
+</div>
+<div class="section" id="options">
+<h3>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Утримати Оригінал -- Keep Original</dt>
+<dd>Дублює оригінальний об'єкт перед його конвертуванням.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="join">
+<span id="object-join"></span><span id="bpy-ops-object-join"></span><h2>Сполучення -- Join<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Edit ‣ Join</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Join</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-J</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Join merges all selected objects into the last selected <em>Active</em> object.
+All object data is linked to the active object (which must be selected).
+All objects must be of the same type: mesh, curve, surface or armature.
+If several curves are joined, each one will keep its subtype (NURBS or Bézier).</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>При сполученні можуть вказуватися атрибути з багатьох для даних об'єкта.</p>
+<p>Materials, vertex groups, UV and Vertex layers will be merged.</p>
+<p class="last">Модифікатори, обмежники, групи та відношення приріднення будуть проігноровані при сполученні та не будуть застосовуватися до результатного активного об'єкта.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="transform/index.html" class="btn btn-neutral float-right" title="Трансформації -- Transform" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Редагування або правка -- Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

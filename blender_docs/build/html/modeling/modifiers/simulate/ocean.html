@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Океан» -- Ocean Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/simulate/ocean.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатор «Примірник Частинок» -- Particle Instance Modifier" href="particle_instance.html" />
+    <link rel="prev" title="Модифікатор «Вибух» -- Explode Modifier" href="explode.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="explode.html">Модифікатор «Вибух» -- Explode Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Океан» -- Ocean Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="particle_instance.html">Модифікатор «Примірник Частинок» -- Particle Instance Modifier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Океан» -- Ocean Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/simulate/ocean.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ocean-modifier">
+<span id="bpy-types-oceanmodifier"></span><h1>Модифікатор «Океан» -- Ocean Modifier<a class="headerlink" href="#ocean-modifier" title="Permalink to this headline">¶</a></h1>
+<p>Модифікатор <em>Ocean</em> -- це засіб симуляції океану для імітування та генерування деформованої океанічної поверхні та асоційованої текстури, що використовується для рендера даних цієї імітації. Він призначений для імітації глибоких океанських хвиль та піни.</p>
+<p>Модифікатор <em>Ocean</em> -- це порт, втілення з відкрито-джерельного набору засобів Houdini Ocean Toolkit.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_ocean_panel.png"><img alt="../../../_images/modeling_modifiers_simulate_ocean_panel.png" src="../../../_images/modeling_modifiers_simulate_ocean_panel.png" style="width: 328px;" /></a>
+<p class="caption"><span class="caption-text">Модифікатор «Океан» -- Ocean.</span></p>
+</div>
+<div class="section" id="geometry">
+<h3>Геометрія -- Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Геометрія -- Geometry</dt>
+<dd><dl class="first last docutils">
+<dt>Генерування -- Generate</dt>
+<dd><p class="first">Створює плиткову сітьову ґратку, що точно відповідає роздільності даних імітації.</p>
+<p class="last">При генеруванні сітьової поверхні, наявний сітьовий об'єкт повністю заміщається ґраткою океану. Також додається канал UV з розкладкою простору UV (0.0 до 1.0) по імітаційній ґратці.</p>
+</dd>
+<dt>Зміщення -- Displace</dt>
+<dd>Uses the existing geometry rather than replacing it. Vertices are displaced along the local Z axis.</dd>
+</dl>
+</dd>
+<dt>Повтор -- Repeat X, Repeat Y</dt>
+<dd>При генеруванні сітьової поверхні керує кількістю разів плиткування ґратки у напрямках X та Y. UV-ти для цих ділянок плиткованої продовжуються поза простором UV (0.0 до 1.0).</dd>
+<dt>Час -- Time</dt>
+<dd>Час, за який оцінюється поверхня океану. Для зроблення анімованого океану вам необхідно вставити ключкадри <kbd class="kbd docutils literal notranslate">RMB</kbd> та анімувати це значення часу. Швидкість, з якою це значення часу змінюється, буде визначати скорість анімації хвиль.</dd>
+<dt>Глибина -- Depth</dt>
+<dd>Постійна глибина дна океану під імітованою областю. Нижчі значення імітують дрібніші води, продукуючи більш часті деталі та менші хвилі.</dd>
+<dt>Базис Випадковості -- Random Seed</dt>
+<dd>Різний базис буде продукувати різний результат імітації.</dd>
+<dt>Роздільність -- Resolution</dt>
+<dd><p class="first">Головний керувальник якості проти швидкості у даному рушії імітації. Це визначає роздільність внутрішніх 2D ґраток, генерованих імітацією.</p>
+<p>Ці внутрішні ґратки є значеннями у степені двійки від значення роздільності, а тому при значенні роздільності 16 будуть створені дані імітації з розміром 256×256. Чим вище значення роздільності, тим продукується більша детальність, однак яка і повільніше розраховується.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">При використанні опції геометрії модифікатора <em>Generate</em> це значення роздільності також визначає роздільність генерованої сітьової поверхні, що дорівнює роздільності внутрішніх даних імітації.</p>
+</div>
+</dd>
+<dt>Розмір -- Size</dt>
+<dd>Простий фактор масштабування, що не впливає на висоту хвиль чи поведінку імітації.</dd>
+<dt>Просторовий Розмір -- Spatial Size</dt>
+<dd>Ширина області поверхні океану, що імітується, у метрах. Це також визначає розмір генерованої сіті, або зміщеної області, в Одиницях Blender. Звичайно, ви можете масштабувати об'єкт з модифікатором Ocean у режимі об'єкта <em>Object Mode</em> для підправлення видимого розміру у вашій сцені.</dd>
+</dl>
+</div>
+<div class="section" id="wave">
+<h3>Хвиля -- Wave<a class="headerlink" href="#wave" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Хвильність -- Choppiness</dt>
+<dd>Хвильність, різкість піків хвиль. При хвильності 0 поверхня океану зміщується тільки уверх та вниз у напрямку Z, але з вищими значеннями хвильності хвилі також зміщуються у боки по X та Y для створення гостріших піків хвиль.</dd>
+<dt>Масштаб -- Scale</dt>
+<dd>Загальний керувальник масштабу для амплітуди хвиль. Він дає приблизні висоту або глибину хвиль вище або нижче нуля. Замість простого масштабування об'єкта океану по Z він масштабує усі аспекти імітації, зміщення по X та Y, а також відповідно піну та нормалі.</dd>
+<dt>Вирівняння -- Alignment</dt>
+<dd>Направленість обрисів хвиль залежить від вітру. При значенні 0 вітер та хвилі є випадково, неоднорідно орієнтовані. З вищими значеннями Alignment вітер дує у більш постійному напрямку, роблячи вигляд хвиль більш стиснутим та вирівняним в одному напрямку.</dd>
+<dt>Напрям -- Direction</dt>
+<dd>При використанні Alignment це напрямок у градусах, по яку вирівнюються хвилі.</dd>
+<dt>Згасання -- Damping</dt>
+<dd>При використанні Alignment це визначає величину, на яку згасяться внутрішньо-відбивані хвилі. Це має ефект зроблення руху хвиль більш направленим (а не тільки форми хвилі). При згасанні 0.0 хвилі відбиваються одна від одної у кожному напрямку, при згасанні 1.0 ці внутрішньо-відбивані хвилі гасяться зовсім, залишаючи тільки хвилі, що йдуть у напрямку вітру.</dd>
+<dt>Найменша Хвиля -- Smallest Wave</dt>
+<dd>Мінімальний ліміт для розміру генерованих хвиль. Діє подібно до низькочастотного фільтра, вилучаючи деталі більш високої частоти.</dd>
+<dt>Скорість Вітру -- Wind Velocity</dt>
+<dd>Швидкість вітру у метрах/секунду. При низькій скорості хвилі обмежуються хвилями з меншою поверхнею.</dd>
+</dl>
+</div>
+<div class="section" id="simulation-data-generation-options">
+<h3>Опції генерування даних імітації<a class="headerlink" href="#simulation-data-generation-options" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_simulate_ocean_foam-layer-name.png"><img alt="../../../_images/modeling_modifiers_simulate_ocean_foam-layer-name.png" src="../../../_images/modeling_modifiers_simulate_ocean_foam-layer-name.png" style="width: 640px;" /></a>
+<p class="caption"><span class="caption-text">Використання кольорів вершин під з іменованим шаром даних.</span></p>
+</div>
+<p>Стандартно даний імітатор генерує тільки дані зміщення, оскільки це передбачає мінімальний обсяг роботи та дає найшвидший відклик. Також можуть генеруватися додаткові дані імітації для рендерингу.</p>
+<dl class="docutils">
+<dt>Генерувати Нормалі -- Generate Normals</dt>
+<dd>Імітує додаткові дані карти нормалей. Це може використовуватися текстурою Ocean при розкладанні по системі координат Normals як карти вигинань та дозволяє генерувати послідовності зображень карт нормалей при запіканні.</dd>
+<dt>Генерувати Піну -- Generate Foam</dt>
+<dd>Імітує додаткові дані піни. Це може прийматися текстурою Ocean для використання при текстуруванні (можливо як маска) та дозволяє генерувати послідовності зображень карт піни при запіканні.</dd>
+<dt>Охват -- Coverage</dt>
+<dd>Підправляє величину охвату піною хвиль, від'ємні значення скорочують величину піни (залишаючи її тільки на найвищих піках), додатні значення -- додають більше піни. Типово у діапазоні від (-1.0 до 1.0).</dd>
+<dt>Ім'я Шару Даних Піни -- Foam Data Layer Name</dt>
+<dd>Факультативне ім'я для шару даних вершин, використовуваного модифікатором Ocean для збереження карт піни як кольорів вершин. Це вимагається для доступу до даних піни у рендерері (рушії зображування).</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="baking">
+<h2>Запікання -- Baking<a class="headerlink" href="#baking" title="Permalink to this headline">¶</a></h2>
+<p>Замість імітування даних океану наживо, такі дані можуть бути запечені у файл на жорсткому диску. Після запечення імітації рушій імітатора повністю ігноруються, а модифікатор/текстура бере усю інформацію із запечених файлів.</p>
+<p>Запікання може бути вигідним з таких причин:</p>
+<ul class="simple">
+<li>Швидше використовувати збережені дані, а не постійно їх перераховувати.</li>
+<li>Дозволяє рендерити дані океану у зовнішніх рендерерах.</li>
+<li>Дозволяє мати більш просунуті карти піни.</li>
+</ul>
+<div class="section" id="data-files">
+<h3>Файли даних<a class="headerlink" href="#data-files" title="Permalink to this headline">¶</a></h3>
+<p>Дані імітації зберігаються на диску як послідовності карт у форматі зображення <code class="docutils literal notranslate"><span class="pre">OpenEXR</span></code>, по одній для зміщення, нормалей та піни (якщо увімкнено її генерування). Після завантаження даних з цих файлів запікання при зчитуванні з диска кадру запеченої послідовності він кешується в оперативній пам'яті. Це означає, що доступ до завантажених кадрів наступні рази є швидшим, який не потребує постійного звертання до жорсткого диску.</p>
+<p>Оскільки ці файли запікання є у звичайному форматі <code class="docutils literal notranslate"><span class="pre">OpenEXR</span></code>, то вони можуть також бути відкриті та рендерені у будь-якому іншому застосунку чи рендерері, які підтримують цей формат.</p>
+</div>
+<div class="section" id="baking-foam">
+<h3>Запікання піни<a class="headerlink" href="#baking-foam" title="Permalink to this headline">¶</a></h3>
+<p>Запікання також забезпечує поліпшені здатності піни. При імітуванні наживо імітатор океану бере дані тільки для поточного кадру. У випадку карти піни це представляє верхівки гребенів хвилі для заданого кадру. У реальності, після того, як піна створена перетинами хвиль, вона залишається на верхівці поверхні хвилі деякий час, доки не розсіється. При запіканні можливо наближати таку поведінку, акумулюючи піну з попередніх кадрів, залишаючи її на поверхні.</p>
+<iframe src="https://player.vimeo.com/video/17517981" style="border: 0; height: 286px; width: 500px">
+</iframe></div>
+<div class="section" id="baking-options">
+<h3>Опції запікання<a class="headerlink" href="#baking-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Старт -- Start, Кінець -- End</dt>
+<dd>Кадри імітації для запікання (включно). Кадри старту та кінця запікання повторюються при доступі до кадрів поза діапазоном запікання.</dd>
+<dt>Шлях Кешу -- Cache Path</dt>
+<dd>Тека для збереження запечених EXR файлів. Такі послідовності будуть у формі <code class="docutils literal notranslate"><span class="pre">disp_####.exr</span></code>, <code class="docutils literal notranslate"><span class="pre">normal_####.exr</span></code> та <code class="docutils literal notranslate"><span class="pre">foam_####.exr</span></code>, де <code class="docutils literal notranslate"><span class="pre">####</span></code> -- це чотиризначний номер кадру. Якщо вказана тека по шляху кешу не існує, то вона буде створена.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="simulation-internals">
+<h2>Нутрощі імітування<a class="headerlink" href="#simulation-internals" title="Permalink to this headline">¶</a></h2>
+<p>Сам імітатор використовує методи FFT (Швидке Перетворення Фур'є) для генерування 2D ґраток інформації імітування внутрішньо, дуже подібне до 2D карт текстур. Імітатор може генерувати три типи даних: зміщення, нормалі та додаткові дані, що використовуються для розрахування перетинів гребенів хвиль (тобто, піни). Після імітації ці карти використовуються для зміщення геометрії поверхні океану у 3D, а також можуть використовуватися для відтінення за допомогою текстури Ocean. Внутрішній рушій імітації є багатопотоковим з технологією OpenMP для отримання переваги використання одночасно багатьох ядер процесора.</p>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<iframe src="https://player.vimeo.com/video/18911131" style="border: 0; height: 286px; width: 500px">
+</iframe><p>Імітовано та запечено у карти зображень у Blender'і, рендерено у 3Delight.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="particle_instance.html" class="btn btn-neutral float-right" title="Модифікатор «Примірник Частинок» -- Particle Instance Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="explode.html" class="btn btn-neutral" title="Модифікатор «Вибух» -- Explode Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

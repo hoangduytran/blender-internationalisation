@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вирівняння &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/navigate/align.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Проекції -- Projections" href="projections.html" />
+    <link rel="prev" title="Режим «Ходьба/Політ» -- Walk/Fly Mode" href="walk_fly.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../object/index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a> &raquo;</li>
+        
+      <li>Вирівняння</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/3dview/navigate/align.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aligning">
+<h1>Вирівняння<a class="headerlink" href="#aligning" title="Permalink to this headline">¶</a></h1>
+<p>Ці опції дозволяють вам вирівнювати та орієнтувати огляд.</p>
+<div class="section" id="axes">
+<h2>Осі<a class="headerlink" href="#axes" title="Permalink to this headline">¶</a></h2>
+<p>Blender використовує прямокутну «Картезіанську» (ще називають «Декартову») систему координат з віссю Z, спрямованою уверх. <em>Зліва</em> -- <em>Left</em> / <em>Справа</em> -- <em>Right</em> відповідає погляду по осі X, «Спереду» -- <em>Front</em> / <em>Позаду</em> -- <em>Back</em> -- по осі Y та <em>Зверху</em> -- <em>Top</em> / <em>Знизу</em> -- <em>Bottom</em> -- по осі Z.</p>
+<p>Ви можете вибирати напрям перегляду для 3D Огляду за допомогою пунктів меню «Огляд» -- <em>View</em> або відповідних клавіатурних скорочень. Ви можете вибирати протилежні напрямки, утримуючи натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd> разом зі скороченнями з цифроблоку.</p>
+<p>Оператори нижче змінюють вирівняння огляду по вказаним глобальним осям:</p>
+<ul class="simple">
+<li>Зверху -- Top <kbd class="kbd docutils literal notranslate">Numpad7</kbd></li>
+<li>Знизу -- Bottom <kbd class="kbd docutils literal notranslate">Ctrl-Numpad7</kbd></li>
+<li>Спереду -- Front <kbd class="kbd docutils literal notranslate">Numpad1</kbd></li>
+<li>Позаду -- Back <kbd class="kbd docutils literal notranslate">Ctrl-Numpad1</kbd></li>
+<li>Справа -- Right <kbd class="kbd docutils literal notranslate">Numpad3</kbd></li>
+<li>Зліва -- Left <kbd class="kbd docutils literal notranslate">Ctrl-Numpad3</kbd></li>
+</ul>
+</div>
+<div class="section" id="align-view-menu">
+<h2>Меню «Вирівняти Огляд» -- Align View Menu<a class="headerlink" href="#align-view-menu" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Вирівняти Огляд за Активним -- Align View to Active</dt>
+<dd><p class="first">Опції у цьому підменю вирівнюють ваш огляд за вказаною локальною віссю виділеного активного об'єкта, кістки або, у Режимі Правки -- <em>Edit Mode</em> -- за нормаллю виділеної грані.</p>
+<p class="last">Для цього разом зі скороченнями з цифроблоку утримується також натисненою клавіша <kbd class="kbd docutils literal notranslate">Shift</kbd>.</p>
+</dd>
+<dt>Центрувати Курсор та Все в Огляд -- Center Cursor and View All <kbd class="kbd docutils literal notranslate">Shift-C</kbd></dt>
+<dd>Пересуває 3D курсор назад у початок сцени та присуває/відсуває огляд так, щоб всі наявні наразі елементи були видні вам на екрані.</dd>
+<dt>Вирівняти Активну Камеру за Оглядом -- Align Active Camera to View <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Numpad0</kbd></dt>
+<dd>Вирівнює оглядвікно за точкою зору вашої активної камери.</dd>
+<dt>Вирівняти Активну Камеру за Виділеним -- Align Active Camera to Selected</dt>
+<dd>Переміщує та орієнтує активну камеру так, щоб виділений об'єкт став вписаним в огляд камери.</dd>
+<dt>Виділене в Огляд -- View Selected <kbd class="kbd docutils literal notranslate">NumpadPeriod</kbd></dt>
+<dd>Фокусує огляд на поточно виділених об'єкті(ах), центруючи їх в оглядвікні та зумуючи так, щоб вони стали вписаними, заповнили повністю екран.</dd>
+<dt>Центрувати Огляд за Курсором -- Center View to Cursor <kbd class="kbd docutils literal notranslate">Alt-Home</kbd></dt>
+<dd>Centers view to 3D cursor.</dd>
+<dt>Зблокувати Огляд з Активним -- View Lock to Active <kbd class="kbd docutils literal notranslate">Shift-NumpadPeriod</kbd></dt>
+<dd>Центрує огляд за останнім виділеним активним об'єктом, прив'язує точку обертання вигляду до нього, заміщуючи всі інші устави вирівняння огляду.</dd>
+<dt>Зчистити Зблокування Огляду -- View Lock Clear <kbd class="kbd docutils literal notranslate">Alt-NumpadPeriod</kbd></dt>
+<dd>Повертає устави вирівняння огляду до використання команди Зблокувати Огляд з Активним -- <em>View Lock to Active</em>, відв'язуючи точку обертання вигляду від активного елемента.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="projections.html" class="btn btn-neutral float-right" title="Проекції -- Projections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="walk_fly.html" class="btn btn-neutral" title="Режим «Ходьба/Політ» -- Walk/Fly Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

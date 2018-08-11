@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Камера -- Camera &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/camera.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Функціональні можливості Рендера, зобража -- Render Features" href="features.html" />
+    <link rel="prev" title="Групи Вузлів або Групові Вузли -- Node Groups" href="nodes/types/groups.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lamps.html">Лампи -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="world.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes/index.html">Вузли -- Nodes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Камера -- Camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lens">Об'єктив -- Lens</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#depth-of-field">Глибина Різкості -- Depth of Field</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="features.html">Функціональні можливості Рендера, зобража -- Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Устави Cycles -- Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpu_rendering.html">Зображування, рендеринг за допомогою графічного процесора відеокарти -- GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Cycles Renderer</a> &raquo;</li>
+        
+      <li>Камера -- Camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/cycles/camera.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="camera">
+<h1>Камера -- Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lens">
+<h2>Об'єктив -- Lens<a class="headerlink" href="#lens" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Camera ‣ Lens</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="type">
+<h3>Тип<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="perspective">
+<h4>Перспектива -- Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Фокусна Відстань/Поле Зору -- Focal Length/Field of View</dt>
+<dd>Визначає поле зору за властивістю об'єктива або за кутом, як це обрано у меню «Одиниця Об'єктива» -- <em>Lens Unit</em>.</dd>
+</dl>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/render_cycles_camera_perspective.svg"><img alt="../../_images/render_cycles_camera_perspective.svg" src="../../_images/render_cycles_camera_perspective.svg" width="340px" /></a>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>Наїзд-Від'їзд Зумуванням -- Dolly Zoom</p>
+<p>При переміщенні камери у напрямку об'єкта властивість <em>Focal Length</em> може зменшуватися для продукування ефекту камери «Наїзд-Від'їзд Зумуванням» -- <em>Dolly Zoom</em>, або цей ефект навпаки, рух від об'єкта та збільшення фокусної відстані.</p>
+<p class="last"><a class="reference external" href="https://vimeo.com/15837189">This video</a> демонструє ефект камери <em>Dolly Zoom</em>.</p>
+</div>
+</div>
+<div class="section" id="orthographic">
+<h4>Ортогонально -- Orthographic<a class="headerlink" href="#orthographic" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Масштаб -- Scale</dt>
+<dd>Визначає розмір об'єктів, проектованих на зображення.</dd>
+</dl>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/render_cycles_camera_orthographic.svg"><img alt="../../_images/render_cycles_camera_orthographic.svg" src="../../_images/render_cycles_camera_orthographic.svg" width="340px" /></a>
+</div>
+</div>
+<div class="section" id="panoramic">
+<span id="cycles-panoramic-camera"></span><h4>Панорамно -- Panoramic<a class="headerlink" href="#panoramic" title="Permalink to this headline">¶</a></h4>
+<p>Cycles supports Equirectangular and Fisheye panoramic cameras.
+Note that these cannot be displayed with OpenGL rendering in the viewport;
+they will only work for rendering.</p>
+<div class="section" id="equirectangular">
+<h5>Рівнопрямокутно -- Equirectangular<a class="headerlink" href="#equirectangular" title="Permalink to this headline">¶</a></h5>
+<p>Render a panoramic view of the scenes from the camera location and use an equirectangular projection,
+always rendering the full 360° over the X axis and 180° over the Y axis.</p>
+<p>This projection is compatible with the environment texture as used for world shaders,
+so it can be used to render an environment map. To match the default mapping,
+set the camera object rotation to (90, 0, -90) or pointing along the positive X axis.
+This corresponds to looking at the center of the image using the default environment texture mapping.</p>
+<dl class="docutils">
+<dt>Мінімум/Максимум Широти/Довготи -- Minimum/Maximum Latitude/Longitude</dt>
+<dd>Лімітує вертикальний та горизонтальний кути поля зору.</dd>
+</dl>
+</div>
+<div class="section" id="fisheye">
+<h5>«Риб'яче око» -- Fisheye<a class="headerlink" href="#fisheye" title="Permalink to this headline">¶</a></h5>
+<p>Об'єктиви «риб'яче око» -- це типово ширококутні об'єктиви із сильним спотворенням, корисні для створення панорамних зображень, наприклад, для проекції купола або як мистецького ефекту.</p>
+<p>Об'єктиви типу «Риб'яче око Рівноплощинно» -- <em>Fisheye Equisolid</em> найкраще відповідатимуть об'єктивам реальних камер при отриманні цього ефекту. Цей тип забезпечує відповідні фокусну відстань та кут поля зору об'єктива, а також враховує розміри датчика, сенсора.</p>
+<p>The <em>Fisheye Equidistant</em> lens does not correspond to any real lens model;
+it will give a circular fisheye that does not take any sensor information into account
+but rather uses the whole sensor. This is a good lens for full-dome projections.</p>
+<dl class="docutils">
+<dt>Об'єктив -- Lens</dt>
+<dd>Lens focal length in millimeters.</dd>
+<dt>Поле Зору -- Field of View</dt>
+<dd>Кут поля зору, що наближається до 360 та більше, з метою захоплення середовища цілком.</dd>
+</dl>
+</div>
+<div class="section" id="mirror-ball">
+<h5>Дзеркальна Куля -- Mirror Ball<a class="headerlink" href="#mirror-ball" title="Permalink to this headline">¶</a></h5>
+<p>Render is if taking a photo of a reflective mirror ball.
+This can be useful in rare cases to compare with a similar photo taken to capture an environment.</p>
+</div>
+</div>
+</div>
+<div class="section" id="clipping">
+<h3>Відсікання -- Clipping<a class="headerlink" href="#clipping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Старт Відсіку -- Clip Start та Кінець Відсіку -- Clip End</dt>
+<dd>Це інтервал, в якому об'єкти є безпосередньо видимими. Будь-які об'єкти поза цим діапазоном все ще впливають на зображення опосередковано, оскільки подальші відскоки світла не відсічені.</dd>
+</dl>
+<p>При увімкненні опції «Ліміти» -- <em>Limits</em> на панелі «Показ» -- <em>Display</em> стають видимі ці межі відсікання у вигляді двох жовтих точок на лінії зору камери.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Змінення значень відсікання може мати серйозний вплив на продуктивність зобража, рендера. Важливо завжди задавати ці значення <em>Start</em> та <em>End</em> на безпечних відстанях, щоб вони обидва не були надто екстремальними або надто малими, з метою отримання оптимальної тривалості зображування.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>Відсікання огляду Камери -- <a class="reference internal" href="../blender_render/camera/object_data.html#camera-clipping"><span class="std std-ref">Blender Render Camera Clipping</span></a>.</li>
+<li>Відсікання 3D Огляду -- <a class="reference internal" href="../../editors/3dview/properties/panels.html"><span class="doc">3D View clipping</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="depth-of-field">
+<h2>Глибина Різкості -- Depth of Field<a class="headerlink" href="#depth-of-field" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Camera ‣ Depth of Field</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure">
+<img alt="../../_images/render_cycles_camera_depth-of-field-panel.png" src="../../_images/render_cycles_camera_depth-of-field-panel.png" />
+</div>
+<div class="section" id="focus">
+<h3>Фокус -- Focus<a class="headerlink" href="#focus" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Об'єкт -- Object</dt>
+<dd>Задає об'єкт, що буде використаний для фокальна точка камери, що змушує камеру зосереджуватися, фокусуватися на початку локальних координат цього вказаного об'єкта.</dd>
+<dt>Відстань -- Distance</dt>
+<dd>Коли об'єкт у полі <em>Focus</em> не використовується, то камеру можна змусити фокусуватися на певній області у 3D просторі на заданій відстані від неї. Використовуючи опцію Показу <em>Limits</em>, ви у змозі наглядно бачити цю відстань у 3D просторі.</dd>
+</dl>
+</div>
+<div class="section" id="viewport">
+<h3>Оглядвікно -- Viewport<a class="headerlink" href="#viewport" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Висока Якість -- High Quality</dt>
+<dd>Enables the High Quality <em>viewport</em> depth of field, giving a more accurate
+representation of <em>depth of field</em>. This allows the viewport depth of field
+to be closely represented to that of the render and render preview depth of field.</dd>
+<dt>Д-число -- F-Stop</dt>
+<dd>Viewport depth of field aperture measured in F-Stops. Smaller numbers will
+cause more blur in the viewport, OpenGL renders, and Sequencer.</dd>
+<dt>Пелюстки -- Blades</dt>
+<dd>The number of polygonal sides to give blurred objects in the viewport.
+The minimum number of blades needed to enable the bokeh effect is 3 (triangle).
+(Only available with High Quality).</dd>
+</dl>
+</div>
+<div class="section" id="aperture">
+<h3>Апертура -- Aperture<a class="headerlink" href="#aperture" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Тип Апертури -- Aperture Type</dt>
+<dd>Використовує Д-число -- F-Stop або Радіус -- Radius для задання апертури для рендера та передогляду рендера. Д-число -- F-Stop -- це фокусна пропорція, а Радіус -- Radius -- це радіус фокальної точки.</dd>
+<dt>Розмір/Число -- Size/Number</dt>
+<dd>Для радіусу апертури <em>розмір</em> або <em>число</em> для Д-числа, що використовується для рендера та передогляду рендера. Використання F-Stop з низьким Number або Radius з великим Size даватиме сильний розмив, що також дозволяє використовувати <em>ефект боке</em>.</dd>
+<dt>Пелюстки -- Blades</dt>
+<dd>Total number of polygonal blades used to alter the shape of the blurred objects
+in the render, and render preview. As with the viewport, the minimum amount of
+blades to enable the bokeh effect is 3, resulting in a triangular-shaped blur.</dd>
+<dt>Обертання -- Rotation</dt>
+<dd>Обертає сторони багатобічника навколо вказувальної на камеру осі за або проти годинникової стрілки.</dd>
+<dt>Пропорція -- Ratio</dt>
+<dd>Змінює величину спотворення для імітування ефекту анаморфного боке. Значення 1.0 дає показ без спотворення, тоді як значення нижче 1.0 буде продукувати горизонтальне спотворення, а вище 1.0 -- вертикальне спотворення.</dd>
+</dl>
+<div class="figure">
+<img alt="../../_images/render_cycles_camera_dof-bokeh.jpg" src="../../_images/render_cycles_camera_dof-bokeh.jpg" />
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p>Перемикання між камерами</p>
+<p class="last">Шляхом прив'язки камери до міток, про що детальніше тут -- <a class="reference internal" href="../../animation/markers.html#marker-bind-camera"><span class="std std-ref">binding the camera to markers</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="features.html" class="btn btn-neutral float-right" title="Функціональні можливості Рендера, зобража -- Render Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nodes/types/groups.html" class="btn btn-neutral" title="Групи Вузлів або Групові Вузли -- Node Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Мікс Вагомостей Вершин» -- Vertex Weight Mix Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/modify/weight_mix.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатор «Близькість Вагомостей Вершин» -- Vertex Weight Proximity Modifier" href="weight_proximity.html" />
+    <link rel="prev" title="Модифікатор «Правка Вагомостей Вершин» -- Vertex Weight Edit Modifier" href="weight_edit.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="data_transfer.html">Модифікатор «Перенос Даних» -- Data Transfer Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_cache.html">Модифікатор «Кеш Сітей» -- Mesh Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_sequence_cache.html">Модифікатор «Кеш Послідовності Сіті» -- Mesh Sequence Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="normal_edit.html">Модифікатор «Правка Нормалей» -- Normal Edit Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_project.html">Модифікатор «Проекція UV» -- UV Project Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_warp.html">Модифікатор «Жолоблення UV» -- UV Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_edit.html">Модифікатор «Правка Вагомостей Вершин» -- Vertex Weight Edit Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Мікс Вагомостей Вершин» -- Vertex Weight Mix Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_proximity.html">Модифікатор «Близькість Вагомостей Вершин» -- Vertex Weight Proximity Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Мікс Вагомостей Вершин» -- Vertex Weight Mix Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/modify/weight_mix.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vertex-weight-mix-modifier">
+<span id="bpy-types-vertexweightmixmodifier"></span><h1>Модифікатор «Мікс Вагомостей Вершин» -- Vertex Weight Mix Modifier<a class="headerlink" href="#vertex-weight-mix-modifier" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_panel.png"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_panel.png" src="../../../_images/modeling_modifiers_modify_weight-mix_panel.png" style="width: 355px;" /></a>
+<p class="caption"><span class="caption-text">Панель модифікатора Vertex Weight Mix.</span></p>
+</div>
+<p>Цей модифікатор підмішує другу групу вершин (або просте значення) у задіяну групу вершин, використовуючи різні операції.</p>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">Цей модифікатор робить неявне затискання значень вагомостей у стандартний діапазон (від 0.0 до 1.0). Усі значення нижче 0.0 будуть задані як 0.0 та усі значення вище 1.0 будуть задані як 1.0.</p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Група Вершин -- Vertex Group A</dt>
+<dd>Задіяна група вершин.</dd>
+<dt>Стандартна Вагомість -- Default Weight A</dt>
+<dd>Стандартна вагомість для призначення усім вершинам, що не знаходяться у даній групі вершин.</dd>
+<dt>Група Вершин -- Vertex Group B</dt>
+<dd>Друга група вершин для підмішування у задіяну групу. Залишайте порожнім це поле, якщо ви хочете підмішувати тільки просте значення.</dd>
+<dt>Стандартна Вагомість -- Default Weight B</dt>
+<dd>Стандартна вагомість для призначення усім вершинам, що не знаходяться у цій другій групі вершин.</dd>
+<dt>Режим Міксу -- Mix Mode</dt>
+<dd><p class="first">Як на вагомості базової групи вершини впливають вагомості іншої групи вершин.</p>
+<dl class="last docutils">
+<dt>Заміна -- Replace weights</dt>
+<dd>Замінює задіяні вагомості вагомостями другої групи.</dd>
+<dt>Додання -- Add to weights</dt>
+<dd>Додає значення <em>Group B</em> до <em>Group A</em>.</dd>
+<dt>Відняття -- Subtract from weights</dt>
+<dd>Віднімає значення <em>Group B</em> від значень <em>Group A</em>.</dd>
+<dt>Множення -- Multiply weights</dt>
+<dd>Множить значення <em>Group B</em> на значення <em>Group A</em>.</dd>
+<dt>Ділення -- Divide weights</dt>
+<dd>Ділить значення <em>Group A</em> на значення <em>Group B</em>.</dd>
+<dt>Різниця -- Difference</dt>
+<dd>Віднімає менше з двох значень від більшого.</dd>
+<dt>Усереднення -- Average</dt>
+<dd>Додає значення між собою, а потім ділить на 2.</dd>
+</dl>
+</dd>
+<dt>Набір Міксу -- Mix Set</dt>
+<dd><p class="first">Дає на вибір, які вершини будуть задіяні.</p>
+<dl class="docutils">
+<dt>Усе -- All vertices</dt>
+<dd>Задіює усі вершини, ігноруючи вміст груп вершин.</dd>
+<dt>Вершини з групи -- Vertices from group A</dt>
+<dd>Впливає тільки на вершини, що належать до задіяної групи вершин.</dd>
+<dt>Вершини з групи -- Vertices from group B</dt>
+<dd>Впливає тільки на вершини, що належать до другої групи вершин.</dd>
+<dt>Вершини з однієї групи -- Vertices from one group</dt>
+<dd>Впливає тільки на вершини, що належать принаймні одній з цих груп вершин.</dd>
+<dt>Вершини з обох груп -- Vertices from both groups</dt>
+<dd>Впливає тільки на вершини, що належать до обох цих груп вершин.</dd>
+</dl>
+<div class="last admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">При використанні <em>All vertices</em>, <em>Vertices from group B</em> або <em>Vertices from one group</em> вершини можуть додаватися у задіяну групу вершин.</p>
+</div>
+</dd>
+</dl>
+<div class="section" id="influence-mask-options">
+<h3>Опції Впливу/Маски -- Influence/Mask Options<a class="headerlink" href="#influence-mask-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Глобальний Вплив -- Global Influence</dt>
+<dd><p class="first">Загальний вплив модифікатора (0.0 буде залишати вагомості групи вершин недоторканими, 1.0 -- це стандартний вплив).</p>
+<div class="last admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">Цей вплив впливає тільки на вагомості, доданню/вилученню вершин у/із групи вершин не перешкоджає задання цього значення як 0.0.</p>
+</div>
+</dd>
+</dl>
+<div class="section" id="vertex-group-mask">
+<h4>Маска Групи Вершин -- Vertex Group Mask<a class="headerlink" href="#vertex-group-mask" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Маска Групи Вершин -- Vertex Group Mask</dt>
+<dd>Додаткова група вершин, вагомості якої будуть помножені на значення глобального впливу кожної вершини. Якщо вершина не знаходиться у маскувальній групі вершини, то її вагомість не буде зачеплена.</dd>
+</dl>
+</div>
+<div class="section" id="texture-mask">
+<h4>Маска Текстури -- Texture Mask<a class="headerlink" href="#texture-mask" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Маска Текстури -- Texture Mask</dt>
+<dd><p class="first">Додаткова текстура, значення якої будуть множиться на значення глобального впливу для кожної вершини.</p>
+<p class="last">Це стандартний блок даних -- <a class="reference internal" href="../../../data_system/data_blocks.html"><span class="doc">data-block</span></a> керування текстурами. При установленні його показуються інші устави:</p>
+</dd>
+<dt>Координати Текстури -- Texture Coordinates</dt>
+<dd><p class="first">Як текстура розкладається на сіть.</p>
+<dl class="last docutils">
+<dt>Локально -- Local</dt>
+<dd>Використовує локальні координати вершини.</dd>
+<dt>Глобально -- Global</dt>
+<dd>Вживає координати вершини у глобальному просторі.</dd>
+<dt>Об'єкт -- Object</dt>
+<dd><p class="first">Використовує координати вершини у просторі іншого об'єкта.</p>
+<dl class="last docutils">
+<dt>Об'єкт -- Object</dt>
+<dd>Об'єкт для використання як орієнтир для розкладки по <em>Об'єкту</em>.</dd>
+</dl>
+</dd>
+<dt>UV</dt>
+<dd><p class="first">Використовує координати карти UV.</p>
+<dl class="last docutils">
+<dt>Карта UV -- UV Map</dt>
+<dd>Карта UV, використовувана для розкладки по <em>UV</em>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Вжити Канал -- Use Channel</dt>
+<dd><p class="first">Який канал використовувати як джерело фактора вагомості.</p>
+<dl class="docutils">
+<dt>Червоний -- Red / Зелений -- Green / Синій -- Blue / Альфа -- Alpha</dt>
+<dd>Значення одного з колірних каналів.</dd>
+<dt>Інтенсивність -- Intensity</dt>
+<dd>Усереднення каналів RGB (якщо значення RGB (1.0, 0.0, 0.0) є 0.33).</dd>
+<dt>Значення -- Value</dt>
+<dd>Найвище значення з каналів RGB (якщо значення RGB (1.0, 0.0, 0.0) є 1.0).</dd>
+<dt>Відтінок -- Hue</dt>
+<dd>Використовує значення відтінку зі стандартного круга кольорів (наприклад, синій має вище значення відтінку, ніж жовтий).</dd>
+<dt>Насиченість -- Saturation</dt>
+<dd>Вживає значення насиченості (наприклад, значення чистого червоного є 1.0, сірого - 0.0).</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Усі зі згаданих вище каналів є гамма-коректовані, за винятком <em>Intensity</em>.</p>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Ви можете переглядати модифіковані вагомості у режимі малювання вагомостей <em>Weight Paint Mode</em>. Це також неявно передбачає, що вам доведеться вимкнути цей модифікатор <em>Vertex Weight Mix Modifier</em>, якщо ви хочете бачити оригінальні вагомості групи вершин, які ви редагуєте.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Використання текстури та кривої розкладання</p>
+<p>Тут ми збираємося створити певний вид дивної чужинської хвилі (так, ще один приклад з модифікатором Wave... але він високо візуальний; легше побачити ефекти групи вершин на ньому...).</p>
+<p>Тому, як і попередньо, додамо сіть з кількість 100×100 вершин. Цей раз додамо групу вершин, але без призначення жодних вершин в неї -- ми зробимо це динамічно.</p>
+<p>Додамо перший модифікатор Vertex Weight Mix, задамо поле <em>Vertex Group A</em> з <em>Default Weight A</em> як 0.0, та задамо <em>Default Weight B</em> як 1.0.</p>
+<p>Залишимо <em>Mix Mode</em> як <em>Replace weights</em> та виберемо <em>All vertices</em> для <em>Mix Set</em>. Таким чином, усі вершини задіяні. Оскільки жодна з них не є у задіяній групі вершин, то вони усі мають стандартну вагомість як 0.0, яка замінюється стандартною вагомістю другої групи зі значенням 1.0. І всі ці вершини також додаються у задіяну групу вершин.</p>
+<p>Тепер, виберемо або створимо маскувальну текстуру. Значення цієї текстури будуть керувати тим, наскільки «друга вагомість» в 1.0. замінюватиме «першу вагомість» в 0.0... Іншими словами, вони беруться як значення вагомостей!</p>
+<p>Ви можете далі вибрати, які використовувати координати текстури та канал. Залиште розкладання зі стандартною опцією <em>Local</em> та пограйтеся з різними каналами...</p>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Варіації каналу текстури.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_intensity.jpg"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_intensity.jpg" src="../../../_images/modeling_modifiers_modify_weight-mix_intensity.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Використання Intensity.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg" src="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Використання Red.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_saturation.jpg"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_saturation.jpg" src="../../../_images/modeling_modifiers_modify_weight-mix_saturation.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Використання Saturation.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Не забудьте додати модифікатор Wave та вибрати на ньому вашу групу вершин!</p>
+<p>Ви можете вживати вагомості, створені таким шляхом, безпосередньо, але якщо ви хочете погратися з розкладанням по кривій, то ви повинні додати відомий модифікатор Vertex Weight Edit та увімкнути на ньому <em>Custom Curve</em>.</p>
+<p>Стандартно, це лінеарне, прямолінійне один-на-один розкладання -- іншими словами, це нічого не робить! Змініть щось, як на Ілюстрації <a class="reference internal" href="#fig-modifier-vertex-weight-custom"><span class="std std-ref">Власна крива розкладання.</span></a>, де розкладається (0.0, 0.5) на (0.0, 0.25) та (0.5, 1.0) на (0.75, 1.0), це продукує лише вагомості нижче 0.25 та вище 0.75: це створить величезні «стіни» у хвилях...</p>
+<span id="fig-modifier-vertex-weight-custom"></span><table border="1" class="docutils" id="id6">
+<caption><span class="caption-text">Власна крива розкладання.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_map-curve.png"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_map-curve.png" src="../../../_images/modeling_modifiers_modify_weight-mix_map-curve.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Налаштована користувачем крива розкладання.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg" src="../../../_images/modeling_modifiers_modify_weight-mix_red.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Власне Розкладання вимкнене.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-mix_red-map.jpg"><img alt="../../../_images/modeling_modifiers_modify_weight-mix_red-map.jpg" src="../../../_images/modeling_modifiers_modify_weight-mix_red-map.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Власне Розкладання увімкнене.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<iframe src="https://player.vimeo.com/video/30188814" style="border: 0; height: 345px; width: 560px">
+</iframe><p><a class="reference external" href="https://wiki.blender.org/index.php/Media:ManModifiersWeightVGroupEx.blend">The blend-file</a>, TEST_4 scene.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="weight_proximity.html" class="btn btn-neutral float-right" title="Модифікатор «Близькість Вагомостей Вершин» -- Vertex Weight Proximity Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weight_edit.html" class="btn btn-neutral" title="Модифікатор «Правка Вагомостей Вершин» -- Vertex Weight Edit Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

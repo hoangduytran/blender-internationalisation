@@ -1,0 +1,777 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Int. License
+# This file is distributed under the same license as the Blender 2.78 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-20 03:54+0800\n"
+"PO-Revision-Date: 2018-06-20 09:43+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+"X-Generator: Poedit 2.0.8\n"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:9
+msgid "Add-on Tutorial"
+msgstr "插件教程"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:12
+msgid "Intended Audience"
+msgstr "目标读者"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:14
+msgid ""
+"This tutorial is designed to help technical artists or developers learn to "
+"extend Blender. An understanding of the basics of Python is expected for those "
+"working through this tutorial."
+msgstr ""
+"本篇教程旨在帮助技术型艺术家或者开发者学习如何扩展Blender。对于通读全文的读者，需"
+"要通晓Python的基础知识。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:19
+msgid "Prerequisites"
+msgstr "前提"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:21
+msgid "Before going through the tutorial you should..."
+msgstr "阅读本教程前，用户需要："
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:23
+msgid "Be familiar with the basics of working in Blender."
+msgstr "熟悉Blender中的基础功能。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:24
+msgid "Know how to run a script in Blender's Text editor."
+msgstr "知道如何在Blender的文本编辑器中运行脚本。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:25
+msgid ""
+"Have an understanding of Python primitive types (int, boolean, string, list, "
+"tuple, dictionary, and set)."
+msgstr "理解Python的基础基础类型(整型、布尔、字符串、列表、元组、字典和集合)。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:26
+msgid "Be familiar with the concept of Python modules."
+msgstr "熟悉Python模块的概念。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:27
+msgid "Have a basic understanding of classes (object orientation) in Python."
+msgstr "对Python中的类(面向对象)有基础认知。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:29
+msgid "Suggested reading before starting this tutorial."
+msgstr "学习本教程前建议阅读。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:31
+msgid ""
+"`Dive Into Python <http://getpython3.com/diveintopython3/index.html>`__ sections "
+"(1, 2, 3, 4, and 7)."
+msgstr ""
+"`深入Python <http://getpython3.com/diveintopython3/index.html>`_ 章节(1, 2, 3, "
+"4, 和 7)。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:32
+msgid ""
+":ref:`Blender API Quickstart <blender_api:info_quickstart>` to help become "
+"familiar with Blender/Python basics."
+msgstr ""
+":ref:`Blender API快速入门 <blender_api:info_quickstart>` 有助于更加熟悉Blender/"
+"Python基础。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:35
+msgid ""
+"To best troubleshoot any error message Python prints while writing scripts, you "
+"run Blender from a terminal. See :ref:`Use The Terminal <use_the_terminal>`."
+msgstr ""
+"为了在编写脚本时更好的排查Python打印的错误，可以从终端启动Blender。参见 :ref:`使"
+"用终端 <use_the_terminal>`。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:40
+msgid "Documentation Links"
+msgstr "文档链接"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:42
+msgid ""
+"While going through the tutorial, you may want to look into our reference "
+"documentation."
+msgstr "在阅读教程时，用户可能需要查找参考文档。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:44
+msgid ""
+":ref:`blender_api:Blender API Overview <info_overview>` -- *This document is "
+"rather detailed but helpful if you want to know more on a topic.*"
+msgstr ""
+":ref:`blender_api:Blender API概述 <info_overview>`. - *这份文档相当详细，不过如果"
+"你想对某个话题了解更多的话，这很有用。*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:46
+msgid ""
+":mod:`blender_api:bpy.context` API reference -- *Handy to have a list of "
+"available items your script may operate on.*"
+msgstr ""
+":mod:`blender_api:bpy.context` API参考. - *可以方便地获得脚本可以调用的选项。*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:48
+msgid ""
+":class:`blender_api:bpy.types.Operator` -- *The following add-ons define "
+"operators, these docs give details and more examples of operators.*"
+msgstr ""
+":class:`blender_api:bpy.types.Operator`. - *下文的插件会定义操作，这些文档提供了"
+"更多操作的范例和细节。*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:53
+msgid "What is an Add-on?"
+msgstr "何为插件？"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:55
+msgid ""
+"An add-on is simply a Python module with some additional requirements so Blender "
+"can display it in a list with useful information."
+msgstr "插件是附加一些额外要求的Python模块，这样Blender可以列表形式显示有用信息。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:58
+msgid "To give an example, here is the simplest possible add-on::"
+msgstr "下面的例子是一个最简单的插件::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:67
+msgid "``bl_info``"
+msgstr "``bl_info``"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:67
+msgid ""
+"is a dictionary containing add-on metadata such as the title, version and author "
+"to be displayed in the User Preferences add-on list."
+msgstr ""
+"一个字典，包含插件元数据如标题、版本和作者，这些信息会显示在用户设置的插件列表。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:70
+msgid "``register``"
+msgstr "``register``"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:70
+msgid ""
+"is a function which only runs when enabling the add-on, this means the module "
+"can be loaded without activating the add-on."
+msgstr "仅在启用插件时运行的函数，这意味着无需激活插件即可加载模块。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:75
+msgid "``unregister``"
+msgstr "``unregister``"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:73
+msgid ""
+"is a function to unload anything setup by ``register``, this is called when the "
+"add-on is disabled."
+msgstr "用于卸载 ``register`` 建立的数据的函数，在禁用插件时调用。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:77
+msgid ""
+"Notice this add-on does not do anything related to Blender (the :mod:"
+"`blender_api:bpy` module is not imported for example)."
+msgstr ""
+"注意：该插件不会进行任何Blender相关操作(比如不会载入 :mod:`blender_api:bpy` 模"
+"块)。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:80
+msgid ""
+"This is a contrived example of an add-on that serves to illustrate the point "
+"that the base requirements of an add-on are simple."
+msgstr "这是一个刻意设计的插件示例，用于说明插件的基础要求其实很简单。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:83
+msgid ""
+"An add-on will typically register operators, panels, menu items, etc, but it's "
+"worth noting that *any* script can do this, when executed from the Text editor "
+"or even the interactive console -- there is nothing inherently different about "
+"an add-on that allows it to integrate with Blender, such functionality is just "
+"provided by the :mod:`blender_api:bpy` module for any script to access."
+msgstr ""
+"插件通常会注册操作、面板、菜单选项等，不过这没有多大价值，从文本编辑器，甚至交互"
+"控制台执行的脚本也可以做到 -- 插件与Blender的结合方式并没有本质上的不同, 这些功能"
+"都是 :mod:`blender_api:bpy` 模块提供的，任何脚本都可以访问。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:89
+msgid ""
+"So an add-on is just a way to encapsulate a Python module in a way a user can "
+"easily utilize."
+msgstr "所以，插件仅仅是一种封装Python模块的方法，以方便用户使用。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:93
+msgid ""
+"Running this script within the Text editor won't print anything, to see the "
+"output it must be installed through the User Preferences. Messages will be "
+"printed when enabling and disabling."
+msgstr ""
+"在文本编辑器运行这个脚本不会有任何输出，必须通过用户设置安装该脚本才能看到输出。"
+"启用和禁用时均会打印提示信息。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:99
+msgid "Your First Add-on"
+msgstr "第一个插件"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:101
+msgid ""
+"The simplest possible add-on above is useful as an example but not much else. "
+"This next add-on is simple but shows how to integrate a script into Blender "
+"using an ``Operator`` which is the typical way to define a tool accessed from "
+"menus, buttons and keyboard shortcuts."
+msgstr ""
+"上文中的最简插件除举例外别无它用。下面的插件也很简单，不过演示了如何使用一个 "
+"``Operator`` 将脚本集成到Blender，``Operator`` 是用于定义可从菜单、按钮和快捷键访"
+"问的工具的特有方法。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:105
+msgid ""
+"For the first example we will make a script that simply moves all objects in a "
+"scene."
+msgstr "首先，写一个移动场景内所有物体的脚本。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:109
+#: ../../manual/advanced/scripting/addon_tutorial.rst:233
+msgid "Write the Script"
+msgstr "写脚本"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:111
+msgid "Add the following script to the Text editor in Blender::"
+msgstr "在文本编辑器添加下面的脚本::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:119
+msgid ""
+"Click the :ref:`Run Script button <editors-text-run-script>`, all objects in the "
+"active scene are moved by 1.0 Blender unit."
+msgstr ""
+"按下 :ref:`运行脚本按钮 <editors-text-run-script>`, 活动场景内的所有物体均会移动1"
+"个Blender单位。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:124
+msgid "Write the Add-on (Simple)"
+msgstr "写插件 (简易)"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:126
+msgid ""
+"This add-on takes the body of the script above, and adds it to an operator's "
+"``execute()`` function. ::"
+msgstr ""
+"这个插件使用了上面的脚本，并将其添加到一个operator的 ``execute()`` 函数中。::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:166
+msgid ""
+"``bl_info`` is split across multiple lines, this is just a style convention used "
+"to more easily add items."
+msgstr "``bl_info`` 被分割成多行，这仅仅是一种编程风格，可以方便添加元素。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:170
+msgid ""
+"Rather than using ``bpy.context.scene``, we use the ``context.scene`` argument "
+"passed to ``execute()``. In most cases these will be the same. However in some "
+"cases, operators will be passed a custom context so script authors should prefer "
+"the ``context`` argument passed to operators."
+msgstr ""
+"这里传递给 ``execute()`` 的参数是 ``context.scene`` ，而非 ``bpy.context."
+"scene`` 。大多数情况下，两者是一致的。然而在一些情况下，传递给operators的是自定义"
+"context，所以脚本作者更愿意传递 ``context`` 参数至operator。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:174
+msgid ""
+"To test the script, you can copy and paste it into Blender's Text editor and run "
+"it. This will execute the script directly and call register immediately."
+msgstr ""
+"要测试这段脚本，你可以将其复制粘贴到Blender文本编辑器，并运行。这将直接执行脚本，"
+"并立即调用register函数。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:177
+msgid ""
+"However running the script won't move any objects. For this, you need to execute "
+"the newly registered operator."
+msgstr "不过，运行该脚本不能直接移动物体。你需要执行新注册的operator。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:181
+msgid "Operator Search menu."
+msgstr "操作搜索菜单。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:183
+msgid ""
+"Do this by pressing :kbd:`Spacebar` to bring up the operator search menu and "
+"type in \"Move X by One\" (the ``bl_label``), then :kbd:`Return`."
+msgstr ""
+"按下 :kbd:`Spacebar` 弹出操作搜索菜单，输入 \"Move X by One\" (``bl_label``), 然"
+"后按下 :kbd:`Return` 执行操作。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:186
+msgid "The objects should move as before."
+msgstr "物体将与前文一样移动。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:188
+msgid "*Keep this add-on open in Blender for the next step - Installing.*"
+msgstr "*不要关闭文本编辑器，下一步安装需要用到*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:192
+msgid "Install the Add-on"
+msgstr "安装插件"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:194
+msgid ""
+"Once you have your add-on within in Blender's Text editor, you will want to be "
+"able to install it so it can be enabled in the User Preferences to load on "
+"startup."
+msgstr ""
+"在Blender文本编辑器写好插件后，你可能想要安装该插件，这样就可以在用户设置中启用启"
+"动时加载插件。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:197
+msgid ""
+"Even though the add-on above is a test, let's go through the steps anyway so you "
+"know how to do it for later."
+msgstr ""
+"尽管上面的插件只是一个测试，但还是把这些步骤都走一遍，这样以后就知道该怎么做了。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:199
+msgid ""
+"To install the Blender text as an add-on, you will first have to save it to "
+"disk. Take care to obey the naming restrictions that apply to Python modules and "
+"end with a ``.py`` extension."
+msgstr ""
+"要安装Blender文本编辑器里写的插件，首先需要存盘，注意遵守Python模块的命名限制， "
+"并以 ``.py`` 作为扩展名。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:202
+msgid ""
+"Once the file is on disk, you can install it as you would for an add-on "
+"downloaded online."
+msgstr "存盘之后，就可以跟从网上下载的插件一样安装了。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:204
+msgid ""
+"Open the user :menuselection:`File --> User Preferences`, select the *Add-on* "
+"tab, press *Install Add-on...* and select the file."
+msgstr ""
+"打开 :menuselection:`文件 --> 用户设置` ， 进入 *插件* 选项卡，按下 *安装插件..."
+"* 按钮，并选择该文件。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:207
+msgid ""
+"Now the add-on will be listed and you can enable it by pressing the checkbox, if "
+"you want it to be enabled on restart, press *Save as Default*."
+msgstr ""
+"现在插件就添加到了插件列表，可以勾选启用，如果要在下次启动时加载，可以 *保存用户"
+"设置* 。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:212
+msgid ""
+"The destination of the add-on depends on your Blender configuration. When "
+"installing an add-on the source and destination paths are printed in the "
+"console. You can also find add-on path locations by running this in the Python "
+"Console."
+msgstr ""
+"插件的安装位置取决于你的Blender配置。安装插件时，控制台会提示插件的原始和目标路"
+"径。运行下面的脚本，也可以查找插件目标路径。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:221
+msgid ""
+"More is written on this topic here: :ref:`Directory Layout <getting-started-"
+"installing-config-directories>`."
+msgstr ""
+"更多这方面内容见: :ref:`目录布局 <getting-started-installing-config-"
+"directories>`。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:226
+msgid "Your Second Add-on"
+msgstr "第二个插件"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:228
+msgid ""
+"For our second add-on, we will focus on object instancing -- this is -- to make "
+"linked copies of an object in a similar way to what you may have seen with the "
+"array modifier."
+msgstr ""
+"第二个插件是关于物体实例化 -- 亦即 -- 以与阵列修改器类似的方法生成物体的关联副"
+"本。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:235
+msgid ""
+"As before, first we will start with a script, develop it, then convert it into "
+"an add-on. ::"
+msgstr "和前面一样，我们从一段脚本开始，然后将其转化为插件::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:258
+msgid ""
+"Now try copy this script into Blender and run it on the default Cube. Make sure "
+"you click to move the 3D cursor before running as the duplicate will appear at "
+"the cursor's location."
+msgstr ""
+"现在，把这段脚本复制到Blende文本编辑器，选择立方体并运行脚本。运行脚本前记得单击"
+"将3D游标移动一旁，副本物体将出现在游标位置。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:261
+msgid ""
+"After running, notice that when you go into *Edit Mode* to change the Cube -- "
+"all of the copies change. In Blender, this is known as *Linked Duplicates*."
+msgstr ""
+"运行过后，进入 *编辑模式* 修改立方体后 -- 所有的副本会同时变化，这在Blender里称"
+"作 *关联副本*。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:264
+msgid ""
+"Next, we're going to do this in a loop, to make an array of objects between the "
+"active object and the cursor. ::"
+msgstr "下一步，把这段脚本加到循环里，在活动物体与游标之间生成物体阵列。::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:286
+msgid ""
+"Try run this script with the active object and the cursor spaced apart to see "
+"the result."
+msgstr "将3D游标远离活动物体，运行脚本，查看结果。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:288
+msgid ""
+"With this script you'll notice we're doing some math with the object location "
+"and cursor, this works because both are 3D :class:`blender_api:mathutils. "
+"Vector` instances, a convenient class provided by the :mod:`blender_api:"
+"mathutils` module which allows vectors to be multiplied by numbers and matrices."
+msgstr ""
+"在这段脚本里，对物体和游标位置做了一点数学运算，这是因为两者都是3D :class:"
+"`blender_api:mathutils. Vector` 实例， :mod:`blender_api:mathutils` 模块提供了这"
+"个方便的类， 并且允许向量与数值和矩阵做乘法运算。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:293
+msgid ""
+"If you are interested in this area, read into :class:`blender_api:mathutils."
+"Vector` -- there are many handy utility functions such as getting the angle "
+"between vectors, cross product, dot products as well as more advanced functions "
+"in :mod:`blender_api:mathutils.geometry` such as Bézier spline interpolation and "
+"ray-triangle intersection."
+msgstr ""
+"如果你对这方面感兴趣的话，可以进一步阅读 :class:`blender_api:mathutils.Vector` "
+"-- 这里有很多方便的工具函数如计算向量夹角、叉乘、点乘， :mod:`blender_api:"
+"mathutils.geometry` 还提供了更高级的函数如 Bézier 样条曲线插值和射线-三角形相交。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:298
+msgid ""
+"For now we will focus on making this script an add-on, but it's good to know "
+"that this 3D math module is available and can help you with more advanced "
+"functionality later on."
+msgstr ""
+"现在我们专心将这段脚本编程插件，不过知道这个3D数学模块也是不错的，以后更高级的功"
+"能可能用到它。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:303
+msgid "Write the Add-on"
+msgstr "写插件"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:305
+msgid "The first step is to convert the script as-is into an add-on::"
+msgstr "首先将脚本转换为插件::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:348
+msgid ""
+"Everything here has been covered in the previous steps, you may want to try run "
+"the add-on still and consider what could be done to make it more useful."
+msgstr ""
+"接下来的步骤上文已经介绍过了，不过你还是可以运行脚本，再考虑一下如何改进这插件的"
+"功能。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:351
+msgid ""
+"The two of the most obvious missing things are -- having the total fixed at 10, "
+"and having to access the operator from space-bar is not very convenient."
+msgstr "这个插件明显缺少两项功能 -- 总数固定为10，从空格键访问该操作也不是很方便。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:354
+msgid "Both these additions are explained next, with the final script afterwards."
+msgstr "下文将讲解如何改进，并给出最终脚本代码。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:358
+msgid "Operator Property"
+msgstr "操作属性"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:360
+msgid ""
+"There are a variety of property types that are used for tool settings, common "
+"property types include: int, float, vector, color, boolean and string."
+msgstr ""
+"用于工具设置的属性类型多种多样，常见的有： int, float, vector, color, boolean "
+"and string。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:363
+msgid ""
+"These properties are handled differently to typical Python class attributes "
+"because Blender needs to display them in the interface, store their settings in "
+"key-maps and keep settings for reuse."
+msgstr ""
+"这些属性与Python类的属性用法不同，因为Blender需要在界面显示、保存其键位映射设置，"
+"并保留设置供下次使用。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:367
+msgid ""
+"While this is handled in a fairly Pythonic way, be mindful that you are in fact "
+"defining tool settings that are loaded into Blender and accessed by other parts "
+"of Blender, outside of Python."
+msgstr ""
+"尽管这是相当Python化的方式，但是记住，实际上你定义的工具设置会被加载到Blender，并"
+"被Blender的其他部分从Python外部访问。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:370
+msgid ""
+"To get rid of the literal 10 for ``total``, we'll use an operator property. "
+"Operator properties are defined via bpy.props module, this is added to the class "
+"body::"
+msgstr ""
+"要消除 ``总数`` 为10的问题， 会用到一个操作属性。操作属性是通过 bpy.props模块定义"
+"的，将下面的代码加到operator类的主体中::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:380
+msgid ""
+"These properties from :mod:`blender_api:bpy.props` are handled specially by "
+"Blender when the class is registered so they display as buttons in the user "
+"interface. There are many arguments you can pass to properties to set limits, "
+"change the default and display a tooltip."
+msgstr ""
+"这些来自 :mod:`blender_api:bpy.props` 的属性会被Blender特别处理，当(operator)类被"
+"注册后，会在界面显示属性按钮。可以传递很多参数给属性，如设置上下界、修改默认值和"
+"显示工具提示。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:385
+msgid ":mod:`blender_api:bpy.props.IntProperty`"
+msgstr ":mod:`blender_api:bpy.props.IntProperty`"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:387
+msgid ""
+"This document doesn't go into details about using other property types. However, "
+"the link above includes examples of more advanced property usage."
+msgstr ""
+"这篇文档不会详细介绍如何使用其他属性类型，不过上面的链接包含了更高级的属性用法范"
+"例。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:392
+msgid "Menu Item"
+msgstr "菜单选项"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:394
+msgid ""
+"Add-ons can add to the user interface of existing panels, headers and menus "
+"defined in Python."
+msgstr "插件可以添加到现有的面板、标题栏和菜单等Python定义的用户界面中。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:396
+msgid "For this example we'll add to an existing menu."
+msgstr "这个例子里，我们将其添加到现有菜单。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:400
+msgid "Menu Identifier."
+msgstr "菜单标识符"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:402
+msgid ""
+"To find the identifier of a menu, you can hover your mouse over the menu item "
+"and the identifier is displayed."
+msgstr "鼠标在菜单上方停留，会出现提示，这就是菜单标识符。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:404
+msgid ""
+"The method used for adding a menu item is to append a draw function into an "
+"existing class::"
+msgstr "添加菜单选项的方式是，在给现有类追加一个绘制函数::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:412
+msgid "For docs on extending menus, see: :doc:`blender_api:bpy.types.Menu`."
+msgstr "扩展菜单的文档，请参考 :doc:`blender_api:bpy.types.Menu`。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:416
+msgid "Keymap"
+msgstr "键位映射"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:418
+msgid ""
+"In Blender, add-ons have their own keymaps so as not to interfere with Blender's "
+"built-in key-maps."
+msgstr "在Blender中，插件可以有自己的键位映射，以避免与Blender内置键位映射冲突。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:420
+msgid ""
+"In the example below, a new object mode :class:`blender_api:bpy.types.KeyMap` is "
+"added, then a :class:`blender_api:bpy.types.KeyMapItem` is added to the key-map "
+"which references our newly added operator, using :kbd:`Shift-Ctrl-Spacebar` as "
+"the key shortcut to activate it. ::"
+msgstr ""
+"在下面的例子中，添加了一个新的物体模式 :class:`blender_api:bpy.types.KeyMap` ，接"
+"着向该键位映射添加了一个 :class:`blender_api:bpy.types.KeyMapItem` ，指向新添加的"
+"操作，使用 :kbd:`Shift-Ctrl-Spacebar` 作为快捷键 ::"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:446
+msgid ""
+"Notice how the keymap item can have a ``total`` setting different than the "
+"default set by the operator, this allows you to have multiple keys accessing the "
+"same operator with different settings."
+msgstr ""
+"值得注意的是，键位映射的 ``total`` 值与operator的默认值不同，这样就可以通过不同按"
+"键组合访问不同设置的同一operator。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:451
+msgid ""
+"While :kbd:`Shift-Ctrl-Spacebar` is not a default Blender key shortcut, it is "
+"hard to make sure add-ons will not overwrite each other's keymaps, At least take "
+"care when assigning keys that they do not conflict with important functionality "
+"within Blender."
+msgstr ""
+"尽管 :kbd:`Shift-Ctrl-Spacebar` 不是Blender的默认快捷键，但也很难确保插件之间不会"
+"互相覆盖键位映射。至少，在指定快捷键时要注意避免与Blender重要功能出现冲突。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:456
+msgid "For API documentation on the functions listed above, see:"
+msgstr "上文所用函数的API文档，见："
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:458
+msgid ":class:`blender_api:bpy.types.KeyMaps.new`,"
+msgstr ":class:`blender_api:bpy.types.KeyMaps.new`,"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:459
+msgid ":class:`blender_api:bpy.types.KeyMap`,"
+msgstr ":class:`blender_api:bpy.types.KeyMap`,"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:460
+msgid ":class:`blender_api:bpy.types.KeyMapItems.new`,"
+msgstr ":class:`blender_api:bpy.types.KeyMapItems.new`,"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:461
+msgid ":class:`blender_api:bpy.types.KeyMapItem`."
+msgstr ":class:`blender_api:bpy.types.KeyMapItem`."
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:465
+msgid "Bringing It All Together"
+msgstr "合二为一"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:539
+msgid "In the menu."
+msgstr "菜单选项。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:541
+msgid ""
+"Run the script (or save it and add it through the User Preferences like before) "
+"and it will appear in the menu."
+msgstr "运行该脚本(或保存后通过用户设置安装)，操作会出现在菜单选项中。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:545
+msgid "Operator Property."
+msgstr "操作属性。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:547
+msgid ""
+"After selecting it from the menu, you can choose how many instances of the cube "
+"you want create."
+msgstr "从菜单执行操作后，你还可以选择添加的立方体数量。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:551
+msgid ""
+"Directly executing the script multiple times will add the menu each time too. "
+"While not useful behavior, there's nothing to worry about since add-ons will not "
+"register themselves multiple times when enabled through the User Preferences."
+msgstr ""
+"直接运行脚本多次，会添加多个菜单选项。不过这没什么好担心的，因为从用户设置启用插"
+"件是不会出现重复注册的问题的。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:557
+msgid "Conclusions"
+msgstr "结语"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:559
+msgid ""
+"Add-ons can encapsulate certain functionality neatly for writing tools to "
+"improve your workflow or for writing utilities for others to use."
+msgstr ""
+"插件可以整洁地封装特定功能，用于编写工具改善工作流，或者编写功能供其他人使用。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:562
+msgid ""
+"While there are limits to what Python can do within Blender, there is certainly "
+"a lot that can be achieved without having to dive into Blender's C/C++ code."
+msgstr ""
+"尽管Blender中Python可以做的还存在一些限制，不过已经可以实现相当多的功能，使用户免"
+"于钻研Blender的 C/C++ 源码。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:565
+msgid ""
+"The example given in the tutorial is limited, but shows the Blender API used for "
+"common tasks that you can expand on to write your own tools."
+msgstr ""
+"教程里可以给出的范例始终是有限的，不过已经演示了用于常见任务的Blender API，用户可"
+"以借此延伸出自己的工具。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:570
+msgid "Further Reading"
+msgstr "扩展阅读"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:572
+msgid ""
+"Blender comes with commented templates which are accessible from the Text "
+"editor's header. If you have specific areas you want to see example code for, "
+"this is a good place to start."
+msgstr ""
+"Blender附带了一些注释过的模板，可以在文本编辑器标题栏找到，如果你需要某个方面的示"
+"例代码，从这里开始是一个不错的选择。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:575
+msgid ""
+"Here are some sites you might like to check on after completing this tutorial."
+msgstr "看完上面的教程过后，这里提供了几个你可能用到的网址。"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:577
+msgid ""
+":ref:`Blender/Python API Overview <blender_api:info_overview>` -- *For more "
+"background details on Blender/Python integration.*"
+msgstr ""
+":ref:`Blender/Python API 概述 <blender_api:info_overview>` -- *关于Blender/Python"
+"整合的更多背景细节。*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:579
+msgid ""
+"`How to Think Like a Computer Scientist <http://interactivepython.org/courselib/"
+"static/thinkcspy/index.html>`__ -- *Great info for those who are still learning "
+"Python.*"
+msgstr ""
+"`如何像计算机科学家一样思考 <http://interactivepython.org/courselib/static/"
+"thinkcspy/index.html>`__ -- *给哪些仍在学习Python的资料*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:581
+msgid ""
+"`Blender Development (Wiki) <https://wiki.blender.org/index.php/Dev:Contents>`__ "
+"-- *Blender Development, general information and helpful links.*"
+msgstr ""
+"`Blender开发 (Wiki) <https://wiki.blender.org/index.php/Dev:Contents>`__ -- "
+"*Blender开发、基本信息和有用链接。*"
+
+#: ../../manual/advanced/scripting/addon_tutorial.rst:583
+msgid ""
+"`Blender Artists (Coding Section) <https://blenderartists.org/forum/forumdisplay."
+"php?47-Coding>`__ -- *forum where people ask Python development questions.*"
+msgstr ""
+"`Blender Artists (编程版块) <https://blenderartists.org/forum/forumdisplay.php?"
+"47-Coding>`__ -- *Python开发的问答论坛*"
+
+#~ msgid "Add-ons"
+#~ msgstr "插件"
+
+#~ msgid "in Blender this is known as *Linked-Duplicates*."
+#~ msgstr "在Blender中，这称之为 *关联复制* 。"
+
+#~ msgid "Spacebar Menu."
+#~ msgstr "空格键菜单。"
+
+#~ msgid ""
+#~ "In the example below, a new object-mode :class:`blender_api:bpy.types.KeyMap` "
+#~ "is added, then a :class:`blender_api:bpy.types.KeyMapItem` is added to the "
+#~ "key-map which references our newly added operator, using :kbd:`Shift-Ctrl-"
+#~ "Spacebar` as the key shortcut to activate it. ::"
+#~ msgstr ""
+#~ "在下面的例子里，先对物体模式添加了一个(键位映射) :class:`blender_api:bpy."
+#~ "types.KeyMap` ， 接着添加一个 :class:`blender_api:bpy.types.KeyMapItem` 到键位"
+#~ "映射， 引用我们新添加的operator，使用 :kbd:`Shift-Ctrl-Spacebar` 作为访问快捷"
+#~ "键。::"

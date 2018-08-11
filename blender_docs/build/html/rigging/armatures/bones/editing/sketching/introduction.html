@@ -1,0 +1,621 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/sketching/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Converting to Bones" href="converting.html" />
+    <link rel="prev" title="Skeleton Sketching" href="index.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редагування -- Editing</a> &raquo;</li>
+        
+          <li><a href="index.html">Skeleton Sketching</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/rigging/armatures/bones/editing/sketching/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Skeleton Sketching</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_skeleton-sketching-panel.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_skeleton-sketching-panel.png" />
+<p class="caption"><span class="caption-text">The Bone Sketching panel.</span></p>
+</div>
+<p>If you think that creating a whole rig by hand, bone after bone, is quite boring, be happy:
+some Blender developers had the same feeling, and created the Skeleton Sketching tool,
+formerly the Etch-a-ton tool, which basically allows you to &quot;draw&quot; (sketch)
+whole chains of bones at once.</p>
+<p>Skeleton Sketching is obviously only available in <em>Edit Mode</em>, in the 3D Views.
+You control it through its <em>Skeleton Sketching</em> panel
+in the <em>Transform panel</em>, which you can open with <kbd class="kbd docutils literal notranslate">N</kbd>.
+Use the mouse <kbd class="kbd docutils literal notranslate">LMB</kbd> to draw strokes, and <kbd class="kbd docutils literal notranslate">RMB</kbd> for gestures.
+Showing its tool panel will not enable sketching. You must tick the checkbox next
+to <em>Skeleton Sketching</em> to start drawing bone chains
+(otherwise, you remain in the standard <em>Edit Mode</em>...).</p>
+<p>Sketching is done in two steps:</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#drawing-chains">Drawing Chains</a> (called &quot;strokes&quot;). Each stroke corresponds to a chain of bones.</li>
+<li><a class="reference internal" href="converting.html"><span class="doc">Converting to Bones</span></a>,
+using different methods.</li>
+</ol>
+<p>The <em>point of view</em> is important, as it determines the future bones' roll angle:
+the Z axis of a future bone will be aligned with the Z axis of the 3D View in
+which you draw its &quot;parent&quot; stroke (unless you use the <em>Template</em> converting method...).
+Strokes are drawn in the current view plane passing through the 3D cursor,
+but you can create somewhat &quot;3D&quot; strokes using the <em>Adjust</em> drawing option in different views (see below).</p>
+<p>If you enable the small <em>Quick Sketch</em> option, the two steps are merged into one:
+once you have finalized the drawing of a stroke (see <a class="reference internal" href="#drawing-chains">Drawing Chains</a>),
+it is immediately converted to bones (using the current active method) and deleted.
+This option makes bone sketching quick and efficient, but you lose all the advanced stroke editing possibilities.</p>
+<p>Sketches are <strong>not</strong> saved into blend-files,
+so you cannot interrupt a sketching session without losing all your work!
+Note also that the sketching is common to the whole Blender session, i.e.
+there is only one set of strokes (one sketch) in Blender, and not one per armature, or even per file...</p>
+<div class="section" id="drawing-chains">
+<h2>Drawing Chains<a class="headerlink" href="#drawing-chains" title="Permalink to this headline">¶</a></h2>
+<p>So, each stroke you draw will be a chain of bones, oriented from the starting point
+(the reddest or most orange part of the stroke) to its end (its whitest part).
+A stroke is made of several segments, delimited by small black dots.
+There will be at least one bone per segment (except with the
+<a class="reference internal" href="converting.html#rigging-armatures-bones-editing-sketching-converting-templating"><span class="std std-ref">Template</span></a> conversion method),
+so all black points represent future bones' joints.
+There are two types of segments, which can be mixed together:</p>
+<div class="figure" id="id2">
+<span id="fig-stroke-example"></span><img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_strokes-example.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_strokes-example.png" />
+<p class="caption"><span class="caption-text">Strokes example.</span></p>
+<div class="legend">
+<div class="line-block">
+<div class="line">From top to bottom:</div>
+<div class="line">A selected polygonal stroke of four straight segments, oriented from left to right.</div>
+<div class="line">An unselected free stroke of two segments, oriented from left to right.</div>
+<div class="line">A mixed stroke, with one straight segment between two free ones, right to left.</div>
+</div>
+</div>
+</div>
+<div class="section" id="straight-segments">
+<h3>Straight Segments<a class="headerlink" href="#straight-segments" title="Permalink to this headline">¶</a></h3>
+<p>To create a straight segment, click <kbd class="kbd docutils literal notranslate">LMB</kbd> at its starting point.
+Then move the mouse cursor, without pressing any button,
+a dashed red line represents the future segment.
+Click <kbd class="kbd docutils literal notranslate">LMB</kbd> again to finalize it.
+Each straight segment of a stroke will always create one and only one bone,
+whatever convert algorithm you use (except for the <em>Template</em> conversion method).</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Drawing straight segments example.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-1.png" />
+<p class="caption"><span class="caption-text">The first segment has been started with a <kbd class="kbd docutils literal notranslate">LMB</kbd> click and the mouse moved to its end point.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-2.png" />
+<p class="caption"><span class="caption-text">The first segment has been finalized by a second <kbd class="kbd docutils literal notranslate">LMB</kbd> click, which also started a new segment...</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-3.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_poly-stroke-3.png" />
+<p class="caption"><span class="caption-text">Repeating these steps, we now have a four-segment polygonal stroke.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="free-segments">
+<h3>Free Segments<a class="headerlink" href="#free-segments" title="Permalink to this headline">¶</a></h3>
+<p>To create a free (curved) segment, click and hold <kbd class="kbd docutils literal notranslate">LMB</kbd> at its starting point.
+Then draw your segment by moving the mouse cursor -- as in any paint program!
+Release <kbd class="kbd docutils literal notranslate">LMB</kbd> to finalize the segment. You will then be creating a new straight segment,
+so if you would rather start a new free segment, you must immediately re-press <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<p>The free segments of a stroke will create different number of bones, in different manners,
+depending on the conversion method used. The future bones' joints for the current selected method are
+represented by small green dots for each one of those segments, for the selected strokes only.</p>
+<p>The free segment drawing uses the same <em>Manhattan Distance</em>
+setting as the <a class="reference internal" href="../../../../../interface/grease_pencil/introduction.html"><span class="doc">Grease pencil tool</span></a>
+(<em>User Preferences</em>, <em>Edit Methods</em> &quot;panel&quot;, <em>Grease Pencil</em> group)
+to control where and when to add a new point to the segment. So if you feel your free segments are too detailed,
+raise this value a bit, and if you find them too jagged, lower it.</p>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text">Drawing free segments example.</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-1.png" />
+<p class="caption"><span class="caption-text">While drawing a first free segment with click and drag <kbd class="kbd docutils literal notranslate">LMB</kbd>.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-2.png" />
+<p class="caption"><span class="caption-text">The first free segment finalized by releasing <kbd class="kbd docutils literal notranslate">LMB</kbd>.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id10">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-3.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-3.png" />
+<p class="caption"><span class="caption-text">If you now move the mouse without pressing <kbd class="kbd docutils literal notranslate">LMB</kbd> again, you will create a straight segment...</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-4.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_free-stroke-4.png" />
+<p class="caption"><span class="caption-text">But if you immediately click again and drag <kbd class="kbd docutils literal notranslate">LMB</kbd> you will instead start a new free segment.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You finalize a whole stroke by clicking <kbd class="kbd docutils literal notranslate">RMB</kbd>. You can cancel the stroke you are drawing by pressing <kbd class="kbd docutils literal notranslate">Esc</kbd>.
+You can also snap strokes to underlying meshes by holding <kbd class="kbd docutils literal notranslate">Ctrl</kbd> while drawing.
+By the way, the <em>Peel Objects</em> button at the bottom of the <em>Bone Sketching</em> panel is the same thing as
+the &quot;monkey&quot; button of the snapping header controls shown when <em>Volume</em> snap element is selected.
+See the <a class="reference internal" href="../../../../../editors/3dview/object/editing/transform/control/snap.html#transform-snap-element"><span class="std std-ref">snap to mesh</span></a> page for details.</p>
+</div>
+</div>
+<div class="section" id="selecting-strokes">
+<h2>Selecting Strokes<a class="headerlink" href="#selecting-strokes" title="Permalink to this headline">¶</a></h2>
+<p>A stroke can be selected (materialized by a solid red-to-white line), or not
+(shown as an orange-to-white line) -- see <a class="reference internal" href="#fig-stroke-example"><span class="std std-ref">Strokes example.</span></a> above.
+As usual, you select a stroke by clicking <kbd class="kbd docutils literal notranslate">RMB</kbd> on it,
+you add one to/remove one from the current selection with a <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> click,
+and <kbd class="kbd docutils literal notranslate">A</kbd> (de)selects all strokes...</p>
+</div>
+<div class="section" id="deleting">
+<h2>Deleting<a class="headerlink" href="#deleting" title="Permalink to this headline">¶</a></h2>
+<p>Hitting <kbd class="kbd docutils literal notranslate">X</kbd> or clicking on the <em>Delete</em> button (<em>Bone Sketching</em> panel)
+deletes the selected strokes (be careful, no warning/confirmation pop-up menu here).
+See also <a class="reference internal" href="#gestures">Gestures</a>.</p>
+</div>
+<div class="section" id="modifying-strokes">
+<h2>Modifying Strokes<a class="headerlink" href="#modifying-strokes" title="Permalink to this headline">¶</a></h2>
+<p>You can adjust, or &quot;redraw&quot; your strokes by enabling the <em>Overdraw Sketching</em> option
+of the <em>Bone Sketching</em> panel. This will modify the behavior of the strokes drawing
+(i.e. <kbd class="kbd docutils literal notranslate">LMB</kbd> clicks and/or hold): when you draw, you will not create a new stroke,
+but rather modify the nearest one.</p>
+<p>The part of the old stroke that will be replaced by the new one is drawn in gray.
+This option does not take into account stroke selection, i.e.
+all strokes can be modified this way,
+not just the selected ones... Note also that even if it is enabled,
+when you draw too far away from any other existing stroke, you will not modify any of them,
+but rather create a new one, as if <em>Overdraw Sketching</em> was disabled.</p>
+<table border="1" class="docutils" id="id12">
+<caption><span class="caption-text">Adjusting stroke example.</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png"><img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-1.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">Adjusting a stroke: the gray part of the &quot;unselected&quot; (orange)
+stroke will be replaced by the currently drawn &quot;replacement&quot;.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png"><img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_adjusting-stroke-2.png" style="width: 350px;" /></a>
+<p class="caption"><span class="caption-text">Stroke adjusted.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>Undo/Redo</p>
+<p class="last">There is no undo/redo for sketch drawing.</p>
+</div>
+</div>
+<div class="section" id="gestures">
+<span id="bone-sketching-gestures"></span><h2>Gestures<a class="headerlink" href="#gestures" title="Permalink to this headline">¶</a></h2>
+<p>There quite a few things about strokes editing that are only available through gestures.
+Gestures are started by clicking and holding <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd>
+(when you are not already drawing a stroke), and materialized by blue-to-white lines.
+A gesture can affect several strokes at once.</p>
+<p>There is no direct way to cancel a gesture once you have started &quot;drawing&quot; it.
+So the best thing to do, if you change your mind (or made a &quot;false move&quot;),
+is to continue to draw until you get a chaotic scribble,
+crossing your stroke several times.
+In short, something that the gesture system would never recognize!</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id15">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-1.png" />
+<p class="caption"><span class="caption-text">An unwanted cut stroke.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-2.png" />
+<p class="caption"><span class="caption-text">Some random drawing.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-3.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-canceling-3.png" />
+<p class="caption"><span class="caption-text">The stroke is still in one piece.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="cut">
+<h3>Cut<a class="headerlink" href="#cut" title="Permalink to this headline">¶</a></h3>
+<p>To <em>cut</em> a segment (i.e. add a new black dot inside it, making two segments out of one),
+&quot;draw&quot; a straight line crossing the chosen segment where you want to split it.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id18">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-1.png" />
+<p class="caption"><span class="caption-text">Gesture.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-cut-2.png" />
+<p class="caption"><span class="caption-text">Result.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete">
+<h3>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h3>
+<p>To <em>delete</em> a stroke, draw a &quot;V&quot; crossing the stroke to delete twice.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id20">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-1.png" />
+<p class="caption"><span class="caption-text">Gesture.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id21">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-delete-2.png" />
+<p class="caption"><span class="caption-text">Result.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reverse">
+<h3>Reverse<a class="headerlink" href="#reverse" title="Permalink to this headline">¶</a></h3>
+<p>To <em>reverse</em> a stroke (i.e. the future chain of bones will be reversed),
+draw a &quot;C&quot; crossing twice the stroke to reverse.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id22">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-1.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-1.png" />
+<p class="caption"><span class="caption-text">Gesture.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id23">
+<img alt="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-2.png" src="../../../../../_images/rigging_armatures_bones_editing_sketching_gestures-reverse-2.png" />
+<p class="caption"><span class="caption-text">Result.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="converting.html" class="btn btn-neutral float-right" title="Converting to Bones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Skeleton Sketching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

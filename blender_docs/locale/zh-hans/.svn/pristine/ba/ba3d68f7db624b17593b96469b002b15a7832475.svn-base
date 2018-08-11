@@ -1,0 +1,252 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-30 21:23+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/render/cycles/materials/volume.rst:4
+msgid "Volumes"
+msgstr "体积着色器"
+
+#: ../../manual/render/cycles/materials/volume.rst:6
+msgid "Volume rendering can be used to render effects like fire, smoke, mist, absorption in glass, and many other effects that cannot be represented by surface meshes alone."
+msgstr "体积渲染可以用来实现像火，烟，雾，或者玻璃吸收光的渲染效果，以及许多不能单独被表面网格所表现的效果。"
+
+#: ../../manual/render/cycles/materials/volume.rst:9
+msgid ""
+"To set up a volume, you create a mesh that defines the bounds within which the volume exists. In the material you typically remove the surface nodes and instead connect volume nodes to define the shading "
+"inside the volume. For effects such as absorption in glass you can use both a surface and volume shader. The world can also use a volume shader to create effects such as mist."
+msgstr ""
+"要设置体积着色时，先要创建一个包含这块体积的网格区域。在默认材质节点中，移除表面节点，连接体积内部的节点，以此来定义内部纹理。要模拟玻璃的吸收效果可以把表面着色器和体积着色器都加上。世界设置也可以使用体着色"
+"器来模拟烟雾等效果。"
+
+#: ../../manual/render/cycles/materials/volume.rst:17
+msgid "Shading"
+msgstr "着色"
+
+#: ../../manual/render/cycles/materials/volume.rst:20
+msgid "Principled Volume"
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:22
+#, fuzzy
+msgid ""
+":doc:`Principled Volume </render/cycles/nodes/types/shaders/volume_principled>` is a physically-based volume shader that can be used to create a wide range of volume materials. It supports scattering, "
+"absorption and emission in one easy to use node. Fire can be rendered with blackbody emission."
+msgstr ""
+":doc:`Principled Volume </render/cycles/nodes/types/shaders/volume_principled>` is a physically based volume shader that can be used to create a wide range of volume materials. It supports scattering, "
+"absorption and emission in one easy to use node. Fire can be rendered with blackbody emission."
+
+#: ../../manual/render/cycles/materials/volume.rst:29
+msgid "Smoke and fire rendered with Principled Volume shader."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:33
+msgid "Volume Components"
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:35
+msgid "For more control, volume shading components can be manually combined into a custom shader setup."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:37
+msgid ""
+":doc:`Volume Absorption </render/cycles/nodes/types/shaders/volume_absorption>` will absorb part of the light as it passes through the volume. This can be used to shade for example black smoke or colored "
+"glass objects, or mixed with the volume scatter node. This node is similar to the transparent BSDF node, it blocks part of the light and lets other light pass straight through."
+msgstr ""
+":doc:`体积吸收 </render/cycles/nodes/types/shaders/volume_absorption>` 会吸收部分穿过物体内部的光线。这种效果可以于黑烟或者彩色玻璃中，又或者混合体积散射的节点。这个节点有点像透射BSDF节点，可以让光线部分被阻"
+"挡、部分透过。"
+
+#: ../../manual/render/cycles/materials/volume.rst:42
+msgid ""
+":doc:`Volume Scatter </render/cycles/nodes/types/shaders/volume_scatter>` lets light scatter in other directions as it hits particles in the volume. The anisotropy defines in which direction the light is "
+"more likely to scatter. A value of 0 will let light scatter evenly in all directions (similar to the diffuse BSDF node), negative values let light scatter mostly backwards, and positive values let light "
+"scatter mostly forward. This can be used to shade white smoke or clouds for example."
+msgstr ""
+":doc:`体积散射</render/cycles/nodes/types/shaders/volume_scatter>` l是让穿过物体的光线在碰到粒子后散射到其他方向。各项异性值决定了光更多的向哪个方向散射。0值让光向所有方向散射（跟漫射BSDF节点很像），负值让光"
+"逆向散射更多，正值让光前向散射。这个节点可以做白色烟雾或者云的效果。"
+
+#: ../../manual/render/cycles/materials/volume.rst:48
+msgid ":doc:`Emission </render/cycles/nodes/types/shaders/emission>` will emit light from the volume, for example for fire."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:54
+msgid "Volume Absorption, Scatter and Emission"
+msgstr "体积吸收，散射，发射"
+
+#: ../../manual/render/cycles/materials/volume.rst:58
+msgid "Attributes"
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:60
+msgid ""
+"When rendering smoke and fire, volume attributes are used to define the shape and shading of the volume. The Principled Volume shader will use them by default, while custom volume shaders can use the "
+"Attribute node to get attributes such as density, color and temperature."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:66
+msgid "Density"
+msgstr "密度"
+
+#: ../../manual/render/cycles/materials/volume.rst:68
+msgid ""
+"All volume shaders have a density input. The density defines how much of the light will interact with the volume, getting absorbed or scattered, and how much will pass straight through. For effects such as "
+"smoke you would specify a density field to indicate where in the volume there is smoke and how much (density bigger than 0), and where there is no smoke (density equals 0)."
+msgstr ""
+"所有的体着色器都有一个密度定义。密度决定了光线有多少需要跟体积进行交互，得到吸收或者散色，还有多少会直接穿透。要模拟烟雾的时候你需要指定一个密度场来说明体积的哪些地方烟比较多（密度大于0），哪些地方是没有烟的"
+"（密度等于0）。"
+
+#: ../../manual/render/cycles/materials/volume.rst:74
+msgid ""
+"Volumes in the real world consist of particles, a higher density means there are more particles per unit volume. More particles means there is a higher chance for light to collide with a particle and get "
+"absorbed or scattered, rather than passing straight through."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:81
+msgid "Mesh Volumes"
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:83
+msgid ""
+"Meshes used for volume render should be closed and :term:`manifold`. That means that there should be no holes in the mesh. Each edge must be connected to exactly two faces such that there are no holes or T-"
+"shaped faces where three or more faces are connected to an edge."
+msgstr "作为体积渲染的网格需要是闭合的，以及符合 :term:`流形` 。这意味着网格上是不能有开口。每条边必须严格的保证链接到两个面上，不能有洞和T形的面，比如说不能有三个或者三个以上的面链接到一条边上。"
+
+#: ../../manual/render/cycles/materials/volume.rst:89
+msgid ""
+"Normals must point outside for correct results. The normals are used to determine if a ray enters or exits a volume, and if they point in a wrong direction, or there is a hole in the mesh, then the renderer "
+"is unable to decide what is the inside or outside of the volume."
+msgstr "想要结果正确，法线必须全部指向外面。法线是用来探测光束是进入还是穿出体积的，如果法线指向错误的方向，又或是网格上有开口的话，渲染器可能根本无法知道体积的内外方向。"
+
+#: ../../manual/render/cycles/materials/volume.rst:94
+msgid "These rules are the same as for rendering glass refraction correctly."
+msgstr "这套规则也同样适用于：如何正确地渲染玻璃折射。"
+
+#: ../../manual/render/cycles/materials/volume.rst:98
+msgid "World Volume"
+msgstr "世界体积"
+
+#: ../../manual/render/cycles/materials/volume.rst:100
+msgid "A volume shader can also be applied to the world, filling the entire space."
+msgstr "体积着色器也可以在整个世界中应用，它会填满整个空间。"
+
+#: ../../manual/render/cycles/materials/volume.rst:102
+msgid ""
+"Currently, this is most useful for night time or other dark scenes, as the world surface shader or sun lamps will have no effect if a volume shader is used. This is because the world background is assumed "
+"to be infinitely far away, which is accurate enough for the sun for example. However, for modeling effects such as fog or atmospheric scattering, it is not a good assumption that the volume fills the entire "
+"space, as most of the distance between the sun and the earth is empty space. For such effects it is be better to create a volume object surrounding the scene. The size of this object will determine how much "
+"light is scattered or absorbed."
+msgstr ""
+"现如今，这种着色器非常适合夜景和灰暗的场景，如果体积着色器被使用，世界的表面着色器和太阳光源都将失效。这是因为当世界背景被设定在无穷远的位置时，对太阳光来说是足够精确的。但是进行模拟雾效和大气散色的时候，填"
+"充整个空间并不是一个好方式，因为在太阳光到地球之间实际上是有很长一段距离没有东西（无阻碍光线物质）。这种特效最好是通过创建一个体物体包含整个场景来实现。该物体的大小可以感知光线如何被散射或吸收。"
+
+#: ../../manual/render/cycles/materials/volume.rst:114
+msgid "Multiple Scattering"
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:116
+msgid ""
+"Real-world effects such as scattering in clouds or subsurface scattering require many scattering bounces. However, unbiased rendering of such effects can be noisy, so by default the number of bounces is "
+"zero. The effect you get when rendering with zero volume bounces is what is known as \"single scattering\", the effect from more bounces is \"multiple scattering\"."
+msgstr ""
+"实际生活中，比如云朵，使用到的散射或者浅表面散射，涉及了多次的散射反弹。但是在非偏渲染的时候这些效果计算非常慢和多噪点的。在典型的电影制作场景中，一般只用到0次或者1次反弹值以确保可控的渲染时间。 \"单次散射"
+"\" 即渲染时采用0次体反弹，多次反弹是 \"多重散射\" 。"
+
+#: ../../manual/render/cycles/materials/volume.rst:122
+msgid ""
+"For rendering materials like skin or milk that require multiple scattering, subsurface scattering is more efficient and easier to control. Particularly the random walk method can accurately render such "
+"materials."
+msgstr ""
+
+#: ../../manual/render/cycles/materials/volume.rst:126
+msgid ""
+"For materials such as clouds or smoke that do not have a well defined surface, volume rendering is required. These look best with many scattering bounces, but in practice one might have to limit the number "
+"of bounces to keep render times acceptable."
+msgstr "云和烟雾这样没有明确边界表面的材质，体渲染是必须的。多次散射反弹的外观效果更逼真，但是在实际操作中通常会限制反弹次数，为了保证渲染不会耗时太长。"
+
+#: ../../manual/render/cycles/materials/volume.rst:132
+msgid "Limitations"
+msgstr "局限点"
+
+#: ../../manual/render/cycles/materials/volume.rst:134
+msgid "Not available on GPU:"
+msgstr "未在GPU上实现的功能："
+
+#: ../../manual/render/cycles/materials/volume.rst:136
+msgid "Multiple importance sampling for efficient lights inside volumes."
+msgstr ""
+
+#~ msgid "Volume Shaders"
+#~ msgstr "体积着色器"
+
+#~ msgid "Cycles supports three volume shader nodes, that model particular effects as light passes through the volume and interacts with it:"
+#~ msgstr "Cycles支持三种体积着色器节点，对各种特殊的光穿越体积物体以及和它之间的交互作用进行了建模:"
+
+#~ msgid "Emission will emit light from the volume. This can be used to shade fire for example."
+#~ msgstr "Emission（自发光）散射可以让物体从内部发射灯光。这种情况可以模拟火焰效果。"
+
+#~ msgid "Volume Material"
+#~ msgstr "体积材质"
+
+#~ msgid "Interaction with the Surface Shader"
+#~ msgstr "和表面着色器交互"
+
+#~ msgid ""
+#~ "A material may have both a surface and a volume shader, or only one of either. Using both may be useful for materials such as glass, water or ice, where you want some of the light to be absorbed as it "
+#~ "passes through the surface, combined with e.g. a glass or glossy shader at the surface."
+#~ msgstr "一个材质可能会兼有表面和体着色器，或者只有其中一种。玻璃、水或者冰可能会同时用上两种，当需要将光部分吸收和部分穿透表面的时候，在表面上混合玻璃或者光泽着色器。"
+
+#~ msgid ""
+#~ "When the surface shader does not reflect or absorb light, it enters into the volume. If no volume shader is specified, it will pass straight through to the other side of the mesh. If it is defined, a "
+#~ "volume shader describes the light interaction as it passes through the volume of the mesh. Light may be scattered, absorbed, or emitted at any point in the volume."
+#~ msgstr ""
+#~ "当表面着色器没有反射或者吸收光的时候，光线就进入了内部。如果这时候没有体积着色器指定，光就会直接穿透网格。如果定义了体积着色器，光线则和网格内体有交互。光线可能会被体积里的任意点散射，吸收或者发射。"
+
+#~ msgid "Mesh Topology"
+#~ msgstr "网格拓扑"
+
+#~ msgid "Volume World"
+#~ msgstr "世界体积"
+
+#~ msgid "Smoke"
+#~ msgstr "烟雾"
+
+#~ msgid "Creating a smoke material for cycles can be difficult however the image below shows a good setup on how to do this."
+#~ msgstr "通过Cycles来创作烟雾材质是比较棘手的，然而以下图片提供一些不错的步骤指导。"
+
+#~ msgid "Smoke and Fire Material."
+#~ msgstr "烟雾和火焰材质"
+
+#~ msgid "Scattering Bounces"
+#~ msgstr "散射反弹"
+
+#~ msgid "For rendering materials like skin or milk, the subsurface scattering shader is an approximation of such multiple scattering effects that is significantly more efficient but not as accurate."
+#~ msgstr "像皮肤和牛奶这类的材质渲染，次表面散射着色器是一个近似的多重散射效果，渲染非常效率但是精确度不高。"
+
+#~ msgid "Currently, the following are not supported:"
+#~ msgstr "目前，以下这些情况还不能实现："
+
+#~ msgid "Correct ray visibility for volume meshes"
+#~ msgstr "调整体积网格的光束可见性"
+
+#~ msgid "Equiangular/MIS Volume Sampling"
+#~ msgstr "等角/MIS体积采样"
+
+#~ msgid "Volume Multi Light sampling"
+#~ msgstr "体积多灯光采样"
+
+#~ msgid ""
+#~ "Volumes in real life consist of particles, a higher density means there are more particles per unit volume. More particles means there is a higher chance for light to collide with a particle and get "
+#~ "absorbed or scattered, rather than passing straight through."
+#~ msgstr "现实情况下，体积中是混合着粒子的，密度越高表示单位体积内有越多的粒子。而更多的粒子意味着光线有更可能跟粒子进行碰撞，被吸收或者被打散，而不是直接透射出体积。"

@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Набори Ключування -- Keying Sets &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/keyframes/keying_sets.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Дії -- Actions" href="../actions.html" />
+    <link rel="prev" title="Редагування" href="editing.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Ключкадри -- Keyframes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">Редагування</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Набори Ключування -- Keying Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keying-set-panel">Панель «Набори Ключування» -- Keying Sets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#active-keying-set-panel">Панель «Активний Набір Ключування» -- Active Keying Set</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-properties">Додавання Властивостей</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Дії -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Драйвери -- Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Мітки -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Ключі Форм -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Шляхи Руху -- Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Анімація -- Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Ключкадри -- Keyframes</a> &raquo;</li>
+        
+      <li>Набори Ключування -- Keying Sets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/keyframes/keying_sets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keying-sets">
+<span id="bpy-ops-anim-keying-set"></span><h1>Набори Ключування -- Keying Sets<a class="headerlink" href="#keying-sets" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id2">
+<img alt="../../_images/editors_timeline_keying-sets.png" src="../../_images/editors_timeline_keying-sets.png" />
+<p class="caption"><span class="caption-text">Активний ідентифікатор даних «Набори Ключування» -- Keying Sets в Часолінії.</span></p>
+</div>
+<p>Набори Ключування -- Keying Sets -- це колекція властивостей. Вони використовуються для запису кількох властивостей одночасно.</p>
+<p>Тепер, коли ви натиснете <kbd class="kbd docutils literal notranslate">I</kbd> в 3D Огляді -- 3D View, Blender додаватиме ключкадри для усіх властивостей в активний набір ключування.</p>
+<p>Існують деякі вбудовані Набори Ключування, а також, власні користувацькі Набори Ключування, що називаються «Абсолютними Наборами Ключування» -- <em>Absolute Keying Sets</em>.</p>
+<p>Для вибору і використання Набору Ключування установіть «Активний Набір Ключування» -- <em>Active Keying Set</em> у заголовку Часолінії -- <a class="reference internal" href="../../editors/timeline.html#animation-editors-timeline-autokeyframe"><span class="std std-ref">Timeline Header</span></a>, чи на панелі «Набори Ключування» -- Keying Sets, або натисніть <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Shift-I</kbd> у 3D Огляді -- 3D View.</p>
+<div class="section" id="keying-set-panel">
+<h2>Панель «Набори Ключування» -- Keying Sets<a class="headerlink" href="#keying-set-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">Редактор Властивостей -- Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Панель:</th><td class="field-body">«Сцена &gt; Набори Ключування» -- <span class="menuselection">Scene ‣ Keying Sets</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ця панель використовується для додання, вибору та управління Абсолютними Наборами Ключування -- <em>Absolute Keying Sets</em>.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/animation_keyframes_keying-sets_scene-keying-set-panel.png" src="../../_images/animation_keyframes_keying-sets_scene-keying-set-panel.png" />
+<p class="caption"><span class="caption-text">Панель «Набори Ключування» -- Keying Sets.</span></p>
+</div>
+<dl class="docutils">
+<dt>Активний Набір Ключування</dt>
+<dd><p class="first">Огляд Списком -- <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a> Наборів Ключування в активній Сцені.</p>
+<dl class="last docutils">
+<dt>Додання -- Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Додає порожній Набір Ключування.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="properties">
+<h3>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Опис -- Description</dt>
+<dd>Короткий опис набору ключування.</dd>
+<dt>Експорт у Файл -- Export to File</dt>
+<dd>Експортує Набір Ключування у скрипт Python <code class="docutils literal notranslate"><span class="pre">File.py</span></code>. Для повторного додання набору ключування у сцену з файлу <code class="docutils literal notranslate"><span class="pre">File.py</span></code> відкрийте та виконайте файл <code class="docutils literal notranslate"><span class="pre">File.py</span></code> у Редакторі Тексту -- Text Editor.</dd>
+<dt>Устави Ключкадрування -- Keyframing Settings</dt>
+<dd><p class="first">Ці опції керують усіма властивостями у даному Наборі Ключування. Зауважте, що такі самі устави в Уподобаннях Користувача -- <em>User Preferences</em>, при їх увімкненні, перезапишуть ці устави.</p>
+<dl class="last docutils">
+<dt>Лише Необхідне -- Only Needed</dt>
+<dd>При увімкненні вставлятися будуть лише ключкадри там, де вони потрібні на відповідних Ф-Кривих -- F-Curves.</dd>
+<dt>Видиме Ключування -- Visual Keying</dt>
+<dd>При увімкненні вставлятимуться ключкадри на видимих трансформуваннях.</dd>
+<dt>XYZ у RGB -- XYZ to RGB</dt>
+<dd>При увімкненні, для нових Ф-Кривих для набору властивостей задаються кольори у RGB, наприклад, Location XYZ.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="active-keying-set-panel">
+<h2>Панель «Активний Набір Ключування» -- Active Keying Set<a class="headerlink" href="#active-keying-set-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">Редактор Властивостей -- Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Панель:</th><td class="field-body">«Сцена &gt; Активний Набір Ключування» -- <span class="menuselection">Scene ‣ Active Keying Set</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ця панель використовується для додання властивостей в активний Набір Ключування.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/animation_keyframes_keying-sets_scene-active-keying-set-panel.png" src="../../_images/animation_keyframes_keying-sets_scene-active-keying-set-panel.png" />
+<p class="caption"><span class="caption-text">Панель «Активний Набір Ключування» -- Active Keying Set.</span></p>
+</div>
+<div class="figure" id="id5">
+<img alt="../../_images/editors_graph-editor_channels_region.png" src="../../_images/editors_graph-editor_channels_region.png" />
+<p class="caption"><span class="caption-text">Регіон каналів Редактора Графів Graph Editor з іменованими групами.</span></p>
+</div>
+<dl class="docutils">
+<dt>Шляхи -- Paths для Активного Набору Ключування</dt>
+<dd><p class="first">Колекція шляхів в Огляді Списком -- <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a>, кожен з яких має «Шлях Даних» -- <em>Data Path</em> до властивості, що призначений для додання її в активний Набір Ключування.</p>
+<dl class="last docutils">
+<dt>Додання -- Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Додає порожній шлях.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="id1">
+<h3>Властивості<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Ціль -- Target</dt>
+<dd><dl class="first last docutils">
+<dt>ID-Блок -- ID-Block</dt>
+<dd>Задає Тип ID -- ID Type та Шлях Даних ID Об'єкта -- <em>Object IDs</em> Data Path для властивості.</dd>
+<dt>Шлях Даних -- Data Path</dt>
+<dd>Задає решту Шляху Даних для властивості.</dd>
+<dt>Ціль Масиву -- Array Target</dt>
+<dd>Вмикає використання «Всі Елементи» -- <em>All Items</em> зі Шляху Даних -- Data Path або при вимкненні дозволяє вибрати індекс масиву для певної властивості.</dd>
+</dl>
+</dd>
+<dt>Групування Ф-Кривих -- F-Curve Grouping</dt>
+<dd><p class="first">Визначає, яка група буде додавати канали.</p>
+<p class="last">Ім'я Набору Ключування -- Keying Set Name, Нема -- None, Іменована Група -- Named Group</p>
+</dd>
+<dt>Устави Ключкадрування -- Keyframing Settings</dt>
+<dd><p class="first">Дані опції визначають окремі властивості у Наборі Ключування.</p>
+<dl class="last docutils">
+<dt>Лише Необхідне -- Only Needed</dt>
+<dd>При увімкненні вставлятися будуть лише ключкадри там, де вони потрібні на відповідних Ф-Кривих -- F-Curves.</dd>
+<dt>Видиме Ключування -- Visual Keying</dt>
+<dd>При увімкненні вставлятимуться ключкадри на видимих трансформуваннях.</dd>
+<dt>XYZ у RGB -- XYZ to RGB</dt>
+<dd>При увімкненні, для нових Ф-Кривих для набору властивостей задаються кольори у RGB, наприклад, Location XYZ.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="adding-properties">
+<h2>Додавання Властивостей<a class="headerlink" href="#adding-properties" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Меню:</th><td class="field-body">«Контекстне меню &gt; Додати Усе/Одиничне у Набір Ключування» -- <span class="menuselection">Context menu ‣ Add All/Single to Keying Set</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">K</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Деякі способи додання властивостей у набори ключування.</p>
+<p>Клацайте <kbd class="kbd docutils literal notranslate">RMB</kbd> на потрібній властивості в інтерфейсі користувача -- <em>User Interface</em>, потім у контекстному меню виберіть пункт «Додати Одиничне у Набір Ключування» -- <em>Add Single to Keying Set</em> або «Додати Усе у Набір Ключування» -- <em>Add All to Keying Set</em>. Це додасть цю або ці властивості в активний набір ключування або у новий набір ключування, якщо жодного у сцені поки що не існує.</p>
+<p>Наводьте вказівник миші над потрібними властивостями і далі натискаєте <kbd class="kbd docutils literal notranslate">K</kbd> для додання усіх властивостей у набір ключування <em>Add All to Keying Set</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../actions.html" class="btn btn-neutral float-right" title="Дії -- Actions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editing.html" class="btn btn-neutral" title="Редагування" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

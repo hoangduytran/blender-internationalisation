@@ -1,0 +1,273 @@
+#
+# phan <phahoatho@gmail.com>, 2017, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-05 13:47-0400\n"
+"PO-Revision-Date: 2018-07-15 14:09+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:5
+msgid "Set Alpha Node"
+msgstr "Node Set Alpha"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:10
+msgid "Set Alpha Node."
+msgstr "Node Set Alpha."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:12
+msgid "The *Set Alpha Node* adds an alpha channel to an image."
+msgstr "Le *Node Set Alpha* ajoute un canal alpha à une image."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:16
+msgid "Inputs"
+msgstr "Entrées"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:18
+#: ../../manual/compositing/types/converter/set_alpha.rst:35
+msgid "Image"
+msgstr ""
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:19
+msgid "Standard image input."
+msgstr "Entrée image standard."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:23
+msgid "Alpha"
+msgstr ""
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:21
+msgid ""
+"The amount of Alpha can be set for the whole image by using the input field "
+"or per pixel by connecting to the socket."
+msgstr ""
+"le niveau d'alpha peut être défini pour l'image entière en utilisant le "
+"champ *Input* ou par pixel en connectant à la prise."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:26
+msgid "Properties"
+msgstr "Propriétés "
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:28
+msgid "This node has no properties."
+msgstr "Ce node n'a pas de propriétés."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:32
+msgid "Outputs"
+msgstr "Sorties"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:35
+msgid "Standard image output."
+msgstr "Sortie image standard."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:39
+msgid ""
+"This is not, and is not intended to be, a general-purpose solution to the "
+"problem of compositing an image that does not contain Alpha information. You "
+"might wish to use \"Chroma Keying\" or \"Difference Keying\" (as discussed "
+"elsewhere) if you can. This node is most often used (with a suitable input "
+"being provided by means of the socket) in those troublesome cases when you "
+"*cannot*, for some reason, use those techniques directly."
+msgstr ""
+"Ce n'est pas, et n'est pas conçu pour être, une solution d'usage général au "
+"problème de composition d'une image qui ne contient pas d'information alpha. "
+"Vous pourriez souhaiter utiliser \"Chroma Keying\" ou \"Difference Keying"
+"\" (comme discuté ailleurs) si vous le pouvez. Ce node est souvent utilisé "
+"(avec une entrée adaptée fournie par  de la prise) dans ces cas "
+"problématiques où vous *ne pouvez pas*, pour quelque raison, utiliser "
+"directement ces techniques.  "
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:47
+msgid "Example"
+msgstr "Exemple"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:50
+msgid "Fade To Black"
+msgstr "Fondu au noir"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:52
+msgid ""
+"To transition the audience from one scene or shot to another, a common "
+"technique is to \"fade to black\". As its name implies, the scene fades to a "
+"black screen. You can also \"fade to white\" or whatever color you wish, but "
+"black is a good neutral color that is easy on the eyes and intellectually "
+"\"resets\" the viewer's mind. The node map below shows how to do this using "
+"the Set Alpha node."
+msgstr ""
+"Pour faire passer les spectateurs d'une scène (ou prise de vue) à une autre, "
+"une technique habituelle est le \"fondu au noir\". Comme son nom l'indique, "
+"la scène se fond en un écran noir. Vous pouvez aussi faire un \"fondu au "
+"blanc\" ou toute autre couleur que vous souhaitez, mais le noir est une "
+"bonne couleur neutre qui est apaisante pour les yeux et intellectuellement "
+"\"remet à zéro\" l'esprit de l'observateur. Le plan de nodes ci-dessus "
+"montre comment faire ceci en utilisant le node *Set Alpha*."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:60
+msgid "Fade to black."
+msgstr "Fondu au noir."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:62
+msgid ""
+"In the example above, the alpha channel of the swirl image is ignored. "
+"Instead, a :doc:`time node </compositing/types/input/time>` introduces a "
+"factor from 0.00 to 1.00 over 60 frames, or about 2 seconds, to the Set "
+"Alpha node. Note that the time curve is exponentially-shaped, so that the "
+"overall blackness will fade in slowly and then accelerate toward the end. "
+"The Set Alpha node does not need an input image; instead, the flat "
+"(shadeless) black color is used. The Set Alpha Node uses the input factor "
+"and color to create a black image that has an alpha set which goes from 0.00 "
+"to 1.00 over 60 frames, or completely transparent to completely opaque. "
+"Think of alpha as a multiplier for how vivid you can see that pixel. These "
+"two images are combined by the Alpha Over node completely (a *Factor* of "
+"1.00) to produce the composite image. The Set Alpha node will thus, "
+"depending on the frame being rendered, produce a black image that has some "
+"degree of transparency. Setup and Animate, and you have an image sequence "
+"that fades to black over a 2-second period."
+msgstr ""
+"Dans l'exemple ci-dessus, le canal alpha de l'image de tourbillon est "
+"ignoré. Ã la place, un :doc:`node time  </compositing/types/input/time>` "
+"introduit un facteur de 0.00 à 1.00 sur 60 trames, ou environ 2 secondes, "
+"dans le node *Set Alpha*, Notez que cette courbe de temps est de forme "
+"exponentielle, de sorte que la noirceur globale va s'effacer lentement et "
+"puis s'accélérer vers la fin. le node *Set Alpha* n'a pas besoin d'une image "
+"en entrée ; À la place, la couleur noire unie (sans nuance) est utilisée. Le "
+"node *Set Alpha* utilise le facteur et la couleur d'entrée pour créer une "
+"image noire avec un alpha qui va de 0.00 à 1.00 sur 60 trames, ou "
+"complètement transparent à complètement opaque. Pensez à alpha comme un "
+"multiplicateur de l'éclat avec lequel vous pouvez voir ce pixel. Ces deux "
+"images sont combinées intégralement par le node *Alpha Over* (un *Factor* de "
+"1.00) pour produire l'image composite. Le node *Alpha Set* va alors, suivant "
+"la trame en cours de rendu, produire une image noire qui a un certain degré "
+"de transparence. Configurez et animez, et vous avez une séquence d'images "
+"qui s'estompe en noir sur une période de deux secondes. "
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:76
+msgid "No Scene Information Used"
+msgstr "Aucune information de scène utilisée"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:78
+msgid ""
+"This example node map does not use the Render Layer node. To produce this 2-"
+"second animation, no Blender scene information was used. This is an example "
+"of using Blender's powerful compositing abilities separate from its modeling "
+"and animation capabilities. (A Render Layer could be substituted for the "
+"Image layer, and the \"fade-network\" effect will still produce the same "
+"effect)."
+msgstr ""
+"Cet exemple de *node map* n'utilise pas le node *Render Layer*. Pour "
+"produire cette animation de deux secondes, aucune information de scène de "
+"Blender a été utilisée. C'est un exemple d'utilisation des puissantes "
+"capacités de compositing de Blender, distinctes de ses capacités de "
+"modélisation et d'animation (un calque de rendu pourrait se substituer au "
+"calque d'image, et l'effet \"fade-network\" va produire le même effet)."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:87
+msgid "Fade In a Title"
+msgstr "Effet d'apparition d'un titre (Fade In a Title)"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:89
+msgid ""
+"To introduce your animation, you will want to present the title of your "
+"animation over a background. You can have the title fly in, or fade it in. "
+"To fade it in, use the Set Alpha node with the Time node as shown below."
+msgstr ""
+"Pour introduire votre animation, vous voudrez présenter le titre de votre "
+"animation sur un arrière-plan. Vous pouvez avoir le titre qui vole, ou "
+"faites-le apparaître en fondu. Pour le faire apparaître en fondu, utilisez "
+"le *node Set Alpha* avec le *node Time* comme montré ci-dessous."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:96
+msgid "Using Set Alpha to fade in a title."
+msgstr "utilisation de Set Alpha pour faire apparaître un titre."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:98
+msgid ""
+"In the above example, a Time curve provides the Alpha value to the input "
+"socket. The current Render Layer node, which has the title in view, provides "
+"the image. As before, the Alpha Over node mixes (using the alpha values) the "
+"background swirl and the alpha title to produce the composite image."
+msgstr ""
+"Dans l'exemple ci-dessus, une courbe de temps offre une valeur Alpha à la "
+"prise d'entrée. Le node *ender Layer* courant, qui a lke titre en vue, "
+"fournit l'image. Comme avant, le node *Alpha Over* mélange (en utilisant les "
+"valeurs alpha) le tourbillon  d'arrière-plan et le titre alpha pour produire "
+"l'image composite."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:105
+msgid "Colorizing a BW Image"
+msgstr "Colorisation d'une image en noir et blanc"
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:109
+msgid "Using Set Alpha to colorize an image."
+msgstr "Utilisation de Set Alpha pour coloriser une image."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:111
+msgid ""
+"In the example above, notice how the blue tinge of the render input colors "
+"the swirl. You can use the Set Alpha node's color button with this kind of "
+"node map to add a consistent color to a BW image."
+msgstr ""
+"Dans l'exemple ci-dessus, notez comment la teinte bleue de l'entrée de rendu "
+"colore le tourbillon. Vous pouvez utiliser le bouton de couleur du node *Set "
+"Alpha* avec cette sorte de *node map* pour ajouter une couleur cohérente à "
+"une image en noir et blanc."
+
+#: ../../manual/compositing/types/converter/set_alpha.rst:114
+msgid ""
+"In the example map to the right, use the *Alpha* value of the Set Alpha node "
+"to give a desired degree of colorization. Thread the input image and the Set "
+"Alpha node into an Alpha Over node to colorize any black-and-white image in "
+"this manner."
+msgstr ""
+"Dans le map exemple à droite, utilisez la valeur *Alpha* du node *Set Alpha* "
+"pour donner un degré de colorisation souhaité. Branchez l'image d'entrée et "
+"le node *Set Alpha* à un node *Alpha Over* pour coloriser une image en noir "
+"et blanc de cette manière."
+
+#~ msgid ""
+#~ "In the above example, a Time curve provides the Alpha value to the input "
+#~ "socket. The current Render Layer node, which has the title in view, "
+#~ "provides the image. As before, the trusty Alpha Over node mixes (using "
+#~ "the alpha values) the background swirl and the alpha title to produce the "
+#~ "composite image. Notice the *Convert Premultiplied* -- checkbox is "
+#~ "**not** enabled; this produces a composite where the title lets the "
+#~ "background image show through where even the background image is "
+#~ "transparent, allowing you to layer images on top of one another."
+#~ msgstr ""
+#~ "Dans l'exemple ci-dessus, une courbe Time fournit la valeur Alpha à la "
+#~ "prise d'entrée. Le node Render Layer actuel, qui a le titre en vue, "
+#~ "fournit l'image. Comme avant, le node Alpha Over fidèle mélange (en "
+#~ "utilisant les valeurs alpha) le tourbillon d'arrière-plan et le titre "
+#~ "alpha p our p roduire l'image composite. Notez que la *Convert "
+#~ "Premultiplied* -- case à cocher n'est **pas** activée ; ceci produit un "
+#~ "composite où le titre laisse l'image d'arrière-plan montre même l'image "
+#~ "d'arrière-plan est transparent, vous permettant de disposer les images "
+#~ "les unes sur les autres. "
+
+#~ msgid ""
+#~ "In the above example, a Time curve provides the Alpha value to the input "
+#~ "socket. The current Render Layer node, which has the title in view, "
+#~ "provides the image. As before, the Alpha Over node mixes (using the alpha "
+#~ "values) the background swirl and the alpha title to produce the composite "
+#~ "image. Notice the *Convert Premultiplied* -- checkbox is **not** enabled; "
+#~ "this produces a composite where the title lets the background image show "
+#~ "through where even the background image is transparent, allowing you to "
+#~ "layer images on top of one another."
+#~ msgstr ""
+#~ "Dans l'exemple ci-dessus, une courbe Temps fournit la valeur Alpha prise "
+#~ "d'entrée. le node *Render Layer* courant, qui a le titre en vue, offre "
+#~ "l'image. Comme avant, le node *Alpha Over* mélange (utilisant les valeurs "
+#~ "alpha) le tourbillon d'arrière-plan et le titre alpha pour produire "
+#~ "l'image composite. Notez que la case à cocher *Convert Premultiplied* -- "
+#~ "n'est **pas** activé ; ceci produit un composite où le titre laisse "
+#~ "l'image d'arrière-plan affiche où même l'image d'arrière-plan est "
+#~ "transparent, vous permettant pour images au dessus d'un autre."

@@ -1,0 +1,447 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Структуратор -- Outliner &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/outliner.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Уподобання Користувача -- User Preferences" href="../preferences/index.html" />
+    <link rel="prev" title="Редактор Властивостей -- Properties Editor" href="properties_editor.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#settings">Устави -- Settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="properties_editor.html">Редактор Властивостей -- Properties Editor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Структуратор -- Outliner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tree-view">Ієрархічний огляд у вигляді дерева -- Tree View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header">Заголовок -- Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Приклад</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="info/index.html">Редактор Інфо -- Info Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактори -- Editors</a> &raquo;</li>
+        
+      <li>Структуратор -- Outliner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/editors/outliner.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="outliner">
+<span id="bpy-ops-outliner"></span><span id="bpy-types-spaceoutliner"></span><h1>Структуратор -- Outliner<a class="headerlink" href="#outliner" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../_images/editors_outliner_interface.png" src="../_images/editors_outliner_interface.png" />
+<p class="caption"><span class="caption-text">Редактору структури даних Структуратор -- Outliner.</span></p>
+</div>
+<p>Редактору структури даних Структуратор -- <em>Outliner</em> -- це список організування даних у blend-файлі. тобто даних сцени, а також Уподобань Користувача -- User Preferences.</p>
+<p class="rubric">Використання</p>
+<ul class="simple">
+<li>Огляд даних у сцені.</li>
+<li>Виділення та зневиділення об'єктів у сцені.</li>
+<li>Ховання і показ об'єкта у сцені.</li>
+<li>Вмикання або вимикання можливості виділення (зроблення об'єкта «невиділюваним» у 3D Огляді -- 3D View).</li>
+<li>Вмикання або вимикання можливості зображування, рендерингу об'єкта.</li>
+<li>Видалення об'єктів зі сцени.</li>
+<li>Відв'язування даних (еквівалент натискання кнопки <em>X</em> поруч з іменем блоку даних).</li>
+<li>Легкий вибір, який шар зображу -- render layer рендерити, зображувати.</li>
+<li>Легкий вибір, який прохід зображу -- render pass рендерити, зображувати (наприклад, ви можете обрати для рендерингу, зображування тільки прохід з бліками -- <em>Specular</em>).</li>
+</ul>
+<div class="section" id="tree-view">
+<h2>Ієрархічний огляд у вигляді дерева -- Tree View<a class="headerlink" href="#tree-view" title="Permalink to this headline">¶</a></h2>
+<p>Each row in the <em>Outliner</em> shows a data-block. You can click the plus sign to
+the left of a name to expand the current data-block and see what other data-blocks it contains.</p>
+<p>Ви можете виділяти блоки даних у Структураторі -- <em>Outliner</em>, але це обов'язково дасть виділення цього блоку даних у сцені. Для виділення блоку даних у сцені ви повинні активувати його.</p>
+<div class="section" id="selecting-and-activating">
+<h3>Виділення та активування<a class="headerlink" href="#selecting-and-activating" title="Permalink to this headline">¶</a></h3>
+<p>Одиничне виділення не вимагає будь-якого попереднього виділення: просто працює прямо з <kbd class="kbd docutils literal notranslate">LMB</kbd> (та/або <kbd class="kbd docutils literal notranslate">RMB</kbd> -- контекстне меню, дивіться нижче) <em>всередині</em> області ім'я/значок.</p>
+<p>Коли ви виділяєте об'єкт у списку таким чином, то він виділяється та стає активним об'єктом в усіх інших 3D Оглядах.</p>
+<div class="section" id="activating-a-data-block">
+<h4>Activating a Data-block<a class="headerlink" href="#activating-a-data-block" title="Permalink to this headline">¶</a></h4>
+<p>Для «активування» блоку даних клацайте <kbd class="kbd docutils literal notranslate">LMB</kbd> на <em>іконці</em> блоку даних. Активування блоку даних автоматично перемкне у відповідний для нього режим. Наприклад, активування даних сіті куба виділіть цей куб та перемкне у Режим Правки -- <em>Edit Mode</em>, тоді як активування даних об'єкта для куба виділить цей куб та перемкне у Режим Об'єкта -- <em>Object Mode</em> (дивіться справа).</p>
+</div>
+<div class="section" id="selecting-a-group-of-data-blocks">
+<h4>Selecting a Group of Data-blocks<a class="headerlink" href="#selecting-a-group-of-data-blocks" title="Permalink to this headline">¶</a></h4>
+<p>Корисно, коли ви хочете виділити/зневиділити цілий набір блоків даних. Для цього ви повинні підготувати таке виділення:</p>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">RMB</kbd> або <kbd class="kbd docutils literal notranslate">LMB</kbd>,</li>
+<li><kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> чи <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd>,</li>
+<li><kbd class="kbd docutils literal notranslate">RMB</kbd> та перетяг або <kbd class="kbd docutils literal notranslate">LMB</kbd> та перетяг,</li>
+</ul>
+<p>all <em>outside</em> the name/icon area. Those pre-selected have their line in a lighter color.
+You then can (de)select them with an <kbd class="kbd docutils literal notranslate">RMB</kbd>-click <em>on</em> the name/icon area,
+which brings on a context menu (see below). <kbd class="kbd docutils literal notranslate">A</kbd> to select/deselect all open items.</p>
+<div class="figure" id="id2">
+<img alt="../_images/editors_outliner_column-icons.png" src="../_images/editors_outliner_column-icons.png" />
+<p class="caption"><span class="caption-text">Виділення групи блоків даних.</span></p>
+</div>
+</div>
+<div class="section" id="context-menu">
+<h4>Контекстне меню -- Context Menu<a class="headerlink" href="#context-menu" title="Permalink to this headline">¶</a></h4>
+<p>Показує контекстне меню для блоку даних після клацку <kbd class="kbd docutils literal notranslate">RMB</kbd> на іконці або імені. Залежно від типу перед-виділених блоку(ів) даних вам будуть доступні усі або частина наступних опцій:</p>
+<dl class="docutils">
+<dt>Виділення -- Select, Зневиділення -- Deselect</dt>
+<dd>Ця функція ще не імплементована.</dd>
+<dt>Відв'язання -- Unlink</dt>
+<dd>To unlink a data-block from its &quot;owner&quot; (e.g. a material from its mesh).</dd>
+<dt>Зробити Локальним -- Make Local</dt>
+<dd>Створює «локальний» дублікат цього блоку даних.</dd>
+<dt>Зробити Однокористувацьким -- Make Single User</dt>
+<dd>Ця функція ще не імплементована.</dd>
+<dt>Видалення -- Delete</dt>
+<dd>Видаляє виділений блок даних.</dd>
+<dt>Видалити Ієрархію -- Delete Hierarchy</dt>
+<dd>Видаляє об'єкт та усі його нащадкові об'єкти.</dd>
+<dt>Перерозкласти Користувачів -- Remap Users</dt>
+<dd>Remap Users of a data-block to another one (of same type of course) -- means you can e.g.
+replace all usages of a material or texture by another one.</dd>
+<dt>Додати Псевдо-Користувач -- Add Fake User, Зчистити Псевдо-Користувач -- Clear Fake User</dt>
+<dd>Додає «фіктивного» (псевдо) користувача, так що виділений блок даних завжди буде зберігатися, навіть якщо він немає жодних користувачів. Такий псевдо-користувач може бути вилучений за допомогою «Зчистити Псевдо-Користувач» -- <em>Clear Fake User</em>.</dd>
+<dt>Rename <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></dt>
+<dd>Renames the selected data-block.</dd>
+<dt>Виділити Пов’язане -- Select Linked</dt>
+<dd>Виділяє пов'язані дані, про які детальніше дивіться тут -- <a class="reference internal" href="3dview/object/selecting/tools.html#bpy-ops-object-select-linked"><span class="std std-ref">Виділити Пов’язане -- Select Linked</span></a>.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Деякі типи блоків даних не мають для них контекстного меню взагалі!</p>
+</div>
+</div>
+</div>
+<div class="section" id="object-level-restrictions">
+<h3>Обмеження рівня «Об'єкт» -- Object-level Restrictions<a class="headerlink" href="#object-level-restrictions" title="Permalink to this headline">¶</a></h3>
+<p>Три наступні перемикачі, у правій частині редактора Структуратор -- <em>Outliner</em>, доступні для об'єктів, модифікаторів та примусів. При утримування натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd> ці перемикачі також впливають на усіх їх нащадкові об'єкти.</p>
+<dl class="docutils">
+<dt>Видимість -- Visibility (іконка з оком)</dt>
+<dd>Перемикає видимість об'єкта у 3D Огляді -- 3D View. <kbd class="kbd docutils literal notranslate">V</kbd> буде перемикати цю властивість для будь-яких об'єктів, що виділені у Структураторі -- <em>Outliner</em>.</dd>
+<dt>Виділюваність (іконка з вказівником миші)</dt>
+<dd>Це корисно у випадках, якщо ви помістили щось у сцені та не хочете випадково виділити його при роботі з чимось ще. <kbd class="kbd docutils literal notranslate">S</kbd> буде перемикати цю властивість для будь-яких об'єктів, що виділені у Структураторі -- <em>Outliner</em>.</dd>
+<dt>Зображування, рендеринг -- Rendering (іконка з камерою)</dt>
+<dd>Це все ще зберігає об'єкт видимим у сцені, але при вимкненні дає ігнорування його рендерером, рушієм зображу -- renderer. <kbd class="kbd docutils literal notranslate">R</kbd> буде перемикати цю властивість для будь-яких об'єктів, що виділені у Структураторі -- <em>Outliner</em>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Заголовок -- Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="view-menu">
+<h3>Меню «Огляд» -- View Menu<a class="headerlink" href="#view-menu" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Сортувати Алфавітно -- Sort Alphabetically</dt>
+<dd>Сортує записи за алфавітом.</dd>
+<dt>Показати Стовпці Обмежень -- Show Restriction Columns</dt>
+<dd>Перемикає показ трьох стовпців обмежень рівня «Об'єкт» -- <a class="reference internal" href="#object-level-restrictions">Обмеження рівня «Об'єкт» -- Object-level Restrictions</a>.</dd>
+<dt>Показати Активне -- Show Active</dt>
+<dd>Центрує огляд дерева на виділеному об'єкті, скорочення <kbd class="kbd docutils literal notranslate">Period</kbd>.</dd>
+<dt>Показати/Сховати Один Рівень -- Show/Hide One Level</dt>
+<dd>Розгортає дерево на один рівень вниз, скорочення <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd>, або згортає його, скорочення <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd>.</dd>
+<dt>Показати Ієрархію -- Show Hierarchy</dt>
+<dd>Згортає усі рівні дерева, скорочення <kbd class="kbd docutils literal notranslate">Home</kbd>.</dd>
+</dl>
+</div>
+<div class="section" id="display-mode">
+<h3>Режим Показу -- Display Mode<a class="headerlink" href="#display-mode" title="Permalink to this headline">¶</a></h3>
+<p>Це меню вибірника у заголовку дозволяє вам фільтрувати те, що Структуратор -- Outliner повинен показувати. Цей вибірник допомагає звужувати список об'єктів, щоб ви могли знаходити швидко і легко потрібні елементи.</p>
+<dl class="docutils">
+<dt>Усі Сцени -- All Scenes</dt>
+<dd>Shows <em>everything</em> the <em>Outliner</em> can display (in all scenes, all layers, etc.).</dd>
+<dt>Поточна Сцена -- Current Scene</dt>
+<dd>Показує усе, але лише у поточній сцені.</dd>
+<dt>Видимі Шари -- Visible Layers</dt>
+<dd>Показує все лише на видимих (поточно увімкнених) шарах у поточній сцені. Використовуйте кнопки шарів -- <a class="reference internal" href="3dview/object/properties/relations/layers.html"><span class="doc">layer</span></a> для зроблення видимими об'єктів на шарах у 3D Огляді -- 3D View.</dd>
+<dt>Виділене -- Selected</dt>
+<dd>Показує об'єкт або перелік об'єктів, що поточно виділені у 3D Огляді -- 3D View. Детальніше дивіться тут -- <a class="reference internal" href="3dview/object/selecting/index.html"><span class="doc">selecting in the 3D View</span></a>.</dd>
+<dt>Активне -- Active</dt>
+<dd>Показує тільки активний (останньо виділений) об'єкт.</dd>
+<dt>Однакові Типи -- Same Types</dt>
+<dd>Показує список тільки тих об'єктів у поточній сцені, що є однакового типу з виділеними у 3D Огляді.</dd>
+<dt>Групи -- Groups</dt>
+<dd>Показує тільки групи об'єктів -- <a class="reference internal" href="3dview/object/properties/relations/groups.html"><span class="doc">Groups</span></a> та їх членів.</dd>
+<dt>Відеоряд -- Sequence</dt>
+<dd>Показує список блоків даних -- <a class="reference internal" href="../data_system/data_blocks.html"><span class="doc">data-block</span></a>, що використовуються Відеорядником -- <a class="reference internal" href="vse/index.html"><span class="doc">Sequencer</span></a>.</dd>
+<dt>Файл Blender'а -- Blender File</dt>
+<dd>Показує усі дані у поточному blend-файлі.</dd>
+<dt>Блоки Даних -- Data-Blocks</dt>
+<dd>Показує кожен блок даних -- <a class="reference internal" href="../data_system/data_blocks.html"><span class="doc">data-block</span></a> разом з будь-якими властивостями, що він можливо має.</dd>
+<dt>Уподобання Користувача -- User Preferences</dt>
+<dd>Показує опції, що можуть бути знайдені у вікні Уподобання Користувача -- <a class="reference internal" href="../preferences/index.html"><span class="doc">User Preferences</span></a>, разом з деякими іншими уставами.</dd>
+<dt>Одинокі Дані -- Orphan Data</dt>
+<dd>Показує блоки даних -- <a class="reference internal" href="../data_system/data_blocks.html"><span class="doc">data-blocks</span></a>, які не використовуються та/або будуть втрачені, коли файл буде перевідкрито.</dd>
+</dl>
+</div>
+<div class="section" id="searching">
+<h3>Пошук -- Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h3>
+<p>Ви можете шукати для огляду блоки даних за допомогою текстового поля Пошуку у заголовку Структуратора -- <em>Outliner</em>. Меню «Пошук» -- <em>Search</em> дозволяє вам перемикати для шукання наступні опції:</p>
+<ul class="simple">
+<li>Лише з Урахуванням Регістру -- Case Sensitive Matches Only</li>
+<li>Лише Повні Збіги -- Complete Matches Only</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../_images/editors_outliner_example.png" src="../_images/editors_outliner_example.png" />
+<p class="caption"><span class="caption-text">Структуратор -- Outliner з різними видами даних.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../preferences/index.html" class="btn btn-neutral float-right" title="Уподобання Користувача -- User Preferences" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="properties_editor.html" class="btn btn-neutral" title="Редактор Властивостей -- Properties Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Устави Зображування, рендерингу -- Render Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/settings/render.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Устави Об&#39;єкта -- Object Settings" href="object.html" />
+    <link rel="prev" title="Устави Гри -- Game Settings" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Устави Гри -- Game Settings</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Устави Зображування, рендерингу -- Render Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#embedded-player">Вбудований Відтворювач -- Embedded Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standalone-player">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stereo">Стерео -- Stereo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shading">Відтінення -- Shading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system">Система -- System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display">Показ -- Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bake">Запікання -- Bake</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="object.html">Устави Об'єкта -- Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Устави Гри -- Game Settings</a> &raquo;</li>
+        
+      <li>Устави Зображування, рендерингу -- Render Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/settings/render.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="render-settings">
+<h1>Устави Зображування, рендерингу -- Render Settings<a class="headerlink" href="#render-settings" title="Permalink to this headline">¶</a></h1>
+<p>Камера (чи камери), використовувані у рушії Blender Game, широко впливають на спосіб, яким гра рендериться та показується. Здебільшого це керуються за допомогою панелей вкладки даних об'єкта редактора Properties для камер(и), що використовуються у грі.</p>
+<p>Є два окремих «відтворювачів, програвачів» гри для її передогляду у ході розроблення. Вбудований Відтворювач -- Embedded Player рендерить 3D сцену в інтерфейсі користувача Blender'а, використовуючи поточні перспективу та рівень зумування 3D передогляду. Окремий Відтворювач -- Standalone Player рендерить сцену з перспективи активної камери сцени або створює нове вікно стільниці чи перемикає у повноекранний режим рендерингу. Зауважте, що при виконанні рушія Game Engine в обох відтворювачах, миша та клавіатура комп'ютера захоплюються грою та стандартно курсор миші не видимий. Для виходу з гри натискайте клавішу <kbd class="kbd docutils literal notranslate">Esc</kbd>.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Рушій Рендера -- Render Engine</p>
+<p class="last">Переконайтеся, що рушій рендерингу установлено як Blender Game, для задання цих контролерів, інакше цей опис не буде відповідати тому, що ви бачите!</p>
+</div>
+<p>У редакторі Properties доступні сім панелей щодо рендерингу. Кожна з них розгортається та згортається трикутною кнопкою зліва. Функції кожної панелі описуються нижче.</p>
+<div class="section" id="embedded-player">
+<h2>Вбудований Відтворювач -- Embedded Player<a class="headerlink" href="#embedded-player" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-embedded.png"><img alt="../../_images/game-engine_settings_render_camera-properties-embedded.png" src="../../_images/game-engine_settings_render_camera-properties-embedded.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Embedded Player panel.</span></p>
+</div>
+<p>Ця панель надає інформацію для Вбудованого Відтворювача гри, який дозволяє виконувати ігри всередині Blender'а.</p>
+<p>Зауважте, що устави секції <em>Resolution</em> не залежать від розміру оглядвікна. Фактично, контролери <em>Resolution</em>, здається, ніби не мають взагалі ефекту. Ці роздільність та пропорція вбудованого передогляду завжди фіксуються для 3D передогляду, який поводиться, як режим кадрування <em>Extend</em> для окремого відтворювача, як описано нижче. Вибір у секції <em>Framing</em> на панелі <em>Display</em> немає жодного впливу на вбудований передогляд.</p>
+<dl class="docutils">
+<dt>Старт -- Start</dt>
+<dd>Запускає рушій Game Engine всередині оглядвікна передогляду Blender'а. Скорочення -- <kbd class="kbd docutils literal notranslate">P</kbd>.</dd>
+<dt>Роздільність -- Resolution X/Y</dt>
+<dd>Задає внутрішню роздільність X/Y для рендерингу.</dd>
+</dl>
+</div>
+<div class="section" id="standalone-player">
+<h2>Окремий Відтворювач -- Standalone Player<a class="headerlink" href="#standalone-player" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-standalone.png"><img alt="../../_images/game-engine_settings_render_camera-properties-standalone.png" src="../../_images/game-engine_settings_render_camera-properties-standalone.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Standalone Player panel.</span></p>
+</div>
+<p>Ця панель надає інформацію для Окремого Відтворювача гри, який дозволяє виконувати ігри без Blender'а. Дивіться детальніше тут -- <a class="reference internal" href="../blender_player.html"><span class="doc">Standalone Player</span></a>.</p>
+<p>Семантика керувальників <em>Resolution</em> для Standalone Player відрізняється для Віконного -- Windowed та Повноекранного -- Fullscreen режимів. У Віконному режимі (стяг <em>Fullscreen</em> вимкнено), керувальники <em>Resolution</em> задають початкові розмірності вікна стільниці. Користувач може перерозмірити вікно у будь-який час, що призводить до відповідної зміни роздільності рендерингу. У Повноекранному режимі (стяг <em>Fullscreen</em> увімкнено), керувальники задають внутрішню роздільність рендерингу. Фактична роздільність показу буде краще вписуватися залежно від устаткування користувача. В обох режимах ці пропорція/обрізання/масштабування визначаються вибором у секції <em>Framing</em> панелі <em>Display</em>.</p>
+<p>Щодо режиму <em>Fullscreen</em>, то важливо пам'ятати, що устави <em>Resolution</em> у режимі <em>Fullscreen</em> є лише натяками для операційної системи. Кожна комбінація показу та монітора буде мати різний набір роздільностей, який вони здатні показувати; тому може бути мало впевненості, що усі кінцеві користувачі будуть фактично мати пропоновану вами роздільність; допоки ви не виберете одну з найбільш стандартних роздільностей (наприклад, 800x600 або 1024x768). Якщо ви наполягаєте на використанні вищих роздільностей, то ви можете чітко вказати у своїй документації, що підтримуються тільки певні роздільності. У більшості інших випадків машина користувача може обрати роздільність, яка близька до запропонованої; але результати можуть бути непередбачувані, особливо у режимі <em>Letterbox</em>.</p>
+<p>Зауважте, що стяг <em>Desktop</em> немає жодного ефекту у Віконному режимі.</p>
+<dl class="docutils">
+<dt>Старт -- Start</dt>
+<dd>Launches the current blend-file with the Standalone Player.</dd>
+<dt>Роздільність -- Resolution</dt>
+<dd><dl class="first last docutils">
+<dt>X</dt>
+<dd>Задає розмір вікна або роздільність повноекранного показу по X.</dd>
+<dt>Y</dt>
+<dd>Задає розмір вікна або роздільність повноекранного показу по Y.</dd>
+</dl>
+</dd>
+<dt>Повноекранно -- Fullscreen</dt>
+<dd><dl class="first last docutils">
+<dt>Вимк -- Off</dt>
+<dd>Відкриває окрему гру як нове вікно.</dd>
+<dt>Увім -- On</dt>
+<dd>Відкриває окрему гру на повний екран.</dd>
+</dl>
+</dd>
+<dt>Стільниця -- Desktop</dt>
+<dd><dl class="first last docutils">
+<dt>Вимк -- Off</dt>
+<dd>Пробує дотримуватися значень <em>Resolution</em>, визначених вище, у режимі <em>Fullscreen</em>.</dd>
+<dt>Увім -- On</dt>
+<dd>Зберігає поточну роздільність стільниці у режимі <em>Fullscreen</em>.</dd>
+</dl>
+</dd>
+<dt>Якість -- Quality</dt>
+<dd><dl class="first last docutils">
+<dt>Вибірки Загладжування -- AA Samples</dt>
+<dd>Кількість вибірок загладжування -- anti-aliasing samples для використання для MSAA (multisample anti-aliasing -- багатовибірного загладжування).</dd>
+<dt>Бітова Глибина -- Bit Depth</dt>
+<dd>Кількість бітів, використовуваних для представлення кольору кожного пікселя у повноекранному показі.</dd>
+<dt>Частота Освіження -- Refresh Rate</dt>
+<dd>Кількість кадрів за секунду повноекранного показу.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="stereo">
+<h2>Стерео -- Stereo<a class="headerlink" href="#stereo" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-stereo.png"><img alt="../../_images/game-engine_settings_render_camera-properties-stereo.png" src="../../_images/game-engine_settings_render_camera-properties-stereo.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Stereo panel.</span></p>
+</div>
+<p>Дає на вибір режим стерео, що буде використовуватися для захвату стерео зображень гри (і також, побічно, які стерео покази будуть використовувати для рендерингу зображень в окремому відтворювачі).</p>
+<dl class="docutils">
+<dt>Нема -- None</dt>
+<dd>Рендерить одиничні зображення без стерео.</dd>
+<dt>Стерео -- Stereo</dt>
+<dd>Рендерить подвійні зображення для стерео перегляду з використанням відповідного обладнання. Дивіться детальніше про доступні опції тут -- <a class="reference internal" href="../camera/stereo.html"><span class="doc">Stereo Camera</span></a>.</dd>
+<dt>Купол -- Dome</dt>
+<dd>Забезпечує можливості для затягувального купольного середовища, в якому переглядається гра. Дивіться детальніше про доступні опції тут -- <a class="reference internal" href="../camera/dome.html"><span class="doc">Dome Camera</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="shading">
+<h2>Відтінення -- Shading<a class="headerlink" href="#shading" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-shading.png"><img alt="../../_images/game-engine_settings_render_camera-properties-shading.png" src="../../_images/game-engine_settings_render_camera-properties-shading.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Shading panel.</span></p>
+</div>
+<p>Визначає режим відтінення, що буде використано у рендерингу гри. Можливості відтінення у Blender, що використовуються для матеріалів -- <a class="reference internal" href="../../render/blender_render/materials/index.html"><span class="doc">Materials</span></a> та текстур -- <a class="reference internal" href="../../render/blender_render/textures/index.html"><span class="doc">Textures</span></a>, по суті є однаковими й для рушія Blender Game Engine. Однак, обмеження реально-часового показу означають, що тільки деякі з цих можливостей доступні.</p>
+<dl class="docutils">
+<dt>Багатотекстурно -- Multitexture</dt>
+<dd>Use Multi-texture shading.</dd>
+<dt>GLSL</dt>
+<dd>Використовує відтінення згідно GLSL (скорочено від OpenGL Shading Language), коли це можливо для реально-часового рендерингу зображення.</dd>
+</dl>
+</div>
+<div class="section" id="system">
+<span id="game-engine-settings-render-system"></span><h2>Система -- System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>Панель <em>System</em> у вкладці Render редактора Properties Editor дозволяє розробнику ігор визначати опції щодо продуктивності системи, що стосуються відкидання кадрів та обмежень стосовно рендерингу кадру, клавішу для зупинки рушія Blender Game Engine та як зберігати геометрію у внутрішній пам'яті відеокарти.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_system.png"><img alt="../../_images/game-engine_settings_render_system.png" src="../../_images/game-engine_settings_render_system.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Панель System у вкладці Render.</span></p>
+</div>
+<dl class="docutils">
+<dt>Вжити Частоту Кадрів -- Use Frame Rate</dt>
+<dd>Враховує частоту кадрів, а не рендерить якомога більше кадрів. При вимкненні, це буде інформувати Blender про вільне виконання без обмежень частоти кадрів. Ця частота кадрів визначається на панелі <em>Display</em> у вкладці <em>Render</em> редактора Properties Editor. Детальніше про частоту кадрів дивіться тут -- <a class="reference internal" href="#game-engine-settings-render-display"><span class="std std-ref">Display panel</span></a>.</dd>
+<dt>Списки Показу -- Display Lists</dt>
+<dd>Використовує списки показу для пришвидшення рендерингу шляхом зберігання геометрії на GPU. При увімкненні, це буде повідомляти Blender утримувати списки геометрії сітей, розміщені у пам'яті GPU. Це може допомогти пришвидшити рендеринг оглядвікна у ході гри, якщо ви маєте достатньо пам'яті GPU, для розміщення в ній геометрії та текстур.</dd>
+<dt>Обмежити Оновлення Анімації -- Restrict Animation Updates</dt>
+<dd>Обмежує кількість оновлень анімації до частоти кадрів FPS для цієї анімації (це краще для продуктивності, але може спричиняти проблеми для плавного відтворення). При увімкненні, це буде примушувати рушій Game Engine відкидати кадри (навіть у середині перерисування,інколи спричиняючи <em>рвані</em> артефакти), якщо частота кадрів рендерингу на GPU є більшою, ніж визначена на панелі -- <a class="reference internal" href="#game-engine-settings-render-display"><span class="std std-ref">Display panel</span></a>.</dd>
+<dt>Вжити Кешування Матеріалів -- Use Material Caching</dt>
+<dd>Кешує матеріали у конвертері. Це швидше, але може спричиняти проблеми зі старішими одно-текстурними або багато-текстурними іграми.</dd>
+<dt>Вертикальна синхронізація -- Vsync</dt>
+<dd>Змінює устави Вертикальної синхронізації -- Vsync (скорочено від vertical synchronization).</dd>
+<dt>Сховище -- Storage</dt>
+<dd>Задає вузол сховища, використовуваний растеризатором.</dd>
+<dt>Клавіша Виходу -- Exit Key</dt>
+<dd>Ця кнопка визначає, натиснення якої клавіші буде давати вихід з гри.</dd>
+</dl>
+</div>
+<div class="section" id="display">
+<span id="game-engine-settings-render-display"></span><h2>Показ -- Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<p>Панель <em>Display</em> у вкладці <em>Render</em> редактора <em>Properties</em> дозволяє розробнику ігор визначати максимальну частоту кадрів анімацій, показуваних у ході виконання гри, показувати такі відомості як частота кадрів і профіль, властивості налагодження, візуалізацію геометрії фізики, попередження, визначати чи показувати курсор миші у ході виконання гри, а також задавати опції для визначення стилю кадрування гри для підгонки вікна з визначеною роздільністю.</p>
+<div class="figure" id="id6">
+<img alt="../../_images/game-engine_settings_render_display.png" src="../../_images/game-engine_settings_render_display.png" />
+<p class="caption"><span class="caption-text">Панель Display у вкладці Render.</span></p>
+</div>
+<dl class="docutils">
+<dt>Частота Кадрів Анімації -- Animation Frame Rate</dt>
+<dd>Ця числова кнопка/повзунок визначає максимальну частоту кадрів, з якою гра буде виконуватися. Мінімум -- 1, максимум -- 120.</dd>
+<dt>Властивості Налагодження -- Debug Properties</dt>
+<dd>При увімкненні, значення будь-яких властивостей, які обрані для налагодження на панелі <em>Game Properties</em>, будуть показуватися з вмістом <em>Framerate and Profile</em>.</dd>
+<dt>Частота кадрів і Профіль -- Framerate and Profile</dt>
+<dd>При увімкненні, це буде показувати значення кожного з розрахунків, що Blender робить при виконанні гри, плюс властивості, позначені для налагодження, якщо опція <em>Debug Properties</em> також увімкнена.</dd>
+<dt>Візуалізація Фізики -- Physics Visualization</dt>
+<dd>Показує візуалізацію меж та взаємодій фізики (як корпуси та форми зіткнення) та їх взаємодію.</dd>
+<dt>Попередження про Небажаність -- Deprecation Warnings</dt>
+<dd>Кожен раз, коли розробник гри використовує небажану функціональність (яка у деяких випадках застаріла або з непридатними функціями OpenGL відеокарт), то система буде видавати попередження про таку небажану функцію.</dd>
+<dt>Курсор Миші -- Mouse Cursor</dt>
+<dd>Показувати чи ховати курсор миші при виконанні гри.</dd>
+<dt>Кадрування -- Framing</dt>
+<dd><p class="first">Вибирає, як сцена буде вписувати у вікно показу або екран. Доступні три типи кадрування:</p>
+<dl class="last docutils">
+<dt>Леттербокс -- Letterbox</dt>
+<dd><dl class="first last docutils">
+<dt>У Віконному режимі:</dt>
+<dd>Утримує пропорцію 4:3, масштабуючи для вписування розмірності поточного вікна без обрізання, перекриваючи будь-які частини показу, що лежать поза цією пропорцією кольоровими смугами.</dd>
+<dt>У Повноекранному режимі:</dt>
+<dd>Поведінка цієї комбінації багато у чому залежить від устаткування користувача. Результат може бути досить непередбачуваним, особливо, коли роздільність та пропорція надто сильно відрізняються від можливостей машини. З цієї причини режим <em>Extend</em> повинен бути пріоритетним для повноекранних <em>Fullscreen</em> застосунків.</dd>
+</dl>
+</dd>
+<dt>Розшир -- Extend</dt>
+<dd>Цей режим веде себе майже як режим <em>Letterbox</em>, підтримуючи пропорцію 4:3, масштабуючи скрізь, де можливо, за винятком того, що піраміда камери розширюється або звужується кожен раз, коли необхідно заповнити будь-які частини показу, що лежать поза цією пропорцією, замість перекривання цих частини сцени кольоровими смугами, як при режимі <em>Letterbox</em>, або замість спотворення сцени, як при режимі <em>Scale</em>.</dd>
+<dt>Масштаб -- Scale</dt>
+<dd>У цьому режимі не робляться жодні спроби для підтримання певної пропорції. Сцена та об'єкти в ній будуть розтягуватися або стискатися для точного вписування у показ.</dd>
+</dl>
+</dd>
+<dt>Смуга Кольору -- Color Bar</dt>
+<dd>Це дозволить розробнику гри вибрати колір для смуг при використанні режиму кадрування <em>Letterbox</em>.</dd>
+</dl>
+</div>
+<div class="section" id="bake">
+<h2>Запікання -- Bake<a class="headerlink" href="#bake" title="Permalink to this headline">¶</a></h2>
+<p>Панель <em>Bake</em> у вкладці <em>Render</em> редактора <em>Properties</em> дуже подібно до її аналога для рушія Blender Render та служить з тією ж метою. Дивіться детальніше тут -- <a class="reference internal" href="../../render/blender_render/bake.html"><span class="doc">Render Baking</span></a>.</p>
+<dl class="docutils">
+<dt>Запікання -- Bake</dt>
+<dd>Запікає текстури зображення виділених об'єктів.</dd>
+<dt>Режим Запікання -- Bake Mode</dt>
+<dd><p class="first">Інформація відтінення для запікання у зображення.</p>
+<dl class="last docutils">
+<dt>Повний Зображ -- Full Render</dt>
+<dd>Запікає усі матеріали, текстури та освітлення, за винятком бліковості (specularity) та підповерхневого розсіювання (SSS).</dd>
+<dt>Загорода Оточення -- Ambient Occlusion</dt>
+<dd>Запікає загороду оточення, як вона визначена на панелях вкладки «Світ» -- World. Ігнорує усі освітлювачі у сцені.</dd>
+<dt>Тіні -- Shadows</dt>
+<dd>Запікає тіні та освітлення.</dd>
+<dt>Нормалі -- Normals</dt>
+<dd>Запікає дотичні та з простору камери нормалі (серед багатьох інших) у зображення RGB.</dd>
+<dt>Текстури -- Textures</dt>
+<dd>Запікає тільки кольори матеріалів та текстур без відтінення.</dd>
+<dt>Зміщення -- Зміщення</dt>
+<dd>Подібно до запікання карт нормалей, карти зміщення можуть також бути запечені з високо роздільного об'єкта та розкладені на низько роздільний об'єкт, використовуючи опцію «Виділене на Активне» -- <em>Selected to Active</em>.</dd>
+<dt>Похідна -- Derivative</dt>
+<dd>Запікає карту похідних.</dd>
+<dt>Кольори Вершин -- Vertex Colors</dt>
+<dd>Запікає кольори вершин.</dd>
+<dt>Емісія -- Emission</dt>
+<dd>Запікає колір емітування -- Emit або сяяння -- Glow матеріалу.</dd>
+<dt>Альфа -- Alpha</dt>
+<dd>Запікає значення альфа або, іншими словами, прозорість матеріалу.</dd>
+<dt>Інтенсивність Дзеркалення -- Mirror Intensity</dt>
+<dd>Запікає значення інтенсивності дзеркалення.</dd>
+<dt>Кольори Дзеркалення -- Mirror Colors</dt>
+<dd>Запікає кольори дзеркалення.</dd>
+<dt>Інтенсивність Блікування -- Specular Intensity</dt>
+<dd>Запікає значення інтенсивності блікування.</dd>
+<dt>Кольори Блікування -- Specular Colors</dt>
+<dd>Запікає кольори блікування.</dd>
+</dl>
+</dd>
+<dt>Запекти з Багатороздільності -- Bake from Multiresolution</dt>
+<dd>Bake directly from a multi-resolution object.</dd>
+<dt>Нормалізовано -- Normalized</dt>
+<dd><dl class="first last docutils">
+<dt>У режимі Displacement:</dt>
+<dd>Нормалізує відстань.</dd>
+<dt>У режимі Ambient Occlusion:</dt>
+<dd>Вмикає нормалізацію, використовуючи устави матеріалу.</dd>
+</dl>
+</dd>
+<dt>Простір Нормалей -- Normal Space</dt>
+<dd><p class="first">Нормалі можуть бути запечені у різних просторах:</p>
+<dl class="last docutils">
+<dt>Простір Камери -- Camera space</dt>
+<dd>Стандартний метод.</dd>
+<dt>Простір Світу -- World space</dt>
+<dd>Нормалі у координатах світу, залежно від трансформацій та деформацій об'єкта.</dd>
+<dt>Простір Об'єкта -- Object space</dt>
+<dd>Нормалі у координатах об'єкта, незалежно від трансформацій об'єкта, але залежно від його деформацій.</dd>
+<dt>Простір, дотичний до об'єкта -- Tangent space</dt>
+<dd>Нормалі у координатах дотичного простору, незалежно від трансформацій та деформацій об'єкта. Це є новий стандарт, та є правильним вибором у більшості випадків, оскільки далі така карта нормалей може використовуватися також для анімованих об'єктів.</dd>
+</dl>
+</dd>
+<dt>Запекти у Кольори Вершин -- Bake to Vertex Color</dt>
+<dd>Запікає у кольори вершин замість в UV-розкладене зображення.</dd>
+<dt>Зчищення -- Clear</dt>
+<dd>Якщо увімкнено, то зчищає зображення в обраний фоновий колір (стандартним є чорний) перед запіканням зобража.</dd>
+<dt>Припуск -- Margin</dt>
+<dd>Запечений результат розширюється на цю кількість пікселів поза границею кожного «острова» UV для пом'якшення швів у текстурі.</dd>
+<dt>Виділене на Активне -- Select to Active</dt>
+<dd><p class="first">Запікає відтінення поверхні виділених об'єктів на активний об'єкт.</p>
+<dl class="last docutils">
+<dt>Відстань -- Distance</dt>
+<dd>Максимальна відстань в одиницях Blender'а від активного об'єкта до іншого об'єкта.</dd>
+<dt>Відхил -- Bias</dt>
+<dd>Відхил в одиницях Blender'а у напрямку граней, що далі від цього об'єкта.</dd>
+</dl>
+</dd>
+<dt>Розділення -- Split</dt>
+<dd><p class="first">Метод, використовуваний для розділення чотирибічників на два трикутники для запікання.</p>
+<dl class="last docutils">
+<dt>Фіксовано -- Fixed</dt>
+<dd>Розділяє чотирибічники передбачувано (0,1,2)(0,2,3).</dd>
+<dt>Фіксовано Альтернативно -- Fixed Alternate</dt>
+<dd>Розділяє чотирибічники передбачувано (1,2,3)(1,3,0).</dd>
+<dt>Автоматично -- Automatic</dt>
+<dd>Розділяє чотирибічники так, щоб у результаті запікання було найменше спотворення.</dd>
+</dl>
+</dd>
+<dt>Масштаб Користувача -- User Scale</dt>
+<dd>Застосовує користувацький масштаб для карта похідних замість нормалізування у стандарт (0.1).</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="object.html" class="btn btn-neutral float-right" title="Устави Об&#39;єкта -- Object Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Устави Гри -- Game Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

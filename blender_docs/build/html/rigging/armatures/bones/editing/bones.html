@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Редагування Кісток -- Editing Bones &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/editing/bones.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Іменування -- Naming" href="naming.html" />
+    <link rel="prev" title="Трансформації -- Transform" href="transform.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Редагування Кісток -- Editing Bones</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/editing/bones.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing-bones">
+<h1>Редагування Кісток -- Editing Bones<a class="headerlink" href="#editing-bones" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="add-menu">
+<h2>Меню «Додання» -- Add<a class="headerlink" href="#add-menu" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Add</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-A</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>У 3D Огляді, натискання <kbd class="kbd docutils literal notranslate">Shift-A</kbd> дає змогу додати нову кістку у вашу арматуру.</p>
+<p>Ця кістка буде:</p>
+<ul class="simple">
+<li>Of one Blender Unit of length.</li>
+<li>Oriented towards the global Z axis.</li>
+<li>With its root placed at the 3D cursor position.</li>
+<li>With no relationship with any other bone of the armature.</li>
+</ul>
+</div>
+<div class="section" id="extrude">
+<h2>Видавлення -- Extrude<a class="headerlink" href="#extrude" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Extrude</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">E</kbd>, <kbd class="kbd docutils literal notranslate">Shift-E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>При натисканні вами <kbd class="kbd docutils literal notranslate">E</kbd>, з кожної виділеної верхівки (явно або неявно), створюється нова кістка. Ця кістка буде нащадком кістки, з «верхівки» якої вона видавлена, та буде з'єднана останньою. Як і звичайно, при здійсненні видавлення, верхівки ново видавлених кісток стають виділені та перемкнуті у режим захопу, а тому ви можете їх розміщати бажаним чином. Дивіться Ілюстрацію <a class="reference internal" href="#fig-rig-bones-extrusion"><span class="std std-ref">Приклад видавлення.</span></a>.</p>
+<span id="fig-rig-bones-extrusion"></span><table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Приклад видавлення.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Арматура з трьома виділеними верхівками.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_extrusion-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Три видавлені кістки.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You also can use the rotating/scaling extrusions,
+as with meshes, by pressing respectively <kbd class="kbd docutils literal notranslate">E R</kbd> and <kbd class="kbd docutils literal notranslate">E S</kbd> --
+as well as <a class="reference internal" href="../../../../editors/3dview/object/editing/transform/control/precision/axis_locking.html"><span class="doc">locked</span></a>
+extrusion along a global or local axis.</p>
+<span id="fig-rig-bone-mirror"></span><table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Приклад дзеркального видавлення.</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Виділена верхівка одиничної кістки.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mirror-extrusion-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Дві дзеркально видавлені кістки.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Bones have an extra &quot;mirror extruding&quot; tool, called by pressing <kbd class="kbd docutils literal notranslate">Shift-E</kbd>.
+By default, it behaves exactly like the standard extrusion.
+But once you have enabled the <em>X-Axis Mirror</em> editing option
+(see <a class="reference internal" href="#x-axis-mirror">X-Axis Mirror</a>),
+each extruded tip will produce <em>two new bones</em>, having the same name except for the &quot;_L&quot;/ &quot;_R&quot; suffix
+(for left/right, see the <a class="reference internal" href="naming.html#armature-editing-naming-conventions"><span class="std std-ref">next page</span></a>).
+The &quot;_L&quot; bone behaves like the single one produced by the default extrusion --
+you can grab/rotate/scale it exactly the same way.
+The &quot;_R&quot; bone is its mirror counterpart (along the armature's local X axis),
+see Fig. <a class="reference internal" href="#fig-rig-bone-mirror"><span class="std std-ref">Приклад дзеркального видавлення.</span></a>.</p>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">Скасування цієї дії видавлення призвете до того, що новостворені кістки повернуться у позицію джерела (зі створенням кісток з нульовою довжиною). Вони будуть вилучені при виході з Режиму Правки -- Edit Mode, однак, вони можуть спричиняти плутанину, і навряд чи ви схочете їх зберігати. Якщо ви усвідомлюєте цю проблему, то негайно касуйте дію видавлення.</p>
+</div>
+<p>Якщо вам цікаво, ви не можете просто натиснути <kbd class="kbd docutils literal notranslate">X</kbd> для вирішення цієї проблеми, так само як ви це робите при редагуванні сітей, оскільки видавлення виділяє ці ново створені верхівки, а як пояснено нижче, засіб Видалення -- Delete ігнорує ці суглоби костей. Щоб позбутися цих видавлених костей без касування, ви повинні перемістити ці верхівки, а потім виділити ці кості та видалити (<a class="reference internal" href="#delete-selected-bone-s">Delete Selected Bone(s)</a>) їх.</p>
+<div class="section" id="mouse-clicks">
+<h3>Клацки Миші -- Mouse Clicks<a class="headerlink" href="#mouse-clicks" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If at least one bone is selected, <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd>-clicking adds a new bone.</p>
+<p>Про верхівку цієї нової кістки:</p>
+<p>After you <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd>-clicked it becomes the active element in the armature,
+it appears to be right where you clicked, but (as in mesh editing)
+it will be on the plane parallel to the view and passing through the 3D cursor.</p>
+<p>Позиція кореня та приріднення нової кістки залежить від активного елемента:</p>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-1.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Ctrl-клацання, коли активним елементом є кістка -- bone.</span></p>
+</div>
+<p>If the active element is a <em>bone</em>:</p>
+<ul class="simple">
+<li>The new bone's root is placed on the active bone's tip.</li>
+<li>The new bone is parented and connected to the active bone
+(check the Outliner in Fig. <a class="reference internal" href="#fig-rig-bone-active-tip"><span class="std std-ref">Ctrl-клацок, коли активним елементом є верхівка -- tip.</span></a>).</li>
+</ul>
+<div class="figure" id="id8">
+<span id="fig-rig-bone-active-tip"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-2.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Ctrl-клацок, коли активним елементом є верхівка -- tip.</span></p>
+</div>
+<p>If the active element is a <em>tip</em>:</p>
+<ul class="simple">
+<li>The new bone's root is placed on the active tip.</li>
+<li>The new bone is parented and connected to the bone owning the active tip
+(check the Outliner in Fig. <a class="reference internal" href="#fig-rig-bone-active-tip"><span class="std std-ref">Ctrl-клацок, коли активним елементом є верхівка -- tip.</span></a>).</li>
+</ul>
+<div class="figure" id="id9">
+<span id="fig-rig-bone-disconnected-tip"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-3.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-3.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-3.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Ctrl-клацок, коли активним елементом є нез'єднаний корінь -- disconnected root.</span></p>
+</div>
+<p>If the active element is a <em>disconnected root</em>:</p>
+<ul class="simple">
+<li>The new bone's root is placed on the active root.</li>
+<li>The new bone is <strong>not</strong> parented to the bone owning the active root
+(check the Outliner in Fig. <a class="reference internal" href="#fig-rig-bone-disconnected-tip"><span class="std std-ref">Ctrl-клацок, коли активним елементом є нез'єднаний корінь -- disconnected root.</span></a>).</li>
+</ul>
+<p>І, звідси, така нова кістка <strong>не</strong> буде з'єднана з будь-якою іншою кісткою.</p>
+<div class="figure" id="id10">
+<span id="fig-rig-bone-connected-root"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-4.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-4.png" src="../../../../_images/rigging_armatures_bones_editing_bones_mouse-clicks-4.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Ctrl-клацання, коли активним елементом є з'єднаний з чимось корінь -- connected root.</span></p>
+</div>
+<p>If the active element is a <em>connected root</em>:</p>
+<ul class="simple">
+<li>The new bone's root is placed on the active root.</li>
+<li>The new bone <strong>is</strong> parented and connected to the parent of the bone owning the active root
+(check the Outliner in Fig. <a class="reference internal" href="#fig-rig-bone-connected-root"><span class="std std-ref">Ctrl-клацання, коли активним елементом є з'єднаний з чимось корінь -- connected root.</span></a>).</li>
+</ul>
+<p>This should be obvious because if the active element is a connected root then the active
+element will be also the tip of the parent bone, so it is the same as the second case.</p>
+<p>Як тільки верхівка нової кістки стає активним елементом, то ви можете повторити ці клацки <kbd class="kbd docutils literal notranslate">Ctrl-RMB</kbd> кілька разів для послідовного додання кількох костей у кінець того ж самого ланцюга.</p>
+</div>
+</div>
+<div class="section" id="fill-between-joints">
+<h2>Заповнити Між Суглобами -- Fill Between Joints<a class="headerlink" href="#fill-between-joints" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Fill Between Joints</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">F</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Головне використання цього засобу -- це створення однієї кістки між двома виділеними суглобами натисненням <kbd class="kbd docutils literal notranslate">F</kbd>, подібно до того, як і при редагуванні сітей ви можете «створювати ребра/грані».</p>
+<p>Якщо ви маєте виділеними один корінь та одну верхівку, то нова кістка:</p>
+<ul class="simple">
+<li>Буде мати корінь, поміщений на виділеній верхівці.</li>
+<li>Буде мати верхівку, поміщену на виділеному корені.</li>
+<li>Буде приріднена та з'єднана з кісткою, що володіє виділеною верхівкою.</li>
+</ul>
+<table border="1" class="docutils" id="id11">
+<caption><span class="caption-text">Заповнення між верхівкою та коренем.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Активна верхівка зліва.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Активна верхівка справа.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Якщо ви маєте виділеними дві верхівки, то нова кістка:</p>
+<ul class="simple">
+<li>Буде мати корінь, поміщений на тій з виділених верхівці, що найближча до 3D курсора.</li>
+<li>Буде мати верхівку, поміщену на іншій з виділених верхівці.</li>
+<li>Буде приріднена та з'єднана з кісткою, що володіє верхівкою, яка використовується як корінь нової кістки.</li>
+</ul>
+<table border="1" class="docutils" id="id14">
+<caption><span class="caption-text">Заповнення між верхівками.</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-3.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-3.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">3D курсор зліва.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-4.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-4.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-4.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">3D курсор справа.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you have two roots selected, you will face a small problem due to the event system in
+Blender not updating the interface in real-time.</p>
+<p>При натисненні <kbd class="kbd docutils literal notranslate">F</kbd> та з виділеними двома коренями, ви побачите нову кістку:</p>
+<ul class="simple">
+<li>З коренем, поміщеним на одному з виділених корені, що є найближчим до 3D курсора.</li>
+<li>З верхівкою, поміщеною на іншому з виділених корені.</li>
+<li>Прирідненою та з'єднаною з кісткою, що володіє коренем, що використовується як корінь нової кістки.</li>
+</ul>
+<p>Якщо ви спробуєте рухати цю нову кістку, Blender оновить інтерфейс і ви побачите, що корінь цієї нової кістки переміщається до верхівки предківської кістки.</p>
+<table border="1" class="docutils" id="id17">
+<caption><span class="caption-text">Заповнення між коренями.</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id18">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-5.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-5.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-5.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед оновленням інтерфейсу користувача (3D курсор зліва).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-6.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-6.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-6.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Після оновлення інтерфейсу користувача, коректна візуалізація.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Натиснення <kbd class="kbd docutils literal notranslate">F</kbd> з виділеним тільки одним суглобом кістки створить нову кістку з виділеного суглоба до позиції 3D курсора та не дасть приріднення до жодної з кісток арматури.</p>
+<table border="1" class="docutils" id="id20">
+<caption><span class="caption-text">Заповнення з виділеним тільки одним суглобом кістки.</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id21">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-7.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-7.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-7.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Заповнення з виділеною тільки однією верхівкою.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id22">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-8.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-8.png" src="../../../../_images/rigging_armatures_bones_editing_bones_fill-joints-8.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Заповнення з виділеним тільки одним коренем.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ви отримаєте повідомлення про помилку, коли:</p>
+<ul class="simple">
+<li>Спробуєте заповнити між суглобами однієї й тієї ж кістки.</li>
+<li>Спробуєте заповнити між більше ніж двома суглобами кісток.</li>
+</ul>
+</div>
+<div class="section" id="duplicate">
+<h2>Дублювання -- Duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Duplicate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Цей інструмент працює на виділених кістках; виділені її суглоби ігноруються.</p>
+</div>
+<p>As in mesh editing, by pressing <kbd class="kbd docutils literal notranslate">Shift-D</kbd> the selected bones will be duplicated.
+The duplicates become the selected elements and they are placed in grab mode,
+so you can move them wherever you like.</p>
+<p>Якщо ви виділите частину ланцюга, то, дублюючи її, ви отримаєте копію виділеної частини, а скопійовані кістки взаємоз'єднаються точно так само, як і їх оригінали.</p>
+<p>Дублікат кістки, яка приріднена до іншої кістки, також буде приріднений до тієї ж кістки, навіть, хоча коренева кістка не була виділена для дублювання. Майте на увазі, однак, що, якщо кістка приріднена <strong>та</strong> з'єднана з невиділеною кісткою, то її копія буде приріднена, але <strong>не</strong> з'єднана з цією невиділеною кісткою (дивіться Ілюстрацію <a class="reference internal" href="#fig-rig-bone-duplication"><span class="std std-ref">Приклад дублювання.</span></a>).</p>
+<span id="fig-rig-bone-duplication"></span><table border="1" class="docutils" id="id23">
+<caption><span class="caption-text">Приклад дублювання.</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id24">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_duplication-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_duplication-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_duplication-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Арматура з трьома виділеними кістками та виділеним одиничним коренем.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id25">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_duplication-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_duplication-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_duplication-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Три дубльовані кістки. Зауважте, що виділений ланцюг зберігається в копії, і що Bone.006 приріднена, але не з'єднана з Bone.001, що позначається чорною пунктирною лінією. Аналогічно, Bone.007 приріднена, але не з'єднана з Bone.003.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="split">
+<h2>Розділення -- Split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Split</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Y</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Disconnects the selection and clears the parent at the start and end. ToDo add.</p>
+</div>
+<div class="section" id="delete-selected-bone-s">
+<h2>Видалити Виділені Кістку(ки) -- Delete Selected Bone(s)<a class="headerlink" href="#delete-selected-bone-s" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Delete Selected Bone(s)</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Цей засіб видаляє виділені кістки, виділені <em>суглоби</em> ігноруються.</p>
+<p>Якщо ви видаляєте кістку у ланцюгу, то її нащадок(ки) будуть автоматично пере-приріднені до її предка, але <strong>не</strong> з'єднані, з метою запобігання деформуванню всієї арматури.</p>
+<table border="1" class="docutils" id="id26">
+<caption><span class="caption-text">Приклад видалення.</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id27">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_deletion-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_deletion-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_deletion-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Арматура з двома виділеними кістками, перед самим видаленням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id28">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_deletion-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_deletion-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_deletion-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Дві кістки були видалені. Зауважте, що Bone.002, що попередньо була з'єднана з видаленою Bone.001, тепер приріднена, але з'єднана з Bone.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dissolve">
+<h2>Розчинення -- Dissolve<a class="headerlink" href="#dissolve" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">none</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>ToDo 2.76.</p>
+</div>
+<div class="section" id="merge-bones">
+<h2>Об'єднати Кістки -- Merge Bones<a class="headerlink" href="#merge-bones" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Merge Bones</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете об'єднувати разом кілька виділених кісток, якщо вони формують ланцюг. Кожен під-ланцюг, формований виділеними кістками, буде давати одну кістку, корінь якої буде отриманий з кореня кореневої кістки та верхівка якої буде отримана з верхівки верхівкової кістки.</p>
+<p>Підтвердження цієї операції здійснюється клацком на пункті спливного меню «Об'єднати Кістки &gt; У Ланцюгах» -- <span class="menuselection">Merge Selected Bones ‣ Within Chains</span>.</p>
+<p>Якщо інший (не-виділений) ланцюг починається всередині об'єднуваного ланцюга кісток, то він буде приріднений до результатної об'єднаної кістки. Якщо вони були з'єднані, то він буде з'єднаний з цією новою кісткою.</p>
+<p>Тут є дивна тонкість (дивіться Ілюстрацію <a class="reference internal" href="#fig-rig-bone-merge"><span class="std std-ref">Приклад об'єднання.</span></a>): навіть при з'єднанні (коренева кістка необ'єднаного ланцюга немає жодної сфери кореня) кістки не з'єднуються візуально. Це відбудеться, як тільки ви зредагуєте одну кістку, по-різному, залежно від того, в якому ланцюгу буде редагуватися кістка (порівняйте два нижні зображення на ілюстрації для кращого розуміння).</p>
+<span id="fig-rig-bone-merge"></span><table border="1" class="docutils" id="id29">
+<caption><span class="caption-text">Приклад об'єднання.</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id30">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_merge-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_merge-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_merge-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Арматура з виділеним ланцюгом та одинична виділена кістка перед самим об'єднанням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id31">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_merge-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_merge-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_merge-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кістки Bone, Bone.001 та Bone.002 були об'єднані у кістку Bone.006, тоді як Bone.005 не була модифікована. Зауважте, Bone.003, з'єднана з Bone.006, але «реально» ще не з'єднана.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id32">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_merge-3.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_merge-3.png" src="../../../../_images/rigging_armatures_bones_editing_bones_merge-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Bone.004 було обернуто, і таким чином верхівка Bone.006 була переміщена на корінь Bone.003.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id33">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_merge-4.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_merge-4.png" src="../../../../_images/rigging_armatures_bones_editing_bones_merge-4.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The tip of Bone.006 has been translated, and hence the root of Bone.003 was moved to the tip of Bone.006.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="subdivide">
+<h2>Підподілення -- Subdivide<a class="headerlink" href="#subdivide" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Armature ‣ Subdivide</span>, <span class="menuselection">Specials ‣ Subdivide</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете підподіляти кістки, щоб отримувати дві або більше кісток там, де була тільки одна кістка. Цей інструмент підподілятиме усі виділені кістки, зберігаючи наявні відношення: кістки, створені підподіленням, завжди формуватимуть ланцюг з'єднаних кісток.</p>
+<p>Для створення довільної кількості кісток з кожної виділеної кістки скористайтеся нижче згаданою уставою на панелі Оператора «Підподіл Багато» -- Subdivide Multi.</p>
+<dl class="docutils">
+<dt>Кількість Поділів -- Number of Cuts</dt>
+<dd>Визначає кількість поділів. Як і при редагуванні сітей, якщо ви задасте <em>n</em> поділів, то отримаєте <em>n</em> + 1 кісток з кожної виділеної кістки.</dd>
+</dl>
+<table border="1" class="docutils" id="id34">
+<caption><span class="caption-text">Приклад підподілення.</span><a class="headerlink" href="#id34" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id35">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-1.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-1.png" src="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Арматура з однією виділеною кісткою перед самим багато-підподілом.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id36">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-2.png"><img alt="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-2.png" src="../../../../_images/rigging_armatures_bones_editing_bones_subdivision-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Виділена кістка була «поділена» два рази, давши три нові кістки.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="locking-bones">
+<h2>Блокування Кісток -- Locking Bones<a class="headerlink" href="#locking-bones" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете запобігати трансформуванню кісток у Режимі Правки -- <em>Edit Mode</em> кількома способами:</p>
+<ul class="simple">
+<li>Усі кістки можуть блокуватися, клацком на стягу «Блокування» -- <em>Lock</em> на панелі «Трансформації» -- Transform у вкладці «Кістка» -- <em>Bone</em> Редактора Властивостей;</li>
+<li>Вибором у спливному меню за <kbd class="kbd docutils literal notranslate">Shift-W</kbd> пункту «Перемкнути Опції Кісток &gt; Блокування» -- <span class="menuselection">Toggle Bone Options ‣ Lock</span></li>
+<li>Select <span class="menuselection">Armature ‣ Bone Settings ‣ Toggle a Setting</span>.</li>
+</ul>
+<p><em>Якщо корінь заблокованої кістки з'єднаний з верхівкою розблокованої кістки, то вона не буде заблокована</em>, тобто ви будете у змозі рухати її, як захочете. Це означає, що коли у ланцюгу з'єднаних кісток ви блокуєте одну кістку, то фактично ви блокуєте лише її верхівку. Для нез'єднаних кісток блокування ефективне лише тоді, коли воно зроблене для обох їх суглобів.</p>
+</div>
+<div class="section" id="x-axis-mirror">
+<h2>Дзеркалення за X-віссю -- X-Axis Mirror<a class="headerlink" href="#x-axis-mirror" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Options ‣ Armature Options ‣ X-Axis Mirror</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ця опція вмикає автоматичне дзеркалення дій редагування вздовж осі X. Це ще один дуже корисний засіб -- <em>X-Axis Mirror</em> -- доступний на панелі «Полиця Інструментів &gt; Опції Арматури» -- <span class="menuselection">Tool Shelf ‣ Options ‣ Armature Options</span> у Режимі Правки -- <em>Edit Mode</em> для Арматури. Коли ви маєте пану кісток з однаковим іменем, але з різними «суфіксами» (наприклад, &quot;.R&quot;/&quot;.L&quot;, or &quot;_right&quot;/&quot;_left&quot; ...), то при вмиканні цієї опції кожен раз при трансформуванні вами (пересув/оберт/масштаб...) однієї з кісток її дзеркальне відображення буде трансформуватися відповідно через симетрію вздовж локальної осі X арматури. Оскільки, більшість оснасток мають принаймні одну вісь симетрії (тварини, люди, ...), то це легкий спосіб позбавити вас половини роботи щодо редагування!</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Про іменування кісток дивіться тут -- <a class="reference internal" href="naming.html#armature-editing-naming-bones"><span class="std std-ref">naming bones</span></a>.</p>
+</div>
+</div>
+<div class="section" id="separate-bones">
+<h2>Відокремити Кістки -- Separate Bones<a class="headerlink" href="#separate-bones" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете, як і при редагуванні сітей, відокремлювати виділені кістки у новий об'єкт арматури за допомогою команди «Арматура &gt; Відокремлення» -- <span class="menuselection">Armature ‣ Separate</span>, <kbd class="kbd docutils literal notranslate">Ctrl-Alt-P</kbd>, а також, звичайно, вже у Режимі Об'єкта -- <em>Object Mode</em> ви можете сполучати виділені арматури в одну за допомогою «Об'єкт &gt; Сполучення» -- <span class="menuselection">Object ‣ Join</span>, <kbd class="kbd docutils literal notranslate">Ctrl-J</kbd>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="naming.html" class="btn btn-neutral float-right" title="Іменування -- Naming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transform.html" class="btn btn-neutral" title="Трансформації -- Transform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

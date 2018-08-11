@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Приріднення Об&#39;єктів -- Parenting Objects &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/properties/relations/parents.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Групи -- Groups" href="groups.html" />
+    <link rel="prev" title="Шари -- Layers" href="layers.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Об'єкти -- Objects</a> &raquo;</li>
+        
+          <li><a href="../index.html">Властивості -- Properties</a> &raquo;</li>
+        
+          <li><a href="index.html">Відношення Об'єктів -- Object Relations</a> &raquo;</li>
+        
+      <li>Приріднення Об'єктів -- Parenting Objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/editors/3dview/object/properties/relations/parents.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parenting-objects">
+<span id="bpy-types-object-parent"></span><h1>Приріднення Об'єктів -- Parenting Objects<a class="headerlink" href="#parenting-objects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="make-parent">
+<span id="bpy-ops-object-parent-set"></span><h2>Зробити Приріднення -- Make Parent<a class="headerlink" href="#make-parent" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Parent</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>При моделюванні складного об'єкта, такого як годинник, ви можете обрати моделювати різні частини його, як окремі об'єкти. Однак, усі ці частини можуть бути прикріплені одна до одної. У таких випадках ви схочете визначити один об'єкт, як предок для усіх інших нащадків. Переміщення, обертання або масштабування предка також впливає на нащадків.</p>
+<p>Для приріднення об'єктів виділіть принаймні два об'єкти (виділіть спочатку об'єкти, що будуть нащадками -- <em>Child Objects</em>, та останнім виділіть об'єкт, що буде предком -- <em>Parent Object</em>) та натисніть <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd>. Спливне меню «Задати Приріднення До» -- <em>Set Parent To</em> дозволяє вам вибрати один з можливих типів приріднення. Після вибору одного з пунктів меню «Задати Приріднення До» -- <em>Set Parent To</em> створиться відношення «нащадок/нащадки-предок».</p>
+<p>Останньо виділений об'єкт буде «Активним Об'єктом» -- <em>Active Object</em> (підсвічується світло-оранжевим каркасом) і він стане Об'єктом-Предком -- <em>Parent Object</em>. Якщо ви виділили одночасно кілька об'єктів перед виділенням майбутнього предка, то всі вони будуть нащадками цього предка та будуть знаходитися на однаковому рівні ієрархії (вони будуть «спільнопредкові» -- &quot;siblings&quot;).</p>
+<p>The <em>Set Parent To</em> pop-up menu is context-sensitive, which means
+the number of entries it displays can change depending on what objects are selected
+when the <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> shortcut is used.</p>
+<p>For non-inverse-mode, press <kbd class="kbd docutils literal notranslate">Shift-Ctrl-P</kbd> instead. This creates an alternative
+parent-child-relationship where child objects exist entirely in the parent's coordinate system.
+This is the better choice for CAD purposes, for example.</p>
+<p>Переміщення, обертання або масштабування предка зазвичай також дає пересування/обертання/масштабування нащадка/нащадків. Однак, переміщення/обертання/масштабування нащадка/нащадків не призводить до пересуву/оберту/масштабування предка. Іншими словами, напрямок впливу здійснюється від предка до нащадка, а не від нащадка до предка.</p>
+<p>Загалом, коли використовуються для приріднення об'єктів <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> або «заголовок 3D Огляду &gt; Об'єкт &gt; Приріднення» -- <span class="menuselection">3D View Header ‣ Object ‣ Parent</span>, то об'єкти-нащадки -- <em>Child Objects</em> можуть мати тільки одного об'єкта-предка -- <em>Parent Object</em>. Якщо об'єкт-нащадок -- <em>Child Object</em> вже має об'єкт-предок -- <em>Parent Object</em> і ви даєте його іншого предка, то Blender вилучить попереднє приріднювальне відношення та створить нове.</p>
+<p>Blender підтримує багато різних типів приріднення, що перелічені нижче:</p>
+<ul class="simple">
+<li>Об'єкт -- Object</li>
+<li>Кістка -- Bone</li>
+<li>Вершина -- Vertex</li>
+<li>Вершина (Трибічник) -- Vertex (Triangle)</li>
+</ul>
+<p class="rubric">Уклади</p>
+<p>Окрім приріднення виділених об'єктів це додає Модифікатор -- Modifier або Примус -- Constraint для нащадкових об'єктів з предком як цільовим об'єктом, або активує властивість приріднення, як наприклад «Слідування Шляхом» -- <em>Follow Path</em>.</p>
+<ul class="simple">
+<li>Деформації Арматури -- <a class="reference internal" href="../../../../../rigging/armatures/skinning/parenting.html"><span class="doc">Armature Deform</span></a></li>
+<li>Деформації Кривої -- <a class="reference internal" href="../../../../../modeling/modifiers/deform/curve.html"><span class="doc">Curve Deform</span></a></li>
+<li>Слідування Шляхом -- <a class="reference internal" href="../../../../../modeling/curves/properties/data.html#curve-path-animation"><span class="std std-ref">Follow Path</span></a></li>
+<li>Обмежник шляху -- <a class="reference internal" href="../../../../../rigging/constraints/relationship/follow_path.html"><span class="doc">Path Constraint</span></a></li>
+<li>Деформації Решітки -- <a class="reference internal" href="../../../../../modeling/modifiers/deform/lattice.html"><span class="doc">Lattice Deform</span></a></li>
+</ul>
+</div>
+<div class="section" id="object-parent">
+<span id="object-parenting"></span><h2>Приріднення до об'єкта -- Object Parent<a class="headerlink" href="#object-parent" title="Permalink to this headline">¶</a></h2>
+<p>Приріднення до об'єкта -- <em>Object Parent</em> -- це найбільш загальна форма приріднення, яку підтримує Blender. Якщо взяти виділені об'єкти та зробити останньо виділений об'єкт об'єктом-предком -- <em>Parent Object</em>, то усі інші виділені об'єкти будуть об'єктами-нащадками -- <em>Child Objects</em>. Нащадкові об'єкти будуть успадковувати трансформування предка. Предківський об'єкт може бути будь-якого типу.</p>
+<div class="section" id="object-keep-transform-parent">
+<h3>Приріднення об'єкта зі утримуванням трансформацій -- Object (Keep Transform)<a class="headerlink" href="#object-keep-transform-parent" title="Permalink to this headline">¶</a></h3>
+<p>Команда приріднення «Об'єкт (Утримувати Трансформації)» -- <em>Object (Keep Transform) Parent</em> працює дуже подібно до команди звичайного приріднення «Об'єкт» -- <em>Object Parent</em>, в основному відрізняючись тим, що нащадкові об'єкти -- <em>Child Objects</em> будуть пам'ятати будь-які попередні трансформування, застосовані попередньо до предківського об'єкта -- <em>Parent Object</em>.</p>
+<p>Оскільки пояснення цього легким для розуміння технічним способом є складним, то давайте натомість скористаємося прикладом для його ілюстрування.</p>
+<p>Припустімо, що ми маємо сцену, що містить три об'єкти -- два об'єкти порожняки під іменами &quot;EmptyA&quot; та &quot;EmptyB&quot; та один об'єкт Мавпа -- Monkey. Ілюстрація <a class="reference internal" href="#fig-view3d-parent-scene-no"><span class="std std-ref">Сцена без приріднення.</span></a> показує ці три об'єкти без наявного відношення приріднення.</p>
+<div class="figure" id="id1">
+<span id="fig-view3d-parent-scene-no"></span><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-a.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-a.png" />
+<p class="caption"><span class="caption-text">Сцена без приріднення.</span></p>
+</div>
+<p>If you select the Monkey object by <kbd class="kbd docutils literal notranslate">RMB</kbd> click and then <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd>
+click &quot;EmptyA&quot; object and press <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> and finally select <em>Object</em>
+from the <em>Set Parent To</em> pop-up menu.
+This will result in &quot;EmptyA&quot; object being the <em>Parent Object</em> of the Monkey object.
+With only &quot;EmptyA&quot; selected rotating/scaling/moving it will result in
+the Monkey object being altered respectively.</p>
+<p>Масштабування об'єкта &quot;EmptyA&quot; дасть те, що Monkey стане меншим та пересунеться трохи вліво.</p>
+<div class="figure" id="id2">
+<img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-b.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-b.png" />
+<p class="caption"><span class="caption-text">Мавпа є нащадковим об'єктом предківського об'єкта &quot;EmptyA&quot;.</span></p>
+</div>
+<p>Якщо ви виділите тільки об'єкт Мавпа -- Monkey клацком <kbd class="kbd docutils literal notranslate">RMB</kbd>, далі з <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> клацнете на об'єкті &quot;EmptyB&quot;, натиснете <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> та виберете у спливному меню «Задати Приріднення До» -- <em>Set Parent To</em> пункт «Об'єкт» -- Object. То це дасть у результаті те, що об'єкт &quot;EmptyB&quot; стане предківським об'єктом -- <em>Parent Object</em> для об'єкта Monkey. Зауважте, що коли ви змінюєте предка для Monkey, то масштаб Мавпи також змінюється.</p>
+<div class="figure" id="id3">
+<img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-c.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-c.png" />
+<p class="caption"><span class="caption-text">Тут мавпа є нащадковим об'єктом об'єкта &quot;EmptyB&quot;.</span></p>
+</div>
+<p>Це відбувається, тому що для об'єкта Monkey тут ніколи масштаб не змінюється безпосередньо, така зміна походить від зміни масштабу об'єкта &quot;EmptyA&quot;, нащадком якого він був. Зміна приріднення Мавпи від попереднього об'єкта до об'єкта &quot;EmptyB&quot; призведе до того, що непрямі зміни у масштабі вилучаться, оскільки новий об'єкт &quot;EmptyB&quot; не мав змін у масштабі.</p>
+<p>Це часто необхідна поведінка, але також інколи корисно, щоб, якщо ви змінюєте предківський об'єкт -- <em>Parent Object</em>, то нащадковий об'єкт <em>Child Object</em> зберіг будь-які попередні трансформування, отримані від старого об'єкта-предка -- <em>Parent Object</em>; і якщо натомість при зміні предківського об'єкта -- <em>Parent Object</em> для Monkey з &quot;EmptyA&quot; на &quot;EmptyB&quot; ви виберете тип приріднення «Об'єкт (Утримувати Трансформації) -- <em>Object (Keep Transform)</em>, Мавпа збереже інформацію про своє масштабування, отримане від старого предка &quot;EmptyA&quot;, коли буде призначатися новий предок &quot;EmptyB&quot;;</p>
+<div class="figure" id="id4">
+<img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-d.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_keep-transform-d.png" />
+<p class="caption"><span class="caption-text">Метод приріднення «Об'єкт (Утримувати Трансформації)» -- Object (Keep Transform).</span></p>
+</div>
+<p>Якщо ви хочете відстежити описане вище, тут є blend-файл, в якому використовується описаний метод приріднення «Об'єкт (Утримувати Трансформації)» -- <em>Object (Keep Transform)</em>:</p>
+<p><a class="reference external" href="https://wiki.blender.org/index.php/File:Parent_-_Object_(Keep_Transform)_(Demo_File).blend">File:Parent_-_Object_(Keep_Transform)_(Demo_File).blend</a>.</p>
+</div>
+</div>
+<div class="section" id="bone-parent">
+<h2>Приріднення до кістки -- Bone Parent<a class="headerlink" href="#bone-parent" title="Permalink to this headline">¶</a></h2>
+<p>Приріднення до кістки дозволяє вам робити певну кістку в арматурі предківським об'єктом -- Parent Object для іншого об'єкта. Це означає, що при трансформуванні арматури нащадковий об'єкт -- Child Object буде рухатися тільки тоді, коли певна кістка, що є предком для нього, буде рухатися.</p>
+<div class="figure" id="id5">
+<span id="fig-view3d-parent-bone-parent"></span><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_bone1.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_bone1.png" />
+<p class="caption"><span class="caption-text">Three pictures of armatures with four bones.</span></p>
+</div>
+<p>На ілюстрації <a class="reference internal" href="#fig-view3d-parent-bone-parent"><span class="std std-ref">Three pictures of armatures with four bones.</span></a> 2-га кістка є предком-кісткою нащадкового об'єкта - Куба. Куб буде трансформуватися, тільки якщо 1-ша або 2-га кістка буде трансформована. Зауважте, що зміна 3-ої та 4-ої кісток не буде впливати на Куб.</p>
+<p>Для використання приріднення до кістки ви повинні спочатку виділити усі нащадкові об'єкти, які ви хочете приріднити до певної кістки арматури, далі клацніть <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> для виділення об'єкта арматури, ще далі перемкніться у Режим Пози -- Pose Mode і потім виділіть клацком <kbd class="kbd docutils literal notranslate">RMB</kbd> конкретну кість,яка має стати кісткою-предком. Після цього натисніть <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> та виберіть пункт «Кістка» -- Bone у спливному меню «Задати Приріднення До» -- Set Parent To.</p>
+<p>Відтепер трансформування цієї кістки у Режимі Пози -- Pose Mode буде спричиняти також трансформування нащадкових об'єктів.</p>
+<div class="section" id="relative-parenting">
+<h3>Відносне Приріднення до кістки -- Relative Parenting<a class="headerlink" href="#relative-parenting" title="Permalink to this headline">¶</a></h3>
+<p>Приріднення «Кістка Відносно» -- Bone Relative -- це опцію, яку ви можете перемикати для кожної кістки. Це працює подібним чином, як і звичайне приріднення до кістки -- Bone, з однією відмінністю.</p>
+<p>При звичайному прирідненні до кістки -- Bone, якщо ви приріднили до кістки деякі нащадкові об'єкти та виділили цю кістку і перемкнулися у Режим Правки -- Edit Mode, а потім пересунули цю кістку, то при перемиканні назад у Режим Пози -- Pose Mode для цієї кістки, нащадковий об'єкт, що приріднений до цієї кістки підхопиться назад у локацію кістки у Режимі Пози.</p>
+<div class="figure" id="id6">
+<span id="fig-view3d-parent-bone-parent-child"></span><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_bone2.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_bone2.png" />
+<p class="caption"><span class="caption-text">Single armature bone which has a child object cube parented to it using bone parenting.</span></p>
+</div>
+<p>На ілюстрації <a class="reference internal" href="#fig-view3d-parent-bone-parent-child"><span class="std std-ref">Single armature bone which has a child object cube parented to it using bone parenting.</span></a> 1-ша картинка показує позицію куба та арматури перед тим, як кістка пересунута у Режимі Правки. 2-га картинка показує позицію куба та арматури після того, як кістка була виділена і пересунута у Режимі Правки, та перемкнуто було назад у Режим Пози. Зауважте, що нащадковий об'єкт пересунутий у нову локацію у Режимі Пози для кістки.</p>
+<p>Приріднення «Кістка Відносно» -- Bone Relative працює по-іншому; якщо ви пересунете предківську кістку у Режимі Правки, то при перемиканні назад у Режимі Пози нащадкові об'єкти не будуть пересуватися у нову локацію для позованої кістки.</p>
+<div class="figure" id="id7">
+<span id="fig-view3d-parent-bone-parent-relative"></span><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_bone3.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_bone3.png" />
+<p class="caption"><span class="caption-text">Single bone with bone relative parent to a cube.</span></p>
+</div>
+<p>На ілюстрації <a class="reference internal" href="#fig-view3d-parent-bone-parent-relative"><span class="std std-ref">Single bone with bone relative parent to a cube.</span></a> 1-ша картинка показує позицію куба та арматури перед пересувом кістки у Режимі Правки. 2-га картинка показує позицію куба та арматури після того, як кістка була виділена і пересунута у Режимі Правки, та перемкнуто було назад у Режим Пози. Зауважте, що нащадковий об'єкт не пересунувся у нову локацію позованої кістки.</p>
+</div>
+</div>
+<div class="section" id="vertex-parent">
+<h2>Приріднення до вершини -- Vertex Parent<a class="headerlink" href="#vertex-parent" title="Permalink to this headline">¶</a></h2>
+<p>For objects of type curve, surface, mesh and lattice,
+there is the possibility to use one of its vertices or points as the parent of other objects.
+You can parent an object to a single vertex or a group of three vertices as well;
+that way the child/children will move when the parent mesh is deformed.</p>
+<div class="section" id="vertex-parent-from-edit-mode">
+<h3>Приріднення до вершини у Режимі Правки<a class="headerlink" href="#vertex-parent-from-edit-mode" title="Permalink to this headline">¶</a></h3>
+<p>У Режимі Об'єкта -- <em>Object Mode</em> виділіть майбутніх нащадка/нащадків та останнім об'єкт предка. Натисніть <kbd class="kbd docutils literal notranslate">Tab</kbd> для переходу у Режим Правки -- <em>Edit Mode</em> та на предківському об'єкті виділіть одну вершину, що визначатиме одиничну точку, або виділіть три вершини, що визначатимуть ділянку (ці вершини не повинні формувати завершену грань; вони можуть будь-якими трьома вершинами на предківському об'єкті), а потім натисніть <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> та підтвердьте пунктом зі спливного меню.</p>
+<p>У момент, якщо була виділена одинична вершина, то лінія відношення/приріднення буде нарисована від вершини до нащадка/нащадків. Якщо були виділені три вершин, то лінія відношення/приріднення буде нарисована від усередненого центру цих трьох точок (предківського об'єкта) до нащадка/нащадків. Відтепер, при деформуванні предківської сіті та руху обраних предківських вершини/вершин, також будуть рухатися нащадок/нащадки.</p>
+</div>
+<div class="section" id="vertex-parent-from-object-mode">
+<h3>Приріднення до вершин у Режимі Об'єкта<a class="headerlink" href="#vertex-parent-from-object-mode" title="Permalink to this headline">¶</a></h3>
+<p>Vertex parenting can be performed from object mode,
+this is done like regular object parenting,
+press <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> in object mode and select <em>Vertex</em> or <em>Vertex (Triangle)</em>.</p>
+<p>Будуть використані найближчі вершини з об'єкта, які б ви типово вибрали.</p>
+<table border="1" class="docutils" id="id8">
+<caption><span class="caption-text">Приклад приріднення до вершини.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-1.png"><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-1.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Маленькі куби можуть кожен автоматично приріднитися до тріади найближчий вершин на ікосфері за допомогою пункту «Вершина (Трибічник)» -- &quot;Vertex (Triangle)&quot; у спливному меню.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-2.png"><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-2.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Зміна форми об'єкта у Режимі Правки означає, що кожен з кубів наслідує свою вершину-предка відповідно.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-3.png"><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-3.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_object-mode-example-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Зміна масштабу предківської ікосфери у Режимі Об'єкта означає, що нащадкові куби також змінять свій масштаб.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Цей пункт спливного меню приріднення означає, що користувачі можуть швидко установити велику кількість відношень приріднення до вершин та уникнуть стомливих зусиль установлення кожного відношення «предок-нащадок» до вершини окремо.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">It is in fact a sort of &quot;reversed&quot; <a class="reference internal" href="../../../../../modeling/modifiers/deform/hooks.html"><span class="doc">hook</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="move-child">
+<h3>Move Child<a class="headerlink" href="#move-child" title="Permalink to this headline">¶</a></h3>
+<p>Ви можете <em>пересунути</em> нащадковий об'єкт до його предка, зчистивши його початок. Це не впливає на відношення між предком і нащадком. Виділіть нащадковий об'єкт та натисніть <kbd class="kbd docutils literal notranslate">Alt-O</kbd>. Після підтвердження нащадковий об'єкт буде підхоплений у локацію предка. Скористайтеся Структуратором -- <em>Outliner</em> для перевірки, чи цей нащадковий об'єкт є все ще прирідненим.</p>
+</div>
+<div class="section" id="clear-parent">
+<span id="bpy-ops-object-parent-clear"></span><h3>Зчистити Приріднення -- Clear Parent<a class="headerlink" href="#clear-parent" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Parent</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can <em>remove</em> a parent-child relationship via <kbd class="kbd docutils literal notranslate">Alt-P</kbd>.</p>
+<dl class="docutils">
+<dt>Зчистити Приріднення -- Clear Parent</dt>
+<dd>If the parent in the group is selected, nothing is done.
+If a child or children are selected, they are disassociated from the parent,
+or freed, and they return to their <em>original</em> location, rotation, and size.</dd>
+<dt>Зчистити та Утримати Трансформування -- Clear and Keep Transformation</dt>
+<dd><p class="first">Звільняє нащадки від предка та <em>зберігає</em> локацію, оберт та розмір, заданий для них предком.</p>
+<p class="last">See <a class="reference internal" href="#non-uniform-scale">Non-Uniform Scale</a> which may apply here.</p>
+</dd>
+<dt>Зчистити Приріднення з Інверсією</dt>
+<dd><p class="first">Поміщає нащадки відносно предка, як вони були розміщені у глобальному орієнтирі. Це ефективно зчищає трансформування від предка на нащадках. Ієрархічні відношення не вилучаються, але коригувальна матриця («зворотно предку») зчищається з виділених об'єктів.</p>
+<p class="last">Наприклад, якщо предок було пересунуто на 10 одиниць вздовж осі X та задіяно «Зчистити Приріднення з Інверсією» -- <em>Clear Parent Inverse</em>, то будь-який виділений з нащадків звільняється та пересувається на -10 одиниць назад вздовж осі X. «Інверсія» використовує останнє трансформування; якщо предок було пересунуто двічі, на 10 одиниць кожен раз, у підсумку на 20 одиниць, то «Інверсія» перемістить нащадок тільки раз на 10 одиниць, а не на 20.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id12">
+<span id="fig-view3d-parent-outliner"></span><img alt="../../../../../_images/editors_3dview_object_properties_relations_parents_outliner-view.png" src="../../../../../_images/editors_3dview_object_properties_relations_parents_outliner-view.png" />
+<p class="caption"><span class="caption-text">Огляд Структуратора -- Outliner.</span></p>
+</div>
+<p>There is another way to see the parent-child relationship in groups and that is to use the <em>Outliner</em> view
+of the <a class="reference internal" href="../../../../outliner.html"><span class="doc">Outliner editor</span></a>. Fig. <a class="reference internal" href="#fig-view3d-parent-outliner"><span class="std std-ref">Огляд Структуратора -- Outliner.</span></a>
+is an example of what the <em>Outliner</em> view looks like for the figures in the <a class="reference internal" href="#object-parenting"><span class="std std-ref">Приріднення до об'єкта -- Object Parent</span></a> example.
+Cube A's object name is &quot;Cube_Parent&quot; and cube B is &quot;Cube_Child&quot;.</p>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="non-uniform-scale">
+<h3>Non-Uniform Scale<a class="headerlink" href="#non-uniform-scale" title="Permalink to this headline">¶</a></h3>
+<p>A parent with non-uniform scale and rotation in relation to its child may cause a <em>shear</em> effect.</p>
+<p>While this is supported by parenting, the shear will be lost when the parent is cleared since it
+can't be represented by location, scale and rotation.</p>
+<p>If <em>Clear and Keep Transformation</em> moves the object, non-uniform scale is the most likely cause.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="groups.html" class="btn btn-neutral float-right" title="Групи -- Groups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="layers.html" class="btn btn-neutral" title="Шари -- Layers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

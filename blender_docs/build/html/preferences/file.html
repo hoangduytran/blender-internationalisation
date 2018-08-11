@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>«Файл» -- File &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/preferences/file.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Система -- System" href="system.html" />
+    <link rel="prev" title="«Теми» -- Themes" href="themes.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Уподобання Користувача -- User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Вкладки -- Tabs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interface.html">«Інтерфейс» -- Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">«Правка» -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">«Увід» - Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addons.html">«Додатки» -- Add-ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">«Теми» -- Themes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">«Файл» -- File</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#file-paths">Шляхи Файлів -- File Paths</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-execution">Авто Виконання -- Auto Execution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-load">Збереження і Завантаження -- Save &amp; Load</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#auto-save">Авто Збереження -- Auto Save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-editor">Редактор Тексту -- Text Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">Система -- System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Уподобання Користувача -- User Preferences</a> &raquo;</li>
+        
+      <li>«Файл» -- File</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/file.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="file">
+<span id="bpy-types-userpreferencesfilepaths"></span><h1>«Файл» -- File<a class="headerlink" href="#file" title="Permalink to this headline">¶</a></h1>
+<p>Вкладка «Файл» -- <em>File</em> в «Уподобаннях Користувача» -- <em>User Preferences</em> дозволяє вам сконфігурувати уподобання авто-збереження та задати стандартні файлові шляхи для blend-файлів, рендерених зображень та інше.</p>
+<div class="figure">
+<img alt="../_images/preferences_file_tab.png" src="../_images/preferences_file_tab.png" />
+</div>
+<div class="section" id="file-paths">
+<span id="prefs-file-paths"></span><h2>Шляхи Файлів -- File Paths<a class="headerlink" href="#file-paths" title="Permalink to this headline">¶</a></h2>
+<p>Локації для різних зовнішніх файлів можуть бути задані наступними опціями:</p>
+<dl class="docutils">
+<dt>Шрифти -- Fonts</dt>
+<dd>Стандартна локація для пошуку файлів шрифтів.</dd>
+<dt>Текстури -- Textures</dt>
+<dd>Стандартна локація для пошуку зображеннєвих текстур.</dd>
+<dt>Вивід Рендера -- Render Output</dt>
+<dd>Де будуть зберігатися рендерені зображення/відео.</dd>
+<dt>Скрипти -- Scripts</dt>
+<dd>Додаткова локація для пошуку скриптів на Python. Дивіться нижче <a class="reference internal" href="#scripts-path">Scripts Path</a>.</dd>
+<dt>Звуки -- Sounds</dt>
+<dd>Стандартна локація для пошуку файлів звуку.</dd>
+<dt>Тимчасове -- Temp</dt>
+<dd>Локація, де будуть зберігатися тимчасові файли.</dd>
+<dt>Кеш Рендера -- Render Cache</dt>
+<dd>Локація, де зберігатимуться кешовані зображення рендера.</dd>
+<dt>Гілки перекладу -- I18n Branches</dt>
+<dd>Шлях до каталогу <code class="docutils literal notranslate"><span class="pre">/branches</span></code> вашої локальної копії svn-перекладу, що дозволяє перекладати інтерфейс користувача.</dd>
+<dt>Редактор Зображень -- Image Editor</dt>
+<dd>Шлях до зовнішньої програми, що використовується для редагування зображень.</dd>
+<dt>Відтворювач Анімації -- Animation Player</dt>
+<dd>Шлях до зовнішньої програми, що використовуватиметься для відтворення рендерених анімацій.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Якщо такі теки не існують, то вони <em>не</em> будуть створені автоматично.</p>
+</div>
+<div class="section" id="scripts-path">
+<h3>Шлях Скриптів -- Scripts Path<a class="headerlink" href="#scripts-path" title="Permalink to this headline">¶</a></h3>
+<p>By default Blender looks in several directories (OS dependent) for scripts.
+By setting a user script path in the preferences an additional directory is looked in.
+This can be used to store certain scripts/templates/presets independently of
+the currently used Blender Version.</p>
+<p>Всередині цієї визначеної теки, мають бути створені конкретні підтеки, щоб вказати, де має шукати ці користувацькі файли Blender. Структура цієї теки є дзеркальною відносно структури теки зі скриптами, що знаходиться у каталогу інсталяції Blender'а:</p>
+<ul class="simple">
+<li>scripts</li>
+<li>add-ons</li>
+<li>modules</li>
+<li>presets</li>
+<li>camera</li>
+<li>cloth</li>
+<li>interface_theme</li>
+<li>operator</li>
+<li>render</li>
+<li>...</li>
+<li>startup</li>
+<li>templates Не усі ці теки повинні бути присутніми.</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Переконайтеся, що ви маєте відповідні права для запуску виконуваних файлів за визначеним шляхом. На MS-Windows, наприклад, якщо опція «Запускати цю програму від імені адміністратора» -- &quot;Run this program as an administrator&quot; увімкнена для виконуваних файлів, то це призведе до збою відкриття редактора через обмеження в контролі облікового запису користувача -- OS User Account Control. Запуск програм з підвищеними привілеями є потенційно небезпечним!</p>
+</div>
+</div>
+</div>
+<div class="section" id="auto-execution">
+<span id="prefs-auto-execution"></span><h2>Авто Виконання -- Auto Execution<a class="headerlink" href="#auto-execution" title="Permalink to this headline">¶</a></h2>
+<p>Скрипти Python (включаючи вирази драйверів) не виконуються стандартно з міркувань безпеки.</p>
+<dl class="docutils">
+<dt>Авто Виконання Скриптів Python -- Auto Run Python Scripts</dt>
+<dd>Ви можете увімкнути ігнорування цих питань безпеки та дозволити автоматичне виконання скриптів.</dd>
+<dt>Виключені Шляхи -- Excluded Paths</dt>
+<dd>Blend-files in these folders will <em>not</em> automatically run Python scripts.
+This can be used to define where blend-files from untrusted sources are kept.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="../advanced/scripting/security.html"><span class="doc">Python Security</span></a>.</p>
+</div>
+</div>
+<div class="section" id="save-load">
+<span id="prefs-save-load"></span><h2>Збереження і Завантаження -- Save &amp; Load<a class="headerlink" href="#save-load" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Відносні Шляхи -- Relative Paths</dt>
+<dd>Стандартно, зовнішні файли використовують відносний шлях -- <a class="reference internal" href="../data_system/files/relative_paths.html"><span class="doc">relative path</span></a>.</dd>
+<dt>Стискати Файл -- Compress File</dt>
+<dd><p class="first">Стискає blend-файл при збереженні.</p>
+<p>Ця опція буде ущільнювати ваші файли кожного разу, коли Blender зберігатиме їх. Щільні сітки, великі запаковані текстури або багато елементів у вашій сцені призводитимуть до створення великого blend-файлу.</p>
+<p class="last">This option may slow down Blender when you quit,
+or under normal operation when Blender is saving your backup files.
+Using this option traces processor time for file size.</p>
+</dd>
+<dt>Завантажувати Інтерфейс Користувача -- Load UI</dt>
+<dd>Стандартна устава -- завантажувати розставу вікон (дивіться детальніше тут -- <a class="reference internal" href="../interface/window_system/screens.html"><span class="doc">Screens</span></a>) зі збереженого файлу. Це може бути змінено окремо при завантаженні файлу з панелі «Відкрити Файл Blender» -- <em>Open blend-file</em> Оглядача Файлів -- <a class="reference internal" href="../editors/file_browser/index.html"><span class="doc">File Browser</span></a>.</dd>
+<dt>Фільтрувати за Розширенням Файлів -- Filter File Extensions</dt>
+<dd><p class="first">При активації цього регіон з файлами в Оглядачі Файлів буде показувати тільки відповідні файли (тобто, blend-файли при завантаженні повної устави Blender). Вибір типів файлів може бути змінене у регіоні файлів.</p>
+<div class="last figure" id="id1">
+<img alt="../_images/preferences_file_filter.png" src="../_images/preferences_file_filter.png" />
+<p class="caption"><span class="caption-text">Фільтр файлів за розширенням.</span></p>
+</div>
+</dd>
+<dt>Ховати Файли з Крапкою/Блоки Даних -- Hide Dot File/Data-blocks</dt>
+<dd>Ховає файл, ім'я якого починається з крапки <code class="docutils literal notranslate"><span class="pre">.</span></code> (у системах Linux та Apple файли з <code class="docutils literal notranslate"><span class="pre">.</span></code> сховані).</dd>
+<dt>Ховати Останні Локації -- Hide Recent Locations</dt>
+<dd>Ховає панель «Останнє» -- <em>Recent</em> в Оглядачі Файлів -- <a class="reference internal" href="../editors/file_browser/index.html"><span class="doc">File Browser</span></a>, яка показує теки, до яких останнім часом здійснювався доступ.</dd>
+<dt>Ховати Системні Закладки -- Hide System Bookmarks</dt>
+<dd>Ховає системні закладки для тек в Оглядачі Файлів -- <em>File Browser</em>.</dd>
+<dt>Показати Мініатюри -- Show Thumbnails</dt>
+<dd>Показує мініатюри зображень та фільмів в Оглядачі Файлів -- <a class="reference internal" href="../editors/file_browser/index.html"><span class="doc">File Browser</span></a>.</dd>
+<dt>Зберігати Версії -- Save Versions</dt>
+<dd><p class="first">Кількість версій, створюваних для одного і того ж файлу (для резерву).</p>
+<p class="last">Ця опція вказує Blender'у зберігати зазначену кількість збережених версій вашого файлу у вашому поточному робочому каталогу, коли ви вручну зберігаєте файл. Такі файли версій будуть мати розширення: <code class="docutils literal notranslate"><span class="pre">.blend1</span></code>, <code class="docutils literal notranslate"><span class="pre">.blend2</span></code> тощо з прирістним номером відповідно до кількості заданих вами версій. Старіші файли будуть іменовані з вищим номером. наприклад, зі стандартним значенням цієї устави як 2, ви будете мати три версії вашої файлу: <code class="docutils literal notranslate"><span class="pre">*.blend</span></code> (ваше останнє збереження), <code class="docutils literal notranslate"><span class="pre">*.blend1</span></code> (ваше друге перед останнім збереження) та <code class="docutils literal notranslate"><span class="pre">*.blend2</span></code> (ваше третє перед останнім збереження).</p>
+</dd>
+<dt>Останні Файли -- Recent Files</dt>
+<dd>Кількість файлів, показуваних на у підменю «Файл &gt; Відкрити Останнє» -- <span class="menuselection">File ‣ Open Recent</span> в Оглядачі Файлів.</dd>
+<dt>Зберегти Передогляди Зображень -- Save Preview Images</dt>
+<dd>Передогляди зображень та матеріалів в Оглядачі Файлів -- <a class="reference internal" href="../editors/file_browser/index.html"><span class="doc">File Browser</span></a> створюються на вимогу. Для збереження цих передоглядів у вашому blend-файлі увімкніть цю опцію (за рахунок збільшення розміру вашого blend-файлу).</dd>
+</dl>
+</div>
+<div class="section" id="auto-save">
+<span id="prefs-auto-save"></span><h2>Авто Збереження -- Auto Save<a class="headerlink" href="#auto-save" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зберегти Сесію -- Keep Session</dt>
+<dd>Automatically loads the <code class="docutils literal notranslate"><span class="pre">quit.blend</span></code> file after re-starting Blender.
+This file is always saved on quit, regardless of this option.
+See <a class="reference internal" href="../troubleshooting/recover.html#troubleshooting-file-recovery"><span class="std std-ref">Recover Last Session</span></a>.</dd>
+<dt>Авто Збереження Тимчасових Файлів -- Auto Save Temporary Files</dt>
+<dd>Enables <a class="reference internal" href="../troubleshooting/recover.html"><span class="doc">Auto Save</span></a>.
+Tells Blender to <em>automatically</em> save a backup copy of your work-in-progress files to the <a class="reference internal" href="../getting_started/installing/configuration/directories.html#temp-dir"><span class="std std-ref">Тимчасовий каталог</span></a>.</dd>
+<dt>Часолік -- Timer</dt>
+<dd>This specifies the number of minutes to wait between each <a class="reference internal" href="../troubleshooting/recover.html"><span class="doc">Auto Save</span></a>.
+The default value of the Blender installation is 2 minutes.
+The minimum is 1, and the Maximum is 60 (save every hour).</dd>
+</dl>
+</div>
+<div class="section" id="text-editor">
+<h2>Редактор Тексту -- Text Editor<a class="headerlink" href="#text-editor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Табуляції як Пробіли -- Tabs as Spaces</dt>
+<dd>При натисканні <kbd class="kbd docutils literal notranslate">Tab</kbd> табуляції записуються як клавіатурні пробіли.</dd>
+<dt>Автор -- Author</dt>
+<dd>Ім'я, що буде використовуватися в експортованих файлах, коли їх формат підтримує таку функцію.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="system.html" class="btn btn-neutral float-right" title="Система -- System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="themes.html" class="btn btn-neutral" title="«Теми» -- Themes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

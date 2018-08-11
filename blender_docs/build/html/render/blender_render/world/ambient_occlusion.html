@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Загорода Оточення -- Ambient Occlusion &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/world/ambient_occlusion.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Імла -- Mist" href="mist.html" />
+    <link rel="prev" title="Побічне Освітлення -- Indirect Lighting" href="indirect_lighting.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Світ -- World</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="world_panel.html">Панель «Світ» -- World Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exposure.html">Експозиція та Діапазон -- Exposure &amp; Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ambient_light.html">Освітлення Середовища -- Environment Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="indirect_lighting.html">Побічне Освітлення -- Indirect Lighting</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Загорода Оточення -- Ambient Occlusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mist.html">Імла -- Mist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Світ -- World</a> &raquo;</li>
+        
+      <li>Загорода Оточення -- Ambient Occlusion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/world/ambient_occlusion.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ambient-occlusion">
+<span id="bpy-types-worldlighting-ao"></span><h1>Загорода Оточення -- Ambient Occlusion<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h1>
+<p>Загорода Оточення -- Ambient Occlusion, АО -- умудрений розрахунок простеження променя, який імітує м'які тіні глобального освітлювання шляхом підробки темряви, сприйманої у кутках та у місцях перетинів, складок та тріщин сіті, де освітлення оточення загороджується або блокується.</p>
+<p>There is no such thing as AO in the real world; AO is a specific not-physically-accurate
+(but generally nice-looking) rendering trick.
+It basically samples a hemisphere around each point on the face,
+sees what proportion of that hemisphere is occluded by other geometry,
+and shades the pixel accordingly.</p>
+<p>It is got nothing to do with light at all; it is purely a rendering trick that tends to look
+nice because generally in real-world surfaces that are close together (like small cracks)
+will be darker than surfaces that do not have anything in front of them, because of shadows,
+dirt, etc.</p>
+<p>Процес АО, однак, приблизно дає цей результат; це не імітування відскакування світла навколо або проходження його через речі. Ось чому АО все ще працює, коли у вас немає жодних освітлювачів у сцені, і саме тому просте увімкнення лише АО є дуже поганим способом «освітлення» сцени.</p>
+<p>Ви повинні мати увімкненою опцію «Простеження Променя» -- Ray Tracing на панелі «Відтінення» -- <em>Shading</em> у вкладці <em>Render</em>, щоб АО працювало.</p>
+<p>Ви повинні мати заданим вже бажаний колір освітлення оточення. Стандартно, колір освітлення оточення (світ) є чорним, що імітує середину ночі у підвалі при вимкненому електроосвітленні. Застосування кольору оточення буде фактично затемнювати усі кольори. Колір зовнішнього оточення у полудень -- це RGB(0.9, 0.9, 0.8), який є білувато жовтим видом кольору навколишнього середовища в яскравий, але не дуже, день.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_panel.png" src="../../../_images/render_blender-render_world_ambient-occlusion_panel.png" />
+<p class="caption"><span class="caption-text">Панель World з повзунками кольору оточення.</span></p>
+</div>
+<dl class="docutils">
+<dt>Фактор -- Factor</dt>
+<dd>Сила ефекту АО, множник для додання.</dd>
+</dl>
+<p>Загорода Оточення компонується у ході рендерингу. Доступні два режими змішання:</p>
+<dl class="docutils">
+<dt>Додання -- Add</dt>
+<dd>Піксель приймає світло відповідно до кількості не-загороджених променів. Сцена є світлішою. Це імітує глобальне освітлювання.</dd>
+<dt>Множення -- Multiply</dt>
+<dd>Загорода Оточення множиться на відтінення, даючи темніший вигляд речей.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Якщо обрано <em>Multiply</em>, то у сцені повинні бути і інші джерела світла; інакше сцена буде на вигляд повністю чорною. В іншому з цих двох випадків сцена буде освітлена, навіть якщо в ній відсутній явний освітлювача, тільки від ефекту АО. Хоча багатьом людям подобається використовувати АО самостійно як швидкий засіб освітлення сцени, результати, які вона буде давати, будуть приглушеними та плоскими, як у похмурий день. У більшості випадків, найкраще освітлювати сцену належно за допомогою стандартних ламп Blender'а, а потім поверх цього вживати АО, задавши для нього режим <em>Multiply</em>, для отримання додаткової детальності та контактних тіней.</p>
+</div>
+<p>Панель «Збірка» -- <em>Gather</em> містить устави для якості загороди оточення. Зауважте, що ці устави також застосовуються до Освітлення Середовища -- Environment Lighting та Побічного Освітлення -- Indirect Lighting.</p>
+<p>Загорода Оточення має два головні методи для її розрахування: «Простеження променя» -- <em>Raytrace</em> та «Приблизно» -- <em>Approximate</em>.</p>
+<div class="section" id="gather">
+<span id="bpy-types-worldlighting"></span><h3>Збірка -- Gather<a class="headerlink" href="#gather" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raytrace">
+<h4>Простеження променя -- Raytrace<a class="headerlink" href="#raytrace" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_gather.png" src="../../../_images/render_blender-render_world_ambient-occlusion_gather.png" />
+<p class="caption"><span class="caption-text">Панель Ambient Occlusion, метод Raytrace.</span></p>
+</div>
+<p>Метод <em>Raytrace</em> дає більшу точність, але також більш шумні результати. Ви можете отримати майже безшумне зображення, але за рахунок часу на рендеринг... Це єдиний варіант, якщо ви хочете використовувати кольори вашої текстури неба.</p>
+<dl class="docutils">
+<dt>Затухання -- Attenuation</dt>
+<dd>Length of rays defines how far away other faces may be and still have an occlusion effect.
+The longer this distance, the greater impact that far away geometry will have on the occlusion effect.
+A high <em>Distance</em> value also means that the renderer has to search a greater area for geometry that occludes,
+so render time can be optimized by making this distance as short as possible for the visual effect that you want.</dd>
+</dl>
+<p class="rubric">Відбір -- Sampling</p>
+<dl class="docutils">
+<dt>Метод Відбору -- Sampling Method</dt>
+<dd><dl class="first docutils">
+<dt>Постійний QMC -- Constant QMC</dt>
+<dd>Базовий Квазі Монте-Карло -- Quasi-Monte Carlo, дає рівномірно та випадково розподілені промені.</dd>
+<dt>Адаптивний QMC -- Adaptive QMC</dt>
+<dd><p class="first">Покращений метод QMC, що намагається визначити, коли норма вибірок може бути знижена або вирібки пропущено, базуючи на двох його уставах:</p>
+<dl class="last docutils">
+<dt>Поріг -- Threshold</dt>
+<dd>Ліміт, нижче якого вибірка вважається повністю загородженою («чорною») або не-загородженою («білою»), та пропускається.</dd>
+<dt>Адаптувати до Швидкості -- Adapt to Speed</dt>
+<dd>Фактор для скорочення відбору АО на швидко рухомих пікселях. Оскільки він використовує прохід рендера <em>Vector</em>, то останній повинен бути увімкнений (дивіться детальніше тут -- <a class="reference internal" href="../../post_process/layers.html"><span class="doc">render passes page</span></a>).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Про QMC</p>
+<p class="last">See also
+the <a class="reference internal" href="../lighting/shadows/raytraced_properties.html#render-blender-internal-quasi-monte-carlo"><span class="std std-ref">ray-traced shadows page</span></a>
+for more info about the Quasi-Monte Carlo sampling method.</p>
+</div>
+<dl class="last docutils">
+<dt>Постійний Розкид -- Constant Jittered</dt>
+<dd><p class="first">Історичний метод вибірки, більш схильний до «упереджених» артефактів...</p>
+<dl class="last docutils">
+<dt>Відхил -- Bias</dt>
+<dd><p class="first">Кут (у радіанах) півсфери буде зроблений вужчим (тобто, півсфера більше не буде реальною півсферою: її зріз більше не буде півколом, а дугою кола: pi - <em>bias</em> радіан).</p>
+<p>Ця устава відхилу дозволяє вам керувати тим, наскільки згладженими будуть виглядати «згладжені» грані при рендерингу з АО. Оскільки АО відбувається на оригінальній гранованій сіті, то можливо, що освітлення від АО робитиме грані видимими, навіть якщо для об'єктів увімкнене «згладження». Це через те, як знімають променю АО, і може контролюватися за допомогою повзунка <em>Bias</em>. Зауважте, що це може траплятися навіть з методами відбору QMC, однак воно набагато більш видимо з методом <em>Constant Jittered</em>, і будь-якому випадку ви не маєте жодних опцій <em>Bias</em> для QMC.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">24×24 UV Sphere з Bias: 0.05 (стандарт). Зверніть увагу на гранування на поверхні сфери, хоча для неї й увімкнено згладження.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Збільшення Bias до 0.15 вилучає ці артефакти гранування.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Вибірки -- Samples</dt>
+<dd><p class="first">Кількість променів, використовуваних для визначення того, чи об'єкт загороджується. Вищі значення вибірок дають згладженіші та більш точні результати, ціною уповільнення рендерингу. Стандартне значення 5 зазвичай добре для передоглядів. Фактична кількість знятих променів -- це квадратне число цього значення (наприклад, <em>Samples</em> як 5 означає 25 променів). Промені знімаються у півсфері згідно з випадковим взірцем (визначеним, методами відбору, описаними вище); це призводить до відмінностей у взірці загородження сусідніх пікселів, допоки кількість знятих променів є достатньо великою для продукування добрих статистичних даних.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion із 3 Samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion із 6 Samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion із 12 Samples.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="approximate">
+<h4>Приблизно -- Approximate<a class="headerlink" href="#approximate" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id8">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_gather2.png" src="../../../_images/render_blender-render_world_ambient-occlusion_gather2.png" />
+<p class="caption"><span class="caption-text">Панель Ambient Occlusion, метод Approximate.</span></p>
+</div>
+<p>Метод <em>Approximate</em> дає набагато згладженіший результат при такій самій кількості часу рендерингу, але як його назва говорить, він є тільки приблизним методом промінь-простеження <em>Raytrace</em>, який передбачає, що він може продукувати деякі артефакти та не може використовувати текстуру неба як базовий колір.</p>
+<p>Цей метод, видається, схильний для «пере-загородження» результатів. Ви маєте дві додаткові опції для зменшення цієї проблеми:</p>
+<dl class="docutils">
+<dt>Проходи -- Passes</dt>
+<dd>Задає кількість проходів перед-обробки, між (0 до 10) проходами. Збереження високої кількості цих проходів перед-обробки буде збільшувати час рендерингу, але також вичистить деякі артефакти та пере-загородження.</dd>
+<dt>Помилка -- Error</dt>
+<dd>Це фактор допуску для помилки приблизності (тобто, максимально дозволена різниця між приблизним результатом та повністю обчисленим результатом). Чим нижче це значення, тим повільніше рендеринг, але більш точні результати... Діапазон між (0.0 до 10.0), стандарт 0.250.</dd>
+<dt>Кеш Пікселів -- Pixel Cache</dt>
+<dd>При увімкненні буде зберігати значення обчислених пікселів для інтерполювання їх із сусідами. Це пришвидшує рендеринг, загалом без видимої втрати в якості...</dd>
+<dt>Корекція -- Correction</dt>
+<dd>Фактор корекції для скорочення пере-загородження. Діапазони між (0.0 до 1.0) корекції.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-settings">
+<h3>Загальні устави<a class="headerlink" href="#common-settings" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Спад -- Falloff</dt>
+<dd><p class="first">Після активації відстань до загороджувальних об'єктів буде впливати на «глибину» тіні. Це означає, що чим далі є загороджувальна геометрія, тим світліша «тінь» від неї. Цей ефект впливає тільки, коли фактор <em>Strength</em> є вищим за 0.0. Він імітує розсіювання, дисперсію світла в атмосфері...</p>
+<dl class="last docutils">
+<dt>Сила -- Strength</dt>
+<dd>Керує затуханням тіней при увімкненому <em>Falloff</em>. Вищі значення дають коротшу тінь, оскільки вона падає швидше (відповідає більш туманній/запиленій атмосфері). Діапазони від (0.0 до 10.0), стандарт 0.0, який означає, що спаду немає.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="technical-details">
+<h2>Технічні деталі<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>Загорода Оточення розраховується шляхом відкидання променів з кожної видимої точки та підрахунку, скільки з них фактично досягають неба і скільки, з іншого боку, загороджуються об'єктами.</p>
+<p>Кількість світла на такій точці далі пропорційна кількості променів, які «втекли» та які досягли неба. Це робиться вистрілюванням півсфери променів тіні навколо. Якщо промінь потрапляє на іншу грань (він загороджується), то такий промінь вважається «тінню», інакше він вважається «світлом». Пропорція між променями «тіні» і «світла» визначає, наскільки буде яскравим даний піксель.</p>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>Загорода Оточення -- це техніка простеження променя (принаймні з методом <em>Raytrace</em>), тому вона має тенденцію повільно оброблятися. Крім того, продуктивність сильно залежить від розміру октадерева, про дивіться детальніше тут -- <a class="reference internal" href="../../index.html"><span class="doc">rendering chapter</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mist.html" class="btn btn-neutral float-right" title="Імла -- Mist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="indirect_lighting.html" class="btn btn-neutral" title="Побічне Освітлення -- Indirect Lighting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

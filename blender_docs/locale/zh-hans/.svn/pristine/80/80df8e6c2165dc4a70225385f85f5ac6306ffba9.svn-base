@@ -1,0 +1,138 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-12 18:22-0400\n"
+"PO-Revision-Date: 2017-05-29 10:42+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.3.4\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 2.0.2\n"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:4
+msgid "Limit Scale Constraint"
+msgstr "Limit Scale Constraint 限定缩放约束"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:6
+msgid ""
+"An object or bone can be scaled along the X, Y and Z axes. This "
+"constraint restricts the amount of allowed scalings along each axis, "
+"through lower and upper bounds."
+msgstr ""
+"对象或骨骼可以在场景沿 X、 Y 和 Z 轴锁附。该约束用于通过下限和上限，限制"
+"沿每个轴向的缩放。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:12
+msgid ""
+"This constraint does not tolerate negative scale values (those you might "
+"use to mirror an object...): when you add it to an object or bone, even "
+"if no axis limit is enabled, nor the *For Transform* button, as soon as "
+"you scale your object, all negative scale values are instantaneously "
+"inverted to positive ones... And the boundary settings can only take "
+"strictly positive values."
+msgstr ""
+"此约束不接受缩放值为负(你可能会用来镜像物体...)︰当为物体或骨骼使用负值缩"
+"放时，即使没有启用轴向限制，也没有启用 *针对形变* ，只要你缩放该对象，所"
+"有负的缩放值瞬间反转为正值......边界设置只可以设置为正值。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:20
+msgid ""
+"It is interesting to note that even though the constraint limits the "
+"visual and rendered scale of its owner, its owner's data-block still "
+"allows (by default) the object or bone to have scale values outside the "
+"minimum and maximum ranges (as long as they remain positive!). This can "
+"be seen in its *Transform* panel. When an owner is scaled and attempted "
+"to be moved outside the limit boundaries, it will be constrained to "
+"those boundaries visually and when rendered, but internally, its "
+"coordinates will still be changed beyond the limits. If the constraint "
+"is removed, its ex-owner will seem to jump to its internally-specified "
+"scale."
+msgstr ""
+"值得注意的是，尽管约束限制了其视觉和渲染位置，约束对象的数据块仍然允许(默"
+"认)对象或骨骼的缩放超出最小和最大值确定的范围(只要是正值)，其缩放值可以"
+"在 *变换* 面板中看到。当缩放物体，并试图超出限定边界，视觉上以及渲染时，"
+"物体仍然被限定在边界内，但在内部，其缩放仍会变化为超出限制。如果约束被移"
+"除，约束对象将跳转到其内部指定的缩放大小。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:30
+msgid ""
+"Similarly, if its owner has an internal scale that is beyond the limits, "
+"scaling it back into the limit area will appear to do nothing until the "
+"internal scale values are back within the limit threshold (unless you "
+"enabled the *For Transform* option, see below, or your owner has some "
+"negative scale values)."
+msgstr ""
+"类似地，如果约束对象的内部缩放超出范围，把它缩放回限制区域，在其内部缩放"
+"回到限定阈值范围内之前，看上去会像是什么都没发生(除非你启用了下文提到的 *"
+"针对形变* 选项)。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:35
+msgid ""
+"Setting equal the min and max values of an axis locks the owner's "
+"scaling along that axis. Although this is possible, using the "
+"*Transformation Properties* axis locking feature is probably easier."
+msgstr ""
+"为某个轴向设置相等的最小值和最大值，可以锁定约束对象在该轴向的缩放... 尽"
+"管这样是可以的，但使用 *变换属性* 的轴向锁定功能可能更简单。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:41
+msgid "Options"
+msgstr "Options 选项"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:45
+msgid "Limit Scale panel."
+msgstr "限定缩放面板。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:56
+msgid "Minimum/Maximum X, Y, Z"
+msgstr "X, Y, Z 最小值/最大值"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:48
+msgid ""
+"These buttons enable the lower boundary for the scale of the owner along "
+"respectively the X, Y and Z axes of the chosen *Space*. The *Min* and "
+"*Max* numeric fields to their right control the value of their lower and "
+"upper boundaries, respectively."
+msgstr ""
+"这几个复选框分别用于启用约束对象在选定 *空间(Space)* 的X, Y, Z轴向的缩放"
+"限制。下方的数值框分别用于控制其上下限。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:55
+msgid ""
+"If a min value is higher than its corresponding max value, the "
+"constraint behaves as if it had the same value as the max one."
+msgstr "如果最小值大于最大值，约束的效果等同于上下限相等。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:63
+msgid "For Transform"
+msgstr "For Transform 变换"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:59
+msgid ""
+"We saw that by default, even though visually constrained, and except for "
+"the negative values, the owner can still have scales out of bounds (as "
+"shown by the *Transform* panel). Well, when you enable this button, this "
+"is no longer possible, the owner transform properties are also limited "
+"by the constraint. Note however, that the constraint does not directly "
+"modify the scale values: you have to scale its owner one way or another "
+"for this to take effect."
+msgstr ""
+"我们看到，默认情况下，即使在视觉上约束，并且除了使用负缩放值，约束对象的"
+"缩放仍然可以越界(如 *变换* 面板显示)。启用该按钮后，这将不再可能，约束对"
+"象的变换属性也受到约束的限制。不过注意，约束并不会直接修改缩放值：需要缩"
+"放一次或两次约束对象才能生效。"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:66
+msgid "Convert"
+msgstr "Convert 转换"
+
+#: ../../manual/rigging/constraints/transform/limit_scale.rst:66
+msgid ""
+"This constraint allows you to choose in which space to evaluate its "
+"owner's transform properties."
+msgstr "该选项用于选择计算约束对象变换属性使用的坐标空间。"

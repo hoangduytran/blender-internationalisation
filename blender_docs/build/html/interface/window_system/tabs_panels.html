@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вкладки й Панелі -- Tabs &amp; Panels &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/window_system/tabs_panels.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Кнопки" href="../controls/buttons/buttons.html" />
+    <link rel="prev" title="Регіони -- Regions" href="regions.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#window-system">Система вікон</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="screens.html">Екрани -- Screens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="areas.html">Області -- Areas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="regions.html">Регіони -- Regions</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Вкладки й Панелі -- Tabs &amp; Panels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tabs">Вкладки -- Tabs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#panels">Панелі -- Panels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">Контролери інтерфейсу</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#tools">Інструменти</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+      <li>Вкладки й Панелі -- Tabs &amp; Panels</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/window_system/tabs_panels.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tabs-panels">
+<h1>Вкладки й Панелі -- Tabs &amp; Panels<a class="headerlink" href="#tabs-panels" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tabs">
+<h2>Вкладки -- Tabs<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../_images/game-engine_physics_introduction_tab-header.png" src="../../_images/game-engine_physics_introduction_tab-header.png" />
+<p class="caption"><span class="caption-text">Горизонтальний заголовок вкладок.</span></p>
+</div>
+<div class="figure align-right" id="id2">
+<img alt="../../_images/interface_window-system_tabs-panels_tabs.png" src="../../_images/interface_window-system_tabs-panels_tabs.png" />
+<p class="caption"><span class="caption-text">Вкладки «Інструменти» -- Tools (поточно вибрана), «Створення» -- Create і так далі.</span></p>
+</div>
+<p>Tabs are overlapping sections in the user interface.
+The Tabs header can be vertical (Tool Shelf) or
+horizontal (Properties Editor, User Preferences).</p>
+<div class="section" id="switching-cycling">
+<h3>Switching/Cycling<a class="headerlink" href="#switching-cycling" title="Permalink to this headline">¶</a></h3>
+<p>Вертикальні вкладки можуть перемикатися за допомогою коліща <kbd class="kbd docutils literal notranslate">Wheel</kbd> у межах заголовку вкладок та <kbd class="kbd docutils literal notranslate">Ctrl-Wheel</kbd> - у межах регіону з вкладками.</p>
+<p>You can also cycling through tabs with <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> and <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Tab</kbd>.</p>
+<div class="lead docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="panels">
+<span id="bpy-types-panel"></span><span id="ui-panels"></span><h2>Панелі -- Panels<a class="headerlink" href="#panels" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/interface_window-system_tabs-panels_panels.png" src="../../_images/interface_window-system_tabs-panels_panels.png" />
+<p class="caption"><span class="caption-text">Панелі Полиці Інструментів -- Tool Shelf.</span></p>
+<div class="legend">
+Оранжевим: Заголовки Панелей.</div>
+</div>
+<p>Найменша організаційна одиниця в інтерфейсі користувача -- це панель -- panel. Панелі можуть бути згорнуті для схову їх вмісту. Вони використовуються у Редакторі Властивостей -- <em>Properties Editor</em>, але також у регіонах редакторів «Полиця Інструментів» -- <em>Tool Shelf</em> та «Властивості» -- <em>Properties</em>.</p>
+<p>На ілюстрації показано три панелі: «Трансформації» -- <em>Transform</em>, «Правка» -- <em>Edit</em> та «Історія» -- <em>History</em>. Панель «Правка» -- <em>Edit</em> розгорнута, а інші ці дві панелі згорнуті.</p>
+<div class="section" id="collapsing-and-expanding">
+<h3>Collapsing and Expanding<a class="headerlink" href="#collapsing-and-expanding" title="Permalink to this headline">¶</a></h3>
+<p>Трикутник зліва від назви показується у двох станах для панелі -- розгорнуто -- expanded (▼) та згорнуто -- collapsed (►).</p>
+<ul class="simple">
+<li>Клацок <kbd class="kbd docutils literal notranslate">LMB</kbd> на заголовку панелі розгортає або згортає її.</li>
+<li>Натискання <kbd class="kbd docutils literal notranslate">A</kbd> розгортає/згортає панель під курсором миші.</li>
+<li>Клацання <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> на заголовку певної панелі згортає усі інші панелі й залишає розгорнутою лише цю.</li>
+<li>Протягування з утримуваною натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd> по заголовках даватиме розгортання або згортання кількох панелей за раз.</li>
+</ul>
+</div>
+<div class="section" id="position">
+<h3>Позиція<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<p>Ви можете змінювати позицію панелі у межах її регіону, клацнувши та перетягнувши її з утримуваною натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd> за віджет хапання (::::) в її верхньому правому кутку.</p>
+</div>
+<div class="section" id="pinning">
+<h3>Пришпилення<a class="headerlink" href="#pinning" title="Permalink to this headline">¶</a></h3>
+<p>Часто бажаним є огляд панелей одночасно з різних вкладок. Це може бути вирішено за допомогою пришпилення -- pinning панелей.</p>
+<p>Пришпилена панель залишається видимою, незалежно від того, яка з вкладок вибрана. Ви можете пришпилити -- pin панель за допомогою утримуваної натисненою <kbd class="kbd docutils literal notranslate">Shift</kbd> та клацку ЛКМ на її заголовку або клацку <kbd class="kbd docutils literal notranslate">RMB</kbd> на її заголовку та вибору пункту «Пришпилення» -- <em>Pin</em> в контекстному меню.</p>
+<p>На ілюстрації вище показано приклад пришпиленої панелі «Опції Сіті» -- <em>Mesh Options</em>.</p>
+</div>
+<div class="section" id="zoom">
+<h3>Зумування<a class="headerlink" href="#zoom" title="Permalink to this headline">¶</a></h3>
+<p>Фактор зумування (присунення-відсунення) цілого регіону може бути змінено клацанням і утримуванням натисненими <kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd> та рухом миші у межах цього регіону або використання <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd> та <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd> для присування та відсування його вмісту. Натискання <kbd class="kbd docutils literal notranslate">Home</kbd> (Показати Усе -- Show All) скидає зумування екрану/панелі, фокусованих під курсором миші.</p>
+</div>
+<div class="section" id="alignment">
+<h3>Вирівняння<a class="headerlink" href="#alignment" title="Permalink to this headline">¶</a></h3>
+<p>Вирівняння панелей у Редакторі Властивостей -- <em>Properties Editor</em> може бути змінено між вертикальним і горизонтальним. Для цього клацніть <kbd class="kbd docutils literal notranslate">RMB</kbd> десь у межах головного регіону Редактора Властивостей -- <em>Properties Editor</em> та вибрати або «Горизонтально» -- <em>Horizontal</em>, або «Вертикально» -- <em>Vertical</em> з контекстного меню. Майте на увазі, що панелі оптимізовані для вертикального вирівняння.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../controls/buttons/buttons.html" class="btn btn-neutral float-right" title="Кнопки" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="regions.html" class="btn btn-neutral" title="Регіони -- Regions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

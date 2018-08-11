@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>«Додатки» -- Add-ons &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/preferences/addons.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="«Теми» -- Themes" href="themes.html" />
+    <link rel="prev" title="«Увід» - Input" href="input.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Уподобання Користувача -- User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Вкладки -- Tabs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interface.html">«Інтерфейс» -- Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">«Правка» -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">«Увід» - Input</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">«Додатки» -- Add-ons</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#searching">Пошук -- Searching</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-and-disabling">Вмикання та вимикання</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-on-information">Інформація про додаток</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header">Заголовок -- Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">«Теми» -- Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html">«Файл» -- File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">Система -- System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Уподобання Користувача -- User Preferences</a> &raquo;</li>
+        
+      <li>«Додатки» -- Add-ons</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/addons.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="add-ons">
+<span id="bpy-ops-wm-addon"></span><span id="bpy-types-addon"></span><h1>«Додатки» -- Add-ons<a class="headerlink" href="#add-ons" title="Permalink to this headline">¶</a></h1>
+<p>Вкладка «Додатки» дозволяє вам управляти вторинними скриптами, що називаються «Додатки» -- &quot;Add-ons&quot;, які розширюють функціональність Blender'а. У цій вкладці ви можете шукати, інсталювати, вмикати та вимикати Додатки.</p>
+<div class="figure" id="id1">
+<img alt="../_images/preferences_addons_tab.png" src="../_images/preferences_addons_tab.png" />
+<p class="caption"><span class="caption-text">Вкладка «Додатки» -- Add-ons в Уподобаннях Користувача.</span></p>
+</div>
+<div class="section" id="searching">
+<h2>Пошук -- Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h2>
+<p>Blender поставляється з деякими корисними Додатками, вже готовими для вмикання. Але ви можете також додавати свої або цікаві додатки, що можна знайти у веб.</p>
+<div class="section" id="filtering">
+<h3>Фільтрування -- Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Підтримуваний Рівень -- Supported Level</dt>
+<dd><p class="first">Додати Blender'а розділені на дві групи, залежно від того, хто написав/підтримує їх:</p>
+<ul class="last simple">
+<li>Офіційне -- Official: Додатки, що написані розробниками Blender'а.</li>
+<li>Спільнота -- Community: Додатки, що написані людьми зі спільноти Blender'а.</li>
+</ul>
+</dd>
+<dt>Категорії -- Categories</dt>
+<dd>Додатки діляться на категорії, які є областями використання Blender'а.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="enabling-and-disabling">
+<h2>Вмикання та вимикання<a class="headerlink" href="#enabling-and-disabling" title="Permalink to this headline">¶</a></h2>
+<p>Вмикається та вимикається додаток, поставленням або зняттям стягу на позначці, справа від його імені, як показано на ілюстрації.</p>
+<div class="figure" id="id2">
+<img alt="../_images/preferences_addons_enable.png" src="../_images/preferences_addons_enable.png" />
+<p class="caption"><span class="caption-text">Enabling an add-on.</span></p>
+</div>
+<p>Функціональність додатку повинна стати негайно ж доступною. Якщо Додаток не активується при увімкненні, то перевірте вікно Консолі -- <a class="reference internal" href="../advanced/command_line/introduction.html"><span class="doc">Console window</span></a> на наявність помилок, що могли трапитися.</p>
+</div>
+<div class="section" id="add-on-information">
+<h2>Інформація про додаток<a class="headerlink" href="#add-on-information" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете клацнути на стрілці зліва від імені додатку та розгорнути його панель для перегляду більше про нього інформації, зокрема, про його локацію, опис та посилання на документацію. Тут ви можете також знайти кнопку для повідомлення про ваду, конкретно щодо цього додатку.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Збереження уподобань щодо додатків</p>
+<p class="last">Якщо ви хочете, щоб певний Додаток вмикався кожен раз при запуску Blender'а, то після його увімкнення необхідно клацнути на кнопці «Зберегти Устави Користувача» -- <em>Save User Settings</em>.</p>
+</div>
+<div class="section" id="add-on-preferences">
+<span id="bpy-types-addonpreferences"></span><span id="user-prefs-addons-prefs"></span><h3>Уподобання щодо додатку<a class="headerlink" href="#add-on-preferences" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="individual-activation">
+<h4>Індивідуальна активація<a class="headerlink" href="#individual-activation" title="Permalink to this headline">¶</a></h4>
+<p>Додатки, що активують або змінюють кілька клавіатурних скорочень, мають спеціальну систему активації. Наприклад, з додатком &quot;UI: Pie Menu Official&quot; для кожного меню передбачене поле вибору для активації цього меню та його клавіатурного скорочення.</p>
+<p>With Pie menus, First you activate the add-on. This activates the &quot;Add-ons Preferences Submodule Activation&quot;.
+You then need to expand the Add-ons Preferences, then you will see the list of Pie Menu types you can choose from.
+From here you can individually activate the menus you like to use.
+If the menu conflicts with another favorite, there's no need to activate it.
+You can activate any combination and save as user settings
+so your activations are available next time you start Blender.</p>
+</div>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Заголовок -- Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Інсталяція з файлу</dt>
+<dd><p class="first">Для додатків, які ви знайшли на веб, або написали самі, щоб вони стали показуватися у цьому списку, слід спершу їх інсталювати, клацнувши на кнопці «Інсталювати з Файлу» -- <em>Install from File...</em> та вказати на відповідний файл <code class="docutils literal notranslate"><span class="pre">.zip</span></code> або <code class="docutils literal notranslate"><span class="pre">.py</span></code>.</p>
+<p class="last">Now the add-on will be installed, not automatically enabled.
+The search field will be set to the add-on's name (to avoid having to look for it).
+Enable the add-on by turning on the checkbox.</p>
+</dd>
+<dt>Освіження -- Refresh</dt>
+<dd>Сканує теку з додатками -- <a class="reference internal" href="../getting_started/installing/configuration/directories.html"><span class="doc">Add-on Directory</span></a> на наявність у ній ново доданих додатків.</dd>
+<dt>Онлайн Ресурси -- Online Resources</dt>
+<dd><p class="first">Це меню містить список корисних посилань як для користувачів, так і для людей, що цікавляться написанням власних додатків.</p>
+<dl class="last docutils">
+<dt>«Каталог додатків» -- <a class="reference external" href="https://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts">Scripts Catalog</a></dt>
+<dd>Надає покажчик додатків, що включені разом з Blender'ом, а також перелік ряду зовнішніх додатків.</dd>
+<dt>«Як поділитися вашим додатком» -- <a class="reference external" href="https://wiki.blender.org/index.php/Dev:Doc/Process/Addons">How to share your add-on</a></dt>
+<dd>Інформація про те, де і як отримати додатки для Blender'а.</dd>
+<dt>«Настанови щодо розробки додатків» -- <a class="reference external" href="https://wiki.blender.org/index.php/Dev:Py/Scripts/Guidelines/Addons">Add-ons development guidelines</a></dt>
+<dd>Настанови з написання нових додатків для Blender'а.</dd>
+<dt>«Концепція API» -- <a class="reference external" href="https://www.blender.org/api/blender_python_api_current/info_quickstart.html">API Concepts</a></dt>
+<dd>Швидке уведення про програмний інтерфейс застосунку Blender's API.</dd>
+<dt>«Навчальник про додатки» -- <a class="reference external" href="https://www.blender.org/api/blender_python_api_current/info_tutorial_addon.html">Add-on Tutorial</a></dt>
+<dd>Швидкий навчальник про основи написання додатків.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>User-Defined Add-on Path</p>
+<p>Ви можете також створити особистий каталог, що міститиме нові додатки, та сконфігурувати ваш шлях до цих файлів на вкладці «Файл» -- <em>File</em> в редакторі «Уподобання Користувача» -- <em>User Preferences</em>. Для створення особистого каталогу скриптів:</p>
+<ol class="arabic simple">
+<li>Створіть порожній каталог у бажаній вами локації (наприклад, <code class="docutils literal notranslate"><span class="pre">my_scripts</span></code>).</li>
+<li>Додайте у ньому, <code class="docutils literal notranslate"><span class="pre">my_scripts</span></code>, підкаталог з іменем <code class="docutils literal notranslate"><span class="pre">addons</span></code> (це <em>повинно</em> бути саме це ім'я, щоб Blender розпізнавав його).</li>
+<li>Відкрийте вкладку «Файл» -- <em>File</em> «Уподобань Користувача» -- <em>User Preferences</em>.</li>
+<li>У полі устави «Скрипти» -- <em>Scripts</em> вкажіть шлях до вашого каталогу зі скриптами (наприклад, <code class="docutils literal notranslate"><span class="pre">my_scripts</span></code>).</li>
+<li>Збережіть Уподобання Користувача та перезапустіть Blender для розпізнавання цієї нової локації з додатками.</li>
+</ol>
+<p>Тепер, коли ви інсталюватимете додатки, ви можете вибирати в лівому регіоні Оглядача Файлів для опції «Цільовий Шлях» -- <em>Target Path</em> значення «Уподобання Користувача» -- <em>User Pref</em> (і вони установлюватимуться по шляху, заданому у вкладці «Файл» -- <em>File</em>).</p>
+<p class="last">Blender буде копіювати ново інстальовані додатки у цей каталог, визначений вами в Уподобаннях Користувача.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="themes.html" class="btn btn-neutral float-right" title="«Теми» -- Themes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="input.html" class="btn btn-neutral" title="«Увід» - Input" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

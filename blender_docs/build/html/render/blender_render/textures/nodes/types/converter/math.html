@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Математика» -- Math Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/textures/nodes/types/converter/math.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Вузол «RGB у BW» -- RGB to BW Node" href="rgb_to_bw.html" />
+    <link rel="prev" title="Вузол «Відстань» -- Distance Node" href="distance.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Текстури -- Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../texture_panel.html">Панель «Текстура» -- Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../assigning_a_texture.html">Призначення Текстури -- Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Властивості Текстури -- Texture Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../types/index.html">Типи Текстур -- Texture Type</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Текстурові Вузли -- Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Текстури -- Textures</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Текстурові Вузли -- Texture Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Конвертер» -- Converter Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Математика» -- Math Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/render/blender_render/textures/nodes/types/converter/math.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-texturenodemath"></span><div class="section" id="math-node">
+<h1>Вузол «Математика» -- Math Node<a class="headerlink" href="#math-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../../_images/compositing_types_converter_math_node.png" src="../../../../../../_images/compositing_types_converter_math_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Математика» -- Math node.</span></p>
+</div>
+<p>Вузол «Математика» -- <em>Math Node</em> здійснює математичні операції.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Значення -- Value</dt>
+<dd>Перше числове значення. Тригонометричні функції приймають значення у радіанах.</dd>
+<dt>Значення -- Value</dt>
+<dd>Друге числове значення. Це значення <strong>не</strong> використовується у функціях, що приймають тільки один параметр, на кшалт, тригонометричних функцій, Округлення -- Round та Абсолют -- Absolute.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Операція -- Operation</dt>
+<dd>Додання -- Add, Відняття -- Subtract, Множення -- Multiply, Ділення -- Divide, Синус -- Sine, Косинус -- Cosine, Тангенс -- Tangent, Арксинус -- Arcsine, Арккосинус -- Arccosine, Арктангенс -- Arctangent, Степінь -- Power, Логарифм -- Logarithm, Мінімум -- Minimum, Максимум -- Maximum, Округлення -- Round, Менше Ніж -- Less Than, Більше Ніж -- Greater Than, Модуль -- Modulo, Абсолют -- Absolute.</dd>
+<dt>Затиск -- Clamp</dt>
+<dd>Лімітує вивід діапазоном (від 0 до 1). Дивіться <a class="reference internal" href="../../../../../../glossary/index.html#term-clamp"><span class="xref std std-term">clamp</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Значення -- Value</dt>
+<dd>Вивід числового значення.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manual-z-mask">
+<h3>Ручна Z-Маска<a class="headerlink" href="#manual-z-mask" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../../../_images/compositing_types_converter_math_manual-z-mask.png" src="../../../../../../_images/compositing_types_converter_math_manual-z-mask.png" />
+<p class="caption"><span class="caption-text">Приклад функції мінімуму та максимуму.</span></p>
+</div>
+<p>Цей приклад має один увід зі сцени, поданий вузлом «Шари Рендера» -- <em>Render Layers</em>, який має куб, що знаходиться близько 10 одиниць Blender'а від камери. Нижній увід у карту вузлів -- другий вузол Render Layers зі сценою, що має площину, яка покриває ліву частину огляду та знаходиться на 7 BU від камери. Обидва подаються через відповідні їм вузли «Розкладка Значень» -- Map Value, що ділять їх значення Z-буферу глибини на 20 (або множать на 0.05, як показано у полі устави «Розмір» -- Size) та затискають ці значення мінімумом/максимумом як 0.0/1.0 відповідно.</p>
+<p>Для функції мінімуму цей вузол вибирає ті значення Z, де відповідний піксель є ближчим до камери; тому, він обирає значення Z для площини та частини куба. Задньоплан має безкінечне значення глибини Z, а тому він затискається значенням 1.0 (показується білим кольором). У прикладі з максимумом значення Z куба є більшим, ніж для площини, а тому вони обираються з лівого боку, але Z вузла <em>Render Layers</em> із площиною є безкінечним (розкладеним в 1.0) для правого боку, і тому вони обоє є вибраними.</p>
+</div>
+<div class="section" id="using-sine-function-to-pulsate">
+<h3>Використання Функції Синуса для отримання ефекту Пульсації<a class="headerlink" href="#using-sine-function-to-pulsate" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../../../_images/compositing_types_converter_math_sine.png" src="../../../../../../_images/compositing_types_converter_math_sine.png" />
+<p class="caption"><span class="caption-text">Приклад використання функції синуса.</span></p>
+</div>
+<p>Цей приклад має вузол <em>Time</em> -- «Час», який розкладає лінеарну послідовність від 0 до 1 на діапазон 101 кадрів. У кадрі 25 вивідне значення є 0.25. Це значення множиться на 2 × pi (6.28) та конвертується в 1.0 функцією Синуса, оскільки ми всі знаємо, що <span class="math notranslate nohighlight">\(sin(2 × pi/ 4) = sin(pi/ 2) = +1.0\)</span>.</p>
+<p>Оскільки функція синуса може викладати значення між (-1.0 to 1.0), то вузол <em>Map Value</em> масштабує це у від 0.0 до 1.0, беручи увід (-1 to 1), додаючи 1 (роблячи від 0 до 2) та множачи результат на одну-другу (звідси масштабується вивід між 0 та 1). Стандартно <em>Color Ramp</em> конвертує ці значення у шкалу-сірих. Тому, середній сірий відповідає за синусом виводу 0.0, чорний як -1.0, а білий як 1.0. Як ви можете бачити, <span class="math notranslate nohighlight">\(sin(pi/ 2) = 1.0\)</span>. Ніби маєте власний візуальний калькулятор кольорів! Анімування цього укладу вузлів надає плавну циклічну послідовність через діапазон сірих.</p>
+<p>Використовуйте цю функцію для варіювання, наприклад, альфа-каналу зображення для отримання ефекту появи/щезання. Змінюйте значення цього Z-каналу для переміщування сцени у/поза фокус. Змінюйте значення колірного каналу для зроблення «пульсації» кольору.</p>
+</div>
+<div class="section" id="brightening-scaling-a-channel">
+<h3>Збільшення яскравості (Масштабування) Каналу<a class="headerlink" href="#brightening-scaling-a-channel" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../../../_images/compositing_types_converter_math_multiply.png" src="../../../../../../_images/compositing_types_converter_math_multiply.png" />
+<p class="caption"><span class="caption-text">Приклад масштабування каналу.</span></p>
+</div>
+<p>Цей приклад має вузол «Математика (Множення)» -- <em>Math (Multiply)</em>, що збільшує значення каналу світності (Y) зображення для зроблення його яскравішим. Зауважте, що ви повинні використати вузол «Розкладка Значень» -- <em>Map Value node</em> з увімкненими опціями мінімуму min() та максимуму max() для затиску виводу у дійсні значення. За допомогою такого підходу ви можете використати логарифмічну функцію для зроблення зображення з високим динамічним діапазоном. Для цього конкретного прикладу існує також вузол «Яскравість/Контраст» -- <em>Brighten/Contrast node</em>, що може давати простіший контроль за яскравістю.</p>
+</div>
+<div class="section" id="restrict-color-selection-posterization">
+<h3>Обмеження Вибору Кольору (Постеризація)<a class="headerlink" href="#restrict-color-selection-posterization" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<img alt="../../../../../../_images/compositing_types_converter_math_posterization.png" src="../../../../../../_images/compositing_types_converter_math_posterization.png" />
+<p class="caption"><span class="caption-text">Приклад постеризації.</span></p>
+</div>
+<p>У цьому прикладі, ми обмежили значення кольору одним із шести значень: 0, 0.2, 0.4, 0.6, 0.8, 1.</p>
+<p>Для розділення продовжуваного діапазону значень між 0 та 1 у певний набір значень використовується наступна функція: <span class="math notranslate nohighlight">\(round(x × n - 0.5) / (n - 1)\)</span>, де &quot;n&quot; є кількість можливих значень виводу, і &quot;x&quot; є увідним кольором пікселя. Детальніше -- <a class="reference external" href="https://en.blender.org/index.php/Doc:2.4/Manual/Composite_Nodes/Types/Convertor#Quantize.2FRestrict_Color_Selection">Read more about this function</a>.</p>
+<p>Для імплементації цієї функції у Blender'і розглянемо уклад вузлів вище. Ми подали вузли Math у функцію, що бере кожен колір (значення від 0 до 1), множить це на шість, бажану кількість поділів (значення стають від  0 до 6), зсуває це на 0.5 (-0.5 до 5.5), округлює значення до найближчого цілого числа (продукує 0, 1, 2, 3, 4, 5), і потім ділить  колір пікселя зображення на п'ять (0.0, 0.2, 0.4, 0.6, 0.8, 1.0).</p>
+<p>У випадку кольорового зображення вам необхідно розділити його на окремі канали RGB, використавши вузли <em>Separate/Combine RGBA</em> та здійснити цю операцію на кожному каналі незалежно.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rgb_to_bw.html" class="btn btn-neutral float-right" title="Вузол «RGB у BW» -- RGB to BW Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="distance.html" class="btn btn-neutral" title="Вузол «Відстань» -- Distance Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

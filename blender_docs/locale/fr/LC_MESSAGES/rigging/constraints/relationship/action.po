@@ -1,0 +1,319 @@
+#
+# phan <phahoatho@gmail.com>, 2017, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-24 20:29+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../../manual/rigging/constraints/relationship/action.rst:7
+msgid "Action Constraint"
+msgstr "Contrainte Action "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:9
+msgid ""
+"The *Action* constraint is powerful. It allows you control an :doc:`Action </"
+"editors/dope_sheet/action>` using the transformations of another object."
+msgstr ""
+"La contrainte *Action* est puissante. Elle vous permet de contrôler une :doc:"
+"`Action </editors/dope_sheet/action>` en utilisant les transformations d'une "
+"autre objet."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:13
+msgid ""
+"The underlying idea of the *Action* constraint is very similar to the one "
+"behind the :doc:`Drivers </animation/drivers/index>`, except that the former "
+"uses a whole action (i.e. a bunch of F-Curves of the same type), while the "
+"latter controls a single F-curve of their \"owner\"..."
+msgstr ""
+"L'idée sous-jacente de la Contrainte *Action* est très similaire à celle "
+"derrière les :doc:`Contrôleurs </animation/drivers/index>`, sauf que la "
+"première utilise une action entière (càd un ensemble de F-Curves du même "
+"type), tandis que la dernière contrôle une simple F-Curve de leur "
+"\"propriétaire\"..."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:17
+msgid ""
+"Note that even if the constraint accepts the *Mesh* action type, only the "
+"*Object*, *Pose* and *Constraint* types are really working, as constraints "
+"can only affect objects' or bones' transform properties, and not meshes' "
+"shapes. Also note that only the object transformation (location, rotation, "
+"scale) is affected by the action, if the action contains keyframes for other "
+"properties they are ignored, as constraints do not influence those."
+msgstr ""
+"Notez que même si la contrainte accepte le type d'action *Mesh*, seuls les "
+"types *Object*, *Pose* et *Constraint* sont réellement fonctionnels, étant "
+"donné que les contraintes peuvent uniquement affecter les propriétés de "
+"transformation d'objets et d'os, et pas les formes des maillages. Notez "
+"aussi que seule la transformation d'objet (position, rotation, échelle) est "
+"affectée par l'action, si l'action contient des trames clés pour d'autres "
+"propriétés, elles sont ignorées, étant donné que les contraintes ne les "
+"influencent pas.  "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:25
+#, fuzzy
+msgid ""
+"As an example, let us assume you have defined an *Object* action (it can be "
+"assigned to any object, or even no object at all), and have mapped it on "
+"your owner through an *Action* constraint, so that moving the target in the "
+"(0.0 to 2.0) range along its X axis maps the action content on the owner in "
+"the (0 to 100) frame range. This will mean that when the target's *X* "
+"property is 0.0 the owner will be as if in frame 0 of the linked action; "
+"with the target's *X* property at 1.0 the owner will be as if in frame 50 of "
+"the linked action, etc."
+msgstr ""
+"Comme exemple, supposons que vous avez défini une action *Object* (elle peut "
+"être assignée à n'importe quel objet, ou même à aucun objet), et l'avez "
+"attribuée à votre propriétaire via une contrainte *Action*, de sorte que le "
+"déplacement de la cible dans l'intervalle (0.0 à 2.0) sur l'axe X fait "
+"correspondre le contenu de l'action sur le propriétaire dans l'intervalle de "
+"trames (0 à 100). Ceci signifiera que quand la propriété *X* de la cible est "
+"0.0, le propriétaire sera comme dans la trame 0 de l'action liée ; avec la "
+"propriété *X* de la cible à 1.0, le propriétaire sera comme si dans la trame "
+"50 de l'action liée, etc."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:37
+msgid "Options"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:41
+msgid "Action panel."
+msgstr "Panneau Action."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:43
+msgid "Target"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:44
+msgid ""
+":ref:`ui-data-id` used to select the constraints target, and is not "
+"functional (red state) when it has none."
+msgstr ""
+":ref:`ui-data-id` utilisée pour sélectionner la cible de la contrainte, et "
+"n'est pas fonctionnelle (état rouge) quand elle n'en a aucune. "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:45
+msgid "Bone"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:46
+msgid ""
+"When target is an armature object, use this field to select the target bone."
+msgstr ""
+"Quand la cible est un objet armature, utilisez ce champ pour sélectionner "
+"l'os cible."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:48
+msgid "Transform Channel"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:48
+msgid ""
+"This selector controls which transform property (location, rotation or scale "
+"along/around one of its axes) from the target to use as \"action driver\"."
+msgstr ""
+"Ce sélecteur contrôle la propriété de transformation (position, rotation, "
+"échelle le long/autour d'un de ses axes) de la cible à utiliser comme "
+"\"contrôleur d'action\"."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:50
+msgid "Target Space"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:51
+msgid ""
+"This constraint allows you to choose in which space to evaluate its target's "
+"transform properties."
+msgstr ""
+"Cette contrainte vous permet de choisir dans quel espace évaluer les "
+"propriétés de transformation de sa cible. "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:58
+msgid "To Action"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:53
+msgid "Select the name of the action you want to use."
+msgstr "Sélectionnez le nom de l'action que vous voulez utiliser."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:57
+msgid ""
+"Even though it might not be in red state (UI refresh problems...), this "
+"constraint is obviously not functional when this field does not contain a "
+"valid action."
+msgstr ""
+"Même s'il ne pourrait pas être dans un état rouge (problèmes de "
+"rafraîchissement de l'UI...), cette contrainte n'est évidemment pas "
+"fonctionnelle quand ce champ ne contient pas une action valide."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:63
+msgid "Object Action"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:61
+msgid ""
+"Bones **only**, when enabled, this option will make the constrained bone use "
+"the \"object\" part of the linked action, instead of the \"same-named pose\" "
+"part. This allows you to apply the action of an object to a bone."
+msgstr ""
+"Les os **seulement**, si l'option est activée, celle-ci va faire que l'os "
+"contraint utilise la partie \"objet\" de l'action liée, à la place de la "
+"partie \"pose du même nom\". Ceci vous permet d'appliquer l'action d'un "
+"objet sur un os."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:74
+msgid "Target Range Min/Max"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:66
+#, fuzzy
+msgid "The lower and upper bounds of the driving transform property value."
+msgstr ""
+"Les limites inférieure et supérieure de la valeur de propriété de "
+"transformation."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:70
+msgid "Unfortunately, here again we find the constraint's limitations:"
+msgstr ""
+"Malheureusement, ici de nouveau nous retrouvons les limitations de la "
+"contrainte :"
+
+#: ../../manual/rigging/constraints/relationship/action.rst:72
+msgid ""
+"When using a rotation property as \"driver\", these values are \"mapped back"
+"\" to the (-180.0 to 180.0) range."
+msgstr ""
+"Quand une propriété de rotation est utilisée comme \"contrôleur\", ces "
+"valeurs sont \"ramenées\" à l'intervalle (-180.0 à 180.0)."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:74
+msgid ""
+"When using a scale property as \"driver\", these values are limited to null "
+"or positive values."
+msgstr ""
+"Quand une propriété dimensionnement est utilisée comme \"contrôleur\", ces "
+"valeurs sont limitées à *null* ou à des valeurs positives. "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:84
+msgid "Action Range Start/End"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:77
+msgid "The starting and ending frames of the action to be mapped."
+msgstr "Les trames de début et de fin de l'action à faire correspondre."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:81
+msgid "These values must be strictly positive."
+msgstr "Ces valeurs doivent être strictement positives."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:82
+msgid ""
+"By default, both values are set to 0, which disables the mapping (i.e. the "
+"owner just gets the properties defined at frame 0 of the linked action...)."
+msgstr ""
+"Par défaut, les deux valeurs sont mises à 0, ce qui désactive le mapping "
+"(càd que le propriétaire obtient simplement les propriétés définies à la "
+"trame 0 de l'action liée...)."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:87
+msgid "Notes"
+msgstr ""
+
+#: ../../manual/rigging/constraints/relationship/action.rst:89
+msgid ""
+"When the linked action affects some location properties, the owner's "
+"existing location is added to the result of evaluating this constraint "
+"(exactly as when the *Offset* button of the :doc:`Copy Location constraint </"
+"rigging/constraints/transform/copy_location>` is enabled...)."
+msgstr ""
+"Quand l'action liée affecte certaines propriétés de position, la position "
+"actuelle du propriétaire est ajoutée au résultat de l'évaluation de cette "
+"contrainte (exactement comme dans le cas où le bouton *Offset* de la "
+"contrainte :doc:`Copy Location </rigging/constraints/transform/"
+"copy_location>` est activé...)."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:93
+msgid ""
+"When the linked action affects some scale properties, the owner's existing "
+"scale is multiplied with the result of evaluating this constraint."
+msgstr ""
+"Quand l'action liée affecte certaines propriétés de dimensionnement, "
+"l'échelle actuelle du propriétaire est multipliée par le résultat de "
+"l'évaluation de cette contrainte."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:95
+msgid ""
+"When the linked action affects some rotation properties, the owner's "
+"existing rotation is overridden by the result of evaluating this constraint."
+msgstr ""
+"Quand l'action liée affecte certaines propriétés de rotation, la rotation "
+"actuelle du propriétaire est remplacée par le résultat de l'évaluation de "
+"cette contrainte."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:97
+msgid ""
+"Unlike usual, you can have a *Start* value higher than the *End* one, or a "
+"*Min* one higher than a *Max* one: this will reverse the mapping of the "
+"action (i.e. it will be \"played\" reversed...), unless you have both sets "
+"reversed, obviously!"
+msgstr ""
+"Contrairement à d'habitude, vous pouvez avoir une valeur *Start* supérieure "
+"à celle de *End*, ou celle de *Min* supérieure à celle de *Max* : ceci va "
+"inverser l'affectation de l'action (càd. elle sera \"jouée\" dans le sens "
+"contraire...), à moins que vous ayez les deux valeurs inversées, évidemment !"
+
+#: ../../manual/rigging/constraints/relationship/action.rst:100
+#, fuzzy
+msgid ""
+"When using a *Constraint* action, it is the constraint *channel's names* "
+"that are used to determine to which constraints of the owner apply the "
+"action. E.g. if you have a constraint channel named \"trackto_empt1\", its "
+"keyed *Influence* and/or *Head/Tail* values (the only ones you can key) will "
+"be mapped to the ones of the owner's constraint named \"trackto_empt1\"."
+msgstr ""
+"Quand une action *Constraint* est utilisée, c'est les *noms du canal* de la "
+"contrainte qui sont utilisés pour déterminer à quelles contraintes du "
+"propriétaire l'action va être appliquée. Ex. si vous avez un canal de "
+"contrainte nommé \"trackto_empt1\", ses valeurs *Influence* et/ou *Head/"
+"Tail* (les seules que vous pouvez) seront de la contrainte du propriétaire "
+"nommée \"trackto_empt1\"."
+
+#: ../../manual/rigging/constraints/relationship/action.rst:105
+#, fuzzy
+msgid ""
+"Similarly, when using a *Pose* action (which is obviously only meaningful "
+"and working when constraining a bone!), it is the bone's name that is used "
+"to determine which bone *channel's names* from the action to use (e.g. if "
+"the constrained bone is named \"arm\", it will use and only use the action's "
+"bone channel named \"arm\"...). Unfortunately, using a *Pose* action on a "
+"whole armature object (to affect all the keyed bones in the action at once) "
+"will not work..."
+msgstr ""
+"De même, dans une action *Pose* (qui est évidemment seulement significative "
+"et fonctionnelle en cas de contrainte d'os !), c'est le nom de l'os qui est "
+"utilisé pour déterminer quels noms du canal d'os de l'action utiliser (ex. "
+"si l'os contraint est nommé \"arm\", il utilisera et utilisera seulement le "
+"canal os de l'action appelée \"arm\"...).Malheureusement, l'utilisation "
+"d'une action *Pose* sur un objet armature entier (pour affecter tous les os "
+"dans l'action en même temps) ne fonctionne pas... "
+
+#: ../../manual/rigging/constraints/relationship/action.rst:111
+msgid ""
+"Note also that you can use the :doc:`pose library feature </rigging/"
+"armatures/properties/pose_library>` to create/edit a *Pose* action data-"
+"block... just remember that in this situation, there is one pose per frame!"
+msgstr ""
+"Notez aussi que vous pouvez utiliser la :doc:`pose library feature </rigging/"
+"armatures/properties/pose_library>` pour créer/éditer un bloc de données "
+"d'action *Pose*... Rappelez-vous seulement que dans cette situation, il y a "
+"une pose par trame !"

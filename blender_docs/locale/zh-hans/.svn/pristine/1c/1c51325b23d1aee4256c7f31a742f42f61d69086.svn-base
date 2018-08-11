@@ -1,0 +1,272 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-03-09 22:34+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:4
+msgid "Introduction"
+msgstr "简介"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:6
+#, fuzzy
+msgid ""
+"A material defines the artistic qualities of the substance that an object"
+" is made of. In its simplest form, you can use materials to show the "
+"substance an object is made of, or to \"paint\" the object with different"
+" colors. Usually, the substance is represented by its surface qualities "
+"(color, shininess, reflectance, etc.) but it can also exhibit more "
+"complicated effects such as transparency, diffraction and subsurface "
+"scattering. Typical materials might be brass, skin, glass, or linen."
+msgstr "材质定义了构成物体的物质的艺术特质。最简单的形式是，用材质去表现构成物体的物质，或者给物体“涂上”不同的颜色。通常，使用表面品质(颜色，光泽度，反射，等等)来表现物质，但是材质也可以用来展示更多的效果如透明，衍射和次表面散射。典型的材质如黄铜，皮肤，玻璃或亚麻布。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:16
+msgid ""
+"Various basic materials (single, multiple material, transparency, vertex "
+"paint)."
+msgstr "各种基础材质(单材质，多材质(搭配)，透明材质，顶点绘制)。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:18
+msgid ""
+"The basic (un-textured) Blender material is uniform across each face of "
+"an object (although the various pixels of each face of the object may "
+"appear differently because of lighting effects). However, different faces"
+" of the object may use different materials (see :ref:`bi-multiple-"
+"materials`)."
+msgstr ""
+"Blender基础材质(没有贴图)沿物体表面均匀分布(尽管每个面的各个像素由于灯光影响可能有些不同)。不过，物体的不同面可以使用不同的材质(见 "
+":ref:`bi-multiple-materials`)。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:22
+msgid ""
+"In Blender, materials can (optionally) have associated textures. Textures"
+" *describe* the substance: e.g. *polished* brass, *dirty* glass or "
+"*embroidered* linen. The :doc:`Textures "
+"</render/blender_render/textures/index>` chapter describes how to add "
+"textures to materials."
+msgstr ""
+"在blender里面，材质可以关联(可选)贴图。贴图 *描述* 物质：例如 *光亮的* 黄铜， *脏的* 玻璃或者 *绣花的* 亚麻布。 "
+":doc:`贴图 </render/blender_render/textures/index>` 章节介绍如何为材质添加贴图。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:29
+msgid "How Materials Work"
+msgstr "材质如何发挥作用"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:31
+msgid ""
+"Before you can understand how to design effectively with materials, you "
+"must understand how simulated light and surfaces interact in Blender's "
+"rendering engine and how material settings control those interactions. A "
+"deep understanding of the engine will help you to get the most from it."
+msgstr "在理解如何有效设计材质之前，你必须理解在blender的渲染器如何模拟灯光和表面的互相作用和如何设定材质去控制这些作用。你将从深入的了解渲染器中得到帮助。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:36
+msgid ""
+"The rendered image you create with Blender is a projection of the scene "
+"onto an imaginary surface called the *viewing plane*. The viewing plane "
+"is analogous to the film in a traditional camera, or the rods and cones "
+"in the human eye, except that it receives simulated light, not real "
+"light."
+msgstr ""
+"Blender渲染的图像是场景在一个假想表面上的投影，该表面称作 *视平面* "
+"。视平面类似于传统相机的胶片，或者人眼的视网膜，不同的是它接收模拟的光线而不是真实的光线。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:42
+msgid ""
+"To render an image of a scene we must first determine what light from the"
+" scene is arriving at each point on the viewing plane. The best way to "
+"answer this question is to follow a straight line (the simulated light "
+"ray) backwards through that point on the viewing plane and the focal "
+"point (the location of the camera) until it hits a renderable surface in "
+"the scene, at which point we can determine what light would strike that "
+"point."
+msgstr "要将一个场景渲染为图片，我们必须确定场景中到达视平面每一点的光线有哪些。最好的方法是沿通过视平面一点与焦点(相机位置)构成的直线反向追踪，直至该直线击中场景中的可渲染平面，这时就可以确定到达该点的光线了。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:49
+msgid ""
+"The surface properties and incident light angle tells how much of that "
+"light would be reflected back along the incident viewing angle "
+"*(Rendering engine basic principle)*."
+msgstr "该表面的属性和光线的入射角度将决定有多少光线沿观察角度反射至视平面 *(渲染器基本原理)* 。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:54
+msgid "Rendering engine basic principle."
+msgstr "渲染器基本原理。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:56
+msgid ""
+"Two basic types of phenomena take place at any point on a surface when a "
+"light ray strikes it: diffusion and specular reflection. Diffusion and "
+"specular reflection are distinguished from each other mainly by the "
+"relationship between the incident light angle and the reflected light "
+"angle."
+msgstr "光线照射到一个表面的任一点后，会发生两种基础现象：散射和镜面反射。散射和镜面反射的区别主要在于入射角和反射角的关系。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:61
+msgid ""
+"The shading (or coloring) of the object during render will then take into"
+" account the base color (as modified by the diffusion and specular "
+"reflection phenomenon) and the light intensity."
+msgstr "渲染时，物体的着色(或上色)需考虑基色(被漫射和镜面反射现象改变)和光线强度。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:64
+msgid ""
+"Using the internal ray tracer, other (more advanced) phenomena could "
+"occur. In ray-traced reflections, the point of a surface struck by a "
+"light ray will return the color of its surrounding environment, according"
+" to the rate of reflection of the material (mixing the base color and the"
+" surrounding environment's) and the viewing angle."
+msgstr "使用内置的光线跟踪，会发生其它(更多高级的)现象。光线跟踪反射时，根据材质的反射强度(混合基础颜色和周围环境）和视角角度，被光线照射的表面上的点将会反射它周围环境的颜色。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:69
+msgid ""
+"On the other hand, in ray-traced refractions, the point of a surface "
+"struck by a light ray will return the color of its background "
+"environment, according to the rate of transparency (mixing the base color"
+" and the background environment's along with its optional filtering "
+"value) of the material and the optional index of refraction of the "
+"material, which will distort the viewing angle."
+msgstr "另一方面，在光线跟踪折射时，根据材质的透明度（混合基础颜色和背景环境颜色连同它过滤掉的值）和材质本身的折射系数(扭曲视角)，被光线照射的表面上的点将会返回背景环境的颜色。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:75
+#, fuzzy
+msgid ""
+"Of course, shading of the object hit by a light ray will be about mixing "
+"all these phenomena at the same time during the rendering. The appearance"
+" of the object, when rendered, depends on many interrelated settings:"
+msgstr "当然，渲染的过程中，光线照射物体的着色效果将会同时混合以上所有现象。渲染后物体的很多内部相关的设定："
+
+#: ../../manual/render/blender_render/materials/introduction.rst:79
+msgid "World (Ambient color, Radiosity, Ambient Occlusion)"
+msgstr "世界(环境颜色，光线传递，环境光遮蔽)"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:80
+msgid "Lights"
+msgstr "灯光"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:81
+msgid ""
+"Material settings (including ambient, emission, and every other setting "
+"on every panel in that tab)"
+msgstr "材质设置(包括环境色，自发光，和各选项卡内其他设置)"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:82
+msgid "Texture(s) and how they are mixed"
+msgstr "贴图及其混合方法"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:83
+msgid "Material Nodes"
+msgstr "材质节点"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:84
+msgid "Camera"
+msgstr "相机"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:85
+msgid "Viewing angle"
+msgstr "视角"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:86
+msgid "Obstructions and transparent occlusions"
+msgstr "阻碍和透明度"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:87
+msgid "Shadows from other opaque/transparent objects"
+msgstr "从其它不透明/透明物体投射来的阴影"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:88
+msgid "Render settings"
+msgstr "渲染设置"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:89
+msgid "Object dimensions (SS settings are relevant to dimensions)"
+msgstr "物体尺寸(表面散射与物体尺寸有关系)"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:90
+msgid "Object shape (refractions, Fresnel effects)"
+msgstr "物体形态(反射，菲涅尔效应)"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:94
+msgid "Using Materials"
+msgstr "使用材质"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:96
+msgid "Check your Render"
+msgstr "检查渲染"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:98
+msgid ""
+"When designing materials (and textures and lighting), frequently check "
+"the rendered appearance of your scene, using your chosen render "
+"engine/shader settings. The appearance might be quite different from that"
+" shown in the texture display in the 3D panel."
+msgstr "设计材质(和贴图和灯光)时，建议频繁检查使用选择的渲染器/着色器设置后场景的渲染效果。实际的效果可能与3D面板显示的贴图大有不同。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:102
+msgid ""
+"As stated above, the material settings usually determine the surface "
+"properties of the object. There are several ways in which materials can "
+"be set up in Blender. Generally speaking, these are not compatible. You "
+"must choose which method you are going to use for each particular object "
+"in your scene:"
+msgstr "如上述，材质设定通常决定了物体表面属性。在blender中有多种设置材质的方法。通常来讲，这些方法相互之间并不兼容。你必须为场景中的每一个物体选定所使用的方法:"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:107
+msgid ""
+"First, you can set the :doc:`Properties "
+"</render/blender_render/materials/properties/introduction>` in the "
+"various Material panels."
+msgstr ""
+"首先，你可以在各材质面板设置 :doc:`属性 "
+"</render/blender_render/materials/properties/introduction>` 。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:109
+msgid ""
+"Second, you can use :doc:`Nodes "
+"</render/blender_render/materials/nodes/index>`; a graphical nodes editor"
+" is available."
+msgstr ""
+"其次，可以使用 :doc:`节点 </render/blender_render/materials/nodes/index>` ； "
+"还可以使用节点编辑器的图形界面."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:111
+msgid ""
+"Last, you can directly set the color of object surfaces using various "
+"special effects. Strictly speaking, these are not materials at all, but "
+"they are included here because they affect the appearance of your "
+"objects. These include :ref:`Vertex Painting <painting-vertex-index>`, "
+":doc:`Wire Rendering "
+"</render/blender_render/materials/special_effects/wire>`, :doc:`Volume "
+"Rendering </render/blender_render/materials/special_effects/volume>`, and"
+" :doc:`Halo Rendering "
+"</render/blender_render/materials/special_effects/halo>`."
+msgstr ""
+"最后，你可以使用各种特殊效果直接设置物体表面颜色。严格的说，这些并不是材质，不过这里还是提一下，因为这会影响物体的外观效果。这些效果包括 "
+":ref:`顶点绘制 <painting-vertex-index>` ， :doc:`线框渲染 "
+"</render/blender_render/materials/special_effects/wire>` ， :doc:`体积渲染 "
+"</render/blender_render/materials/special_effects/volume>` ，和 :doc:`光晕渲染 "
+"</render/blender_render/materials/special_effects/halo>` 。"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:118
+#, fuzzy
+msgid ""
+"The exact effect of Material settings can be affected by a number of "
+"system settings. First and foremost is the renderer used: Cycles and the "
+"Blender Renderer (aka Blender Internal or BI) require quite different "
+"illumination levels to achieve similar results, and even then the "
+"appearance of objects can be quite different. Also, the material "
+"properties settings can be affected by the texture method used (single-"
+"texture, multi-texture or GLSL). So it is recommended to always select "
+"the appropriate system settings before starting the design of materials."
+msgstr "材质设置的准确效果受很多系统设置影响。首先，最重要的是使用的渲染引擎：Cycles和Blender渲染引擎(也成Blender内置引擎或BI)需要使用不同的照明强度来获得类似的效果，并且物体的外观效果也大有不同。同时，使用贴图的方法(单张贴图，多张贴图或GLSL)也会影响材质属性设置。所以，建议在设计材质前选择合适的系统设置。"
+

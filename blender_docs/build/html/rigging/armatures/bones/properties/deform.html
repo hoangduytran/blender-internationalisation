@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Деформації -- Deform &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/armatures/bones/properties/deform.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Властивості -- Properties" href="../../properties/index.html" />
+    <link rel="prev" title="Панель «Показ» -- Display" href="display.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Примуси -- Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Арматури -- Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Кістки -- Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Покривання -- Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Позування -- Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Арматури -- Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Кістки -- Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості -- Properties</a> &raquo;</li>
+        
+      <li>Деформації -- Deform</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/properties/deform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deform">
+<h1>Деформації -- Deform<a class="headerlink" href="#deform" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Bone ‣ Deform</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../../_images/rigging_armatures_bones_properties_deform_panel.png" src="../../../../_images/rigging_armatures_bones_properties_deform_panel.png" />
+<p class="caption"><span class="caption-text">Панель «Деформації» -- Deform.</span></p>
+</div>
+<p>На цій панелі ви можете задавати деформувальні опції для кожної кістки.</p>
+<p>Toggling the checkbox in the panel header off,
+prevents the bone from deforming the geometry at all,
+overriding any weights that it might have been assigned before; It mutes its influence.</p>
+<p>Це також виключає активну кістку з автоматичного розрахування вагомостей, коли сіть приріднена до арматури за допомогою засобу «Деформації Арматури» -- <em>Armature Deform</em> з опцією «З Автоматичними Вагомостями» -- &quot;With Automatic Weights&quot;.</p>
+<div class="section" id="envelope">
+<span id="armature-bones-envelope"></span><h2>Оболонка -- Envelope<a class="headerlink" href="#envelope" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id2" style="width: 180px">
+<img alt="../../../../_images/rigging_armatures_bones_structure_envelope-edit-mode.png" src="../../../../_images/rigging_armatures_bones_structure_envelope-edit-mode.png" />
+<p class="caption"><span class="caption-text">Зони впливу кістки за методом оболонок.</span></p>
+</div>
+<p>Оболонки є найбільш загальним методом покривання. Це працює з усіма доступними для покривання типами об'єктів (сітями, решітками, кривими, поверхнями та текстами). Це базується на близькості між кістками та їх геометрією, кожна кістка має дві різні зони впливу, показані на ілюстрації візуалізації методом оболонок <em>Envelope</em>:</p>
+<ul class="simple">
+<li>Внутрішня зона, що під «суцільною» частиною кістки, так контролюється обидвома радіусами кореня та верхівки.</li>
+<li>Зовнішня зона, показана світлішою частиною навколо кістки, та керується уставою «Відстань» -- <em>Distance</em>.</li>
+</ul>
+<div class="lead docutils container">
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Дивіться детальніше тут -- <a class="reference internal" href="../editing/transform.html"><span class="doc">editing pages</span></a>, як редагувати ці властивості.</p>
+</div>
+<dl class="docutils">
+<dt>Відстань -- Distance</dt>
+<dd><p class="first">Устава «Відстань» визначає об'єм, який є діапазоном у межах кістки, що має вплив на вершини деформованого об'єкта. Вплив кістки на геометрію зменшується і зменшується з відстанню від кістки на основі правила квадратичного загасання.</p>
+<div class="last figure" id="id3">
+<img alt="../../../../_images/rigging_armatures_bones_properties_deform_envelope-distance.png" src="../../../../_images/rigging_armatures_bones_properties_deform_envelope-distance.png" />
+<p class="caption"><span class="caption-text">Одинична кістка з різними розмірами оболонки.</span></p>
+</div>
+</dd>
+<dt>Вагомість -- Weight</dt>
+<dd><p class="first">Властивість кістки, що керує глобальним впливом її на деформований об'єкт при використанні методу оболонок.</p>
+<p class="last">It is only useful for the parts of geometry that are &quot;shared&quot;,
+influenced by more than one bone (generally, at the joints...) -- a bone with a high weight will
+have more influence on the result than one with a low weight...
+Note that when set to 0.0, it has the same effect as disabling the <em>Deform</em> option.</p>
+</dd>
+<dt>Радіус -- Radius</dt>
+<dd><p class="first">Задає радіус для голови та хвоста оболонкових костей. Всередині цього об'єму кістка буде здійснювати повний вплив на геометрію.</p>
+<div class="last figure" id="id4">
+<img alt="../../../../_images/rigging_armatures_bones_properties_deform_envelope-radius.png" src="../../../../_images/rigging_armatures_bones_properties_deform_envelope-radius.png" />
+<p class="caption"><span class="caption-text">Три кістки арматури з використанням радіусів впливу голови та хвоста оболонки.</span></p>
+<div class="legend">
+1-ша має стандартне значення радіусу, дві інші -- різні значення радіусу для Хвоста і Голови.</div>
+</div>
+</dd>
+<dt>Множення -- Multiply</dt>
+<dd>Ця опція керує тим, як два (вагомості оболонки та вагомості груп вершин) деформувальні методи взаємодіють, коли вони обидва застосовуються. Стандартно, коли вони обидва активні, то усі вершини, що належать принаймні одній групі вершин, деформується тільки методом груп вершин. Інші «сирітські» вершини обробляються методом оболонок. Коли ви вмикаєте цю опцію, то «деформаційний вплив», що така кістка буде здійснювати на вершину (базуючись на її уставах оболонки), множиться на вагомість цієї вершини у відповідній групі вершин. Іншими словами, метод груп вершин далі «виважується» методом оболонок.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../properties/index.html" class="btn btn-neutral float-right" title="Властивості -- Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="display.html" class="btn btn-neutral" title="Панель «Показ» -- Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

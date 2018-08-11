@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/selecting/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Просунуте" href="advanced.html" />
+    <link rel="prev" title="Вибирання (Selecting)" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">Примітиви</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Вибирання (Selecting)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced.html">Просунуте</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edges_faces.html">Ребра та Грані</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+          <li><a href="index.html">Вибирання (Selecting)</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/meshes/selecting/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Існує багато способів виділення елементів і від <em>Режиму Виділення Сітки (Mesh Select Mode)</em>, в якому ви знаходитесь, залежить, які інструменти вибору доступні. Спочатку ми пройдемо ці режими, після чого подивимось на основні інструменти вибору.</p>
+<div class="section" id="selection-mode">
+<h2>Режим вибору (Selection Mode)<a class="headerlink" href="#selection-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="select-mode-header-widgets">
+<h3>Віджети Заголовку Режиму Вибору (Select Mode Header Widgets)<a class="headerlink" href="#select-mode-header-widgets" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Довідка</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">3D View Header ‣ Select Mode</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_mode-buttons.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_mode-buttons.png" src="../../../_images/modeling_meshes_selecting_introduction_mode-buttons.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Кнопки вибору Режиму Редагування.</span></p>
+</div>
+<p>У <em>Режимі Редагування</em> є три різні режими вибору. Ви можете переходити в різні режими, вибираючи одну з трьох кнопок заголовку.</p>
+<dl class="docutils">
+<dt>Вершини (Vertices)</dt>
+<dd><p class="first">У цьому режимі вершини відображаються як точки.</p>
+<p class="last">Вибрані вершини відображаються помаранчевим кольором, не вибрані - чорним, а активна або остання вибрана вершина - білим кольором.</p>
+</dd>
+<dt>Ребра (Edges)</dt>
+<dd><p class="first">У цьому режимі вершини не відображаються.</p>
+<p class="last">Замість цього, вибрані ребра відображаються помаранчевим кольором, не вибрані - чорним, а активне або останнє вибране ребро - білим кольором.</p>
+</dd>
+<dt>Грані (Faces)</dt>
+<dd><p class="first">У цьому режимі грані відображаються з точкою у центрі, яка використовується для вибору грані.</p>
+<p class="last">Вибрані грані та їх точки вибору відображаються помаранчевим кольором, не вибрані - чорним, а активна або остання вибрана грань підсвічується білим кольором.</p>
+</dd>
+</dl>
+<p>Використовуючи ці кнопки, ви можете користовуватися клавішами-модифікаторами, див: <a class="reference internal" href="#switching-select-mode">Switching Select Mode</a>.</p>
+<p>Майже всі інструменти доступні у всіх трьох режимах вибору. Тому ви можете <em>Обертати (Rotate)</em>, <em>Масштабувати (Scale)</em>, <em>Видавлювати (Extrude)</em> і т.д. у всіх режимах. Звичайно, обертати або масштабувати <em>одну</em> точку не дасть ніякої користі (<em>без</em> встановлення точки опори (pivot point) в інше місцеположення), тому деякі інструменти менше або більше придатні для застосування в деяких режимах.</p>
+<p>Див Рис. <a class="reference internal" href="#fig-mesh-select-intro-selection-modes"><span class="std std-ref">Selection modes.</span></a> з прикладами різних режимів.</p>
+<div class="section" id="multiple-selection-modes">
+<h4>Кілька Режимів Вибору (Multiple Selection Modes)<a class="headerlink" href="#multiple-selection-modes" title="Permalink to this headline">¶</a></h4>
+<p>By holding <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> when selecting a selection mode,
+you can enable multiple <em>Selection Modes</em> at once.
+This allows you to quickly select Vertices/Edges/Faces,
+without first having to switch modes.</p>
+<span id="fig-mesh-select-intro-selection-modes"></span><table border="1" class="docutils" id="id2">
+<caption><span class="caption-text">Selection modes.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Vertex mode example.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Edge mode example.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_face-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_face-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_face-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Face mode example.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_mixed-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_mixed-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_mixed-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Приклад змішаного режиму (Mixed mode).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="switching-select-mode">
+<h3>Перемикання Режиму Вибору<a class="headerlink" href="#switching-select-mode" title="Permalink to this headline">¶</a></h3>
+<p>При перемиканні режимів у порядку <em>зростання</em> (тобто, від простішого до більш складного), від <em>Вершин</em> до <em>Ребер</em> та від <em>Ребер</em> до <em>Граней</em>, вибрані частини залишаться вибраними, якщо вони утворюють повний елемент у новому режимі.</p>
+<p>Наприклад, якщо всі чотири ребра у грані вибрані, перемикання з режиму <em>Ребер</em> до режиму <em>Граней</em> залишить грань вибраною. Всі вибрані частини, що не утворюють повний набір у новому режимі, стануть невибраними.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_edge-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Edge mode, the initial selection.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_face-mode-switched-from-edge.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_face-mode-switched-from-edge.png" src="../../../_images/modeling_meshes_selecting_introduction_face-mode-switched-from-edge.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Switching to Face mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Отже, при перемиканні у <em>спадаючому</em> порядку (тобто, від більш складного до простішого), всі елементи, що визначають елемент &quot;вищого рівня&quot; (такий як грань) будуть вибраними (наприклад, чотири вершини або ребра у чотирикутнику).</p>
+<div class="section" id="expanding-contracting-selection">
+<h4>Розширення/Звуження Вибору<a class="headerlink" href="#expanding-contracting-selection" title="Permalink to this headline">¶</a></h4>
+<p>Тримаючи <kbd class="kbd docutils literal notranslate">Ctrl</kbd> при виборі вищого режиму виділення, всі елементи, що торкаються поточного виділення, будуть додані, навіть якщо виділення не формує цілий елемент вищого рівня.</p>
+<p>Або звужуючи виділення при переході до нижчого режиму.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png" src="../../../_images/modeling_meshes_selecting_introduction_vertex-mode-example.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Vertex mode, the initial selection.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_edge-mode-expanding-from-vertex.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_edge-mode-expanding-from-vertex.png" src="../../../_images/modeling_meshes_selecting_introduction_edge-mode-expanding-from-vertex.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Expanding to Edge mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="limit-selection-to-visible">
+<h2>Обмежити Вибір до Видимого (Limit Selection to Visible)<a class="headerlink" href="#limit-selection-to-visible" title="Permalink to this headline">¶</a></h2>
+<p>Якщо ви перебуваєте у щільному (solid), затіненому (shaded) або текстурованому (textured) режимі затінення вікна перегляду (а не обмежуючий паралелепіпед ( bounding box) або каркас (wireframe)), у вас буде четверта кнопка у заголовку, що виглядає як куб, праворуч від режимів вибору.</p>
+<p>Коли увімкнуто, обмежує можливість бачити або вибирати вершини, закриті геометрією об'єкта (так, неначе об'єкт цілістний (solid)). Це зроблено обрізанням за допомогою буфера глибини вікна перегляду (viewport).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-off.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-off.png" src="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-off.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Limit Selection to Visible option is disabled.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-on.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-on.png" src="../../../_images/modeling_meshes_selecting_introduction_limit-selection-to-visible-on.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Limit Selection to Visible option is enabled.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="selection-tools">
+<h2>Інструменти вибору (Selection Tools)<a class="headerlink" href="#selection-tools" title="Permalink to this headline">¶</a></h2>
+<p>Меню вибору в режимі редагування містить інструменти для виділення компонентів. Вони описуються детальніше на наступних сторінках.</p>
+<div class="section" id="border-select">
+<h3>Вибір рамкою (Border Select)<a class="headerlink" href="#border-select" title="Permalink to this headline">¶</a></h3>
+<p>Вмикає прямокутну область для виділення <kbd class="kbd docutils literal notranslate">B</kbd>.</p>
+<table border="1" class="docutils" id="id13">
+<caption><span class="caption-text">Border Select example.</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id14">
+<span id="fig-mesh-select-basics-start"></span><a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_border-select1.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_border-select1.png" src="../../../_images/modeling_meshes_selecting_introduction_border-select1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Початок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<span id="fig-mesh-select-basics-selecting"></span><a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_border-select2.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_border-select2.png" src="../../../_images/modeling_meshes_selecting_introduction_border-select2.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Вибір.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<span id="fig-mesh-select-basics-complete"></span><a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_border-select3.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_border-select3.png" src="../../../_images/modeling_meshes_selecting_introduction_border-select3.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Завершено.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a class="reference internal" href="#fig-mesh-select-basics-start"><span class="std std-ref">Початок.</span></a>, <em>Border Select</em> has been activated and
+is indicated by showing a dotted cross-hair cursor. In Fig. <a class="reference internal" href="#fig-mesh-select-basics-selecting"><span class="std std-ref">Вибір.</span></a>
+the <em>selection region</em> is being chosen by drawing a rectangle with the <kbd class="kbd docutils literal notranslate">LMB</kbd>.
+Finally,
+by releasing <kbd class="kbd docutils literal notranslate">LMB</kbd> the selection is complete; see Fig. <a class="reference internal" href="#fig-mesh-select-basics-complete"><span class="std std-ref">Завершено.</span></a>.</p>
+</div>
+<div class="section" id="circle-select">
+<h3>Вибір Колом (Circle Select)<a class="headerlink" href="#circle-select" title="Permalink to this headline">¶</a></h3>
+<p>Enables a circular-shaped region for selection <kbd class="kbd docutils literal notranslate">C</kbd>.</p>
+<span id="fig-mesh-select-basic-circle"></span><table border="1" class="docutils" id="id17">
+<caption><span class="caption-text">Circle Select example.</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id18">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_circle-select1.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_circle-select1.png" src="../../../_images/modeling_meshes_selecting_introduction_circle-select1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Початок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_circle-select2.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_circle-select2.png" src="../../../_images/modeling_meshes_selecting_introduction_circle-select2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Вибір.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id20">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_circle-select3.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_circle-select3.png" src="../../../_images/modeling_meshes_selecting_introduction_circle-select3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Dragging.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Мал. <a class="reference internal" href="#fig-mesh-select-basic-circle"><span class="std std-ref">Circle Select example.</span></a> є прикладом виділення ребер, знаходячись у <em>Режимі Вибору Ребер (Edge Select Mode)</em>. Як тільки ребро перетинається із колом, воно стає вибраним. Інструмент є інтерактивним, тому ребра вибираються під час перетягування області кола з <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<p>Якщо ви хочете зняти виділення з елементів, затисніть <kbd class="kbd docutils literal notranslate">MMB</kbd> та почніть натискати або перетягувати знову.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">If you are in bounding box or wireframe viewport shading mode,
+or when not enabled <em>Limit Selection to Visible</em>.
+For <em>Faces</em> select mode, the circle must intersect the face indicators
+usually represented by small pixel squares; one at the center of each face.</p>
+</div>
+</div>
+<div class="section" id="lasso-select">
+<h3>Виділення Ласо (Lasso Select)<a class="headerlink" href="#lasso-select" title="Permalink to this headline">¶</a></h3>
+<p>To activate the tool use the <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> while dragging.</p>
+<table border="1" class="docutils" id="id21">
+<caption><span class="caption-text">An example of using the <em>Lasso Select tool</em> in <em>Vertex Select Mode</em>.</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id22">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_lasso-select1.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_lasso-select1.png" src="../../../_images/modeling_meshes_selecting_introduction_lasso-select1.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Початок.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id23">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_lasso-select2.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_lasso-select2.png" src="../../../_images/modeling_meshes_selecting_introduction_lasso-select2.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Вибір.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id24">
+<a class="reference internal image-reference" href="../../../_images/modeling_meshes_selecting_introduction_lasso-select3.png"><img alt="../../../_images/modeling_meshes_selecting_introduction_lasso-select3.png" src="../../../_images/modeling_meshes_selecting_introduction_lasso-select3.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Завершено.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="more-tools">
+<h3>Більше Інструментів<a class="headerlink" href="#more-tools" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Вибрати все або Скасувати вибір з усього ((De)select All) <kbd class="kbd docutils literal notranslate">A</kbd></dt>
+<dd>Виділити усі або жодні з компонентів полігональної сітки.</dd>
+<dt>Обернення (Inverse) <kbd class="kbd docutils literal notranslate">Ctrl-I</kbd></dt>
+<dd>Вибирає всю не виділену геометрію та скасовує вибір з поточних вибраних компонентів.</dd>
+<dt>Випадковий (Random)</dt>
+<dd>Вибирає випадкову групу вершин, ребер або граней, виходячи з відсоткового значення.</dd>
+</dl>
+<dl class="docutils">
+<dt>Більше <kbd class="kbd docutils literal notranslate">Ctrl-NumpadPlus</kbd></dt>
+<dd>Поширює виділення, додаючи геометрію, яка прилягає до вибраних елементів.</dd>
+<dt>Менше <kbd class="kbd docutils literal notranslate">Ctrl-NumpadMinus</kbd></dt>
+<dd>Знімає виділення з геометрії, що формує межі поточного вибору.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="advanced.html" class="btn btn-neutral float-right" title="Просунуте" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Вибирання (Selecting)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Путівник зі стилю розмітки &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/about/contribute/guides/markup_guide.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Путівник зі стилю написання" href="writing_guide.html" />
+    <link rel="prev" title="Латка і фіксування -- Patch &amp; Commit" href="../patch_commit.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ до Довідника Blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../license.html">Ліцензування</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../whats_new.html">Thay đổi gần đây</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Đóng Góp</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#how-it-works">Phương Pháp Điều Hành</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#getting-started">Khởi Đầu</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#guidelines">Hướng dẫn</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Путівник зі стилю розмітки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="writing_guide.html">Путівник зі стилю написання</a></li>
+<li class="toctree-l4"><a class="reference internal" href="maintenance_guide.html">Підтримування -- Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#translations">Phiên Dịch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#contacts">Mối Liên Lạc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a> &raquo;</li>
+        
+          <li><a href="../index.html">Đóng Góp</a> &raquo;</li>
+        
+      <li>Путівник зі стилю розмітки</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/about/contribute/guides/markup_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="markup-style-guide">
+<h1>Путівник зі стилю розмітки<a class="headerlink" href="#markup-style-guide" title="Permalink to this headline">¶</a></h1>
+<p>Ця сторінка охоплює умовності щодо написання та використання синтаксису розмітки reStructuredText (RST).</p>
+<div class="section" id="conventions">
+<h2>Умовності<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Відступ у три пробіли.</li>
+<li>Рядки повинні мати довжину, меншу за 120 символів.</li>
+<li>Для імен кнопок/меню використовується курсив.</li>
+</ul>
+<p>Інші вільні умовності:</p>
+<ul class="simple">
+<li>Уникайте символів Unicode.</li>
+<li>Уникайте важко переносного тексту (тобто, речень, що складаються з кількох рядків).</li>
+</ul>
+</div>
+<div class="section" id="headings">
+<h2>Заголовки<a class="headerlink" href="#headings" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">#################</span>
+<span class="gh">  Document Part</span>
+<span class="gh">#################</span>
+
+<span class="gh">****************</span>
+<span class="gh">Document Chapter</span>
+<span class="gh">****************</span>
+
+<span class="gh">Document Section</span>
+<span class="gh">================</span>
+
+<span class="gh">Document Subsection</span>
+<span class="gh">-------------------</span>
+
+<span class="gh">Document Subsubsection</span>
+<span class="gh">^^^^^^^^^^^^^^^^^^^^^^</span>
+
+<span class="gh">Document Paragraph</span>
+<span class="gh">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last"><em>Parts</em> , частини повинні використовуватися тільки для сторінок змісту або покажчика.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Кожен <code class="docutils literal notranslate"><span class="pre">.rst</span></code> файл повинен мати тільки один заголовок глави (<code class="docutils literal notranslate"><span class="pre">*</span></code>) на файл.</p>
+</div>
+</div>
+<div class="section" id="text-styling">
+<h2>Стилізація тексту<a class="headerlink" href="#text-styling" title="Permalink to this headline">¶</a></h2>
+<p>Детальніше дивіться <a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">overview on ReStructured Text</a> про те, як використовувати різні стилі для різних елементів документації та як додавати списки, таблиці, картинки та блоки коду. Орієнтир зі <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/">Sphinx reference</a> надає більш глибокі додаткові конструкції для оформлення.</p>
+<p>Нижче наведено корисні розмітки для стилізації тексту:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="ge">*italic*</span>
+<span class="gs">**bold**</span>
+<span class="s">``literal``</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="interface-elements">
+<h2>Елементи інтерфейсу<a class="headerlink" href="#interface-elements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">:kbd:`LMB`</span></code> -- гарячі сполучення клавіш клавіатури або кнопок миші.</li>
+<li><code class="docutils literal notranslate"><span class="pre">*Mirror*</span></code> -- позначки інтерфейсу.</li>
+<li><code class="docutils literal notranslate"><span class="pre">:menuselection:`3D</span> <span class="pre">View</span> <span class="pre">--&gt;</span> <span class="pre">Add</span> <span class="pre">--&gt;</span> <span class="pre">Mesh</span> <span class="pre">--&gt;</span> <span class="pre">Monkey`</span></code> -- меню.</li>
+</ul>
+</div>
+<div class="section" id="code-samples">
+<h2>Приклади коду<a class="headerlink" href="#code-samples" title="Permalink to this headline">¶</a></h2>
+<p>Доступна підтримка підсвітки синтаксису, якщо підтримується відповідна мова програмування, а також номери рядків можуть додатково показуватися за допомогою опції <code class="docutils literal notranslate"><span class="pre">:linenos:</span></code></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> python
+   <span class="nc">:linenos:</span>
+
+   import bpy
+   def some_function():
+<span class="cp">       ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="images">
+<h2>Зображення<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p>Для розміщення зображень повинно використовуватися слово «figure»:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> /images/render_cycles_nodes_types_shaders_principled_node.png
+
+   Image caption.
+</pre></div>
+</div>
+<p>Для узгодженості добре би було, щоб екранознімки мали подібний розмір, коли розміщуються гнучко з текстом, а дописувачі повинні захоплювати екранознімки у такий спосіб:</p>
+<ol class="arabic simple">
+<li>Підготуйте ділянку, яка буде захоплюватися, щоб вона була отримана при стандартній темі та параметрах. (У деяких випадках можливо і не слід використовувати стандартні параметри, наприклад, якщо деякі опції сховані поза стягом)</li>
+<li>Присуньте вигляд на максимальний рівень зумування (утримуйте <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd> або <kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd> чи подібне).</li>
+<li>Відсуньте вигляд на вісім рівнів зумування (<kbd class="kbd docutils literal notranslate">NumpadMinus</kbd> -- вісім раз).</li>
+<li>У деяких випадках вам бажано залишити невелике поле навколо елемента, який намагаєтеся захопити. Воно повинно бути за величиною біля 30px, але це не обов'язково має бути точно.</li>
+</ol>
+<p>Це може застосовуватися до різних частин інтерфейсу, але може не працювати для усіх випадків.</p>
+<div class="section" id="files">
+<h3>Файли<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Ніяких Заголовних, Ніяких Пробілів</dt>
+<dd>Імена файлів мають бути рядковими літерами у нижньому регістрі та зв'язані символом підкреслення між словами.</dd>
+<dt>Сортувати Корисно</dt>
+<dd>Порядок іменування визначається специфічними ідентифікаторами на кінцях імен.</dd>
+<dt>Формат</dt>
+<dd><p class="first">Використовуйте <code class="docutils literal notranslate"><span class="pre">.png</span></code> для зображень, що мають чисті кольори, зокрема, для екранознімків інтерфейсу Blender'а, та <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> для зображень з великою кількістю колірних варіацій, таких як зразки рендерів та фотографії.</p>
+<p class="last">Не використовуйте анімовані <code class="docutils literal notranslate"><span class="pre">.gif</span></code> файли, їх важко підтримувати, вони можуть відволікати та зазвичай займають великий об'єм пам'яті. Натомість використовуйте відео при необхідності (дивіться підрозділ <a class="reference internal" href="#videos">Videos</a> нижче).</p>
+</dd>
+<dt>Локація</dt>
+<dd>Розміщуйте зображення у теку <code class="docutils literal notranslate"><span class="pre">manual/images</span></code>. Не використовуйте жодних інших підтек.</dd>
+<dt>Іменування</dt>
+<dd><p class="first">Для іменування файлів використовуйте підкреслення для відділення глав і підрозділів, а також тире для відділення імен підрозділів, що іменуються двома або більше словами. Так, імена файлів зображень повинні виглядати подібно до: <code class="docutils literal notranslate"><span class="pre">chapter_subsection_sub-subsection_id.png</span></code>, наприклад:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">interface_splash_current.png</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">interface_undo-redo_last.png</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">interface_undo-redo_repeat-history-menu.png</span></code></li>
+</ul>
+<p class="last">Не використовуйте спеціальні символи або пробіли!</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="usage-guides">
+<h3>Настанови щодо використання<a class="headerlink" href="#usage-guides" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Уникайте вказування роздільної здатності зображення, щоб тема могла обробляти зображення узгоджено та забезпечувати найкращу розставу на різних розмірах екрану.</p>
+</li>
+<li><p class="first">При описі панелі або частини Інтерфейсу Користувача краще використовувати єдине зображення, що показує усі відповідні області (а не кілька зображень для кожної іконки чи кнопки), та розміщувати його на початку підрозділу тексту, а потім пояснювати функції цієї ділянки інтерфейсу за порядком проглядання їх на цьому зображенні.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Важливо, що цей довідник може підтримуватися довгий час, а Інтерфейс Користувача та опції інструментів будуть змінюватися, а тому намагайтеся уникати використання багатьох зображень (коли вони не особливо потрібні). Інакше, це стане надто важким тягарем при підтримуванні довідника.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="videos">
+<h2>Відео<a class="headerlink" href="#videos" title="Permalink to this headline">¶</a></h2>
+<p>Відео з YouTube<sup>™</sup> та Vimeo<sup>™</sup> можуть бути вставлені так:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">youtube</span><span class="p">::</span> ID
+
+<span class="p">..</span> <span class="ow">vimeo</span><span class="p">::</span> ID
+</pre></div>
+</div>
+<p>Ідентифікатор <code class="docutils literal notranslate"><span class="pre">ID</span></code> знаходиться в URL відео, наприклад:</p>
+<ul class="simple">
+<li>Ідентифікатор ID для <code class="docutils literal notranslate"><span class="pre">https://www.youtube.com/watch?v=Ge2Kwy5EGE0</span></code> -- це <code class="docutils literal notranslate"><span class="pre">Ge2Kwy5EGE0</span></code></li>
+<li>Ідентифікатор ID для <code class="docutils literal notranslate"><span class="pre">https://vimeo.com/15837189</span></code> -- це <code class="docutils literal notranslate"><span class="pre">15837189</span></code></li>
+</ul>
+<div class="section" id="id1">
+<h3>Настанови щодо використання<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Уникайте додання відео, які базуються на озвученні, оскільки його важко буде перекладати.</li>
+<li>Не вставляйте відео-навчальники як пояснення функцій, написання саме повинно пояснювати їх достатньо (хоча можете включати посилання на потрібне відео внизу сторінки під заголовком <code class="docutils literal notranslate"><span class="pre">Tutorials</span></code>).</li>
+</ul>
+</div>
+</div>
+<div class="section" id="useful-constructs">
+<h2>Корисні конструкції<a class="headerlink" href="#useful-constructs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">|BLENDER_VERSION|</span></code> -- Перетворюється у номер поточної версії Blender.</li>
+<li><code class="docutils literal notranslate"><span class="pre">:abbr:`SSAO</span> <span class="pre">(Screen</span> <span class="pre">Space</span> <span class="pre">Ambient</span> <span class="pre">Occlusion)`</span></code> -- Абревіатури показують повний текст при наведенні миші у вигляді підказки для читача.</li>
+<li><code class="docutils literal notranslate"><span class="pre">:term:`Manifold`</span></code> -- Посилання на запис у Глосарії -- <a class="reference internal" href="../../../glossary/index.html"><span class="doc">Glossary</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="cross-references-and-linkage">
+<h2>Перехресні посилання та взаємопосилання<a class="headerlink" href="#cross-references-and-linkage" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете посилатися на інший документ у цьому довіднику за допомогою:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:doc:</span><span class="nv">`The Title &lt;/section/path/to/file&gt;`</span>
+</pre></div>
+</div>
+<p>Для посилання на певний підрозділ в іншому документі (або у цьому ж документі) передбачені такі явні позначки:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_sample-label:</span>
+
+[section or image to reference]
+
+Some text <span class="na">:ref:</span><span class="nv">`Optional Title &lt;sample-label&gt;`</span>
+</pre></div>
+</div>
+<p>Посилання на назву у цьому ж файлі:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Titles are Targets</span>
+<span class="gh">==================</span>
+
+Body text.
+
+Implicit references, like <span class="s">`Titles are Targets`_</span>
+</pre></div>
+</div>
+<p>Посилання на зовнішні ресурси:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`Blender Website </span><span class="si">&lt;https://www.blender.org&gt;</span><span class="s">`__</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="directory-layout">
+<h2>Розстава каталогу<a class="headerlink" href="#directory-layout" title="Permalink to this headline">¶</a></h2>
+<p>Підрозділи повинні у загальному бути структуровані так:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">directory_name/</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (містить посилання на внутрішні файли)</li>
+<li><code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">section_1.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">section_2.rst</span></code></li>
+</ul>
+</li>
+</ul>
+<p>Наприклад:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">rendering/</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">cycles/</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">materials/</span></code><ul>
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">volumes.rst</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Ідея тут полягає у тому, щоб розмістити увесь вміст підрозділу всередині однієї теки. В ідеалі кожен підрозділ повинен мати <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (що містить зміст для цієї секції) та <code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code> (вступ) у вміст цієї секції.</p>
+<div class="section" id="table-of-contents">
+<h3>Зміст<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
+<p>Стандартно, зміст повинен показувати два рівні глибини:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> <span class="nf">2</span>
+
+   introduction.rst
+   perspective.rst
+   depth_of_field.rst
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="further-reading">
+<h2>Додаткові матеріали<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Щоб дізнатися більше про reStructuredText, дивіться:</p>
+<dl class="docutils">
+<dt><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">Sphinx RST Primer</a></dt>
+<dd>Хороший базовий вступ.</dd>
+<dt><a class="reference external" href="http://docutils.sourceforge.net/rst.html">Docutils reStructuredText reference</a></dt>
+<dd>Посилання на орієнтири та користувацьку документацію.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writing_guide.html" class="btn btn-neutral float-right" title="Путівник зі стилю написання" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../patch_commit.html" class="btn btn-neutral" title="Латка і фіксування -- Patch &amp; Commit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

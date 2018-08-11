@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатори F-Кривої -- F-Curve Modifiers &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/fcurves/modifiers.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Аркуш Експозицій -- Dope Sheet" href="../../dope_sheet/index.html" />
+    <link rel="prev" title="Властивості -- Properties" href="properties.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Канали</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">F-Криві -- F-Curves</a> &raquo;</li>
+        
+      <li>Модифікатори F-Кривої -- F-Curve Modifiers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/graph_editor/fcurves/modifiers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="f-curve-modifiers">
+<span id="bpy-types-fmodifier"></span><span id="bpy-types-fcurvemodifiers"></span><h1>Модифікатори F-Кривої -- F-Curve Modifiers<a class="headerlink" href="#f-curve-modifiers" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Modifiers ‣ Modifiers</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Модифікатори F-Кривої подібні до модифікаторів об'єкта у тому, що вони додають не-руйнівні ефекти, що можуть коригуватися у будь-який час та нашаровуватися для створення більш складних ефектів.</p>
+<div class="section" id="adding-a-modifier">
+<h2>Додання Модифікатора -- Adding a Modifier<a class="headerlink" href="#adding-a-modifier" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/editors_graph-editor_fcurves_modifiers_panel.png" src="../../../_images/editors_graph-editor_fcurves_modifiers_panel.png" />
+<p class="caption"><span class="caption-text">Modifiers panel.</span></p>
+</div>
+<p>Панель модифікаторів F-Кривої розміщується у регіоні Властивості -- Properties region. Виділіть криву, виділивши одну її точок, або виділивши її у регіоні каналів. Клацніть на кнопці меню «Додати Модифікатор» -- <em>Add Modifier</em> та виберіть модифікатор.</p>
+</div>
+<div class="section" id="types-of-modifiers">
+<h2>Типи Модифікаторів -- Types of Modifiers<a class="headerlink" href="#types-of-modifiers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="generator">
+<span id="bpy-types-fmodifiergenerator"></span><h3>Генератор -- Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h3>
+<p>Модифікатор «Генератор» створює Факторизовану -- Factorized Polynomial або Розгорнуту -- Expanded Polynomial поліноміальну, багаточленну функцію. Це базові математичні формули, що представляють лінії, параболи та інші більш складні криві, залежно від використовуваних значень.</p>
+<dl class="docutils">
+<dt>Доповняльно -- Additive</dt>
+<dd>Ця опція спричиняє, що значення модифікатора для кривої будуть накладатися, а не заміщуватися більш пізніше доданими, як це стандартно передбачено.</dd>
+<dt>Порядок Багаточлена -- Polynomial Order</dt>
+<dd><p class="first">Визначає порядок багаточлена або найвищий степінь <code class="docutils literal notranslate"><span class="pre">X</span></code> для цього багаточлена. (число коефіцієнтів: 1).</p>
+<p>Зміна Коефіцієнта для багаточлена -- Coefficient for polynomial змінює форму кривої.</p>
+<div class="last admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Детальніше про багаточлени, многочлени, поліноми тут -- <a class="reference external" href="https://en.wikipedia.org/wiki/Polynomial">The Wikipedia Page</a>.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="built-in-function">
+<span id="bpy-types-fmodifierfunctiongenerator"></span><h3>Вбудована Функція -- Built-in Function<a class="headerlink" href="#built-in-function" title="Permalink to this headline">¶</a></h3>
+<p>Це додаткові формули, кожна з яких має однакові опції для керування формою. Зверніть до довідника з математики щодо детальної інформації по кожну з цих функцій:</p>
+<ul class="simple">
+<li>Синус -- Sine</li>
+<li>Косинус -- Cosine</li>
+<li>Тангенс -- Tangent</li>
+<li>Квадратний Корінь -- Square Root</li>
+<li>Натуральний Логарифм -- Natural Logarithm</li>
+<li>Нормалізований Синус -- Normalized Sine (<code class="docutils literal notranslate"><span class="pre">sin(x)/x</span></code>)</li>
+</ul>
+<dl class="docutils">
+<dt>Амплітуда -- Amplitude</dt>
+<dd>Регулює масштабування по Y.</dd>
+<dt>Фазовий Множник -- Phase Multiplier</dt>
+<dd>Регулює масштабування по X.</dd>
+<dt>Фазовий Зсув -- Phase Offset</dt>
+<dd>Регулює зсув по X.</dd>
+<dt>Зсув Значення -- Value Offset</dt>
+<dd>Регулює зсув по Y.</dd>
+</dl>
+</div>
+<div class="section" id="envelope">
+<span id="bpy-types-fmodifierenvelopecontrolpoint"></span><span id="bpy-types-fmodifierenvelope"></span><h3>Оболонка -- Envelope<a class="headerlink" href="#envelope" title="Permalink to this headline">¶</a></h3>
+<p>Дозволяє вам регулювати форму кривої у цілому за допомогою керувальних точок.</p>
+<dl class="docutils">
+<dt>Орієнтувальне Значення -- Reference Value</dt>
+<dd>Задає значення Y для оболонки, навколо все центрується.</dd>
+<dt>Мін, мінімум -- Min</dt>
+<dd>Нижнє значення відстані від Орієнтувального Значення -- Reference Value для стандартного впливу <code class="docutils literal notranslate"><span class="pre">1:1</span></code>.</dd>
+<dt>Макс, максимум -- Max</dt>
+<dd>Верхнє значення відстані від Орієнтувального Значення -- Reference Value для стандартного впливу <code class="docutils literal notranslate"><span class="pre">1:1</span></code>.</dd>
+<dt>Додати Точку -- Add Point</dt>
+<dd>Додає керувальну точку. Вона буде створена у поточному кадрі.</dd>
+<dt>Точка -- Point</dt>
+<dd><dl class="first last docutils">
+<dt>Кадр -- Frame</dt>
+<dd>Задає номер кадру для керувальної точки.</dd>
+<dt>Мін, мінімум -- Min</dt>
+<dd>Визначає нижню позицію керувальної точки.</dd>
+<dt>Макс, максимум -- Max</dt>
+<dd>Визначає верхню позицію керувальної точки.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="cycles">
+<span id="bpy-types-fmodifiercycles"></span><h3>Цикли -- Cycles<a class="headerlink" href="#cycles" title="Permalink to this headline">¶</a></h3>
+<p>Модифікатори «Цикли» додає циклічний рух у криву, що має дві або більше керувальних точок. Ці опції можуть бути задані для неї перед або після.</p>
+<dl class="docutils">
+<dt>Режим Циклу -- Cycle Mode</dt>
+<dd><dl class="first last docutils">
+<dt>Повтор Руху -- Repeat Motion</dt>
+<dd>Повторює дані кривої, зберігаючи їх значення у кожному циклі.</dd>
+<dt>Повтор зі Зсувом -- Repeat with Offset</dt>
+<dd>Повторює дані кривої, але зсуває значення першої точки у значення останньої точки кожного циклу.</dd>
+<dt>Повтор Дзеркально -- Repeat Mirrored</dt>
+<dd>Each cycle the curve data is flipped across the X axis.</dd>
+</dl>
+</dd>
+<dt>Цикли Перед -- Before Cycles, Цикли Після -- After Cycles</dt>
+<dd>Задає кількість разів зациклення даних. Значення «0» дає безкінечне зациклення даних.</dd>
+</dl>
+</div>
+<div class="section" id="noise">
+<span id="bpy-types-fmodifiernoise"></span><h3>Шум -- Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h3>
+<p>Модифікує криву за допомогою формули шумування. Це корисно для створення тонкої або екстремальної випадковості для анімованих рухів, як тремтіння камери.</p>
+<dl class="docutils">
+<dt>Тип Змішання -- Blend Type</dt>
+<dd><dl class="first last docutils">
+<dt>Заміна -- Replace</dt>
+<dd>Додає діапазон функції шуму -0.5 до 0.5 на значення кривої.</dd>
+<dt>Додання -- Add</dt>
+<dd>Додає діапазон функції шуму 0 до 1 на значення кривої.</dd>
+<dt>Відняття -- Subtract</dt>
+<dd>Віднімає діапазон функції шуму 0 до 1 від значень кривої.</dd>
+<dt>Множення -- Multiply</dt>
+<dd>Множить діапазон функції шуму 0 до 1 на значення кривої.</dd>
+</dl>
+</dd>
+<dt>Масштаб -- Scale</dt>
+<dd>Регулює у цілому розмір шуму. Значення, дальші від 0, дають менш частий шум.</dd>
+<dt>Сила -- Strength</dt>
+<dd>Регулює масштабування Y функції шуму.</dd>
+<dt>Зсув -- Offset</dt>
+<dd>Зсуває шум у часі.</dd>
+<dt>Фаза -- Phase</dt>
+<dd>Регулює базис випадковості шуму.</dd>
+<dt>Глибина -- Depth</dt>
+<dd>Регулює деталізацію функції шуму.</dd>
+</dl>
+</div>
+<div class="section" id="limits">
+<span id="bpy-types-fmodifierlimits"></span><h3>Ліміти -- Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
+<p>Лімітує значення кривої визначеними діапазонами по X та Y.</p>
+<dl class="docutils">
+<dt>Мінімум -- Minimum, Максимум -- Maximum X</dt>
+<dd>Обрізає криву у кадрах цих діапазонів та задає мінімальне значення у цих точках.</dd>
+<dt>Мінімум -- Minimum, Максимум -- Maximum Y</dt>
+<dd>Усікає значення кривої цим діапазоном.</dd>
+</dl>
+</div>
+<div class="section" id="stepped-interpolation">
+<span id="bpy-types-fmodifierstepped"></span><h3>Покрокова Інтерполяція -- Stepped Interpolation<a class="headerlink" href="#stepped-interpolation" title="Permalink to this headline">¶</a></h3>
+<p>Надає кривій каскадний вигляд, округлюючи значення вниз у межах певного діапазону кадрів.</p>
+<dl class="docutils">
+<dt>Розмір Кроку -- Step Size</dt>
+<dd>Визначає кількість кадрів для утримування кожного значення.</dd>
+<dt>Зсув -- Offset</dt>
+<dd>Орієнтувальна кількість кадрів перед початком утримування значень. Використовується для утримування за взірцями (1-3) або (5-7).</dd>
+<dt>Вжити Стартовий Кадр -- Use Start Frame</dt>
+<dd>Змушує модифікатор діяти тільки після цього «стартового» кадру.</dd>
+<dt>Вжити Кінцевий Кадр -- Use End Frame</dt>
+<dd>Змушує модифікатор діяти тільки до цього «кінцевого» кадру.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../dope_sheet/index.html" class="btn btn-neutral float-right" title="Аркуш Експозицій -- Dope Sheet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="properties.html" class="btn btn-neutral" title="Властивості -- Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Гачок» -- Hook Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/deform/hooks.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатор «Лапласове Згладження» -- Laplacian Smooth Modifier" href="laplacian_smooth.html" />
+    <link rel="prev" title="Модифікатор «Зміщення» -- Displace Modifier" href="displace.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="armature.html">Модифікатор «Арматура» -- Armature Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cast.html">Модифікатор «Підгонка» -- Cast Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="corrective_smooth.html">Corrective Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">Модифікатор «Крива» -- Curve Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">Модифікатор «Зміщення» -- Displace Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Гачок» -- Hook Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_smooth.html">Модифікатор «Лапласове Згладження» -- Laplacian Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_deform.html">Модифікатор «Лапласове Деформування» -- Laplacian Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lattice.html">Модифікатор «Решітка» -- Lattice Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_deform.html">Модифікатор «Деформування Сіттю» -- Mesh Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Модифікатор «Обтягування» -- Shrinkwrap Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simple_deform.html">Модифікатор «Проста Деформація» -- Simple Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smooth.html">Модифікатор «Згладження» -- Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_deform.html">Модифікатор «Деформування Поверхнею» -- Surface Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="warp.html">Модифікатор «Жолоблення» -- Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wave.html">Модифікатор «Хвиля» -- Wave Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Гачок» -- Hook Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/deform/hooks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hook-modifier">
+<span id="bpy-types-hookmodifier"></span><h1>Модифікатор «Гачок» -- Hook Modifier<a class="headerlink" href="#hook-modifier" title="Permalink to this headline">¶</a></h1>
+<p>Модифікатор Hook використовується для деформування сітей -- <em>Mesh</em>, кривих -- <em>Curve</em> або решіток -- <em>Lattice</em>, використовуючи інший об'єкт (зазвичай, це порожняк -- <em>Empty</em> або кістка -- <em>Bone</em>, але це може бути будь-який об'єкт).</p>
+<p>При русі гачка штовхаються вершини сіті. Ви можете думати про нього, як про анімовану пропорційну правку -- <a class="reference internal" href="../../../editors/3dview/object/editing/transform/control/proportional_edit.html"><span class="doc">proportional editing</span></a>.</p>
+<p>Хоча гачки не дають тонкого керування переміщенням вершин, як це роблять ключі форм, однак вони мають перевагу у тому, що ви можете безпосередньо захоплювати вершини для маніпулювання.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_deform_hooks_example.png"><img alt="../../../_images/modeling_modifiers_deform_hooks_example.png" src="../../../_images/modeling_modifiers_deform_hooks_example.png" style="width: 460px;" /></a>
+<p class="caption"><span class="caption-text">Empty used as Hooks to deform a subdivided cube.</span></p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../_images/modeling_modifiers_deform_hooks_panel.png" src="../../../_images/modeling_modifiers_deform_hooks_panel.png" />
+<p class="caption"><span class="caption-text">Модифікатор «Гачок» -- Hook.</span></p>
+</div>
+<dl class="docutils">
+<dt>Об'єкт -- Object</dt>
+<dd>Ім'я об'єкта, який буде гачком для вершин.</dd>
+<dt>Група Вершин -- Vertex Group</dt>
+<dd><p class="first">Allows you to define the influence per vertex.</p>
+<p class="last">Корисно, коли ви не робите щось інше, ніж сферичне поле впливу.</p>
+</dd>
+<dt>Радіус -- Radius</dt>
+<dd>Розмір впливу гачка.</dd>
+<dt>Сила -- Strength</dt>
+<dd><p class="first">Коригує вплив гачка на вершини, має значення у діапазоні (0.0 до 1.0) (без змін до повного слідування вершин за гачком).</p>
+<p class="last">Оскільки одночасно кілька гачків можуть працювати для одних і тих же вершин, то ви можете виважити цей вплив гачка за допомогою цієї властивості.</p>
+</dd>
+<dt>Тип Спаду -- Falloff Type</dt>
+<dd>This can be used to adjust the kind of curve that the hook has on the mesh.
+You can also define a custom curve to get a much higher level of control.</dd>
+<dt>Однорідний Спад -- Uniform Falloff</dt>
+<dd><p class="first">Ця устава корисна при використанні гачків на масштабованих об'єктах, особливо у випадках, коли не-однорідний масштаб розтягує результат гачка.</p>
+<p class="last">Це особливо корисно для решіток, де є поширеним використання не-однорідного масштабування.</p>
+</dd>
+</dl>
+<p>Наступні устави доступні тільки у режимі правки Edit Mode:</p>
+<dl class="docutils">
+<dt>Скидання -- Reset</dt>
+<dd>Перераховує та зчищає зсув трансформування гачка.</dd>
+<dt>Перецентрування -- Recenter</dt>
+<dd>Установлює центр гачка у позицію 3D курсора.</dd>
+<dt>Виділ -- Select</dt>
+<dd>Виділяє вершини, що задіяні цим гачком.</dd>
+<dt>Призначання -- Assign</dt>
+<dd>Призначає виділені вершини цьому гачку.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Модифікатор Hook зберігає індекси вершин з оригінальної сіті для визначення того, на що впливати; це означає, що модифікатори, які генерують геометрію, як модифікатор Subdivision Surface, повинен завжди застосовуватися <strong>після</strong> модифікатора «Гачок»; інакше генерована геометрія залишиться поза впливом гачка.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="laplacian_smooth.html" class="btn btn-neutral float-right" title="Модифікатор «Лапласове Згладження» -- Laplacian Smooth Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="displace.html" class="btn btn-neutral" title="Модифікатор «Зміщення» -- Displace Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

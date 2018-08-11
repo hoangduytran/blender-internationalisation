@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Порожні об&#39;єкти (Empties) &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/empties.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Модифікатори -- Modifiers" href="modifiers/index.html" />
+    <link rel="prev" title="Властивості -- Properties" href="texts/properties.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Порожні об'єкти (Empties)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-editing">Selecting &amp; Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Використання</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Моделювання</a> &raquo;</li>
+        
+      <li>Порожні об'єкти (Empties)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modeling/empties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-ops-object-empty"><span id="bpy-types-object-empty"></span></span><div class="section" id="empties">
+<h1>Порожні об'єкти (Empties)<a class="headerlink" href="#empties" title="Permalink to this headline">¶</a></h1>
+<p>Порожній об'єкт (Empty) - це просто точка з координатами в просторі без додаткової геометрії. Оскільки Порожній об'єкт не має об'єму та поверхні, його неможливо візуалізувати (render). Втім, він може бути використаний як тримач для багатьох цілей.</p>
+<div class="section" id="selecting-editing">
+<h2>Selecting &amp; Editing<a class="headerlink" href="#selecting-editing" title="Permalink to this headline">¶</a></h2>
+<p>An Empty can only be edited in <em>Object Mode</em>, which includes its transformation and parenting properties.
+For other tools see the <a class="reference internal" href="../editors/3dview/object/index.html"><span class="doc">Object section</span></a>.</p>
+<dl class="docutils">
+<dt>Застосувати масштаб (Apply Scale) <kbd class="kbd docutils literal notranslate">Ctrl-A</kbd></dt>
+<dd>У той час як Порожні об'єкти (Empties) не мають жодних об'єктних даних (object data), прикріплених до них, які можуть бути використані для застосування &quot;справжнього&quot; масштабування (тобто з неоднорідним масштабуванням), вони мають величину розміру, яка контролює, наскільки великими Порожні об'єкти відображаються (до масштабування). Для цього береться коефіцієнт масштабу на найбільш масштабованій вісі і поєднується з існуючим розміром Порожнього об'єкта для підтримки правильних розмірів на цій осі.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id1">
+<img alt="../_images/modeling_empties_draw-types.png" src="../_images/modeling_empties_draw-types.png" />
+<p class="caption"><span class="caption-text">Типі відображення Порожнього об'єкта.</span></p>
+</div>
+<dl class="docutils">
+<dt>Відображення (Display)</dt>
+<dd><dl class="first last docutils">
+<dt>Осі площин (Plain Axes)</dt>
+<dd>Відображаються як шість ліній, кожна з яких початково вказує у напрямку осей +X, -X, +Y, -Y, +Z, та -Z.</dd>
+<dt>Стрілки (Arrows)</dt>
+<dd>Відображаються як стрілочки, які початково вказують в сторону позитивно направлених осей X, Y та Z, кожна зі своєю позначкою.</dd>
+<dt>Одиночна стрілка (Single Arrow)</dt>
+<dd>Відображається як одиночна стрілочка, яка початково вказує у напрямку осі +Z.</dd>
+<dt>Коло (Circle)</dt>
+<dd>Відображається як коло, що початково лежить на площині XZ.</dd>
+<dt>Куб (Cube)</dt>
+<dd>Відображається як куб, що початково вирівняний по осях XYZ.</dd>
+<dt>Сфера (Sphere)</dt>
+<dd>Відображається як сфера, визначена трьома колами. Початково кола вирівняні по осях X, Y та Z кожне.</dd>
+<dt>Конус (Cone)</dt>
+<dd>Відображається як конус, що початково вказує у напрямку осі +Y.</dd>
+<dt>Зображення(Image)</dt>
+<dd><p class="first">Empties can display images. This can be used to create reference images,
+including blueprints or character sheets to model from, instead of using background images.
+The image is displayed regardless of the 3D display mode.
+The settings are the same as in
+<a class="reference internal" href="../editors/3dview/properties/background_images.html"><span class="doc">Background Image Settings</span></a>.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">While images with an alpha channel can be used, there is a known limitation with object draw order,
+where alpha-images will not always be drawn on top of other objects when unselected.</p>
+</div>
+</dd>
+<dt>Розмір (Size)</dt>
+<dd>Контролює розмір відображення Порожнього об'єкта. Ця опція не змінює масштаб об'єкта, а працює як зміщення (offset).</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="usage">
+<h2>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Порожні об'єкти можуть служити як тримачі для трансформацій. Деякі приклади їх використання:</p>
+<p class="rubric">Батьківський об'єкт для групи об'єктів</p>
+<p>Порожній об'єкт може бути дочірнім для будь-якої кількості інших об'єктів. Це дає користувачеві можливість з легкістю контролювати групу об'єктів і при цьому не впливати на візуалізацію (render).</p>
+<p class="rubric">Ціль для обмежень (Target for constraints)</p>
+<p>Порожній об'єкт може бути використаний як ціль для звичайних обмежень або обмежень кісток (normal, or bone constraints). Це надає користувачеві ще більше контролю; наприклад, можна легко налаштувати оснащення (rig) для того, щоб камера вказувала в сторону Порожнього об'єкта, використовуючи <em>Відстежувати до (Track to)</em> обмежувач (constraint).</p>
+<p class="rubric">Масив зміщення (Array offset)</p>
+<p>Порожній об'єкт можна використовувати для зміщення модифікатора Масив (Array Modifier), що означає, що складні деформації можуть бути досягнуті лише переміщенням одного об'єкта.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg"><img alt="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg" src="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Приклад використання Порожнього об'єкта для контролю масива.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../_images/modeling_empties_example-track-to-simple.png"><img alt="../_images/modeling_empties_example-track-to-simple.png" src="../_images/modeling_empties_example-track-to-simple.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Приклад використання Порожнього об'єкта для контролю обмежувача Відстежувати до (track to constraint).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Інші загальновживані приклади використання:</p>
+<ul class="simple">
+<li>Замісники (Placeholders)</li>
+<li>Контролери для оснащення (Rigging controls)</li>
+<li>Дистанція глибини різкості (DOF distances)</li>
+<li>Зразкові зображення (Reference Images)</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modifiers/index.html" class="btn btn-neutral float-right" title="Модифікатори -- Modifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="texts/properties.html" class="btn btn-neutral" title="Властивості -- Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

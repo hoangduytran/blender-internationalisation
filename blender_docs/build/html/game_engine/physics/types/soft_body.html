@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Фізика «М&#39;яке Тіло» -- Soft Body Physics &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/physics/types/soft_body.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Фізика «Загороджувач» -- Occluder Object Physics" href="occluder.html" />
+    <link rel="prev" title="Фізика «Тверде Тіло» -- Rigid Body Physics" href="rigid_body.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Фізика -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">Фізика Світу -- World Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converting.html">Конвертування -- Converting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Типи Фізики -- Physic Types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="no_collision.html">Фізика «Без Зіткнення» -- No Collision Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="static.html">Фізика «Статично» -- Static Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dynamic.html">Фізика «Динамічно» -- Dynamic Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigid_body.html">Фізика «Тверде Тіло» -- Rigid Body Physics</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Фізика «М'яке Тіло» -- Soft Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="occluder.html">Фізика «Загороджувач» -- Occluder Object Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sensor.html">Фізика «Сенсор» -- Sensor Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation_mesh.html">Фізика «Сіть Навігації» -- Navigation Mesh Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character.html">Фізика «Персонаж» -- Character Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicle.html">Фізика контролера автотранспорту -- Vehicle Controller Physics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="../index.html">Фізика -- Physics</a> &raquo;</li>
+        
+      <li>Фізика «М'яке Тіло» -- Soft Body Physics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/game_engine/physics/types/soft_body.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="soft-body-physics">
+<h1>Фізика «М'яке Тіло» -- Soft Body Physics<a class="headerlink" href="#soft-body-physics" title="Permalink to this headline">¶</a></h1>
+<p>The most advanced type of object in the Game Engine.
+Also, it is the most finicky. If you are used to the fun experimentation
+that comes from playing around with the non-BGE soft body simulations (such as Cloth),
+you will probably find a frustrating lack of options and exciting results.
+Do not despair, we are here to help you get some reasonable settings.</p>
+<p>Your setup will involve making sure you have sufficient geometry in the soft body's mesh to
+support the deformation, as well as tweaking the options.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Актор -- Actor</dt>
+<dd>Вмикає виявлення сенсорами Near та Radar.</dd>
+<dt>Привид -- Ghost</dt>
+<dd>Вимикає зіткнення повністю, подібно до No collision.</dd>
+<dt>Невидимо -- Invisible</dt>
+<dd>Робить об'єкт не показуваним, так само, як вимкнення для об'єкта здатності рендеритися (вимкнення іконки з камерою в Outliner).</dd>
+<dt>Маса -- Mass</dt>
+<dd>Впливає на реакцію при зіткненні між об'єктами -- більш масивні об'єкти мають більшу інерцію. Це також буде впливати на силові поля матеріалів. Також це буде змінювати поведінку, якщо ви використовуєте такі частини фізики Bullet як підвішування та кермування.</dd>
+<dt>Відповідність Форми -- Shape Match</dt>
+<dd>Після запуску рушія Game Engine це буде записувати стартову форму сіті як стан «найнижчої енергії». Це означає, що краї будуть мати напруженість кожного разу, коли вони згинатимуться в певну іншу форму. Це стандартно увімкнено, і у такій конфігурації перетворює об'єкт у щось більше схоже на тонкий лист металу, а не на тканину.</dd>
+<dt>Поріг -- Threshold</dt>
+<dd><p class="first">Лінеарно масштабує відповідність пози -- <a class="reference external" href="http://www.continuousphysics.com/Bullet/BulletFull/btSoftBody_8cpp_source.html#l01566">Linearly scales the pose match</a>.</p>
+<ul class="last simple">
+<li>Поріг в 1.0 змушує поводитися подібно як з увімкненою <em>Shape Match</em> з <em>Linear Stiffness</em> в 1.0.</li>
+<li>Поріг в 0.0 примушує поводитися як, ніби вимкнуто <em>Shape Match</em> з <em>Linear Stiffness</em> в 0.0.</li>
+</ul>
+</dd>
+<dt>Зведення -- Welding</dt>
+<dd>TODO.</dd>
+<dt>Повтори Позиції -- Position Iterations</dt>
+<dd>Increase the accuracy at a linearly-increasing expense of time.
+The effect is visible especially with soft bodies that fall on sharp corners,
+though this can slow down even very simple scenes.</dd>
+<dt>Лінеарна Тугість -- Linear Stiffness</dt>
+<dd>Лінеарна тугість зв'язків м'якого тіла. Це найбільш очевидно, коли вимкнуто <em>Shape Match</em>, хоча також видимо і при її увімкненні.</dd>
+<dt>Тертя -- Friction</dt>
+<dd>Коефіцієнт динамічного тертя.</dd>
+</dl>
+<dl class="docutils">
+<dt>Припуск -- Margin</dt>
+<dd>Малі значення роблять алгоритм нестабільним.</dd>
+</dl>
+<dl class="docutils">
+<dt>Примуси Згинання -- Bending Constraints</dt>
+<dd>Вмикає Примуси Згинання.</dd>
+</dl>
+<dl class="docutils">
+<dt>Кластерне Зіткнення -- Cluster Collision</dt>
+<dd><p class="first">Впливає на сенсори Collision, а також на фізику.</p>
+<dl class="last docutils">
+<dt>Тверде з М'яким Тіла -- Rigid to Soft Body</dt>
+<dd>Enable cluster collisions between rigid and soft bodies.</dd>
+<dt>М'яке з М'яким Тіла -- Soft to Soft Body</dt>
+<dd>Enable cluster collisions among soft bodies.</dd>
+<dt>Повтори -- Iterations</dt>
+<dd>Кількість кластерних повторів.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="hints">
+<h2>Поради<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A very important configurable in the case of soft body interactions is
+<a class="reference internal" href="../world.html"><span class="doc">World Properties</span></a>
+<span class="menuselection">‣ Physics ‣ Physics Steps ‣ Substeps</span>.</li>
+<li>Surprisingly, the more vertices you have in your hit object, the less likely the soft body is to react with it.
+If you try letting it hit a Plane, it might stop, but a subdivided Grid might fail.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">М'які тіла не працюють з цеглинами-сенсорами типу Collision, Touch, Near та Radar.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">A common practice within the non-BGE Cloth simulator is to employ
+<a class="reference internal" href="../../../physics/force_fields/index.html"><span class="doc">Force Fields</span></a> to animate the cloth.
+These do not work in the BGE, so you will have to figure out a way to use Python
+(or perhaps plain Logic Bricks) to apply forces to the soft body objects.</p>
+</div>
+</div>
+<div class="section" id="goal-weights">
+<h2>Вагомості Цілі -- Goal Weights<a class="headerlink" href="#goal-weights" title="Permalink to this headline">¶</a></h2>
+<p>TODO. Дивіться тут -- <a class="reference external" href="https://www.blender.org/api/blender_python_api_current/bpy.ops.curve.html#bpy.ops.curve.spline_weight_set">Python API</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="occluder.html" class="btn btn-neutral float-right" title="Фізика «Загороджувач» -- Occluder Object Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rigid_body.html" class="btn btn-neutral" title="Фізика «Тверде Тіло» -- Rigid Body Physics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

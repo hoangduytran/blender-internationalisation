@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Канали &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/channels.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="F-Криві -- F-Curves" href="fcurves/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Канали</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fcurves/index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+      <li>Канали</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/graph_editor/channels.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="channels">
+<h1>Канали<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="channels-region">
+<h2>Регіон Каналів -- Channels Region<a class="headerlink" href="#channels-region" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_graph-editor_channels_region.png" src="../../_images/editors_graph-editor_channels_region.png" />
+<p class="caption"><span class="caption-text">The Channels region.</span></p>
+</div>
+<p>The channels region is used to select and manage the curves for the Graph editor.
+This part shows the objects and their animation data hierarchy each as headers.
+Each level can be expanded/collapsed by the small arrow to the left of its header.</p>
+<ul class="simple">
+<li>Сцени -- Scenes, Об'єкти -- Objects (темно-синій)</li>
+<li>Дії -- <a class="reference internal" href="../../animation/actions.html"><span class="doc">Actions</span></a>, Ключі Форм -- <a class="reference internal" href="../../animation/shape_keys/index.html"><span class="doc">Shape keys</span></a> тощо (світло-синій)</li>
+<li>Групи -- Groups (зелений)</li>
+<li>Канали -- Channels (сірий)</li>
+</ul>
+<div class="section" id="controls">
+<h3>Контролери -- Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h3>
+<p>На записах є перемикачі для керування уставами каналу:</p>
+<dl class="docutils">
+<dt>Пришпилення -- Pin (іконка зі шпилькою)</dt>
+<dd>Make the channel always visible regardless of the current selection (Graph editor only).</dd>
+<dt>Схов -- Hide (іконка з оком)</dt>
+<dd>Ховає канал(и)/криву (лише Редактор Графів).</dd>
+<dt>Модифікатори -- Modifiers (іконка з гайковим ключем)</dt>
+<dd>Деактивує F-Модифікатори кривої або всіх кривих у каналі.</dd>
+<dt>Приглушення -- Mute (іконка з гучномовцем)</dt>
+<dd>Деактивує канал/криву.</dd>
+<dt>Lock (padlock icon) <kbd class="kbd docutils literal notranslate">Tab</kbd></dt>
+<dd><p class="first">Toggle channel/curve from being editable.
+Selected channels can be locked by pressing <kbd class="kbd docutils literal notranslate">Tab</kbd>.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">In the Dope Sheet this is also working inside the NLA,
+but that it does not prevent edition of the underlying F-Curve.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="selecting">
+<h3>Виділення -- Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Виділяє канал (текст змінюється з чорного на білий): <kbd class="kbd docutils literal notranslate">LMB</kbd></li>
+<li>Виділення/Зневиділення Кількох: -- Multi Select/Deselect: <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd></li>
+<li>Перемикач Виділити Усе -- Toggle Select All: <kbd class="kbd docutils literal notranslate">A</kbd></li>
+<li>Виділ Рамкою -- Border Select: (<kbd class="kbd docutils literal notranslate">LMB</kbd> натяг) або <kbd class="kbd docutils literal notranslate">B</kbd> (<kbd class="kbd docutils literal notranslate">LMB</kbd> натяг)</li>
+<li>Зневиділ Рамкою -- Border Deselect: (<kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> натяг) або <kbd class="kbd docutils literal notranslate">B</kbd> (<kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> натяг)</li>
+<li>Виділяє усі ключкадри у каналі: подвійний клацок <kbd class="kbd docutils literal notranslate">LMB</kbd> на записі каналу.</li>
+</ul>
+</div>
+<div class="section" id="editing">
+<h3>Редагування -- Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Перейменування -- Rename <kbd class="kbd docutils literal notranslate">CTRL-LMB</kbd></li>
+<li>Видалити виділене -- Delete selected: <kbd class="kbd docutils literal notranslate">X</kbd> або <kbd class="kbd docutils literal notranslate">Delete</kbd></li>
+<li>Заблокувати виділене -- Lock selected: <kbd class="kbd docutils literal notranslate">Tab</kbd></li>
+<li>Зробити видимим тільки виділене -- Make only selected visible: <kbd class="kbd docutils literal notranslate">V</kbd></li>
+<li>Увімкнути Приглушення або Блокування виділеного -- Enable Mute or Lock selected: <kbd class="kbd docutils literal notranslate">Shift-Ctrl-W</kbd></li>
+<li>Вимкнути Приглушення або Блокування виділеного -- Disable Mute or Lock selected: <kbd class="kbd docutils literal notranslate">Alt-W</kbd></li>
+<li>Перемкнути Приглушення або Блокування виділеного -- Toggle Mute or Lock selected: <kbd class="kbd docutils literal notranslate">Shift-W</kbd></li>
+</ul>
+<div class="section" id="sliders">
+<h4>Повзунки -- Sliders<a class="headerlink" href="#sliders" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id2">
+<img alt="../../_images/editors_dope-sheet_introduction_action-editor-sliders.png" src="../../_images/editors_dope-sheet_introduction_action-editor-sliders.png" />
+<p class="caption"><span class="caption-text">Загальний приклад повзунків для редакторів анімації на прикладі режиму «Редактор Дій» -- Action Editor Аркуша Експозицій -- Dope Sheet.</span></p>
+</div>
+<p>У редактора анімації записи каналів можуть мати ще й стовпець з числовими кнопками або повзунками, що дозволяють тут змінювати значення поточних ключкадрів або додавати нові ключкадри. Дивіться детальніше про повзунки тут -- <a class="reference internal" href="introduction.html#graph-view-menu"><span class="std std-ref">Меню «Огляд» -- View Menu</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="menu">
+<h2>Меню<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Видалити Канали -- Delete Channels <kbd class="kbd docutils literal notranslate">X</kbd></dt>
+<dd><p class="first">Видаляє увесь канал для поточної дії (тобто відв'язує підлежачу блок даних F-Кривої від блоку даних дії).</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Скорочення <kbd class="kbd docutils literal notranslate">X</kbd> залежне від області: якщо ви використовуєте його у лівій частині списку, то воно видаляє виділені канали, а якщо ви його вживаєте у головній області, то воно буде видаляти виділені ключкадри.</p>
+</div>
+</dd>
+<dt>Роз/Групувати Канали -- Un/Group Channels <kbd class="kbd docutils literal notranslate">Ctrl-G</kbd>, <kbd class="kbd docutils literal notranslate">Alt-G</kbd></dt>
+<dd>Un/Groups the selected channels into a collection that can be renamed by double clicking on the group name.
+For example, this helps to group channels that relate a part of an armature to keep the editor more organized.</dd>
+<dt>Settings Toggle/Enable/Disable, <kbd class="kbd docutils literal notranslate">Shift-W</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Ctrl-W</kbd>, <kbd class="kbd docutils literal notranslate">Alt-W</kbd></dt>
+<dd><p class="first">Enable/disable a channel's setting (selected in the menu that pops up).</p>
+<p class="last">Блокування -- Lock, Приглушення -- Mute</p>
+</dd>
+<dt>Перемкнути Редагованість Каналу -- Toggle Channel Editability <kbd class="kbd docutils literal notranslate">Tab</kbd></dt>
+<dd>Locks or unlocks a channel for editing.</dd>
+<dt>Режим Екстраполяції -- Extrapolation Mode</dt>
+<dd>Змінює екстраполяцію -- <a class="reference internal" href="fcurves/introduction.html#editors-graph-fcurves-settings-extrapolation"><span class="std std-ref">extrapolation</span></a> між виділеними ключкадрами.</dd>
+<dt>Розгорнути Канали -- Expand Channels, Згорнути Канали -- Collapse Channels <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd>, <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd></dt>
+<dd>Розгортає або згортає виділені канали.</dd>
+<dt>Переміщення -- Move...</dt>
+<dd>This allows you to move top-level channels up/down <kbd class="kbd docutils literal notranslate">Shift-PageUp</kbd>, <kbd class="kbd docutils literal notranslate">Shift-PageDown</kbd>,
+or directly to the top/bottom <kbd class="kbd docutils literal notranslate">Shift-Ctrl-PageUp</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Ctrl-PageDown</kbd>.</dd>
+<dt>Відновити Вимкнуті F-Криві -- Revive Disabled F-Curves</dt>
+<dd>Зчищає тег «вимкнуто» з усіх F-Кривих, що пошкоджені F-Криві знову працювали.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fcurves/index.html" class="btn btn-neutral float-right" title="F-Криві -- F-Curves" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

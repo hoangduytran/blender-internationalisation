@@ -1,0 +1,604 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Режим редагування штрихів &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/grease_pencil/stroke_edit.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Анімування нарисів" href="animating.html" />
+    <link rel="prev" title="Пензлі" href="drawing/brushes.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#window-system">Система вікон</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">Контролери інтерфейсу</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#tools">Інструменти</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../undo_redo.html">Undo &amp; Redo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruler_protractor.html">Ruler &amp; Protractor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Нарисний Олівець -- Grease Pencil</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawing/index.html">Рисування штрихів</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Режим редагування штрихів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="animating.html">Анімування нарисів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="convert_to_geometry.html">Конвертування у геометрію</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+          <li><a href="index.html">Нарисний Олівець -- Grease Pencil</a> &raquo;</li>
+        
+      <li>Режим редагування штрихів</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/grease_pencil/stroke_edit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stroke-edit-mode">
+<h1>Режим редагування штрихів<a class="headerlink" href="#stroke-edit-mode" title="Permalink to this headline">¶</a></h1>
+<p>Enter Stroke Edit Mode with the <em>Mode</em> select menu in the 3D Views header or
+toggle the <em>Enable Editing</em> in the Grease Pencil panel
+<em>(only available in 2D editors such as UV/Image editor, Node editor, etc.)</em>, or use <kbd class="kbd docutils literal notranslate">D-Tab</kbd>.
+In this mode, many common editing tools will operate on Grease Pencil stroke points instead.</p>
+<p>These tools let you move and reshape Grease pencil strokes after they have been drawn.</p>
+<p>Відкрийте вкладку «Нарисний Олівець» -- Grease Pencil на Полиці Інструментів -- Tool Shelf. Перегляньте інструменти на панелі «Правка Штрихів» -- Edit Strokes, показані тут:</p>
+<div class="figure" id="id1">
+<img alt="../../_images/interface_grease-pencil_stroke-edit_panel.png" src="../../_images/interface_grease-pencil_stroke-edit_panel.png" />
+<p class="caption"><span class="caption-text">Edit panel with Grease pencil strokes.</span></p>
+</div>
+<div class="section" id="selecting">
+<h2>Виділення<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h2>
+<p>Штрихи нарисного олівця формуються із серії з'єднаних між собою вершинних точок. Щоб робити зміни, спершу слід виділити точки на штрихах, які ви хочете редагувати. ВИ можете виділяти точки тільки на активному шарі. Виділені точки підсвічуються, як показано вище на ілюстрації.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Задайте для шару товщину (<em>thickness</em>) штрихів як 1, щоб зробити його точки більш видимими.</p>
+</div>
+<p>Використовуйте мишу для виділення точок або одну з кнопок виділення на панелі, як описано тут -- <a class="reference internal" href="../../modeling/meshes/selecting/introduction.html"><span class="doc">Basic Selection</span></a>.</p>
+<p>Можуть використовуватися різні функції виділення подібні до тих, що доступні при редагуванні сітей:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><th class="stub">Виділити Усе -- Select All</th>
+<td><kbd class="kbd docutils literal notranslate">A</kbd></td>
+</tr>
+<tr class="row-even"><th class="stub">Виділ Рамкою -- Border Select</th>
+<td><kbd class="kbd docutils literal notranslate">B</kbd></td>
+</tr>
+<tr class="row-odd"><th class="stub">Виділ Кругом -- Circle Select</th>
+<td><kbd class="kbd docutils literal notranslate">C</kbd></td>
+</tr>
+<tr class="row-even"><th class="stub">Виділ Ласо -- Lasso Select</th>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></td>
+</tr>
+<tr class="row-odd"><th class="stub">Виділити Пов’язане -- Select Linked</th>
+<td><kbd class="kbd docutils literal notranslate">L</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-L</kbd></td>
+</tr>
+<tr class="row-even"><th class="stub">Виділити Більше -- Select More</th>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-NumpadPlus</kbd></td>
+</tr>
+<tr class="row-odd"><th class="stub">Виділити Менше -- Select Less</th>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-NumpadMinus</kbd></td>
+</tr>
+<tr class="row-even"><th class="stub">Виділити Штрих -- Select Stroke</th>
+<td><kbd class="kbd docutils literal notranslate">Alt-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="editing">
+<h2>Редагування<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="header">
+<h3>Заголовок<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>Some tools can be accessed through the 3D View header. e.g. Copy/Paste.</p>
+<dl class="docutils">
+<dt>Калька -- Onion Skinning</dt>
+<dd>Перемикає функцію <a class="reference internal" href="drawing/layers.html#grease-pencil-onion"><span class="std std-ref">Калька -- Onion Skinning</span></a>.</dd>
+<dt>Маска Виділу -- Selection Mask, Альфа -- Alpha</dt>
+<dd>Дивіться нижче <a class="reference internal" href="#further-options">Додаткові опції</a>.</dd>
+</dl>
+</div>
+<div class="section" id="menu">
+<h3>Меню<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Стоншення/Потовщення -- Shrink/Fatten <kbd class="kbd docutils literal notranslate">Alt-S</kbd></dt>
+<dd>Регулює значення натиску у виділених точках штриха. Це надає спосіб модифікування товщини штрихів за допомогою руху миші або її коліщатка <kbd class="kbd docutils literal notranslate">Wheel</kbd>.</dd>
+<dt>Видалити Усі Активні Кадри -- Delete All Active Frames <kbd class="kbd docutils literal notranslate">D-X</kbd></dt>
+<dd>Видаляє усі штрихи в активному кадрі. Ця команда також доступна за допомогою <kbd class="kbd docutils literal notranslate">D-X</kbd> (будь-де), <kbd class="kbd docutils literal notranslate">Shift-X</kbd> (тільки у режимі «Правка Штрихів» -- Edit Strokes) або меню «НарОлівець &gt; Видалення» -- menuselection:<cite>GPencil --&gt; Delete</cite>. Це полегшує швидке позбавлення від каракулів.</dd>
+<dt>Перемістити на Шар -- Move to Layer <kbd class="kbd docutils literal notranslate">M</kbd></dt>
+<dd>Може використовуватися для переміщення штрихів між шарами (включаючи й на новий шар).</dd>
+</dl>
+</div>
+<div class="section" id="edit-strokes-panel">
+<h3>Панель «Правка Штрихів» -- Edit Strokes<a class="headerlink" href="#edit-strokes-panel" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Stroke Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Grease Pencil ‣ Edit Strokes</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Меню:</th><td class="field-body"><span class="menuselection">GPencil</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Копіювання -- Copy <kbd class="kbd docutils literal notranslate">Ctrl-C</kbd></dt>
+<dd>Копіює виділені штрихи Нарисного Олівця (або фактично, точки і сегменти).</dd>
+<dt>Вставляння -- Paste <kbd class="kbd docutils literal notranslate">Ctrl-V</kbd></dt>
+<dd>Вставляє з буферу попередньо скопійовані штрихи.</dd>
+<dt>Вставити й Об'єднати -- Paste &amp; Merge</dt>
+<dd>Вставляє попередньо скопійовані штрихи та об'єднує їх з тими, що на активному шарі.</dd>
+<dt>Видалення -- Delete <kbd class="kbd docutils literal notranslate">X</kbd></dt>
+<dd><dl class="first last docutils">
+<dt>Точки -- Points</dt>
+<dd>Видаляє виділені точки, залишаючи проміжок у штриху.</dd>
+<dt>Розчинення -- Dissolve</dt>
+<dd>Видаляє і повторно з'єднує точки, щоб були відсутні проміжки у штриху.</dd>
+<dt>Штрихи -- Strokes</dt>
+<dd>Видаляє увесь штрих, що містить хоча б одну з виділених точок.</dd>
+<dt>Кадр -- Frame</dt>
+<dd>Видаляє кадр при здійсненні анімування нарисів -- <a class="reference internal" href="drawing/layers.html"><span class="doc">Animating Sketches</span></a>.</dd>
+</dl>
+</dd>
+<dt>Дублювання -- Duplicate <kbd class="kbd docutils literal notranslate">Shift-D</kbd></dt>
+<dd>Робить копію виділених точок у тій же локації. Використовуйте мишу для пересуву -- <em>Translate</em> дублікатів в іншу позицію. <kbd class="kbd docutils literal notranslate">LMB</kbd> підтверджує їх поміщення у нову позицію. <kbd class="kbd docutils literal notranslate">RMB</kbd> виходить з цієї інтерактивної операції та вилучає зроблені дублікати.</dd>
+<dt>Перемкнути Зацикленість -- Toggle Cyclic</dt>
+<dd>Закриває або відкриває виділений штрих, додаючи сегмент між останньою і першою його точками.</dd>
+<dt>Згин -- Bend <kbd class="kbd docutils literal notranslate">Shift-W</kbd></dt>
+<dd>Згинає виділений штрих між 3D-курсором і курсором миші.</dd>
+<dt>Дзеркалення -- Mirror <kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></dt>
+<dd>Mirrors selected strokes along one or more axes.</dd>
+<dt>Зріз -- Shear <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-S</kbd></dt>
+<dd>Робить зріз форми виділених штрихів вздовж горизонтальної екранної осі.</dd>
+<dt>Сферування -- To Sphere <kbd class="kbd docutils literal notranslate">Shift-Alt-S</kbd></dt>
+<dd>Переміщує виділені вершини назовні по сферичній формі навколо їх середньої точки.</dd>
+<dt>Впорядкування Штрихів -- Arrange Strokes</dt>
+<dd><p class="first">Впорядковує виділ штрихів уверх/вниз за порядком рисування на активному шарі.</p>
+<p class="last">Bring Forward, Send Backward, Bring to Front, Send to Back</p>
+</dd>
+<dt>Перемістити у Колір -- Move to Color</dt>
+<dd>Задає активний колір як новий колі для усіх виділених штрихів.</dd>
+<dt>Subdivide</dt>
+<dd>Adds a number of new points evenly between two or more points,
+to set the number of points to add use <em>Number of Cuts</em>.</dd>
+<dt>Сполучення штрихів</dt>
+<dd><dl class="first last docutils">
+<dt>Тип</dt>
+<dd><dl class="first last docutils">
+<dt>Join <kbd class="kbd docutils literal notranslate">Ctrl-J</kbd></dt>
+<dd>Сполучає виділені штрихи.</dd>
+<dt>Join &amp; Copy <kbd class="kbd docutils literal notranslate">Shift-Ctrl-J</kbd></dt>
+<dd>Сполучає виділені штрих як новий штрих.</dd>
+</dl>
+</dd>
+<dt>Залишити Проміжки -- Leave Gaps</dt>
+<dd>Залишає проміжки між сполученими штрихами замість їх заповнення.</dd>
+</dl>
+</dd>
+<dt>Перевернути Напрям -- Flip Direction</dt>
+<dd>Перевертає старт і кінець штриха між собою.</dd>
+<dt>Показати Напрями -- Show Directions</dt>
+<dd>Показує напрямок нарису штриха за допомогою більшої зеленої точки у стартовій точці та меншої червоної точки у кінцевій точці штриха.</dd>
+<dt>Перепроектувати Штрихи -- Reproject Strokes</dt>
+<dd><dl class="first last docutils">
+<dt>Plane</dt>
+<dd>Перепроектовує виділені штрихи з поточної точки зору для отримання усіх точок в одній площині знову. Це може бути корисним для виправлення проблем з випадковим переміщенням 3D-курсора або змінами оглядвікна.</dd>
+<dt>Surface</dt>
+<dd>Project strokes onto geometry, instead of only doing this in a planar (i.e. parallel to viewplane) way
+(experimental).</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="interpolate-panel">
+<h3>Interpolate Panel<a class="headerlink" href="#interpolate-panel" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Stroke Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Grease Pencil ‣ Interpolate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Меню:</th><td class="field-body"><span class="menuselection">GPencil ‣ Interpolate</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The following two operators can be used for interpolating between a pair of Grease Pencil frames.
+To use these operators, there need to be Grease Pencil frames on both sides of the current frame.
+(Also, note that the current frame cannot be on one of the frames that the interpolation is occurring between).</p>
+<dl class="docutils">
+<dt>Interpolate <kbd class="kbd docutils literal notranslate">Ctrl-Alt-E</kbd></dt>
+<dd>It allows you to interactively pick a new sketch interpolate from the neighboring sketches.
+This is equivalent to the <em>Breakdown</em> tool for armatures.</dd>
+<dt>Sequence <kbd class="kbd docutils literal notranslate">Shift-Ctrl-E</kbd></dt>
+<dd>This fills the space between a pair of Grease Pencil frames with interpolated frames.
+It is equivalent to the <em>Sample</em> tool in the Dope Sheet Editor.</dd>
+<dt>Remove Breakdowns</dt>
+<dd>Can be used to delete generated &quot;breakdown&quot; keyframes (i.e. the small blue points).</dd>
+</dl>
+<div class="section" id="options">
+<h4>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Інтерполювати Усі Шари -- Interpolate All Layers</dt>
+<dd>Checkbox to interpolate all layers, not only active.</dd>
+<dt>Інтерполювати Виділені Штрихи -- Interpolate Selected Strokes</dt>
+<dd>Checkbox to interpolate only the selected strokes in the original frame.</dd>
+</dl>
+</div>
+<div class="section" id="sequence-options">
+<h4>Sequence Options<a class="headerlink" href="#sequence-options" title="Permalink to this headline">¶</a></h4>
+<p>It is possible to control how the <em>Interpolate Sequence</em> tool blends between the two frames.</p>
+<dl class="docutils">
+<dt>Linear</dt>
+<dd>The tool will interpolate between the two frames at a constant rate.</dd>
+<dt>Custom Curve</dt>
+<dd>It is also possible to define a custom curve to get more fine-grained control over the interpolation
+using a <a class="reference internal" href="../controls/templates/curve.html#ui-curve-widget"><span class="std std-ref">curve widget</span></a>.</dd>
+<dt>Easing Equations</dt>
+<dd>The Robert Penner easing equations (and associated controls) can also be used to
+control the interpolation speed/shape, just like for F-Curves or Keyframes
+(<a class="reference internal" href="../../editors/graph_editor/fcurves/introduction.html#editors-graph-fcurves-settings-interpolation"><span class="std std-ref">see also for more information</span></a>).</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="sculpt-strokes-panel">
+<span id="bpy-types-gpencilsculptsettings"></span><h3>Панель «Ліпка Штрихів» -- Sculpt Strokes Panel<a class="headerlink" href="#sculpt-strokes-panel" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Stroke Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Grease Pencil ‣ Sculpt Strokes</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Меню:</th><td class="field-body"><span class="menuselection">GPencil ‣ Sculpt Strokes/Brushes</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">E-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Різні інструменти для редагування штрихів Нарисного Олівця забезпечуються у формі пензлів, які можна використовувати для «малювання» або «ліплення» вигляду цих штрихів без потреби втомливого порядку дій правки «вибір-коригування-вибір-коригування».</p>
+<p>Утримуйте натисненим <kbd class="kbd docutils literal notranslate">E-LMB</kbd> та тягніть з натисненою ЛКМ миші для ліплення.</p>
+<div class="section" id="brushes">
+<h4>Пензлі<a class="headerlink" href="#brushes" title="Permalink to this headline">¶</a></h4>
+<p>Поточно впроваджені пензлі:</p>
+<dl class="docutils">
+<dt>Згладження -- Smooth</dt>
+<dd><p class="first">Дозволяє вам вибірково послаблювати тремтіння/коливання та вибоїстість для прибирання безладних частин ваших штрихів.</p>
+<dl class="last docutils">
+<dt>Задіяти Натиск -- Affect Pressure</dt>
+<dd>Використовуйте цю опцію для здійснення згладження по значеннях товщини штриха.</dd>
+</dl>
+</dd>
+<dt>Товщина -- Thickness</dt>
+<dd>Пензель «Товщина» може бути використаний для збільшення (Додання -- Add) або зменшення (Відняття -- Subtract) товщини частин штриха під курсором миші.</dd>
+<dt>Сила -- Strength</dt>
+<dd>Increase/decrease (<kbd class="kbd docutils literal notranslate">Ctrl</kbd>) the alpha value of the stroke. E.g. for creating fading effects.</dd>
+<dt>Захоп -- Grab</dt>
+<dd>Бере точки штриха, які підпадають під кільце пензля після його активації, та дозволяє вам пересувати цей відібраний набір точок.</dd>
+<dt>Уштовх -- Push</dt>
+<dd>Пензель «Уштовх» дуже подібний до пензля «Захоп» у тому, що також дозволяє користувачу пересувати точки штриха. Однак, на відміну від пензля «Захоп», пензель «Уштовх» не обмежений в оперуванні тільки першим набором точок під курсором при його активації. Натомість, при кожному русі пензлі точки, що поточно знаходяться під пензлем, будуть пересуватися, базуючись на величині останнього руху пензля.</dd>
+<dt>Закрут -- Twist</dt>
+<dd>Використовується для закручування частин/обертання точок штриха навколо курсора, створюючи ефект «круговерті». Він корисний для застосування низьких рівнів спотворення у точках штрихів. Радіокнопка «напрямку» -- <em>Direction</em> визначає, куди будуть обертатися точки -- за годинниковою стрілкою -- ЗаГС -- CW або проти годинникової стрілки -- «ПротиГС» -- CCW.</dd>
+<dt>Щипок/Роздув -- Pinch/Inflate</dt>
+<dd><p class="first">Використовується для пересування точок від або до курсора миші.</p>
+<dl class="last docutils">
+<dt>Щипок -- Pinch</dt>
+<dd>Пересуває точки до курсора.</dd>
+<dt>Роздув -- Inflate</dt>
+<dd>Штовхає точки від курсора.</dd>
+</dl>
+</dd>
+<dt>Випадково -- Randomize</dt>
+<dd>Randomizes the stroke attributes.
+e.g. with <em>Position</em> enabled it displaces the points randomly in screen space to create jittered/jagged lines.</dd>
+<dt>Клонування -- Clone</dt>
+<dd><p class="first">Used to paste the previously copied points (in the copy-paste buffer on the active layer),
+located at the point where you clicked.</p>
+<p>Утримуйте натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd> та з натисненою ЛКМ тягніть для розміщення та регулювання вставлених штрихів. Центр штрихів наслідує рухи пензля/курсора («режим штампу»).</p>
+<dl class="last docutils">
+<dt>Вжити Спад -- Use Falloff</dt>
+<dd>When the <em>Use Falloff</em> option is enabled, instead of moving all the newly pasted strokes by the same amount,
+only the points that are currently under the cursor get affected. Thus, in this mode of operation,
+the brush is closer to a Paste and Push operation instead (&quot;Stamp and Smudge&quot;).</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="common-options">
+<h4>Загальні опції<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Радіус -- Radius <kbd class="kbd docutils literal notranslate">Shift-F</kbd>/<kbd class="kbd docutils literal notranslate">Wheel</kbd></dt>
+<dd>Розмір пензля. Збільшення/зменшення розміру пензля за допомогою <kbd class="kbd docutils literal notranslate">Shift-F</kbd>, не в активному процесі ліплення, або <kbd class="kbd docutils literal notranslate">Wheel</kbd> -- у ході активного ліплення (наприклад, коли стилус вже натискає по планшету або вже натиснута кнопка миші).</dd>
+<dt>Сила -- Strength <kbd class="kbd docutils literal notranslate">Ctrl-F</kbd>/<kbd class="kbd docutils literal notranslate">Shift-Wheel</kbd></dt>
+<dd>The Strength of the brush, can be changed by the pressure of the stylus.
+(In/decrease see <em>Radius</em>).</dd>
+<dt>Вжити Спад -- Use Falloff</dt>
+<dd>Вмикає лінеарний, прямолінійний спад для обчислення вплив пензля на точку. Тобто, точка ближче до середини пензля (тобто точка під курсором) буде більше підпадати під вплив пензля, ніж та, що ближче до його країв.</dd>
+<dt>Direction <kbd class="kbd docutils literal notranslate">Ctrl-E-LMB</kbd></dt>
+<dd>Радіокнопка для інвертування впливу пензля.</dd>
+<dt>Задіння -- Affect</dt>
+<dd>Вмикає ліплення для позиції, сили (альфа значення) та товщини при активних пензлях «Згладження» -- Smooth та «Випадково» -- Randomize.</dd>
+</dl>
+</div>
+<div class="section" id="further-options">
+<h4>Додаткові опції<a class="headerlink" href="#further-options" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Маска Виділу -- Selection Mask</dt>
+<dd>Використовується для обмеження дії пензля тільки по виділених точках.</dd>
+<dt>Альфа -- Alpha <kbd class="kbd docutils literal notranslate">Ctrl-H</kbd></dt>
+<dd>Альфа-значення візуалізації виділених вершин. Видимість може перемикатися (схов/знесхов) за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-H</kbd>.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="animating.html" class="btn btn-neutral float-right" title="Анімування нарисів" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drawing/brushes.html" class="btn btn-neutral" title="Пензлі" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

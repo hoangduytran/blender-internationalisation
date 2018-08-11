@@ -1,0 +1,359 @@
+#
+# phan <phahoatho@gmail.com>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2017-10-09 22:08+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:4
+msgid "Introduction"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:6
+#, fuzzy
+msgid ""
+"A material defines the artistic qualities of the substance that an object"
+" is made of. In its simplest form, you can use materials to show the "
+"substance an object is made of, or to \"paint\" the object with different"
+" colors. Usually, the substance is represented by its surface qualities "
+"(color, shininess, reflectance, etc.) but it can also exhibit more "
+"complicated effects such as transparency, diffraction and subsurface "
+"scattering. Typical materials might be brass, skin, glass, or linen."
+msgstr ""
+"Un matériau définit les qualités artistiques de la substance dont est "
+"fait un objet. Dans sa forme la plus simple, vous pouvez utiliser les "
+"matériaux pour montrer la substance dont est fait un objet, ou de "
+"\"peindre\" l'objet de différentes couleurs. Habituellement, la substance"
+" est représentée par ses qualités de surface (couleur, brillance, "
+"réflectance, etc.) mais il peut aussi présenter des effets plus complexes"
+" tels que la transparence, la diffraction et la dispersion sub-surface. "
+"Les matériaux typiques peuvent être le bronze, la peau, le verre, ou le "
+"lin."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:16
+msgid ""
+"Various basic materials (single, multiple material, transparency, vertex "
+"paint)."
+msgstr ""
+"Divers matériaux de base (single, multiple material, transparency, vertex"
+" paint)."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:18
+msgid ""
+"The basic (un-textured) Blender material is uniform across each face of "
+"an object (although the various pixels of each face of the object may "
+"appear differently because of lighting effects). However, different faces"
+" of the object may use different materials (see :ref:`bi-multiple-"
+"materials`)."
+msgstr ""
+"Le matériau de base (non texturé) dans Blender est uniforme chaque face "
+"de l'objet (bien que les divers pixels de chaque face de l'objet puissent"
+" apparaître différents à cause des effets d'éclairage). Cependant, les "
+"différentes faces de l'objet peuvent utiliser différents matériaux (voir "
+":ref:`bi-multiple-materials`)."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:22
+msgid ""
+"In Blender, materials can (optionally) have associated textures. Textures"
+" *describe* the substance: e.g. *polished* brass, *dirty* glass or "
+"*embroidered* linen. The :doc:`Textures "
+"</render/blender_render/textures/index>` chapter describes how to add "
+"textures to materials."
+msgstr ""
+"Dans Blender, les matériaux peuvent (facultativement) avoir des textures "
+"associées. Les textures *décrivent* la substance : ex. bronze *poli*, le "
+"verre *sale* ou le lin brodé. Le chapitre des :doc:`Textures "
+"</render/blender_render/textures/index>` décrit la manière d'ajouter des "
+"textures aux matériaux. "
+
+#: ../../manual/render/blender_render/materials/introduction.rst:29
+msgid "How Materials Work"
+msgstr "Fonctionnement des matériaux"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:31
+msgid ""
+"Before you can understand how to design effectively with materials, you "
+"must understand how simulated light and surfaces interact in Blender's "
+"rendering engine and how material settings control those interactions. A "
+"deep understanding of the engine will help you to get the most from it."
+msgstr ""
+"Avant de chercher à comprendre la manière de concevoir efficacement des "
+"matériaux, vous devez comprendre comment les lumières simulées et les "
+"surfaces interagissent dans le moteur de rendu de Blender et comment les "
+"réglages des matériaux contrôlent ces interactions. Une compréhension "
+"profonde du moteur vous aidera d'en obtenir le meilleur."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:36
+msgid ""
+"The rendered image you create with Blender is a projection of the scene "
+"onto an imaginary surface called the *viewing plane*. The viewing plane "
+"is analogous to the film in a traditional camera, or the rods and cones "
+"in the human eye, except that it receives simulated light, not real "
+"light."
+msgstr ""
+"L'image rendue que vous créez avec Blender est une projection de la scène"
+" sur une surface imaginaire appelée le *plan de vue*. Le plan de vue est "
+"analogue à la pellicule dans une caméra traditionnelle, ou les bâtonnets "
+"et les cônes de l’œil humain, sauf qu'il reçoit de la lumière simulée et "
+"non de la lumière réelle. "
+
+#: ../../manual/render/blender_render/materials/introduction.rst:42
+msgid ""
+"To render an image of a scene we must first determine what light from the"
+" scene is arriving at each point on the viewing plane. The best way to "
+"answer this question is to follow a straight line (the simulated light "
+"ray) backwards through that point on the viewing plane and the focal "
+"point (the location of the camera) until it hits a renderable surface in "
+"the scene, at which point we can determine what light would strike that "
+"point."
+msgstr ""
+"Pour faire le rendu d'une image d'une scène, vous devons d'abord "
+"déterminer quelle lumière de la scène arrive en chaque point du plan de "
+"vue. La meilleure façon de répondre à cette question est de suivre une "
+"ligne droite (le rayon de lumière simulé) en partant depuis ce point du "
+"plan de vue et du point focal (l'emplacement de la caméra) jusqu'à ce "
+"qu'il frappe une surface rendable dans la scène, à ce moment-là nous "
+"pouvons déterminer quelle lumière frapperait ce point."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:49
+msgid ""
+"The surface properties and incident light angle tells how much of that "
+"light would be reflected back along the incident viewing angle "
+"*(Rendering engine basic principle)*."
+msgstr ""
+"Les propriétés de surface et l'angle de lumière incidente déterminent "
+"quelle quantité de cette lumière sera réfléchie le long de l'angle de vue"
+" incident *(principe de base de moteur de rendu)*"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:54
+msgid "Rendering engine basic principle."
+msgstr "principe de base de moteur de rendu."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:56
+msgid ""
+"Two basic types of phenomena take place at any point on a surface when a "
+"light ray strikes it: diffusion and specular reflection. Diffusion and "
+"specular reflection are distinguished from each other mainly by the "
+"relationship between the incident light angle and the reflected light "
+"angle."
+msgstr ""
+"Deux phénomènes de base prennent place en n'importe point d'une surface "
+"quand un rayon de lumière la frappe : diffusion et réflexion spéculaire. "
+"La diffusion et la réflexion spéculaire se distinguent entre elles "
+"principalement par la relation entre l'angle de la lumière incidente et "
+"l'angle de la lumière réfléchie. "
+
+#: ../../manual/render/blender_render/materials/introduction.rst:61
+msgid ""
+"The shading (or coloring) of the object during render will then take into"
+" account the base color (as modified by the diffusion and specular "
+"reflection phenomenon) and the light intensity."
+msgstr ""
+"L'ombrage (ou coloration) de l'objet durant le rendu va alors prendre en "
+"compte la couleur de base (comme modifiée par les phénomènes de diffusion"
+" et de réflexion spéculaire) et l'intensité de la lumière."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:64
+msgid ""
+"Using the internal ray tracer, other (more advanced) phenomena could "
+"occur. In ray-traced reflections, the point of a surface struck by a "
+"light ray will return the color of its surrounding environment, according"
+" to the rate of reflection of the material (mixing the base color and the"
+" surrounding environment's) and the viewing angle."
+msgstr ""
+"En utilisant le *ray tracer* interne, d'autres phénomènes (plus avancés) "
+"pourraient se produire. Dans les réflexions de lancer de rayon, le point "
+"de surface frappé par un rayon de lumière va retourner la couleur de son "
+"environnement immédiat, selon le taux de réflexion du matériau "
+"(mélangeant la couleur de base et celle de l'environnement immédiat) et "
+"l'angle de vue."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:69
+msgid ""
+"On the other hand, in ray-traced refractions, the point of a surface "
+"struck by a light ray will return the color of its background "
+"environment, according to the rate of transparency (mixing the base color"
+" and the background environment's along with its optional filtering "
+"value) of the material and the optional index of refraction of the "
+"material, which will distort the viewing angle."
+msgstr ""
+"D'un autre côté, dans les réfractions en lancer de rayon, le point de "
+"surface frappé par un rayon de lumière va retourner la couleur de son "
+"environnement d'arrière-plan, selon le taux de transparence (mélangeant "
+"la couleur de base et celle de l'environnement d'arrière-plan avec sa "
+"valeur de filtre optionnelle) du matériau et l'indice de réfraction "
+"optionnelle du matériau, ce qui va fausser l'angle de vue."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:75
+#, fuzzy
+msgid ""
+"Of course, shading of the object hit by a light ray will be about mixing "
+"all these phenomena at the same time during the rendering. The appearance"
+" of the object, when rendered, depends on many interrelated settings:"
+msgstr ""
+"Bien sûr, l'ombrage de l'objet frappé par un rayon de lumière sera le "
+"résultat du mélange de tous ces phénomènes en même temps durant le rendu."
+" L'apparence de l'objet, une fois rendu, dépend de nombreux réglages "
+"étroitement liés :"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:79
+msgid "World (Ambient color, Radiosity, Ambient Occlusion)"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:80
+msgid "Lights"
+msgstr "Lumières"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:81
+msgid ""
+"Material settings (including ambient, emission, and every other setting "
+"on every panel in that tab)"
+msgstr ""
+"Réglages de matériau (y compris ambient, emission, et tous les autres "
+"réglages des panneaux de cet onglet)"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:82
+msgid "Texture(s) and how they are mixed"
+msgstr "Texture(s) et la manière dont elles sont mélangées"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:83
+msgid "Material Nodes"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:84
+msgid "Camera"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:85
+msgid "Viewing angle"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:86
+msgid "Obstructions and transparent occlusions"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:87
+msgid "Shadows from other opaque/transparent objects"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:88
+msgid "Render settings"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:89
+msgid "Object dimensions (SS settings are relevant to dimensions)"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:90
+msgid "Object shape (refractions, Fresnel effects)"
+msgstr ""
+
+#: ../../manual/render/blender_render/materials/introduction.rst:94
+msgid "Using Materials"
+msgstr "Utilisation des matériaux"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:96
+msgid "Check your Render"
+msgstr "Vérifiez votre rendu"
+
+#: ../../manual/render/blender_render/materials/introduction.rst:98
+msgid ""
+"When designing materials (and textures and lighting), frequently check "
+"the rendered appearance of your scene, using your chosen render "
+"engine/shader settings. The appearance might be quite different from that"
+" shown in the texture display in the 3D panel."
+msgstr ""
+"Pendant la conception des matériaux (et des textures et de l'éclairage), "
+"vérifiez fréquemment l'apparence du rendu de votre scène, en utilisant "
+"les réglages de moteur de rendu/shader. L'apparence pourrait être très "
+"différente de celle montrée dans l'affichage de la texture dans le "
+"panneau 3D. "
+
+#: ../../manual/render/blender_render/materials/introduction.rst:102
+msgid ""
+"As stated above, the material settings usually determine the surface "
+"properties of the object. There are several ways in which materials can "
+"be set up in Blender. Generally speaking, these are not compatible. You "
+"must choose which method you are going to use for each particular object "
+"in your scene:"
+msgstr ""
+"Comme décrit ci-dessus, les réglages de matériau détermine habituellement"
+" les propriétés de surface de l'objet. Il y a plusieurs manières dans "
+"lesquelles les matériaux peuvent être installés dans Blender. "
+"Généralement, celles-ci ne sont pas compatibles entre elles. Vous devez "
+"choisir quelle méthode vous allez utiliser pour chaque objet particulier "
+"dans votre scène."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:107
+msgid ""
+"First, you can set the :doc:`Properties "
+"</render/blender_render/materials/properties/introduction>` in the "
+"various Material panels."
+msgstr ""
+"D'abord vous pouvez définir les :doc:`Properties "
+"</render/blender_render/materials/properties/introduction>` dans les "
+"panneaux des divers matériaux."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:109
+msgid ""
+"Second, you can use :doc:`Nodes "
+"</render/blender_render/materials/nodes/index>`; a graphical nodes editor"
+" is available."
+msgstr ""
+"Ensuite vous pouvez utiliser les :doc:`Nodes "
+"</render/blender_render/materials/nodes/index>`; un éditeur graphique de "
+"nodes est disponible."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:111
+msgid ""
+"Last, you can directly set the color of object surfaces using various "
+"special effects. Strictly speaking, these are not materials at all, but "
+"they are included here because they affect the appearance of your "
+"objects. These include :ref:`Vertex Painting <painting-vertex-index>`, "
+":doc:`Wire Rendering "
+"</render/blender_render/materials/special_effects/wire>`, :doc:`Volume "
+"Rendering </render/blender_render/materials/special_effects/volume>`, and"
+" :doc:`Halo Rendering "
+"</render/blender_render/materials/special_effects/halo>`."
+msgstr ""
+"Enfin, vous pouvez directement définir la couleur des surfaces de l'objet"
+" en utilisant des effets spéciaux divers. Au sens strict, ceux-ci ne sont"
+" pas des matériaux du tout, mais ils sont inclus ici parce qu'ils "
+"affectent l'apparence de vos objets. Ceux-ci comprennent le :ref:`Vertex "
+"Painting <painting-vertex-index>`, le :doc:`Wire Rendering "
+"</render/blender_render/materials/special_effects/wire>`, le :doc:`Volume"
+" Rendering </render/blender_render/materials/special_effects/volume>`, et"
+" le :doc:`Halo Rendering "
+"</render/blender_render/materials/special_effects/halo>`."
+
+#: ../../manual/render/blender_render/materials/introduction.rst:118
+#, fuzzy
+msgid ""
+"The exact effect of Material settings can be affected by a number of "
+"system settings. First and foremost is the renderer used: Cycles and the "
+"Blender Renderer (aka Blender Internal or BI) require quite different "
+"illumination levels to achieve similar results, and even then the "
+"appearance of objects can be quite different. Also, the material "
+"properties settings can be affected by the texture method used (single-"
+"texture, multi-texture or GLSL). So it is recommended to always select "
+"the appropriate system settings before starting the design of materials."
+msgstr ""
+"L'effet exact des réglages de matériau peut être affecté par un certain "
+"nombre de réglages systèmes. D'abord et avant tout, le moteur de rendu "
+"utilisé : Cycles et le Blender *Render Engine* (aussi connu comme Blender"
+" Internal ou BI) requièrent des niveaux d'illumination complètement "
+"différents pour obtenir des résultats similaires, et même alors "
+"l'apparence des objets peuvent être complètement différente. Aussi, les "
+"réglages de propriétés de matériau peuvent être affectés par la méthode "
+"de texture utilisée (Single Texture, Multitexture ou GLSL). Ainsi il est "
+"recommandé de toujours sélectionner les réglages systèmes appropriés "
+"avant de commencer la conception des matériaux."
+

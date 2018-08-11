@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Віджет колірного градієнта &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/controls/templates/color_ramp.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Віджет кривої" href="curve.html" />
+    <link rel="prev" title="Відбірник кольору" href="color_picker.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#window-system">Система вікон</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#interface-controls">Контролери інтерфейсу</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../index.html#buttons-and-controls">Кнопки й контролери</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html#extended-controls">Просунуті контролери</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="data_block.html">Меню блоку даних</a></li>
+<li class="toctree-l4"><a class="reference internal" href="list_presets.html">Огляди списків і передустави</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_picker.html">Відбірник кольору</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Віджет колірного градієнта</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">Віджет кривої</a></li>
+<li class="toctree-l4"><a class="reference internal" href="operator_search.html">Пошук оператора</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../common_shortcuts.html">Загальні скорочення</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#tools">Інструменти</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+      <li>Віджет колірного градієнта</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/interface/controls/templates/color_ramp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="color-ramp-widget">
+<span id="bpy-types-colorramp"></span><span id="ui-color-ramp-widget"></span><h1>Віджет колірного градієнта<a class="headerlink" href="#color-ramp-widget" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../../../_images/interface_controls_templates_color-ramp_color-ramp.png" src="../../../_images/interface_controls_templates_color-ramp_color-ramp.png" />
+<p class="caption"><span class="caption-text">Color ramp.</span></p>
+</div>
+<p><em>Color Ramps</em> enables the user to specify a range of colors based on color stops.
+Color stops are similar to a mark indicating where exactly the chosen color should be.
+The interval from each of the stops, added to the ramp, is a result of the color interpolation and
+chosen interpolation method.</p>
+<div class="section" id="controls">
+<h2>Controls<a class="headerlink" href="#controls" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Додання -- Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Клацок ЛКМ на цій кнопці додає стоп у вашу власну карту малювальних вагомостей. Ці стопи додаються від останнього виділеного стопа до наступного, зліва направо і вони поміщаються посередині між цими стопами.</dd>
+<dt>Видалення -- Delete <code class="docutils literal notranslate"><span class="pre">-</span></code></dt>
+<dd>Deletes the selected color stop from the list.</dd>
+<dt>Переверт -- Flip <code class="docutils literal notranslate"><span class="pre">&lt;-&gt;</span></code></dt>
+<dd>Flips the gradient, inverting the values of the custom weight paint range.</dd>
+<dt>Режим Кольору -- Color Mode</dt>
+<dd><p class="first">Вибір використовуваного Колірного простору -- <a class="reference internal" href="../../../glossary/index.html#term-color-space"><span class="xref std std-term">color space</span></a> для інтерполяції.</p>
+<dl class="last docutils">
+<dt>RGB</dt>
+<dd>Змішує кольори, мікшуючи кожен колірний канал та комбінуючи їх.</dd>
+<dt>HSV/HSL</dt>
+<dd>Змішує кольору, спершу конвертувавши їх у HSV або HSL, далі мікшуючи їх, і потім комбінуючи їх знову. Це дає перевагу для підтримання насиченості між різними відтінками, коли, інакше, RGB дає зненасичення, і це дозволяє мати багатший градієнт.</dd>
+</dl>
+</dd>
+<dt>Опції Інтерполяції -- Interpolation Options</dt>
+<dd><p class="first">Дозволяє користувачу вибирати типи обчислення інтерполяції між кольорами для кожного колірного стопа.</p>
+<dl class="last docutils">
+<dt>RGB</dt>
+<dd><dl class="first last docutils">
+<dt>Б-Сплайн -- B-Spline</dt>
+<dd>Використовує тип інтерполяції Б-Сплайн -- <em>B-Spline</em> для колірних стопів.</dd>
+<dt>Кардинально -- Cardinal</dt>
+<dd>Використовує тип інтерполяції «Кардинально» -- <em>Cardinal</em> для колірних стопів.</dd>
+<dt>Лінеарно -- Linear</dt>
+<dd>Використовує тип інтерполяції «Лінеарно», прямолінійно -- <em>Linear</em> для колірних стопів.</dd>
+<dt>Легко -- Ease</dt>
+<dd>Uses an <em>Ease</em> Interpolation for the color stops.</dd>
+<dt>Постійно -- Constant</dt>
+<dd>Використовує тип інтерполяції «Постійно» -- <em>Constant</em> для колірних стопів.</dd>
+</dl>
+</dd>
+<dt>HSV and HSL</dt>
+<dd><dl class="first docutils">
+<dt>Clockwise</dt>
+<dd>Clockwise interpolation around the HSV/HSL wheel.</dd>
+<dt>Counter-Clockwise</dt>
+<dd>Counterclockwise around the HSV/HSL wheel.</dd>
+<dt>Near</dt>
+<dd>Nearest route around the wheel.</dd>
+<dt>Far</dt>
+<dd>Furthest route around the wheel.</dd>
+</dl>
+<div class="last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/interface_controls_templates_color-ramp_color-ramp_interpolation.png"><img alt="../../../_images/interface_controls_templates_color-ramp_color-ramp_interpolation.png" src="../../../_images/interface_controls_templates_color-ramp_color-ramp_interpolation.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-text">HSV and HSL interpolation options.</span></p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Активний колірний стоп</dt>
+<dd>Index of the active color stop (shown as a dashed line).
+Allows you to change the active color when colors may be too close to easily select with the cursor.</dd>
+<dt>Позиція -- Position</dt>
+<dd>Це повзунок керує позиціюванням виділеного колірного стопа на діапазоні.</dd>
+<dt>Color</dt>
+<dd>Відкриває відбірник кольору -- color picker для можливості визначення користувачем кольору та Альфа для виділеного колірного стопа. Коли колір використовує Альфа, кнопка кольору ділиться на дві, де ліва її частина показує базовий колір, а права -- показує колір разом зі значенням альфа-прозорості.</dd>
+</dl>
+<div class="section" id="shortcuts">
+<h3>Скорочення<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">LMB</kbd> (перетяг) переміщується по кольорам.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> (клацок) додає нову керувальну точку.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="curve.html" class="btn btn-neutral float-right" title="Віджет кривої" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="color_picker.html" class="btn btn-neutral" title="Відбірник кольору" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

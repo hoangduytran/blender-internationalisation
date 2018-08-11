@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Undo &amp; Redo &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/undo_redo.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Ruler &amp; Protractor" href="ruler_protractor.html" />
+    <link rel="prev" title="Загальні скорочення" href="common_shortcuts.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#window-system">Система вікон</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#interface-controls">Контролери інтерфейсу</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tools">Інструменти</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Undo &amp; Redo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#undo">Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#redo">Redo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#redo-last">Redo Last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#undo-history">Undo History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat-last">Repeat Last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repeat-history">Repeat History</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ruler_protractor.html">Ruler &amp; Protractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="grease_pencil/index.html">Нарисний Олівець -- Grease Pencil</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+      <li>Undo &amp; Redo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/interface/undo_redo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="undo-redo">
+<span id="bpy-ops-ed"></span><h1>Undo &amp; Redo<a class="headerlink" href="#undo-redo" title="Permalink to this headline">¶</a></h1>
+<p>The tools listed below will let you roll back an accidental action,
+redo your last action, or let you choose to recover to a specific point,
+by picking from a list of recent actions recorded by Blender.</p>
+<div class="section" id="undo">
+<span id="bpy-ops-ed-undo"></span><h2>Undo<a class="headerlink" href="#undo" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ History ‣ Undo</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Object types ‣ Undo</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Z</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you want to undo your last action, just press <kbd class="kbd docutils literal notranslate">Ctrl-Z</kbd>.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="../preferences/editing.html"><span class="doc">Editing Preferences</span></a> section on undo to change defaults.</p>
+</div>
+</div>
+<div class="section" id="redo">
+<span id="bpy-ops-ed-redo"></span><h2>Redo<a class="headerlink" href="#redo" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ History ‣ Redo</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Object types ‣ Redo</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Ctrl-Z</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To roll back the Undo action, press <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Z</kbd>.</p>
+</div>
+<div class="section" id="redo-last">
+<span id="ui-redo-last"></span><h2>Redo Last<a class="headerlink" href="#redo-last" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Operator panel</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">F6</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Redo Last</em> is short for <em>Redo(ing the) Last (Action)</em>.
+<kbd class="kbd docutils literal notranslate">F6</kbd> after an action will present you a context-sensitive
+Pop-Up menu based on your last action taken and the Mode and Editor in which Blender is being used.</p>
+<p>For example, if your last action was a rotation in <em>Object Mode</em>,
+Blender will show you the last value changed for the angle (see Fig. <a class="reference internal" href="#fig-interface-redo-last"><span class="std std-ref">Redo Last.</span></a> left),
+where you can change your action back completely by typing <kbd class="kbd docutils literal notranslate">Numpad0</kbd>.
+There are other useful options, based on your action context,
+and you cannot only Undo actions, but change them completely using the available options.</p>
+<p>If you are in <em>Edit Mode</em>,
+Blender will also change its contents based on your last action taken.
+In our second example (at the right), the last action taken was a Vertex Move;
+we did a <em>Scale</em> on a Face, and, as you can see,
+the contents of the Pop-Up menu are different, because of your mode (Edit Mode)
+(See Fig. <a class="reference internal" href="#fig-interface-redo-last"><span class="std std-ref">Redo Last.</span></a> right).</p>
+<span id="fig-interface-redo-last"></span><table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Redo Last.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/interface_undo-redo_redo-last-object-mode.png"><img alt="../_images/interface_undo-redo_redo-last-object-mode.png" src="../_images/interface_undo-redo_redo-last-object-mode.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Redo Last -- Rotation (Object Mode, 60 degrees).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../_images/interface_undo-redo_redo-last-edit-mode.png"><img alt="../_images/interface_undo-redo_redo-last-edit-mode.png" src="../_images/interface_undo-redo_redo-last-edit-mode.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Redo Last -- Scale (Edit Mode, Resize face).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Operations using Redo Last</p>
+<p class="last">Some operations produce particularly useful results if you tweak their parameters with the <kbd class="kbd docutils literal notranslate">F6</kbd> Menu.
+Take, for example, adding a Circle. If you reduce the Vertex count to three,
+you get a perfect equilateral triangle.</p>
+</div>
+</div>
+<div class="section" id="undo-history">
+<span id="bpy-ops-ed-undo-history"></span><h2>Undo History<a class="headerlink" href="#undo-history" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ History ‣ Undo History</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Object types ‣ Undo History</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-Z</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id4">
+<img alt="../_images/interface_undo-redo_undo-history-menu.png" src="../_images/interface_undo-redo_undo-history-menu.png" />
+<p class="caption"><span class="caption-text">The Undo History menu.</span></p>
+</div>
+<p>There is also an Undo History of the last actions taken, recorded by Blender.
+You can access the history pop-up with <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Z</kbd>.</p>
+<p>First positions correspond to most recent actions.
+A small icon of an eye next to one of the entries indicates the current status.
+Rolling back actions using the <em>Undo History</em> feature will take you back to
+the action you choose. Much like how you can alternate between going backward in
+time with <em>Undo</em> and then forward with <em>Redo</em>,
+you can hop around on the Undo timeline as much as you want as long as you do not make a new change.
+Once you do make a new change, the Undo History is truncated at that point.
+Selecting one of the entries in the list takes the current status to that position.</p>
+</div>
+<div class="section" id="repeat-last">
+<span id="bpy-ops-screen-repeat-last"></span><h2>Repeat Last<a class="headerlink" href="#repeat-last" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ History ‣ Repeat: Repeat Last</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-R</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Repeat Last feature will repeat your last action when you press <kbd class="kbd docutils literal notranslate">Shift-R</kbd>.</p>
+<p>In the example Images below, we duplicated a <em>Monkey</em> mesh,
+and then we moved the Object a bit.
+Using repeat <kbd class="kbd docutils literal notranslate">Shift-R</kbd>, the <em>Monkey</em> was also duplicated and moved.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<img alt="../_images/interface_undo-redo_repeat-last1.png" src="../_images/interface_undo-redo_repeat-last1.png" />
+<p class="caption"><span class="caption-text">Suzanne.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../_images/interface_undo-redo_repeat-last2.png" src="../_images/interface_undo-redo_repeat-last2.png" />
+<p class="caption"><span class="caption-text">After a <kbd class="kbd docutils literal notranslate">Shift-D</kbd> and move.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../_images/interface_undo-redo_repeat-last3.png" src="../_images/interface_undo-redo_repeat-last3.png" />
+<p class="caption"><span class="caption-text">After a <kbd class="kbd docutils literal notranslate">Shift-R</kbd>.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="repeat-history">
+<span id="bpy-ops-screen-repeat-history"></span><h2>Repeat History<a class="headerlink" href="#repeat-history" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ History ‣ Repeat: History...</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">F3</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id8">
+<img alt="../_images/interface_undo-redo_repeat-history-menu.png" src="../_images/interface_undo-redo_repeat-history-menu.png" />
+<p class="caption"><span class="caption-text">The Repeat History menu.</span></p>
+</div>
+<p>The <em>Repeat History</em> feature will present you a list of the last repeated actions,
+and you can choose the actions you want to repeat.
+It works in the same way as the Undo History, explained above,
+but the list contains only repeated actions. To access Repeat History, use <kbd class="kbd docutils literal notranslate">F3</kbd>.</p>
+<div class="lead docutils container">
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Blender uses two separate Histories, one dedicated for the <em>Edit Mode</em>,
+and one dedicated for the <em>Object Mode</em>.</p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">When you quit Blender, the complete list of user actions will be lost, even if you save your file before quitting.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Troubleshooting section on <a class="reference internal" href="../troubleshooting/recover.html"><span class="doc">Recovering your lost work</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ruler_protractor.html" class="btn btn-neutral float-right" title="Ruler &amp; Protractor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="common_shortcuts.html" class="btn btn-neutral" title="Загальні скорочення" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

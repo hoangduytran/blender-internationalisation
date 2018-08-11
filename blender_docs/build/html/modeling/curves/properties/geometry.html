@@ -1,0 +1,557 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Геометрія -- Geometry &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/curves/properties/geometry.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Показ Кривої -- Curve Display" href="../curve_display.html" />
+    <link rel="prev" title="Дані Об&#39;єкта -- Object Data" href="data.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Криві -- Curves</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">Примітиви -- Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Властивості -- Properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data.html">Дані Об'єкта -- Object Data</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Геометрія -- Geometry</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../curve_display.html">Показ Кривої -- Curve Display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Криві -- Curves</a> &raquo;</li>
+        
+          <li><a href="index.html">Властивості -- Properties</a> &raquo;</li>
+        
+      <li>Геометрія -- Geometry</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/curves/properties/geometry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geometry">
+<h1>Геометрія -- Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id2">
+<img alt="../../../_images/modeling_curves_properties_geometry_panel.png" src="../../../_images/modeling_curves_properties_geometry_panel.png" />
+<p class="caption"><span class="caption-text">Панель Geometry для кривих.</span></p>
+</div>
+<div class="section" id="modification">
+<h2>Модифікація -- Modification<a class="headerlink" href="#modification" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зсув -- Offset</dt>
+<dd><p class="first">Пересуває видавлення паралельно до нормалей кривої.</p>
+<div class="last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-offset.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-offset.png" src="../../../_images/modeling_curves_properties_geometry_extrude-offset.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кільце Безьє: Offset -- -1, Extrusion -- 0.5, Bevel: Depth -- 0.25, Bevel: Resolution -- 10.</span></p>
+</div>
+</dd>
+<dt>Видавлення -- Extrude</dt>
+<dd><p class="first">Will extrude the curve along both the positive and negative local Z axes.
+Turns a one-dimensional curve into a two-dimensional curve by giving it height.
+With a scale is the sum of both directions, perpendicular to the curve's normals.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-bezier-circle.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-bezier-circle.png" src="../../../_images/modeling_curves_properties_geometry_extrude-bezier-circle.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кільце Безьє: Extrude -- 0.0 (Edit Mode).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-after.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-after.png" src="../../../_images/modeling_curves_properties_geometry_extrude-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кільце Безьє: Extrude -- 0.5 (Object Mode).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div class="section" id="examples">
+<h3>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Ми маємо три підкласи результатів, залежно від того, чи є крива відкрита, закрита чи 3D:</p>
+<dl class="docutils">
+<dt>Відкрита 2D крива</dt>
+<dd><p class="first">Видавлення буде створювати «стіну» або «стрічку», що відповідає формі кривої. Якщо використовується <em>Bevel Depth</em>, то така стіна стає своєрідною ковзанкою або жолобом. Якщо нормалі вказують у невірному напрямку, то ви можете перемкнути їх напрямок, як показано тут -- <a class="reference internal" href="../editing/introduction.html#curve-switch-direction"><span class="std std-ref">here</span></a>.</p>
+<div class="last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-open-curve.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-open-curve.png" src="../../../_images/modeling_curves_properties_geometry_extrude-open-curve.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Відкрита 2D Крива за допомогою <kbd class="kbd docutils literal notranslate">Alt-C</kbd>, заповнення установлено у нуль, нульовий зсув, видавлення як 0.5, Bevel Depth як 0.25, Bevel Resolution як 10.</span></p>
+</div>
+</dd>
+<dt>Закрита 2D крива</dt>
+<dd><p class="first">Це можливо найбільш корисна ситуація, оскільки вона швидко створює об'єм з (стандартно) двома плоскими та паралельними поверхнями, що заповнюють дві сторони видавленої «стіни». Ви можете вилучити одну чи обидві ці грані, вибравши потрібний режим заповнення: Both, Front, Back чи None.</p>
+<p>Додаткова глибина скошування буде завжди створювати тут 90-градусні скоси.</p>
+<div class="last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-closed-curve.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-closed-curve.png" src="../../../_images/modeling_curves_properties_geometry_extrude-closed-curve.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Закрита 2D Крива, Extrude 0.5, Bevel Depth 0.25, Bevel Resolution 10, Fill: Both.</span></p>
+</div>
+</dd>
+<dt>3D крива</dt>
+<dd><p class="first">Тут той факт, що немає значення -- чи відкрита чи закрита крива -- ви ніколи не отримаєте об'єм з видавленої 3D кривої, тільки стіну або стрічку, як з відкритими 2D кривими.</p>
+<p class="last">Однак, для 3D кривих є одна особливість: похил <em>Tilt</em> керувальних точок (дивіться вище). Це буде змушувати стрічку скручуватися навколо кривої для створення смужки Мьобіуса, наприклад.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="bevel">
+<h2>Скіс -- Bevel<a class="headerlink" href="#bevel" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Глибина -- Depth</dt>
+<dd><p class="first">Змінює розмір скосу.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel-depth.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel-depth.png" src="../../../_images/modeling_curves_properties_geometry_bevel-depth.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з різними глибинами Скосу (Bevel = 0.05).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel.png" src="../../../_images/modeling_curves_properties_geometry_bevel.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з різними глибинами Скосу (Bevel = 0.25).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Роздільність -- Resolution</dt>
+<dd><p class="first">Змінює плавність скосу.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel-resolution.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel-resolution.png" src="../../../_images/modeling_curves_properties_geometry_bevel-resolution.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з різними роздільностями (Resolution = 1).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel.png" src="../../../_images/modeling_curves_properties_geometry_bevel.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з різними роздільностями (Resolution = 12).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Об'єкт Скосу -- Bevel Object</dt>
+<dd><p class="first">Об'єкт Скосу керує поперечним перерізом видавленої кривої. Об'єктом Скосу може бути інша крива, як 2D або 3D, як відкрита або закрита. Правлення держаків та керувальних точок Об'єкта Скосу буде призводити до зміни форми оригінального Об'єкта-кривої.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel-object.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel-object.png" src="../../../_images/modeling_curves_properties_geometry_bevel-object.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з Об'єктом Скосу як кривою Безьє.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png" src="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з Об'єктом Скосу як кільцем Безьє.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div class="section" id="bevel-factor">
+<h3>Фактор Скосу -- Bevel Factor<a class="headerlink" href="#bevel-factor" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Розкладання -- Mapping</dt>
+<dd><p class="first">Дозволяє керувати співвідношенням між факторами скосу (число між 0 та 1) та рендереними початковою та кінцевою точками скошеного сплайна. Розкладка фактора скосу:</p>
+<dl class="last docutils">
+<dt>Роздільність -- Resolution</dt>
+<dd>На кількість підподілів сплайна (роздільність U).</dd>
+<dt>Сегменти -- Segments</dt>
+<dd>На довжину її сегментів. Розкладання на сегменти обробляє підподіли у кожному сегменті кривої, ніби вони мають усі однакову довжину.</dd>
+<dt>Сплайн -- Spline</dt>
+<dd>Довжина сплайна.</dd>
+</dl>
+</dd>
+<dt>Старт -- Start, Кінець -- End</dt>
+<dd><p class="first">Ці опції визначають, де починається/закінчується операція Скосу на кривій. Це дозволяє зробити скошену криву, яка повністю не покривається скосом.</p>
+<p>Збільшення <em>Start Bevel Factor</em> до 0.5 почне скошування на 50% відстані від початку кривої (фактично скорочуючи криву). Зменшення <em>End Bevel Factor</em> на 0.5 почне скошування на 25% відстані від кінця кривої (знову ж, фактично скорочуючи криву).</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel.png" src="../../../_images/modeling_curves_properties_geometry_bevel.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива без застосованого Bevel Factor.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_bevel-start-end-factor.png"><img alt="../../../_images/modeling_curves_properties_geometry_bevel-start-end-factor.png" src="../../../_images/modeling_curves_properties_geometry_bevel-start-end-factor.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива з End Bevel Factor як 0.6.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="caps">
+<h3>Торці -- Caps<a class="headerlink" href="#caps" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Заповнити Торці -- Fill Caps</dt>
+<dd>Запечатує кінці скошеної кривої.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="taper">
+<h2>Звуження -- Taper<a class="headerlink" href="#taper" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Об'єкт Звуження -- Taper Object</dt>
+<dd><p class="first">Звужена крива обчислюється уздовж локальної осі ікс, використовуючи локальну вісь Y для керування шириною. Зауважте також що: Звуження кривої спричиняє її стоншення у напрямку одного з кінців. Ви можете також змінювати пропорції Taper по всьому звуженому об'єкту пересуваючи/масштабуючи/обертаючи керувальні точки Об'єкта Звуження. Об'єктом Звуження може бути тільки інша крива. Редагування держаків та керувальних точок Об'єкта Звуження призводитиме до зміни форми оригінального Об'єкта.</p>
+<p class="last">Дивіться приклади нижче.</p>
+</dd>
+<dt>Розкладка Звуження -- Map Taper</dt>
+<dd>Для кривих, що використовують Об'єкт Звуження та за допомогою модифікацій <em>Start/End Bevel Factor</em> опція <em>Map Taper</em> буде застосовувати звуження до скошеної частини кривої (не до всієї кривої).</dd>
+</dl>
+<div class="section" id="details">
+<h3>Подробиці<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Це повинна бути <em>відкрита крива</em>.</li>
+<li>Звуження застосовується незалежно до всіх кривих видавленого об'єкта.</li>
+<li>Обчислюється тільки перша крива для <em>Taper Object</em>, навіть якщо ви маєте у ньому кілька окремих сегментів.</li>
+<li>The scaling starts at the first control point on the left
+and moves along the curve to the last control point on the right.</li>
+<li>Також можливе від'ємне масштабування (від'ємна локальна Y на кривій звуження). Однак, можуть з'являтися артефакти рендерингу.</li>
+<li>Можливо потрібно буде збільшити роздільність кривої, щоб бачити більш детально звуження.</li>
+<li>Для закритих кривих крива звуження у <em>Taper Object</em> діє уздовж усієї кривої (периметр об'єкта), а не тільки по довжині об'єкта, та змінює глибину видавлення. У цих випадках ви бажаєте мати відносну висоту <em>Taper Object</em>. Крива звуження на обох кінцях є однаковою, а тому точка зациклення (місце, де кінцева точка кривої з'єднується з її початком) є плавним переходом.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Приклади<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Let us taper a simple curve circle extruded object using a taper curve. Add a curve,
+then exit <em>Edit Mode</em>. Add another one (a closed one, like a circle); call it &quot;BevelCurve&quot;,
+and enter its name in the <em>Bevel Object</em> field of the first curve
+(<em>Curve</em> tab). We now have a pipe.
+Add a third curve while in <em>Object Mode</em> and call it &quot;TaperCurve&quot;.
+Adjust the left control point by raising it up about 5 units.</p>
+<p>Тепер поверніть на вкладку для оригінальної, першої кривої та поправте її поле <em>Taper Object</em> на панелі Geometry для посилання її на нову криву звуження, яку ми назвали &quot;TaperCurve&quot;. Коли ви натиснете Enter, нова крива звуження застосується негайно ж, результат чого показано на Ілюстрації <a class="reference internal" href="#fig-curves-extrude-taper-curve"><span class="std std-ref">Крива-кільце задана як Bevel Object.</span></a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id16">
+<span id="fig-curves-extrude-taper-curve"></span><a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png" src="../../../_images/modeling_curves_properties_geometry_extrude-bevel-object.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива-кільце задана як Bevel Object.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_properties_geometry_extrude-taper-object.png"><img alt="../../../_images/modeling_curves_properties_geometry_extrude-taper-object.png" src="../../../_images/modeling_curves_properties_geometry_extrude-taper-object.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Звуження видавленої кривої.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ви можете бачити <em>криву звуження</em>, застосовану до <em>видавленого об'єкта</em>. Зауважте, як об'єм труби звужується до нуля, оскільки крива звуження йде зліва направо. Якщо крива звуження вийде нижче локальної осі ігрек, то внутрішня частина труби вийде назовні, що може призвести до артефактів рендерингу. Звичайно, як для митця, це може бути тим, що ви шукаєте!</p>
+<div class="figure" id="id18">
+<span id="fig-curves-extrude-taper1"></span><img alt="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-closer.png" src="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-closer.png" />
+<p class="caption"><span class="caption-text">Приклад звуження 1.</span></p>
+</div>
+<p>На Ілюстрації <a class="reference internal" href="#fig-curves-extrude-taper1"><span class="std std-ref">Приклад звуження 1.</span></a> ви можете ясно бачити ефект, який крива звуження зліва має на оригінальний об'єкт кривої справа. Тут крива звуження зліва є ближче до початку оригінального об'єкта, що дає менший об'єкт кривої справа.</p>
+<div class="figure" id="id19">
+<span id="fig-curves-extrude-taper2"></span><img alt="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-away.png" src="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-away.png" />
+<p class="caption"><span class="caption-text">Приклад звуження 2.</span></p>
+</div>
+<p>На Ілюстрації <a class="reference internal" href="#fig-curves-extrude-taper2"><span class="std std-ref">Приклад звуження 2.</span></a> керувальна точка кривої звуження зліва пересунута далі від початку об'єкта і це дає ширший результат на об'єкті кривої справа.</p>
+<div class="figure" id="id20">
+<span id="fig-curves-extrude-taper3"></span><img alt="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-irregular.png" src="../../../_images/modeling_curves_properties_geometry_extrude-taper-curve-irregular.png" />
+<p class="caption"><span class="caption-text">Приклад звуження 3.</span></p>
+</div>
+<p>На Ілюстрації <a class="reference internal" href="#fig-curves-extrude-taper3"><span class="std std-ref">Приклад звуження 3.</span></a> ми бачимо використання більш нерегулярної кривої звуження, застосованої до оригінальної кривої-кільця.</p>
+<div class="figure" id="id21">
+<img alt="../../../_images/modeling_curves_properties_geometry_extrude-bevel-curve-tilt.png" src="../../../_images/modeling_curves_properties_geometry_extrude-bevel-curve-tilt.png" />
+<p class="caption"><span class="caption-text">Bevel extrusion with Tilt example.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../curve_display.html" class="btn btn-neutral float-right" title="Показ Кривої -- Curve Display" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data.html" class="btn btn-neutral" title="Дані Об&#39;єкта -- Object Data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

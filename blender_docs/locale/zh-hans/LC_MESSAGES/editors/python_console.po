@@ -1,0 +1,407 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is in public domain as CC0
+# This file is distributed under the same license as the Blender 中文手册2016
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 中文手册2016 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-29 11:44+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/editors/python_console.rst:7
+msgid "Python Console"
+msgstr "Python 控制台"
+
+#: ../../manual/editors/python_console.rst:9
+msgid ""
+"The Python Console is a quick way to execute commands, with access to the "
+"entire Python API, command history and auto-complete."
+msgstr ""
+"Python的控制台是一个快速来执行命令的方法，以访问整个Python的API，命令历史记"
+"录和自动完成功能。"
+
+#: ../../manual/editors/python_console.rst:12
+msgid ""
+"Its a good way to explore possibilities, which can then be pasted into "
+"larger scripts."
+msgstr "其探索的可能性，然后可以粘贴到大脚本的好办法。"
+
+#: ../../manual/editors/python_console.rst:16
+msgid "Introduction"
+msgstr "简介"
+
+#: ../../manual/editors/python_console.rst:19
+msgid "Accessing Built-in Python Console"
+msgstr "访问内置的Python控制台"
+
+#: ../../manual/editors/python_console.rst:21
+msgid ""
+"By pressing :kbd:`Shift-F4` in any Blender Editor type (3D View, Timeline, "
+"etc.) you can change it to a Console Editor."
+msgstr ""
+"通过按 :kbd:`Shift-F4` 在任何Blender编辑器类型（3D视图，时间线等），你可以把"
+"它改成一个控制台编辑器。"
+
+#: ../../manual/editors/python_console.rst:26
+msgid ""
+"The command prompt is typical for Python 3.x, the interpreter is loaded and "
+"is ready to accept commands at the prompt ``>>>``."
+msgstr ""
+"命令提示符是典型的 Python 3.x，解释器已加载，并准备接受提示符 ``>>>`` 后的命"
+"令。"
+
+#: ../../manual/editors/python_console.rst:31
+msgid "First Look at the Console Environment"
+msgstr "先看看控制台环境"
+
+#: ../../manual/editors/python_console.rst:33
+msgid ""
+"To check what is loaded into the interpreter environment, type ``dir()`` at "
+"the prompt and execute it."
+msgstr "若要检查什么加载到翻译环境，请在提示符下键入``dir()`` 并执行。"
+
+#: ../../manual/editors/python_console.rst:40
+msgid "Auto Completion"
+msgstr "自动完成工作"
+
+#: ../../manual/editors/python_console.rst:42
+msgid ""
+"Now, type ``bpy.`` and then press :kbd:`Ctrl-Spacebar` and you will see the "
+"Console auto-complete feature in action."
+msgstr ""
+"现在，键入 ``bpy.`` ，然后按 :kbd:`Ctrl-Spacebar` ，你会看到控制台自动完成功"
+"能在运行中。"
+
+#: ../../manual/editors/python_console.rst:47
+msgid ""
+"You will notice that a list of sub-modules inside of ``bpy`` appear. These "
+"modules encapsulate all that we can do with Blender Python API and are very "
+"powerful tools."
+msgstr ""
+"你会注意到出现在 ``bpy`` 子模块的列表。这些模块封装所有我们Blender  Python "
+"API 能做的工作，是非常强大的工具。"
+
+#: ../../manual/editors/python_console.rst:50
+msgid "Lets list all the contents of ``bpy.app`` module."
+msgstr "让我们列出 ``bpy.app`` 模块的所有内容。"
+
+#: ../../manual/editors/python_console.rst:52
+msgid ""
+"Notice the green output above the prompt where you enabled auto-completion. "
+"What you see is the result of auto completion listing. In the above listing "
+"all are module attribute names, but if you see any name end with ``(``, "
+"then that is a function."
+msgstr ""
+"注意在启用自动完成的提示符之上的绿色输出。你看到的是自动完成列表的结果。在上"
+"面的列表中，所有的都是模块属性名称，但是如果你看到任何以``（`` 结尾的名字，"
+"那么这是一个函数。"
+
+#: ../../manual/editors/python_console.rst:57
+msgid ""
+"We will make use of this a lot to help our learning the API faster. Now "
+"that you got a hang of this, lets proceed to investigate some of modules in "
+"``bpy``."
+msgstr ""
+"我们将利用这一点来帮助我们更快地学习API。现在你已经掌握了这一点，让我们继续"
+"研究 ``bpy`` 中的一些模块。"
+
+#: ../../manual/editors/python_console.rst:62
+msgid "Before Tinkering with the Modules"
+msgstr "摆弄模块前"
+
+#: ../../manual/editors/python_console.rst:64
+msgid ""
+"If you look at the 3D View in the default Blender scene, you will notice "
+"three objects: Cube, Lamp and Camera."
+msgstr ""
+"如果你在 3D 视图查看默认 Blender场景，你将注意到 三个物体: 立方体、 灯和摄像"
+"机。"
+
+#: ../../manual/editors/python_console.rst:67
+msgid ""
+"All objects exist in a context and there can be various modes under which "
+"they are operated upon."
+msgstr "所有对象的都存在上下文，可以有各种模式下对他们进行操作。"
+
+#: ../../manual/editors/python_console.rst:68
+msgid ""
+"At any instance, only one object is active and there can be more than one "
+"selected object."
+msgstr "在任何情况下，只有一个物体处于活动状态，并且可以有多个选定的物体。"
+
+#: ../../manual/editors/python_console.rst:69
+msgid "All objects are data in the blend-file."
+msgstr "所有物体都是blend文件中的数据。"
+
+#: ../../manual/editors/python_console.rst:70
+msgid "There are operators/functions that create and modify these objects."
+msgstr "有创建和修改这些对象的运算符/函数。"
+
+#: ../../manual/editors/python_console.rst:72
+msgid ""
+"For all the scenarios listed above (not all were listed, mind you...) the "
+"``bpy`` module provides functionality to access and modify data."
+msgstr ""
+"对于上面列出的所有方案 (并非全部列出, 请注意...) \"bpy\" 模块提供了访问和修"
+"改数据的功能。"
+
+#: ../../manual/editors/python_console.rst:77
+msgid "Examples"
+msgstr "示例"
+
+#: ../../manual/editors/python_console.rst:80
+msgid "bpy.context"
+msgstr "bpy.context"
+
+#: ../../manual/editors/python_console.rst:84
+msgid ""
+"For the commands below to show the proper output, make sure you have "
+"selected object(s) in the 3D View."
+msgstr "要使下面的命令显示正确的输出, 请确保在3D 视图中有选定的对象。"
+
+#: ../../manual/editors/python_console.rst:90
+#: ../../manual/editors/python_console.rst:151
+#: ../../manual/editors/python_console.rst:189
+msgid "Try It Out!"
+msgstr "试试看！"
+
+#: ../../manual/editors/python_console.rst:93
+msgid "bpy.context.mode"
+msgstr "bpy.context.mode"
+
+#: ../../manual/editors/python_console.rst:93
+msgid "Will print the current 3D View mode (Object, Edit, Sculpt, etc.)."
+msgstr "将打印当前 3D 视图模式 (物体、 编辑、 雕刻等.)。"
+
+#: ../../manual/editors/python_console.rst:96
+msgid "bpy.context.object or bpy.context.active_object"
+msgstr "bpy.context.object 或 bpy.context.active_object"
+
+#: ../../manual/editors/python_console.rst:96
+msgid "Will give access to the active object in the 3D View."
+msgstr "将访问3D视图中的活动物体。"
+
+#: ../../manual/editors/python_console.rst:98
+msgid "Change X location to a value of 1::"
+msgstr "将X位置值更改为1::"
+
+#: ../../manual/editors/python_console.rst:102
+msgid "Move object from previous X location by 0.5 unit::"
+msgstr "将前一个X位置的物体移动0.5个单位::"
+
+#: ../../manual/editors/python_console.rst:106
+msgid "Changes X, Y, Z location::"
+msgstr "更改 x、 y、 z 位置值::"
+
+#: ../../manual/editors/python_console.rst:110
+msgid "Change only the X, Y components::"
+msgstr "只更改X，Y组件::"
+
+#: ../../manual/editors/python_console.rst:114
+msgid "Data type of objects location::"
+msgstr "物体的数据类型位置::"
+
+#: ../../manual/editors/python_console.rst:118
+msgid "Now that is a lot of data that you have access to::"
+msgstr "现在，你可以有权访问许多数据::"
+
+#: ../../manual/editors/python_console.rst:124
+msgid "``bpy.context.selected_objects``"
+msgstr "``bpy.context.selected_objects``"
+
+#: ../../manual/editors/python_console.rst:124
+msgid "Will give access to a list of all selected objects."
+msgstr "访问到所有选定物体的列表。"
+
+#: ../../manual/editors/python_console.rst:126
+msgid "Type this and then press :kbd:`Ctrl-Spacebar`::"
+msgstr "然后按 :kbd:`Ctrl-Spacebar`::"
+
+#: ../../manual/editors/python_console.rst:130
+msgid "To print out the name of first object in the list::"
+msgstr "打印列表中第一个物体的名称::"
+
+#: ../../manual/editors/python_console.rst:134
+msgid ""
+"The complex one... But this prints a list of objects not including the "
+"active object::"
+msgstr "复杂的一个......但是这会打印一个不包含活动物体的物体列表::"
+
+#: ../../manual/editors/python_console.rst:140
+msgid "bpy.data"
+msgstr "bpy.data"
+
+#: ../../manual/editors/python_console.rst:142
+msgid ""
+"``bpy.data`` has functions and attributes that give you access to all the "
+"data in the blend-file."
+msgstr "``bpy.data`` 具有可以访问.blend文件中所有数据的函数和属性。"
+
+#: ../../manual/editors/python_console.rst:144
+msgid ""
+"You can access following data in the current blend-file: objects, meshes, "
+"materials, textures, scenes, screens, sounds, scripts, etc."
+msgstr ""
+"你可以访问当前.blend文件中的以下数据: 物体、 网格、 材质、 纹理、 场景、 屏"
+"幕、 声音、 脚本，等等。"
+
+#: ../../manual/editors/python_console.rst:147
+msgid "That is a lot of data."
+msgstr "这是大量的数据。"
+
+#: ../../manual/editors/python_console.rst:157
+msgid "Exercise"
+msgstr "练习"
+
+#: ../../manual/editors/python_console.rst:159
+msgid ""
+"After :kbd:`Return` twice it prints the names of all objects belonging to "
+"the Blender scene with name \"Scene\"::"
+msgstr ""
+"按 :kbd:`Return` 两次后它将打印所有属于名称为“Scene”的Blender场景的物体::"
+
+#: ../../manual/editors/python_console.rst:164
+msgid "Unlink the active object from the Blender scene named 'Scene'::"
+msgstr "将活动物体与名为“Scene”的Blender场景取消关联::"
+
+#: ../../manual/editors/python_console.rst:176
+msgid "bpy.ops"
+msgstr "bpy.ops"
+
+#: ../../manual/editors/python_console.rst:178
+msgid ""
+"The tool system is built around the concept of operators. Operators are "
+"typically executed from buttons or menus but can be called directly from "
+"Python too."
+msgstr ""
+"这个工具系统是围绕操作者的概念构建的。运算符通常从按钮或菜单执行, 但也可以直"
+"接从 Python 调用。"
+
+#: ../../manual/editors/python_console.rst:181
+msgid ""
+"See the `bpy.ops <https://www.blender.org/api/blender_python_api_current/"
+"bpy.ops.html>`__ API documentation for a list of all operators."
+msgstr ""
+"见 `bpy.ops <https://www.blender.org/api/blender_python_api_current/bpy.ops."
+"html>`__  所有的操作符 API documentation 列表。"
+
+#: ../../manual/editors/python_console.rst:184
+msgid ""
+"Lets create a set of five Cubes in the 3D View. First, delete the existing "
+"Cube object by selecting it and pressing :kbd:`X`."
+msgstr ""
+"让我们在3D视图中创建一组五个立方体。首先，选中它并按下 :kbd:`X` 删除现有的立"
+"方体物体。"
+
+#: ../../manual/editors/python_console.rst:191
+msgid ""
+"The following commands are used to specify that the objects are created in "
+"layer 1. So first we define an array variable for later reference::"
+msgstr ""
+"下面的命令用于指定在1层中创建物体。首先, 我们定义一个数组变量以供以后参考::"
+
+#: ../../manual/editors/python_console.rst:197
+msgid ""
+"We create a reference to the operator that is used for creating a cube mesh "
+"primitive::"
+msgstr "我们创建一个用于创建立方体网格基础物体的操作符的引用::"
+
+#: ../../manual/editors/python_console.rst:201
+msgid ""
+"Now in a *for loop*, we create the five objects like this (in the "
+"screenshot above, another method is used): Press :kbd:`Return` twice after "
+"entering the command at the shell prompt::"
+msgstr ""
+"现在在一个 *for循环* 中，我们创建五个物体（在上面的屏幕截图中使用了另一种方"
+"法创建，）像这样： 在shell提示下输入命令后按两次 :kbd:`Return` ::"
+
+#: ../../manual/editors/python_console.rst:212
+msgid "Usage"
+msgstr "使用方法"
+
+#: ../../manual/editors/python_console.rst:215
+msgid "Aliases"
+msgstr "别名管理"
+
+#: ../../manual/editors/python_console.rst:217
+msgid "Some variables and modules are available for convenience:"
+msgstr "一些变量和模块可以方便使用："
+
+#: ../../manual/editors/python_console.rst:219
+msgid "``C``: Quick access to ``bpy.context``."
+msgstr "``C``:  快速访问  'Bpy.context ' 。"
+
+#: ../../manual/editors/python_console.rst:220
+msgid "``D``: Quick access to ``bpy.data``."
+msgstr "``D``: 快速访问 ``bpy.data``。"
+
+#: ../../manual/editors/python_console.rst:221
+msgid "``bpy``: Top level Blender Python API module."
+msgstr "``bpy``: 顶级Blender Python API模块。"
+
+#: ../../manual/editors/python_console.rst:225
+msgid "Key Bindings"
+msgstr "键绑定"
+
+#: ../../manual/editors/python_console.rst:227
+msgid ":kbd:`Up` / :kbd:`Down` -- Cycle command history."
+msgstr ":kbd:`Up` / :kbd:`Down` -- Cycle 命令历史。"
+
+#: ../../manual/editors/python_console.rst:228
+msgid ":kbd:`Left` / :kbd:`Right` -- Cursor motion."
+msgstr ":kbd:`Left` / :kbd:`Right` -- 光标运动。"
+
+#: ../../manual/editors/python_console.rst:229
+msgid ":kbd:`Ctrl-Left` / :kbd:`Ctrl-Right` -- Cursor motion, by word."
+msgstr ":kbd:`Ctrl-Left` / :kbd:`Ctrl-Right` -- 光标运动，用文字。"
+
+#: ../../manual/editors/python_console.rst:230
+msgid ":kbd:`Backspace` / :kbd:`Delete` -- Erase characters."
+msgstr ":kbd:`Backspace` / :kbd:`Delete` -- 擦除字符。"
+
+#: ../../manual/editors/python_console.rst:231
+msgid ":kbd:`Tab` -- Indent."
+msgstr ":kbd:`Tab` --缩进。"
+
+#: ../../manual/editors/python_console.rst:232
+msgid ":kbd:`Shift-Tab` -- Unindent."
+msgstr ":kbd:`Shift-Tab` -- 取消缩进。"
+
+#: ../../manual/editors/python_console.rst:233
+msgid ":kbd:`Ctrl-Backspace` / :kbd:`Ctrl-Delete` -- Erase words."
+msgstr ":kbd:`Ctrl-Backspace` / :kbd:`Ctrl-Delete` -- 擦除文字。"
+
+#: ../../manual/editors/python_console.rst:234
+msgid ":kbd:`Ctrl-Spacebar` -- Auto complete."
+msgstr ":kbd:`Ctrl-Spacebar` --自动完成。"
+
+#: ../../manual/editors/python_console.rst:235
+msgid ":kbd:`Return` -- Execute command."
+msgstr ":kbd:`Return` -- 执行命令。"
+
+#: ../../manual/editors/python_console.rst:236
+msgid ":kbd:`Shift-Return` -- Add to command history without executing."
+msgstr ":kbd:`Shift-Return` -- 添加到命令历史记录而不执行。"
+
+#: ../../manual/editors/python_console.rst:237
+msgid ":kbd:`Ctrl-C` -- Copy the selection."
+msgstr ":kbd:`Ctrl-C` -- 复制选择。"
+
+#: ../../manual/editors/python_console.rst:238
+msgid ":kbd:`Ctrl-V` -- Paste into the command line."
+msgstr ":kbd:`Ctrl-V` -- 粘贴到命令行。"
+
+#~ msgid "Same as above::"
+#~ msgstr "请输入相同的密码"

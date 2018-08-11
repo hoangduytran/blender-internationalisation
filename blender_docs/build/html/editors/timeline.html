@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Редактор Часолінія -- Timeline Editor &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/timeline.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Редактор Графів -- Graph Editor" href="graph_editor/index.html" />
+    <link rel="prev" title="Фонові Зображення -- Background Images" href="3dview/properties/background_images.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Редактор Часолінія -- Timeline Editor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#main-view">Головний огляд -- Main View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#header">Заголовок -- Header</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="graph_editor/index.html">Редактор Графів -- Graph Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Редактори -- Editors</a> &raquo;</li>
+        
+      <li>Редактор Часолінія -- Timeline Editor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/editors/timeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="timeline-editor">
+<span id="bpy-ops-time"></span><span id="bpy-types-spacetimeline"></span><h1>Редактор Часолінія -- Timeline Editor<a class="headerlink" href="#timeline-editor" title="Permalink to this headline">¶</a></h1>
+<p>Редактор «Часолінія» -- <em>Timeline</em>, що ідентифікується іконкою з годинником, не є настільки редактором у розумінні цього слова, але більше використовується для перегляду інформації та керування відтворенням анімації.</p>
+<div class="figure" id="id1">
+<img alt="../_images/editors_timeline_interface.png" src="../_images/editors_timeline_interface.png" />
+<p class="caption"><span class="caption-text">Часолінія -- Timeline.</span></p>
+</div>
+<p>The <em>Timeline</em> is one of an animator's most useful tools as it can give a broad overview of a scene's animation.
+The Timeline can communicate the current time frame, either in frames or in seconds,
+where the keyframes are of the active object, the start and end frames of your animation, markers, etc.</p>
+<p>Часолінія -- <em>Timeline</em> має Контролери Відтворника -- <em>Player Controls</em> для відтворення, зупинення анімації та пропуску частин анімації сцени.</p>
+<p>Вона також має деякі знаряддя для Ключкадрів -- <em>Keyframes</em>, Наборів Ключування - <em>Keying Sets</em> та Міток -- <em>Markers</em>.</p>
+<div class="section" id="main-view">
+<h2>Головний огляд -- Main View<a class="headerlink" href="#main-view" title="Permalink to this headline">¶</a></h2>
+<p>Головний регіон Часолінії -- <em>Timeline</em> показує кадри анімації з часом.</p>
+<div class="figure" id="id2">
+<img alt="../_images/editors_timeline_main.png" src="../_images/editors_timeline_main.png" />
+<p class="caption"><span class="caption-text">Timeline main view.</span></p>
+</div>
+<div class="section" id="adjusting-the-view">
+<h3>Регулювання головного огляду<a class="headerlink" href="#adjusting-the-view" title="Permalink to this headline">¶</a></h3>
+<p>Часолінія -- <em>Timeline</em> може бути панорамована перетягом вліво або вправо утримуваною натисненою <kbd class="kbd docutils literal notranslate">MMB</kbd>.</p>
+<p>Ви можете зумувати (присувати/відсувати) Часолінію -- <em>Timeline</em> за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd>, коліща миші <kbd class="kbd docutils literal notranslate">Wheel</kbd> або клавіш <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd> і <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd>.</p>
+</div>
+<div class="section" id="time-cursor">
+<h3>Курсор Часу -- Time Cursor<a class="headerlink" href="#time-cursor" title="Permalink to this headline">¶</a></h3>
+<p>Курсор Часу -- <em>Time Cursor</em> -- це зелена лінія, що використовується для установлення та показу поточного часу кадру.</p>
+<div class="figure" id="id3">
+<img alt="../_images/editors_timeline_cursor.png" src="../_images/editors_timeline_cursor.png" />
+<p class="caption"><span class="caption-text">Курсор Часу -- Time Cursor.</span></p>
+</div>
+<p>Курсор Часу -- <em>Time Cursor</em> може бути установлено або пересунуто у нову позицію клацком або перетягом з утримуваною натисненою <kbd class="kbd docutils literal notranslate">LMB</kbd> по Часолінії.</p>
+<p>Поточний кадр або секунда може показуватися біля Курсора Часу -- <em>Time Cursor</em>, що визначається уставами меню «Огляд» -- View.</p>
+<p>Курсор Часу -- <em>Time Cursor</em> може пересуватися кроками по 1-му кадру за допомогою натискання <kbd class="kbd docutils literal notranslate">Left</kbd> чи <kbd class="kbd docutils literal notranslate">Right</kbd>, або кроками по 10 кадрів натисканням <kbd class="kbd docutils literal notranslate">Shift-Up</kbd> чи <kbd class="kbd docutils literal notranslate">Shift-Down</kbd>.</p>
+</div>
+<div class="section" id="playback-rendering-range">
+<h3>Діапазон Відтворення/Зображування, рендерингу -- Playback/Rendering Range<a class="headerlink" href="#playback-rendering-range" title="Permalink to this headline">¶</a></h3>
+<p>Стандартно, Діапазон Відтворення/Зображування, рендерингу -- <em>Playback/Rendering Range</em> (Кадр Старту -- Frame Start 1 до Кадр Кінця -- Frame End 200) підсвічується світлішим відтінком сірого кольору. Стартовий і кінцевий кадри можуть бути установлені у місці Курсора Часу -- <em>Time Cursor</em> натисканням <kbd class="kbd docutils literal notranslate">S</kbd> та <kbd class="kbd docutils literal notranslate">E</kbd>, відповідно. Діапазон Відтворення -- <em>Playback Range</em> може бути установлений також шляхом натиснення <kbd class="kbd docutils literal notranslate">P</kbd>  далі нарисуванням рамки.</p>
+</div>
+<div class="section" id="keyframes">
+<h3>Ключкадри -- Keyframes<a class="headerlink" href="#keyframes" title="Permalink to this headline">¶</a></h3>
+<p>Для активного та виділених об'єктів ключкадри показуються жовтою лінією. Для Арматур -- <em>Armatures</em> прорисовуються ключкадри об'єктів та ключкадри поз кісток.</p>
+<p>Може бути увімкнено «Лише Виділені Канали» -- <em>Only Selected Channels</em>. «Часолінія &gt; Огляд &gt; Лише Виділені Канали» -- <span class="menuselection">Timeline ‣ View ‣ Only Selected Channels</span>. Для Арматур -- <em>Armatures</em> це буде прорисовувати ключкадри об'єктів та ключкадри для активної та виділених поз кісток.</p>
+</div>
+<div class="section" id="markers">
+<h3>Мітки -- Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h3>
+<p>Дивіться детальніше тут -- <a class="reference internal" href="../animation/markers.html"><span class="doc">Markers</span></a>.</p>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Заголовок -- Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="menus">
+<h3>Меню -- Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="view-menu">
+<span id="timeline-view-menu"></span><h4>Меню «Огляд» -- View Menu<a class="headerlink" href="#view-menu" title="Permalink to this headline">¶</a></h4>
+<p>Меню «Огляд» -- <em>View</em> керує тим, що ви бачите і тим, як це виглядає.</p>
+<dl class="docutils">
+<dt>Показати Секунди -- Show Seconds <kbd class="kbd docutils literal notranslate">Ctrl-T</kbd></dt>
+<dd>Whether to show the time in the X axis and the <em>Time Cursor</em> as
+frames (based on the FPS) or as seconds.</dd>
+<dt>Зблокувати Час для Інших Вікон -- Lock Time to Other Windows</dt>
+<dd>ToDo 2.71.</dd>
+<dt>Показати Індикатор Номера Кадра -- Show Frame Number Indicator</dt>
+<dd>Це буде прорисовувати номер поточного кадру або секунди на Курсорі Часу -- <em>Time Cursor</em>.</dd>
+<dt>Лише Ключкадри з Виділених Каналів</dt>
+<dd>Для Арматур -- <em>Armatures</em> це буде прорисовувати ключкадри об'єктів та ключкадри для активної та виділених поз кісток.</dd>
+<dt>Кеш -- Cache</dt>
+<dd><dl class="first docutils">
+<dt>Показати Кеш -- Show Cache</dt>
+<dd><p class="first">Показує усі доступні типи.</p>
+<p class="last">М'яке тіло -- Softbody, Частинки -- Particles, Тканина -- Cloth, Дим -- Smoke, Динамічне Малювання -- Dynamic Paint, Тверде Тіло -- Rigid Body.</p>
+</dd>
+</dl>
+<div class="last figure" id="id4">
+<img alt="../_images/editors_timeline_cache.png" src="../_images/editors_timeline_cache.png" />
+<p class="caption"><span class="caption-text">Кеш на Часолінії.</span></p>
+</div>
+</dd>
+<dt>Все в Огляд -- View All <kbd class="kbd docutils literal notranslate">Home</kbd></dt>
+<dd>Максимізує область на основі діапазону анімації -- Animation Range.</dd>
+<dt>Кадр в Огляд -- View Frame <kbd class="kbd docutils literal notranslate">Numpad0</kbd></dt>
+<dd>Центрує Часолінію за місцем Курсора Часу.</dd>
+</dl>
+<dl class="docutils">
+<dt>Прив'язати Камеру до Міток -- Bind Camera to Markers <kbd class="kbd docutils literal notranslate">Ctrl-B</kbd></dt>
+<dd>This is used switch cameras during animation.
+It binds the active camera to the selected markers.
+First select a camera. Then select the marker(s). Then use the tool.</dd>
+</dl>
+</div>
+<div class="section" id="markers-menu">
+<h4>Markers Menu<a class="headerlink" href="#markers-menu" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference internal" href="../animation/markers.html"><span class="doc">Markers</span></a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<div class="figure" id="id5">
+<img alt="../_images/editors_graph-editor_introduction_markers.png" src="../_images/editors_graph-editor_introduction_markers.png" />
+<p class="caption"><span class="caption-text">Markers in animation editor.</span></p>
+</div>
+<p>For descriptions of the different marker tools see <a class="reference internal" href="../animation/markers.html#animation-markers-editing"><span class="std std-ref">Editing Markers</span></a>.</p>
+</div>
+<div class="section" id="frame-menu">
+<h4>Меню «Кадр» -- Frame Menu<a class="headerlink" href="#frame-menu" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Режим Авто-Ключкадрування -- Auto-Keyframing Mode</dt>
+<dd><p class="first">Це керує тим, як працює Режим Авто-Ключкадрування. Тільки один режим може використовуватися одночасно.</p>
+<dl class="last docutils">
+<dt>Додання і Заміна -- Add &amp; Replace</dt>
+<dd>Додає або Заміняє наявні ключкадри.</dd>
+<dt>Заміна -- Replace</dt>
+<dd>Тільки заміняє наявні ключкадри.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="playback-menu">
+<span id="timeline-playback"></span><h4>Меню «Відтворення» -- Playback Menu<a class="headerlink" href="#playback-menu" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Верхній Лівий 3D Редактор -- Top-Left 3D Editor</dt>
+<dd>При відтворенні оновлює Часолінію, якщо опції Редактори Анімації -- Animation Editors та Усі Редактори 3D Огляду -- All 3D View Editors вимкнені.</dd>
+<dt>Усі Редактори 3D Огляду -- All 3D View Editors</dt>
+<dd>При відтворенні оновлює 3D Огляд -- 3D View та Часолінію -- Timeline.</dd>
+<dt>Редактори Анімації -- Animation Editors</dt>
+<dd>При відтворенні оновлює Часолінію -- Timeline, Аркуш Експозицій -- Dope Sheet, Редактор Графів -- Graph Editor, Редактор Відеорядів -- Video Sequence Editor.</dd>
+<dt>Редактори Властивості -- Property Editors</dt>
+<dd>При відтворенні анімації це оновлює значення даної властивості в КІ.</dd>
+<dt>Редактори Зображень -- Image Editors</dt>
+<dd>Оновлює Редактор UV/Зображень -- UV/Image editor у режимі «Маска» -- Mask.</dd>
+<dt>Редактори Відеорядів -- Sequencer Editors</dt>
+<dd>При відтворенні оновлює Редактор Відеорядів -- Video Sequence Editor.</dd>
+<dt>Редактори Вузлів -- Node Editors</dt>
+<dd>При відтворенні оновлює властивості у Редакторі Вузлів -- Node Editor.</dd>
+<dt>Редактори Кліпів -- Clip Editors</dt>
+<dd>При відтворенні оновлює Редактор Відеокліпів -- Movie Clip Editor.</dd>
+<dt>Слідування -- Follow</dt>
+<dd>Редактори Анімації можуть бути укладені, щоб завжди наслідувати позицію індикатора часу при відтворенні анімації. Слідування буде відбуватися при анімуванні та зміні кадру.</dd>
+<dt>Пропуск Кадрів -- Frame Dropping</dt>
+<dd>Відтворення пропускає кадри, якщо показ кадрів є надто повільним.</dd>
+<dt>AV-синхронізація -- AV-sync</dt>
+<dd>Відтворення і синхронізація з відліком аудіо, пропуск кадрів, якщо показ кадрів надто повільний. Дивіться детальніше <a class="reference internal" href="#synchronize-playback">Синхронізація Відтворення -- Synchronize Playback</a>.</dd>
+<dt>Приглушити Аудіо -- Audio Muted</dt>
+<dd>Приглушає звук з Редакторів Відеорядів -- Sequence Editors.</dd>
+<dt>Прокрутка Аудіо -- Audio Scrubbing</dt>
+<dd>If your animation has sound, this option plays bits of the sound wave
+while you move the time cursor with <kbd class="kbd docutils literal notranslate">LMB</kbd> or keyboard arrows (like a moving playhead).</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="header-controls">
+<span id="animation-editors-timeline-headercontrols"></span><h3>Контролери у заголовку<a class="headerlink" href="#header-controls" title="Permalink to this headline">¶</a></h3>
+<p>Контролери у заголовку Часолінії.</p>
+<div class="figure" id="id6">
+<img alt="../_images/editors_timeline_header.png" src="../_images/editors_timeline_header.png" />
+<p class="caption"><span class="caption-text">Контролери у заголовку Часолінії.</span></p>
+<div class="legend">
+1. Контролер Діапазону -- Range Control, 2. Контролер Кадрів -- Frame Control, 3. Контролер Відтворника -- Player Control, 4. Синхронізація Відтворення -- Synchronize Playback, 5. Контролер Ключкадрів -- Keyframe Control.</div>
+</div>
+<div class="section" id="range-control">
+<h4>Контролер Діапазону -- Range Control<a class="headerlink" href="#range-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Вжити Діапазон Передогляду -- Use Preview Range (іконка з годинником)</dt>
+<dd>Це альтернативний діапазон, що використовується для передогляду анімацій. Це працює для відтворення в інтерфейсі користувача (КІ -- UI), це не працює для зображування, рендерингу анімації. Дивіться <a class="reference internal" href="graph_editor/introduction.html#graph-preview-range"><span class="std std-ref">Діапазон Передогляду -- Preview Range</span></a>.</dd>
+<dt>Зблокувати Курсора Часу з Діапазоном Відтворення -- Lock Time Cursor to Playback Range (іконка із замком)</dt>
+<dd>Це лімітує пересування Курсора Часу -- <em>Time Cursor</em> межами Діапазону Відтворення -- <em>Playback Range</em>.</dd>
+</dl>
+</div>
+<div class="section" id="frame-control">
+<h4>Контролер Кадрів -- Frame Control<a class="headerlink" href="#frame-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Стартовий Кадр -- Start Frame</dt>
+<dd>Стартовий кадр діапазону анімації/відтворення.</dd>
+<dt>Кінцевий Кадр -- End Frame</dt>
+<dd>Кінцевий Кадр діапазону анімації/відтворення.</dd>
+<dt>Поточний Кадр -- Current Frame <kbd class="kbd docutils literal notranslate">Alt-Wheel</kbd></dt>
+<dd>Поточний кадр діапазону анімації/відтворення. Також це позиція Курсора Часу -- <em>Time Cursor</em>.</dd>
+</dl>
+</div>
+<div class="section" id="player-control">
+<h4>Контролер Відтворника -- Player Control<a class="headerlink" href="#player-control" title="Permalink to this headline">¶</a></h4>
+<p>Ці кнопки використовуються для установлення, відтворення, перемотки, Курсора Часу -- <em>Time Cursor</em>.</p>
+<div class="figure align-right" id="id7">
+<img alt="../_images/editors_timeline_player-controls.png" src="../_images/editors_timeline_player-controls.png" />
+<p class="caption"><span class="caption-text">Player controls.</span></p>
+</div>
+<dl class="docutils">
+<dt>Стрибнути на початок чи перше -- Jump to start (⏮) <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Down</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Left</kbd></dt>
+<dd>Це установлює курсор часу на початок діапазону кадрів.</dd>
+<dt>Стрибнути на попередній ключкадр -- Jump to previous keyframe (⏪) <kbd class="kbd docutils literal notranslate">Down</kbd></dt>
+<dd>Це установлює курсор часу на попередній ключкадр.</dd>
+<dt>Перемотка -- Rewind (◀) <kbd class="kbd docutils literal notranslate">Shift-Alt-A</kbd></dt>
+<dd>Це відтворює послідовність анімації навпаки, у зворотному порядку. При відтворенні кнопка відтворення перемикається на кнопку паузи.</dd>
+<dt>Відтворення -- Play (▶) <kbd class="kbd docutils literal notranslate">Alt-A</kbd></dt>
+<dd>Це запускає відтворення послідовності анімації. При відтворенні кнопка відтворення перемикається на кнопку паузи.</dd>
+<dt>Стрибнути до наступного ключкадра -- Jump to next keyframe (⏩) <kbd class="kbd docutils literal notranslate">Up</kbd></dt>
+<dd>Це установлює курсор часу у наступному ключкадрі.</dd>
+<dt>Стрибнути у кінець -- Jump to end (⏭) <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Up</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Right</kbd></dt>
+<dd>Це установлює курсор часу на кінець діапазону кадрів.</dd>
+<dt>Пауза -- Pause (⏸) <kbd class="kbd docutils literal notranslate">Alt-A</kbd></dt>
+<dd>Це зупиняє відтворення анімації.</dd>
+</dl>
+</div>
+<div class="section" id="synchronize-playback">
+<h4>Синхронізація Відтворення -- Synchronize Playback<a class="headerlink" href="#synchronize-playback" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-right" id="id8" style="width: 109px">
+<img alt="../_images/editors_timeline_red-fps.png" src="../_images/editors_timeline_red-fps.png" />
+<p class="caption"><span class="caption-text">3D View red FPS.</span></p>
+<div class="legend">
+60:54.75</div>
+</div>
+<p>When you play an animation, the FPS is displayed at the top left of the 3D View.
+If the scene is detailed and playback is slower than the set
+<em>Frame Rate</em> (see <a class="reference internal" href="../render/output/output.html#render-tab-dimensions"><span class="std std-ref">Панель «Розміри» -- Dimensions Panel</span></a>),
+these options are used to synchronize the playback.</p>
+<dl class="docutils">
+<dt>Без Синхронізації -- No Sync</dt>
+<dd>Без синхронізації, відтворюється кожен кадр.</dd>
+<dt>Пропуск Кадрів -- Frame Dropping</dt>
+<dd>Пропускає кадри, якщо відтворення є надто повільним. Це вмикає опцію «Пропуск Кадрів» -- <em>Frame Dropping</em> з меню «Відтворення» -- <em>Playback Menu</em>.</dd>
+<dt>AV-синхронізація -- AV-sync</dt>
+<dd>(Audio/Video Synchronization). Sync to audio clock, dropping frames if playback is slow.
+This enables <em>AV-sync</em> and <em>Frame Dropping</em> from the <em>Playback Menu</em>.</dd>
+</dl>
+</div>
+<div class="section" id="keyframe-control">
+<span id="animation-editors-timeline-autokeyframe"></span><h4>Контролер Ключкадрів -- Keyframe Control<a class="headerlink" href="#keyframe-control" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Авто Ключкадр -- Auto Keyframe</dt>
+<dd><div class="first figure align-right" id="id9">
+<img alt="../_images/editors_timeline_keyframes-auto.png" src="../_images/editors_timeline_keyframes-auto.png" />
+<p class="caption"><span class="caption-text">Авто вставка Ключкадрів на Часолінії.</span></p>
+</div>
+<p>The record button (red dot) enables something called <em>Auto Keyframe</em>:
+It will add and/or replace existing keyframes for the active object when you transform it in the 3D View.</p>
+<p>Наприклад, при увімкненні, спершу установіть Курсор Часу -- <em>Time Cursor</em> у бажаний кадр, далі пересуньте об'єкт у 3D Огляді або задайте нове значення для його властивості у КІ.</p>
+<p>Коли ви це зробите (задасте нове значення для властивостей), то Blender додасть ключкадри у поточному кадрі для властивостей, які були трансформовані. Інші випадки використання -- запис шляху ходьби/польоту -- <a class="reference internal" href="3dview/navigate/walk_fly.html#dview-walk-fly"><span class="std std-ref">Fly/Walk Mode</span></a> або запис навігації в огляді камери -- <a class="reference internal" href="3dview/properties/panels.html#dview-lock-camera-to-view"><span class="std std-ref">Lock Camera to View</span></a>.</p>
+<dl class="docutils">
+<dt>Авто Набір Ключування (червона іконка запису)</dt>
+<dd>При увімкненні, «Авто Ключкадр» -- <em>Auto Keyframe</em> буде вставляти нові ключкадри для властивостей в активний Набір Ключування -- <em>Keying Set</em>.</dd>
+<dt>Нашаровано -- Layered (іконка з двома ключами)</dt>
+<dd>Adds a new NLA Track and strip for every loop/pass made over the animation to allow non-destructive tweaking.</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Зауважте, що «Авто Ключкадр» -- <em>Auto Keyframe</em> працює тільки для властивостей трансформування (об'єктів та кісткок) у 3D Оглядах (тобто, ви не можете використовувати його для анімування кольорів матеріалу у Редакторі Властивостей -- Properties editor...).</p>
+</div>
+</dd>
+<dt>Тип Ключкадра -- Keyframe Type</dt>
+<dd><a class="reference internal" href="../animation/keyframes/introduction.html#keyframe-type"><span class="std std-ref">Типи Ключкадрів</span></a> при вставлянні.</dd>
+<dt>Активний Набір Ключування -- Active Keying Set</dt>
+<dd><div class="first figure align-right" id="id10">
+<img alt="../_images/editors_timeline_keying-sets.png" src="../_images/editors_timeline_keying-sets.png" />
+<p class="caption"><span class="caption-text">Набори Ключування на Часолінії.</span></p>
+</div>
+<p><em>Keying Sets</em> are a set of keyframe channels in one.
+They are made so the user can record multiple properties at the same time.
+With a keying set selected, when you insert a keyframe,
+Blender will add keyframes for the properties in the active <em>Keying Set</em>.
+There are some built-in keying sets, <em>LocRotScale</em>, and also custom keying sets.
+Custom keying sets can be defined in the panels
+<span class="menuselection">Properties ‣ Scene ‣ Keying Sets + Active Keying Set</span>.</p>
+<dl class="last docutils">
+<dt>Вставити Ключкадри (іконка з ключем)</dt>
+<dd>Вставляє ключкадри на поточному кадрі для властивостей в активному Наборі Ключування -- <em>Keying Set</em>.</dd>
+<dt>Видалити Ключкадри -- Delete Keyframes (іконка із закресленим ключем)</dt>
+<dd>Видаляє ключкадри на поточному кадрі для властивостей в активному Наборі Ключування -- <em>Keying Set</em>.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="graph_editor/index.html" class="btn btn-neutral float-right" title="Редактор Графів -- Graph Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="3dview/properties/background_images.html" class="btn btn-neutral" title="Фонові Зображення -- Background Images" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

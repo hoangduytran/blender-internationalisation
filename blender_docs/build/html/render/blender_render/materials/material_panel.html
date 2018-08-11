@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Панель «Матеріал» -- Material Panel &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/material_panel.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Призначення Матеріалу -- Assigning a Material" href="assigning_a_material.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nodes/index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="special_effects/index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+      <li>Панель «Матеріал» -- Material Panel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/materials/material_panel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="material-panel">
+<h1>Панель «Матеріал» -- Material Panel<a class="headerlink" href="#material-panel" title="Permalink to this headline">¶</a></h1>
+<p>Матеріали можуть бути пов'язані з об'єктами та даними об'єктів на панелі «Матеріал» у вкладці «Матеріал» -- <span class="menuselection">Materials tab ‣ Materials panel</span>. Тут ви можете управляти тим, як матеріали пов'язуються з об'єктами, сітями тощо та активувати матеріал для редагування на решті панелей.</p>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_materials_assigning-a-material_panel-object-mode.png" src="../../../_images/render_blender-render_materials_assigning-a-material_panel-object-mode.png" />
+<p class="caption"><span class="caption-text">Панель «Матеріал» -- Material.</span></p>
+</div>
+<div class="section" id="material-slots">
+<h2>Гнізда матеріалів<a class="headerlink" href="#material-slots" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Активний Матеріал -- Active Material</dt>
+<dd><p class="first">Гнізда матеріалів об'єкта показуються в огляді списком -- <a class="reference internal" href="../../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a>.</p>
+<dl class="last docutils">
+<dt>Спеціальне -- Specials</dt>
+<dd>Копіювання та вставляння виділеного гнізда матеріалу.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="multiple-materials">
+<h2>Одночасно кілька матеріалів<a class="headerlink" href="#multiple-materials" title="Permalink to this headline">¶</a></h2>
+<p>Для сітей може бути призначено більше ніж один матеріал. Матеріали можуть розкладатися по граням, як описано тут -- <a class="reference internal" href="assigning_a_material.html#bi-multiple-materials"><span class="std std-ref">Одночасно кілька матеріалів</span></a> page. У Режимі Правки -- Edit Mode з'являються наступні засоби:</p>
+<dl class="docutils">
+<dt>Признач -- Assign</dt>
+<dd>Призначає матеріал з виділеного матеріалового гнізда на виділені грані.</dd>
+<dt>Виділ -- Select</dt>
+<dd>Виділяє грані, на які призначено матеріал з виділеного гнізда.</dd>
+<dt>Зневиділ -- Deselect</dt>
+<dd>Знімає виділення з граней, на які призначено матеріал з виділеного гнізда.</dd>
+</dl>
+</div>
+<div class="section" id="material-naming-and-linking">
+<h2>Іменування та пов'язування матеріалу<a class="headerlink" href="#material-naming-and-linking" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Матеріал -- Material</dt>
+<dd>Меню блоку матеріалових даних -- <a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-block"><span class="std std-ref">Data-Block Menu</span></a> для виділеного гнізда з матеріалом.</dd>
+<dt>Вузли -- Nodes</dt>
+<dd>Перемикач <img alt="node-icon" src="../../../_images/render_blender-render_materials_material-panel_node-icon.png" />, який вмикає розроблення матеріалу за допомогою укладу вузлів, а не використовуючи устави Material/Ramps/Shaders.</dd>
+<dt>Блок даних пов'язувань -- Data-block Links</dt>
+<dd><p class="first">Визначає, чи буде матеріал пов'язаний до Об'єкта -- Object, чи до даних об'єкта -- Data.</p>
+<p>Вибірник «Пов'язування» -- Link має два варіанти -- «Дані» -- Data та «Об'єкт» -- Object. Ці два варіанти у меню визначають чи буде матеріал пов'язаний до Об'єкта -- Object, чи до даних об'єкта -- Data (наприклад, сіті чи кривої). Пункт меню «Дані» -- Data визначає, що цей матеріал буде пов'язано до блоку даних сіті, який, у свою чергу, пов'язується до блоку даних об'єкта. Пункт меню «Об'єкт» -- Object визначає, що матеріал буде пов'язаний безпосередньо до блоку даних об'єкта.</p>
+<p>Це, звичайно, має наслідки. Наприклад, різні об'єкти можуть мати спільним один і той же блок даних сіті. Оскільки цей блок даних визначає форму об'єкта, то будь-які зміни у Режимі Правки будуть відбиватися на усіх цих об'єктах. До того ж, будь-що, пов'язане до цього блоку даних сіті, буде спільним для кожного об'єкта, для якого є спільною ця сіть. Тому, якщо матеріал пов'язано до сіті, то він буде спільним і для кожного об'єкта, для якого є спільною ця сіть.</p>
+<p>З іншого боку, якщо матеріал пов'язано безпосередньо до блоку даних об'єкта, то об'єкти можуть мати різні матеріали й все ще мати спільну сіть.</p>
+<p class="last">Коротке пояснення: якщо матеріал під'єднано до об'єкта, то ви можете мати різні примірники одних і тих же Даних Об'єкта, що використовують різні матеріали. Якщо матеріал пов'язано до даних сітей, то останнє не можливо. Дивіться детальніше тут -- <a class="reference internal" href="../../../data_system/introduction.html"><span class="doc">Data System</span></a>.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="material-type">
+<h2>Тип матеріалу<a class="headerlink" href="#material-type" title="Permalink to this headline">¶</a></h2>
+<p>Матеріал доданий у режимі правки. Ці перемикачі повідомляють Blender'у, де цей матеріал вписується у конвеєр зображування, рендерингу, та які аспекти цього матеріалу мають бути зображувані, рендерені.</p>
+<dl class="docutils">
+<dt>Поверхня -- Surface</dt>
+<dd>Об'єкт зображується, рендериться, як поверхня.</dd>
+<dt>Дріт -- Wire</dt>
+<dd>Ребра граней об'єкта зображуються, рендеряться як дроти (не підтримується при простеженні променя).</dd>
+<dt>Об'єм -- Volume</dt>
+<dd>Об'єкт рендериться, зображується як об'єм. Дивіться детальніше тут -- <a class="reference internal" href="special_effects/volume.html"><span class="doc">Volume</span></a>.</dd>
+<dt>Ореол -- Halo</dt>
+<dd>Об'єкт зображується, рендериться як частинки ореолу. Дивіться детальніше тут -- <a class="reference internal" href="special_effects/halo.html"><span class="doc">Halo</span></a>.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<img alt="../../../_images/render_blender-render_materials_material-panel_surface.jpg" src="../../../_images/render_blender-render_materials_material-panel_surface.jpg" />
+<p class="caption"><span class="caption-text">Поверхня -- Surface.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/render_blender-render_materials_material-panel_wire.jpg" src="../../../_images/render_blender-render_materials_material-panel_wire.jpg" />
+<p class="caption"><span class="caption-text">Дріт -- Wire.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<img alt="../../../_images/render_blender-render_materials_material-panel_volume.jpg" src="../../../_images/render_blender-render_materials_material-panel_volume.jpg" />
+<p class="caption"><span class="caption-text">Об'єм -- Volume.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../_images/render_blender-render_materials_material-panel_halo.jpg" src="../../../_images/render_blender-render_materials_material-panel_halo.jpg" />
+<p class="caption"><span class="caption-text">Ореол -- Halo.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="assigning_a_material.html" class="btn btn-neutral float-right" title="Призначення Матеріалу -- Assigning a Material" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

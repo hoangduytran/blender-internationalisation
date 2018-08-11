@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Простеження -- Track &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/movie_clip_editor/tracking/clip/editing/track.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Обчислення -- Solve" href="solve.html" />
+    <link rel="prev" title="Редагування -- Editing" href="index.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html#image-video">Зображення -- Image / Відео -- Video</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../uv_image/index.html">Редактор UV/Зображень -- UV/Image Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Редактор Відеокліпів -- Movie Clip Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Простеження Руху -- Motion Tracking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../masking/index.html">Маскування -- Masking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../vse/index.html">Редактор Відеорядів -- Video Sequence Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Редактор Відеокліпів -- Movie Clip Editor</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Простеження Руху -- Motion Tracking</a> &raquo;</li>
+        
+          <li><a href="../index.html">Огляд «Кліп» -- Clip View</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Простеження -- Track</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/editors/movie_clip_editor/tracking/clip/editing/track.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="track">
+<h1>Простеження -- Track<a class="headerlink" href="#track" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clip-panel">
+<h2>Панель «Кліп» -- Clip Panel<a class="headerlink" href="#clip-panel" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Заготовлення -- Prefetch <kbd class="kbd docutils literal notranslate">P</kbd></dt>
+<dd>Fills cache with frames. As many frames as fits into cache are load form the drive.
+This allows to fill in the cache as fast as possible when you really need to track something,
+but this keeps CPU and drive bandwidth idle if you've got Clip editor opened but not actually interacting with it.</dd>
+<dt>Перезавантаження -- Reload</dt>
+<dd>ToDo &gt;2.61.</dd>
+<dt>Задати Кадри Сцени -- Set Scene Frames</dt>
+<dd>ToDo &gt;2.61.</dd>
+</dl>
+</div>
+<div class="section" id="marker-panel">
+<h2>Marker Panel<a class="headerlink" href="#marker-panel" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Додати Мітку та Пересунути -- Add Marker and Move</dt>
+<dd>Places a new marker at the position of the mouse
+(which is under the button in this case, not ideal but it is just how things work)
+and then it can be moved to the needed location. When it is moved to the desired position,
+<kbd class="kbd docutils literal notranslate">LMB</kbd> can be used to finish placing the new marker.
+Also, <kbd class="kbd docutils literal notranslate">Return</kbd> and <kbd class="kbd docutils literal notranslate">Spacebar</kbd> can be used to finish placing the marker.
+But it is faster to use <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> to place markers directly on the footage.
+This shortcut will place the marker in the place you have clicked.
+One more feature here: until you have released the mouse button,
+you can adjust the marker position by moving the mouse and
+using the track preview widget to control how accurately the marker is placed.</dd>
+<dt>Виявити Вирізнення -- Detect Features</dt>
+<dd><p class="first">Виявляє усі можливі вирізнення на поточному кадрі та поміщає мітки у ці вирізнення. Цей оператор не враховує інші кадри, а тому він може поміщати мітки на вирізненнях, які належать рухомим об'єктам, і якщо камера повертається від цього знімка, то жодна мітка не буде поміщена на кадрах після віддалення камери.</p>
+<p>Існують кілька властивостей для цього оператора:</p>
+<dl class="last docutils">
+<dt>Розміщення -- Placement</dt>
+<dd>Used to control where to place markers. By default, they will be added through the whole frame,
+but you can also outline some areas with interesting features with Grease pencil
+and place markers only inside the outlined area.
+That is how the &quot;Inside Grease Pencil&quot; placement variant works.
+You can also outline areas of no interest (like trees, humans and so)
+and place markers outside of these areas.
+That is how the &quot;Outside Grease Pencil&quot; placement variant works.</dd>
+<dt>Припуск -- Margin</dt>
+<dd>Controls the distance from the image boundary for created markers.
+If markers are placed too close to the image boundary,
+they will fail to track really quickly and they should be deleted manually.
+To reduce the amount of manual clean-up, this parameter can be used.</dd>
+<dt>Поріг -- Threshold</dt>
+<dd>Лімітує мінімальний поріг для розміщення міток. Це значення виходить від алгоритму виявлення вирізнення та базово воно значить: низькі значення означають найбільш можливо, що збій простеження цього вирізнення буде дуже скоро, вищі значення, що не набагато більше можливе його простеження. Кількість міток, що будуть додані, можуть керуватися цим значенням.</dd>
+<dt>Відстань -- Distance</dt>
+<dd>Визначає мінімальну відстань між поміщеними мітками. Це необхідно для запобігання надто близькому поміщенню міток одна відносно одної (оскільки, таке розміщення може заплутати обчислювач камери).</dd>
+</dl>
+</dd>
+<dt>Видалити Стежку -- Delete Track</dt>
+<dd>Is a quite self-explaining operator which deletes all selected tracks.</dd>
+</dl>
+</div>
+<div class="section" id="tracking-settings-panel">
+<span id="clip-tracking-settings"></span><h2>Панель «Устави Простеження» -- Tracking Settings Panel<a class="headerlink" href="#tracking-settings-panel" title="Permalink to this headline">¶</a></h2>
+<p>Ця панель містить усі устави для алгоритмів 2D простеження.</p>
+<dl class="docutils">
+<dt>Передустави Простеження -- Tracking Presets</dt>
+<dd>ToDo 2.63.</dd>
+<dt>Канали</dt>
+<dd>ToDo ~2.63.</dd>
+<dt>Розмір Взірця -- Pattern Size, Пошуку -- Search</dt>
+<dd>ToDo ~2.63.</dd>
+<dt>Модель Руху -- Motion Model</dt>
+<dd><p class="first">Визначає, які можливі рухи простежуване вирізнення може мати. Ця опція повинна бути задана залежно від того, який рух певне вирізнення має та робить простеження більш точним для такого руху.</p>
+<p>Лише Локація -- Location only, Локація+ Обертання -- Location+Rotation, Локація+Масштаб -- Location+Scale, Локація+Обертання+Масштаб -- Location+Rotation+Scale, Споріднено -- Affine</p>
+<dl class="last docutils">
+<dt>Перспектива -- Perspective</dt>
+<dd>Зазвичай використовується для простеження планарного вирізнення, але часто значення «Споріднено» -- <em>Affine</em> є добрим достатнім наближенням і може давати більш стабільні стежки.</dd>
+</dl>
+</dd>
+<dt>Відповідність Взірця -- Pattern Match</dt>
+<dd><p class="first">Опція «Відповідність Взірця» керує тим, які взірці простежуються; точніше, взірець з якого кадру простежується. Ось приклад, який повинен прояснити це.</p>
+<p>Алгоритм простежника отримує два зображення всередині області пошуку та позицію точки, що буде простежена на першому зображенні. Цей простежник намагається знайти позицію цієї точки з першого зображення на другому зображенні.</p>
+<p>Далі, це як простеження послідовності відбувається. Друге зображення є завжди з кадру, в якому позиція мітки невідома (наступний простежуваний кадр). Але інше як перше зображення (але не те, що безпосередньо передує друге зображення у фільмоматеріалі) може бути послане у простежник.</p>
+<dl class="last docutils">
+<dt>Ключкадр -- Keyframe</dt>
+<dd>Зображення, створене з кадру, на якому для стежки було поставлено ключкадр. Ця конфігурація запобігає ковзанню з оригінальної позиції (оскільки, ця позиція, яка найкраще відповідає оригінальному взірцю повертається простежником), але вона може призводити до невеликих стрибків та до збоїв, коли вирізнена точка деформується через рух камери (перспективне трансформування, наприклад).</dd>
+<dt>Попередній Кадр -- Previous Frame</dt>
+<dd>Ключкадри для стежок створюються у кожному кадрі та простежуються між ключкадрованим зображенням та наступним використовуваним зображенням. У цій конфігурації взірець простежуються між двома сусідніми кадрами. Це дозволяє розглядати випадки великих трансформувань вирізненої точки, але може призводити до ковзання від оригінальної позиції, а тому повинно контролюватися.</dd>
+</dl>
+</dd>
+<dt>Передпрохід -- Prepass</dt>
+<dd>Вмикає простеження у два проходи, де перший прохід є грубим простеженням тільки локації, а другий прохід буде використовувати простеження повної моделі руху з уточненням результатів першого проходу.</dd>
+<dt>Нормалізація -- Normalize</dt>
+<dd>Означає, що взірці будуть нормалізовані за їх усередненою інтенсивністю у ході простеження, щоб зробити їх незмінними при змінах освітлення. Приклад, де це корисно, -- це сцена, де мітка рухається у тінь об'єкта.</dd>
+<dt>Копіювати з Активної Стежки -- Copy From Active Track</dt>
+<dd>Tracker settings only -- ToDo 2.64.</dd>
+</dl>
+<div class="section" id="extra-settings">
+<h3>Додаткові Устави -- Extra Settings<a class="headerlink" href="#extra-settings" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Вжити Маску -- Use Mask</dt>
+<dd>ToDo 2.64.</dd>
+<dt>Кореляція -- Correlation</dt>
+<dd>Є тепер одиничним значенням для усіх устав простеження та визначає мінімальну кореляцію між відповідним взірцем та орієнтиром, що вважається успішного простеженням. Якщо простежник збивається надто легко, зменште це значення, або якщо простежник вислизає надто багато, коли він повинен збиватися швидше, то збільште це значення.</dd>
+<dt>Ліміт Кадрів -- Frames Limit</dt>
+<dd>Controls how many frames can be tracked when the Track Sequence operator is called.
+So, each Track Sequence operation would track maximum <em>Frames Limit</em> frames.
+This also helps to notice a slide-off of tracks and correct them.</dd>
+<dt>Припуск -- Margin</dt>
+<dd>Може використовуватися для вимикання стежок, коли вони стають надто близько до границі зображення. Цей повзунок задає це «надто близько» у пікселях.</dd>
+<dt>Швидкість -- Speed</dt>
+<dd>Marker settings only -- Can be used to control the speed of sequence tracking.
+This option does not affect the quality of tracking; it just helps to control if tracking happens accurately.
+In most cases tracking happens much faster than real-time, and it is difficult to notice when a track began
+to slide out of position. In such cases <em>Speed</em> can be set to Double or Half to add some delay between
+tracking two frames, so a slide-off would be noticed earlier and the tracking process can be canceled to
+adjust positions of tracks.</dd>
+<dt>Вагомість -- Weight</dt>
+<dd>Дивіться про вагомість стежки тут -- <a class="reference internal" href="../properties/introduction.html#clip-tracking-weight"><span class="std std-ref">Weight</span></a>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="track-panel">
+<h2>Track Panel<a class="headerlink" href="#track-panel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tracks">
+<h3>Стежки -- Tracks<a class="headerlink" href="#tracks" title="Permalink to this headline">¶</a></h3>
+<p>Перший ряд кнопок використовується для здійснення простеження виділених стежок (тобто, слідування виділеного вирізнення від кадру до кадру). Простеження може відбуватися (за порядком кнопок):</p>
+<ul class="simple">
+<li>Назад на один кадр <kbd class="kbd docutils literal notranslate">Alt-Left</kbd></li>
+<li>Назад по послідовності <kbd class="kbd docutils literal notranslate">Shift-Ctrl-T</kbd></li>
+<li>Вперед по всій послідовності <kbd class="kbd docutils literal notranslate">Ctrl-T</kbd></li>
+<li>Вперед на один кадр <kbd class="kbd docutils literal notranslate">Alt-Right</kbd></li>
+</ul>
+<p>Цей оператор залежить від устав на панелі «Устави Простеження» -- Tracking Settings, які будуть описані пізніше. Якщо у ході простеження послідовності алгоритм зіб'ється у простеженні деяких міток, то вони будуть вимкнені й простеження продовжиться для решти міток. Якщо алгоритм зіб'ється при простеженні кадр-за-кадром, то мітка не вимкнеться, а наступному кадрі буде використана найімовірніша позиція вирізнення.</p>
+</div>
+<div class="section" id="clear">
+<h3>Зчищення -- Clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Дія -- Action</dt>
+<dd><dl class="first last docutils">
+<dt>Зчищення (Після/Залишено) (іконка зі стрілкою вліво) -- Clear (After/Remained) <kbd class="kbd docutils literal notranslate">Alt-T</kbd></dt>
+<dd>Видаляє усі простежені та ключкадровані мітки перед поточним кадром для усіх виділених стежок.</dd>
+<dt>Зчищення (Перед/До) (іконка зі стрілкою управо) -- Clear (Before/Up-to) <kbd class="kbd docutils literal notranslate">Shift-T</kbd></dt>
+<dd>Видаляє усі простежені та ключкадровані мітки після поточного кадру для усіх виділених стежок.</dd>
+<dt>Зчищення (Шлях Стежки/Усе) -- Clear (Track Path/All) <kbd class="kbd docutils literal notranslate">Shift-Alt-T</kbd></dt>
+<dd>Зчищає усі мітки, за винятком поточної з усіх виділених стежок.</dd>
+</dl>
+</dd>
+<dt>Зчистити Активне -- Clear Active</dt>
+<dd>ToDo &lt;2.67.</dd>
+</dl>
+</div>
+<div class="section" id="refine">
+<h3>Уточнення -- Refine<a class="headerlink" href="#refine" title="Permalink to this headline">¶</a></h3>
+<p>Цей оператор запускає простежник від попереднього ключкадру до поточного кадру для усіх виділених міток. Позиції поточних міток вважаються припущенням початкової позиції, яка може бути оновлена простежником для кращої відповідності.</p>
+<p>Корисно у випадках, коли вирізнення зникає з кадру, а потім з'являється знову. Використання у такому випадку є наступним:</p>
+<ul class="simple">
+<li>Коли вирізнена точка знову з'являється на кадрі, то вручну помістіть мітку на неї.</li>
+<li>Скористайтеся операцією «Уточнення Міток» -- Refine Markers (яка на панелі «Простеження»), щоб дозволити простежнику знайти кращу відповідність.</li>
+</ul>
+<p>Залежно від напрямку простеження використовуйте уточнення Вперед або Назад. Це просто: якщо простеження відбувається вперед, використовуйте Уточнення Вперед, інакше, скористайтеся Уточненням Назад.</p>
+</div>
+<div class="section" id="merge">
+<h3>Об'єднання -- Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Сполучити Стежки -- Join Tracks <kbd class="kbd docutils literal notranslate">Ctrl-J</kbd></dt>
+<dd>Цей оператор сполучає усі виділені стежки в одну. Виділені стежки не повинні мати спільних простежених або ключкадрованих міток в одному і тому ж кадрі.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="solve.html" class="btn btn-neutral float-right" title="Обчислення -- Solve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Редагування -- Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

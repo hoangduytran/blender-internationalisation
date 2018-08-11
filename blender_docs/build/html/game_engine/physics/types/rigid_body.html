@@ -1,0 +1,481 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Фізика «Тверде Тіло» -- Rigid Body Physics &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/physics/types/rigid_body.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Фізика «М&#39;яке Тіло» -- Soft Body Physics" href="soft_body.html" />
+    <link rel="prev" title="Фізика «Динамічно» -- Dynamic Physics" href="dynamic.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Фізика -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">Фізика Світу -- World Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converting.html">Конвертування -- Converting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Типи Фізики -- Physic Types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="no_collision.html">Фізика «Без Зіткнення» -- No Collision Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="static.html">Фізика «Статично» -- Static Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dynamic.html">Фізика «Динамічно» -- Dynamic Physics</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Фізика «Тверде Тіло» -- Rigid Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="soft_body.html">Фізика «М'яке Тіло» -- Soft Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="occluder.html">Фізика «Загороджувач» -- Occluder Object Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sensor.html">Фізика «Сенсор» -- Sensor Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation_mesh.html">Фізика «Сіть Навігації» -- Navigation Mesh Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character.html">Фізика «Персонаж» -- Character Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicle.html">Фізика контролера автотранспорту -- Vehicle Controller Physics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="../index.html">Фізика -- Physics</a> &raquo;</li>
+        
+      <li>Фізика «Тверде Тіло» -- Rigid Body Physics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/game_engine/physics/types/rigid_body.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rigid-body-physics">
+<h1>Фізика «Тверде Тіло» -- Rigid Body Physics<a class="headerlink" href="#rigid-body-physics" title="Permalink to this headline">¶</a></h1>
+<p>Probably the most common type of object in the Game Engine.
+It will give/receive collisions and react with a change in its velocity and its rotation.
+A rigid body ball would begin rotating and roll down
+(where a <a class="reference internal" href="dynamic.html"><span class="doc">Dynamic</span></a> ball would only hit and slide down the ramp).</p>
+<p>The idea behind rigid body dynamics is that the mesh does not deform.
+If you need deformation you will need to either go to
+<a class="reference internal" href="soft_body.html"><span class="doc">Soft Body</span></a> or else fake it with animated Actions.</p>
+<p>Детальніше дивіться тут -- <a class="reference internal" href="../index.html"><span class="doc">physics page</span></a>.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Доступ до bpy</p>
+<p class="last">Note that, most of these properties are accessible through
+the non-BGE scripting API via <code class="docutils literal notranslate"><span class="pre">bpy.data.objects[&quot;ObjectName&quot;].game</span></code>,
+which is of type <code class="docutils literal notranslate"><span class="pre">bpy.types.GameObjectSetting</span></code>. This is useful so you can,
+for example, set a range of objects to have gradated values via a for-loop.</p>
+</div>
+<dl class="docutils">
+<dt>Актор -- Actor</dt>
+<dd>Вмикає виявлення сенсорами Near та Radar.</dd>
+<dt>Привид -- Ghost</dt>
+<dd>Вимикає зіткнення повністю, подібно до <a class="reference internal" href="no_collision.html"><span class="doc">No collision</span></a>.</dd>
+<dt>Невидимо -- Invisible</dt>
+<dd>Робить об'єкт не показуваним, так само, як вимкнення для об'єкта здатності рендеритися (вимкнення іконки з камерою в <a class="reference internal" href="../../../editors/outliner.html"><span class="doc">Outliner</span></a>).</dd>
+<dt>Вжити Силове Поле Матеріалу -- Use Material Force Field</dt>
+<dd>Матеріали можуть мати устави фізики на собі також: Тертя -- Friction, Еластичність -- Elasticity, Силове Поле -- Force Field (позитивна або негативна сила), а також Згасання -- Dampening до інших матеріалів. Коли ви вмикаєте цей стяг, то ви дозволяєте Матеріалу проявляти таке пружинне поле.</dd>
+<dt>Обертати Від Нормалі -- Rotate From Normal</dt>
+<dd>Todo.</dd>
+<dt>Без Спання -- No Sleeping</dt>
+<dd>Запобігає спанню сітей в імітації. Коли об'єкт має лінеарну або кутову скорість, то він знаходиться у русі. Це дасть виявлення зіткнення, прийняття гравітації тощо. Після цього, як ці пороги наближаються до нуля, це дасть припинення цих розрахунків -- допоки інший об'єкт не вступить у взаємодію з ним, розбудивши його.</dd>
+<dt>Маса -- Mass</dt>
+<dd>Впливає на реакцію при зіткненні між об'єктами -- більш масивні об'єкти мають більшу інерцію. Це також буде впливати на силові поля матеріалів. Також це буде змінювати поведінку, якщо ви використовуєте такі частини фізики Bullet як підвішування та кермування.</dd>
+</dl>
+<dl class="docutils" id="game-engine-physics-collision-bounds-radius">
+<dt>Радіус -- Radius</dt>
+<dd>Якщо ви маєте задано явно &quot;Collision Bounds: Sphere&quot; (або неявно через вимкнену панель Collision Bounds), то це буде множитися на масштаб (незастосований) Scale такого Об'єкта. Зауважте, що жоден з інших типів меж не задіюється. Також, зверніть увагу, що у 3D Огляді показ буде буде для усіх типів, навіть хоча фактично це використовується тільки з типом Sphere.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Базово</th>
+<th class="head">Радіус=1.5</th>
+<th class="head">Незастосований Масштаб</th>
+<th class="head">Застосований Масштаб</th>
+<th class="head">Межі Зіткнення -- Collision Bounds</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Вертіння, радіус 1 BU</td>
+<td>Вертіння, радіус 1.5 BU (після «виставляння» уверх)</td>
+<td>Вертіння, радіус 1 BU</td>
+<td>Вертіння, радіус 1 BU (!)</td>
+<td>Стандартно (це Sphere)</td>
+</tr>
+<tr class="row-odd"><td>Сковзання, протяг 1 BU</td>
+<td>Сковзання, протяг 1 BU</td>
+<td>Сковзання, протяг 1 BU</td>
+<td>Сковзання, протяг 1 BU</td>
+<td>Коробка -- Box</td>
+</tr>
+<tr class="row-even"><td>&quot;&quot;</td>
+<td>&quot;&quot;</td>
+<td>&quot;&quot;</td>
+<td>&quot;&quot;</td>
+<td>Опукла Оболонка -- Convex Hull</td>
+</tr>
+<tr class="row-odd"><td>Сковзання, протяг 1 BU (але з більшим тертям, ніж вище)</td>
+<td>Сковзання, протяг 1 BU (але з більшим тертям, ніж вище)</td>
+<td>Діє ненормально</td>
+<td>Сковзання, протяг 1.5 BU</td>
+<td>Трибічна Сіть -- Triangle Mesh</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Фактор Форми -- Form Factor</dt>
+<dd>Для впливу тензора інерції -- Inertia Tensor. Чим вище це значення, тим більша обертальна інерція і звідси більший опір до крутного моменту. Ви можете подумати, що це дивно, що типи Dynamic не мають крутного моменту у відповідь на зіткнення -- але ви можете все ще бачити впливи цього значення, коли вручну застосовуєте Крутний момент -- Torque.</dd>
+<dt>Анізотропне Тертя -- Anisotropic Friction</dt>
+<dd>Ізотропне тертя є ідентичним в усіх кутах. Анізотропія є залежною від напрямку. Тут ви можете варіювати коефіцієнтами для трьох осей індивідуально або повністю вимкнути тертя.</dd>
+<dt>Скорість -- Velocity</dt>
+<dd><p class="first">Ліміт швидкості об'єкта.</p>
+<dl class="last docutils">
+<dt>Мінімум -- Minimum</dt>
+<dd>Об'єкту дозволяється бути повністю у спокої, але як тільки він прискорюється, то він негайно стрибне у цю мінімальну швидкістю.</dd>
+<dt>Максимум -- Maximum</dt>
+<dd>Найвища швидкість об'єкта.</dd>
+</dl>
+</dd>
+<dt>Згасання -- Damping</dt>
+<dd><p class="first">Збільшує «млявість» об'єкта.</p>
+<dl class="last docutils">
+<dt>Пересування -- Translation</dt>
+<dd>Опирання переміщенню (0 - 1). В 1 об'єкт є повністю нерухомим.</dd>
+<dt>Обертання -- Rotation</dt>
+<dd>Опирання обертанню, але це не вид обертання, що походить від зіткнення. Наприклад, якщо Контролер Motion застосовує Torque до об'єкта, то це згасання буде фактором.</dd>
+</dl>
+</dd>
+<dt>Блокувати Пересування -- Lock Translation</dt>
+<dd>Схоплює об'єкт у світі уздовж однієї чи кількох осей. Зауважте, що це глобальні координати, на локальні чи інші.</dd>
+<dt>Блокувати Обертання -- Lock Rotation</dt>
+<dd>Тільки для Rigid Body -- Так само, але для обертання (також відносно глобальних координат).</dd>
+</dl>
+</div>
+<div class="section" id="collision-bounds">
+<span id="game-engine-physics-object-collision-bounds"></span><h2>Межі Зіткнення -- Collision Bounds<a class="headerlink" href="#collision-bounds" title="Permalink to this headline">¶</a></h2>
+<p>Перша річ, яку ви повинні розуміти, -- це ідея межової або Габаритної Коробки -- 3D Bounding Box. Якщо ви пройдете через усі вершини сіті та запишете найнижчі та найвищі значення X, ви знайшли <em>x min/max</em> повної границі для усіх значень X у межах сіті. Зробіть це знову для Y та Z, далі зробіть прямокутну призму з цих значень і ви маєте габаритну коробку -- <em>Bounding Box</em>. Ця коробка може бути орієнтована глобально відносно світу або локально відносно обертання об'єкта.</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/game-engine_physics_types_rigid-body_bounding-box.png" src="../../../_images/game-engine_physics_types_rigid-body_bounding-box.png" />
+<p class="caption"><span class="caption-text">Демонстрація Локальної Габаритної Коробки (зліва) та Глобальної Габаритної Коробки (справа).</span></p>
+</div>
+<p>Далі, протяг <em>x extent</em> -- це половина відстані між x min/max.</p>
+<p>При цьому всьому ви повинні бути обізнані про початок об'єкта -- Object Origin. Для рушія Game engine, стандартні <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-C</kbd>, <kbd class="kbd docutils literal notranslate">3</kbd> чи <span class="menuselection">Set Origin ‣ Origin to Geometry</span> навряд чи дадуть бажане поміщення Меж Зіткнення, як ви бажаєте. Натомість, ви повинні, як правило, задати початок, змінивши у нижній частині Tool Shelf після задіяння команди <em>Set Origin</em> для опції <em>Center</em> значення з <em>Median Center</em> на <em>Bounds Center</em>. Blender запам'ятає цю зміну для майбутніх виконань <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-C</kbd>.</p>
+<p>Усі Межі Зіткнення центруються на цьому початку. Усі коробки орієнтуються локально, а тому має значення обертання об'єкта.</p>
+<div class="figure" id="id3">
+<img alt="../../../_images/game-engine_physics_types_rigid-body_origin-to-box-bounds.png" src="../../../_images/game-engine_physics_types_rigid-body_origin-to-box-bounds.png" />
+<p class="caption"><span class="caption-text">Установлення початку у Bounds Center замість Median Center.</span></p>
+</div>
+<p>Фінальний ввідний коментар: Коли ви установлюєте Collision Bounds на об'єкті, Blender спробує показати візуалізацію цих меж у формі пунктирного контуру. Поточно це вада: <em>3D View</em> не показує передогляд цих меж там, де він фактично буде у ході гри. Щоб бачити його, увімкніть <span class="menuselection">Game ‣ Show Physics Visualization</span> та віднайдіть білу (або зелену, при спанні) геометрію.</p>
+<p>Тепер, ми можемо пояснити різні опції для устав <em>Collision Bounds</em>:</p>
+<dl class="docutils">
+<dt>Стандартно -- Default</dt>
+<dd>Для об'єктів з типами Dynamic та Static це є Трибічникова Сіть -- Triangle Mesh (дивіться нижче). Для всього іншого -- це Сфера -- Sphere (дивіться нижче).</dd>
+<dt>Капсула -- Capsule</dt>
+<dd>Що є циліндром з півсферичними торцями, як пігулка. Радіус цих півсфер є більшим від протягу X чи Y. Висота -- це межі по Z.</dd>
+<dt>Коробка -- Box</dt>
+<dd>Габаритна коробка по X, Y, Z, як визначено вище.</dd>
+<dt>Сфера -- Sphere</dt>
+<dd>Радіус визначається масштабом об'єкта (видимий в регіоні N Properties), а не радіусом фізики (може бути знайдений у <span class="menuselection">Physics ‣ Attributes ‣ Radius</span>). Примітка: Це єдині межі, на які діє опція Radius.</dd>
+<dt>Циліндр -- Cylinder</dt>
+<dd>Радіус є більшим, ніж протяг X або Y. Висота -- це межі по Z.</dd>
+<dt>Конус -- Cone</dt>
+<dd>Базовий радіус є більшим, ніж протяг X або Y. Висота -- це межі по Z.</dd>
+<dt>Опукла Оболонка -- Convex Hull</dt>
+<dd><p class="first">Формує обгортальну, спрощену геометрію навколо об'єкта.</p>
+<div class="last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/game-engine_physics_types_rigid-body_convex-hull.png"><img alt="../../../_images/game-engine_physics_types_rigid-body_convex-hull.png" src="../../../_images/game-engine_physics_types_rigid-body_convex-hull.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Обрис опуклою оболонкою.</span></p>
+</div>
+</dd>
+<dt>Трикутникова Сіть Сіть -- Triangle Mesh</dt>
+<dd>Більш ресурсозатратно, але й більш точно. Зіткнення будуть відбуватися з усіма тріангульованими полігонами, замість використання віртуальної сіті для приблизного імітування такого зіткнення.</dd>
+<dt>Межі вручну -- By Hand</dt>
+<dd><p class="first">Це не опція в уставах Collision Bounds вкладки Physics, а цілком інший підхід зроблення меж зіткнення. Ви створюєте другу сіть, яка є невидимою, що буде представленням фізики. Вона стане предком для вашого показуваного об'єкта. Далі, ваш показуваний установлюється як Ghost, щоб він не боровся з цим предківським об'єктом. Цей метод дозволяє вам отримати баланс між точністю <em>Triangle Mesh</em> та ефективністю деяких інших. Дивіться демо цього на ілюстрації з баггі.</p>
+<div class="last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/game-engine_physics_types_rigid-body_manual-hull.png"><img alt="../../../_images/game-engine_physics_types_rigid-body_manual-hull.png" src="../../../_images/game-engine_physics_types_rigid-body_manual-hull.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Інший спосіб створення Collision Bounds -- Вручну.</span></p>
+</div>
+</dd>
+</dl>
+<div class="section" id="id1">
+<h3>Опції<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Є тільки дві опції на панелі Collision Bounds.</p>
+<dl class="docutils">
+<dt>Припуск -- Margin</dt>
+<dd><p class="first">«Додає додатковий припуск навколо об'єкта для виявлення зіткнення, вимагається мала величина для стабільності». Якщо ви виявите, що ваші об'єкти застрягли у місцях, де вони не повинні це робити, спробуйте збільшити це, скажімо, до 0.06.</p>
+<p class="last">Інколи 0.06 є стандартом (наприклад, для Стандартного Куба), а іноді і ні. Ви повинні стежити за цією уставою або вивчити симптоми, щоб ви могли реагувати, коли це спричиняє проблему. Якщо ви ліниві/параноїдальні/невпевнені/ретельні/надокучливі, ви можете завжди виконувати це на консолі Python Console для вибивання усіх припусків від 0.0 до 0.06: для <code class="docutils literal notranslate"><span class="pre">obj</span></code> в <code class="docutils literal notranslate"><span class="pre">bpy.data.objects</span></code>: <code class="docutils literal notranslate"><span class="pre">obj.game.collision_margin</span> <span class="pre">=</span> <span class="pre">obj.game.collision_margin</span></code> або 0.06</p>
+</dd>
+<dt>Поєднання -- Compound</dt>
+<dd>«Додає нащадків для формування складеного об'єкта зіткнення». Базово, якщо ви маєте нащадковий об'єкт та не увімкнули це, то зіткнення цього нащадка не буде впливати на «родину» об'єкта (хоча він все ще штовхатиметься іншими об'єктами навколо). Якщо ви увімкнули це, то фізика предка буде реагувати на зіткнення нащадка (звідси, оновиться уся родина).</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="create-obstacle">
+<h2>Створити Перешкоду -- Create Obstacle<a class="headerlink" href="#create-obstacle" title="Permalink to this headline">¶</a></h2>
+<p>Todo</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="soft_body.html" class="btn btn-neutral float-right" title="Фізика «М&#39;яке Тіло» -- Soft Body Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dynamic.html" class="btn btn-neutral" title="Фізика «Динамічно» -- Dynamic Physics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

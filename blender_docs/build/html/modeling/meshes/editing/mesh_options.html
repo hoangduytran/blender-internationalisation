@@ -1,0 +1,389 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Опції Сіті -- Mesh Options &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/mesh_options.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Властивості" href="../properties/index.html" />
+    <link rel="prev" title="Перенос Даних -- Data Transfer" href="data_transfer.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редагування -- Editing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="basics/index.html">Основи -- Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vertices.html">Інструменти Вершин -- Vertex Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edges.html">Інструменти Ребер -- Edge Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="faces.html">Інструменти Граней -- Face Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="normals.html">Нормалі -- Normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transform/index.html">Трансформування -- Transformation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="duplicating/index.html">Дублювання -- Duplicating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subdividing/index.html">Підподілення -- Subdividing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cleanup.html">Вичищення -- Clean up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="misc.html">Різні інструменти правлення</a></li>
+<li class="toctree-l4"><a class="reference internal" href="data_transfer.html">Перенос Даних -- Data Transfer</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Опції Сіті -- Mesh Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Опції Сіті -- Mesh Options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/meshes/editing/mesh_options.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mesh-options">
+<h1>Опції Сіті -- Mesh Options<a class="headerlink" href="#mesh-options" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Options tab ‣ Mesh Options panel</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="x-mirror">
+<span id="bpy-types-mesh-use-mirror-x"></span><h2>X Mirror<a class="headerlink" href="#x-mirror" title="Permalink to this headline">¶</a></h2>
+<p>The <em>X Mirror</em> option of the <em>Mesh Options</em> panel allows you edit symmetrical vertices on the other side
+of the mesh in a single action. When you transform an element (vertex, edge or face),
+if there is its exact X-mirrored counterpart (in local space),
+it will be transformed accordingly, through a symmetry along the local X axis.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The conditions for <em>X Mirror</em> to work are quite strict, which can make it difficult to use.
+To have an exact mirrored version of a (half) mesh,
+its easier and simpler to use the <a class="reference internal" href="../../modifiers/generate/mirror.html"><span class="doc">Mirror Modifier</span></a>.</p>
+</div>
+</div>
+<div class="section" id="topology-mirror">
+<span id="bpy-types-mesh-use-mirror-topology"></span><span id="modeling-meshes-editing-topology-mirror"></span><h2>Топологічне Дзеркалення -- Topology Mirror<a class="headerlink" href="#topology-mirror" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Для <em>Topology Mirror</em> спершу повинна бути увімкнена опція <em>X-Mirror</em>.</p>
+</div>
+<p>При використанні опції <em>X-Mirror</em> для роботи на дзеркаленій геометрії сіті вершини, що дзеркалені, повинні бути ідеально розміщені. Якщо вони не розташовані точно в їх дзеркалених локацій, то <em>X Mirror</em> не буде обробляти ці вершини як дзеркальні.</p>
+<p><em>Topology Mirror</em> намагається вирішити цю проблему, визначаючи які вершини є дзеркаленими вершинами не тільки за їх позиціями, а також розглядаючи як ці вершини знаходяться відносно інших у геометрії сіті. Він переглядає усю топологію для визначення, чи певні вершини будуть оброблятися як дзеркальні. Ефект від цього у тому, що дзеркалені вершини можуть бути не-симетричними та все ще оброблятися як дзеркалені, коли обидві опції <em>X Mirror</em> та <em>Topology Mirror</em> активні.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Функціональність <em>Topology Mirror</em> буде працювати більш надійно на сіті, яка більш деталізована. Якщо ви використовуєте дуже просту геометрію, наприклад, стандартні <em>Cube</em> чи <em>UV Sphere</em>, то опція <em>Topology Mirror</em> часто не працює.</p>
+</div>
+<div class="section" id="example">
+<h3>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Як приклад того, як використовувати <em>Topology Mirror</em>, відкрийте нову сцену у Blender'і, видаліть стандартни йкуб та додайте об'єкт Monkey у 3D Огляд.</p>
+<ol class="arabic simple">
+<li>Натисніть <kbd class="kbd docutils literal notranslate">Tab</kbd> для перемикання для об'єкта Monkey у режим <em>Edit Mode</em>.</li>
+<li>При вимкненій опції <em>X Mirror</em> пересуньте одну з вершин об'єкта Мавпи трохи.</li>
+<li>Далі, увімкніть опцію <em>X Mirror</em>, але залиште опцію <em>Topology Mirror</em> вимкненою.</li>
+<li>Якщо ви тепер пересунете цю вершину знову, то <em>X Mirror</em> не буде працювати, а дзеркалені вершини не будуть змінені.</li>
+<li>Якщо ви далі увімкнете <em>Topology Mirror</em> та пересунете ці ж вершини знову, то <em>X Mirror</em> повинна все ще змінювати дзеркальну їй вершину, хоча вони і не ідеально розташовані.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="further-options">
+<h2>Додаткові опції<a class="headerlink" href="#further-options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Режим Виділу Ребра -- Edge Select Mode</dt>
+<dd><p class="first">Ця кнопка виділу вказує, що повинно робитися при виділення шляху вершин за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-RMB</kbd>:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>Виділ -- Select</dt>
+<dd>Просто виділяє усі ребра у шляху.</dd>
+<dt>Шов -- Seam</dt>
+<dd>Позначає усі ребра у шляху як шви для розгортання по UV.</dd>
+<dt>Гостро -- Sharp</dt>
+<dd>Позначає усі ребра у шляху як гострі для модифікатора Edge Split.</dd>
+<dt>Складка -- Crease</dt>
+<dd>Позначає усі ребра у шляху як складки для модифікатора Subdivision Surface з вагомістю 1.0.</dd>
+<dt>Скіс -- Bevel</dt>
+<dd>Задає вагомість скосу 1.0 (для модифікатора Bevel) для усіх ребер у шляху.</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt>Живе Розгортання -- Live Unwrap</dt>
+<dd>Якщо увімкнене <em>Live Unwrap</em>, то кожен раз при зміні властивості шва для ребра буде автоматично повторно розраховувати розгортання по UV.</dd>
+<dt>Поріг Дублів -- Double Threshold</dt>
+<dd>Визначає максимальну відстань між вершинами, що об'єднані інструментом <em>AutoMerge Editing</em>.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../properties/index.html" class="btn btn-neutral float-right" title="Властивості" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="data_transfer.html" class="btn btn-neutral" title="Перенос Даних -- Data Transfer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

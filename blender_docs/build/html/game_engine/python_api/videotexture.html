@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модуль відеотекстур: bge.texture &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/python_api/videotexture.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Окремий Відтворювач -- Standalone Player" href="../blender_player.html" />
+    <link rel="prev" title="Python API фізики Bullet" href="bullet_physics.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Інтерфейс програмування застосунків Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bullet_physics.html">Python API фізики Bullet</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Модуль відеотекстур: bge.texture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-it-works">Як це працює</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#game-preparation">Підготовка гри</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-example">Перший приклад</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-demos">Просунуті демо</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Інтерфейс програмування застосунків Python API</a> &raquo;</li>
+        
+      <li>Модуль відеотекстур: bge.texture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/python_api/videotexture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-videotexture-module-bge-texture">
+<h1>Модуль відеотекстур: bge.texture<a class="headerlink" href="#the-videotexture-module-bge-texture" title="Permalink to this headline">¶</a></h1>
+<p>Модуль <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> дозволяє вам маніпулювати текстурами у ході гри. Доступні різні джерела для текстур: файли відео, файли зображень, захвати відео, буфер пам'яті, рендер камери або суміш цього. Файли відео та зображень можуть бути завантажені з Інтернету, використовуючи URL замість імені файлу. Окрім цього, ви можете застосовувати фільтри до зображень, перед посиланням їх на GPU, роблячи відео-ефект: синій екран, градієнт, сірий, карта нормалей. <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> використовує FFmpeg для завантаження зображень та відео. Усі формати та кодеки, що підтримує FFmpeg, також підтримуються модулем <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>, включаючи, але не обмежуючись:</p>
+<ul class="simple">
+<li>AVI</li>
+<li>Ogg</li>
+<li>Xvid</li>
+<li>Theora</li>
+<li>dv1394 камера</li>
+<li>video4linux картка захвату (це включає багато вебкамер)</li>
+<li>videoForWindows картка захвату (це включає багато вебкамер)</li>
+<li>JPG</li>
+</ul>
+<div class="section" id="how-it-works">
+<h2>Як це працює<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>Принцип простий: спершу ви ідентифікуєте наявну текстуру за об'єктом та іменам, далі ви створюєте нову текстуру з динамічним вмістом та обмінюєте ці дві текстури в GPU. Рушій GE не знає про підміну та продовжує показувати об'єкт, як завжди, за винятком того, що ви тепер керуєте цією текстурою. У кінці, нова текстура видаляється, а стара текстура відновлюється.</p>
+<p>Дана сторінка є провідником щодо модуля <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> за допомогою простих прикладів.</p>
+</div>
+<div class="section" id="game-preparation">
+<h2>Підготовка гри<a class="headerlink" href="#game-preparation" title="Permalink to this headline">¶</a></h2>
+<p>Перед тим, як ви зможете використати цей модуль <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>, ви повинні мати об'єкти з належно накладеними текстурами.</p>
+<p>Уявіть, що ви хочете мати телевізор, який показує у прямому ефірі програми у грі. Ви створите об'єкт телевізора та накладете по UV іншу текстуру у цьому місці екрану, наприклад, <code class="docutils literal notranslate"><span class="pre">tv.png</span></code>. Те, як ця текстура виглядає, не є важливим; можливо, ви схочете зробити її темно-сірою для імітації вимкненого стану. Коли телевізор повинен бути увімкнений, ви створюєте динамічну текстуру з карти захвату відео та використовуєте її замість``tv.png``: телеекран оживає.</p>
+<p>Ви маєте два шляхи для визначення текстур, що можуть захопити <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>:</p>
+<ol class="arabic simple">
+<li>Проста текстура по UV.</li>
+<li>Матеріал Blender'а з каналом текстури зображення.</li>
+</ol>
+<p>Оскільки <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> працює на рівні текстури, то він сумісний з усіма фантастичними функціями текстурування рушія GE: GLSL, багато-текстура, користувацькі відтінювачі тощо.</p>
+</div>
+<div class="section" id="first-example">
+<h2>Перший приклад<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<p>Припустімо, що ви маєте об'єкт гри з однією чи кількома гранями, на які призначено матеріал/зображення, на яких ви хочете показувати відео.</p>
+<p>Першим кроком буде створити об'єкт <code class="docutils literal notranslate"><span class="pre">Texture</span></code>. Ми зробимо це у скрипті, що виконується один раз. Це може бути на початку гри, відео відтворюється тільки, коли ви освіжуєте текстуру; ми повернемося до цього пізніше. Цей скрипт зазвичай прикріплюється до об'єкта, на якому ми хочемо показувати відео, так, щоб ми могли легко отримати посилання на цей об'єкт:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge.texture</span>
+
+<span class="n">contr</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">contr</span><span class="o">.</span><span class="n">owner</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">GameLogic</span><span class="p">,</span> <span class="s1">&#39;video&#39;</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>Перевірка атрибута <code class="docutils literal notranslate"><span class="pre">video</span></code> є просто хитрістю, щоб переконатися, що ми створюємо текстуру тільки один раз.</p>
+<div class="section" id="find-material">
+<h3>Знаходження матеріалу<a class="headerlink" href="#find-material" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;IMvideo.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bge.texture.materialID()</span></code> -- це зручна функція для отримання матеріалу об'єкта, що використовує <code class="docutils literal notranslate"><span class="pre">video.png</span></code> як текстуру. Цей метод буде працювати з матеріалом Blender'а та UV текстурою. У випаду UV текстури він захоплює внутрішній матеріал, що відповідає граням, які призначені для цієї текстури. У випадку матеріалу Blender'а він захоплює матеріал, що має канал текстури зображення, що відповідає її імені як перший канал.</p>
+<p>Префікс <code class="docutils literal notranslate"><span class="pre">IM</span></code> вказує, що ми шукаємо ім'я текстури, але ми можемо також шукати матеріал, задавши префікс <code class="docutils literal notranslate"><span class="pre">MA</span></code>. Наприклад, якщо ми хочемо знайти матеріал, що зветься <code class="docutils literal notranslate"><span class="pre">VideoMat</span></code> на цьому об'єкті, то цей код стане таким:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;MAVideoMat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-texture">
+<h3>Створення текстури<a class="headerlink" href="#create-texture" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bge.texture.Texture</span></code> -- це клас, що створює об'єкт <code class="docutils literal notranslate"><span class="pre">Texture</span></code>, який завантажує цю динамічну текстуру на GPU. Цей конструктор приймає один обов'язковий та три факультативні аргументи:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">gameObj</span></code></dt>
+<dd>Об'єкт гри.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">materialID</span></code></dt>
+<dd>Індекс матеріалу як повернений <code class="docutils literal notranslate"><span class="pre">bge.texture.materialID()</span></code>, 0 = перший матеріал стандартно.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">textureID</span></code></dt>
+<dd>Індекс текстури у випадку багато-текстурового каналу, 0 = перший канал стандартно. У випадку UV текстури цей параметр повинен завжди бути 0.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">textureObj</span></code></dt>
+<dd>Reference to another <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object of which we want to reuse the texture.
+If we use this argument,
+we should not create any source on this texture and there is no need to refresh it either;
+the other <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object will provide the texture for both materials/textures.</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">Texture</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">matID</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-texture-persistent">
+<h3>Зроблення текстури сталою<a class="headerlink" href="#make-texture-persistent" title="Permalink to this headline">¶</a></h3>
+<p>Зауважте, що ми призначили об'єкт атрибуту <code class="docutils literal notranslate"><span class="pre">GameLogic</span></code>, <code class="docutils literal notranslate"><span class="pre">video</span></code>, який ми створили для цієї події. Причиною є те, що об'єкт <code class="docutils literal notranslate"><span class="pre">Texture</span></code> повинен бути сталим, незмінним по скриптах цієї гри. Локальна змінна буде виділена у кінці цього скрипту, а текстура на GPU видаляється у цей же момент. Об'єкт модуля <code class="docutils literal notranslate"><span class="pre">GameLogic</span></code> є зручним місцем для збереження сталих об'єктів.</p>
+</div>
+<div class="section" id="create-a-source">
+<h3>Створення джерела<a class="headerlink" href="#create-a-source" title="Permalink to this headline">¶</a></h3>
+<p>Тепер ми маємо об'єкт <code class="docutils literal notranslate"><span class="pre">Texture</span></code>, але він не може робити нічого, оскільки він не має жодного джерела. Ми повинні створити об'єкт джерела з одного з доступних джерел, доступних у <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code></dt>
+<dd>Рухомі картинки. Файл відео, захват відео, потік відео.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageFFmpeg</span></code></dt>
+<dd>Статичні картинки. Файл зображення, зображення з веб.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageBuff</span></code></dt>
+<dd>Зображення з пам'яті застосунку. Для генерованих комп'ютером зображень, рисувальних застосунків.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageViewport</span></code></dt>
+<dd>Частина або все оглядвікно (=рендеринг активної камери, показуваний на екрані).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageRender</span></code></dt>
+<dd>Render of a non-active camera.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageMix</span></code></dt>
+<dd>Сумі двох або більше вищезгаданих джерел.</dd>
+</dl>
+<p>У цьому прикладі ми використовуємо простий файл відео як джерело. Конструктор <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code> приймає ім'я файлу як аргумент. Для запобігання плутанини з розташуванням цього файлу ми будемо використовувати <code class="docutils literal notranslate"><span class="pre">GameLogic.expandPath()</span></code> для вибудування абсолютного імені файлу, припускаючи, що цей файл відео є у тому ж каталогу, що й даний blend-файл:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">movie</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">expandPath</span><span class="p">(</span><span class="s1">&#39;//trailer_400p.ogg&#39;</span><span class="p">)</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ми створюємо об'єкт джерела відео та призначаємо його атрибуту <code class="docutils literal notranslate"><span class="pre">source</span></code> об'єкта <code class="docutils literal notranslate"><span class="pre">Texture</span></code> для установлення джерела та робимо його сталим: оскільки об'єкт <code class="docutils literal notranslate"><span class="pre">Texture</span></code> є сталим, то цей об'єкт джерела також буде сталим.</p>
+<p>Зауважте, що ми можемо змінити джерело <code class="docutils literal notranslate"><span class="pre">Texture</span></code> у будь-який час. Припустимо, що ми хочемо перемкнутися між двома фільмами у ході гри.</p>
+<p>Ми можемо зробити наступне:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="s1">&#39;movie1.avi&#39;</span><span class="p">)</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="s1">&#39;movie2.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>І далі призначити (та перепризначити) джерело у ході гри:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="n">movieSel</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-the-source">
+<h3>Укладання джерела<a class="headerlink" href="#setup-the-source" title="Permalink to this headline">¶</a></h3>
+<p>Джерело <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code> має кілька атрибутів для керування відтворенням фільму:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">range</span></code></dt>
+<dd>[start,stop] (floats). Задає стартовий та кінцевий час відтворення відео, виражені у секундах від початку. Стандартно, це відео цілком.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">repeat</span></code></dt>
+<dd>(integer). Кількість повторень відтворення відео, -1 -- щоб безкінечно.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">framerate</span></code></dt>
+<dd>(float). Відносна частота кадрів, &lt;1.0 для сповільнення, &gt;1.0 для пришвидшення.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">scale</span></code></dt>
+<dd>(bool).
+Set to True to activate fast nearest-neighbor scaling algorithm.
+Texture width and height must be a power of 2.
+If the video picture size is not a power of 2, rescaling is required.
+By default <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> uses the precise but slow <code class="docutils literal notranslate"><span class="pre">gluScaleImage()</span></code> function.
+Best is to rescale the video offline so that no scaling is necessary at run-time!</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">flip</span></code></dt>
+<dd>(bool). Задає у True, якщо зображення повинно бути перевернуто вертикально. FFmpeg завжди постачає зображення зверху вниз, а тому цей атрибут стандартно задано як True.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">filter</span></code></dt>
+<dd>Задає додатковий фільтр на відео перед посиланням на GPU. Призначається одному з об'єктів фільтра для <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>. Стандартно, це зображення посилається незміненим на GPU. Якщо канал альфа наявний у відео, то він також автоматично завантажується та посилається на GPU.</dd>
+</dl>
+<p>We will simply set the <code class="docutils literal notranslate"><span class="pre">scale</span></code> attribute to True
+because the <code class="docutils literal notranslate"><span class="pre">gluScaleImage()</span></code> is really too slow for real-time video.
+In case the video dimensions are already a power of 2, it has no effect.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="play-the-video">
+<h3>Відтворення відео<a class="headerlink" href="#play-the-video" title="Permalink to this headline">¶</a></h3>
+<p>Тепер ми готові для відтворення відео:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Відтворення відео не є фоновим процесом: воно відбувається тільки тоді, коли ми освіжуємо цю текстуру. Тому ми повинні мати інший скрипт, що виконується у кожному кадрі та викликає метод <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> об'єкта <code class="docutils literal notranslate"><span class="pre">Texture</span></code>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">GameLogic</span><span class="p">,</span> <span class="s1">&#39;video&#39;</span><span class="p">):</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Якщо це джерело відео зупинене, то <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> немає жодного ефекту. Аргумент <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> є стягом, що вказує, чи повинна бути ця текстура перерахована при наступному освіженні. Для відтворення відео ви визначено схочете задати його як True.</p>
+</div>
+<div class="section" id="checking-the-video-status">
+<h3>Перевірка стану відео<a class="headerlink" href="#checking-the-video-status" title="Permalink to this headline">¶</a></h3>
+<p>Класи джерела відео (такі як VideoFFMpeg) мають атрибут <code class="docutils literal notranslate"><span class="pre">status</span></code>. Якщо відео відтворюється, то його значення є 2, якщо воно зупинене, то -- 3. Тому, у нашому прикладі:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<span class="c1">#video has stopped</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-workflow">
+<h3>Просунутий порядок роботи<a class="headerlink" href="#advanced-workflow" title="Permalink to this headline">¶</a></h3>
+<p>Аргумент True у методі <code class="docutils literal notranslate"><span class="pre">Texture.refresh()</span></code> просто звільняє буфер зображення після посилання його на GPU, так що на наступному кадрі нове зображення буде завантажене з джерела. Він має побічний ефект, що робить зображення недоступним для Python. Ви можете також зробити це вручну, викликавши метод <a href="#id1"><span class="problematic" id="id2">``</span></a>refresh()``для джерела безпосередньо.</p>
+<p>Here are some possible advanced workflow:</p>
+<ul>
+<li><p class="first">Використати буфер зображення у Python (не впливає на Texture):</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">image</span>
+<span class="c1"># image is a binary string buffer of row major RGBA pixels</span>
+<span class="c1"># ... use image</span>
+<span class="c1"># invalidates it for next frame</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Завантажити зображення з джерела для оброблення Python без завантаження на GPU:</p>
+</li>
+<li><p class="first">Зауважте, що ми навіть не викликали освіження на Texture.</p>
+</li>
+<li><p class="first">Ми можемо також просто створити об'єкт джерела без об'єкта Texture:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">image</span>
+<span class="c1"># ... use image</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Якщо ви маєте більше, ніж один матеріал на сіті, і хочете модифікувати текстуру конкретного матеріалу, то отримайте його ID:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">gameobj</span><span class="p">,</span> <span class="s2">&quot;MAmat.001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>GLSL матеріал може мати більше, ніж один, канал текстури, ідентифікувати текстуру за гніздом текстури, де вона визначена:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">tex</span><span class="o">=</span><span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">Texture</span><span class="p">(</span><span class="n">gameobj</span><span class="p">,</span> <span class="n">matID</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-demos">
+<h2>Просунуті демо<a class="headerlink" href="#advanced-demos" title="Permalink to this headline">¶</a></h2>
+<p>Ось демо -- <a class="reference external" href="http://www.graphicall.org/ftp/ben2610/VideoTextureDemo2video.blend">demo</a> , що демонструє використання двох відео, альтернативно на одній і тій же текстурі. Зауважте, що це вимагає додаткового файлу відео, який є тизером <em>Elephant Dream</em>. Ви можете замінити його іншим файлом, з яким ви хочете виконати це демо.</p>
+<p>Ось демо <a class="reference external" href="http://www.graphicall.org/ftp/ben2610/VideoTextureDemo2videoMix.blend">demo</a>, що демонструє використання джерела <code class="docutils literal notranslate"><span class="pre">ImageMix</span></code>. <code class="docutils literal notranslate"><span class="pre">ImageMix</span></code> -- це джерело, що потребує джерел, які можуть бути іншим джерелом <code class="docutils literal notranslate"><span class="pre">Texture</span></code>, як <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code>, <code class="docutils literal notranslate"><span class="pre">ImageFFmpeg</span></code> або <code class="docutils literal notranslate"><span class="pre">ImageRender</span></code>. Ви установлюєте їх за допомогою <code class="docutils literal notranslate"><span class="pre">setSource()</span></code> та їх відносну вагомість за допомогою <code class="docutils literal notranslate"><span class="pre">setWeight()</span></code>. Зверніть увагу, що вагомість є коротким числом між 0 та 255, і що сума усіх вагомостей повинна бути 255. <code class="docutils literal notranslate"><span class="pre">ImageMix</span></code> робить суміш усіх джерел відповідно до їх вагомостей. Ці джерела повинні усі мати однаковий розмір зображення (після зменшення розміру до найближчої степені двійки). Якщо це не так, то ви отримаєте помилку Python у консолі.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../blender_player.html" class="btn btn-neutral float-right" title="Окремий Відтворювач -- Standalone Player" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bullet_physics.html" class="btn btn-neutral" title="Python API фізики Bullet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Int. License
+# This file is distributed under the same license as the Blender 2.78 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+# urko <urkokul@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-19 21:38-0400\n"
+"PO-Revision-Date: 2017-12-12 21:08+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/pipeline/bam.rst:4
+msgid "BAM Asset Manager"
+msgstr "Менеджер Активів -- BAM Asset Manager"
+
+#: ../../manual/pipeline/bam.rst:6
+msgid ""
+"Refactoring linked blend-files is a common practice in a production "
+"environment. While some basic operations can be accomplished within "
+"Blender, sometimes it is more practical to perform them on the command "
+"line or via a script. During the production of Cosmos Laundromat "
+"(Gooseberry Open Movie Project) the *BAM Asset Manager* (BAM) was "
+"developed. The original scope of BAM included client-server asset "
+"management tools going beyond Blender, but it was later refocused on core"
+" utilities to perform two operations:"
+msgstr ""
+
+#: ../../manual/pipeline/bam.rst:14
+msgid "Blend-file packing"
+msgstr "Пакування blend-файлів"
+
+#: ../../manual/pipeline/bam.rst:15
+msgid "Automatic dependencies remapping"
+msgstr "Автоматичне перерозкладання залежностей"
+
+#: ../../manual/pipeline/bam.rst:17
+msgid "The following section of the manual focuses on how to use BAM."
+msgstr ""
+"Наступний підрозділ цього посібника фокусується на тому, як "
+"використовувати BAM."
+
+#: ../../manual/pipeline/bam.rst:23
+msgid "Installing BAM"
+msgstr "Інсталювання BAM"
+
+#: ../../manual/pipeline/bam.rst:25
+msgid ""
+"BAM is a standalone Python package, that can be run on any system without"
+" any particular configuration. The only requirement is Python 3 (and pip,"
+" the Python package manager, to easily install BAM)."
+msgstr ""
+"BAM -- це автономний пакет Python, що може бути запущений на будь-якій "
+"системі без окремої певної конфігурації. Єдиною вимогою є наявність "
+"Python 3 (та pip, менеджера пакетів Python) для легко інсталювання BAM."
+
+#: ../../manual/pipeline/bam.rst:28
+msgid ""
+"Windows, Linux and macOS provide different ways to install Python 3 and "
+"pip. Check out the online docs to learn more about a specific platform."
+msgstr ""
+"Windows, Linux і macOS передбачають різні шляхи для інсталювання Python 3"
+" та pip. Перегляньте онлайнову документацію, щоб дізнатися більше про "
+"специфічні умови для кожної платформи."
+
+#: ../../manual/pipeline/bam.rst:31
+#, fuzzy
+msgid ""
+"Once Python 3 and pip3 are available, BAM can be installed via command "
+"line by typing:"
+msgstr ""
+"Після того, як Python 3 та pip доступні, BAM можна інсталювати через "
+"командний рядок, увівши:"
+
+#: ../../manual/pipeline/bam.rst:37
+#, fuzzy
+msgid ""
+"After a successful installation, the ``bam`` command will be available. "
+"By typing it and pressing :kbd:`Enter`, all the available subcommands "
+"will be displayed."
+msgstr ""
+"Після успішної інсталяції, команда `bam` стане доступною. Увівши її та "
+"натиснувши клавішу Enter можна отримати показ всіх її доступних "
+"підкоманд."
+
+#: ../../manual/pipeline/bam.rst:42
+msgid "bam pack"
+msgstr "bam pack"
+
+#: ../../manual/pipeline/bam.rst:44
+msgid ""
+"This command is used for packing a ``.blend`` file and *all* its "
+"dependencies into a ``.zip`` file for redistribution. ::"
+msgstr ""
+"Ця команда використовується для пакування файлу ``.blend`` та *усіх* його"
+" залежностей у файл ``.zip`` для перенесення. ::"
+
+#: ../../manual/pipeline/bam.rst:50
+#, fuzzy
+msgid ""
+"You can simply pack a blend-file like this to create a zip-file of the "
+"same name."
+msgstr ""
+"Ви можете просто упакувати blend-файл, як цей, для створення файлу zip з "
+"таким же ім'ям."
+
+#: ../../manual/pipeline/bam.rst:56
+msgid ""
+"You may also want to give an explicit output directory. The example shows"
+" how to pack a blend with maximum compression for online downloads."
+msgstr ""
+"Ви можете також схотіти задати явний каталог виводу. Цей приклад показує,"
+" як упакувати blend-файл з максимальним стисненням для онлайнових "
+"звантажень."
+
+#: ../../manual/pipeline/bam.rst:63
+msgid ""
+"The command provides several options to adapt to different workflows "
+"(final distribution, partial extraction, rendering)."
+msgstr ""
+"Ця команда надає кілька опцій для адаптації для різних робочих потоків "
+"(фінальне поширення, часткове витягнення, рендеринг)."
+
+#: ../../manual/pipeline/bam.rst:66
+msgid "``-o``, ``--output`` ``<FILE>``"
+msgstr "``-o``, ``--output`` ``<FILE>``"
+
+#: ../../manual/pipeline/bam.rst:67
+msgid "Output file or a directory when multiple inputs are passed."
+msgstr "Файл чи каталог виводу, коли передаються кілька уводів."
+
+#: ../../manual/pipeline/bam.rst:68
+msgid "``-m``, ``--mode`` ``<MODE>``"
+msgstr "``-m``, ``--mode`` ``<MODE>``"
+
+#: ../../manual/pipeline/bam.rst:69
+msgid ""
+"Output file or a directory when multiple inputs are passed. Possible "
+"choices: ``ZIP``, ``FILE``."
+msgstr ""
+"Файл чи каталог виводу, коли передаються кілька уводів. Можливі варіанти:"
+" ``ZIP``, ``FILE``."
+
+#: ../../manual/pipeline/bam.rst:75
+msgid "``-e``, ``--exclude`` ``<PATTERN(S)>``"
+msgstr "``-e``, ``--exclude`` ``<PATTERN(S)>``"
+
+#: ../../manual/pipeline/bam.rst:71
+msgid "Optionally exclude files from the pack."
+msgstr "За бажанням виключити файли з пакунку."
+
+#: ../../manual/pipeline/bam.rst:73
+msgid "``--exclude=\"*.png\"``"
+msgstr "``--exclude=\"*.png\"``"
+
+#: ../../manual/pipeline/bam.rst:74
+msgid "Using Unix shell-style wild-cards *(case insensitive)*."
+msgstr "Використання знаків підставки стилю оболонки Unix *(чутливо до регістру)*."
+
+#: ../../manual/pipeline/bam.rst:75
+msgid "``--exclude=\"*.txt;*.avi;*.wav\"``"
+msgstr "``--exclude=\"*.txt;*.avi;*.wav\"``"
+
+#: ../../manual/pipeline/bam.rst:76
+msgid "Multiple patterns can be passed using the ``;`` separator."
+msgstr "Кілька патернів можуть бути передані за допомогою роздільника ``;``."
+
+#: ../../manual/pipeline/bam.rst:77
+msgid "``-a``, ``--all-deps``"
+msgstr "``-a``, ``--all-deps``"
+
+#: ../../manual/pipeline/bam.rst:78
+msgid "Follow all dependencies (unused indirect dependencies too)."
+msgstr "Наслідування усіх залежностей (невикористаних побічних залежностей також)."
+
+#: ../../manual/pipeline/bam.rst:79
+msgid "``-q``, ``--quiet``"
+msgstr "``-q``, ``--quiet``"
+
+#: ../../manual/pipeline/bam.rst:80
+msgid "Suppress status output."
+msgstr "Припинення виводу статусу."
+
+#: ../../manual/pipeline/bam.rst:82
+msgid "``-c``, ``--compress`` ``<LEVEL>``"
+msgstr "``-c``, ``--compress`` ``<LEVEL>``"
+
+#: ../../manual/pipeline/bam.rst:82
+msgid ""
+"Compression level for resulting archive. Possible choices: ``default``, "
+"``fast``, ``best``, ``store``."
+msgstr ""
+"Рівень стиснення для результатного архіву. Можливі варіанти: ``default``,"
+" ``fast``, ``best``, ``store``."
+
+#: ../../manual/pipeline/bam.rst:85
+msgid "``--repo`` ``<DIR PATH>``"
+msgstr "``--repo`` ``<DIR PATH>``"
+
+#: ../../manual/pipeline/bam.rst:85
+msgid ""
+"Specify a \"root\" path from where to pack the selected file. This allows"
+" for the creation of a sparse copy of the production tree, without any "
+"remapping."
+msgstr ""
+"Визначення «кореневого» шляху, звідки упакувати обраний файл. Це дозволяє"
+" створювати розкидану копію дерева виробництва без будь-якого "
+"перерозкладання."
+
+#: ../../manual/pipeline/bam.rst:89
+msgid "``--warn-external``"
+msgstr "``--warn-external``"
+
+#: ../../manual/pipeline/bam.rst:88
+msgid "Report external libraries errors (missing paths)."
+msgstr "Повідомлення про помилки зовнішніх бібліотек (відсутні шляхи)."
+
+#: ../../manual/pipeline/bam.rst:92
+msgid "Examples"
+msgstr "Приклади"
+
+#: ../../manual/pipeline/bam.rst:94
+msgid ""
+"Consider the following directory layout, and in particular the file "
+"*01_01_A.lighting.blend* with its linked libraries."
+msgstr ""
+"Розгляньмо наступну розставу каталогу та конкретний файл "
+"*01_01_A.lighting.blend* з пов'язаними з ним бібліотеками."
+
+#: ../../manual/pipeline/bam.rst:110
+msgid ""
+"Once we run ``bam pack /scenes/01-opening/01_01_A.lighting.blend`` we "
+"obtain a *01_01_A.lighting.zip* inside of which we find the following "
+"structure."
+msgstr ""
+"Після того, як ми запустили ``bam pack "
+"/scenes/01-opening/01_01_A.lighting.blend``, ми отримали "
+"*01_01_A.lighting.zip* всередині якого виявляємо наступну структуру."
+
+#: ../../manual/pipeline/bam.rst:125
+msgid ""
+"Note how all paths have been remapped relative to the placement of "
+"*01_01_A.lighting.blend* in the root of the output. If we run ``bam pack "
+"/scenes/01-opening/01_01_A.lighting.blend --repo ~/agent327``, the output"
+" will be different."
+msgstr ""
+"Зауважте, як частини були перерозкладені відносно розміщення "
+"*01_01_A.lighting.blend* у корені виводу. Якщо ми запустимо ``bam pack "
+"/scenes/01-opening/01_01_A.lighting.blend --repo ~/agent327``, то вивід "
+"буде вже іншим."
+
+#: ../../manual/pipeline/bam.rst:142
+msgid ""
+"In this case no path is remapped, and we simply strip out any file that "
+"is not referenced as a direct or indirect dependency of "
+"*01_01_A.lighting.blend*. This is effectively a sparse copy of the "
+"original production tree."
+msgstr ""
+"У цьому випадку жоден шлях не перерозкладається та просто видаляється "
+"всякий файл, на який не посилається прямо або побічно залежність від "
+"*01_01_A.lighting.blend*. Це ефективна розкидана копію оригінального "
+"дерева виробництва."
+
+#: ../../manual/pipeline/bam.rst:148
+msgid "bam remap"
+msgstr "bam remap"
+
+#: ../../manual/pipeline/bam.rst:150
+#, fuzzy
+msgid "Remap blend-file paths::"
+msgstr "Перерозкладає шляхи blend-файлу::"
+
+#: ../../manual/pipeline/bam.rst:154
+msgid "This command is a three step process:"
+msgstr "Ця команда є процесом з трьох кроків:"
+
+#: ../../manual/pipeline/bam.rst:156
+msgid ""
+"First run ``bam remap start .`` which stores the current state of your "
+"project (recursively)."
+msgstr ""
+"Спершу запускається ``bam remap start .``, який зберігає поточний стан "
+"вашого проекту (рекурсивно)."
+
+#: ../../manual/pipeline/bam.rst:157
+#, fuzzy
+msgid "Then re-arrange the files on the file system (rename, relocate)."
+msgstr ""
+"Далі пере-впорядковуються файли у файловій системі (перейменування, "
+"перерозміщення)."
+
+#: ../../manual/pipeline/bam.rst:158
+msgid ""
+"Finally run ``bam remap finish`` to apply the changes, updating the "
+"``.blend`` files internal paths."
+msgstr ""
+"Фінально запускається ``bam remap finish`` для застосування змін, "
+"оновлення внутрішніх шляхів файлів ``.blend``."
+
+#: ../../manual/pipeline/bam.rst:171
+msgid ""
+"Remapping creates a file called ``bam_remap.data`` in the current "
+"directory. You can relocate the entire project to a new location but on "
+"executing ``finish``, this file must be accessible from the current "
+"directory."
+msgstr ""
+"Перерозкладання створює файл під іменем ``bam_remap.data`` у поточному "
+"каталогу. Ви можете перемістити увесь проект у нову локацію, але при "
+"виконанні ``finish`` цей файл повинен бути доступний з поточного "
+"каталогу."
+
+#: ../../manual/pipeline/bam.rst:177
+msgid ""
+"This command depends on files unique contents, take care not to modify "
+"the files once remap is started."
+msgstr ""
+"Ця команда залежить від файлів унікального змісту, будьте обережні, не "
+"модифікуйте файли після запуску перерозкладання."
+
+#: ../../manual/pipeline/bam.rst:182
+msgid "Subcommands"
+msgstr "Підкоманди"
+
+#: ../../manual/pipeline/bam.rst:185
+msgid "remap start"
+msgstr "remap start"
+
+#: ../../manual/pipeline/bam.rst:187
+#, fuzzy
+msgid "Start remapping the blend-files::"
+msgstr "Запуск перерозкладання blend-файлів::"
+
+#: ../../<generated>:1 ../../manual/pipeline/bam.rst:193
+#: ../../manual/pipeline/bam.rst:208
+msgid "``-j``, ``--json``"
+msgstr "``-j``, ``--json``"
+
+#: ../../manual/pipeline/bam.rst:192 ../../manual/pipeline/bam.rst:207
+#: ../../manual/pipeline/bam.rst:218
+msgid "Generate JSON output."
+msgstr "Генерування виводу JSON."
+
+#: ../../manual/pipeline/bam.rst:196
+msgid "remap finish"
+msgstr "remap finish"
+
+#: ../../manual/pipeline/bam.rst:198
+#, fuzzy
+msgid "Finish remapping the blend-files::"
+msgstr "Завершення перерозкладання blend-файлів::"
+
+#: ../../manual/pipeline/bam.rst:202
+msgid "``-r``, ``--force-relative``"
+msgstr "``-r``, ``--force-relative``"
+
+#: ../../manual/pipeline/bam.rst:203
+msgid "Make all remapped paths relative (even if they were originally absolute)."
+msgstr ""
+"Зроблення усіх перерозкладених шляхів відносними (навіть, якщо вони "
+"спочатку були абсолютними)."
+
+#: ../../manual/pipeline/bam.rst:204
+msgid "``-d``, ``--dry-run``"
+msgstr "``-d``, ``--dry-run``"
+
+#: ../../manual/pipeline/bam.rst:205
+msgid "Just print output as if the paths are being run."
+msgstr "Просте подання на екран виводу, ніби ці шляхи запускаються."
+
+#: ../../manual/pipeline/bam.rst:211
+msgid "remap reset"
+msgstr "remap reset"
+
+#: ../../manual/pipeline/bam.rst:213
+msgid "Cancel path remapping::"
+msgstr "Скасування перерозкладання шляхів::"
+
+#~ msgid ""
+#~ "Refactoring linked .blend files is a "
+#~ "common practice in a production "
+#~ "environment. While some basic operations "
+#~ "can be accomplished within Blender, "
+#~ "sometimes it is more practical to "
+#~ "perform them on the command line "
+#~ "or via a script. During the "
+#~ "production of Cosmos Laundromat (Gooseberry"
+#~ " Open Movie Project) the *BAM Asset"
+#~ " Manager* (BAM) was developed. The "
+#~ "original scope of BAM included "
+#~ "client-server asset management tools going"
+#~ " beyond Blender, but it was later "
+#~ "refocused on core utilities to perform"
+#~ " two operations:"
+#~ msgstr ""
+#~ "Переробка пов'язаних blend-файлів є загальною"
+#~ " практикою у виробничому середовищі. Хоча"
+#~ " деякі базові операції можуть бути "
+#~ "здійснені у межах Blender'а, інколи "
+#~ "більш практично здійснювати їх з "
+#~ "командного рядка або через скрипт. У "
+#~ "ході виробництва проекту Cosmos Laundromat "
+#~ "(Gooseberry Open Movie Project) було "
+#~ "розроблено менеджер активів *BAM Asset "
+#~ "Manager* (BAM). Оригінальний охват BAM "
+#~ "включав засоби управління активами на "
+#~ "основі клієнт-сервер поза Blender'ом, але "
+#~ "пізніше він був переорієнтований на "
+#~ "базові утиліти для здійснення двох "
+#~ "операцій:"
+

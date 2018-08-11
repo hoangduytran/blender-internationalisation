@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Модифікатор «Підгонка» -- Cast Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/modifiers/deform/cast.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Corrective Smooth Modifier" href="corrective_smooth.html" />
+    <link rel="prev" title="Модифікатор «Арматура» -- Armature Modifier" href="armature.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Модифікатори -- Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Модифікування -- Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Генерування -- Generate</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#deform">Деформування -- Deform</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="armature.html">Модифікатор «Арматура» -- Armature Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Модифікатор «Підгонка» -- Cast Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="corrective_smooth.html">Corrective Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">Модифікатор «Крива» -- Curve Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">Модифікатор «Зміщення» -- Displace Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hooks.html">Модифікатор «Гачок» -- Hook Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_smooth.html">Модифікатор «Лапласове Згладження» -- Laplacian Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_deform.html">Модифікатор «Лапласове Деформування» -- Laplacian Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lattice.html">Модифікатор «Решітка» -- Lattice Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_deform.html">Модифікатор «Деформування Сіттю» -- Mesh Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Модифікатор «Обтягування» -- Shrinkwrap Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simple_deform.html">Модифікатор «Проста Деформація» -- Simple Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smooth.html">Модифікатор «Згладження» -- Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_deform.html">Модифікатор «Деформування Поверхнею» -- Surface Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="warp.html">Модифікатор «Жолоблення» -- Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wave.html">Модифікатор «Хвиля» -- Wave Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Імітування -- Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Модифікатори -- Modifiers</a> &raquo;</li>
+        
+      <li>Модифікатор «Підгонка» -- Cast Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/deform/cast.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cast-modifier">
+<span id="bpy-types-castmodifier"></span><h1>Модифікатор «Підгонка» -- Cast Modifier<a class="headerlink" href="#cast-modifier" title="Permalink to this headline">¶</a></h1>
+<p>This modifier shifts the shape of a mesh, curve,
+surface or lattice to any of a few predefined shapes (sphere, cylinder, cuboid).</p>
+<p>Він є еквівалентом інструмента «До Сфери» -- <em>To Sphere</em> у режимі правки <em>Edit Mode</em> <span class="menuselection">Mesh ‣ Transform ‣ To Sphere</span>, <kbd class="kbd docutils literal notranslate">Shift-Alt-S</kbd>, що в інших програмах називається &quot;Spherify&quot; або &quot;Spherize&quot;, але, як написано вище, він не обмежується підгонкою до сфери.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Модифікатор «Згладження» -- <a class="reference internal" href="smooth.html"><span class="doc">Smooth Modifier</span></a> є добрим компаньйоном модифікатору <em>Cast</em>, оскільки підігнана форма інколи потребує згладження, щоб виглядати краще, або навіть для виправлення артефактів відтінення.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">З міркувань продуктивності цей модифікатор працює тільки з локальними координатами. Якщо модифікований об'єкт виглядає неправильно, то вам можливо знадобиться застосувати <kbd class="kbd docutils literal notranslate">Ctrl-A</kbd> його обертання, особливо, коли підгонка здійснюється до циліндра.</p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_deform_cast_panel.png" src="../../../_images/modeling_modifiers_deform_cast_panel.png" />
+<p class="caption"><span class="caption-text">Модифікатор «Підгонка» -- Cast.</span></p>
+</div>
+<dl class="docutils">
+<dt>Тип Підгонки -- Cast Type</dt>
+<dd><p class="first">Меню для вибору цільової форми проекції.</p>
+<p class="last">Сфера -- Sphere, Циліндр -- Cylinder, Кубоїд -- Cuboid</p>
+</dd>
+<dt>Вісь -- Axis</dt>
+<dd><p class="first">Перемикає кнопки для увімкнення/вимкнення модифікатора у напрямках осей X, Y, Z (X та Y тільки для типу підгонки <em>Cylinder</em>).</p>
+<p class="last">X, Y, Z</p>
+</dd>
+<dt>Фактор -- Factor</dt>
+<dd>Фактор для керування змішуванням між оригінальною та підігнаною позицією вершини. Це лінеарна, прямолінійна інтерполяція: 0.0 дає оригінальні координати (тобто, модифікатор немає впливу), 1.0 підганяє до цільової форми. Значення нижче 0.0 або вище 1.0 перебільшують деформування, інколи цікавими способами.</dd>
+<dt>Радіус -- Radius</dt>
+<dd>Якщо не нуль, то цей радіус визначає сферу впливу. Вершини поза ним не задіюються цим модифікатором.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Альтернативний розмір для проектованої форми. Якщо нуль, то це визначається початковою формою та керувальним об'єктом, якщо такий задано.</dd>
+<dt>З Радіуса -- From Radius</dt>
+<dd>Якщо активовано, то <em>Size</em> розраховується з <em>Radius</em>, для плавніших результатів.</dd>
+<dt>Група Вершин -- Vertex Group</dt>
+<dd>Ім'я групи вершин для обмеження ефекту тільки на її вершини. Це дозволяє здійснювати вибіркове, реально-часове підганяння шляхом малювання вагомостей вершин.</dd>
+<dt>Керувальний Об'єкт -- Control Object</dt>
+<dd><p class="first">Ім'я об'єкта для керування ефектом. Локація початку цього об'єкта визначає центр проекції. Також, його розмір та обертання трансформують проектовані вершини.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Анімування (ключкадрування) цього керувального об'єкта також анімує модифікований об'єкт.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_deform_cast_example.jpg"><img alt="../../../_images/modeling_modifiers_deform_cast_example.jpg" src="../../../_images/modeling_modifiers_deform_cast_example.jpg" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Зверху: Сюзанна без модифікаторів. Середина: Сюзанна з кожним типом модифікатора Cast (Sphere, Cylinder та Cuboid). Знизу: Так само, як і вище посередині, але тепер увімкнено тільки вісь X. Blend-файл зразка -- <a class="reference external" href="https://wiki.blender.org/index.php/Media:263-Cast-Modifier.blend">Sample blend-file</a>.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="corrective_smooth.html" class="btn btn-neutral float-right" title="Corrective Smooth Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="armature.html" class="btn btn-neutral" title="Модифікатор «Арматура» -- Armature Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

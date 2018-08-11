@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Жолоблення -- Warp &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/transform/warp.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Згин -- Bend" href="bend.html" />
+    <link rel="prev" title="До Сфери -- To Sphere" href="to_sphere.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редагування -- Editing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../basics/index.html">Основи -- Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vertices.html">Інструменти Вершин -- Vertex Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../edges.html">Інструменти Ребер -- Edge Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../faces.html">Інструменти Граней -- Face Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../normals.html">Нормалі -- Normals</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Трансформування -- Transformation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../duplicating/index.html">Дублювання -- Duplicating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subdividing/index.html">Підподілення -- Subdividing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cleanup.html">Вичищення -- Clean up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../misc.html">Різні інструменти правлення</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data_transfer.html">Перенос Даних -- Data Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mesh_options.html">Опції Сіті -- Mesh Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редагування -- Editing</a> &raquo;</li>
+        
+          <li><a href="index.html">Трансформування -- Transformation</a> &raquo;</li>
+        
+      <li>Жолоблення -- Warp</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modeling/meshes/editing/transform/warp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="warp">
+<h1>Жолоблення -- Warp<a class="headerlink" href="#warp" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Режими Об'єкта та Правки -- Object and Edit Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Об'єкт/Сіть/Крива/Поверхня &gt; Трансформація &gt; Жолоблення» -- <span class="menuselection">Object/Mesh/Curve/Surface ‣ Transform ‣ Warp</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/modeling_meshes_editing_transform_warp_operator-panel.png" src="../../../../_images/modeling_meshes_editing_transform_warp_operator-panel.png" />
+<p class="caption"><span class="caption-text">Опції інструмента Warp.</span></p>
+</div>
+<p>У режимі правки <em>Edit Mode</em> трансформування <em>Warp</em> бере виділені елементи та жолобить їх навколо 3D курсора на певний кут. Зауважте, що це трансформування завжди залежить від локації 3D курсора. Опорна Точка -- Pivot Point не враховується. Результати трансформування <em>Warp</em> також залежать від поточного огляду.</p>
+<p>У режимі об'єкта <em>Object Mode</em> трансформування <em>Warp</em> бере виділені Об'єкти та змушує їх пересунутися по шляху, схожому на орбіту, навколо 3D курсора. Подібно як і у режимі правки <em>Edit Mode</em>, опорна точка Pivot Point не враховується, а результати залежать від поточного огляду.</p>
+<div class="section" id="usage">
+<h2>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="d">
+<caption><span class="caption-text">У цьому прикладі площина зжолоблена навколо 3D курсора на вказану кількість градусів.</span><a class="headerlink" href="#d" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-90.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-90.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-90.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення -- Warp Angle 90.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення -- 180.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-360.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-360.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-360.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення -- 360.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Виділіть елементи, які ви хочете обробити, та активуйте інструмент трансформації <em>Warp</em>. Засіб <em>Warp</em> може задіятися за допомогою меню <span class="menuselection">Object/Mesh/Curve/Surface ‣ Transform ‣ Warp</span>. Величина жолоблення, заданого для виділу, може визначатися інтерактивно шляхом руху миші або уводом числового значення. Натискання <kbd class="kbd docutils literal notranslate">Return</kbd> підтвердить це трансформування.. Підтверджене трансформування може бути далі редаговане на панелі, яка відкривається натиском на <kbd class="kbd docutils literal notranslate">F6</kbd> або на Полиці Інструментів, <kbd class="kbd docutils literal notranslate">T</kbd>, шляхом зміни повзунка Warp Angle, при умові, що жодна інша дія не була здійснена між підтвердженням трансформації <em>Warp</em> та доступом до цього повзунка.</p>
+<div class="section" id="cursor-position-and-view">
+<h3>Позиція курсора та Огляд<a class="headerlink" href="#cursor-position-and-view" title="Permalink to this headline">¶</a></h3>
+<p>Локація 3D курсора може використовуватися для зміни результатів трансформування <em>Warp</em>. Як можна побачити з прикладу у цьому підрозділі, радіус <em>Warp</em> залежить від відстані курсора до виділених елементів. Чим більша відстань, тим більший радіус.</p>
+<p>На результат трансформації <em>Warp</em> також впливає ваш поточний огляд. Приклад у цьому підрозділі показує результати трансформації <em>Warp</em> зі значенням 180 градусів, застосованої до тієї ж сітьової Площини при різних оглядах.</p>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-text">Це зображення показує, як на трансформацію Warp впливає локація курсора.</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-180.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення -- 180.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor-180.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor-180.png" src="../../../../_images/modeling_meshes_editing_transform_warp_mesh-cursor-180.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення -- 180.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id11">
+<caption><span class="caption-text">Це зображення показує вплив поточного огляду.</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_view-1.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_view-1.png" src="../../../../_images/modeling_meshes_editing_transform_warp_view-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_view-2.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_view-2.png" src="../../../../_images/modeling_meshes_editing_transform_warp_view-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення 180 в огляді XZ.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_view-3.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_view-3.png" src="../../../../_images/modeling_meshes_editing_transform_warp_view-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення 180 в огляді YZ.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_transform_warp_view-4.png"><img alt="../../../../_images/modeling_meshes_editing_transform_warp_view-4.png" src="../../../../_images/modeling_meshes_editing_transform_warp_view-4.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Кут Жолоблення 180 в огляді, довільно заданому Користувачем.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Жолоблення тексту</p>
+<p class="last">Якщо ви хочете жолобити текст, то вам необхідно конвертувати його з типу об'єкта Text у Mesh, натиснувши <kbd class="kbd docutils literal notranslate">Alt-C</kbd> та вибравши опцію <em>Mesh from Curve/Meta/Surf/Text</em>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id16">
+<img alt="../../../../_images/modeling_meshes_editing_transform_warp_text.jpg" src="../../../../_images/modeling_meshes_editing_transform_warp_text.jpg" />
+<p class="caption"><span class="caption-text">Текст, зжолоблений навколо логотипа.</span></p>
+</div>
+<p>Це було зроблено шляхом створення логотипа Blender'а та тексту, як окремих Об'єктів. Текст було конвертовано у сіть, а потім зжолоблено навколо логотипа Blender'а.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bend.html" class="btn btn-neutral float-right" title="Згин -- Bend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="to_sphere.html" class="btn btn-neutral" title="До Сфери -- To Sphere" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

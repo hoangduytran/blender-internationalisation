@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/lighting/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Освітлювачі -- Lights" href="lights/index.html" />
+    <link rel="prev" title="Освітлення -- Lighting" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Освітлення -- Lighting</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lights/index.html">Освітлювачі -- Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shadows/index.html">Тіні -- Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="volumetric_lights.html">Об'ємне освітлення -- Volumetric Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lamps/index.html">Типи Ламп -- Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lighting_rigs.html">Оснастки Освітлення -- Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Освітлення -- Lighting</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/lighting/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Освітлення є дуже важливою темою при зображуванні, рендерингу, рівнозначною темі моделювання, матеріалів та текстур. Найбільш точно змодельована та текстурована сцена дасть призведе до поганих результатів без належної схеми освітлення, тоді як проста модель може виглядати на зображі дуже реалістичною, якщо вміло освітлена.</p>
+<div class="section" id="viewing-restrictions">
+<h2>Обмеження перегляду<a class="headerlink" href="#viewing-restrictions" title="Permalink to this headline">¶</a></h2>
+<p>На колір об'єкта та освітлення сцени впливають:</p>
+<ul class="simple">
+<li>Ваша здібність бачити різні кольори (часткова колірна сліпота є поширеним явищем).</li>
+<li>Носій показу, на якому ви переглядаєте зображення (наприклад, рідкокристалічна LCD панель або друкований глянцевий папір).</li>
+<li>Якість зображення (наприклад, <code class="docutils literal notranslate"><span class="pre">jpeg</span></code> зі стисненням 0.4 або стисненням 1.0).</li>
+<li>Середовище, в якому ви переглядаєте зображення (наприклад, монітор з електронно-променевою трубкою CRT з відблиском або у темній чи освітленій сонцем синій кімнаті).</li>
+<li>Сприйняття вашим мозком кольору та інтенсивності відносно об'єктів навколо їх, а також фоновий колір світу, який може змінюватися за допомогою технік маніпулювання кольором за допомогою компонівних вузлів -- <a class="reference internal" href="../../../compositing/introduction.html"><span class="doc">Composite Nodes</span></a>. у Blender'і.</li>
+</ul>
+</div>
+<div class="section" id="global-influences">
+<h2>Глобальні впливи<a class="headerlink" href="#global-influences" title="Permalink to this headline">¶</a></h2>
+<p>У Blender'і елементами під вашим керуванням, що впливають на освітлення, є:</p>
+<ul class="simple">
+<li>Колір освітлення оточення -- <a class="reference internal" href="../world/ambient_light.html"><span class="doc">ambient light</span></a> для світу.</li>
+<li>Використання Загороди Оточення -- <a class="reference internal" href="../world/ambient_occlusion.html"><span class="doc">Ambient Occlusion</span></a> як способу відбору освітлення оточення на об'єкт.</li>
+<li>Міра, з якою освітлення оточення забарвлює матеріал -- <a class="reference internal" href="../materials/index.html"><span class="doc">material</span></a> об'єкта.</li>
+<li>Використання Побічного Освітлення -- <a class="reference internal" href="../world/indirect_lighting.html"><span class="doc">Indirect lighting</span></a>, де колір одного об'єкта опромінюється на інший.</li>
+<li>Лампи -- <a class="reference internal" href="lamps/introduction.html"><span class="doc">lamps</span></a> у вашій сцені.</li>
+</ul>
+<p>Фізика відбивання світла навколо у реальному світі імітується Загородою Оточення -- Ambient Occlusion (устава світу), буферними тінями -- buffer shadows (які є приблизними тінями, що відкидають об'єктами), простеження променів -- ray tracing (яке простежує шлях фотонів від джерел освітлення). Також, у межах Blender'а ви можете використовувати Побічне Освітлення -- <a class="reference internal" href="../world/indirect_lighting.html"><span class="doc">Indirect lighting</span></a>. Простеження променів, загорода оточення та побічне освітлення є ресурсно-затратними процесами обчислення. Blender може здійснювати набагато швидше зображування, рендеринг за допомогою його внутрішнього порядкового -- scan line зображувача, рендерера, який насправді є дуже добрим порядковим зображувачем. Цей тип рушія зображування є набагато швидшим, оскільки він не намагається імітувати реальну поведінку світла, використовуючи багато спрощувальних гіпотез.</p>
+</div>
+<div class="section" id="lighting-settings">
+<h2>Устави освітлення<a class="headerlink" href="#lighting-settings" title="Permalink to this headline">¶</a></h2>
+<p>Тільки, після врахування і налаштування вище наведених глобальних впливів, ви можете розпочати додавати освітлення від ламп у вашу сцену. Головними елементами, якими ви можете керувати, при цьому, є:</p>
+<ul class="simple">
+<li>Тип використовуваного освітлювача («Сонце» -- <em>Sun</em>, «Прожектор» -- <em>Spot</em>, всенаправлена «Лампа» -- <em>Lamp</em>, «Півсфера» -- <em>Hemi</em> тощо.).</li>
+<li>Колір освітлення.</li>
+<li>Позиція освітлювача та його напрямок.</li>
+<li>Устави для освітлювача, включаючи енергію та спад.</li>
+</ul>
+<p>Далі, ви можете повернутися до питання, як відтінювач, шейдер -- <a class="reference internal" href="../materials/properties/diffuse_shaders.html"><span class="doc">shader</span></a> матеріалу реагує на освітлення.</p>
+<p>Ця глава спробує ознайомити вас з вище наведеним, включаючи те, як освітлювачі можуть працювати разом в їх оснастках для освітлення вашої сцени. У цій главі ми проаналізуємо різні типи освітлювачів у Blender'і та їх поведінку; ми обговоримо їх сильні та слабкі сторони. Ми також опишемо багато оснасток освітлення, включаючи найпопулярніший метод освітлення з трьох точок.</p>
+</div>
+<div class="section" id="lighting-in-the-workflow">
+<h2>Освітлення у ході роботи<a class="headerlink" href="#lighting-in-the-workflow" title="Permalink to this headline">¶</a></h2>
+<p>У цьому посібнику користувача ми розмістили підрозділ про Освітлення перед підрозділом про Матеріали; ви повинні укладати освітлення перед призначенням матеріалів. Оскільки відтінювачі, шейдери матеріалів реагують на світло, то без належного освітлення, ці відтінювачі матеріалів не будуть давати правильний вигляд, і ви, у кінцевому підсумку, боротиметеся з цими відтінювачами, а насправді проблема спричиняється поганим освітленням. Усі ілюстрації прикладів у цьому підрозділі не використовують жодної устави матеріалів взагалі для моделей кулі чи куба або для фону сцени.</p>
+</div>
+<div class="section" id="overriding-materials-to-reset-lighting">
+<h2>Підміна матеріалів для скидання освітлення<a class="headerlink" href="#overriding-materials-to-reset-lighting" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_lighting_introduction_material-field.png" src="../../../_images/render_blender-render_lighting_introduction_material-field.png" />
+<p class="caption"><span class="caption-text">Поле опції «Матеріал» -- Material на панелі «Шар» -- Layer у вкладці «Шари Зобража» -- Render Layers.</span></p>
+</div>
+<p>Якщо ви розпочали з призначення матеріалів, а після додаєте освітлення, то ми рекомендуємо вам створити стандартний, загальний сірий матеріал -- без Кольорів Вершин -- <em>Vertex Color</em>, без Текстур Граней -- <em>Face Texture</em>, без вимкнення відтінків -- <em>Shadeless</em>, просто зі звичайним середньо-сірим кольором з RGB(0.8, 0.8, 0.8). Назвіть його як &quot;Gray&quot;.</p>
+<p>Далі, перейдіть у вкладку <em>Render Layers</em>. Та на панелі <em>Layer</em> виберіть цей новий матеріал &quot;Gray&quot; у полі опції <em>Material</em>. Це підмінить будь-які матеріали, які ви можливо попередньо призначили, та буде зображувати, рендерити все у сцені з цим кольором. Використовуючи цей матеріал, ви можете тепер перейти до налаштування освітлення. Просте спорожнення цього поля поверне вигляд з вашими оригінальними матеріалами.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lights/index.html" class="btn btn-neutral float-right" title="Освітлювачі -- Lights" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Освітлення -- Lighting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

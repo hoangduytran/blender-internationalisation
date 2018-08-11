@@ -1,0 +1,507 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Робхід &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/textures/types/image/workflow.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Опції" href="options.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Текстури -- Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../texture_panel.html">Панель «Текстура» -- Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../assigning_a_texture.html">Призначення Текстури -- Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Властивості Текстури -- Texture Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Типи Текстур -- Texture Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nodes/index.html">Текстурові Вузли -- Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Текстури -- Textures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Типи Текстур -- Texture Type</a> &raquo;</li>
+        
+          <li><a href="index.html">Зображення або Фільм -- Image or Movie</a> &raquo;</li>
+        
+      <li>Робхід</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/textures/types/image/workflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow">
+<h1>Робхід<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h1>
+<p>Процес використання зображеннєвих текстур складається з наступних кроків:</p>
+<ol class="arabic simple">
+<li>Створіть об'єкт типу «сіть» -- Mesh. Розгорніть -- <a class="reference internal" href="../../../../../editors/uv_image/uv/editing/unwrapping/index.html"><span class="doc">Unwrap</span></a> її в одну або кілька розстав UV -- <a class="reference internal" href="../../../../../editors/uv_image/uv/layout_management.html"><span class="doc">UV Layouts</span></a>.</li>
+<li>Створіть один чи кілька Матеріалів для цієї Сіті.</li>
+<li>Create one or more images for each UV layout and aspect of the texture. Either:
+- Paint directly on the mesh using Texture Paint in the 3D View,
+- Load and/or edit an image in the UV/Image Editor, or
+- Bake the existing materials into an image for the UV/Image Editor.</li>
+<li>Apply those images as UV textures to the mesh to affect one or more aspects of the mesh.
+This is done by using one or more of the numerous Map To options. For example:
+- Map to Color to affect the diffuse coloring of the mesh,
+- Map to Nor to affect the normal direction to give the surface a bumpy or creased look, or
+- Map to Spec (specularity) to make certain areas look shiny and oily.</li>
+<li>Layer the textures to create a convincing result.</li>
+</ol>
+<div class="section" id="using-images-and-materials">
+<h2>Використання зображень та матеріалів<a class="headerlink" href="#using-images-and-materials" title="Permalink to this headline">¶</a></h2>
+<p>Для використання зображення як кольору та альфа (прозорість) текстури ви можете створити зображення у зовнішній програмі для малювання та Відкрити -- Open його у Редакторі UV/Зображень -- UV/Image Editor як текстуру, або ви можете створити Нове -- New зображення та зберегти його як текстуру.</p>
+<p>If you want to start off by creating an image using an external paint program,
+you will want to save an outline of your UV faces by using
+the <a class="reference internal" href="../../../../../addons/io_uv_layout.html"><span class="doc">Export UV Layout</span></a> add-on located in the UVs menu.</p>
+<div class="section" id="creating-an-image-texture">
+<h3>Створення Зображеннєвої Текстури<a class="headerlink" href="#creating-an-image-texture" title="Permalink to this headline">¶</a></h3>
+<p>Для створення зображення у Blender'і ви повинні спершу створити нове порожнє -- <a class="reference internal" href="../../../../../editors/uv_image/uv/editing/applying_image.html"><span class="doc">New Blank</span></a> зображення однорідного кольору або з тестовою сіткою. Після цього ви можете забарвити це зображення, використавши:</p>
+<ul class="simple">
+<li>Кольори вершин як основу для зображення.</li>
+<li>Запекти рендер зображення на основі того, як сіть виглядає у сцені.</li>
+</ul>
+<p>Після створення зображення ви можете модифікувати його за допомогою вбудованого у Blender'і Малювання Текстур -- <a class="reference internal" href="../../../../../sculpt_paint/painting/texture_paint/introduction.html"><span class="doc">Texture Paint</span></a> або будь-якої зовнішньої програми малювання.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Переглядайте текстуру у 3D Огляді, а не на рендері</p>
+<p class="last">You may be able to see the texture in Textured display mode in the 3D View;
+this is all that is required to have textures show up in Blender's Game Engine. Rendering, however,
+requires a material.
+You must have a <em>Face Textures</em> material assigned to the mesh for it to render using the UV texture.
+In the Material settings, Add New material to a selected object and enable <em>Face Textures</em>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>There may be one UV layout for the face of a character, and another for their clothes. Now,
+to texture the clothes, you need to create an image at least for the Color of the clothes, and
+possible a &quot;bump&quot; texture to give the fabric the appearance of some weave by creating
+a different image for the Normal of the clothes. Where the fabric is worn,
+for example at the elbows and knees, the sheen, or Specularity, of the fabric will vary and
+you will want a different image that tells Blender how to vary the Specularity.
+Where the fabric is folded over or creased,
+you want another image that maps Displacement to the mesh to physically deform the mesh.
+Each of these are examples of applying an image as a texture to the mesh.</p>
+<p>As another example, the face is the subject of many questions and tutorials. In general,
+you will want to create a Material that has the basic skin color, appropriate shaders,
+and subsurface scattering. Then you will want to layer on additional UV textures for:</p>
+<ul class="simple">
+<li>Веснянок на аспекти Color та Normal.</li>
+<li>Підшкірних вен та сухожиль на Displacement.</li>
+<li>Складок, зморшок та розшарувань клітин шкіри на Normal.</li>
+<li>Макіяжу на Color.</li>
+<li>Жирності на Specularity.</li>
+<li>Для зомбі, на Alpha прозорість, де плоть згнила.</li>
+<li>Під підборіддям та всередині ніздрів, що отримують менше освітлення Оточення.</li>
+<li>Тонка шкіра є більш півпрозорою, а тому і для цього випадку має бути своя карта.</li>
+</ul>
+<p>Each image is mapped by using another Texture Channel.
+Each of these maps are images which are applied to
+the different aspects (Color, Normal, Specularity) of the image.
+Tileable images can be repeated to give a smaller,
+denser pattern by using the texture controls for repeat or size.</p>
+<div class="section" id="layering-uv-textures">
+<h3>Нашарування Текстур UV<a class="headerlink" href="#layering-uv-textures" title="Permalink to this headline">¶</a></h3>
+<p>Чудові текстури формуються нашаруванням зображень одне поверх іншого. Ви починаєте з базового шару, яке є базовим малюнком. Кожен наступний шар поверх цього є дещо прозорішим, щоб нижчі шари могли проглядатися наскрізь, однак безпрозорим там, де мають додаватися деталі.</p>
+<p>To avoid massive confusion, all image textures for a mesh usually use the same UV map.
+If you do, each image will line up with the one below it,
+and they will layer on top of one another like the examples shown to the right. To do this,
+just create one UV texture (map) as described in this section. Then,
+create material image textures as described in the procedural materials section.
+Instead of mapping to Original Coordinates (OrCo), map to UV.</p>
+<p>Use that map name repeatedly in the <span class="menuselection">Material ‣ Textures ‣ Map Input</span>
+panel by selecting <em>UV</em> and typing the name in the text field. In the example to the right,
+our UV texture is called &quot;Head&quot; (you may have to expand the image to see the panel settings).
+Then, the image texture shown will be mapped using the UV coordinates.
+In the &quot;Base UV texture&quot; example to the right, the face has two textures UV-mapped;
+one for a base color, and another for spots, blemishes and makeup.</p>
+<p>Both textures use the same UV texture map as their Map Input, and both affect Color.
+The makeup texture is transparent except where there is color,
+so that the base color texture shows through.
+Note that the colors were too strong on the image,
+so they amount of the diffuse color affects is turned down to 60% in the second layer (the blemish layer).</p>
+<p>Normally, we think of image textures affecting the color of a mesh. Realism and
+photorealistic rendering is a combination of many different ways that light interacts with
+the surface of the mesh. The image texture can be Mapped To not only color,
+but also <em>Normal</em> (bumpiness)
+or <em>Reflection</em> or any of the other attributes specified in the Map To panel.</p>
+<p>If you paint a grayscale image (laid out according to the UV layout)
+with white where the skin is oily and shiny, and dark where it is not,
+you would map that input image according to the UV layout, but have it affect Specularity
+(not color).</p>
+<p>To make portions of a mesh transparent and thus reveal another mesh surface underneath,
+you would paint a grayscale image with black where you want the texture transparent,
+map input to UV, and map it to Alpha (not color). To make portions of a mesh,
+like a piece of hot metal, appear to glow, you would use a grayscale image mapped to Emit.</p>
+<p>Вірите чи ні, але це лише «верхівка айсберга»! Якщо все, що описане тут, не достатньо для вас, функція <em>текстурових вузлів</em> у Blender'і дозволяє вам нашаровувати та комбінувати цілі текстури майже так, як ви можете собі уявляти.</p>
+</div>
+<div class="section" id="mix-and-match-materials">
+<h3>Змішування та узгодження матеріалів<a class="headerlink" href="#mix-and-match-materials" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right">
+<img alt="../../../../../_images/render_blender-render_textures_types_image_workflow_uv-mixmat.jpg" src="../../../../../_images/render_blender-render_textures_types_image_workflow_uv-mixmat.jpg" />
+</div>
+<p>Ви можете змішувати та узгоджувати процедурні матеріали і текстури, малювання вершин та текстури UV на одній тій же сіті.</p>
+<p>The image to the right has a world with a red ambient light.
+The material has both Vertex Color Paint and Face Textures enabled,
+and receives half of ambient light. A weak cloud texture affects color, mixing in a tan color.
+The right vertices are vertex painted yellow and the left is unpainted procedural gray.
+The UV texture is a stock arrow image from the public domain texture CD.
+Scene lighting is a white light off to the right.
+From this information and the User Manual thus far,
+you should now be able to recreate this image.</p>
+<p>Ви можете також призначити одночасно кілька матеріалів <a class="reference internal" href="../../../materials/assigning_a_material.html#bi-multiple-materials"><span class="std std-ref">multiple materials</span></a> для сіті на основі того, які вам грані потрібно текстурувати процедурно, а які -- за допомогою розкладки на них зображеннєвої текстури. Просто не розкладайте по UV на грані, які ви плануєте текстурувати процедурно.</p>
+<p>You can use UV textures and Vertex Paint (<kbd class="kbd docutils literal notranslate">V</kbd> in the 3D View) simultaneously,
+if both are enabled in the Material settings.
+The vertex colors are used to modulate the brightness or color of the UV image texture:</p>
+<ul class="simple">
+<li>UV texture is at the base <em>(Face Textures)</em></li>
+<li>Малювання Вершин впливає на її кольори, далі</li>
+<li>Процедурні текстури накладаються поверх цього,</li>
+<li>Площинні освітлювачі освітлюють поверхню, відкидають тіні, і нарешті</li>
+<li>Освітлення оточення освітлює все це.</li>
+</ul>
+<p>A UV layout can only have one image, although you can tile and animate the image.
+Since a layout is a bunch of arranged UV maps, and a UV map maps many mesh faces,
+a face can therefore only have one UV texture image,
+and the UV coordinates for that face must fit entirely on the image.
+If you want a face to have multiple images, split the face into parts,
+and assign each part its own image.
+(<em>Or</em> you can get fancy with Nodes, but that is another story ...).</p>
+</div>
+<div class="section" id="using-alpha-transparency">
+<h3>Використання Альфа прозорості<a class="headerlink" href="#using-alpha-transparency" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id1">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_image_workflow_uv-alpha.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_image_workflow_uv-alpha.jpg" src="../../../../../_images/render_blender-render_textures_types_image_workflow_uv-alpha.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Alpha UV textures.</span></p>
+</div>
+<p>Alpha 0.0 (transparent) areas of a UV Image render as black.
+Unlike a procedural texture, they do not make the base material transparent,
+since UV textures do not operate on the base procedural material.
+The UV texture overrides any procedural color underneath.
+Procedural textures are applied on top of UV textures,
+so a procedural image texture would override any UV texture. Transparent (black)
+areas of a procedural texture mapped to alpha operate on top of anything else,
+making the object transparent in those places.
+The only thing that modulates visible parts of a UV texture are the Vertex Colors.
+In the example to the right,
+the finger image is transparent at the cuff and top of the finger and is used as a UV texture.
+All three balls have a base material of blue and a marbling texture.
+The base material color is not used whenever Face Textures is enabled.</p>
+<p>The top left ball has not had any vertex painting,
+and the finger is mapped to the middle band, and the texture is mapped to a pink color.
+As you can see, the base material has Vertex Color Paint and Face Textures enabled;
+the base color blue is not used, but the texture is. With no vertex painting,
+there is nothing to modulate the UV texture colors, so the finger shows as white.
+Transparent areas of the UV Image show as black.</p>
+<p>The top right ball has had a pink vertex color applied to the vertical band of faces
+(in the 3D View editor, select the faces in UV Paint Mode, switch to Vertex Paint Mode,
+pick a pink color, and <span class="menuselection">Paint ‣ Set Vertex Colors</span>).
+The finger is mapped to the middle vertical band of faces,
+and Vertex Color and Face Textures are enabled.
+The texture is mapped to Alpha black and multiplies the base material alpha value which is 1.0.
+Thus, white areas of the texture are 1.0, and 1.0 times 1.0 is 1.0
+so that area is opaque and shows. Black areas of the procedural texture, 0.0,
+multiply the base material to be transparent. As you can see, the unmapped faces
+(left and right sides of the ball) show the vertex paint (none, which is gray)
+and the painted ones show pink, and the middle stripe that is both painted and mapped change
+the white UV texture areas to pink.
+Where the procedural texture says to make the object transparent,
+the green background shows through.
+Transparent areas of the UV texture insist on rendering black.</p>
+<p>Нижній м'яч використовує одночасно кілька матеріалів. Більшість м'яча (усі грані, за винятком середньої смуги) -- це базовий матеріал, для якого вимкнені Face Textures та Vertex Color Paint. Якщо ці опції вимкнені, то базовий синій колір матеріалу показується та рожевий колір текстури змішуються поверх нього. Для середньої смуги призначено новий матеріал (2 Mat 2), що <em>має</em> малювання вершин та увімкнену Face Textures. Середня смуга граней, де вершини намальовані жовтим, має свої білі частини пальця жовтими. Там, де рожева текстура йде поверх текстури UV, змішаний колір змінюється на зелений, оскільки рожевий та жовтий колір дає зелений.</p>
+<p>If you want the two images to show through one another, and mix together,
+you need to use Alpha. The base material can have an image texture with an Alpha setting,
+allowing the underlying UV texture to show through.</p>
+<p>Для накладання одночасно кілька зображень UV ви маєте кілька варіантів:</p>
+<ul class="simple">
+<li>Create multiple UV textures which map the same,
+and then use different images (with Alpha) and Blender will overlay them automatically.</li>
+<li>Use the <a class="reference internal" href="../../../../../compositing/index.html"><span class="doc">Composite Nodes</span></a> to combine the two images via the Alpha Over node,
+creating and saving the composite image. Open that composited image as the UV texture.</li>
+<li>Use an external paint program to alpha overlay the images and save the file,
+and load it as the face's UV texture</li>
+<li>Визначити два об'єкти, один просто всередині іншого. Внутрішній об'єкт матиме базове зображення, а зовнішнє зображення накладене зображення з матеріалом з альфа меншим за одиницю (1.0).</li>
+<li>Скористатися матеріаловими вузлами -- <a class="reference internal" href="../../../materials/nodes/index.html"><span class="doc">Material nodes</span></a> для комбінування цих двох зображень через вузол Alpha Over або Mix, звідси створивши третій матеріал за допомогою вузлів, які ви використовуєте, як матеріал для грані. Використовуючи цей підхід, ви не повинні використовувати карту UV; просто призначте цей матеріал на грань використовуючи одночасно кілька матеріалів.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="options.html" class="btn btn-neutral float-right" title="Опції" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

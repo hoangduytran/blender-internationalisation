@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Скриптування та Безпека &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/advanced/scripting/security.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Навчальник про Додатки" href="addon_tutorial.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Просунуте -- Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../command_line/index.html">Командний Рядок -- Command Line</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Написання скриптів та Розширення Blender'а</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Скриптування та Безпека</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts-in-blend-files">Скрипти у Blend-Файлах</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-script-execution">Керування Виконанням Скрипту</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="addon_tutorial.html">Навчальник про Додатки</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../app_templates.html">Шаблони Застосунку -- Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../limits.html">Робочі Ліміти -- Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Просунуте -- Advanced</a> &raquo;</li>
+        
+          <li><a href="index.html">Написання скриптів та Розширення Blender'а</a> &raquo;</li>
+        
+      <li>Скриптування та Безпека</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/advanced/scripting/security.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scripting-security">
+<h1>Скриптування та Безпека<a class="headerlink" href="#scripting-security" title="Permalink to this headline">¶</a></h1>
+<p>Можливість включення скриптів Python у blend-файли є цінною для просунутих завдань таких, як оснащення, автоматизація та використання ігрового рушія Game Engine. Однак це створює ризик для безпеки, оскільки Python не обмежує те, що може робити скрипт.</p>
+<p>Тому, вам слід виконувати скрипти лише джерел, які ви знаєте та яким довіряєте.</p>
+<p>Автоматичне виконання стандартно вимкнене, однак, деякі з blend-файлів потребують його для правильного функціонуванн.</p>
+<p>При спробі blend-файлом виконати скрипт і при відсутності дозволу на це у заголовку вікна з'являється повідомлення про це з кнопками «Перевантажити Довірене» <strong>Reload Trusted</strong> та «Ігнорувати» <strong>Ignore</strong>.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/animation_drivers_troubleshooting_autorun-info-header.png" src="../../_images/animation_drivers_troubleshooting_autorun-info-header.png" />
+<p class="caption"><span class="caption-text">Попередження про Авто-виконання у заголовку редактора Інфо.</span></p>
+</div>
+<div class="section" id="scripts-in-blend-files">
+<h2>Скрипти у Blend-Файлах<a class="headerlink" href="#scripts-in-blend-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auto-execution">
+<h3>Авто Виконання<a class="headerlink" href="#auto-execution" title="Permalink to this headline">¶</a></h3>
+<p>Ось різні способи, якими blend-файли можуть автоматично запускати скрипти.</p>
+<dl class="docutils">
+<dt>Зареєстровані текстові блоки</dt>
+<dd>Текстовий блок може мати увімкнену опцію реєстрації <em>Register</em>, що означає, що він буде завантажуватися при запуску програми.</dd>
+<dt>Драйвери Анімації</dt>
+<dd>Вирази на Python можуть бути використані для значень <em>Drive</em> та часто використовуються у більш просунутих оснастках та анімаціях.</dd>
+<dt>Авто Старт Ігрового Рушія</dt>
+<dd>Скрипти часто використовуються для ігрової логіки, а blend-файли з ними можуть мати увімкнену опцію авто-старту <em>Auto Start</em> для запуску гри при запуску програми.</dd>
+</dl>
+</div>
+<div class="section" id="manual-execution">
+<h3>Виконання Вручну<a class="headerlink" href="#manual-execution" title="Permalink to this headline">¶</a></h3>
+<p>Існують і інші способи, якими можна виконувати скрипти у blend-файлах, що вимагають взаємодії користувача (а тому ці скрипти будуть виконуватися, коли опція авто виконання вимкнута), але ви повинні знати, що так буває, і це не є обов'язково очевидним.</p>
+<ul class="simple">
+<li>Виконання скрипту у редакторі Тексту.</li>
+<li>Рендеринг рушієм FreeStyle, оскільки цей рушій використовує скрипти для керування стилями ліній.</li>
+<li>Виконання Ігровим Рушієм.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="controlling-script-execution">
+<h2>Керування Виконанням Скрипту<a class="headerlink" href="#controlling-script-execution" title="Permalink to this headline">¶</a></h2>
+<p>Blender передбачає кілька способів контролювання, чи скриптам з blend-файлу дозволено автоматично виконуватися.</p>
+<p>Перш за все, Оглядач Файлів -- File Browser має опцію «Довірене Джерело»  -- <strong>Trusted Source</strong>, яка може використовуватися у кожному конкретному випадку для керування авто виконанням.</p>
+<p>Однак, ви можете забути про цю установку або відкривати файл не через Оглядач Файлів -- а тому існує можливість зміни стандартної поведінки опції авто-виконання (описана нижче).</p>
+<div class="section" id="setting-defaults">
+<h3>Установлення Стандартів<a class="headerlink" href="#setting-defaults" title="Permalink to this headline">¶</a></h3>
+<p>У вкладці «Файл»<em>File</em> вікна Уподобання Користувача є стяг-перемикач «Авто Виконувати Скрипти Python» <a class="reference internal" href="../../preferences/file.html#prefs-auto-execution"><span class="std std-ref">Auto Run Python Scripts</span></a>.</p>
+<p>При увімкненні це означатиме, що опція «Довірене Джерело» <strong>Trusted Source</strong> в Оглядачі Файлів також буде стандартно увімкнена і скрипти зможуть виконуватися при завантаженні blend-файлів у Blender без потреби використання Оглядача Файлів.</p>
+<p>Після увімкнення цієї опції в Уподобаннях Користувача ви можете задати винятки її застосування для файлів із зазначених тек, інакше типова конфігурація буде довіряти всім шляхам, окрім типової теки для звантажень.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/animation_drivers_troubleshooting_autorun-user-preference.png" src="../../_images/animation_drivers_troubleshooting_autorun-user-preference.png" />
+<p class="caption"><span class="caption-text">Стяг Авто Виконання Скриптів Python.</span></p>
+</div>
+</div>
+<div class="section" id="command-line">
+<h3>Командний Рядок<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h3>
+<p>Ви можете забажати здійснювати пакетне зображування або деякі інші завдання з командного рядка -- виконуючи Blender без інтерфейс.</p>
+<p>У такому випадку, Уподобання Користувача (User Preferences) все одно будуть використовуватися і вам слід змінювати стан цієї опції через командний рядок:</p>
+<ul class="simple">
+<li>Умикання здійснюється через додання до команди виконання Blender'а аргументу <code class="docutils literal notranslate"><span class="pre">-y</span></code> або <code class="docutils literal notranslate"><span class="pre">--enable-autoexec</span></code></li>
+<li>Вимикання здійснюється через додання до команди виконання Blender'а аргументу <code class="docutils literal notranslate"><span class="pre">-Y</span></code> or <code class="docutils literal notranslate"><span class="pre">--disable-autoexec</span></code></li>
+</ul>
+<div class="section" id="example">
+<h4>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Зображування анімації у фоновому режими з дозволом виконання драйверів та інших скриптів:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender --background --enable-autoexec my_movie.blend --render-anim
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Ці аргументи командного рядка можуть використовуватися для запуску звичайного примірника Blender'а та заміщувати Уподобання Користувача.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="addon_tutorial.html" class="btn btn-neutral float-right" title="Навчальник про Додатки" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

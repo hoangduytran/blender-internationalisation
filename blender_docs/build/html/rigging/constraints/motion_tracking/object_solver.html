@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Примус «Обчислювач Об&#39;єкта» -- Object Solver Constraint &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/rigging/constraints/motion_tracking/object_solver.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Примус «Слідування Стежкою» -- Follow Track Constraint" href="follow_track.html" />
+    <link rel="prev" title="Примус «Обчислювач Камери» -- Camera Solver Constraint" href="camera_solver.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Оснащення -- Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Примуси -- Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Інтерфейс -- Interface</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#motion-tracking">Простеження Руху -- Motion Tracking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="camera_solver.html">Примус «Обчислювач Камери» -- Camera Solver Constraint</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Примус «Обчислювач Об'єкта» -- Object Solver Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow_track.html">Примус «Слідування Стежкою» -- Follow Track Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Трансформації -- Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Простеження -- Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#relationship">Відношення -- Relationship</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Арматури -- Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Решітка -- Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Оснащення -- Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Примуси -- Constraints</a> &raquo;</li>
+        
+      <li>Примус «Обчислювач Об'єкта» -- Object Solver Constraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/motion_tracking/object_solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-solver-constraint">
+<span id="bpy-types-objectsolverconstraint"></span><h1>Примус «Обчислювач Об'єкта» -- Object Solver Constraint<a class="headerlink" href="#object-solver-constraint" title="Permalink to this headline">¶</a></h1>
+<p>Примус «Обчислювач Об'єкта» -- <em>Object Solver</em> дає володільцю цього примусу локацію та оберт «руху обчисленого об'єкта».</p>
+<p>The &quot;solved object motion&quot; is where Blender thinks the physical,
+real-world (tracked) object was, relative to the camera that filmed it.</p>
+<p>Може використовуватися для додання сіті на відео, наприклад.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Цей примус працює тільки після того, як ви уклали мінімум вісім міток та натиснули кнопку «Обчислити Рух Об'єкта» -- <a class="reference internal" href="../../../editors/movie_clip_editor/tracking/clip/editing/solve.html#editors-movie-clip-tracking-clip-solve-motion"><span class="std std-ref">Solve object Motion</span></a>. Ця кнопка розміщена тут -- «Редактор Відеокліпів &gt; Полиця Інструментів &gt; Обчислення &gt; Обчислити Рух Об'єкта» -- <span class="menuselection">Movie Clip Editor ‣ Tool Shelf ‣ Solve ‣ Solve Object Motion</span></p>
+<p class="last">Якщо показується кнопка <em>Solve Camera Motion</em> замість кнопки <em>Solve Object Motion</em>, то перейдіть на «Редактор Відеокліпів &gt; регіон Властивості &gt; Об'єкти» -- <span class="menuselection">Movie Clip Editor ‣ Properties region ‣ Objects</span> та перемкніться з камери на потрібний об'єкт.</p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_motion-tracking_object-solver_panel.png" src="../../../_images/rigging_constraints_motion-tracking_object-solver_panel.png" />
+<p class="caption"><span class="caption-text">Панель «Обчислювач Об'єкта» -- Object Solver.</span></p>
+</div>
+<dl class="docutils">
+<dt>Активний Кліп -- Active Clip</dt>
+<dd>Receive tracking data from the active movie clip in the Movie Clip editor.
+If unchecked, an option appears to choose from the other clips.</dd>
+<dt>Об'єкт -- Object</dt>
+<dd>Передбачає вибір простеженого об'єкта для отримання даних трансформування з нього.</dd>
+<dt>Камера -- Camera</dt>
+<dd>Select the camera to which the motion is parented to (if active empty scene camera is used).</dd>
+<dt>Задати Інверсію -- Set Inverse</dt>
+<dd>Moves the origin of the object to the origin of the camera.</dd>
+<dt>Зчистити Інверсію -- Clear Inverse</dt>
+<dd>Переміщає початок об'єкта назад на місце, задане у Редакторі Відеокліпів «Полиця Інструментів &gt; Обчислення &gt; Орієнтація &gt; Задати Початок» -- <span class="menuselection">Tool Shelf ‣ Solve ‣ Orientation ‣ Set Origin</span>.</dd>
+<dt>Примус у F-Криву -- Constraint to F-Curve</dt>
+<dd>Застосовує цей примус, створюючи Ключкадри для трансформацій.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="follow_track.html" class="btn btn-neutral float-right" title="Примус «Слідування Стежкою» -- Follow Track Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="camera_solver.html" class="btn btn-neutral" title="Примус «Обчислювач Камери» -- Camera Solver Constraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

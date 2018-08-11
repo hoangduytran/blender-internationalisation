@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/node_editor/nodes/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Властивості -- Properties" href="properties.html" />
+    <link rel="prev" title="Виділення -- Selecting" href="selecting.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../text_editor.html">Редактор Тексту -- Text Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Вузлів -- Node Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../navigate.html">Навігація -- Navigation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Вузли -- Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../logic_editor.html">Редактор Логіки -- Logic Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Вузлів -- Node Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли -- Nodes</a> &raquo;</li>
+        
+      <li>Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/node_editor/nodes/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing">
+<h1>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="transform">
+<h2>Трансформації -- Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Translate, Rotate, Resize</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd>, <kbd class="kbd docutils literal notranslate">R</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Move a single node by clicking and dragging it around. A node can be clicked almost anywhere to start dragging.
+Multiple nodes can be translated after pressing <kbd class="kbd docutils literal notranslate">G</kbd>.</p>
+<p>Загалом, рекомендується впорядковувати ваші вузли у межах огляду так, щоб потоки даних проходили зліва направо та зверху вниз.</p>
+<p>Розмір вузла можна змінити, перетягуючи його лівий або правий краї.</p>
+</div>
+<div class="section" id="connecting-sockets">
+<h2>З'єднання Роз'ємів -- Connecting Sockets<a class="headerlink" href="#connecting-sockets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interactively">
+<h3>Інтерактивно<a class="headerlink" href="#interactively" title="Permalink to this headline">¶</a></h3>
+<p><kbd class="kbd docutils literal notranslate">LMB</kbd>-клацніть на роз'ємі та тягніть мишу. Ви побачите лінію, що виходить з роз'єму: Це називається «зв'язок» або «з'єднання» -- <em>link</em>.</p>
+<p>Продовжуючи перетягування, з'єднайте це зв'язок з увідним роз'ємом іншого вузла, а потім відпустіть <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<p>У той час, як з вивідного -- output роз'єму можуть виходити одночасно кілька з'єднань, однак, тільки одне з'єднання може бути під'єднане на увідний -- input роз'єм.</p>
+<p>Для зміни розташування вивідних з'єднань вузла, щоб не додавати нове, утримування натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd> при перетягу з вивідного роз'єму. Це працює як для одиничного, так і для кількох одночасно вивідних з'єднань.</p>
+<p>Вузли, що не мають жодних з'єднань можуть бути вставлені в інше наявне з'єднання. Просто пересуньте вузол над з'єднанням та відпустіть кнопку миші, коли з'єднання забарвиться оранжевим.</p>
+<dl class="docutils">
+<dt>Зробити Зв'язки -- Make Links <kbd class="kbd docutils literal notranslate">F</kbd></dt>
+<dd>Виділіть кілька вузлів з відкритими роз'ємами, а потім скористайтеся командою «Зробити Зв'язки» -- Make Links для створення з'єднань між ними. Використайте «Зробити Зв'язки» -- Make Links знову, якщо є і інші вузли, що можуть бути з'єднані.</dd>
+<dt>Зробити та Замінити Зв'язки -- Make and Replace Links <kbd class="kbd docutils literal notranslate">Shift-F</kbd></dt>
+<dd><em>Make and Replace Links</em> works similarly to <em>Make Links</em>, but it will replace existing links if any exist.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="disconnecting-sockets">
+<h2>Роз'єднання Роз'ємів -- Disconnecting Sockets<a class="headerlink" href="#disconnecting-sockets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Інтерактивно<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Потягніть з'єднання з увідного роз'єму та відпустіть його, не з'єднуючи його більше ні з чим.</p>
+</div>
+<div class="section" id="cut-links">
+<h3>Розрізати Зв'язки -- Cut Links<a class="headerlink" href="#cut-links" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Cut Links</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Для розриву з'єднання між роз'ємами <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd>-клацніть на порожньому місці біля з'єднання, яке ви хочете роз'єднати, та перетягніть мишу: Ви побачите маленьку іконку різака, що з'явиться у місці вказівника миші. Перетягніть мишу навхрест з'єднанню та відпустіть <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<dl class="docutils">
+<dt>Detach Links <kbd class="kbd docutils literal notranslate">Alt-D</kbd>, <kbd class="kbd docutils literal notranslate">Alt-LMB</kbd>-drag</dt>
+<dd>Використовуйте команду «Від'єднати Зв'язки» -- Detach Links, щоб одночасно розрізати усі з'єднання, приєднані до виділених вузлів.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="duplicate">
+<h2>Дублювання -- Duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Duplicate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Клацніть <kbd class="kbd docutils literal notranslate">LMB</kbd> або <kbd class="kbd docutils literal notranslate">RMB</kbd> на бажаному вузлів, далі натисніть <kbd class="kbd docutils literal notranslate">Shift-D</kbd> та рухайте мишу убік, щоб бачити дублікати виділеного вузла, що з'явиться під вказівником миші.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">When you duplicate a node, the new node will be positioned <em>exactly</em> on top of the node that was duplicated.
+If you leave it there (and it is quite easy to do so),
+you can <strong>not</strong> easily tell that there are <em>two</em> nodes there!
+When in doubt, grab a node and move it slightly to see if something is hidden underneath.</p>
+</div>
+</div>
+<div class="section" id="delete">
+<h2>Видалення -- Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Видалення -- Delete <kbd class="kbd docutils literal notranslate">X</kbd>, <kbd class="kbd docutils literal notranslate">Delete</kbd></dt>
+<dd>Видаляє виділені вузол(ли).</dd>
+<dt>Видалити з Перез'єднанням -- Delete with Reconnect <kbd class="kbd docutils literal notranslate">Ctrl-X</kbd></dt>
+<dd>Видаляє вузол(ли) без втрати з'єднань.</dd>
+</dl>
+</div>
+<div class="section" id="mute">
+<h2>Приглушення -- Mute<a class="headerlink" href="#mute" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Toggle Node Mute</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Приглушення вузла вилучає участь цього вузла у вузловому дереві та робить усі з'єднання, що проходять через цей вузол, такими, які не вносять у дерево зміни. З'єднання будуть показуватися червоним, що вказуватиме їх проходження через приглушений вузол.</p>
+</div>
+<div class="section" id="show-hide">
+<h2>Показ/Схов -- Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Hide <kbd class="kbd docutils literal notranslate">H</kbd></dt>
+<dd>Collapses the node so only the node header is visible.
+This can also be toggled by clicking the triangle at the top left of the node header.</dd>
+<dt>Toggle Node Preview <kbd class="kbd docutils literal notranslate">Shift-H</kbd></dt>
+<dd>Shows/Hides a preview region on the node that displays the frame
+after that node's operation has been applied. This can also be toggled
+by clicking the material ball icon in the node header.</dd>
+<dt>Toggle Hidden Node Sockets <kbd class="kbd docutils literal notranslate">Ctrl-H</kbd></dt>
+<dd>Collapses/Expands any input or output sockets that have no other nodes connected to them.</dd>
+<dt>Перемкнути Опції Вузла -- Toggle Node Options</dt>
+<dd>Shows/Hides all node properties.</dd>
+<dt>Collapse and Hide Unused Sockets</dt>
+<dd>Applies both the <em>Toggle Hidden Node Sockets</em> and <em>Toggle Node Options</em> operations.</dd>
+</dl>
+</div>
+<div class="section" id="layers">
+<span id="bpy-ops-node-read-fullsamplelayers"></span><span id="bpy-ops-node-read-viewlayers"></span><h2>Шари -- Layers<a class="headerlink" href="#layers" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The tools are only used in the <a class="reference internal" href="../../../compositing/index.html"><span class="doc">Compositor</span></a>.</p>
+</div>
+<dl class="docutils">
+<dt>Read Render Layers <kbd class="kbd docutils literal notranslate">Ctrl-R</kbd></dt>
+<dd>Read all the current scene's render layers from cache, as needed.
+This can be used to save RAM while rendering because the render layers do not have to be saved in RAM.
+This can also be used to recover some information from a failed render.
+For this to work, <a class="reference internal" href="../../../render/cycles/settings/scene/render/performance.html#render-properties-save-buffers"><span class="std std-ref">Save Buffers</span></a> must be enabled.</dd>
+</dl>
+<dl class="docutils">
+<dt>Read Full Sample Layers <kbd class="kbd docutils literal notranslate">Shift-R</kbd></dt>
+<dd>Reads all the render layers using <a class="reference internal" href="../../../render/blender_render/settings/antialiasing.html#render-internal-aa-full-sample"><span class="std std-ref">full sample</span></a>
+only used in Blender Internal.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="Властивості -- Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="selecting.html" class="btn btn-neutral" title="Виділення -- Selecting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

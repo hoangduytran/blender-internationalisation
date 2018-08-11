@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Інтегратор -- Integrator &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/cycles/settings/scene/render/integrator.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Film" href="film.html" />
+    <link rel="prev" title="Устави Рендеринга -- Render Settings" href="index.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Лампи -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">Вузли -- Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../features.html">Функціональні можливості Рендера, зобража -- Render Features</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Устави Cycles -- Cycles Settings</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Устави Сцени -- Scene Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../objects/index.html">Устави Об'єкта -- Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">Зображування, рендеринг за допомогою графічного процесора відеокарти -- GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Устави Cycles -- Cycles Settings</a> &raquo;</li>
+        
+          <li><a href="../index.html">Устави Сцени -- Scene Settings</a> &raquo;</li>
+        
+          <li><a href="index.html">Устави Рендеринга -- Render Settings</a> &raquo;</li>
+        
+      <li>Інтегратор -- Integrator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/cycles/settings/scene/render/integrator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrator">
+<h1>Інтегратор -- Integrator<a class="headerlink" href="#integrator" title="Permalink to this headline">¶</a></h1>
+<p>Інтегратор -- це алгоритм зображування, рендеринга, який використовується для обчислення освітлення. Cycles поточно підтримує інтегратор простеження шляхів з вибиранням прямого освітлення. Він добре працює для різних укладів освітлення, але не настільки підходить для каустики й деяких інших складних ситуацій освітлення.</p>
+<p>Промені простежуються від камери у сцену у ході їх відскакування від об'єктів сцени, допоки вони не натраплять на джерело світла, таке як лампа, світло емітувальний об'єкт або фон світу. Для знаходження ламп та світло емітувальних поверхонь використовуються обидва види відбору вибірок, відбір побічного освітлення (слідування променя по поверхні BSDF) та відбір прямого освітлення (вказування джерела світла та простеження променя у напрямку до нього).</p>
+<div class="section" id="sampling">
+<h2>Відбір -- Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render ‣ Sampling</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Метод Відбору -- Sampling Method</dt>
+<dd>Є два можливих режими інтегратора: «Простеження Шляху» -- <em>Path Tracing</em> та «Простеження Розгалуженого Шляху» -- <em>Branched Path Tracing</em>.</dd>
+<dt>Вибірки до Квадрата -- Square Samples</dt>
+<dd>Підносить до квадрата (у степінь 2) кількість вибірок.</dd>
+<dt>Базис -- Seed</dt>
+<dd><p class="first">Значення базису для інтегратора для отримання різних взірців шуму.</p>
+<dl class="last docutils">
+<dt>Анімування Базису -- Animate Seed (іконка годинника)</dt>
+<dd>Ця кнопка справа від устави <em>Seed</em> вмикає задання різних значень базису у різних кадрах. Рекомендується вмикати її при зробленні анімації, оскільки у реальному світі кожен кадр має різний взірець шуму.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-clamp-samples">
+<dt>Затиск Прямих -- Clamp Direct</dt>
+<dd><p class="first">Ця опція лімітує максимальну інтенсивність вибірки з променів, які ще не відскакнули, та можуть привнестися у піксель. Це скорочує шум ціною точності. Задання цієї устави як 0.0 вимикає затискання взагалі. Нижчі значення мають більший вплив (затемнені вибірки) на результатне зображення, ніж вищі значення.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Поширеною проблемою методу <em>Path Tracing</em> є поява «світлячків» -- &quot;fireflies&quot;: неймовірні вибірки, що привносять дуже високі значення для пікселів. Ця устава забезпечує спосіб лімітування цього. Однак, зауважте, що коли ви затискаєте такі значення, то інші яскраві підсвітки/відбиття також будуть затемнені.</p>
+<p class="last">Слід бути обережним при використанні цієї устави, щоб знайти баланс між послабленням світлячків та навмисною втратою яскравих частин. Часто корисно затискати побічні відскоки окремо, оскільки вони більше тяжіють спричиняти світлячки, ніж прямі відскоки. Дивіться детальніше про уставу <em>Clamp Indirect</em>.</p>
+</div>
+</dd>
+<dt>Затиск Побічних -- Clamp Indirect</dt>
+<dd>Так само як і <em>Clamp Direct</em>, але для променів, які вже відскакнули багато разів.</dd>
+<dt>Поріг Відбору Освітлення -- Light Sampling Threshold</dt>
+<dd>Ймовірно припиняє вибірки освітлення, коли внесок освітлення нижче цього порогу (більше шуму, але швидший рендеринг). Нуль вимикає цю перевірку та ніколи не ігнорує освітлювачі. Це корисно, тому що у великих сценах з багатьма джерелами освітлення, деякі з них можуть здійснювати малий внесок у фінальне зображення, що недоцільно збільшує час на рендеринг. Використання цієї устави може зменшити час на рендеринг, необхідний для розрахування променів, що у кінцевому підсумку мають дуже маленький вплив на зображення.</dd>
+<dt>Взірець -- Pattern</dt>
+<dd><p class="first">Випадковий взірець відбору, використовуваний інтегратором.</p>
+<dl class="last docutils">
+<dt>Соболь -- Sobol</dt>
+<dd>Використовує взірець на основі послідовності Соболя як випадковий взірець відбору, використовуваний інтегратором. Дивіться детальніше тут -- <a class="reference external" href="https://en.wikipedia.org/wiki/Sobol_sequence">Sobol sequence</a>.</dd>
+<dt>Корельоване Багато-Тремтіння -- Correlated Multi-Jitter</dt>
+<dd>Використовує взірець Корельованого Багато-Тремтіння як випадковий взірець відбору, використовуваний інтегратором Дивіться детальніше тут -- <a class="reference external" href="http://graphics.pixar.com/library/MultiJitteredSampling/paper.pdf">this Pixar paper</a>.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-layer-samples">
+<dt>Вибірки Шарів -- Layer Samples</dt>
+<dd><p class="first">Коли шари зображів мають для кожного з них задану кількість вибірок, ця опція визначає, як їх використовувати.</p>
+<dl class="last docutils">
+<dt>Вживання -- Use</dt>
+<dd>Вибірки шару зобража будуть заміщати задані вибірки для сцени.</dd>
+<dt>Обмежено -- Bounded</dt>
+<dd>Обмежує вибірки шару зобража вибірками сцени.</dd>
+<dt>Ігнорування -- Ignore</dt>
+<dd>Ігнорує устави вибірок шару зобража.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="path-tracing">
+<h3>Простеження Шляху -- Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h3>
+<p>Інтегратор <em>Path Tracing</em> є простежником простого шляху; при кожному потраплянні він буде простежувати відскок світла в одному напрямку та відбирати один освітлювач для приймання з нього освітлення. Це пришвидшує кожну індивідуальну вибірку для обчислення, але зазвичай вимагає більше вибірок для вичищення шуму.</p>
+<dl class="docutils">
+<dt>Зображ: Вибірки -- Render Samples</dt>
+<dd>Кількість шляхів для простеження для кожного пікселя на фінальному рендері. Чим більше вибірок задано, тим результат стає менш шумним та більш точним.</dd>
+<dt>Передогляд: Вибірки -- Preview Samples</dt>
+<dd>Кількість вибірок для рендерингу в оглядвікні.</dd>
+</dl>
+</div>
+<div class="section" id="branched-path-tracing">
+<h3>Простеження Розгалуженого Шляху -- Branched Path Tracing<a class="headerlink" href="#branched-path-tracing" title="Permalink to this headline">¶</a></h3>
+<p>Не-прогресивний інтегратор Branched Path Tracing дозволяє точніше керувати відбором вибірок. Він подібний на інтегратор <em>Path Tracing</em>, але при першому потраплянні він буде розділяти шлях для різних компонент поверхні та буде враховувати усі, а не тільки один, освітлювачі для відтінення.</p>
+<p>Це уповільнює кожну вибірку, але дасть скорочення шуму, особливо у сценах, в яких домінують пряме або освітлення з одним відскоком. Для отримання такої ж кількості вибірок розсіяння, дифузії, як в інтеграторі Path Tracing, зауважте, що наприклад, 250 вибірок простеження простого шляху = 10 AA вибірок x 25 diffuse вибірок простеження розгалуженого шляху. Панель «Відбір» -- Sampling показує загальну кількість вибірок.</p>
+<dl class="docutils">
+<dt>Зображ: Вибірки Загладжування</dt>
+<dd>Кількість вибірок для відбирання для кожного пікселя у фінальному рендері. Більше вибірок покращуватиме загладжування -- anti-aliasing.</dd>
+<dt>Передогляд: Вибірки Загладжування -- AA Preview Samples</dt>
+<dd>Кількість вибірок для рендерингу в оглядвікні.</dd>
+<dt>Вибірки: Розсіяння -- Diffuse Samples</dt>
+<dd>Кількість вибірок відскоків розсіяння, дифузії для відбору для кожної вибірки загладжування -- AA sample.</dd>
+<dt>Вибірки: Глянець -- Glossy Samples</dt>
+<dd>Кількість вибірок відскоків глянцю для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірки: Пропускання -- Transmission Samples</dt>
+<dd>Кількість вибірок відскоків пропускання світла для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірки: Загорода Оточення -- AO Samples</dt>
+<dd>Кількість вибірок загороди оточення -- ambient occlusion для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірки: Світна Сіть -- Mesh Light Samples</dt>
+<dd>Кількість вибірок світної сіті для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірки: Підповерхня -- Subsurface Samples</dt>
+<dd>Кількість вибірок підповерхневого розсіювання для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірки: Об'єм -- Volume Samples</dt>
+<dd>Кількість вибірок розсіювання об'ємом для відбору для кожної вибірки загладжування.</dd>
+<dt>Вибірка Усіх Освітлювачів Прямих -- Sample All Direct Lights</dt>
+<dd>При увімкненні Cycles буде здійснювати вибірки усіх освітлювачів у сцені для прямих відскоків, замість здійснення відбору одного випадкового освітлювача. Вимкнення цієї опції може підвищити продуктивність при використанні багатьох AA Samples, у будь-якому випадку, для вичищення рендера.</dd>
+<dt>Вибірка Усіх Освітлювачів Побічних -- Sample All Indirect Lights</dt>
+<dd>Подібно до Sample All Direct Lights, але відбираються освітлювачі для побічних відскоків. Це може скоротити шум у сценах з багатьма освітлювачами.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="light-paths">
+<span id="render-cycles-integrator-light-paths"></span><h2>Шлях Світла -- Light Paths<a class="headerlink" href="#light-paths" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render ‣ Light Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bounces">
+<span id="cycles-bounces"></span><h3>Відскоки -- Bounces<a class="headerlink" href="#bounces" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Відскоки: Макс -- Max Bounces</dt>
+<dd>Максимальна кількість відскоків світла. Для найкращої якості це повинно бути установлено на максимум. Однак, на практиці, може бути добре задати для цієї устави нижчі значення для швидшого рендерингу. Задання цього максимального значення відскоків як 0 дасть відбір лише з прямого освітлення.</dd>
+<dt>Відскоки: Мін -- Min Bounces</dt>
+<dd>Мінімальна кількість відскоків світла для кожного шляху, нижче якої інтегратор використовує Російську Рулетку для завершення шляхів, що дають менший внесок у зображення. Задання вищих значень дає менше шуму, але може також значно збільшувати час на рендеринг. При низьких значеннях відскоків настійно рекомендується задавати мінімальну кількість рівною максимальній кількості.</dd>
+<dt>Відскоки: Розсіяння -- Diffuse Bounces</dt>
+<dd>Максимальна кількість відскоків розсіяння.</dd>
+<dt>Відскоки: Глянець -- Glossy Bounces</dt>
+<dd>Максимальна кількість відскоків глянцю.</dd>
+<dt>Відскоки: Пропускання -- Transmission Bounces</dt>
+<dd>Максимальна кількість відскоків пропускання.</dd>
+<dt>Відскоки: Об'єм -- Volume Bounces</dt>
+<dd>Максимальна кількість відскоків розсіювання об'ємом.</dd>
+</dl>
+</div>
+<div class="section" id="transparency">
+<h3>Прозорість -- Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Прозорість: Макс -- Transparency Max</dt>
+<dd>Максимальна кількість відскоків прозорості.</dd>
+<dt>Прозорість: Мін -- Transparency Min</dt>
+<dd>Мінімальна кількість відскоків прозорості, нижче якої використовується Російська Рулетка для завершення шляхів, що дають менший внесок у зображення.</dd>
+<dt>Прозорість: Тіні</dt>
+<dd>Для відбору відскоків прямого світла використовує прозорість між поверхнями для продукування тіней, спричинених прозорістю цих поверхонь.</dd>
+</dl>
+</div>
+<div class="section" id="caustics-filter-glossy">
+<h3>Каустики та Фільтр Глянцю -- Caustics &amp; Filter Glossy<a class="headerlink" href="#caustics-filter-glossy" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils" id="render-cycles-integrator-no-caustics">
+<dt>Каустики Відбиття -- Reflective Caustics</dt>
+<dd>Хоча, у принципі, простеження шляху підтримує рендеринг каустик за допомогою достатньої кількості вибірок, на практиці ж, він може бути неефективним у тому, що дає надто багато шуму. Ця опція може бути вимкненою для вимикання рендерингу каустик відбиття.</dd>
+<dt>Каустики Заломлення -- Refractive Caustics</dt>
+<dd>Подібно як Reflective Caustics, тільки щодо каустик заломлення.</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-filter-glossy">
+<dt>Фільтр Глянцю -- Filter Glossy</dt>
+<dd><p class="first">При використанні значення, вище за 0.0, це буде розмивати глянцеві відбиття після відскоків розмиву для скорочення шуму ціною точності. 1.0 -- хороше значення для початку підправлення.</p>
+<p>Деякі шляхи світла мають низьку ймовірність виявлення, оскільки привносять багато світла у піксель. У результаті ці шляхи світла будуть виявлені у деяких пікселях, а в інших ні, що дасть світлячки -- fireflies. Прикладом такого складного шляху може бути наявність малого освітлювача, що спричиняє малу блікову підсвітку на різкому глянцевому матеріалів, який ми бачимо крізь грубий глянцевий матеріал. Фактично, у такому випадку, ми практично маємо каустику.</p>
+<p class="last">За допомогою простеження шляху важко виявити таку блікову підсвітку, але, якщо ми збільшимо значення шорсткості для матеріалу, то ці підсвітки стануть більшими та м'якшими, а звідси легшими для їх виявлення. Часто це розмивання буде ледь помітне, оскільки ми дивимося на нього крізь розмитий матеріал, у будь-якому випадку, але є також випадки, де це буде призводити до втрати детальності освітлення.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Дивіться про устави затиску для скорочення шуму тут -- <a class="reference internal" href="../../../optimizations/reducing_noise.html#render-cycles-reducing-noise-clamp-samples"><span class="std std-ref">Reducing Noise</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="film.html" class="btn btn-neutral float-right" title="Film" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Устави Рендеринга -- Render Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

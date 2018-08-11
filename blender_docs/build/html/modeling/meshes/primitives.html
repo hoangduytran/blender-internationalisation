@@ -1,0 +1,502 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Примітиви &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/primitives.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Вибирання (Selecting)" href="selecting/index.html" />
+    <link rel="prev" title="Структура" href="structure.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Структура</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Примітиви</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#common-options">Загальні параметри</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plane">Площина (Plane)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cube">Куб (Cube)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#circle">Коло (Circle)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uv-sphere">UV Сфера (UV Sphere)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#icosphere">Ікосфера (Icosphere)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cylinder">Циліндр (Cylinder)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cone">Конус (Cone)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#torus">Торус (Torus)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grid">Сітка (Grid)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monkey">Мавпа (Monkey)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Редагування -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+      <li>Примітиви</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/meshes/primitives.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primitives">
+<span id="bpy-ops-mesh-primitive-add"></span><h1>Примітиви<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Довідка</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode and Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Create ‣ Add Primitive/Mesh</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Add ‣ Mesh</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-A</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Поширеним типом об'єкта, що використовується у 3D-сцені, є полігональна сітка. Blender постачається з рядом &quot;примітивних&quot; сітчастих фігур, з яких можна починати моделювати. Ви також можете додавати примітиви в Режимі Редагування (Edit Mode) на місці 3D-курсору.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/modeling_meshes_primitives_all.png" src="../../_images/modeling_meshes_primitives_all.png" />
+<p class="caption"><span class="caption-text">Стандартні примітиви Blender'а.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Planar Primitives</p>
+<p class="last">Ви можете зробити планарну полігональну сітку тривимірною, перемістивши одну або декілька вершин з її площини (застосовується до <em>Площини (Plane)</em>, <em>Кола (Circle)</em> та <em>Сітки (Grid)</em>). Просте коло насправді часто використовуються як відправна точка для створення навіть найскладніших полігональних сіток.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Для того, щоб полегшити моделювання, найкраще буде уявити, який тип примітива ліпше підходить для вашої моделі. Якщо ви моделюєте кубоподібну форму, найкраще починати з примітива куба, тощо.</p>
+</div>
+<div class="section" id="common-options">
+<h2>Загальні параметри<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>Ці параметри можна вказати у панелі Оператора (Operator panel) на <em>Полиці Інструментів (Tool Shelf)</em>, який з'являється після створення об'єкта. Параметри, що з'являються у більш ніж одному примітиві:</p>
+<dl class="docutils">
+<dt>Згенерувати UV-координати (Generate UVs)</dt>
+<dd>Generates a default UV unwrapping of new geometry.
+This will be defined in the first UV layer (which will get added if needed).</dd>
+<dt>Радіус/Розмір (Radius/Size), Повернути до виду (Align to View), Розташування (Location), Обертання (Rotation)</dt>
+<dd>Див <a class="reference internal" href="../../editors/3dview/object/types.html#object-common-options"><span class="std std-ref">Загальні параметри об'єкта (Common Object Options)</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="plane">
+<h2>Площина (Plane)<a class="headerlink" href="#plane" title="Permalink to this headline">¶</a></h2>
+<p>The standard plane is a single quad face, which is composed of four vertices, four edges, and one face.
+It is like a piece of paper lying on a table;
+it is not a three-dimensional object because it is flat and has no thickness.
+Objects that can be created with planes include floors, tabletops, or mirrors.</p>
+</div>
+<div class="section" id="cube">
+<h2>Куб (Cube)<a class="headerlink" href="#cube" title="Permalink to this headline">¶</a></h2>
+<p>Стандартний куб містить 8 вершин, дванадцять ребер та шість граней і є тривимірним об'єктом. Об'єкти, які можна створити із куба включають гральні кості, коробки або ящики.</p>
+</div>
+<div class="section" id="circle">
+<h2>Коло (Circle)<a class="headerlink" href="#circle" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Вершини (Vertices)</dt>
+<dd>Число вершин, що визначають коло або полігон.</dd>
+<dt>Тип заповнення (Fill Type)</dt>
+<dd><p class="first">Вказує, як коло буде заповнено.</p>
+<dl class="last docutils">
+<dt>Triangle Fan</dt>
+<dd>Заповнити трикутними гранями, що поділяються вершину посередині.</dd>
+<dt>N-кутник (N-gon)</dt>
+<dd>Заповнити єдиним <span class="xref std std-term">n-кутником (n-gon)</span>.</dd>
+<dt>Нічого (Nothing)</dt>
+<dd>Не заповнювати. Створює лише зовнішнє кільце вершин.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="uv-sphere">
+<h2>UV Сфера (UV Sphere)<a class="headerlink" href="#uv-sphere" title="Permalink to this headline">¶</a></h2>
+<p>Стандартна UV сфера зроблена з чотирикутних граней та віялом трикутників у верхній та нижній частині. Може використовуватися для текстурування.</p>
+<dl class="docutils">
+<dt>Сегменти (Segments)</dt>
+<dd>Число вертикальних сегментів. Подібно меридіанам Землі, від полюса до полюса.</dd>
+<dt>Кільця (Rings)</dt>
+<dd><p class="first">Число горизонтальних сегментів. Подібно до земних паралелей.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Кільця - це петлі граней (face loops), а не петлі ребер (edge loops), яких було б на один менше.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="icosphere">
+<h2>Ікосфера (Icosphere)<a class="headerlink" href="#icosphere" title="Permalink to this headline">¶</a></h2>
+<p>An icosphere is a polyhedral sphere made up of triangles.
+Icospheres are normally used to achieve a more isotropical layout of
+vertices than a UV sphere, in other words, they are uniform in every direction.</p>
+<dl class="docutils">
+<dt>Підрозділи (Subdivisions)</dt>
+<dd>How many recursions are used to define the sphere.
+At level 1 the Icosphere is an icosahedron, a solid with 20 equilateral triangular faces.
+Each increase in the number of subdivisions splits each triangular face into four triangles.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Subdividing an icosphere raises the vertex count very quickly even with few iterations
+(10 times creates 5,242,880 triangles),
+Adding such a dense mesh is a sure way to cause the program to crash.</p>
+</div>
+</div>
+<div class="section" id="cylinder">
+<h2>Циліндр (Cylinder)<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h2>
+<p>Об'єкти, які можна створити з циліндра, включають ручки та стержні.</p>
+<dl class="docutils">
+<dt>Вершини (Vertices)</dt>
+<dd>Число вертикальних ребер між колами використовується для визначення циліндра або призми.</dd>
+<dt>Глибина (Depth)</dt>
+<dd>Встановлює початкову висоту циліндра.</dd>
+<dt>Тип заповнення кришки (Cap Fill Type)</dt>
+<dd>Подібно до кола (див. вище). Коли вибрано нічого (none), створеним об'єктом буде трубка (tube). Об'єкти, що можна створити з трубки, включають труби або склянки (основною відмінністю між циліндром і трубкою є те, що перший має закриті кінці).</dd>
+</dl>
+</div>
+<div class="section" id="cone">
+<h2>Конус (Cone)<a class="headerlink" href="#cone" title="Permalink to this headline">¶</a></h2>
+<p>Об'єкти, які можна створити з циліндра, включають шипи та загострені капелюхи.</p>
+<dl class="docutils">
+<dt>Вершини (Vertices)</dt>
+<dd>Число вертикальних ребер між колами або верхівкою, що використовуються для визначення конуса або піраміди.</dd>
+<dt>Радіус 1 (Radius 1)</dt>
+<dd>Встановлює радіус кругової основи конуса.</dd>
+<dt>Радіус 2 (Radius 2)</dt>
+<dd>Sets the radius of the tip of the cone. which will create a frustum (a pyramid or cone with the top cut off).
+A value of 0 will produce a standard cone shape.</dd>
+<dt>Глибина (Depth)</dt>
+<dd>Встановлює початкову висоту конуса.</dd>
+<dt>Тип заповнення основи (Base Fill Type)</dt>
+<dd>Подібно до кола (див. вище).</dd>
+</dl>
+</div>
+<div class="section" id="torus">
+<h2>Торус (Torus)<a class="headerlink" href="#torus" title="Permalink to this headline">¶</a></h2>
+<p>A doughnut-shaped primitive created by rotating a circle around an axis.
+The overall dimensions can be defined by two methods.</p>
+<dl class="docutils">
+<dt>Пресети оператора (Operator Presets)</dt>
+<dd>Попередні налаштування торуса для перевикористання. Ці налаштування зберігаються як скрипти у відповідному каталозі пресетів.</dd>
+<dt>Основні сегменти (Major Segments)</dt>
+<dd>Number of segments for the main ring of the torus.
+If you think of a torus as a &quot;spin&quot; operation around an axis, this is how many steps are in the spin.</dd>
+<dt>Малі сегменти (Minor segments)</dt>
+<dd>Кількість сегментів малого кільця торуса. Це число вершин кожного кругового сегмента.</dd>
+</dl>
+<div class="section" id="torus-dimensions">
+<h3>Розміри Торуса (Torus Dimensions)<a class="headerlink" href="#torus-dimensions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Режим додавання (Add Mode)</dt>
+<dd><p class="first">Змінює спосіб визначення торуса.</p>
+<p>Більший/Менший (Major/Minor), Зовнішній/Внутрішній (Exterior/Interior)</p>
+<dl class="last docutils">
+<dt>Більший Радіус (Major Radius)</dt>
+<dd>Радіус від початку (origin) до центру поперечного перетину.</dd>
+<dt>Менший Радіус (Minor Radius)</dt>
+<dd>Radius of the torus' cross section.</dd>
+<dt>Зовнішній Радіус (Exterior Radius)</dt>
+<dd>Якщо дивитися вздовж головної осі, це радіус від центра до зовнішнього ребра.</dd>
+<dt>Внутрішній Радіус (Interior Radius)</dt>
+<dd>Якщо дивитися вздовж головної осі, це радіус отвору в центрі.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="grid">
+<h2>Сітка (Grid)<a class="headerlink" href="#grid" title="Permalink to this headline">¶</a></h2>
+<p>Регулярна квадратична сітка, яка є поділеною площиною. Приклади об'єктів, які можуть бути створені з сітки, включають ландшафти та органічні поверхні.</p>
+<dl class="docutils">
+<dt>X Підрозділи (X Subdivisions)</dt>
+<dd>Кількість проходів по осі X.</dd>
+<dt>Y Підрозділи (Y Subdivisions)</dt>
+<dd>Кількість проходів по осі Y.</dd>
+</dl>
+</div>
+<div class="section" id="monkey">
+<h2>Мавпа (Monkey)<a class="headerlink" href="#monkey" title="Permalink to this headline">¶</a></h2>
+<p>This is a gift from old NaN to the community and is seen as a programmer's joke or
+&quot;Easter Egg&quot;. It creates a monkey's head once you press the <em>Monkey</em> button.
+The Monkey's name is &quot;Suzanne&quot; and is Blender's mascot.
+Suzanne is very useful as a standard test mesh,
+much like the <a class="reference external" href="https://en.wikipedia.org/wiki/Utah_teapot">Utah Teapot</a>
+or the <a class="reference external" href="https://en.wikipedia.org/wiki/Stanford_Bunny">Stanford Bunny</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Додатки (Add-ons)</p>
+<p class="last">In addition to the basic geometric primitives,
+Blender has a number of script generated meshes to offer as pre-installed add-ons.
+These are available when enabled in the <a class="reference internal" href="../../preferences/addons.html"><span class="doc">User Preferences</span></a>
+(select the Category <em>Add Mesh</em>, then check any desired items).</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="selecting/index.html" class="btn btn-neutral float-right" title="Вибирання (Selecting)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="structure.html" class="btn btn-neutral" title="Структура" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

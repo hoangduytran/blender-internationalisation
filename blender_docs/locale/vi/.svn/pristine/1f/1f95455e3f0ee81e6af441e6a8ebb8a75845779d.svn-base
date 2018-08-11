@@ -1,0 +1,872 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-01-22 06:31+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:4
+msgid "Integrator"
+msgstr "Інтегратор -- Integrator"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:6
+msgid ""
+"The integrator is the rendering algorithm used to compute the lighting. "
+"Cycles currently supports a path tracing integrator with direct light "
+"sampling. It works well for various lighting setups, but is not as "
+"suitable for caustics and some other complex lighting situations."
+msgstr ""
+"Інтегратор -- це алгоритм зображування, рендеринга, який використовується"
+" для обчислення освітлення. Cycles поточно підтримує інтегратор "
+"простеження шляхів з вибиранням прямого освітлення. Він добре працює для "
+"різних укладів освітлення, але не настільки підходить для каустики й "
+"деяких інших складних ситуацій освітлення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:11
+msgid ""
+"Rays are traced from the camera into the scene, bouncing around until "
+"they find a light source such as a lamp, an object emitting light, or the"
+" world background. To find lamps and surfaces emitting light, both "
+"indirect light sampling (letting the ray follow the surface BSDF) and "
+"direct light sampling (picking a light source and tracing a ray towards "
+"it) are used."
+msgstr ""
+"Промені простежуються від камери у сцену у ході їх відскакування від "
+"об'єктів сцени, допоки вони не натраплять на джерело світла, таке як "
+"лампа, світло емітувальний об'єкт або фон світу. Для знаходження ламп та "
+"світло емітувальних поверхонь використовуються обидва види відбору "
+"вибірок, відбір побічного освітлення (слідування променя по поверхні "
+"BSDF) та відбір прямого освітлення (вказування джерела світла та "
+"простеження променя у напрямку до нього)."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:19
+msgid "Sampling"
+msgstr "Відбір -- Sampling"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:21
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:152
+msgid "Reference"
+msgstr "Орієнтир -- Reference"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst
+msgid "Panel"
+msgstr ""
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:24
+#, fuzzy
+msgid ":menuselection:`Render --> Sampling`"
+msgstr "Панель:    «Зображ > Відбір» -- :menuselection:`Render --> Sampling`"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:26
+msgid "Sample Method"
+msgstr "Метод Відбору -- Sampling Method"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:27
+msgid ""
+"There are two integrator modes that can be used: *Path Tracing* and "
+"*Branched Path Tracing*."
+msgstr ""
+"Є два можливих режими інтегратора: «Простеження Шляху» -- *Path Tracing* "
+"та «Простеження Розгалуженого Шляху» -- *Branched Path Tracing*."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:28
+msgid "Square Samples"
+msgstr "Вибірки до Квадрата -- Square Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:29
+msgid "Square the amount samples."
+msgstr "Підносить до квадрата (у степінь 2) кількість вибірок."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:36
+msgid "Seed"
+msgstr "Базис -- Seed"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:31
+msgid "Seed value for integrator to get different noise patterns."
+msgstr "Значення базису для інтегратора для отримання різних взірців шуму."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:36
+msgid "Animate Seed (clock icon)"
+msgstr "Анімування Базису -- Animate Seed (іконка годинника)"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:34
+msgid ""
+"This button which can be found on the right side of the *Seed* value can "
+"be used to give different seed values. It is a good idea to enable this "
+"when making animation because in the real world each frame has a "
+"different noise pattern."
+msgstr ""
+"Ця кнопка справа від устави *Seed* вмикає задання різних значень базису у"
+" різних кадрах. Рекомендується вмикати її при зробленні анімації, "
+"оскільки у реальному світі кожен кадр має різний взірець шуму."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:54
+msgid "Clamp Direct"
+msgstr "Затиск Прямих -- Clamp Direct"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:41
+msgid ""
+"This option limits the maximum intensity a sample from rays which have "
+"not yet bounced can contribute to a pixel. It reduces noise at the cost "
+"of accuracy. Setting this option to 0.0 disables clamping altogether. "
+"Lower have a greater affect (dimmer samples) on the resulting image than "
+"higher values."
+msgstr ""
+"Ця опція лімітує максимальну інтенсивність вибірки з променів, які ще не "
+"відскакнули, та можуть привнестися у піксель. Це скорочує шум ціною "
+"точності. Задання цієї устави як 0.0 вимикає затискання взагалі. Нижчі "
+"значення мають більший вплив (затемнені вибірки) на результатне "
+"зображення, ніж вищі значення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:47
+msgid ""
+"A common issue encountered with *Path Tracing* is the occurrence of "
+"\"fireflies\": improbable samples that contribute very high values to "
+"pixels. This option provides a way to limit that. However, note that as "
+"you clamp out such values, other bright lights/reflections will be dimmed"
+" as well."
+msgstr ""
+"Поширеною проблемою методу *Path Tracing* є поява «світлячків» -- "
+"\"fireflies\": неймовірні вибірки, що привносять дуже високі значення для"
+" пікселів. Ця устава забезпечує спосіб лімітування цього. Однак, "
+"зауважте, що коли ви затискаєте такі значення, то інші яскраві "
+"підсвітки/відбиття також будуть затемнені."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:52
+msgid ""
+"Care must be taken when using this setting to find a balance between "
+"mitigating fireflies and losing intentionally bright parts. It is often "
+"useful to clamp indirect bounces separately, as they tend to cause more "
+"fireflies than direct bounces. See the *Clamp Indirect* setting."
+msgstr ""
+"Слід бути обережним при використанні цієї устави, щоб знайти баланс між "
+"послабленням світлячків та навмисною втратою яскравих частин. Часто "
+"корисно затискати побічні відскоки окремо, оскільки вони більше тяжіють "
+"спричиняти світлячки, ніж прямі відскоки. Дивіться детальніше про уставу "
+"*Clamp Indirect*."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:57
+msgid "Clamp Indirect"
+msgstr "Затиск Побічних -- Clamp Indirect"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:57
+msgid ""
+"The same as *Clamp Direct*, but for rays which have bounced multiple "
+"times."
+msgstr ""
+"Так само як і *Clamp Direct*, але для променів, які вже відскакнули "
+"багато разів."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:66
+msgid "Light Sampling Threshold"
+msgstr "Поріг Відбору Освітлення -- Light Sampling Threshold"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:60
+msgid ""
+"Probabilistically terminates light samples when the light contribution is"
+" below this threshold (more noise but faster rendering). Zero disables "
+"the test and never ignores lights. This is useful because in large scenes"
+" with many light sources, some might only contribute a small amount to "
+"the final image, and increase render times. Using this setting can "
+"decrease the render times needed to calculate the rays which in the end "
+"have very little affect on the image."
+msgstr ""
+"Ймовірно припиняє вибірки освітлення, коли внесок освітлення нижче цього "
+"порогу (більше шуму, але швидший рендеринг). Нуль вимикає цю перевірку та"
+" ніколи не ігнорує освітлювачі. Це корисно, тому що у великих сценах з "
+"багатьма джерелами освітлення, деякі з них можуть здійснювати малий "
+"внесок у фінальне зображення, що недоцільно збільшує час на рендеринг. "
+"Використання цієї устави може зменшити час на рендеринг, необхідний для "
+"розрахування променів, що у кінцевому підсумку мають дуже маленький вплив"
+" на зображення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:77
+msgid "Pattern"
+msgstr "Взірець -- Pattern"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:69
+msgid "Random sampling pattern used by the integrator."
+msgstr "Випадковий взірець відбору, використовуваний інтегратором."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:72
+msgid "Sobol"
+msgstr "Соболь -- Sobol"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:72
+msgid ""
+"Uses a Sobol pattern to decide the random sampling pattern used by the "
+"integrator. See `Sobol sequence "
+"<https://en.wikipedia.org/wiki/Sobol_sequence>`__ on Wikipedia for more "
+"information."
+msgstr ""
+"Використовує взірець на основі послідовності Соболя як випадковий взірець"
+" відбору, використовуваний інтегратором. Дивіться детальніше тут -- "
+"`Sobol sequence <https://en.wikipedia.org/wiki/Sobol_sequence>`__."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:77
+msgid "Correlated Multi-Jitter"
+msgstr "Корельоване Багато-Тремтіння -- Correlated Multi-Jitter"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:75
+msgid ""
+"Uses a Correlated Multi-Jitter pattern to decide the random sampling "
+"pattern used by the integrator. See `this Pixar paper "
+"<http://graphics.pixar.com/library/MultiJitteredSampling/paper.pdf>`__ "
+"for more information."
+msgstr ""
+"Використовує взірець Корельованого Багато-Тремтіння як випадковий взірець"
+" відбору, використовуваний інтегратором Дивіться детальніше тут -- `this "
+"Pixar paper "
+"<http://graphics.pixar.com/library/MultiJitteredSampling/paper.pdf>`__."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:90
+msgid "Layer Samples"
+msgstr "Вибірки Шарів -- Layer Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:82
+msgid ""
+"When render layers have per layer number of samples set, this option "
+"specifies how to use them."
+msgstr ""
+"Коли шари зображів мають для кожного з них задану кількість вибірок, ця "
+"опція визначає, як їх використовувати."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:84
+msgid "Use"
+msgstr "Вживання -- Use"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:85
+msgid "The render layer samples will override the set scene samples."
+msgstr "Вибірки шару зобража будуть заміщати задані вибірки для сцени."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:86
+msgid "Bounded"
+msgstr "Обмежено -- Bounded"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:87
+msgid "Bound render layer samples by scene samples."
+msgstr "Обмежує вибірки шару зобража вибірками сцени."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:90
+msgid "Ignore"
+msgstr "Ігнорування -- Ignore"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:89
+msgid "Ignore render layer sample settings."
+msgstr "Ігнорує устави вибірок шару зобража."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:93
+msgid "Path Tracing"
+msgstr "Простеження Шляху -- Path Tracing"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:95
+msgid ""
+"The *Path Tracing* integrator is a pure path tracer; at each hit it will "
+"bounce light in one direction and pick one light to receive lighting "
+"from. This makes each individual sample faster to compute, but will "
+"typically require more samples to clean up the noise."
+msgstr ""
+"Інтегратор *Path Tracing* є простежником простого шляху; при кожному "
+"потраплянні він буде простежувати відскок світла в одному напрямку та "
+"відбирати один освітлювач для приймання з нього освітлення. Це пришвидшує"
+" кожну індивідуальну вибірку для обчислення, але зазвичай вимагає більше "
+"вибірок для вичищення шуму."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:101
+msgid "Render Samples"
+msgstr "Зображ: Вибірки -- Render Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:101
+msgid ""
+"Number of paths to trace for each pixel in the final render. As more "
+"samples are taken, the solution becomes less noisy and more accurate."
+msgstr ""
+"Кількість шляхів для простеження для кожного пікселя на фінальному "
+"рендері. Чим більше вибірок задано, тим результат стає менш шумним та "
+"більш точним."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:105
+msgid "Preview Samples"
+msgstr "Передогляд: Вибірки -- Preview Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:104
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:123
+msgid "Number of samples for viewport rendering."
+msgstr "Кількість вибірок для рендерингу в оглядвікні."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:108
+msgid "Branched Path Tracing"
+msgstr "Простеження Розгалуженого Шляху -- Branched Path Tracing"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:110
+msgid ""
+"The non-progressive Branched Path Tracing integrator offers finer control"
+" over sampling. It is similar to *Path Tracing*, but at the first hit it "
+"will split the path for different surface components and will take all "
+"lights into account for shading instead of just one."
+msgstr ""
+"Не-прогресивний інтегратор Branched Path Tracing дозволяє точніше "
+"керувати відбором вибірок. Він подібний на інтегратор *Path Tracing*, але"
+" при першому потраплянні він буде розділяти шлях для різних компонент "
+"поверхні та буде враховувати усі, а не тільки один, освітлювачі для "
+"відтінення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:114
+msgid ""
+"This makes each sample slower, but will reduce noise, especially in "
+"scenes dominated by direct or one-bounce lighting. To get the same number"
+" of diffuse samples as in the path tracing integrator, note that e.g. 250"
+" path tracing samples = 10 AA samples x 25 diffuse samples. The Sampling "
+"panel shows this total number of samples."
+msgstr ""
+"Це уповільнює кожну вибірку, але дасть скорочення шуму, особливо у "
+"сценах, в яких домінують пряме або освітлення з одним відскоком. Для "
+"отримання такої ж кількості вибірок розсіяння, дифузії, як в інтеграторі "
+"Path Tracing, зауважте, що наприклад, 250 вибірок простеження простого "
+"шляху = 10 AA вибірок x 25 diffuse вибірок простеження розгалуженого "
+"шляху. Панель «Відбір» -- Sampling показує загальну кількість вибірок."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:120
+msgid "AA Render Samples"
+msgstr "Зображ: Вибірки Загладжування"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:121
+msgid ""
+"Number of samples to take for each pixel in the final render. More "
+"samples will improve anti-aliasing."
+msgstr ""
+"Кількість вибірок для відбирання для кожного пікселя у фінальному "
+"рендері. Більше вибірок покращуватиме загладжування -- anti-aliasing."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:123
+msgid "AA Preview Samples"
+msgstr "Передогляд: Вибірки Загладжування -- AA Preview Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:125
+msgid "Diffuse Samples"
+msgstr "Вибірки: Розсіяння -- Diffuse Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:126
+msgid "Number of diffuse bounce samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок відскоків розсіяння, дифузії для відбору для кожної "
+"вибірки загладжування -- AA sample."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:127
+msgid "Glossy Samples"
+msgstr "Вибірки: Глянець -- Glossy Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:128
+msgid "Number of glossy bounce samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок відскоків глянцю для відбору для кожної вибірки "
+"загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:129
+msgid "Transmission Samples"
+msgstr "Вибірки: Пропускання -- Transmission Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:130
+msgid "Number of transmission bounce samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок відскоків пропускання світла для відбору для кожної "
+"вибірки загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:131
+msgid "AO Samples"
+msgstr "Вибірки: Загорода Оточення -- AO Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:132
+msgid "Number of ambient occlusion samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок загороди оточення -- ambient occlusion для відбору для "
+"кожної вибірки загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:133
+msgid "Mesh Light Samples"
+msgstr "Вибірки: Світна Сіть -- Mesh Light Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:134
+msgid "Number of mesh light samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок світної сіті для відбору для кожної вибірки "
+"загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:135
+msgid "Subsurface Samples"
+msgstr "Вибірки: Підповерхня -- Subsurface Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:136
+msgid "Number of subsurface scattering samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок підповерхневого розсіювання для відбору для кожної "
+"вибірки загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:138
+msgid "Volume Samples"
+msgstr "Вибірки: Об'єм -- Volume Samples"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:138
+msgid "Number of volume scattering samples to take for each AA sample."
+msgstr ""
+"Кількість вибірок розсіювання об'ємом для відбору для кожної вибірки "
+"загладжування."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:141
+msgid "Sample All Direct Lights"
+msgstr "Вибірка Усіх Освітлювачів Прямих -- Sample All Direct Lights"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:141
+msgid ""
+"When enabled, Cycles will samples all lights in the scene for direct "
+"bounces, instead of randomly picking one. Disabling this can improve "
+"performance, when using a lot of AA Samples anyway, to clear up the "
+"render."
+msgstr ""
+"При увімкненні Cycles буде здійснювати вибірки усіх освітлювачів у сцені "
+"для прямих відскоків, замість здійснення відбору одного випадкового "
+"освітлювача. Вимкнення цієї опції може підвищити продуктивність при "
+"використанні багатьох AA Samples, у будь-якому випадку, для вичищення "
+"рендера."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:145
+msgid "Sample All Indirect Lights"
+msgstr "Вибірка Усіх Освітлювачів Побічних -- Sample All Indirect Lights"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:144
+msgid ""
+"Similar to direct light, but for indirects lights. This can reduce noise "
+"in scenes with many lights."
+msgstr ""
+"Подібно до Sample All Direct Lights, але відбираються освітлювачі для "
+"побічних відскоків. Це може скоротити шум у сценах з багатьма "
+"освітлювачами."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:150
+msgid "Light Paths"
+msgstr "Шлях Світла -- Light Paths"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:155
+#, fuzzy
+msgid ":menuselection:`Render --> Light Paths`"
+msgstr ""
+"Панель:    «Зображ > Шляхи Світла» -- :menuselection:`Render --> Light "
+"Paths`"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:161
+msgid "Bounces"
+msgstr "Відскоки -- Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:165
+msgid "Max Bounces"
+msgstr "Відскоки: Макс -- Max Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:164
+msgid ""
+"Maximum number of light bounces. For best quality, this should be set to "
+"the maximum. However, in practice, it may be good to set it to lower "
+"values for faster rendering. Setting it to maximum 0 bounces results in "
+"direct lighting only."
+msgstr ""
+"Максимальна кількість відскоків світла. Для найкращої якості це повинно "
+"бути установлено на максимум. Однак, на практиці, може бути добре задати "
+"для цієї устави нижчі значення для швидшого рендерингу. Задання цього "
+"максимального значення відскоків як 0 дасть відбір лише з прямого "
+"освітлення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:171
+msgid "Min Bounces"
+msgstr "Відскоки: Мін -- Min Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:168
+msgid ""
+"Minimum number of light bounces for each path, after which the integrator"
+" uses Russian Roulette to terminate paths that contribute less to the "
+"image. Setting this higher gives less noise, but may also increase render"
+" time considerably. For a low number of bounces, it is strongly "
+"recommended to set this equal to the maximum number of bounces."
+msgstr ""
+"Мінімальна кількість відскоків світла для кожного шляху, нижче якої "
+"інтегратор використовує Російську Рулетку для завершення шляхів, що дають"
+" менший внесок у зображення. Задання вищих значень дає менше шуму, але "
+"може також значно збільшувати час на рендеринг. При низьких значеннях "
+"відскоків настійно рекомендується задавати мінімальну кількість рівною "
+"максимальній кількості."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:173
+msgid "Diffuse Bounces"
+msgstr "Відскоки: Розсіяння -- Diffuse Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:174
+msgid "Maximum number of diffuse bounces."
+msgstr "Максимальна кількість відскоків розсіяння."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:175
+msgid "Glossy Bounces"
+msgstr "Відскоки: Глянець -- Glossy Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:176
+msgid "Maximum number of glossy bounces."
+msgstr "Максимальна кількість відскоків глянцю."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:177
+msgid "Transmission Bounces"
+msgstr "Відскоки: Пропускання -- Transmission Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:178
+msgid "Maximum number of transmission bounces."
+msgstr "Максимальна кількість відскоків пропускання."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:181
+msgid "Volume Bounces"
+msgstr "Відскоки: Об'єм -- Volume Bounces"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:180
+msgid "Maximum number of volume scattering bounces."
+msgstr "Максимальна кількість відскоків розсіювання об'ємом."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:184
+msgid "Transparency"
+msgstr "Прозорість -- Transparency"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:186
+msgid "Transparency Max"
+msgstr "Прозорість: Макс -- Transparency Max"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:187
+msgid "Maximum number of transparency bounces."
+msgstr "Максимальна кількість відскоків прозорості."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:188
+msgid "Transparency Min"
+msgstr "Прозорість: Мін -- Transparency Min"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:189
+msgid ""
+"Minimum number of transparency bounces, after which Russian Roulette "
+"termination is used."
+msgstr ""
+"Мінімальна кількість відскоків прозорості, нижче якої використовується "
+"Російська Рулетка для завершення шляхів, що дають менший внесок у "
+"зображення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:193
+msgid "Transparent Shadows"
+msgstr "Прозорість: Тіні"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:191
+msgid ""
+"For direct light sampling, use transparency of surfaces in between to "
+"produce shadows affected by transparency of those surfaces."
+msgstr ""
+"Для відбору відскоків прямого світла використовує прозорість між "
+"поверхнями для продукування тіней, спричинених прозорістю цих поверхонь."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:196
+msgid "Caustics & Filter Glossy"
+msgstr "Каустики та Фільтр Глянцю -- Caustics & Filter Glossy"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:202
+msgid "Reflective Caustics"
+msgstr "Каустики Відбиття -- Reflective Caustics"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:201
+msgid ""
+"While in principle path tracing supports rendering of caustics with a "
+"sufficient number of samples, in practice it may be inefficient to the "
+"point that there is just too much noise. This option can be unchecked, to"
+" disable reflective caustics."
+msgstr ""
+"Хоча, у принципі, простеження шляху підтримує рендеринг каустик за "
+"допомогою достатньої кількості вибірок, на практиці ж, він може бути "
+"неефективним у тому, що дає надто багато шуму. Ця опція може бути "
+"вимкненою для вимикання рендерингу каустик відбиття."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:206
+msgid "Refractive Caustics"
+msgstr "Каустики Заломлення -- Refractive Caustics"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:205
+msgid "The same as above, but for refractive caustics."
+msgstr "Подібно як Reflective Caustics, тільки щодо каустик заломлення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:223
+msgid "Filter Glossy"
+msgstr "Фільтр Глянцю -- Filter Glossy"
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:211
+msgid ""
+"When using a value higher than 0.0, this will blur glossy reflections "
+"after blurry bounces, to reduce noise at the cost of accuracy. 1.0 is a "
+"good starting value to tweak."
+msgstr ""
+"При використанні значення, вище за 0.0, це буде розмивати глянцеві "
+"відбиття після відскоків розмиву для скорочення шуму ціною точності. 1.0 "
+"-- хороше значення для початку підправлення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:214
+msgid ""
+"Some light paths have a low probability of being found while contributing"
+" much light to the pixel. As a result these light paths will be found in "
+"some pixels and not in others, causing fireflies. An example of such a "
+"difficult path might be a small light that is causing a small specular "
+"highlight on a sharp glossy material, which we are seeing through a rough"
+" glossy material. In fact in such a case we practically have a caustic."
+msgstr ""
+"Деякі шляхи світла мають низьку ймовірність виявлення, оскільки "
+"привносять багато світла у піксель. У результаті ці шляхи світла будуть "
+"виявлені у деяких пікселях, а в інших ні, що дасть світлячки -- "
+"fireflies. Прикладом такого складного шляху може бути наявність малого "
+"освітлювача, що спричиняє малу блікову підсвітку на різкому глянцевому "
+"матеріалів, який ми бачимо крізь грубий глянцевий матеріал. Фактично, у "
+"такому випадку, ми практично маємо каустику."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:220
+msgid ""
+"With path tracing it is difficult to find the specular highlight, but if "
+"we increase the roughness on the material, the highlight gets bigger and "
+"softer, and so easier to find. Often this blurring will hardly be "
+"noticeable, because we are seeing it through a blurry material anyway, "
+"but there are also cases where this will lead to a loss of detail in "
+"lighting."
+msgstr ""
+"За допомогою простеження шляху важко виявити таку блікову підсвітку, але,"
+" якщо ми збільшимо значення шорсткості для матеріалу, то ці підсвітки "
+"стануть більшими та м'якшими, а звідси легшими для їх виявлення. Часто це"
+" розмивання буде ледь помітне, оскільки ми дивимося на нього крізь "
+"розмитий матеріал, у будь-якому випадку, але є також випадки, де це буде "
+"призводити до втрати детальності освітлення."
+
+#: ../../manual/render/cycles/settings/scene/render/integrator.rst:227
+msgid ""
+"See :ref:`Reducing Noise <render-cycles-reducing-noise-clamp-samples>` "
+"for examples of the clamp settings in use."
+msgstr ""
+"Дивіться про устави затиску для скорочення шуму тут -- :ref:`Reducing "
+"Noise <render-cycles-reducing-noise-clamp-samples>`."
+
+#~ msgid "Geometry"
+#~ msgstr "Геометрія -- Geometry"
+
+#~ msgid "Panel:    :menuselection:`Render --> Geometry`"
+#~ msgstr "Панель:    «Зображ > Геометрія» -- :menuselection:`Render --> Geometry`"
+
+#~ msgid "Volume Sampling"
+#~ msgstr "Відбір Об'єму -- Volume Sampling"
+
+#~ msgid "Step Size"
+#~ msgstr "Розмір Кроку -- Step Size"
+
+#~ msgid ""
+#~ "Distance between volume shader samples "
+#~ "when rendering the volume. Lower values"
+#~ " give more accurate and detailed "
+#~ "results but also increased render time."
+#~ msgstr ""
+#~ "Відстань між вибірками відтінювача об'єму "
+#~ "при рендерингу об'єму. Нижчі значення "
+#~ "дають більш точні та деталізовані "
+#~ "результати, але також збільшують час на"
+#~ " рендер."
+
+#~ msgid "Max Steps"
+#~ msgstr "Макс Кроків -- Max Steps"
+
+#~ msgid ""
+#~ "Maximum number of steps through the "
+#~ "volume before giving up, to protect "
+#~ "from extremely long render times with"
+#~ " big objects or small step sizes."
+#~ msgstr ""
+#~ "Максимальна кількість кроків крізь об'єм "
+#~ "перед виданням для захисту від "
+#~ "надзвичайно тривалості рендерингу при великих"
+#~ " об'єктах або маленьких розмірах кроків."
+
+#~ msgid "Subdivision Rate"
+#~ msgstr "Норма Підподілення -- Subdivision Rate"
+
+#~ msgid ""
+#~ "These settings are used to control "
+#~ "the :ref:`True Displacement <render-cycles-"
+#~ "materials-displacement-true>`."
+#~ msgstr ""
+#~ "Ці устави використовуються для керування "
+#~ "Справжнім Зміщенням -- :ref:`True Displacement"
+#~ " <render-cycles-materials-displacement-"
+#~ "true>`."
+
+#~ msgid ""
+#~ "These Options are only available if "
+#~ ":ref:`Experimental Feature Set <cycles-"
+#~ "experimental-features>` is turned on."
+#~ msgstr ""
+#~ "Ці опції доступні тільки, якщо набір "
+#~ "експериментальних функцій -- :ref:`Experimental "
+#~ "Feature Set <cycles-experimental-features>`"
+#~ " увімкнено."
+
+#~ msgid "Render"
+#~ msgstr "Зображ -- Render"
+
+#~ msgid "Size of :term:`micropolygons` in pixels."
+#~ msgstr "Розмір мікрополігонів -- :term:`micropolygons` у пікселях."
+
+#~ msgid "Preview"
+#~ msgstr "Передогляд -- Preview"
+
+#~ msgid "Size of :term:`micropolygons` in pixels while preview rendering."
+#~ msgstr ""
+#~ "Розмір мікрополігонів -- :term:`micropolygons` "
+#~ "у пікселях при попередньому огляді "
+#~ "рендерингу."
+
+#~ msgid "Max Subdivisions"
+#~ msgstr "Макс Підподілів -- Max Subdivisions"
+
+#~ msgid ""
+#~ "Stop subdividing when this level is "
+#~ "reached even if the dice rate "
+#~ "would produce finer :term:`tessellation`."
+#~ msgstr ""
+#~ "Зупиняє підподілення при досягненні цього "
+#~ "рівня, навіть якщо норма нарізання буде"
+#~ " продукувати тоншу теселяцію -- "
+#~ ":term:`tessellation`, комірникування."
+
+#~ msgid "Hair"
+#~ msgstr "Волосся -- Hair"
+
+#~ msgid ""
+#~ "These are global settings that apply "
+#~ "to all instances of hair systems. "
+#~ "The resolution of the strands is "
+#~ "controlled by the step values in "
+#~ "particle settings. Each hair system uses"
+#~ " the material identified in the "
+#~ "particle settings in the same way "
+#~ "as Blender Internal."
+#~ msgstr ""
+#~ "Це глобальні устави, що застосовуються "
+#~ "для усіх примірників систем волосся. "
+#~ "Роздільність пасм керується значеннями кроку"
+#~ " в уставах частинок. Кожна система "
+#~ "волосся використовує матеріал, визначених в"
+#~ " уставах частинок так само, як і "
+#~ "для Blender Internal."
+
+#~ msgid ""
+#~ "There are also object level hair "
+#~ "settings for each particle system which"
+#~ " can be found in the :doc:`Hair "
+#~ "Settings </render/cycles/settings/objects/hair>`."
+#~ msgstr ""
+#~ "Також є устави рендерингу волосся на "
+#~ "рівні об'єкта для кожної системи "
+#~ "частинок, що описані тут -- :doc:`Hair"
+#~ " Settings </render/cycles/settings/objects/hair>`."
+
+#~ msgid "Use Hair"
+#~ msgstr "Вжити Волосся -- Use Hair"
+
+#~ msgid "Enables rendering of hair particle systems."
+#~ msgstr "Вмикає рендеринг систем частинок волосся."
+
+#~ msgid "Primitive"
+#~ msgstr "Примітив -- Primitive"
+
+#~ msgid "Triangles"
+#~ msgstr "Трикутники -- Triangles"
+
+#~ msgid "Uses a triangle mesh."
+#~ msgstr "Використовує трибічну, трикутну сіть."
+
+#~ msgid "Resolution"
+#~ msgstr "Роздільність -- Resolution"
+
+#~ msgid "ToDo ~2.67."
+#~ msgstr "ToDo ~2.67."
+
+#~ msgid "Line Segments"
+#~ msgstr "Сегменти Лінії -- Line Segments"
+
+#~ msgid "Uses a straight curve primitive."
+#~ msgstr "Використовує примітив прямолінійної кривої."
+
+#~ msgid "Curve Segments"
+#~ msgstr "Сегменти Кривої -- Curve Segments"
+
+#~ msgid ""
+#~ "Uses a smooth Cardinal curve primitive."
+#~ " These interpolate a path through the"
+#~ " curve keys. However, it renders "
+#~ "slower than line segments."
+#~ msgstr ""
+#~ "Використовує примітив згладженої кривої типу"
+#~ " Cardinal. Вони інтерполюють шлях через "
+#~ "ключі кривої. Однак, рендеринг буде "
+#~ "повільнішим, ніж при Line Segments."
+
+#~ msgid "Curve Subdivisions"
+#~ msgstr "Підподіли Кривої -- Curve Subdivisions"
+
+#~ msgid ""
+#~ "The interpolated path is subdivided to"
+#~ " give points to connect. The "
+#~ "parameter subdivisions sets the number "
+#~ "of divisions used."
+#~ msgstr ""
+#~ "Інтерпольований шлях підподіляється для "
+#~ "додання точок для з'єднання. Цей "
+#~ "параметр задає кількість використовуваних "
+#~ "підподілів."
+
+#~ msgid "Shape"
+#~ msgstr "Форма -- Shape"
+
+#~ msgid "Thick"
+#~ msgstr "Товсто -- Thick"
+
+#~ msgid "Cylindrical segments between two points."
+#~ msgstr "Циліндричні сегменти між двома точками."
+
+#~ msgid "Cull back-faces"
+#~ msgstr "Відкидати звороти -- Cull back-faces"
+
+#~ msgid "Excludes strands emitted from the mesh backfacing the camera."
+#~ msgstr "Виключає пасма, емітовані зі зворотного відносно камери боку сіті."
+
+#~ msgid "Ribbons"
+#~ msgstr "Стрічки -- Ribbons"
+
+#~ msgid "Are flat planes following the strand direction facing the camera."
+#~ msgstr "Плоскі площини, що слідують у напрямку пасма лицем до камери."
+
+#~ msgid "Min Pixels"
+#~ msgstr "Мін Пікселів -- Min Pixels"
+
+#~ msgid ""
+#~ "Strands that are further away will "
+#~ "be made wider, which is compensated "
+#~ "with transparency to keep the look "
+#~ "similar. This effect is only applied "
+#~ "for camera rays. It works best "
+#~ "with ribbon primitives."
+#~ msgstr ""
+#~ "Пасма, що знаходяться дальше, будуть "
+#~ "зроблені ширшими, що компенсується прозорістю"
+#~ " для збереження подібності вигляду. Це "
+#~ "впливає тільки на застосовані промені "
+#~ "камери. Це працює найкраще з примітивами"
+#~ " типу Ribbons."
+

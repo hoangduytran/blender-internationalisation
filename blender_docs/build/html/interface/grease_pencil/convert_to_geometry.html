@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Конвертування у геометрію &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/interface/grease_pencil/convert_to_geometry.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Редактори -- Editors" href="../../editors/index.html" />
+    <link rel="prev" title="Анімування нарисів" href="animating.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Інтерфейс Користувача -- User Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../splash.html">Екран Заставки -- Splash Screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#window-system">Система вікон</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#interface-controls">Контролери інтерфейсу</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#tools">Інструменти</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../undo_redo.html">Undo &amp; Redo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ruler_protractor.html">Ruler &amp; Protractor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Нарисний Олівець -- Grease Pencil</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="drawing/index.html">Рисування штрихів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stroke_edit.html">Режим редагування штрихів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="animating.html">Анімування нарисів</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Конвертування у геометрію</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Інтерфейс Користувача -- User Interface</a> &raquo;</li>
+        
+          <li><a href="index.html">Нарисний Олівець -- Grease Pencil</a> &raquo;</li>
+        
+      <li>Конвертування у геометрію</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/interface/grease_pencil/convert_to_geometry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="convert-to-geometry">
+<span id="bpy-ops-gpencil-convert"></span><h1>Конвертування у геометрію<a class="headerlink" href="#convert-to-geometry" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Grease Pencil ‣ Grease Pencil ‣ Tools: Convert to Geometry...</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">GPencil ‣ Convert to Geometry...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-C</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/interface_grease-pencil_convert-to-geometry_options.png" src="../../_images/interface_grease-pencil_convert-to-geometry_options.png" />
+<p class="caption"><span class="caption-text">Опції конвертування у криву.</span></p>
+</div>
+<p>In the 3D View, sketches on the active layer can be converted to geometry,
+based on the current view settings, by transforming the points recorded when drawing
+(which make up the strokes) into 3D space. Currently, all points will be used,
+so it may be necessary to simplify or subdivide parts of the created geometry for standard use.</p>
+<p>Sketches can currently be converted into curves,
+as proposed by the <em>Convert Grease Pencil</em> menu popped-up by the <em>Convert</em> button in the Grease pencil properties.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Тип</dt>
+<dd><p class="first">Тип об'єкта, в який буде здійснена конвертація.</p>
+<dl class="docutils">
+<dt>Шлях -- Path</dt>
+<dd>Створює 3д-криві НОРБС 2-го порядку (тобто, що поводяться як полілінії).</dd>
+<dt>Крива Безьє -- Bézier Curve</dt>
+<dd>Створює криві Безьє з вільними «вирівняними» держаками (тобто, що також поводяться як полілінії).</dd>
+<dt>Багатобічна Крива -- Polygon Curve</dt>
+<dd>Bézier Curve with straight line segments (auto handles).</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Конвертування у сіть</p>
+<p class="last">If you want to convert your sketch to a mesh,
+simply choose <em>NURBS</em> first, and then convert the created curve to a mesh.</p>
+</div>
+</dd>
+<dt>Нормалізація Вагомостей -- Normalize Weight</dt>
+<dd><p class="first">Will scale weights value so that they fit tightly into the (0.0 to 1.0) range.</p>
+<p class="last">All this means is that with a pressure tablet,
+you can directly control the radius and weight of the created curve,
+which can affect e.g. the width of an extrusion,
+or the size of an object through a <em>Follow Path</em> Constraint or <em>Curve</em> Modifier!</p>
+</dd>
+<dt>Пов'язати Штрихи -- Link Strokes</dt>
+<dd>Will create a single spline, i.e. curve element. (enabled by default)
+from all strokes in active Grease pencil layer.
+This is especially useful if you want to use the curve as a path.
+All the strokes are linked in the curve by &quot;zero weights/radii&quot; sections.</dd>
+</dl>
+<div class="section" id="timing">
+<h3>Часування -- Timing<a class="headerlink" href="#timing" title="Permalink to this headline">¶</a></h3>
+<p>Grease pencil stores &quot;dynamic&quot; data, i.e. how fast strokes are drawn.
+When converting to curve, this data can be used to create an <em>Evaluate Time</em> F-Curve
+(in other words, a path animation), that can be used
+e.g. to control another object's position along that curve
+(<em>Follow Path</em> constraint, or, through a driver, <em>Curve</em> modifier).
+So this allows you to reproduce your drawing movements.</p>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">All those &quot;timing&quot; options need <em>Link Stroke</em> to be enabled,
+otherwise they would not make much sense!</p>
+</div>
+<dl class="docutils">
+<dt>Режим Часування -- Timing Mode</dt>
+<dd><p class="first">This control lets you choose how timing data is used.</p>
+<dl class="last docutils">
+<dt>Без Часування -- No Timing</dt>
+<dd>Тільки створює криву без будь-яких даних анімації (отже, всі наступні опції будуть сховані).</dd>
+<dt>Лінеарно -- Linear</dt>
+<dd>Анімація шляхом буде прямолінійною, лінеарною.</dd>
+<dt>Оригінал -- Original</dt>
+<dd>Анімація шляхом буде відображати оригінальне часування, включаючи «проміжки» (тобто, час між рисуванням штрихів).</dd>
+<dt>Власні Проміжки -- Custom Gaps</dt>
+<dd>Анімація шляхом буде відображати оригінальне часування, але «проміжки» отримають власні значення. Це особливо корисно, якщо ви маєте дуже великі паузи між деякими зі штрихів, і б воліли мати більш «розумні»!</dd>
+</dl>
+</dd>
+<dt>Діапазон Кадрів -- Frame Range</dt>
+<dd>«Довжина» створеної анімації шляхом, у кадрах. Іншими словами, найвище значення «Оцінки Часу» -- <em>Evaluation Time</em>.</dd>
+<dt>Стартовий Кадр -- Start Frame</dt>
+<dd>Стартовий кадр анімації шляхом.</dd>
+<dt>Реально-часово -- Realtime</dt>
+<dd>При увімкненні анімація шляхом буде тривати точну таку тривалість, за яку рисуються штрихи.</dd>
+<dt>Кінцевий Кадр -- End Frame</dt>
+<dd>Коли опція «Реально-часово» -- <em>Realtime</em> вимкнена, то це визначає кінцевий кадр анімації шляхом. Це означає, що часування рисування буде масштабоване для вписування у визначений діапазон.</dd>
+<dt>Тривалість Проміжку -- Gap Duration</dt>
+<dd><em>Custom Gaps</em> only. The average duration (in frames) of each gap between actual strokes.
+Please note that the value entered here will only be exact if <em>Realtime</em> is enabled,
+otherwise it will be scaled, exactly as the actual strokes' timing is!</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Ось просте «рукописне» відео, створене з кривих, конвертованих з даних нарису:</p>
+<iframe src="https://www.youtube.com/embed/VwWEXrnQAFI" style="border: 0; height: 345px; width: 560px">
+</iframe><p>Blend-файл прикладу вище може бути знайдено <a class="reference external" href="https://wiki.blender.org/index.php/file:ManGreasePencilConvertToCurveDynamicExample.blend">тут</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../editors/index.html" class="btn btn-neutral float-right" title="Редактори -- Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="animating.html" class="btn btn-neutral" title="Анімування нарисів" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

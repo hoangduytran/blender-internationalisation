@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/advanced/scripting/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Скриптування та Безпека" href="security.html" />
+    <link rel="prev" title="Написання скриптів та Розширення Blender&#39;а" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Просунуте -- Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../command_line/index.html">Командний Рядок -- Command Line</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Написання скриптів та Розширення Blender'а</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Вступ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-information">Загальна Інформація</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started">Почин</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extending-blender">Розширення Blender</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Скриптування та Безпека</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addon_tutorial.html">Навчальник про Додатки</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../app_templates.html">Шаблони Застосунку -- Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../limits.html">Робочі Ліміти -- Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Просунуте -- Advanced</a> &raquo;</li>
+        
+          <li><a href="index.html">Написання скриптів та Розширення Blender'а</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/advanced/scripting/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Python — інтерпретована, інтерактивна, об'єктно орієнтована мова програмування. Вона включає в собі модулі, винятки, динамічну типізацію, дуже високо-рівневі динамічні типи даних та класи. Python поєднує в собі надзвичайну потужність з дуже чітким синтаксисом.</p>
+<p>Python scripts are a powerful and versatile way to extend Blender functionality.
+Most areas of Blender can be scripted, including animation, rendering, import and export,
+object creation and the scripting of repetitive tasks.</p>
+<p>To interact with Blender, scripts can make use of
+the tightly integrated <abbr title="Application Programming Interface">API</abbr>.</p>
+<div class="section" id="general-information">
+<h2>Загальна Інформація<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h2>
+<p>Посилання, корисні при написанні скриптів:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.python.org/">Python.org</a>
+-- General information about Python.</li>
+<li><a class="reference external" href="https://www.blender.org/api/blender_python_api_current/">Blender Python API</a>
+-- Official API documentation. Use this for referencing while writing scripts.</li>
+<li><a class="reference external" href="https://www.blender.org/api/blender_python_api_current/info_quickstart.html">API Introduction</a>
+-- A short introduction to get you started with the API. Contains examples.</li>
+<li><a class="reference external" href="https://wiki.blender.org/index.php/Dev:Py/Scripts/Cookbook">CookBook</a>
+-- A section of handy code snippets (yet to be written).</li>
+</ul>
+<p>Посилання, що стосуються розповсюдження ваших скриптів:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://wiki.blender.org/index.php/Dev:Doc/Process/Addons">Sharing scripts</a>
+-- Information on how to share your scripts and get them included in the official Blender distribution.</li>
+<li><a class="reference external" href="https://wiki.blender.org/index.php/Dev:Py/Scripts/Guidelines/Addons">Creating Add-ons</a>
+-- Add-ons are used to encapsulate and distribute scripts.</li>
+<li><a class="reference external" href="https://developer.blender.org/project/profile/3/">Add-ons project</a>
+-- Project to maintain a central repository of extensions to Blender.</li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h2>Почин<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Посилання на Довідник</p>
+<p>Наступні посилання переведуть вас із основних до більш просунутих концепцій скриптування на Python для Blender.</p>
+<ul class="simple">
+<li>Редактор Тексту -- <a class="reference internal" href="../../editors/text_editor.html"><span class="doc">Text Editor</span></a></li>
+<li>Консоль Python -- <a class="reference internal" href="../../editors/python_console.html"><span class="doc">Python Console</span></a></li>
+<li>Інформація Редактора <a class="reference internal" href="../../editors/info/introduction.html#info-report-console"><span class="std std-ref">Звітна Консоль -- Report Console</span></a></li>
+</ul>
+<p class="rubric">Зовнішні посилання</p>
+<p>Ось зовнішні посилання, що містять багато корисної інформації, щоб почати вчитися писати скрипти для Blender:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://sites.google.com/site/satishgoda/blender/learningblender25/introduction-to-blender-python-api">Introductory tutorial by Satish Goda</a> Розповідає, як почати, та вчить, як здійснювати базові маніпуляції з API.</li>
+<li><a class="reference external" href="https://www.youtube.com/watch?v=vmhU_whC6zw">Ira Krakow's video tutorials</a> Перше відео в серії відеоуроків.</li>
+<li><a class="reference external" href="https://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/2.5_quickstart">Quickstart guide</a> Швидкий путівник для людей, які вже знайомі з Python та Blender.</li>
+<li><a class="reference external" href="http://blenderartists.org/forum/showthread.php?t=164765">Examples thread</a> Віртуальний форум, що містить багато коротких робочих прикладів скриптів.</li>
+<li><a class="reference external" href="https://cgcookie.com/archive/introduction-to-scripting-with-python-in-blender/">Introduction to Python</a> Одно-годинний відео навчальник, що знайомить з Python та Blender API.</li>
+</ul>
+</div>
+<div class="section" id="extending-blender">
+<h2>Розширення Blender<a class="headerlink" href="#extending-blender" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-ons">
+<h3>Додатки<a class="headerlink" href="#add-ons" title="Permalink to this headline">¶</a></h3>
+<p>Додатки - це скрипти, які ви можете вмикати для отримання додаткової функціональності у Blender'і, в Уподобаннях Користувача.</p>
+<p>Поза середовищем самого Blender'а існують буквально сотні додатків, написаних багатьма людьми:</p>
+<ul class="simple">
+<li>Офіційно підтримувані надбудови поставляються в комплекті з Blender.</li>
+<li>Інші додатки категорії «тестування» <strong>Testing</strong>, включаються у розробницькі будови, але не в офіційні випуски. Багато хто з них працюють надійно і дуже корисні, але не є гарантовано стабільними для офіційного випуску.</li>
+</ul>
+<p>Для огляду усіх доступних додатків, дивіться <a class="reference external" href="https://wiki.blender.org/index.php/Extensions:2.6/Py/Scripts">Scripts Catalog</a>.</p>
+</div>
+<div class="section" id="scripts">
+<h3>Скрипти<a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<p>Окрім додатків, існують також інші скрипти, які ви можете використовувати для розширення функціональності Blender'а:</p>
+<ul class="simple">
+<li>Модулі (modules): Корисні бібліотеки для імпорту в інші скрипти.</li>
+<li>Передустави (presets): Устави для засобів Blender'а та конфігурацій клавіш.</li>
+<li>Запуск: Ці файли імпортуються при запуску Blender'а. Вони визначають більшість інтерфейсу Blender, а також деякі додаткові основні оператори.</li>
+<li>Власні скрипти: на відміну від додатків, вони, як правило, призначені для одноразового виконання за допомогою Редактора Тексту -- <a class="reference internal" href="../../editors/text_editor.html"><span class="doc">Text Editor</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="saving-your-own-scripts">
+<h3>Збереження ваших власних Скриптів<a class="headerlink" href="#saving-your-own-scripts" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="file-location">
+<h4>Локація Файлів<a class="headerlink" href="#file-location" title="Permalink to this headline">¶</a></h4>
+<p>Усі скрипти завантажуються з теки <code class="docutils literal notranslate"><span class="pre">scripts</span></code>, яка може знаходитися по <a class="reference internal" href="../../getting_started/installing/configuration/directories.html"><span class="doc">локальному, системному та користувацькому шляху</span></a>.</p>
+<p>Ви можете установити додатковий шлях для пошуку скриптів в Уподобання Користувача <a class="reference internal" href="../../preferences/file.html#prefs-file-paths"><span class="std std-ref">Шляхи Файлів -- File Paths</span></a> <span class="menuselection">User Preferences ‣ File Paths</span>.</p>
+</div>
+<div class="section" id="installation">
+<h4>Установлення<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h4>
+<p>Додатки зручно установлювати у Blender'і в Уподобаннях Користувача -- <a class="reference internal" href="../../preferences/addons.html"><span class="doc">User Preferences</span></a>. Для цього клацайте на кнопці «Установити з Файлу» <span class="menuselection">Install from File...</span> та вказуйте на файл з розширенням <code class="docutils literal notranslate"><span class="pre">.py</span></code> або <code class="docutils literal notranslate"><span class="pre">.zip</span></code>.</p>
+<p>Для установлення вручну скриптів або додатків поміщайте їх файли у теки <code class="docutils literal notranslate"><span class="pre">add-ons</span></code>, <code class="docutils literal notranslate"><span class="pre">modules</span></code>, <code class="docutils literal notranslate"><span class="pre">presets</span></code> або <code class="docutils literal notranslate"><span class="pre">startup</span></code> відповідно до їх типу. Дивіться опис про це вище.</p>
+<p>Ви можете також напряму виконувати скрипти, завантаживши їх у редактор Тексту -- <a class="reference internal" href="../../editors/text_editor.html"><span class="doc">Text Editor</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="security.html" class="btn btn-neutral float-right" title="Скриптування та Безпека" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Написання скриптів та Розширення Blender&#39;а" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

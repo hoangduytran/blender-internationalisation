@@ -1,0 +1,154 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is licensed under a CC-BY-SA 4.0 Int. License
+# This file is distributed under the same license as the Blender 2.77 Manual
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.77 Manual 2.77\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-30 20:55+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/modeling/surfaces/structure.rst:4
+msgid "Structure"
+msgstr "结构"
+
+#: ../../manual/modeling/surfaces/structure.rst:6
+msgid ""
+"Many of the concepts from :doc:`curves </modeling/curves/introduction>`, especially :ref:`NURBS <curve-nurbs>` ones, carry directly over to NURBS "
+"surfaces, such as control points, *Order*, *Weight*, *Resolution*, etc. Here we will just talk about the differences."
+msgstr ""
+"许多概念来自 :doc:`曲线 </modeling/curves/introduction>`, 特别是 :ref:`NURBS <curve-nurbs>` , 直接搬过来用到NURBS曲面上了, 例如控制点, *阶数*, *权"
+"重*, *分辨率* 等。在这里，我们将只谈谈差异。"
+
+#: ../../manual/modeling/surfaces/structure.rst:12
+msgid ""
+"It is very important to understand the difference between NURBS curves and NURBS surfaces: the first one has one dimension, the latter has two. "
+"Blender internally treats NURBS surfaces and NURBS curves completely differently. There are several attributes that separate them but the most "
+"important is that a NURBS curve has a single interpolation axis (U) and a NURBS surface has two interpolation axes (U and V)."
+msgstr ""
+"理解NURBS曲线和NURBS曲面之间的差异十分重要：前者具有一个维度，后者有两个。Blender内部对NURBS曲面和NURBS曲面的处理方式是完全不同的。可以通过几个属"
+"性将它们区分开，但最重要的是，NURBS曲线仅有一个的插值轴(U)而NURBS曲面有两个插值轴(U和V)。"
+
+#: ../../manual/modeling/surfaces/structure.rst:18
+msgid ""
+"However, you can have \"2D\" surfaces made of curves (using the :doc:`extrusion tools </modeling/curves/properties/geometry>`, or, to a lesser "
+"extent, the filling of closed 2D curves). And you can have \"1D\" curves made of surfaces, like a NURBS surface with only one row (either in U or "
+"V direction) of control points produces only a curve..."
+msgstr ""
+"但是，可以用曲线构成'2D'曲面(使用 :doc:`挤出工具 </modeling/curves/properties/geometry>`, 或者更简单的, 填充闭合的2D曲线)。并且，可以曲面构成有"
+"\"1D\"曲线，比如只有一行(在U或V方向)控制点的NURBS曲面，只会生成一条曲线..."
+
+#: ../../manual/modeling/surfaces/structure.rst:23
+msgid ""
+"Visually you can tell which is which by entering *Edit Mode* and looking at the 3D View header: either the header shows *Surface* or *Curve* as "
+"one of the menu choices. Also, you can :doc:`extrude </modeling/curves/properties/geometry>` a whole NURBS surface curve to create a surface, but "
+"you cannot with a simple NURBS curve."
+msgstr ""
+"只要进入 *编辑模式*，看看3D视图的标题栏显示的是曲面还是曲线菜单，就可以从视觉上分辨二者。此外，还可以 :doc:`挤出 </modeling/curves/properties/"
+"geometry>` 整条NURBS曲线来创建一个曲面，但是NURBS曲面则不行。"
+
+#: ../../manual/modeling/surfaces/structure.rst:32
+msgid "Control Points, Rows and Grid"
+msgstr "控制点，行和栅格"
+
+#: ../../manual/modeling/surfaces/structure.rst:34
+msgid ""
+"Control points for NURBS surfaces are the same as for NURBS curves. However, their layout is quite constraining. The concept of \"segment\" "
+"disappears, replaced by \"rows\" and the overall \"grid\"."
+msgstr ""
+"NURBS曲面的控制点和NURBS曲线的一样。然而, 他们的布局相当受限(受到类型不同的约束而导致布局也不同)。\"线段\"概念消失，取而代之的是\"行\"和整体的\"栅"
+"格\"。"
+
+#: ../../manual/modeling/surfaces/structure.rst:38
+msgid ""
+"A \"row\" is a set of control points forming one \"line\" in one interpolation direction (a bit similar to :ref:`edge loops <modeling-mesh-"
+"structure-edge-loops>` for meshes). So you have \"U rows\" and \"V rows\" in a NURBS surface. The key point is that *all* rows of a given type (U "
+"or V) have the *same* number of control points. Each control point belongs to exactly one U row and one V row."
+msgstr ""
+"\"行\"是指在一个插值方向形成的一条\"线\"的一组控制点(有点类似于网格的 :ref:`循环边 <modeling-mesh-structure-edge-loops>` )。所以在一个NURBS曲面里"
+"有\"U行\"和\"V行\"。关键是给定类型(U或V)的 *所有行* 都有相同的控制点数量。每个控制点属于一个U行和一个V行。"
+
+#: ../../manual/modeling/surfaces/structure.rst:44
+msgid ""
+"All this forms a \"grid\", or \"cage\", the shape of which controls the shape of the NURBS surface. A bit like a :doc:`lattice </rigging/"
+"lattice>`..."
+msgstr "所有这一切形成一个\"网格\"，或\"笼子\"，其形状控制了NURBS曲面的形状。有点像 :doc:`晶格 </rigging/lattice>`..."
+
+#: ../../manual/modeling/surfaces/structure.rst:47
+msgid ""
+"This is very important to grasp: you cannot add a single control point to a NURBS surface; you have to add a whole U or V row at once (in "
+"practice, you will usually use the Extrude tool, or perhaps the Duplicate one, to add those...), containing exactly the same number of points as "
+"the others. This also means that you will only be able to \"merge\" different pieces of surfaces if at least one of their rows matches together."
+msgstr ""
+"重要的是要知道: 不能在NURBS曲面上只添加一个单个的控制点，必须一次添加一整行U或者V行控制点(实际操作中，通常会使用挤出工具或者复制一个, 来添加这些"
+"点), 这些点的数量和其他行一样。这也意味着你将只能够\"合并\"至少有一行点数匹配的不同曲面。"
+
+#: ../../manual/modeling/surfaces/structure.rst:57
+msgid "Weight"
+msgstr "权重"
+
+#: ../../manual/modeling/surfaces/structure.rst:59
+msgid ""
+"Guess what? Yes, it works exactly like :ref:`NURBS Curves <modeling-curve-weight>`! *Weight* specifies how much each control point \"pulls\" on "
+"the curve."
+msgstr "你猜怎么着？是的, 它和 :ref:`NURBS 曲线 <modeling-curve-weight>` 的原理完全一样! *权重* 指定每个控制点对曲线的\"拉伸量\"。"
+
+#: ../../manual/modeling/surfaces/structure.rst:62
+msgid ""
+"In Fig. :ref:`fig-surface-intro-weight` a single control point, labeled \"C\", has had its *Weight* set to 5.0 while all others are at their "
+"default of 1.0. As you can see, that control point *pulls* the surface towards it."
+msgstr ""
+"在图 :ref:`fig-surface-intro-weight` 中, 一个的控制点, 标记为\"C\", 其 *权重* 设为5.0, 而别的点是默认值1.0。如你所见, 控制点将曲面向着它\"拉\"过"
+"去。"
+
+#: ../../manual/modeling/surfaces/structure.rst:70
+msgid "One control point with a weight of 5."
+msgstr "一个权重为5的控制点."
+
+#: ../../manual/modeling/surfaces/structure.rst:72
+msgid ""
+"If all the control points have the same *Weight* then each effectively cancels each other out. It is the difference in the weights that cause the "
+"surface to move towards or away from a control point."
+msgstr "如果所有的控制点都具有相同 *权重*，然后每个点都有效地相互抵消。权重导致曲面朝向或背离控制点移动，这是曲线与曲面权重上的区别。"
+
+#: ../../manual/modeling/surfaces/structure.rst:76
+msgid ""
+"The *Weight* of any particular control point is visible in the :doc:`/editors/3dview/object/properties/transforms` :kbd:`N`, in the *W* field "
+"(and not the *Weight* field...)."
+msgstr "可以在 :doc:`/editors/3dview/object/properties/transforms` :kbd:`N` *W* 数值框 (而不是 *权重* 数值框...)里查看任何特定控制点的权重。"
+
+#: ../../manual/modeling/surfaces/structure.rst:82
+msgid "Preset Weights"
+msgstr "预设权重"
+
+#: ../../manual/modeling/surfaces/structure.rst:84
+msgid ""
+"NURBS can create pure shapes such as circles, cylinders, and spheres (note that a Bézier circle is not a pure circle). To create pure circles, "
+"globes, or cylinders, you must set to specific values the weights of the control points. Some of which are provided as presets in the *Curve "
+"Tools* panel (lower right corner). This is not intuitive, and you should read more on NURBS before trying this."
+msgstr ""
+"NURBS能够创建纯粹的形状，比如圆环,圆柱和球(注意贝塞尔圆环不是纯粹的圆形)。为了创建纯粹的圆环、圆球或圆柱, 必须设置具体的控制点的权重值。其中一些已"
+"作为预设的形式存在于 *曲线工具* 面板(右下角)里。这不是很直观，所以可以在尝试之前对NURBS多做了解。"
+
+#: ../../manual/modeling/surfaces/structure.rst:90
+msgid ""
+"To create a sphere with 2D surfaces, its the same principle as with a 2D circle. You will note that the four different weights needed for "
+"creating a sphere (1.0, 0.707 = sqrt(0.5), 0.354 = sqrt(2)/4, and 0.25)."
+msgstr ""
+"要使用2D曲面创建一个球体，其原理与2D圆环相同。你可以注意到，创建球体所用到的四个不同的权重值(1.0, 0.707=sqrt(0.5), 0.354=sqrt(2)/4, 和0.25)。"
+
+#: ../../manual/modeling/surfaces/structure.rst:96
+msgid "A sphere surface."
+msgstr "一个曲面球。"

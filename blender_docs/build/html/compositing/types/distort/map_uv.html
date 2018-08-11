@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Розкладка UV» -- Map UV Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/distort/map_uv.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Вузол «Спотворення Фільму» -- Movie Distortion Nodes" href="movie_distortion.html" />
+    <link rel="prev" title="Вузол «Спотворення Об&#39;єктива» -- Lens Distortion Node" href="lens_distortion.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Компонування -- Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Властивості</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Типи Вузлів -- Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Вузли типу «Увід» -- Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Вузли типу «Вивід» -- Output nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Вузли типу «Колір» -- Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Вузли типу «Конвертер» -- Converter Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../filter/index.html">Вузли типу «Фільтр» -- Filter Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Вузли типу «Вектор» -- Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Вузли типу «Маска» -- Matte Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Вузли типу «Спотворення» -- Distort Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="corner_pin.html">Вузол «Куткова Шпилька» -- Corner Pin Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="crop.html">Вузол «Обрізка» -- Crop Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">Вузол «Зміщення» -- Displace Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="flip.html">Вузол «Переверт» -- Flip Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lens_distortion.html">Вузол «Спотворення Об'єктива» -- Lens Distortion Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вузол «Розкладка UV» -- Map UV Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="movie_distortion.html">Вузол «Спотворення Фільму» -- Movie Distortion Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="plane_track_deform.html">Вузол «Деформа Стежки Площини» -- Plane Track Deform Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rotate.html">Вузол «Оберт» -- Rotate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="scale.html">Вузол «Масштаб» -- Scale Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stabilize_2d.html">Вузол «Стабілізація 2D» -- Stabilize 2D Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="transform.html">Вузол «Трансформація» -- Transform Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="translate.html">Вузол «Пересув» -- Translate Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Групи Вузлів або Групові Вузли -- Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Вузли типу «Розстава» -- Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Компонування -- Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Спотворення» -- Distort Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Розкладка UV» -- Map UV Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/distort/map_uv.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="map-uv-node">
+<span id="bpy-types-compositornodemapuv"></span><h1>Вузол «Розкладка UV» -- Map UV Node<a class="headerlink" href="#map-uv-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_distort_map-uv_node.png" src="../../../_images/compositing_types_distort_map-uv_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Розкладка UV» -- Map UV node.</span></p>
+</div>
+<p>За допомогою цього вузла об'єкти можуть бути «пере-текстуровані» після того, як вони були відзображені, рендерені.</p>
+<p>Для призначення текстур на окремі перелічені об'єкти може використовуватися вузол <a class="reference internal" href="../converter/id_mask.html"><span class="doc">Маска за ID -- ID Mask Node</span></a>.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Нова 2D текстура.</dd>
+<dt>UV</dt>
+<dd>Увід проходу рендера UV. Дивіться про проходи рендера для Cycles -- <a class="reference internal" href="../../../render/cycles/settings/scene/render_layers/passes.html"><span class="doc">Cycles render passes</span></a> або про проходи рендера для Blender Internal -- <a class="reference internal" href="../../../render/blender_render/settings/passes.html"><span class="doc">Blender internal render passes</span></a>.</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Для збереження проходу UV може використовуватися багато-шаровий формат OpenEXR.</p>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Альфа -- Alpha</dt>
+<dd>Поріг альфа-прозорості, що використовується для ефекту поступового щезання пікселів на границях об'єктів зображення.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Результатне зображення -- це увідна зображеннєва текстура, спотворена відповідно до заданих UV координат. Таке зображення може далі бути накладено змішане з оригінальним зображенням для намалювання цієї текстури поверх оригіналу. Регулюйте альфа та фактор змішування для керування тим, наскільки нова текстура перекриває стару.</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">При малюванні цієї нової текстури допомагає наявність UV карт для оригінальних об'єктів у сцені, рекомендується зберігати ці UV-контури для текстур під рукою навіть після завершення компонування.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>У прикладі нижче ми розклали ґратчастий узор поверх об'єктів двох голів після того, як вони були рендерені. У ході рендерингу ми увімкнули прохід даного UV шару у Редакторі Властивостей -- «Шари Рендера &gt; Проходи» -- <span class="menuselection">Render Layer ‣ Passes</span>. Використавши вузол «Мікс» -- Mix (ти «Перекривання» -- &quot;Overlay&quot; на ілюстрації), ми змішали цю нову UV Текстуру з тією, що була на гранях оригіналу. Ми можемо вживати цю ґратчасту текстуру для допомоги при будь-якому відстеженні руху -- motion tracking, яке нам треба робити.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_distort_map-uv_example-1.png"><img alt="../../../_images/compositing_types_distort_map-uv_example-1.png" src="../../../_images/compositing_types_distort_map-uv_example-1.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Додання ґратчастих UV текстур для відстеження руху.</span></p>
+</div>
+<p>У наступному прикладі ми розклали лого поверх сіті, скомпонованої з двох кубів, що перетинаються, і ми переконалися, що увімкнути кнопку передмноження Альфа на вузлі Mix. Цей логотип використовується як додаткова текстура UV поверх наявної текстури. Інші приклади включають можливість, щоб там, де було використано неавторизований продукт у ході початкової анімації, необхідно підмінити іншим спонсором продукту після рендерингу.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Через обмеження для цього вузла не рекомендується поспішати робити перед-виробничий рендеринг під умовою «виправлення його пізніше».</p>
+</div>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_distort_map-uv_example-2.png"><img alt="../../../_images/compositing_types_distort_map-uv_example-2.png" src="../../../_images/compositing_types_distort_map-uv_example-2.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Додання UV текстур на етапі після-виробництва.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="movie_distortion.html" class="btn btn-neutral float-right" title="Вузол «Спотворення Фільму» -- Movie Distortion Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lens_distortion.html" class="btn btn-neutral" title="Вузол «Спотворення Об&#39;єктива» -- Lens Distortion Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

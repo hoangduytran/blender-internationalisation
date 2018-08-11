@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Мітки -- Markers &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/markers.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Ключі Форм -- Shape Keys" href="shape_keys/index.html" />
+    <link rel="prev" title="Усунення утруднень" href="drivers/troubleshooting.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Ключкадри -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Дії -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Драйвери -- Drivers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Мітки -- Markers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types">Типи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization">Візуалізація</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard">Стандарт</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencer">Відеорядник -- Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-view">3D-Огляд -- 3D View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pose-markers">Мітки Поз -- Pose Markers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#add-marker">Додання Мітки</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#marker-pose-add">Мітки Поз -- Pose Markers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting">Виділення</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing">Редагування</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker">Дублювання Мітки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker-to-scene">Дублювання Мітки у Сцену</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-markers">Видалення Міток</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rename-marker">Перейменування Мітки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grab-move-marker">Захоп/Пересув Мітки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-pose-markers">Показ Міток Поз</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#make-markers-local">Зроблення Міток Локальними</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jump-to-next-previous-marker">Перехід до Наступної/Попередньої Мітки</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bind-camera-to-marker">Прив'язка Камери до Мітки</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">Робпотік</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Ключі Форм -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Шляхи Руху -- Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Анімація -- Animation</a> &raquo;</li>
+        
+      <li>Мітки -- Markers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/animation/markers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="markers">
+<span id="bpy-ops-marker"></span><span id="bpy-types-timelinemarker"></span><h1>Мітки -- Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h1>
+<p>Мітки використовуються для позначення кадрів з ключовими моментами або значущими подіями у межах анімації. Наприклад, це можуть бути моменти, в якому починається анімація персонажа, камера змінює свою позицію або відкриваються двері. Мітки можуть мати значущі імена, що полегшує орієнтування по них. Вони доступні у багатьох редакторах Blender'а.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">На відміну від ключкадрів, мітки завжди розміщуються у цілому кадрі, ви не можете задати мітку у кадрі 2.5.</p>
+</div>
+<p>Мітки можуть створювати та редагуватися у наступних редакторах:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../editors/graph_editor/introduction.html"><span class="doc">Редактор Графів -- Graph Editor</span></a></li>
+<li><a class="reference internal" href="../editors/dope_sheet/introduction.html"><span class="doc">Аркуш Експозицій -- Dope Sheet</span></a></li>
+<li><a class="reference internal" href="../editors/nla/index.html"><span class="doc">Редактор НЛА -- NLA Editor</span></a></li>
+<li><a class="reference internal" href="../editors/vse/index.html"><span class="doc">Редактор Відеорядів -- Video Sequence Editor</span></a></li>
+<li><a class="reference internal" href="../editors/timeline.html"><span class="doc">Часолінія -- Timeline</span></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Мітка, створена в одному з цих редакторів, буде також показуватися у всіх інших редакторах, які підтримують мітки.</p>
+</div>
+<div class="section" id="types">
+<h2>Типи<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<p>Next to the standard markers <em>pose markers</em> are another type of markers,
+which are specific to armatures and shape keys.
+They are used to denote poses in the Action Editor mode and Shape Keys Editor of Dope Sheet.</p>
+</div>
+<div class="section" id="visualization">
+<h2>Візуалізація<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="standard">
+<h3>Стандарт<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id2">
+<img alt="../_images/animation_markers_standard.png" src="../_images/animation_markers_standard.png" />
+<p class="caption"><span class="caption-text">Мітки: маленькі, але корисні.</span></p>
+</div>
+<p>У більшості редакторів мітки візуалізуються однаково: як маленькі трикутники зверху часолінії, та забарвлені білим, якщо вони поточно не виділені, або жовтим, якщо поточно виділені.</p>
+<p>Якщо вони мають задане ім'я, то воно показується справа від трикутника, і забарвлюється білим, коли мітка виділена.</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="sequencer">
+<h3>Відеорядник -- Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id3">
+<img alt="../_images/animation_markers_sequencer.png" src="../_images/animation_markers_sequencer.png" />
+<p class="caption"><span class="caption-text">Мітки у Відеоряднику або Редакторі Відеорядів.</span></p>
+</div>
+<p>Редактор Відеорядів <em>Video Sequence Editor</em> додає вертикальну пунктирну лінію для кожної мітки (забарвлена сірим, коли мітка невиділена, та білим, коли вона виділена).</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="d-view">
+<h3>3D-Огляд -- 3D View<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id4">
+<img alt="../_images/animation_markers_3d-view.png" src="../_images/animation_markers_3d-view.png" />
+<p class="caption"><span class="caption-text">Мітка у 3D-Огляді.</span></p>
+</div>
+<p>3D-Огляд -- 3D View не дозволяє створювати, редагувати або вилучати мітки, він тільки показує їх імена в зоні інформації про об'єкт Object Info, що знаходиться у лівому нижньому куті цього редактора, коли курсор часу знаходиться на кадрі, який позначає мітка (дивіться ілюстрацію «Мітка у 3D-Огляді»).</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="pose-markers">
+<h3>Мітки Поз -- Pose Markers<a class="headerlink" href="#pose-markers" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id5">
+<img alt="../_images/animation_markers_pose.png" src="../_images/animation_markers_pose.png" />
+<p class="caption"><span class="caption-text">Мітки поз у Редакторі Дій -- Action Editor.</span></p>
+</div>
+<p>Мітки поз показуються діаманто-подібною іконкою у редакторі Аркуш Експозицій -- Dope Sheet. У Редакторі НЛА -- NLA Editor мітки поз показуються як червоні пунктирні лінії.</p>
+<div class="lead docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="add-marker">
+<h2>Додання Мітки<a class="headerlink" href="#add-marker" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Додання Мітки» -- <span class="menuselection">Marker ‣ Add Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">M</kbd> або <kbd class="kbd docutils literal notranslate">Ctrl-Alt-M</kbd> у редакторі Відеорядів -- VSE Editor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Найпростіший спосіб додати мітку -- це перемістити курсор часу у кадр, в якому ви хочете, щоб вона показувалася, та натиснути <kbd class="kbd docutils literal notranslate">M</kbd>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Мітки можуть також додаватися під час відтворення.</p>
+</div>
+<div class="section" id="marker-pose-add">
+<span id="id1"></span><h3>Мітки Поз -- Pose Markers<a class="headerlink" href="#marker-pose-add" title="Permalink to this headline">¶</a></h3>
+<p>Якщо опція «Показати Мітки Поз» <em>Show Pose Markers</em> увімкнена, то додаватимуться мітка пози та нова поза у <a class="reference internal" href="../rigging/armatures/properties/pose_library.html"><span class="doc">Бібліотеці Поз -- Pose Library</span></a>.</p>
+</div>
+</div>
+<div class="section" id="selecting">
+<h2>Виділення<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Клацайте <kbd class="kbd docutils literal notranslate">RMB на трикутнику мітки для її виділення. Використовуйте :kbd:`Shift-RMB</kbd> для виділення кількох міток одночасно.</p>
+<p>У Редакторі Графів -- Graph Editor, Аркуші Експозицій -- Dope Sheet, Редакторі НЛА -- NLA Editor та Редакторі Відеорядів -- Video Sequence Editor ви можете також виділяти усі мітки за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-A</kbd> та застосовувати такі засоби виділення для них як Border Select тощо (та як звичайно, <kbd class="kbd docutils literal notranslate">LMB</kbd> для виділення, <kbd class="kbd docutils literal notranslate">RMB</kbd> для зневиділення). Ці відповідні опції знаходяться у меню «Виділ» -- Select цих редакторів.</p>
+<p>У редакторі Часолінія -- Timeline ви можете виділяти усі мітки за допомогою <kbd class="kbd docutils literal notranslate">A</kbd> та виділу рамкою <kbd class="kbd docutils literal notranslate">B</kbd>.</p>
+</div>
+<div class="section" id="editing">
+<span id="animation-markers-editing"></span><h2>Редагування<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duplicate-marker">
+<h3>Дублювання Мітки<a class="headerlink" href="#duplicate-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Дублювання Мітки» -- <span class="menuselection">Marker ‣ Duplicate Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете дублювати виділені мітки, натиснувши <kbd class="kbd docutils literal notranslate">Shift-D</kbd>. Після операції дублювання дублікати автоматично поміщаються у режим захопу-пересуву, а отже ви можете зразу їх перемістити у бажану локацію.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Зауважте, що на відміну від інших операцій дублювання у Blender'і, імена дубльованих міток взагалі не змінюються (жоден числовий лічильник типу <code class="docutils literal notranslate"><span class="pre">.001</span></code> не додається).</p>
+</div>
+</div>
+<div class="section" id="duplicate-marker-to-scene">
+<h3>Дублювання Мітки у Сцену<a class="headerlink" href="#duplicate-marker-to-scene" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Дублювання Мітки у Сцену» -- <span class="menuselection">Marker ‣ Duplicate Marker to Scene...</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Дублює виділені мітки в іншу сцену.</p>
+</div>
+<div class="section" id="deleting-markers">
+<h3>Видалення Міток<a class="headerlink" href="#deleting-markers" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Видалення Мітки» -- <span class="menuselection">Marker ‣ Delete Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Для видалення виділених міток просто натисніть <kbd class="kbd docutils literal notranslate">X</kbd> та підтвердьте спливне повідомлення клацком <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+</div>
+<div class="section" id="rename-marker">
+<h3>Перейменування Мітки<a class="headerlink" href="#rename-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Перейменування Мітки» -- <span class="menuselection">Marker ‣ Rename Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Наявність десятків міток, розкиданих по часолінії вашої сцени, не допоможе вам сильно, допоки ви не знатимете, для чого вони там стоять. Ви можете перейменувати мітку, виділивши її, натиснувши <kbd class="kbd docutils literal notranslate">Ctrl-M</kbd>, увівши ім'я та клацнувши по кнопці OK.</p>
+</div>
+<div class="section" id="grab-move-marker">
+<h3>Захоп/Пересув Мітки<a class="headerlink" href="#grab-move-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Захоп/Пересув Мітки» -- <span class="menuselection">Marker ‣ Grab/Move Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Після виділення однієї чи кількох міток, наведіть вказівник миші над смугою з мітками, натисніть <kbd class="kbd docutils literal notranslate">G</kbd>, порухайте їх у потрібну позицію та підтвердьте цей пересув за допомогою <kbd class="kbd docutils literal notranslate">LMB</kbd> або <kbd class="kbd docutils literal notranslate">Return</kbd> (та як звичайно, скасування пересуву здійснюється клацком <kbd class="kbd docutils literal notranslate">RMB</kbd> або натисканням <kbd class="kbd docutils literal notranslate">Esc</kbd>). Або перетягуйте їх за допомогою <kbd class="kbd docutils literal notranslate">RMB</kbd>.</p>
+<p>Стандартно, ви захоплюєте і пересуваєте мітки з кроком в один кадр, але якщо ви при цьому утримуватимете натисненою <kbd class="kbd docutils literal notranslate">Ctrl</kbd>, то мітки пересуватимуться на відповідну кількість кадрів з кроком в одну секунду (згідно заданої частоти кадрів у сцені -- <em>FPS</em>).</p>
+</div>
+<div class="section" id="show-pose-markers">
+<h3>Показ Міток Поз<a class="headerlink" href="#show-pose-markers" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Редактор Дій -- Action Editor та Редактор Ключів Форм -- Shape Keys Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Показ Міток Поз» -- <span class="menuselection">Marker ‣ Show Pose Markers</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Only pose markers are shown and editable in Action editor or Shape Keys editor by enabling
+the <span class="menuselection">Marker ‣ Show Pose Markers</span> checkbox.</p>
+</div>
+<div class="section" id="make-markers-local">
+<h3>Зроблення Міток Локальними<a class="headerlink" href="#make-markers-local" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Мітка &gt; Зроблення Міток Локальними» -- <span class="menuselection">Marker ‣ Make Markers Local</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It is possible to convert standard markers into pose markers with <span class="menuselection">Marker ‣ Make Markers Local</span>.
+Note that the original marker will be gone. If you want to keep it, make a duplicate before you convert.</p>
+</div>
+<div class="section" id="jump-to-next-previous-marker">
+<h3>Перехід до Наступної/Попередньої Мітки<a class="headerlink" href="#jump-to-next-previous-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Стрибання до Наступної/Попередньої Мітки» -- <span class="menuselection">Marker ‣ Jump to Next/Previous Marker</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moves the time cursor to the next/previous marker relative to the current time cursor position.</p>
+</div>
+</div>
+<div class="section" id="bind-camera-to-marker">
+<span id="marker-bind-camera"></span><h2>Прив'язка Камери до Мітки<a class="headerlink" href="#bind-camera-to-marker" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">Редактор Часолінії -- Timeline Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Меню:</th><td class="field-body">«Огляд &gt; Прив'язка Камери до Міток» -- <span class="menuselection">View ‣ Bind Camera to Markers</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Скорочення:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-B</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Перемикання між камерами може бути зроблено за допомогою оператора Часолінії <em>Timeline</em> -- «Прив'язка Камери до Міток» -- <em>Bind Camera to Markers</em> при виділенні одночасно потрібних камери та мітки.</p>
+<p>Трикутник над камерою ставатиме затіненим, коли вона буде активною.</p>
+<div class="section" id="workflow">
+<h3>Робпотік<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../_images/animation_markers_camera-switch.png" src="../_images/animation_markers_camera-switch.png" />
+</div>
+<p>Спершу на Часолінії -- Timeline додайте набір міток, що будуть використовуватися для перемикання камер. Натискайте <kbd class="kbd docutils literal notranslate">M</kbd> для додання мітки, потім <kbd class="kbd docutils literal notranslate">Ctrl-M</kbd> для її перейменування, дубльовані мітки повинні мати однакове ім'я.</p>
+<ol class="arabic simple">
+<li>У 3D-Огляді -- 3D View виділіть Камеру -- Camera, на огляд через яку буде перемкнуто у кадрі з міткою.</li>
+<li>У редакторі Часолінія -- Timeline виділіть Мітку(и), у кадрі якого(х) буде перемкнуто на огляд через обрану Камеру.</li>
+<li>Наведіть вказівник миші над Часолінією та натисніть <kbd class="kbd docutils literal notranslate">Ctrl-B</kbd> для прив'язки обраної Камери до виділеної Мітки.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shape_keys/index.html" class="btn btn-neutral float-right" title="Ключі Форм -- Shape Keys" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drivers/troubleshooting.html" class="btn btn-neutral" title="Усунення утруднень" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

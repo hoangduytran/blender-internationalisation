@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Шаблони Застосунку -- Application Templates &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/advanced/app_templates.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Робочі Ліміти -- Working Limits" href="limits.html" />
+    <link rel="prev" title="Навчальник про Додатки" href="scripting/addon_tutorial.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Просунуте -- Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="command_line/index.html">Командний Рядок -- Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scripting/index.html">Написання скриптів та Розширення Blender'а</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Шаблони Застосунку -- Application Templates</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Використання</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#motivation">Мотивація</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#details">Подробиці</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#directory-layout">Розстава Тек</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#template-contents">Вміст Шаблону</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="limits.html">Робочі Ліміти -- Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Просунуте -- Advanced</a> &raquo;</li>
+        
+      <li>Шаблони Застосунку -- Application Templates</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/advanced/app_templates.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="application-templates">
+<span id="bpy-ops-wm-app-template"></span><h1>Шаблони Застосунку -- Application Templates<a class="headerlink" href="#application-templates" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="usage">
+<h2>Використання<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Шаблони застосунку — це функція, що дозволяє вам визначати повторно використовувану конфігурацію, яка може бути обрана замість стандартної конфігурації, без потреби окремого іншого установлення Blender'а або перезапису ваших персональних параметрів.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../_images/advanced_app-templates_file-menu.png"><img alt="../_images/advanced_app-templates_file-menu.png" src="../_images/advanced_app-templates_file-menu.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Використання шаблонів з меню «Файл».</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/advanced_app-templates_splash.png"><img alt="../_images/advanced_app-templates_splash.png" src="../_images/advanced_app-templates_splash.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Вибір шаблону на екрані заставки.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Шаблони застосунку можна вибрати на екрані заставки або з меню «Файл» <em>(як показано вище)</em>.</p>
+<p>Коли у меню «Файл» відсутні шаблони, то вони і не будуть показуватися і на екрані заставки.</p>
+<p>Нові шаблони застосунку можуть бути установлені за допомогою меню «Файл».</p>
+<p>Якщо ви бажаєте зберегти поточний шаблон застосунку активним при запуску Blender, то збережіть ваші уподобання користувача.</p>
+<div class="section" id="motivation">
+<h3>Мотивація<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<p>У деяких випадках не достатньо записати одиничний скрипт або додаток, та очікувати, що хтось замінить його в уподобаннях користувача та запусковому файлі, установить скрипти та змінить для них розкладку клавіш.</p>
+<p>Призначення шаблонів застосунку -- це допомога у перемиканні на власну конфігурацію без руйнування ваших наявних устав та установлення.</p>
+<p>Це означає, що люди можуть надбудовувати власні <em>застосунки</em> поверх Blender, які можна буде легко розповсюджувати.</p>
+</div>
+<div class="section" id="details">
+<h3>Подробиці<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<p>Шаблон застосунку може бути визначеним через:</p>
+<dl class="docutils">
+<dt>Запусковий Файл -- Startup File</dt>
+<dd>Стандартний файл для завантаження за допомогою цього шаблону.</dd>
+<dt>Уподобання Користувача -- User Preferences</dt>
+<dd><p class="first">З шаблону використовуються лише певні уподобання користувача:</p>
+<ul class="last simple">
+<li>Теми.</li>
+<li>Додатки.</li>
+<li>Розкладки клавіш.</li>
+<li>Освітлення оглядвікна.</li>
+</ul>
+</dd>
+<dt>Екран Заставки -- Splash Screen</dt>
+<dd>Шаблони можуть надавати свої власні зображення екрану заставки.</dd>
+<dt>Скрипти Python</dt>
+<dd><p class="first">Коли шаблони мають доступ до такої самої функціональності, як і будь-які інші скрипти, то їх типові операції включають:</p>
+<ul class="last simple">
+<li>Модифікування та заміну частин інтерфейсу користувача.</li>
+<li>Визначення нових меню, розкладок ключів та інструментів.</li>
+<li>Визначення власного шляху додатків для визначених шаблоном додатків.</li>
+</ul>
+</dd>
+</dl>
+<p>Шаблони також мають свою власну конфігурацію користувача, а тому збереження запускового файлу на основі шаблону не перезаписує стандартний запусковий файл.</p>
+</div>
+<div class="section" id="directory-layout">
+<h3>Розстава Тек<a class="headerlink" href="#directory-layout" title="Permalink to this headline">¶</a></h3>
+<p>Шаблони можуть бути розміщені в одному з двох місць у межах теки <code class="docutils literal notranslate"><span class="pre">scripts</span></code>.</p>
+<dl class="docutils">
+<dt>Місця шаблонів:</dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{BLENDER_USER_SCRIPTS}/startup/bl_app_templates_user</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">{BLENDER_SYSTEM_SCRIPTS}/startup/bl_app_templates_system</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Конфігурація користувача зберігається у під-теці:</p>
+<dl class="docutils">
+<dt>Без шаблону:</dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">./config/startup.blend</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">./config/userpref.blend</span></code></div>
+</div>
+</dd>
+<dt>Із шаблоном:</dt>
+<dd><div class="first last line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">./config/{APP_TEMPLATE_ID}/startup.blend</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">./config/{APP_TEMPLATE_ID}/userpref.blend</span></code></div>
+</div>
+</dd>
+</dl>
+<p>Дивіться <span class="xref std std-ref">getting-started_installing-config-directories</span> для подробиць про місця скриптів і конфігурацій.</p>
+</div>
+</div>
+<div class="section" id="template-contents">
+<h2>Вміст Шаблону<a class="headerlink" href="#template-contents" title="Permalink to this headline">¶</a></h2>
+<p>Кожен з наступних файлів може використовуватися шаблонами застосунку, але це необов'язково.</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">startup.blend</span></code></dt>
+<dd>Використовується заводський запусковий файл для цього шаблону.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">userpref.blend</span></code></dt>
+<dd><p class="first">Використовується заводський файл уподобань користувача для цього шаблону.</p>
+<p class="last"><em>(Як зазначено попередньо, це використовується тільки для піднабору уподобань).</em></p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">splash.png</span></code>, <code class="docutils literal notranslate"><span class="pre">splash_2x.png</span></code></dt>
+<dd><p class="first">Екран заставки заміщує стандартну ілюстрацію Blender'а (не включаючи текст заголовка).</p>
+<p class="last">Він має мати розмір <code class="docutils literal notranslate"><span class="pre">501x230</span></code> або <code class="docutils literal notranslate"><span class="pre">1002x460</span></code> (що використовується для моніторів HiDPI).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></dt>
+<dd>Скрипт Python, що повинен містити функції <code class="docutils literal notranslate"><span class="pre">register</span></code> та <code class="docutils literal notranslate"><span class="pre">unregister</span></code>.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Пакетні blend-файли <code class="docutils literal notranslate"><span class="pre">startup.blend</span></code> і <code class="docutils literal notranslate"><span class="pre">userpref.blend</span></code> вважаються <em>Заводськими Уставами</em> та ніколи не перезаписуються.</p>
+<p>Користувач може мати свої власні установки запуску/уподобань і при використанні такого шаблону, він їх перезапише.</p>
+<p class="last">Початкові установки шаблону можуть бути завантажені за допомогою команди: «Завантажити Заводські Установки Шаблону» — <em>Load Template Factory Settings</em> з меню «Файл», таким же чином, як відновлюються загальні заводські установки командою «Завантажити Заводські Установки» <em>Load Factory Settings</em>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="limits.html" class="btn btn-neutral float-right" title="Робочі Ліміти -- Working Limits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scripting/addon_tutorial.html" class="btn btn-neutral" title="Навчальник про Додатки" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

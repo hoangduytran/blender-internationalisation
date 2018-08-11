@@ -1,0 +1,894 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) : This page is public domain as CC0
+# This file is distributed under the same license as the Blender Reference
+# Manual package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+# phan <phahoatho@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2017-09-18 20:04+0200\n"
+"Last-Translator: phan <phahoatho@gmail.com>\n"
+"Language-Team: français <bf-docboard@blender.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/physics/soft_body/introduction.rst:4
+msgid "Introduction"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:11
+msgid "A soft body cloth uncovering a text."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:13
+msgid ""
+"`Animation video <https://vimeo.com/1865528>`__ and `blend-file "
+"<https://wiki.blender.org/index.php/Media:HiddenTextExample.blend>`__."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:16
+msgid ""
+"A soft body in general, is a simulation of a soft or rigid deformable "
+"object. It is useful for everything that tends to bend, deform, in "
+"reaction to forces like gravity or wind, or when colliding with other "
+"objects."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:20
+msgid ""
+"In Blender, this system is best for simple cloth objects and closed "
+"meshes e.g. for skin or rubber. There is dedicated :doc:`Cloth Simulation"
+" </physics/cloth/index>` physics that use a different solver, and is "
+"better for cloth."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:24
+msgid ""
+"This simulation is done by applying forces to the vertices or control "
+"points of the object. There are exterior forces like gravity or force "
+"fields and interior forces that hold the vertices together. This way you "
+"can simulate the shapes that an object would take on in reality if it had"
+" volume, was filled with something, and was acted on by real forces."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:30
+msgid ""
+"Soft bodies can interact with other objects through *Collision*. They can"
+" interact with themselves through *Self-Collision*."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:33
+msgid ""
+"The result of the soft body simulation can be converted to a static "
+"object. You can also *bake edit* the simulation, i.e. edit intermediate "
+"results and run the simulation from there."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:39
+msgid "Typical Scenarios for using Soft Bodies"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:46
+msgid "A wind cone. The cone is a soft body, as the suspension."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:48
+msgid ""
+"`Animation <https://vimeo.com/1865817>`__ -- `blend-file "
+"<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:51
+msgid "Soft bodies are well suited for:"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:53
+msgid "Elastic objects with or without collision."
+msgstr "Objets élastiques avec ou sans collision."
+
+#: ../../manual/physics/soft_body/introduction.rst:54
+msgid "Flags, fabric reacting to forces."
+msgstr "Drapeaux, tissu réagissant aux forces."
+
+#: ../../manual/physics/soft_body/introduction.rst:55
+msgid "Certain modeling tasks, like a cushion or a table cloth over an object."
+msgstr ""
+"Certaines tâches de modélisation, comme un coussin ou une nappe de table "
+"sur un objet."
+
+#: ../../manual/physics/soft_body/introduction.rst:56
+#, fuzzy
+msgid ""
+"Blender has another simulation system for clothing (see :doc:`Clothes "
+"</physics/cloth/index>`). But you can sometimes use soft bodies for "
+"certain parts of clothing, like wide sleeves."
+msgstr ""
+"Blender possède un autre système de simulation de vêtement (voir "
+":doc:`Vêtements </physics/cloth/index>`). Mais vous pouvez parfois "
+"utiliser des *Soft Bodies* pour certaines parties de vêtement, comme des "
+"manches larges."
+
+#: ../../manual/physics/soft_body/introduction.rst:58
+msgid "Hair (as long as you minimize collision)."
+msgstr "poils (aussi longtemps que vous minimisez les collisions)."
+
+#: ../../manual/physics/soft_body/introduction.rst:59
+msgid "Animation of swinging ropes, chains and the like."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:61
+msgid "The following videos may give you some more ideas:"
+msgstr "Les vidéos suivantes peuvent vous donner quelques idées de plus :"
+
+#: ../../manual/physics/soft_body/introduction.rst:63
+msgid "https://www.youtube.com/watch?v=qdusMZlBbQ4"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:64
+msgid "https://www.youtube.com/watch?v=3du8ksOm9Fo&hl"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:68
+msgid "Creating a Soft Body"
+msgstr "Création d'un *Soft Body*"
+
+#: ../../manual/physics/soft_body/introduction.rst:70
+#, fuzzy
+msgid ""
+"Soft body simulation works for all objects that have vertices or control "
+"points:"
+msgstr ""
+"LA simulation *Soft Body* fonctionne pour tous les objets qui ont des "
+"sommets ou des points de contrôle :"
+
+#: ../../manual/physics/soft_body/introduction.rst:72
+msgid "Meshes."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:73
+msgid "Curves."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:74
+msgid "Surfaces."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:75
+msgid "Lattices."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:77
+#, fuzzy
+msgid "To activate the soft body simulation for an object:"
+msgstr "Pour activer la simulation *Soft Body* pour un objet :"
+
+#: ../../manual/physics/soft_body/introduction.rst:79
+msgid ""
+"In the Properties editor, go to the *Physics* tab (it is all the way on "
+"the right, and looks like a bouncing ball)."
+msgstr ""
+"Dans l'Éditeur Properties, allez dans l'onglet *Physics* (il est "
+"complètement à droite, et a l'aspect d'une balle rebondissante)."
+
+#: ../../manual/physics/soft_body/introduction.rst:81
+msgid "Activate the *Soft Body* button."
+msgstr "Activez le bouton *Soft Body* ."
+
+#: ../../manual/physics/soft_body/introduction.rst:83
+msgid ""
+"A lot of options appear. For a reference of all the settings see "
+":doc:`this page </physics/soft_body/settings>`."
+msgstr ""
+"Un grand nombre d'option apparaissent. Pour une référence de tous les "
+"réglages, voir :doc:`cette page </physics/soft_body/settings>`."
+
+#: ../../manual/physics/soft_body/introduction.rst:86
+#, fuzzy
+msgid "You start a soft body simulation with :kbd:`Alt-A`."
+msgstr "Vous démarrez une simulation *Soft Body* avec :kbd:`Alt-A`."
+
+#: ../../manual/physics/soft_body/introduction.rst:87
+msgid "You pause the simulation with :kbd:`Spacebar`, continue with :kbd:`Alt-A`."
+msgstr ""
+"Vous faites une pause dans l'animation avec :kbd:`Espace`, et continuez "
+"avec :kbd:`Alt-A`."
+
+#: ../../manual/physics/soft_body/introduction.rst:88
+msgid "You stop the simulation with :kbd:`Esc`."
+msgstr "Vous arrêtez l'animation avec :kbd:`Échap`."
+
+#: ../../manual/physics/soft_body/introduction.rst:92
+msgid "Soft Body Solver"
+msgstr "Qualité de simulation"
+
+#: ../../manual/physics/soft_body/introduction.rst:94
+#: ../../manual/physics/soft_body/introduction.rst:146
+msgid "Reference"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst
+msgid "Panel"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:97
+msgid ":menuselection:`Physics --> Soft Body Solver`"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:99
+msgid ""
+"The settings in the *Soft Body Solver* panel determine the accuracy of "
+"the simulation."
+msgstr ""
+"Les réglages dans le panneau *Soft Body Solver* détermine la précision de"
+" la simulation."
+
+#: ../../manual/physics/soft_body/introduction.rst:103
+msgid "Step Size"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:105
+msgid "Min Step"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:106
+#, fuzzy
+msgid ""
+"Minimum simulation steps per frame. Increase this value, if the soft body"
+" misses fast-moving collision objects."
+msgstr ""
+"Pas minimum de simulation par frame. Augmentez cette valeur si le *Soft "
+"Body* manque les objets de collision en mouvement rapide."
+
+#: ../../manual/physics/soft_body/introduction.rst:109
+msgid "Max Step"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:108
+msgid ""
+"Maximum simulation steps per frame. Normally the number of simulation "
+"steps is set dynamically (with the *Error Limit*) but you have probably a"
+" good reason to change it."
+msgstr ""
+"Pas maximum de simulation par frame. Normmalement le nombre de pas de "
+"simulation est fixé dynamiquement (avec *Error Limit*) mais vous avez "
+"probablement une bonne raison de le modifier."
+
+#: ../../manual/physics/soft_body/introduction.rst:113
+msgid "Auto-Step"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:112
+msgid "Use Velocities for automatic step sizes."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:116
+msgid "Error Limit"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:118
+msgid ""
+"Rules the overall quality of the solution delivered. Default 0.1. The "
+"most critical setting that says how precise the solver should check for "
+"collisions. Start with a value that is 1/2 the average edge length. If "
+"there are visible errors, jitter, or over-exaggerated responses, decrease"
+" the value. The solver keeps track of how \"bad\" it is doing and the "
+"*Error Limit* causes the solver to do some \"adaptive step sizing\"."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:126
+msgid "Helpers"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:128
+msgid "Choke"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:129
+msgid ""
+"Calms down (reduces the exit velocity of) a vertex or edge once it "
+"penetrates a collision mesh."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:132
+msgid "Fuzzy"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:131
+msgid "Simulation is faster, but less accurate."
+msgstr "La simulation est plus rapide, mais moins précise."
+
+#: ../../manual/physics/soft_body/introduction.rst:135
+msgid "Diagnostics"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:137
+msgid "Print Performance to Console"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:138
+msgid "Prints on the console how the solver is doing."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:141
+msgid "Estimate Matrix"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:140
+msgid "Estimate matrix. Split to ``COM``, ``ROT``, ``SCALE``"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:144
+msgid "Cache"
+msgstr "Cache et précalcul"
+
+#: ../../manual/physics/soft_body/introduction.rst:149
+msgid ":menuselection:`Physics --> Soft Body Cache`"
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:151
+#, fuzzy
+msgid ""
+"Soft bodies and other physic simulations use a unified system for caching"
+" and baking. See :doc:`Particle Cache </physics/particles/emitter/cache>`"
+" for reference."
+msgstr ""
+"Les Soft Bodies et les autres simulations physiques utilisent un système "
+"unifié de cache et de précalcul. Voir :doc:`Particle Cache "
+"</physics/particles/emitter/cache>` pour référence."
+
+#: ../../manual/physics/soft_body/introduction.rst:154
+msgid ""
+"The results of the simulation are automatically cached to disk when the "
+"animation is played, so that the next time it runs, it can play again "
+"quickly by reading in the results from the disk. If you *Bake* the "
+"simulation the cache is protected and you will be asked when you are "
+"trying to change a setting that will make a recalculating necessary."
+msgstr ""
+"Les résultats de la simulation sont automatiquement mis en cache sur "
+"disque quand l'animation est lue, de sorte que la fois suivante qu'elle "
+"est lancée, elle peut être lue rapidement en lisant les résultats depuis "
+"le disque. Si vous *précalculez* la simulation, le cache est protégé et "
+"vous sera averti quand vous essayez de changer un réglage qui va "
+"nécessiter un nouveau calcul."
+
+#: ../../manual/physics/soft_body/introduction.rst:161
+msgid "Beware of the *Start* and *End* settings"
+msgstr "Prêtes attention aux réglages *Start* et *End* ."
+
+#: ../../manual/physics/soft_body/introduction.rst:163
+#, fuzzy
+msgid ""
+"The simulation is only calculated for the frames in between the *Start* "
+"and *End* frames (*Bake* panel), even if you do not actually bake the "
+"simulation! So if you want a simulation longer than the default setting "
+"of 250 frames you have the change the *End* frame."
+msgstr ""
+"la simulation est calculée uniquement pour les frames qui se trouvent "
+"entre les frames *Start* et *End* (panneau *Bake*), si vous ne "
+"précalculez pas la simulation ! Aussi si vous voulez une simulation plus "
+"longue que le réglge par défaut de 250 frmaes, vous devez modifier la "
+"frame *End*."
+
+#: ../../manual/physics/soft_body/introduction.rst:169
+msgid "Caching"
+msgstr "Cache"
+
+#: ../../manual/physics/soft_body/introduction.rst:170
+msgid ""
+"As animation is played, each physics system writes each frame to disk, "
+"between the simulation start and end frames. These files are stored in "
+"folders with prefix ``blendcache``, next to the blend-file."
+msgstr ""
+"Pendant la lecture d'une animation, chaque système physique enregistre "
+"chaque frame sur disque, entre le frames de début et de fin de la "
+"simulation. Ces fichiers sont enregistrés dans des dossiers avec le "
+"préfixe  ``blendcache``, à côté du fichier blend.  "
+
+#: ../../manual/physics/soft_body/introduction.rst:173
+msgid ""
+"The cache is cleared automatically on changes. But not on all changes, so"
+" it may be necessary to free it manually, e.g. if you change a force "
+"field. Note that for the cache to fill up, one has to start playback "
+"before or on the frame that the simulation starts."
+msgstr ""
+"Le cache est automatiquement effacé en cas de changements. Mais pas pour "
+"tous les changements, aussi il peut être nécessaire de le libérer "
+"manuellement, par ex. si vous modifiez un champ de force. Notez que pour "
+"le cache à remplir, on doit démarrer la lecture en avant ou au niveau de "
+"la trame où la simulation débute. "
+
+#: ../../manual/physics/soft_body/introduction.rst:176
+#, fuzzy
+msgid ""
+"If you are not allowed to write to the required subdirectory caching will"
+" not take place."
+msgstr ""
+"Si vous n'êtes autorisé à écrire sur le sous-dossier requis, le cache ne "
+"sera pas en place. "
+
+#: ../../manual/physics/soft_body/introduction.rst:177
+msgid ""
+"The cache can be freed per physics system with a button in the panels, or"
+" with the :kbd:`Ctrl-B` shortcut key to free it for all selected objects."
+msgstr ""
+"Le cache peut être libéré par le système physique avec un bouton dans les"
+" panneaux, ou avec le raccourci clavier :kbd:`Ctrl-B` pour le libérer de "
+"tous les objets sélectionnés."
+
+#: ../../manual/physics/soft_body/introduction.rst:179
+msgid ""
+"You may run into trouble if your blend-file path is very long and your "
+"operating system has a limit on the path length that is supported."
+msgstr ""
+"Vous pouvez éprover des difficultés si le chemin de votre fichier blend "
+"est très long et que votre système d'exploitation a une limite sur la "
+"longueur du chemin qui est prise en charge."
+
+#: ../../manual/physics/soft_body/introduction.rst:184
+msgid "Baking"
+msgstr "Précalcul"
+
+#: ../../manual/physics/soft_body/introduction.rst:185
+msgid "The system is protected against changes after baking."
+msgstr "Le système est protégé contre les changements après le précalcul."
+
+#: ../../manual/physics/soft_body/introduction.rst:186
+#, fuzzy
+msgid ""
+"The *Bake* result is cleared also with :kbd:`Ctrl-B` for all selected "
+"objects or click on *Free Bake* for the current soft body system."
+msgstr ""
+"Le prduit *Bake* est effacé aussi avec :kbd:`Ctrl-B` pour tous les objets"
+" sélectionnés. oo cliquez sur  *Free Bake* pour le système Soft *Body* "
+"courant."
+
+#: ../../manual/physics/soft_body/introduction.rst:188
+msgid "If the mesh changes the simulation is not calculated anew."
+msgstr "Si le maillage change, la simulation n'est pas calculée à nouveau."
+
+#: ../../manual/physics/soft_body/introduction.rst:190
+#, fuzzy
+msgid ""
+"For render farms, it is best to bake all the physics systems, and then "
+"copy the blendcache to the render farm as well."
+msgstr ""
+"Pour les fermes de rendu, c'est mieux de précalculer tous les systèmes "
+"physiques, et ensuite également copier le blendcache dans la ferme de "
+"rendu."
+
+#: ../../manual/physics/soft_body/introduction.rst:195
+#, fuzzy
+msgid "Interaction in Real-Time"
+msgstr "Interaction en temps réel"
+
+#: ../../manual/physics/soft_body/introduction.rst:197
+msgid ""
+"To work with a soft body simulation, you will find it handy to use the "
+"Timeline editor. You can change between frames and the simulation will "
+"always be shown in the actual state. The option *Continue Physics* in the"
+" *Playback* menu of the *Timeline* editor lets you interact in real-time "
+"with the simulation, e.g. by moving collision objects or shaking a soft "
+"body object."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:205
+#, fuzzy
+msgid ""
+"*Continue Physics* does not work while playing the animation with "
+":kbd:`Alt-A`. It will work only if you start the animation with the "
+"*Play* button of the Timeline editor."
+msgstr ""
+"Bien. Il ne ne fonctionne que si vous démarrez l'animation avec le bouton"
+" *Play* de l'Éditeur Timeline."
+
+#: ../../manual/physics/soft_body/introduction.rst:208
+msgid ""
+"You can then select the soft body object while running the simulation and"
+" *Apply* the modifier in the *Modifiers* tab of the Properties editor. "
+"This makes the deformation permanent."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:214
+msgid "Tips"
+msgstr "Astuces"
+
+#: ../../manual/physics/soft_body/introduction.rst:216
+#, fuzzy
+msgid ""
+"Soft bodies work especially well if the objects have an even vertex "
+"distribution. You need enough vertices for good collisions. You change "
+"the deformation (the stiffness) if you add more vertices in a certain "
+"region (see the animation of Fig. :ref:`fig-softbody-intro-cone`)."
+msgstr ""
+"Les Soft Bodies fonctionnent particulièrement bien si les objets ont une "
+"distribution des sommets régulière.vous avez besoin d'assez de sommets "
+"pour de bonnes collisions. Vous modifiez la déformation (la raideur) si "
+"vous ajoutez plus de sommets dans une certaine région (voir l'animation "
+"de la Fig. :ref:`fig-softbody-intro-cone`)."
+
+#: ../../manual/physics/soft_body/introduction.rst:220
+msgid ""
+"The calculation of collisions may take a long time. If something is not "
+"visible, why calculate it?"
+msgstr ""
+"Le calcul des collisions peut prend un long moment. Si quelque chose "
+"n'est pas visible, pourquoi le calculer ?"
+
+#: ../../manual/physics/soft_body/introduction.rst:221
+msgid ""
+"To speed up the collision calculation it is often useful to collide with "
+"an additional, simpler, invisible, somewhat larger object (see the "
+"example to Fig. :ref:`fig-softbody-intro-cloth`)."
+msgstr ""
+"Pour accélérer le calcul des collisions, il est souvent utile de "
+"collisionner avec un objet supplémentaire, quelque peu plus grand, plus "
+"simple, invisible (voir l'exemple de la Fig. :ref:`fig-softbody-intro-"
+"cloth`), "
+
+#: ../../manual/physics/soft_body/introduction.rst:223
+msgid ""
+"Use soft bodies only where it makes sense. If you try to cover a body "
+"mesh with a tight piece of cloth and animate solely with soft body, you "
+"will have no success. Self-collision of soft body hair may be activated, "
+"but that is a path that you have to wander alone. We will deal with "
+":doc:`Collisions </physics/soft_body/collision>` in detail later."
+msgstr ""
+
+#: ../../manual/physics/soft_body/introduction.rst:228
+#, fuzzy
+msgid ""
+"Try and use a *Lattice* or a *Curve Guide* soft body instead of the "
+"object itself. This may be magnitudes faster."
+msgstr ""
+"Essayez d'utiliser un *Lattice* ou un soft boby *Curve Guide* à la place "
+"de l'objet lui-même. ceci peut être plus rapide de plusieurs ordres de "
+"grandeur."
+
+#~ msgid ""
+#~ msgstr ""
+
+#~ msgid "Links"
+#~ msgstr ""
+
+#~ msgid "`Developer Notes <http://mosebjorn.altervista.org/>`__"
+#~ msgstr ""
+
+#~ msgid "**Diagnostics**"
+#~ msgstr ""
+
+#~ msgid "Estimate matrix. Split to COM , ROT ,SCALE"
+#~ msgstr ""
+
+#~ msgid "Caching:"
+#~ msgstr ""
+
+#~ msgid "Baking:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This simulation is done by applying "
+#~ "forces to the vertices or controlpoints"
+#~ " of the object. There are exterior"
+#~ " forces like gravity or forcefields "
+#~ "and interior forces that hold the "
+#~ "vertices together. This way you can "
+#~ "simulate the shapes that an object "
+#~ "would take on in reality if it "
+#~ "had volume, was filled with something,"
+#~ " and was acted on by real "
+#~ "forces."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To work with a Soft Body "
+#~ "simulation you will find it handy "
+#~ "to use the Timeline editor. You "
+#~ "can change between frames and the "
+#~ "simulation will always be shown in "
+#~ "the actual state. The option *Continue"
+#~ " Physics* in the *Playback* menu of"
+#~ " the *Timeline* editor lets you "
+#~ "interact in real time with the "
+#~ "simulation, e.g. by moving collision "
+#~ "objects or shake a Soft Body "
+#~ "object."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "*Continue Physics* does not work while"
+#~ " playing the animation with :kbd:`Alt-A`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can than select the Soft Body"
+#~ " object while running the simulation "
+#~ "and *Apply* the modifier in the "
+#~ "*Modifiers* tab of the Properties "
+#~ "editor. This makes the deformation "
+#~ "permanent."
+#~ msgstr ""
+
+#~ msgid "Typical scenarios for using Soft Bodies"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Animation <https://vimeo.com/1865817>`__ - `Blend"
+#~ " file "
+#~ "<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__"
+#~ msgstr ""
+
+#~ msgid "Interaction in real time"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use Soft Bodies only where it "
+#~ "makes sense. If you try to cover"
+#~ " a body mesh with a tight piece"
+#~ " of cloth and animate solely with "
+#~ "Soft Body, you will have no "
+#~ "success. Self collision of Soft Body "
+#~ "hair may be activated, but that is"
+#~ " a path that you have to wander"
+#~ " alone. We will deal with "
+#~ ":doc:`Collisions </physics/soft_body/collisions>` in "
+#~ "detail later."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A Soft Body in general, is a "
+#~ "simulation of a soft or rigid "
+#~ "deformable object. In Blender, this "
+#~ "system is best for simple cloth "
+#~ "objects and closed meshes. There is "
+#~ "dedicated :doc:`Cloth Simulation "
+#~ "</physics/cloth/index>` physics that use a "
+#~ "different solver, and is better for "
+#~ "cloth."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This simulation is done by applying "
+#~ "forces to the vertices or control "
+#~ "points of the object. There are "
+#~ "exterior forces like gravity or "
+#~ "forcefields and interior forces that "
+#~ "hold the vertices together. This way "
+#~ "you can simulate the shapes that "
+#~ "an object would take on in reality"
+#~ " if it had volume, was filled "
+#~ "with something, and was acted on "
+#~ "by real forces."
+#~ msgstr ""
+
+#~ msgid "Simulation Quality"
+#~ msgstr ""
+
+#~ msgid "Cache and Bake"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Soft Bodies can interact with other "
+#~ "objects trough *Collision*. They can "
+#~ "interact with themselves trough *Self "
+#~ "Collision*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A Soft Body in general, is a "
+#~ "simulation of a soft or rigid "
+#~ "deformable object. In Blender, this "
+#~ "system is best for simple cloth "
+#~ "objects and closed meshes. There is "
+#~ "dedicated :doc:`Cloth Simulation "
+#~ "</physics/cloth/index>` physics that use a "
+#~ "different solver, and is better for "
+#~ "cloth.object. In Blender, this system is"
+#~ " best for simple cloth objects and"
+#~ " closed meshes. There is dedicated "
+#~ ":doc:`Cloth Simulation </physics/cloth/index>` "
+#~ "physics that use a different solver, "
+#~ "and is better for cloth.object. It "
+#~ "is useful for everything that tends "
+#~ "to bend, deform, in reaction to "
+#~ "forces like gravity or wind, or "
+#~ "when colliding with other objects."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This simulation is done by applying "
+#~ "forces to the vertices or control "
+#~ "points of the object. There are "
+#~ "exterior forces like gravity or "
+#~ "forcefields and interior forces that "
+#~ "hold the vertices together. This way "
+#~ "you can simulate the shapes that "
+#~ "an object would take on in reality"
+#~ " if it had volume, was filled "
+#~ "with something, and was acted on "
+#~ "by real forces.This simulation is done"
+#~ " by applying forces to the vertices"
+#~ " or control points of the object. "
+#~ "There are exterior forces like gravity"
+#~ " or forcefields and interior forces "
+#~ "that hold the vertices together. This"
+#~ " way you can simulate the shapes "
+#~ "that an object would take on in"
+#~ " reality if it had volume, was "
+#~ "filled with something, and was acted "
+#~ "on by real forces.This simulation is "
+#~ "done by applying forces to the "
+#~ "vertices or control points of the "
+#~ "object. There are exterior forces like"
+#~ " gravity or force fields and interior"
+#~ " forces that hold the vertices "
+#~ "together. This way you can simulate "
+#~ "the shapes that an object would "
+#~ "take on in reality if it had "
+#~ "volume, was filled with something, and"
+#~ " was acted on by real forces."
+#~ msgstr ""
+#~ "Cette simulation est effectuée en "
+#~ "appliquant les forces aux sommets ou "
+#~ "aux points de contrôles de l'objet. "
+#~ "Il y a des forces externes comme"
+#~ " la gravité et les champs de "
+#~ "force et des forces internes qui "
+#~ "maintiennent les sommets ensemble. De "
+#~ "cette manière vous pouvez simuler les"
+#~ " formes que prendrait une forma dans"
+#~ " la réalité s'il avait un volume, "
+#~ "était rempli de quelque chose, et "
+#~ "sur lequel s'exerceraient des forces "
+#~ "réelles."
+
+#~ msgid ""
+#~ "`Animation <https://vimeo.com/1865817>`__ - `Blend"
+#~ " file "
+#~ "<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__`Animation"
+#~ " <https://vimeo.com/1865817>`__ - `Blend file "
+#~ "<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__`Animation"
+#~ " <https://vimeo.com/1865817>`__ - `Blend file "
+#~ "<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use Soft Bodies only where it "
+#~ "makes sense. If you try to cover"
+#~ " a body mesh with a tight piece"
+#~ " of cloth and animate solely with "
+#~ "Soft Body, you will have no "
+#~ "success. Self collision of Soft Body "
+#~ "hair may be activated, but that is"
+#~ " a path that you have to wander"
+#~ " alone. We will deal with "
+#~ ":doc:`Collisions </physics/soft_body/collisions>` in "
+#~ "detail later.Use Soft Bodies only where"
+#~ " it makes sense. If you try to"
+#~ " cover a body mesh with a tight"
+#~ " piece of cloth and animate solely"
+#~ " with Soft Body, you will have "
+#~ "no success. Self collision of Soft "
+#~ "Body hair may be activated, but "
+#~ "that is a path that you have "
+#~ "to wander alone. We will deal with"
+#~ " :doc:`Collisions </physics/soft_body/collisions>` in"
+#~ " detail later.Use Soft Bodies only "
+#~ "where it makes sense. If you try"
+#~ " to cover a body mesh with a"
+#~ " tight piece of cloth and animate "
+#~ "solely with Soft Body, you will "
+#~ "have no success. Self collision of "
+#~ "Soft Body hair may be activated, "
+#~ "but that is a path that you "
+#~ "have to wander alone. We will deal"
+#~ " with :doc:`Collisions </physics/soft_body/collision>`"
+#~ " in detail later."
+#~ msgstr ""
+#~ "Utilisez les Soft Bodies uniquement "
+#~ "quand cela fait sens. Si vous "
+#~ "essayez de couvrir avec un vêtement "
+#~ "serré et animez seulement avec Soft "
+#~ "Body, vous n'aurez pas de succès.  "
+#~ "peut être activée,  mais c'est un "
+#~ "chemin que vous devez parcourir seul."
+#~ " Nous traiterons des :doc:`Collisions "
+#~ "</physics/soft_body/collisions>` en détail plus "
+#~ "tard."
+
+#~ msgid "A softbody cloth uncovering a text."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Animation video <https://vimeo.com/1865528>`__ and"
+#~ " `Blend file "
+#~ "<https://wiki.blender.org/index.php/Media:HiddenTextExample.blend>`__."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A Soft Body in general, is a "
+#~ "simulation of a soft or rigid "
+#~ "deformable object. It is useful for "
+#~ "everything that tends to bend, deform,"
+#~ " in reaction to forces like gravity"
+#~ " or wind, or when colliding with "
+#~ "other objects."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Soft Bodies can interact with other "
+#~ "objects through *Collision*. They can "
+#~ "interact with themselves through *Self "
+#~ "Collision*."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The result of the Soft Body "
+#~ "simulation can be converted to a "
+#~ "static object. You can also *bake "
+#~ "edit* the simulation, i.e. edit "
+#~ "intermediate results and run the "
+#~ "simulation from there."
+#~ msgstr ""
+
+#~ msgid "A wind cone. The cone is a Soft Body, as the suspension."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`Animation <https://vimeo.com/1865817>`__ - `Blend"
+#~ " file "
+#~ "<https://wiki.blender.org/index.php/Media:WindConeExample.blend>`__."
+#~ msgstr ""
+
+#~ msgid "Soft Bodies are well suited for:"
+#~ msgstr ""
+
+#~ msgid "Panel:    :menuselection:`Physics --> Soft Body Solver`"
+#~ msgstr ""
+
+#~ msgid "Panel:    :menuselection:`Physics --> Soft Body Cache`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To work with a Soft Body "
+#~ "simulation, you will find it handy "
+#~ "to use the Timeline editor. You "
+#~ "can change between frames and the "
+#~ "simulation will always be shown in "
+#~ "the actual state. The option *Continue"
+#~ " Physics* in the *Playback* menu of"
+#~ " the *Timeline* editor lets you "
+#~ "interact in real time with the "
+#~ "simulation, e.g. by moving collision "
+#~ "objects or shaking a Soft Body "
+#~ "object."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "You can then select the Soft Body"
+#~ " object while running the simulation "
+#~ "and *Apply* the modifier in the "
+#~ "*Modifiers* tab of the Properties "
+#~ "editor. This makes the deformation "
+#~ "permanent."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Use Soft Bodies only where it "
+#~ "makes sense. If you try to cover"
+#~ " a body mesh with a tight piece"
+#~ " of cloth and animate solely with "
+#~ "Soft Body, you will have no "
+#~ "success. Self collision of Soft Body "
+#~ "hair may be activated, but that is"
+#~ " a path that you have to wander"
+#~ " alone. We will deal with "
+#~ ":doc:`Collisions </physics/soft_body/collision>` in "
+#~ "detail later."
+#~ msgstr ""
+

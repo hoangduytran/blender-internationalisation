@@ -1,0 +1,839 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/curves/editing/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Рисувати Криву -- Draw Curve" href="draw.html" />
+    <link rel="prev" title="Редагування -- Editing" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Сітки (Meshes)</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Криві -- Curves</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Структура -- Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">Примітиви -- Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../selecting.html">Виділення -- Selecting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Редагування -- Editing</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="draw.html">Рисувати Криву -- Draw Curve</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../curve_display.html">Показ Кривої -- Curve Display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../index.html">Криві -- Curves</a> &raquo;</li>
+        
+          <li><a href="index.html">Редагування -- Editing</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/curves/editing/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Ця сторінка розкриває основи правлення, редагування кривих.</p>
+<div class="section" id="transform">
+<h2>Трансформації -- Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
+<p>Крива Безьє може редагуватися шляхом трансформування локацій керувальних точок та їх держаків. Крива НОРБС, з іншого боку, має тільки керувальні точки.</p>
+<div class="section" id="translation-rotation-scale">
+<h3>Пересування -- Translation, Обертання -- Rotation, Масштабування -- Scale<a class="headerlink" href="#translation-rotation-scale" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Transform</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Transform ‣ Grab/Move, Rotate, Scale, ...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd>, <kbd class="kbd docutils literal notranslate">R</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Як і інші елементи у Blender'і, керувальні точки та держаки кривої можуть схоплюватися/рухатися за допомогою <kbd class="kbd docutils literal notranslate">G</kbd>, обертатися з <kbd class="kbd docutils literal notranslate">R</kbd> або масштабуватися із <kbd class="kbd docutils literal notranslate">S</kbd> як описано у підрозділі -- <a class="reference internal" href="../../../editors/3dview/object/editing/transform/introduction.html"><span class="doc">Basic Transformations</span></a>. При знаходженні у режимі правки <em>Edit Mode</em>, пропорційна правка -- <a class="reference internal" href="../../../editors/3dview/object/editing/transform/control/proportional_edit.html"><span class="doc">proportional editing</span></a> також доступна для дій трансформування.</p>
+</div>
+<div class="section" id="transform-panel">
+<span id="modeling-curves-transform-panel"></span><h3>Панель «Трансформації» -- Transform Panel<a class="headerlink" href="#transform-panel" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Transform</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Коли нічого не виділено, то ця панель порожня. Коли більше ніж одна вершина виділена, то редагуються усереднені значення та слово &quot;Median&quot; додається спереду до назв засобів.</p>
+<dl class="docutils">
+<dt>Керувальна Точка -- Control Point, Вершина -- Vertex</dt>
+<dd>Перші керувальники (X, Y, Z) показують координати виділеної точки або держака (вершини). У випадку з кривими НОРБС є доступним також четвертий компонент (W), який визначає вагомість виділеної керувальної точки або серединної вагомості.</dd>
+<dt>Простір -- Space</dt>
+<dd><p class="first">Радіокнопки Простору дозволяють вам вибирати, чи ці координати є відносними до початку об'єкта (Local) чи до глобального початку (Global).</p>
+<p class="last">Глобально -- Global, Локально -- Local</p>
+</dd>
+</dl>
+<div class="section" id="data">
+<h4>Дані -- Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Weight, Radius, Tilt</dt>
+<dd>See <a class="reference internal" href="../properties/introduction.html"><span class="doc">Curve Properties</span></a>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="tools">
+<h3>Інструменти -- Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Transform</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Трансформаційні інструменти «До Сфери» -- <em>To Sphere</em>, «Косування» -- <em>Shear</em>, «Жолоблення» -- <em>Warp</em> та «Уштовх/Виштовх» -- <em>Push/Pull</em> описані у підрозділах глави <a class="reference internal" href="../../meshes/editing/transform/index.html"><span class="doc">Transformations</span></a>. Два інших інструменти «Відхил» -- <em>Tilt</em> та «Стоншення/Потовщення» -- <em>Shrink/Fatten Radius</em> стосуються видавлення кривої -- <a class="reference internal" href="../properties/geometry.html"><span class="doc">Curve Extrusion</span></a>.</p>
+</div>
+</div>
+<div class="section" id="mirror">
+<h2>Дзеркалення -- Mirror<a class="headerlink" href="#mirror" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Mirror</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Інструмент «Дзеркалення» -- <em>Mirror</em> також доступний та поводиться точно так, як і для вершин сіті -- <a class="reference internal" href="../../meshes/editing/transform/mirror.html"><span class="doc">mesh vertices</span></a>.</p>
+</div>
+<div class="section" id="snap">
+<h2>Підхоп -- Snap<a class="headerlink" href="#snap" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Snap</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="../../../editors/3dview/object/editing/transform/control/snap.html"><span class="doc">Mesh snapping</span></a> -- підхоплення сітей також працює з компонентами кривих. Підхоплення впливає як на керувальні точки, так і на їх держаки, за винятком підхоплення всередині себе (інші компоненти до активної кривої). Підхоплення працює з 2D кривими, але точки обмежуються локальними осями XY.</p>
+</div>
+<div class="section" id="extrude-curve-and-move">
+<span id="modeling-curves-extrude"></span><h2>Видавити Криву та Пересунути -- Extrude Curve and Move<a class="headerlink" href="#extrude-curve-and-move" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Modeling: Extrude</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Extrude Curve and Move</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Видавлює точки, дублюючи виділені точки, які далі можуть бути пересунуті. Якщо виділенням є кінцева точка, то нова точка буде з'єднана з виділеною точкою, в іншому випадку -- створиться нова нез'єднана точка.</p>
+</div>
+<div class="section" id="duplicate-or-extrude-to-cursor">
+<h2>Дублювати або Видавити до Курсора -- Duplicate or Extrude to Cursor<a class="headerlink" href="#duplicate-or-extrude-to-cursor" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Інтерактивно поміщає нові точки за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> у позиції курсора. Щодо виділення, то поводиться подібним чином, як і засіб <em>Extrude Curve and Move</em>.</p>
+</div>
+<div class="section" id="add-duplicate">
+<h2>Додати Дублікат -- Add Duplicate<a class="headerlink" href="#add-duplicate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Curves: Duplicate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Add Duplicate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Цей інструмент дублює виділені керувальні точки разом із сегментами кривої, які неявно виділені (якщо такі є). Якщо виділено тільки держак, то дублюється також повністю його точка. Копія виділяється та поміщається у режим захопу <em>Grab</em>, а тому ви можете перемістити її в інше місце.</p>
+</div>
+<div class="section" id="separate">
+<h2>Відокремлення -- Separate<a class="headerlink" href="#separate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Separate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Об'єкти кривих, що складаються з кількох окремих кривих, можуть розокремлюватися в окремі для них об'єкти шлях виділення бажаних сегментів та натиснення <kbd class="kbd docutils literal notranslate">P</kbd>. Зауважте, якщо в об'єкті Кривої є тільки одна крива, то засіб <em>Separate</em> створить новий об'єкт Кривої без жодних керувальних точок.</p>
+</div>
+<div class="section" id="make-segment">
+<span id="modeling-curves-make-segment"></span><h2>Зробити Сегмент -- Make Segment<a class="headerlink" href="#make-segment" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Make Segment</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">F</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>З'єднує дві роз'єднані керувальні точки сегментом. Виділення повинно складатися з вільних точок або з перших/останніх точок кривої, далі натискається <kbd class="kbd docutils literal notranslate">F</kbd>. Якщо ці точки належать різним кривим, то вони сполучаться сегментом, що зробить з цих кривих одну криву.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_two-curves.png"><img alt="../../../_images/modeling_curves_editing_introduction_two-curves.png" src="../../../_images/modeling_curves_editing_introduction_two-curves.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Дві криві перед.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_make-segment.png"><img alt="../../../_images/modeling_curves_editing_introduction_make-segment.png" src="../../../_images/modeling_curves_editing_introduction_make-segment.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Крива після сполучення.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Зауважте, що ви можете сполучати криві тільки однакового типу (тобто, Безьє з Безьє, НОРБС з НОРБС). Додатково ви можете закривати криву, перемкнувши зациклення.</p>
+</div>
+<div class="section" id="toggle-cyclic">
+<span id="modeling-curves-toggle-cyclic"></span><h2>Перемкнути Зациклення -- Toggle Cyclic<a class="headerlink" href="#toggle-cyclic" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Curves: Toggle Cyclic</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Toggle Cyclic</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-C</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Це перемикає між відкритою та закритою кривою (зациклення). Тільки криві з принаймні однією виділеною керувальною точкою будуть закриватися/відкриватися. Форма закритого сегмента базується на стартовому та кінцевому держаках кривих Безьє і, зазвичай, на суміжних керувальних точках для НОРБС. Єдиний раз, коли держак коригується після закриття, це якщо держак має тип <em>Auto</em>. Ілюстрація <a class="reference internal" href="#fig-curves-editing-open-close"><span class="std std-ref">Відкрита та Закрита криві.</span></a> -- це та ж крива Безьє відкрита і закрита.</p>
+<p>This action only works on the original starting control point or the last control point added.
+Deleting a segment(s) does not change how the action applies;
+it still operates only on the starting and last control points. This means that
+<kbd class="kbd docutils literal notranslate">Alt-C</kbd> may actually join two curves instead of closing a single curve!
+Remember that when a 2D curve is closed, it creates a renderable flat face.</p>
+<div class="figure" id="id3">
+<span id="fig-curves-editing-open-close"></span><img alt="../../../_images/modeling_curves_editing_introduction_open-closed-cyclic.png" src="../../../_images/modeling_curves_editing_introduction_open-closed-cyclic.png" />
+<p class="caption"><span class="caption-text">Відкрита та Закрита криві.</span></p>
+</div>
+</div>
+<div class="section" id="delete">
+<h2>Видалення -- Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Curves: Delete</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Delete...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd>, <kbd class="kbd docutils literal notranslate">Delete</kbd>; <kbd class="kbd docutils literal notranslate">Ctrl-X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Опції спливного меню для <em>стирання</em>:</p>
+<dl class="docutils">
+<dt>Вершини -- Vertices</dt>
+<dd>Це видалятиме виділені керувальні точки, <em>без</em> розривання кривої (тобто, суміжні точки безпосередньо пов'язуються, сполучаються, після того, як проміжні були видалені). Пам'ятайте, що порядок НОРБС не може бути вищим, ніж кількість його керувальних точок, а тому він може зменшуватися, коли ви видаляєте деяку керувальну точку. Звичайно, коли залишається тільки одна точка, немає більше видимої кривої, і коли всі точки видаляються, то і крива сама видаляється.</dd>
+<dt>Сегменти -- Segments</dt>
+<dd>Видаляє сегмент, що з'єднує виділені керувальні точки та, та роз'єднує їх.</dd>
+<dt>Розчинити Вершини -- Dissolve Vertices <kbd class="kbd docutils literal notranslate">Ctrl-X</kbd></dt>
+<dd>Видаляє виділені керувальні точки, тоді як решту сегмента заповнюється для видаленої кривої шляхом коригування його держаків.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_make-segment.png"><img alt="../../../_images/modeling_curves_editing_introduction_make-segment.png" src="../../../_images/modeling_curves_editing_introduction_make-segment.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Перед видаленням.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_delete-vertices.png"><img alt="../../../_images/modeling_curves_editing_introduction_delete-vertices.png" src="../../../_images/modeling_curves_editing_introduction_delete-vertices.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Видалення вершин.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_delete-segment.png"><img alt="../../../_images/modeling_curves_editing_introduction_delete-segment.png" src="../../../_images/modeling_curves_editing_introduction_delete-segment.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Видалення сегмента.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/modeling_curves_editing_introduction_dissolve-vertices.png"><img alt="../../../_images/modeling_curves_editing_introduction_dissolve-vertices.png" src="../../../_images/modeling_curves_editing_introduction_dissolve-vertices.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Розчинення вершин.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="control-points">
+<h2>Керувальні Точки -- Control Points<a class="headerlink" href="#control-points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tilt">
+<h3>Похил -- Tilt<a class="headerlink" href="#tilt" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Transform ‣ Tilt</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Control Points ‣ Tilt/Clear Tilt</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-T</kbd>, <kbd class="kbd docutils literal notranslate">Alt-T</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Похил -- Tilt <kbd class="kbd docutils literal notranslate">Ctrl-T</kbd></dt>
+<dd>Дозволяє визначати вам похил виділених керувальних точок. Цей похил буде інтерполюватися від точки до точки (ви можете перевіряти це за допомогою нормалей). Кут похилу визначається інтерактивно спершу, а потім він коригується на панелі Оператора <em>Angle</em>.</dd>
+<dt>Зчистити Похил -- Clear Tilt <kbd class="kbd docutils literal notranslate">Alt-T</kbd></dt>
+<dd>Повертає похил цих виділених керувальних точок назад у 0.</dd>
+</dl>
+</div>
+<div class="section" id="set-handle-type">
+<h3>Задати Тип Держака -- Set Handle Type<a class="headerlink" href="#set-handle-type" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Handles:</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Control Points ‣ Set Handle Type</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">V</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Типи держаків -- це властивість кривих Безьє -- <a class="reference internal" href="../structure.html#curve-bezier"><span class="std std-ref">Bézier curves</span></a>, яка може використовуватися для зміни функціональних властивостей кривої. Наприклад, перемикання на держаки типу <em>Vector</em> може використовуватися для створення кривих з різкими кутками. Детальніше дивіться тут -- <a class="reference internal" href="../structure.html#curve-bezier-handle-type"><span class="std std-ref">Bézier curves</span></a>.</p>
+<dl class="docutils">
+<dt>Перемкнути Вільно/Вирівняно -- Toggle Free/Align <kbd class="kbd docutils literal notranslate">V T</kbd></dt>
+<dd>Додатково, це скорочення може використовуватися для перемикання між типами держака Free та Aligned.</dd>
+</dl>
+</div>
+<div class="section" id="set-goal-weight">
+<span id="modeling-curve-weight"></span><h3>Задати Вагомість Цілі -- Set Goal Weight<a class="headerlink" href="#set-goal-weight" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Specials ‣ Set Goal Weight</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This sets the <a class="reference internal" href="../properties/introduction.html"><span class="doc">Soft Body Goal Weight</span></a>
+of selected control points. The precise value can be adjusted in the Operator Panel.
+To adjust the <em>Mean Weight</em> (average) of selected control points use
+<span class="menuselection">Properties region ‣ Transform ‣ Mean Weight</span>.</p>
+</div>
+<div class="section" id="smooth">
+<h3>Згладження -- Smooth<a class="headerlink" href="#smooth" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Modeling: Smooth</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Specials ‣ Smooth</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Згладження кривих є доступним через меню Specials. Для кривих Безьє ця операція згладження скорочує відстань між виділеними керувальними точками та їх сусідами, утримуючи сусідів закріпленими. Не впливає на дотичні керувальних точок.</p>
+<div class="figure" id="id8">
+<img alt="../../../_images/modeling_curves_editing_introduction_smoothing-1.png" src="../../../_images/modeling_curves_editing_introduction_smoothing-1.png" />
+<p class="caption"><span class="caption-text">Оригінальна, незгладжена Крива.</span></p>
+</div>
+<div class="figure" id="id9">
+<img alt="../../../_images/modeling_curves_editing_introduction_smoothing-2.png" src="../../../_images/modeling_curves_editing_introduction_smoothing-2.png" />
+<p class="caption"><span class="caption-text">Крива цілком згладжена понад 20 разів, утримуванням <kbd class="kbd docutils literal notranslate">Shift-R</kbd> для повторення останнього кроку.</span></p>
+</div>
+<div class="figure" id="id10">
+<img alt="../../../_images/modeling_curves_editing_introduction_smoothing-3.png" src="../../../_images/modeling_curves_editing_introduction_smoothing-3.png" />
+<p class="caption"><span class="caption-text">Тільки три керувальні точки у центрі згладжені понад 20 разів.</span></p>
+</div>
+</div>
+<div class="section" id="hooks">
+<h3>Гачки -- Hooks<a class="headerlink" href="#hooks" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Control Points ‣ Hooks</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-H</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="../../modifiers/deform/hooks.html"><span class="doc">Hooks</span></a> -- гачки можуть додаватися для керування однією або кількома точками за допомогою інших об'єктів.</p>
+</div>
+</div>
+<div class="section" id="segments">
+<h2>Сегменти -- Segments<a class="headerlink" href="#segments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="subdivision">
+<span id="modeling-curves-subdivision"></span><h3>Підподілення -- Subdivision<a class="headerlink" href="#subdivision" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Modeling: Subdivide</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Segments ‣ Subdivide</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Підподілення кривої просто підподіляє усі виділені сегменти, додаючи одну чи кілька керувальних точок між виділеними сегментами.</p>
+<dl class="docutils">
+<dt>Кількість Поділів -- Number of Cuts</dt>
+<dd>Кількість поділів може коригуватися з панелі Оператора.</dd>
+</dl>
+</div>
+<div class="section" id="switch-direction">
+<span id="curve-switch-direction"></span><h3>Перемкнути Напрям -- Switch Direction<a class="headerlink" href="#switch-direction" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Curves: Switch Direction</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Curve ‣ Segments ‣ Switch Direction</span>,
+<span class="menuselection">Specials ‣ Switch Direction</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Цей засіб буде «розвертати» напрям будь-якої кривої з принаймні одним виділеним елементом (тобто, стартова точка буде ставати кінцевою точкою і <em>навпаки</em>). Це в основному корисно, коли крива використовується як шлях, або використовуються опції скошування та звуження.</p>
+</div>
+</div>
+<div class="section" id="show-hide">
+<span id="curves-show-hide"></span><h2>Показ/Схов -- Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<p>При знаходженні у режимі правці <em>Edit Mode</em> ви можете ховати та розкривати елементи для показу. Ви можете показувати або ховати тільки керувальні точки, оскільки сегменти будуть показуватися до тих пір, допоки усі керувальні точки не будуть сховані, і це дасть повний схов усієї кривої.</p>
+<p>Дивіться про <a class="reference internal" href="../../../editors/3dview/object/editing/introduction.html#object-show-hide"><span class="std std-ref">Показ/Схов -- Show/Hide</span></a> у режимі об'єкта -- <em>Object Mode</em>. Дивіться також про панель -- <a class="reference internal" href="../curve_display.html"><span class="doc">Показ Кривої -- Curve Display</span></a>.</p>
+</div>
+<div class="section" id="set-spline-type">
+<span id="curve-convert-type"></span><h2>Задати Тип Сплайна -- Set Spline Type<a class="headerlink" href="#set-spline-type" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Curve Tools ‣ Curves: Set Spline type</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id11">
+<img alt="../../../_images/modeling_curves_editing_introduction_set-spline-type.png" src="../../../_images/modeling_curves_editing_introduction_set-spline-type.png" />
+<p class="caption"><span class="caption-text">Кнопка Set Spline Type.</span></p>
+</div>
+<p>Ви можете конвертувати сплайни в об'єкт кривої з типами Bézier, NURBS та Poly. Натисніть <kbd class="kbd docutils literal notranslate">T</kbd> для розкриття Полиці Інструментів. Клацання на кнопці <em>Set Spline Type</em> дозволить вам вибрати тип Сплайна (Poly, Bézier або NURBS).</p>
+<p>Зауважте, що це не є «розумним» конвертуванням, тобто Blender не намагається підтримувати ту ж форму, ні ту ж кількість керувальних точок. Наприклад, при конвертуванні НОРБС у Безьє кожна група з трьох НОРБС керувальних точок стає однією унікальною Безьє (центральна точка та два держаки).</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="../../../editors/3dview/object/editing/introduction.html#object-convert-to"><span class="std std-ref">Конвертувати у -- Convert To</span></a>/from Mesh.</p>
+</div>
+</div>
+<div class="section" id="curve-parenting">
+<h2>Приріднення Кривої -- Curve Parenting<a class="headerlink" href="#curve-parenting" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Режим -- Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ви можете робити інші виділені об'єкти нащадками -- <a class="reference internal" href="../../../editors/3dview/object/properties/relations/parents.html#object-parenting"><span class="std std-ref">children</span></a> однієї або трьох керувальних точок за допомогою <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd>, як і із сітьовими об'єктами.</p>
+<p>Виділіть сіть, далі криву, перейдіть для кривої у режим правки та натисніть <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd>. Або у режимі правки кривої виділіть одну або три керувальні точки, далі клацніть <kbd class="kbd docutils literal notranslate">Ctrl-RMB</kbd> на сіті та натисніть <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> для зроблення приріднення до вершин. Виділення трьох керувальних точок дозволить нащадку слідувати за серединною точкою між цими трьома вершинами. Альтернативою може бути використання примусу -- <a class="reference internal" href="../../../rigging/constraints/relationship/child_of.html"><span class="doc">Child of Constraint</span></a>. Дивіться також про модифікатор «Крива» -- <a class="reference internal" href="../../modifiers/deform/curve.html"><span class="doc">Curve Modifier</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="draw.html" class="btn btn-neutral float-right" title="Рисувати Криву -- Draw Curve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Редагування -- Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

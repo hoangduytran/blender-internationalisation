@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Властивості -- Properties &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/graph_editor/fcurves/properties.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Модифікатори F-Кривої -- F-Curve Modifiers" href="modifiers.html" />
+    <link rel="prev" title="Редагування -- Editing" href="editing.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Редактор Часолінія -- Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редактор Графів -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Канали</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Криві -- F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Аркуш Експозицій -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">Редактор НЛА -- NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редактор Графів -- Graph Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">F-Криві -- F-Curves</a> &raquo;</li>
+        
+      <li>Властивості -- Properties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/graph_editor/fcurves/properties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="properties">
+<h1>Властивості -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="active-f-curve-panel">
+<h2>Панель «Активна F-Крива» -- Active F-Curve Panel<a class="headerlink" href="#active-f-curve-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ F-Curve ‣ Active F-Curve</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../_images/editors_graph-editor_fcurves_properties_active-fcurve-panel.png" src="../../../_images/editors_graph-editor_fcurves_properties_active-fcurve-panel.png" />
+<p class="caption"><span class="caption-text">Active F-Curve panel.</span></p>
+</div>
+<p>This panel displays properties for the active F-Curve.</p>
+<dl class="docutils">
+<dt>Ім'я Каналу -- Channel Name</dt>
+<dd>ID Type + Channel name (X Location).</dd>
+<dt>Шлях RNA -- RNA Path</dt>
+<dd>RNA Path to property + Array index.</dd>
+<dt>Режим Кольору -- Color Mode</dt>
+<dd><p class="first">Color Mode for the active F-Curve.</p>
+<dl class="last docutils">
+<dt>Авто Веселка -- Auto Rainbow</dt>
+<dd>Increment the hue of the F-Curve color based on the channel index.</dd>
+<dt>Авто XYZ у RGB -- Auto XYZ to RGB</dt>
+<dd>Для наборів властивостей, як локація XYZ, автоматично задає набір кольорів для червоного, зеленого, синього.</dd>
+<dt>Власно -- User Defined</dt>
+<dd>Define a custom color for the active F-Curve.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="active-keyframe-panel">
+<h2>Панель «Активний Ключкадр» -- Active Keyframe Panel<a class="headerlink" href="#active-keyframe-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ F-Curve ‣ Active Keyframe</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id2">
+<img alt="../../../_images/editors_graph-editor_fcurves_properties_active-keyframe-panel.png" src="../../../_images/editors_graph-editor_fcurves_properties_active-keyframe-panel.png" />
+<p class="caption"><span class="caption-text">Active Keyframe panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Інтерполяція -- Interpolation</dt>
+<dd>Задає <a class="reference internal" href="introduction.html#editors-graph-fcurves-settings-interpolation"><span class="std std-ref">Режим Інтерполяції -- Interpolation Mode</span></a> вперед для активного ключкадру.</dd>
+<dt>Полегшення -- Easing</dt>
+<dd>Дивіться детальніше тут -- <a class="reference internal" href="introduction.html#editors-graph-fcurves-settings-easing"><span class="std std-ref">Тип Полегшення -- Easing Type</span></a>.</dd>
+<dt>Ключ -- Key</dt>
+<dd><dl class="first last docutils">
+<dt>Кадр -- Frame</dt>
+<dd>Установлює кадр для активного ключкадру.</dd>
+<dt>Значення -- Value</dt>
+<dd>Задає значення для активного ключкадру.</dd>
+</dl>
+</dd>
+<dt>Лівий/Правий Держак -- Left/Right Handle</dt>
+<dd><p class="first">Визначає позицію лівого/правого держака інтерполяції для активного ключкадру.</p>
+<dl class="last docutils">
+<dt>Тип Держака -- Handle Type</dt>
+<dd>Детальніше дивіться тут -- <a class="reference internal" href="introduction.html#editors-graph-fcurves-settings-handles"><span class="std std-ref">Типи Держаків -- Handle Types</span></a>.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="view-properties">
+<span id="graph-editor-view-properties"></span><span id="bpy-ops-graph-frame-jump"></span><span id="bpy-types-spacegrapheditor-show-cursor"></span><h2>View Properties<a class="headerlink" href="#view-properties" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ View ‣ View Properties</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id3">
+<img alt="../../../_images/editors_graph-editor_fcurves_properties_view-panel.png" src="../../../_images/editors_graph-editor_fcurves_properties_view-panel.png" />
+<p class="caption"><span class="caption-text">View Properties.</span></p>
+</div>
+<dl class="docutils">
+<dt>Show Cursor</dt>
+<dd>Toggles the visibility of the <a class="reference internal" href="../introduction.html#graph-editor-2d-cursor"><span class="std std-ref">2D Cursor</span></a>.</dd>
+<dt>Cursor from Selection</dt>
+<dd>Places the 2D Cursor at the midpoint of the selected keyframes.</dd>
+<dt>Cursor Location</dt>
+<dd>Moves the cursor to the specified frame (X value) and value (Y value).</dd>
+<dt>To Keys</dt>
+<dd>Applies the current location of the 2D cursor to the selected keyframes.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Graph Editor's <a class="reference internal" href="../introduction.html#graph-view-menu"><span class="std std-ref">Меню «Огляд» -- View Menu</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modifiers.html" class="btn btn-neutral float-right" title="Модифікатори F-Кривої -- F-Curve Modifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editing.html" class="btn btn-neutral" title="Редагування -- Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

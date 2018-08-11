@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/logic/sensors/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Редагування Сенсора -- Sensor Editing" href="editing.html" />
+    <link rel="prev" title="Сенсори -- Sensors" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Світ -- World</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Логіка -- Logic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Сенсори -- Sensors</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="editing.html">Редагування Сенсора -- Sensor Editing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="index.html#sensor-types">Типи Сенсорів -- Sensor Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../controllers/index.html">Контролери -- Controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../actuators/index.html">Актуатори -- Actuators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../properties.html">Властивості -- Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../states.html">Стани -- States</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+          <li><a href="../index.html">Логіка -- Logic</a> &raquo;</li>
+        
+          <li><a href="index.html">Сенсори -- Sensors</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/game_engine/logic/sensors/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Сенсори -- sensors -- це цеглини логіки, що змушує логіку щось робити. Сенсори дають вивід, коли щось трапляється, наприклад, запускають подію, таку як зіткнення між двома об'єктами, натискання клавіші на клавіатурі або часолік, таймер для відстроченої події. Коли сенсор запускається, то позитивний пульс посилається до усіх контролерів, що під'єднані до нього.</p>
+<p>Блоки логіки для усіх типів сенсорів можуть бути вибудувані та змінені за допомогою Редактора Логіки -- <a class="reference internal" href="../../../editors/logic_editor.html"><span class="doc">Logic Editor</span></a>; деталі цього процесу наведені на сторінці -- <a class="reference internal" href="editing.html"><span class="doc">Sensor Editing</span></a>.</p>
+<div class="section" id="common-options">
+<span id="game-engine-logic-sensors-common-options"></span><h2>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/game-engine_logic_sensors_common-options_column3.jpg"><img alt="../../../_images/game-engine_logic_sensors_common-options_column3.jpg" src="../../../_images/game-engine_logic_sensors_common-options_column3.jpg" style="width: 292px;" /></a>
+<p class="caption"><span class="caption-text">Common Sensor options.</span></p>
+</div>
+<p>All sensors have a set of common buttons, fields and menus. They are organized as follows:</p>
+<dl class="docutils">
+<dt>Triangle button</dt>
+<dd>Collapses the sensor information to a single line (toggle).</dd>
+<dt>Sensor type menu</dt>
+<dd>Specifies the type of the sensor.</dd>
+<dt>Sensor name</dt>
+<dd>The name of the sensor. This can be selected by the user. It is used to access sensors with Python;
+it needs to be unique among the selected objects.</dd>
+<dt>Pin button</dt>
+<dd>Display the sensor even when it is not linked to a visible states controller.</dd>
+<dt>Checkbox button</dt>
+<dd>Sets active state of the sensor.</dd>
+<dt>X button</dt>
+<dd>Deletes the sensor.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Triggers</p>
+<p>If a controller does not get triggered by any connected sensor
+(regardless of the sensors' state) it will not be activated at all.</p>
+<p class="last">A sensor triggers the connected controllers on state change.
+When the sensor changes its state from negative to positive or positive to negative,
+the sensor triggers the connected controllers.
+A sensor triggers a connected controller as well when the sensor changes from deactivation to
+activation.</p>
+</div>
+<p>The following parameters specify how the sensor triggers connected controllers:</p>
+<dl class="docutils">
+<dt>True level triggering</dt>
+<dd>If this is set, the connected controllers will be triggered as long as the sensor's state is positive.
+The sensor will trigger with the delay (see parameter: frequency) of the sensor. <a class="reference internal" href="../../../_images/game-engine_logic_sensors_common-options_icons-true.png"><img alt="true-button" src="../../../_images/game-engine_logic_sensors_common-options_icons-true.png" style="width: 1.1em;" /></a></dd>
+<dt>False level triggering</dt>
+<dd>If this is set, the connected controllers will be triggered as long as the sensor's state is negative.
+The sensor will trigger with the delay (see parameter: frequency) of the sensor. <a class="reference internal" href="../../../_images/game-engine_logic_sensors_common-options_icons-false.png"><img alt="false-button" src="../../../_images/game-engine_logic_sensors_common-options_icons-false.png" style="width: 1.1em;" /></a></dd>
+<dt>Freq</dt>
+<dd><p class="first">Despite its name &quot;Frequency&quot;, this parameter sets the delay between repeated triggers,
+measured in frames (also known as logic ticks). The default value is 0 and it means no delay.
+It is only used if at least one of the level triggering parameters are enabled.</p>
+<p>Raising the value of <em>freq</em> is a good way for saving performance costs by avoiding
+to execute controllers or activate actuators more often than necessary.</p>
+<p class="last">Examples: (assuming the default frame rate with a frequency of 60 Hz (60 frames per second)).</p>
+</dd>
+</dl>
+<table border="1" class="colwidths-given valign docutils">
+<colgroup>
+<col width="10%" />
+<col width="30%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+<col width="15%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Freq</th>
+<th class="head">Meaning</th>
+<th class="head">Frames with trigger</th>
+<th class="head">Frames without trigger</th>
+<th class="head">Period in frames</th>
+<th class="head">Frequency in frames/sec</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>The sensor triggers the next frame.</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>60</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>The sensor triggers at one frame and waits another one until it triggers again. It results in half speed.</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>30</td>
+</tr>
+<tr class="row-even"><td>29</td>
+<td>The sensor triggers at one frame and waits 29 frames until it triggers again.</td>
+<td>1</td>
+<td>29</td>
+<td>30</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td>59</td>
+<td>The sensor triggers at one frame and waits 59 frames until it triggers again.</td>
+<td>1</td>
+<td>59</td>
+<td>30</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><em>Level</em> Button</dt>
+<dd>Triggers connected controllers when state (of the build-in state machine) changes
+(for more information see <a class="reference internal" href="../states.html"><span class="doc">States</span></a>).</dd>
+</dl>
+<p>The following parameters specify how the sensor's status gets evaluated:</p>
+<dl class="docutils">
+<dt><em>Tap</em> Button</dt>
+<dd>Changes the sensor's state to negative one frame after changing
+to positive even if the sensor evaluation remains positive.
+As this is a state change it triggers the connected controllers as well.
+Only one of <em>Tap</em> or <em>Level</em> can be activated.
+If the <em>TRUE level triggering</em> is set,
+the sensor state will consecutive change from True to False until the sensor evaluates False.
+The <em>FALSE level triggering</em> will be ignored when the <em>Tap</em> parameter is set.</dd>
+<dt><em>Invert</em> Button</dt>
+<dd>This inverts the sensor output.
+If this is set, the sensor's state will be inverted.
+This means the sensor's state changes to positive when evaluating False and changes to
+False when evaluating True.
+If the <em>Tap</em> parameter is set, the sensor triggers the controller based on the inverted sensor state.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="editing.html" class="btn btn-neutral float-right" title="Редагування Сенсора -- Sensor Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Сенсори -- Sensors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

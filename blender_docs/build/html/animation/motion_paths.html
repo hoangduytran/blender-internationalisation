@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Шляхи Руху -- Motion Paths &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/motion_paths.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Фізика -- Physics" href="../physics/index.html" />
+    <link rel="prev" title="Робхід" href="shape_keys/workflow.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Ключкадри -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Дії -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Драйвери -- Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">Мітки -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Ключі Форм -- Shape Keys</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Шляхи Руху -- Motion Paths</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Опції</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#show">Показ -- Show</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Приклад</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Анімація -- Animation</a> &raquo;</li>
+        
+      <li>Шляхи Руху -- Motion Paths</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/animation/motion_paths.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="motion-paths">
+<span id="bpy-ops-object-paths-calculate"></span><span id="bpy-types-animviz"></span><h1>Шляхи Руху -- Motion Paths<a class="headerlink" href="#motion-paths" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">3D Огляд -- 3D View, Редактор Властивостей -- Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Режим:</th><td class="field-body">«Режим Об'єкта» -- Object Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Панель:</th><td class="field-body">«Полиця Інструментів &gt; Анімація &gt; Анімація &gt; Шляхи Руху: Розрахунок» -- <span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Motion Paths: Calculate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Панель:</th><td class="field-body">«Редактор Властивостей &gt; Об'єкт &gt; Шляхи Руху» -- <span class="menuselection">Properties editor ‣ Object ‣ Motion Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">3D Огляд -- 3D View, Редактор Властивостей -- Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Режим:</th><td class="field-body">«Режим Пози» -- Pose Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Панель:</th><td class="field-body">«Полиця Інструментів &gt; Інструменти &gt; Інструменти Поз &gt; Шляхи Руху: Розрахунок» <span class="menuselection">Tool Shelf ‣ Tools ‣ Pose Tools ‣ Motion Paths: Calculate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Панель:</th><td class="field-body">«Редактор Властивостей &gt; Арматура &gt; Шляхи Руху» <span class="menuselection">Properties editor ‣ Armature ‣ Motion Paths</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Меню:</th><td class="field-body">«Поза &gt; Шляхи Руху» <span class="menuselection">Pose ‣ Motion Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/animation_motion-paths_example-object.png"><img alt="../_images/animation_motion-paths_example-object.png" src="../_images/animation_motion-paths_example-object.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">Анімований куб з показуваним для нього шляхом руху.</span></p>
+</div>
+<p>Засіб «Шляхи Рухи» дозволяє вам візуалізувати рух точок як шлях через серію кадрів. Цими точками можуть бути початки (origins) об'єктів або суглоби кісток.</p>
+<p>Перед тим, як ми глянемо на його опції, давайте спершу подивимося як показувати/ховати ці шляхи. На відміну від «привидів» -- <a class="reference internal" href="../rigging/armatures/properties/ghost.html"><span class="doc">Привиди -- Ghosts</span></a>, це доводиться робити вам вручну, і спершу ви повинні виділити кістки, для ких ви хочете увімкнути/вимкнути шляхи руху. Далі:</p>
+<ol class="arabic simple">
+<li>Для показування (або оновлення, при потребі) шляхів клацніть на кнопці «Розрахунок Шляху» -- <em>Calculate Path</em>.</li>
+<li>Для ховання цих шляхів клацніть на кнопці «Зчищення Шляхів» -- <em>Clear Paths</em>.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Пам'ятайте, що лише виділені кістки та їх шляхи задіюються цими діями!</p>
+</div>
+<p>Дані шляхи рисуються світлим відтінком сірого для невиділених точок та дещо синюватим відтінком сірого для виділених точок. Навколо поточного кадру сяйво на шляху вказує напрямок руху: синій вказує на майбутні кадри, а зелений вказує на минулі кадри. Кожен кадр показується на шляху маленькою білою точкою.</p>
+<p>Як і привиди, шляхи автоматично оновлюються, коли ви редагуєте ваші пози/ключкадри, а також вони активні у ході відтворення анімації. Відтворення за анімації за скороченням <kbd class="kbd docutils literal notranslate">Alt-A</kbd> корисне при увімкненій опції «Навколо Кадру» <em>Around Current Frame</em>.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../_images/animation_motion-paths_panel.png" src="../_images/animation_motion-paths_panel.png" />
+<p class="caption"><span class="caption-text">Панель Motion Paths у вкладці Armature.</span></p>
+</div>
+<dl class="docutils">
+<dt>Тип</dt>
+<dd><dl class="first last docutils">
+<dt>Навколо Кадру -- Around Frame</dt>
+<dd>Показує шляхи точок у межах фіксованої кількості кадрів навколо поточного кадру. Коли ви вмикаєте цю кнопку, ви отримуєте шляхи для заданої кількості кадрів перед і після поточного кадру (знову, так само як і привиди).</dd>
+<dt>У Діапазоні -- In Range</dt>
+<dd>Показує шляхи точок у межах визначеного діапазону кадрів.</dd>
+</dl>
+</dd>
+<dt>Діапазон Показу -- Display Range</dt>
+<dd><dl class="first last docutils">
+<dt>Перед -- Before, Після -- After</dt>
+<dd>Кількість кадрів для показу перед і після поточного кадру (тільки для методу тільки «Навколо Кадру» <em>Around Current Frame</em>).</dd>
+<dt>Старт -- Start, Кінець -- End</dt>
+<dd>Стартовий і Кінцевий кадри діапазону шляхів для показу/розрахунку (тільки не для методу «Навколо Кадру»).</dd>
+<dt>Крок -- Step</dt>
+<dd>Це те ж саме, що й устава «Крок» <em>Step</em> для привидів. Вона дозволяє вам показувати на шляху тільки певну кількість номерів кадрів через кожен <em>n</em> кадр. Здебільшого корисна, коли ви вмикаєте показ номерів кадрів (дивіться нижче), для запобігання безладдю у 3D-Оглядах -- 3D Views.</dd>
+</dl>
+</dd>
+<dt>Кеш -- Cache / Кеш для Кістки -- Cache for Bone</dt>
+<dd><dl class="first last docutils">
+<dt>Із -- From, До -- To</dt>
+<dd>Це стартовий і кінцевий кадри діапазону, в якому рисуються шляхи руху. Ви не можете модифікувати цей діапазон без видалення спершу попереднього шляху рух.</dd>
+</dl>
+</dd>
+<dt>Розрахунок -- Calculate / Оновлення Шляхів -- Update Paths</dt>
+<dd><p class="first">Якщо немає ще жодних розрахованих шляхів, то кнопка «Розрахувати» -- Calculate створить новий шлях руху у кеші на основі опцій визначених у спливному меню або на панелі.</p>
+<p>Якщо шлях вже перед цим було розраховано, то кнопка «Оновити Шляхи» -- Update Paths оновить форму шляху для поточної анімації. Для зміни діапазону кадрів розрахованого шляху вам необхідно спочатку видалити наявний шлях та розрахувати його знову.</p>
+<dl class="last docutils">
+<dt>Старт -- Start, Кінець -- End</dt>
+<dd>Це стартовий і кінцевий кадри діапазону, в якому рисуються шляхи руху. Ви маєте «розрахувати шляхи» <em>Calculate Paths</em> знову, якщо ви модифікували цю уставу, для оновлення шляхів у 3D-Оглядах -- 3D Views. Зауважте, що на відміну від привидів, стартовий кадр є «включним» <em>inclusive</em> (тобто, якщо ви установите значення «Старт» <em>Start</em> як 1, то ви реально бачитимете кадр 1 як стартову точку цього шляху...).</dd>
+<dt>Запікання Локації -- Bake Location</dt>
+<dd>Кістки лише -- Стандартно, ви отримуєте шляхи верхівок (tips, Tails). Змінивши значення цієї опції з «Хвости» Tails, ви можете отримати шляхи коренів, «Голови» Heads (пам'ятайте, що в інтерфейсі користувача Blender'а корені кісток називаються «головами» &quot;heads&quot;...). Ви маєте «розрахувати шляхи» <em>Calculate Paths</em> знову, якщо ви модифікували цю уставу, для оновлення шляхів у 3D-Оглядах -- 3D Views.</dd>
+</dl>
+</dd>
+<dt>Зчищення Шляхів -- Clear Paths <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Зчищає шляхи на усіх об'єкта/кістках або тільки на виділених, коли утримуєте натисненою <kbd class="kbd docutils literal notranslate">Shift</kbd>.</dd>
+</dl>
+<div class="section" id="show">
+<h3>Показ -- Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Номери Кадрів -- Frame Numbers</dt>
+<dd>При увімкненні будуть показуватися маленькі номери біля кожної точки кадру на шляху, які, звичайно ж, відповідають номеру відповідного кадру.</dd>
+<dt>Лінія -- Line</dt>
+<dd><p class="first">Перемикає те, чи рисуються лінії між цими точками.</p>
+<dl class="last docutils">
+<dt>Товщина -- Thickness, Колір -- Color (іконка колірного круга)</dt>
+<dd>Налаштовувані товщина та колір для ліній.</dd>
+</dl>
+</dd>
+<dt>Ключкадри -- Keyframes</dt>
+<dd>При увімкненні великі жовті квадратні точки рисуються на шляху руху, показуючи ключкадри кістки (тобто, тільки на шляхах ключованих кісток у заданому діапазоні мають жовту точку у ключовому кадрі).</dd>
+<dt>+ Не-Груповані Ключкадри -- + Non-Grouped Keyframes</dt>
+<dd>Для шляхів руху кісток, при увімкненні здійснює пошук по всій Дії -- Action замість пошуку у групах тільки за відповідними іменами (це повільніше).</dd>
+<dt>Номери Ключкадрів -- Keyframe Numbers</dt>
+<dd>При увімкненні ви будете бачити номери показуваних ключкадрів, а тому очевидно ця опція працює тільки, якщо увімкнена опція Ключкадри -- Keyframes.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../_images/animation_motion-paths_example-armature.png" src="../_images/animation_motion-paths_example-armature.png" />
+<p class="caption"><span class="caption-text">Приклад шляху руху для арматури.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../physics/index.html" class="btn btn-neutral float-right" title="Фізика -- Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shape_keys/workflow.html" class="btn btn-neutral" title="Робхід" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

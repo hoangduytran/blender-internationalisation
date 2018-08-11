@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Панель «Ключі Форм» -- Shape Keys &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/animation/shape_keys/shape_keys_panel.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Робхід" href="workflow.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Анімація -- Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Ключкадри -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Дії -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Драйвери -- Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Мітки -- Markers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Ключі Форм -- Shape Keys</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Панель «Ключі Форм» -- Shape Keys</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Устави</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Приклади</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html">Робхід</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Шляхи Руху -- Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Анімація -- Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Ключі Форм -- Shape Keys</a> &raquo;</li>
+        
+      <li>Панель «Ключі Форм» -- Shape Keys</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/shape_keys/shape_keys_panel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shape-keys-panel">
+<span id="bpy-ops-object-join-shapes"></span><h1>Панель «Ключі Форм» -- Shape Keys<a class="headerlink" href="#shape-keys-panel" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Редактор:</th><td class="field-body">Редактор Властивостей - Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Режим:</th><td class="field-body">Усі режими</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Панель:</th><td class="field-body">«Редактор Властивостей &gt; Дані Об'єкта &gt; Ключі Форм» -- <span class="menuselection">Properties editor ‣ Object Data ‣ Shape Keys</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_basis.png" src="../../_images/animation_shape-keys_shape-keys-panel_basis.png" />
+<p class="caption"><span class="caption-text">Панель «Ключі Форм» -- Shape Keys.</span></p>
+</div>
+<div class="section" id="settings">
+<h2>Устави<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Індекс Активного Ключка Форми -- Active Shape Key Index</dt>
+<dd><p class="first">Детальніше тут -- <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">Огляди списків</span></a>.</p>
+<dl class="last docutils">
+<dt>Значення -- Value</dt>
+<dd>Поточне Значення даного Ключа Форми (0.0 до 1.0).</dd>
+<dt>Приглушення -- Mute (іконка з оком)</dt>
+<dd>Це візуально вимикає показ дії ключа форми у 3D-Огляді -- 3D View.</dd>
+<dt>Спеціальне -- Specials</dt>
+<dd><dl class="first last docutils">
+<dt>Перенести Ключ Форми -- Transfer Shape Key</dt>
+<dd>Переносить активний Ключ Форми <em>Shape Key</em> з іншого об'єкта. Виділіть два об'єкти і активний Ключ Форми скопіюється на активний об'єкт.</dd>
+<dt>Сполучити як Форми -- Join as Shapes</dt>
+<dd>Переносить Поточну Форму <em>Current Shape</em> з іншого об'єкта. Виділіть два об'єкти і Форма Shape скопіюється на активний об'єкт.</dd>
+<dt>Дзеркалити Ключ Форми -- Mirror Shape Key</dt>
+<dd>Якщо ваша сіть гарна і симетрична, в Режимі Об'єкта <em>Object Mode</em>, ви можете віддзеркалити ключі форми по осі X. Це не працює допоки, вершини сіті не є ідеально симетричними. Використовуйте для цього «Сіть &gt; Симетризація» -- <span class="menuselection">Mesh ‣ Symmetrize</span> у Режимі Правки -- <em>Edit Mode</em>.</dd>
+<dt>Дзеркалити Ключ Форми (Топологія) -- Mirror Shape Key (Topology)</dt>
+<dd>Працює так само, як і «Дзеркалити Ключ Форми» <em>Mirror Shape Key</em>, хоча ця команда визначає дзеркальні вершини на основі топології сіті. Вершини сіті не мають бути ідеально симетричними для цього.</dd>
+<dt>Нова Форма З Міксу -- New Shape From Mix</dt>
+<dd>Додає новий ключ форми з поточно деформованої форми об'єкта.</dd>
+<dt>Видалити Усі Форми -- Delete All Shapes</dt>
+<dd>Видаляє усіх ключів форм.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Відносно -- Relative</dt>
+<dd>Вмикає тип даних ключів форм як «Відносно» <em>Relative</em>, при вимкненні -- «Абсолютно» <em>Absolute</em>.</dd>
+<dt>Показати Лише (іконка шпильки)</dt>
+<dd>Показу форму активного ключа форм без інтерполяції у 3D-Огляді -- 3D View. Допоки об'єкт знаходиться у Режимі Правки <em>Edit Mode</em> опція <em>Show Only</em> автоматично увімкнена, якщо її не вимикає устава «Режим Правки» <em>Edit Mode</em>, про яку мова нижче.</dd>
+<dt>Режим Правки -- Edit Mode</dt>
+<dd>Модифікує ключ форми при знаходженні об'єкта у Режимі Правки <em>Edit Mode</em>.</dd>
+</dl>
+<div class="section" id="relative-shape-keys">
+<h3>Відносні Ключі Форм -- Relative Shape Keys<a class="headerlink" href="#relative-shape-keys" title="Permalink to this headline">¶</a></h3>
+<p>Відносні ключі форм деформують поверхню на основі виділеного ключа форм. Стандартно, усі відносні ключі форм деформують відносно першого ключа форм, що зветься «База» Basis.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_relative.png" src="../../_images/animation_shape-keys_shape-keys-panel_relative.png" />
+<p class="caption"><span class="caption-text">Опції Відносних Ключів Форм.</span></p>
+</div>
+<dl class="docutils">
+<dt>Зчистити Вагомості -- Clear Weights <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Установлює усі значення у нуль.</dd>
+</dl>
+<dl class="docutils" id="animation-shapekey-relative-value">
+<dt>Значення -- Value</dt>
+<dd>Значення активного ключа форм.</dd>
+<dt>Діапазон -- Range</dt>
+<dd>Мінімальне Min та максимальне Max значення діапазону значень активного ключа форм.</dd>
+<dt>Змішання -- Blend</dt>
+<dd><dl class="first last docutils">
+<dt>Група Вершин -- Vertex Group</dt>
+<dd>Обмежує деформування активним ключем форм заданою групою вершин.</dd>
+<dt>Відносно -- Relative</dt>
+<dd>Дозволяє вибрати ключ форми, відносно якого буде здійснюватися деформування.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="absolute-shape-keys">
+<h3>Абсолютні Ключі Форм -- Absolute Shape Keys<a class="headerlink" href="#absolute-shape-keys" title="Permalink to this headline">¶</a></h3>
+<p>Абсолютні ключі форм деформують на основі попереднього та наступного (у списку) ключів форм. Вони в основному використовуються для деформування об'єктів у різні форми в часі.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_absolute.png" src="../../_images/animation_shape-keys_shape-keys-panel_absolute.png" />
+<p class="caption"><span class="caption-text">Опції Абсолютних Ключів Форм.</span></p>
+</div>
+<dl class="docutils">
+<dt>Скинути Часування -- Reset Timing (іконка з годинником)</dt>
+<dd>Скидає часування, розкладку у часі для абсолютних ключів форм.</dd>
+<dt>Інтерполяція -- Interpolation</dt>
+<dd><p class="first">Визначає тип інтерполяції між ключами форм.</p>
+<p>Лінеарно -- Linear, Кардинально -- Cardinal, Катмул-Ром -- Catmull-Rom, Б-Сплайн -- B-Spline</p>
+<div class="last figure" id="id4">
+<span id="fig-interpolation-type"></span><img alt="../../_images/animation_shape-keys_shape-keys-panel_interpolation-types.png" src="../../_images/animation_shape-keys_shape-keys-panel_interpolation-types.png" />
+<p class="caption"><span class="caption-text">Різні типи інтерполяції.</span></p>
+<div class="legend">
+Червона лінія представляє інтерпольовані значення між ключами (позначені чорними точками).</div>
+</div>
+</dd>
+<dt>Оцінка Часу -- Evaluation Time</dt>
+<dd>Використовується для керування впливом ключа форми.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reset-timing">
+<h3>Скидання Часування<a class="headerlink" href="#reset-timing" title="Permalink to this headline">¶</a></h3>
+<p>Наприклад, якщо ви маєте такі ключі форм у такому порядку -- Basis, Key_1, Key_2.</p>
+<p>Скидання Часування Reset Timing зациклить ці ключі форм та установить ключкадри форми з кроком +0.1:</p>
+<ul class="simple">
+<li>Basis 0.1</li>
+<li>Key_1 0.2</li>
+<li>Key_2 0.3</li>
+</ul>
+<p>Оцінка Часу -- Evaluation Time покаже це як кадр 100:</p>
+<ul class="simple">
+<li>Basis 10.0</li>
+<li>Key_1 20.0</li>
+<li>Key_2 30.0</li>
+</ul>
+</div>
+<div class="section" id="evaluation-time">
+<h3>Оцінка Часу -- Evaluation Time<a class="headerlink" href="#evaluation-time" title="Permalink to this headline">¶</a></h3>
+<p>Наприклад, якщо ви маєте такі ключі форм у такому порядку -- Basis, Key_1, Key_2, і ви скинули часування:</p>
+<ul class="simple">
+<li>Basis 10.0</li>
+<li>Key_1 20.0</li>
+<li>Key_2 30.0</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Робхід" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

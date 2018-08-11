@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Карти Середовища -- Environment Maps &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/textures/types/environment.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Об&#39;ємові Текстури -- Volumetric Textures" href="volume/index.html" />
+    <link rel="prev" title="Деревина -- Wood" href="procedural/wood.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../materials/index.html">Матеріали -- Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Текстури -- Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../texture_panel.html">Панель «Текстура» -- Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_texture.html">Призначення Текстури -- Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості Текстури -- Texture Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Типи Текстур -- Texture Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Текстурові Вузли -- Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Текстури -- Textures</a> &raquo;</li>
+        
+          <li><a href="index.html">Типи Текстур -- Texture Type</a> &raquo;</li>
+        
+      <li>Карти Середовища -- Environment Maps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/textures/types/environment.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environment-maps">
+<span id="bpy-types-environmentmaptexture"></span><h1>Карти Середовища -- Environment Maps<a class="headerlink" href="#environment-maps" title="Permalink to this headline">¶</a></h1>
+<p>Environment maps take a render of the 3D scene and apply it to a texture,
+to use for faking reflections. If you want to achieve a very realistic result,
+ray-traced reflections are a good solution.
+Environment Maps are another way to create reflective surfaces,
+but they are not so simple to set up.</p>
+<p>Тож, чому слід використовувати Карти Середовища?</p>
+<ul class="simple">
+<li>The main reason is probably that they can be much faster than ray tracing reflections.
+In certain situations they need to be calculated only once, and may be reused like any ordinary texture.
+You may even modify the precalculated Environment Map in an image editor.</li>
+<li>Environment maps can also be blurred and render even faster because the resolution can then be lowered.
+Blurring a reflection with the ray tracer always adds to the render time, sometimes quite a lot.</li>
+<li><a class="reference internal" href="../../materials/special_effects/halo.html"><span class="doc">Halos</span></a>
+(a visualization type for particles) are not visible to ray-traced reflections,
+so you need to setup environment maps to reflect them.</li>
+<li><a class="reference internal" href="../../../../physics/particles/emitter/render.html"><span class="doc">Keypoint strands</span></a>
+(another visualization type for particles) are also not visible to ray-traced reflections,
+so you need to setup environment maps to reflect them.</li>
+</ul>
+<p>Так само, як ми рендеримо світло, що досягає площини огляду, використовуючи камеру для визначення точки зору, ми рендеримо світло, що досягає поверхні об'єкта (і звідси, таке світло, що може зрештою бути відбите у напрямку камери). Розкладання середовища у Blender'і рендерить зображеннєву кубічну карту сцени у шістьох кардинальних напрямках з будь-якої точки. Коли ці шість плиток зображення розкладаються на об'єкт за допомогою уводу координат <em>Reflection</em>, то вони створюють ту візуальну складність, яку очі очікують бачити від блискучих відбиттів.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Корисно тут згадати, що справжня мета цієї техніки -- <em>правдоподібність</em>, а не <em>точність</em>. Очі не потребують фізично точного імітування проходження світла; потребується лише переконання того, що сцена є реальною, за допомогою візуальної складності, яку вони очікують побачити. Найбільш неправдоподібною річчю для більшості рендерених зображень є стерильність, а не неточність.</p>
+</div>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">For correct results, the mapping of an environment map texture must be set to <em>Reflection</em>
+(reflection coordinates) in the Map Input panel of the Material tab.</p>
+</div>
+<div class="figure" id="id1">
+<span id="fig-bi-environment-panel"></span><img alt="../../../../_images/render_blender-render_textures_types_environment_map-panel.png" src="../../../../_images/render_blender-render_textures_types_environment_map-panel.png" />
+<p class="caption"><span class="caption-text">Устави Карти Середовища для відбивання від площини.</span></p>
+</div>
+<p>Blender надає три типи карт середовища, як ви можете побачити та Ілюстрації <a class="reference internal" href="#fig-bi-environment-panel"><span class="std std-ref">Устави Карти Середовища для відбивання від площини.</span></a>:</p>
+<dl class="docutils">
+<dt>Статично -- Static</dt>
+<dd>Карта обчислюється тільки один раз у ході анімації або після завантаження файлу.</dd>
+<dt>Анімовано -- Animated</dt>
+<dd>Карта обчислюється кожен раз при здійсненні рендерингу. Це означає, що рухомі об'єкти показуються коректно у дзеркальних поверхнях.</dd>
+<dt>Файл Зображення -- Image File</dt>
+<dd><p class="first">Коли карти середовища збережені як файли зображення, то вони можуть завантажуватися з цих файлів. Це дає найшвидший рендеринг за допомогою карт середовища, а також надає здатність модифікувати або використовувати таку карту середовища у зовнішній програмі.</p>
+<p class="last">Коли використовуються планарні відбиття, якщо камера є єдиним рухомим об'єктом і ви маєте площину відбивання, то порожняк Empty повинен рухатися також і ви повинні використовувати тип карти середовища <em>Animated</em>. Якщо об'єкт відбивання є маленькими та порожняк Empty знаходиться в його центрі, то тип карти середовища може бути <em>Static</em>, навіть якщо цей об'єкт сам обертається, але Порожняк не рухається. Якщо, з іншого боку, такий Об'єкт пересувається, то порожняк Empty повинен слідувати та тип карти середовища повинен бути <em>Animated</em>.</p>
+</dd>
+<dt>Спеціальне -- Specials</dt>
+<dd><dl class="first last docutils">
+<dt>Зчистити Карту Середовища -- Clear Environment Map</dt>
+<dd>Зчищає поточно рендерену карту середовища з пам'яті. Це корисно для освіження кар середовища типу <em>Static</em>, коли ви змінили певні речі у вашій сцені з моменту останнього рендерингу карти середовища. Карти середовища типу <em>Animated</em> роблять це автоматично при кожному рендері.</dd>
+<dt>Зберегти Карту Середовища -- Save Environment Map</dt>
+<dd>Зберігає поточно утримувану у пам'яті статичну карту середовища у файл зображення на диску. Така збережена карта може бути завантажена знову за допомогою <em>Load</em>.</dd>
+<dt>Зчистити Усі Карти Середовища -- Clear All Environment Maps</dt>
+<dd>Робить це ж саме, що й <em>Clear Environment Map</em>, але для усіх карт середовища у сцені. Це корисний засіб при використанні рекурсивних карт середовища (коли <em>Depth</em> є більшою за 0).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Обчислення Карт Середовища може бути вимкнуто на глобальному рівні стягом <em>Environment Map</em> на панелі «Відтінення» -- Shading у вкладці «Зображ» -- Render.</p>
+</div>
+<dl class="docutils">
+<dt>Об'єкт Точки зору -- Viewpoint Object</dt>
+<dd><p class="first">Карти середовища створюються з перспективи визначеного об'єкта. Локація цього об'єкта буде визначати, наскільки «коректно» виглядатимуть відбиття, хоча потрібні різні локації для різних поверхонь відбивання. Зазвичай, як такий об'єкт використовується порожняк Empty:</p>
+<ul class="last simple">
+<li>Для планарних відбиттів об'єкт повинен бути у локації, дзеркаленій від камери на іншому боці від площини відбиття (дивіться Приклади). Це найбільш точне використання карт середовища.</li>
+<li>Для сферичних відбиттів об'єкт повинен бути у центрі сфери. Загалом, якщо центральна точка об'єкта сфери відбивання є у центрі його вершин, то ви можете просто використати ім'я фактичного об'єкта сцени як <em>Viewpoint Object</em></li>
+<li>Для нерегулярних відбиттів немає жорсткого та швидкого правила, ви можливо необхідно буде поекспериментувати та надіятися, що неточність не матиме значення.</li>
+</ul>
+</dd>
+<dt>Ігнорувати Шари -- Ignore Layers</dt>
+<dd><p class="first">Це шари, що будуть виключені з процесу створення карти середовища. Оскільки, карти середовища працюють, рендерячи сцену з локації об'єкта точки зору <em>Viewpoint Object</em>, то вам необхідно виключити фактичну поверхню відбивання із карти середовища, інакше вона буде загороджувати інші об'єкти, що повинні бути відбиті на самій цій поверхні.</p>
+<p class="last">Наприклад, якщо ви рендерите карту середовища із центру сфери, то все, що буде стандартно показувати ця карта середовища, знаходитиметься всередині цієї сфери. Вам необхідно перемістити цю сферу на окремий шар, потім виключити цей шар з рендера карти середовища, так щоб ця карта середовища показувала (і, звідси, відбивала) усі об'єкти поза цією сферою.</p>
+</dd>
+<dt>Роздільність -- Resolution</dt>
+<dd>Роздільність рендера кубічної карти середовища. Вищі значення роздільності дадуть чіткішу текстуру (відбиття), але уповільнять рендеринг.</dd>
+<dt>Глибина -- Depth</dt>
+<dd>Кількість рекурсивних рендерів карти середовища. Якщо у сцені є одночасно кілька об'єктів відбивання, що використовують карти середовища, то деякі з них можуть виглядати суцільними, ніби вони не мають рендері відбиття один одного. Щоб показати відбиття у межах відбиттів, такі карти середовища необхідно зробити одночасно кілька разів, рекурсивно, так щоб ефекти з однієї карти середовища могли бути видимими на іншій карті середовища. Дивіться Приклади.</dd>
+<dt>Відсікання Старт/Кінець -- Clipping Start/End</dt>
+<dd>Границі відсікання віртуальної камери при рендерингу карти середовища. Задають мінімальну та максимальну відстань від камери того, що буде видно на такій карті.</dd>
+</dl>
+<div class="section" id="environment-map-sampling">
+<h3>Відбір Карти Середовища -- Environment Map Sampling<a class="headerlink" href="#environment-map-sampling" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_map-sampling.png" src="../../../../_images/render_blender-render_textures_types_environment_map-sampling.png" />
+<p class="caption"><span class="caption-text">Відбір Карти Середовища -- Environment Map Sampling.</span></p>
+</div>
+<dl class="docutils">
+<dt>Фільтр -- Filter</dt>
+<dd><dl class="first last docutils">
+<dt>Коробка -- Box</dt>
+<dd>Коробковий Фільтр</dd>
+<dt>EWA</dt>
+<dd><p class="first">Еліптичне Виважене Усереднення -- Elliptical Weighted Average. Один з найбільш ефективних прямих алгоритмів згортання, розроблений Полом Хекбертом -- Paul Heckbert та Недом Гріном -- Ned Greene у 1980-х. Для кожного текселя EWA вибирає, виважує та акумулює текселі у межах еліптичного сліду і далі ділить результат на суму вагомостей.</p>
+<dl class="last docutils">
+<dt>Ексцентриситет -- Eccentricity</dt>
+<dd>Максимальний ексцентриситет (вищі значення дають менше розмиву на віддалених/похилих кутах, але уповільнюють обробку)</dd>
+</dl>
+</dd>
+<dt>FELINE</dt>
+<dd><p class="first">FELINE (Fast Elliptical Lines -- Швидкі Еліптичні Лінії) використовує кілька ізотропних проб у кількох точках уздовж лінії у просторі текстури для продукування анізотропного фільтру з метою скорочення артефактів ступінчатості без значного збільшення часу рендерингу.</p>
+<dl class="last docutils">
+<dt>Проби -- Probes</dt>
+<dd>Максимальна кількість вибірок (вищі значення дають менше розмиву на віддалених/похилих кутах, але уповільнюють обробку)</dd>
+</dl>
+</dd>
+<dt>Область -- Area</dt>
+<dd><dl class="first last docutils">
+<dt>Ексцентриситет -- Eccentricity</dt>
+<dd>Максимальний ексцентриситет (вищі значення дають менше розмиву на віддалених/похилих кутах, але уповільнюють обробку)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Розмір Фільтра -- Filter Size</dt>
+<dd>Величина розмивання, застосованого до текстури. Вищі значення будуть розмивати карту середовища для імітування розмитих відбиттів.</dd>
+<dt>Мінімум Розміру Фільтра -- Minimum Filter Size</dt>
+<dd>Використовує Filter Size як мінімальне значення фільтрування у пікселях.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>У цьому прикладі порожняк Empty використовується як <em>Viewpoint Object</em> карти середовища площини відбивання. Він розміщений у дзеркальні позиції від камери відносно площини відбивання. (Це можливо, строго кажучи, тільки для планарних поверхонь відбивання). Ідеально, локація порожняка буде дзеркалити локацію камери через площину полігону, на якій відбуватиметься розкладання.</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="58%" />
+<col width="42%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_example-1.png" src="../../../../_images/render_blender-render_textures_types_environment_example-1.png" />
+<p class="caption"><span class="caption-text">Приклад планарного відбивання.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_example-2.jpg" src="../../../../_images/render_blender-render_textures_types_environment_example-2.jpg" />
+<p class="caption"><span class="caption-text">Сфера на площині відбивання.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Наступні ілюстрації показують ефект устави <em>Depth</em>. Перший рендер має значення «Глибина» як 0. Це означає, що карта середовища на площині рендерена перед картою середовища сфери, а тому відбиття сфери не показуються. Збільшення <em>Depth</em> дає рекурсивний рендеринг цієї карти середовища, щоб отримати відбиття від відбиття.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_example-3.jpg" src="../../../../_images/render_blender-render_textures_types_environment_example-3.jpg" />
+<p class="caption"><span class="caption-text">Відбивання сфери на площині відбивання.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_example-4.jpg" src="../../../../_images/render_blender-render_textures_types_environment_example-4.jpg" />
+<p class="caption"><span class="caption-text">Відбивання сфери на площині відбивання з одночасно кількома відбиттями.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="limitations">
+<h2>Обмеження<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
+<p>Оскільки карти середовища обчислюються з точної локації центру об'єкта точки зору <em>Viewpoint Object</em>, а не з фактичної поверхні відбивання, то вони можуть часто бути неточними, особливо для сфер. На наступній ілюстрації прямокутна призма та маленька сфера торкаються боків великої сфери, але оскільки карта середовища обчислюється від центру сфери, то ці навколишні об'єкти виглядають неприродно далеко.</p>
+<div class="figure" id="id7">
+<img alt="../../../../_images/render_blender-render_textures_types_environment_limitations.jpg" src="../../../../_images/render_blender-render_textures_types_environment_limitations.jpg" />
+<p class="caption"><span class="caption-text">Неточне сферичне відбивання, забарвлені об'єкти неприродно далеко зсунуті.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="volume/index.html" class="btn btn-neutral float-right" title="Об&#39;ємові Текстури -- Volumetric Textures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="procedural/wood.html" class="btn btn-neutral" title="Деревина -- Wood" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

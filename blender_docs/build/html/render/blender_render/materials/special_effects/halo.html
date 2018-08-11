@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Зображування, рендеринг Ореолу -- Halo Rendering &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/blender_render/materials/special_effects/halo.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Зображування, рендеринг Об&#39;єму -- Volume Rendering" href="volume.html" />
+    <link rel="prev" title="Спеціальні Ефекти Матеріалу -- Special Material Effects" href="index.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Матеріали -- Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Панель «Матеріал» -- Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Призначення Матеріалу -- Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Властивості Матеріалу -- Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Матеріалові Вузли -- Material Nodes</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Текстури -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Освітлення -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">Світ -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Устави Зображування, рендерингу -- Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Запікання Зобража -- Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Рушій нефотореалістичного рендерингу Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Матеріали -- Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Спеціальні Ефекти Матеріалу -- Special Material Effects</a> &raquo;</li>
+        
+      <li>Зображування, рендеринг Ореолу -- Halo Rendering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/special_effects/halo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="halo-rendering">
+<span id="bpy-types-materialhalo"></span><h1>Зображування, рендеринг Ореолу -- Halo Rendering<a class="headerlink" href="#halo-rendering" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_halo_activate.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_halo_activate.png" src="../../../../_images/render_blender-render_materials_special-effects_halo_activate.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">Активування зображування, рендерингу Ореолу.</span></p>
+</div>
+<p>Ореолові матеріали передбачають зображування, рендеринг кожної точки об'єкта як сяючої точки або маленьких хмар світла. Хоча, ці точки не є реальними освітлювачами, оскільки не відкидають світло у сцену, як лампа. Вони називаються «ореоли» -- <em>Halos</em>, оскільки ви можете бачити їх, але вони не мають жодної речовини.</p>
+<p>Ореоли рендеряться, зображуються за допомогою відтінювачів вершин, а не відтінювачів граней.</p>
+<p>Цей матеріал є корисним для імітування спеціальних ефектів, як частинкові ефекти або відблиски в об'єктиві.</p>
+<div class="section" id="options">
+<h2>Опції<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_halo_panel.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_halo_panel.png" src="../../../../_images/render_blender-render_materials_special-effects_halo_panel.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">Панелі ефекту «Ореол» -- Halo.</span></p>
+</div>
+<p>Для вмикання <em>Ореолів</em> клацніть на кнопці «Ореол» -- <em>Halo</em> на панелі «Матеріал» -- <em>Material</em>.</p>
+<p>As you will see in the 3D View, the mesh faces are no longer rendered.
+Instead just the vertex is rendered, since that is where each halo will originate.
+Halos can be hard to find in a crowded scene, so name it well for easy location in
+<a class="reference internal" href="../../../../editors/outliner.html"><span class="doc">the Outliner</span></a>.</p>
+<p>У Редакторі Властивостей -- Properties Editor на місці, де зазвичай знаходяться панелі <em>Diffuse</em>, <em>Specular</em> та <em>Shading</em>, ми тепер побачимо панелі, що стосуються характеристик <em>Halo</em>:</p>
+<div class="section" id="halo-panel">
+<h3>Панель «Ореол» -- Halo<a class="headerlink" href="#halo-panel" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Альфа -- Alpha</dt>
+<dd>Прозорість.</dd>
+<dt>Колір Розсіяння -- Diffuse Color</dt>
+<dd>Колір власне ореолу.</dd>
+<dt>Базис -- Seed</dt>
+<dd>If non-zero, randomizes the ring dimension and line location.
+To use, give any (integer) number to start the random number generator.</dd>
+<dt>Розмір -- Size</dt>
+<dd>Задає розмір ореолу.</dd>
+<dt>Жорсткість -- Hardness</dt>
+<dd>Задає жорсткість ореолу. Подібно до жорсткості блікування.</dd>
+<dt>Додання -- Add</dt>
+<dd><p class="first">Визначає, наскільки кольори ореолу «додаються до», а не змішуються з, кольорів об'єкта позаду та разом з іншими ореолами. При збільшення цієї устави буде здаватися, що ореол освітлює об'єкти, що переміщуються позаду та крізь нього.</p>
+<div class="last figure" id="id3">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_halo_add.jpg" src="../../../../_images/render_blender-render_materials_special-effects_halo_add.jpg" />
+<p class="caption"><span class="caption-text">Ефект устави «Додання» -- Add.</span></p>
+</div>
+</dd>
+<dt>Текстура -- Texture</dt>
+<dd>Задає для ореолу текстуру. Стандартно, текстури накладаються на об'єкти по Об'єктним -- Object координатам та відображають ореоли, впливаючи на їх колір, у цілому, на основі кольору вершин, з яких походить ореол. Вмикання цієї функції дає те, що текстура здійснюватиме ефект <em>у межах</em> ореолу, і звідси він матиме варіювання кольорів або прозорості; це буде накладати текстуру повністю на <em>кожний</em> ореол. Ця техніка виявляється дуже корисною, коли ви хочете створити, як приклад, реалістичний ефект дощу за допомогою систем частинок.</dd>
+<dt>Нормаль Вершини -- Vertex Normal</dt>
+<dd>Використовує нормаль вершини для визначення розміру ореолу.</dd>
+<dt>Екстремум Альфа -- Extreme Alpha</dt>
+<dd>Посилює альфа.</dd>
+<dt>Відтінено -- Shaded</dt>
+<dd><p class="first">Дозволяє ореолу приймати світла та тіні від зовнішніх об'єктів.</p>
+<p class="last">При увімкненні цієї опції на ореол буде впливати локальне світло; лампи робитимуть його яскравішим та впливати на його колір розсіяння, дифузії та інтенсивність.</p>
+</dd>
+<dt>М'якість -- Soft</dt>
+<dd>Пом'якшує краї ореолу на перетинах з іншою геометрією.</dd>
+</dl>
+<p>Крім того, кілька інших спеціальних ефектів на базі ореолу доступні. Для вмикання деяких або усіх цих ефектів задайте кількість точок/кілець або установіть колір для кожного ефекту індивідуально:</p>
+<dl class="docutils">
+<dt>Кільця -- Rings</dt>
+<dd>Додає кругові кільця навколо ореолу.</dd>
+<dt>Лінії -- Lines</dt>
+<dd>Додає лінії від центру ореолу.</dd>
+<dt>Зіркові верхівки -- Star tips</dt>
+<dd>Задає для ореолу зіркоподібну форму.</dd>
+</dl>
+<p>You cannot use color ramps. Lines,
+Rings and an assortment of special effects are available with the relevant toggle buttons,
+which include Flare, Rings, Lines, Star, Texture, Extreme Alpha, and Shaded.
+<em>Halo variations</em> shows the result of applying a halo material to a single vertex mesh.</p>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_halo_variations.jpg" src="../../../../_images/render_blender-render_materials_special-effects_halo_variations.jpg" />
+<p class="caption"><span class="caption-text">Halo variations.</span></p>
+</div>
+</div>
+<div class="section" id="flare-panel">
+<h3>Панель «Відблиск» -- Flare<a class="headerlink" href="#flare-panel" title="Permalink to this headline">¶</a></h3>
+<p>Стяг у назві цієї панелі вмикає додаткове зображування, рендеринг ефекту відблиску в об'єктиві для ореолу.</p>
+<dl class="docutils">
+<dt>Розмір -- Size</dt>
+<dd>Задає фактор, на який відблиск є більшим, ніж ореол.</dd>
+<dt>Посилення -- Boost</dt>
+<dd>Задає додаткову силу для відблиску.</dd>
+<dt>Базис -- Seed</dt>
+<dd>Визначає зсув у таблиці базису чисел для відблиску.</dd>
+<dt>Підвідблиски -- Subflares</dt>
+<dd>Задає кількість підвідблисків.</dd>
+<dt>Підрозмір -- Subsize</dt>
+<dd>Задає розміри для підвідблисків, точок та кілець.</dd>
+</dl>
+<div class="section" id="lens-flares">
+<h4>Відблиски в Об'єктиві -- Lens Flares<a class="headerlink" href="#lens-flares" title="Permalink to this headline">¶</a></h4>
+<p>Наші очі навчені вірити, що зображення є реальним, якщо на ньому показуються артефакти, які є результатом механічного процесу фотографування. Розмив Рухом -- <em>Motion blur</em>, Глибина Різкості -- <em>Depth of Field</em> та відблиски в об'єктиві -- <em>lens flares</em> є лише трьома прикладами цих артефактів. Перші два обговорюються окремо у <em>главі про зображування, рендеринг</em>; третій може продукуватися за допомогою спеціальних ореолів. Імітований відблиск в об'єктиві повідомляє глядачу, що зображення було створено за допомогою камери, яка змушує глядача думати, що вона реальна, справжня.</p>
+<p>We create lens flares in Blender from a mesh object using first the <em>Halo</em> button
+and then the <em>Flare</em> options in the <em>Shaders</em> Panel of the material settings.
+Try turning on <em>Rings</em> and <em>Lines</em>, but keep the colors for these settings fairly subtle.
+Play with the <em>Subflares</em> number and Flare <em>Seed</em> settings
+until you arrive at something that is pleasing to the eye.
+You might need to play with <em>Boost:</em> for a stronger effect
+Fig. <a class="reference internal" href="#fig-bi-material-halo-flare"><span class="std std-ref">Lens flare.</span></a> settings.</p>
+<p>Зауважте, що цей засіб не імітує фізику фотонів, що проходять крізь лінзу об'єктива; він просто приємний для ока.</p>
+<p>Відблиск в об'єктив за допомогою Blender'а виглядає гарно у русі та зникає, коли інший об'єкт загороджує сіть, на основі якої він утворюється.</p>
+<div class="figure" id="id5">
+<span id="fig-bi-material-halo-flare"></span><a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_halo_lens-flare.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_halo_lens-flare.jpg" src="../../../../_images/render_blender-render_materials_special-effects_halo_lens-flare.jpg" style="width: 630px;" /></a>
+<p class="caption"><span class="caption-text">Lens flare.</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="halo-texturing">
+<h2>Текстурування ореолу<a class="headerlink" href="#halo-texturing" title="Permalink to this headline">¶</a></h2>
+<p>Стандартно, текстури накладаються на об'єкти по Об'єктним -- Object координатам та відображають ореоли, впливаючи на їх колір, у цілому, на основі кольору вершин, з яких походить ореол. Щоб текстура здійснювала ефект <em>у межах</em> ореолу, і звідси він мав варіювання кольорів або прозорості, увімкніть опцію <em>Texture</em>; це буде накладати текстуру повністю на <em>кожний</em> ореол. Ця техніка виявляється дуже корисною, коли ви хочете створити, як приклад, реалістичний ефект дощу за допомогою систем частинок.</p>
+<p>Іншою опцією є «Відтінено» -- Shaded. При увімкненні цієї опції, на ореол буде впливати локальне світло; лампи робитимуть його яскравішим та впливати на його колір розсіяння, дифузії та інтенсивність.</p>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dot-matrix-display">
+<h3>Dot Matrix Display<a class="headerlink" href="#dot-matrix-display" title="Permalink to this headline">¶</a></h3>
+<p>Let us use a halo material to create a dot matrix display:</p>
+<ol class="arabic simple">
+<li>Для початку додайте ґратку -- grid з розмірами 32×16. Далі додайте камеру та скоригуйте вашу сцену так, щоб ви мали гарний вигляд плакату.</li>
+<li>Use a 2D image program to create some red text on a black background,
+using a simple and bold font (you can just save the picture below on your hard drive...).
+<a class="reference internal" href="#fig-bi-material-halo-matrix-texture"><span class="std std-ref">Зображеннєва текстура матриці точок.</span></a> shows an image 512 pixels wide by 64 pixels high,
+with some black space at both sides.</li>
+</ol>
+<div class="figure" id="id6">
+<span id="fig-bi-material-halo-matrix-texture"></span><img alt="../../../../_images/render_blender-render_materials_special-effects_halo_dotmatrix2.jpg" src="../../../../_images/render_blender-render_materials_special-effects_halo_dotmatrix2.jpg" />
+<p class="caption"><span class="caption-text">Зображеннєва текстура матриці точок.</span></p>
+</div>
+<ul class="simple">
+<li>Додайте матеріал для свого плаката та задайте для нього тип зобража як <em>Halo</em>. Установіть <em>Halo: Size</em> як 0.06, запустіть зображ сцени, та після нього ви повинні побачити ґратку білих точок.</li>
+<li>Увімкніть кнопку Texture на панелі Halo, перейдіть у вкладку Texture, додайте текстуру та задайте її тип як Image or Movie. Після укладу зображеннєвої текстури запустіть зображ знову й ви повинні побачити, що деякі точки ґратки підбарвилися червоним.</li>
+<li>Поверніться у вкладку Material та скоригуйте значення параметра <em>Size</em> близько 0.5, знову запустіть зображ, рендер; текст повинен тепер відцентруватися на плакаті.</li>
+<li>Для вилучення білих точок задайте колір матеріалу як темно-червоний та запустіть зображ. Ви повинні зараз мати тільки червоні точки, але плакат все ще є надто темним. Для виправлення цього перемкніться у <em>Edit Mode</em> для плаката та здублюйте всі його вершини за допомогою <kbd class="kbd docutils literal notranslate">Shift-D</kbd> (будьте обережні -- не пересувайте їх, тільки дублюйте!). Далі скоригуйте яскравість за допомогою значення <em>Add</em> на панелі Halo.</li>
+</ul>
+<div class="figure" id="id7">
+<span id="fig-bi-material-halo-dotmatrix"></span><img alt="../../../../_images/render_blender-render_materials_special-effects_halo_dotmatrix.jpg" src="../../../../_images/render_blender-render_materials_special-effects_halo_dotmatrix.jpg" />
+<p class="caption"><span class="caption-text">Dot matrix display.</span></p>
+</div>
+<p>Ви можете тепер анімувати текстуру, щоб вона рухалася по плакату, використавши значення <em>Offset X</em> на панелі <em>Mapping</em> у вкладці <em>Texture</em>. (Ви можете використати вищу роздільність для цієї ґратки, але для цього ви маєте скоригувати розмір ореолів, звузивши їх, інакше вони будуть перекриватися. Ілюстрація <a class="reference internal" href="#fig-bi-material-halo-dotmatrix"><span class="std std-ref">Dot matrix display.</span></a>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Material Indices</p>
+<p class="last">Ореолові матеріали працюють тільки, коли ефект ореолу застосовується на матеріалі з першим індексом проходу. Будь-які матеріал(и) з другим та наступним індексами, якщо на них є ефект ореолу, не будуть зображуватися, рендеритися.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="volume.html" class="btn btn-neutral float-right" title="Зображування, рендеринг Об&#39;єму -- Volume Rendering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Спеціальні Ефекти Матеріалу -- Special Material Effects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

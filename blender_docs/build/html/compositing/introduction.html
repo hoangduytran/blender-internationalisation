@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вступ &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Властивості" href="properties.html" />
+    <link rel="prev" title="Компонування -- Compositing" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Компонування -- Compositing</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Вступ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started">Почин</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Приклади</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-size">Розмір Зображення</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-your-composite-image">Збереження Зображення вашої Композиції</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="properties.html">Властивості</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#node-types">Типи Вузлів -- Node Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Компонування -- Compositing</a> &raquo;</li>
+        
+      <li>Вступ</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/compositing/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Вступ<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Компонівні Вузли -- Compositing Nodes дозволяють вам збирати, монтувати або покращувати зображення (чи фільм). Використовуючи компонівні вузли, ви можете склеювати два шматки фільмоматеріалу разом та задавати тонування для всієї цієї послідовності, відеоряду одразу. Ви можете покращити кольори одиничного зображення або цілого відеокліпу у статичній манері або у динамічний спосіб, що змінюється з часом (разом з відтворенням кліпу). Таким чином, ви використовуєте компонівні вузли як для збирання, монтування відеокліпів разом, так і їх покращення.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Термін: Зображення -- Image</p>
+<p class="last">Термін Зображення -- <em>Image</em> може означати одиничну картинку, картинку у нумерованій послідовності, відеоряді зображень або кадр відеокліпу. Компонівник -- Compositor (Редактор Вузлів -- Node Editor у режимі Компонування -- Compositing) обробляє одне зображення за раз, незалежно від типу уводу, який ви в нього подаєте.</p>
+</div>
+<p>Для обробки вашого зображення ви використовуєте вузли для імпортування його у Blender, змінюєте його, за бажанням поєднуєте його з іншими зображеннями, та наостанок, зберігаєте результатне зображення..</p>
+<div class="figure" id="id1">
+<img alt="../_images/compositing_types_distort_map-uv_example-2.png" src="../_images/compositing_types_distort_map-uv_example-2.png" />
+<p class="caption"><span class="caption-text">Приклад компонування або композиції.</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/compositing_types_color_hue-saturation_example.jpg" src="../_images/compositing_types_color_hue-saturation_example.jpg" />
+<p class="caption"><span class="caption-text">Приклад корекції кольорів.</span></p>
+</div>
+<div class="section" id="getting-started">
+<h2>Почин<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Перемкнемося на Редактор Вузлів -- <a class="reference internal" href="../editors/node_editor/index.html"><span class="doc">Node Editor</span></a> та увімкнемо в його заголовку за допомогою іконки із картинкою, зображенням <em>Image</em> режим «Компонування» -- Compositing чи як він ще називається «Компонівні Вузли» -- <em>Compositing Nodes</em>.</p>
+<p>Для активування вузлів для компонування увімкнемо стяг опції «Вжити Вузли» -- <em>Use Nodes</em> (дивіться <a class="reference internal" href="properties.html"><span class="doc">Властивості</span></a>).</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Після увімкнення опції «Вжити Вузли» -- <em>Use Nodes</em> Компонівник вмикається, однак, його можна також вимкнути на панелі «Після-Обробка» -- <a class="reference internal" href="../render/post_process/panel.html"><span class="doc">Post Processing Panel</span></a>.</p>
+</div>
+<p>Тепер ви маєте вашу першу уставу вузлів, починаючи з якої ви можете додавати та з'єднувати багато типів Компонівних Вузлів -- <a class="reference internal" href="index.html"><span class="doc">Compositing Nodes</span></a>, у вигляді розкладки карти відповідно до поклику вашого серця (чи обмежників фізичної пам'яті, залежно від того, що прийде раніше).</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Вузли та їх концепція пояснюється більш детально у секції про Редактор Вузлів -- <a class="reference internal" href="../editors/node_editor/index.html"><span class="doc">Node Editor</span></a>.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Ви можете робити що завгодно із зображеннями за допомогою вузлів.</p>
+<p>Сирий фільмоматеріал актора на передньому плані перед синім екраном або відзображеного об'єкта, що робить щось, може бути накладено поверх фону.  Скомпонуйте це разом та ви отримаєте компонований фільмоматеріал.</p>
+<p>Ви можете змінити настрій зображення:</p>
+<ul class="simple">
+<li>Для зроблення зображення за «відчуттям» більш холодним додається синій відтінок.</li>
+<li>Для передачі ретроспекції, флешбеку або згадувань зображення можна пом'якшити.</li>
+<li>Для передачі ненависті і розчарування додається червоний відтінок або посилюється червоний колір.</li>
+<li>Приголомшлива, надзвичайна подія може показуватися різкіше або контрастніше.</li>
+<li>Для відчуття щастя -- ви здогадалися -- додається жовтий (рівні частини червоного і зеленого, без синього) для яскравості та сонячності.</li>
+<li>Бруд і пилюка у повітрі часто реалізується через додання хмарової текстури поверх зображення для придання дещо більшого реалізму.</li>
+</ul>
+</div>
+<div class="section" id="image-size">
+<h2>Розмір Зображення<a class="headerlink" href="#image-size" title="Permalink to this headline">¶</a></h2>
+<p>Рекомендується звертати увагу на роздільну здатність, роздільність -- image resolution, та глибину кольору -- color depth, зображення при змішуванні та накладанні зображень. Ступінчастість (грубі краї), колірна <em>плоскість</em> або спотворені зображення можуть спостерігатися при змішуванні зображень з невідповідними роздільностями та глибинами кольору.</p>
+<p>Компонівник може змішувати зображення будь-яких розмірів і він здійснює операції з пікселями тільки у тих місцях, де зображення накладаються. Коли вузли отримують уводи -- inputs із зображеннями різних розмірів, застосовуються такі правила:</p>
+<ul class="simple">
+<li>Увідний роз'єм з першим/верхнім Зображенням визначає розмір виводу -- output.</li>
+<li>Композиція стандартно центрується, якщо пересування зображення не було подано окремо за допомогою вузла «Пересув» -- <em>Translate</em>.</li>
+</ul>
+<p>Звідси, кожен вузол у композиції може оперувати зображеннями з різними розмірами, які визначені його уводами. І тільки вивідний вузол «Композиція» -- <em>Composite</em> має фіксований розмір, що визначений уставами на панелі «Розміри» контексту, вкладки «Зображування» Редактора Властивостей -- Properties Editor <span class="menuselection">Render ‣ Dimensions</span>. Вузол «Оглядач» <em>Viewer</em> завжди показує зображення з розміром, який визначено на його уводі, але коли  на нього не подається жодне колірне значення (або на нього подане числове значення), то його передогляд показує маленьке зображення з розміром 320×256 пікселів.</p>
+</div>
+<div class="section" id="saving-your-composite-image">
+<h2>Збереження Зображення вашої Композиції<a class="headerlink" href="#saving-your-composite-image" title="Permalink to this headline">¶</a></h2>
+<p>Клацок по кнопці «Зображ» -- <em>Render</em> запускає процес зображування одиничного кадру або зображення. Далі ви маєте зберегти результатне зображення за допомогою команди з меню «Зображення &gt; Зберегти Зображення» -- <span class="menuselection">Image ‣ Save Image</span> або скорочення <kbd class="kbd docutils literal notranslate">F3</kbd>. Результатне зображення буде збережене з уставами формату зображення, заданими на панелях контексту, вкладки «Зображ» -- Render.</p>
+<p>Для збереження відеоряду, послідовності зображень, наприклад, якщо ви увели відеокліп або використали вузол «Час» -- Time для кожного кадру уведеного файлу у мережу вузлів, то для запуску зображування використовуйте кнопку «Анімація» -- <em>Animation</em> на панелі «Зображ» та відповідні для анімації устави. Якщо ви можливо схочете пізніше накладати ще на щось результатне зображення, то переконайтесь, що форма вивідного зображення підтримує канал Альфа (прозорість) -- Alpha channel (наприклад, як <code class="docutils literal notranslate"><span class="pre">PNG</span></code>). Якщо ви можливо забажаєте пізніше перевпорядковувати шари компонованих увідних зображень або створити ефект глибини різкості -- depth of field, то використовуйте формат, що підтримує канал Z-глибини -- Z-depth channel (наприклад, як <code class="docutils literal notranslate"><span class="pre">EXR</span></code>).</p>
+<p>Для збереження композиції як відеокліпу (усі кадри в одному, єдиному файлі), використовуйте формат <code class="docutils literal notranslate"><span class="pre">AVI</span></code> або <code class="docutils literal notranslate"><span class="pre">Quicktime</span></code> та для запуску зображування використовуйте кнопку «Анімація» -- <em>Animation</em> на панелі «Зображ» та відповідні для анімації устави.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="Властивості" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Компонування -- Compositing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

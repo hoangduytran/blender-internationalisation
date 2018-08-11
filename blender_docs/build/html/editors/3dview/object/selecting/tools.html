@@ -1,0 +1,671 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Засоби виділення &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/editors/3dview/object/selecting/tools.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Редагування або правка -- Editing" href="../editing/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Редактори -- Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">3D Огляд -- 3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../startup_scene.html">Запускова Сцена -- Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modes.html">Режими об'єктів</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../navigate/index.html">Навігація або переміщення точки зору оглядання сцени -- Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../3d_cursor.html">3D Курсор -- 3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Об'єкти -- Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Властивості -- Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">Анімація -- Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#image-video">Зображення -- Image / Відео -- Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">Вузли -- Nodes / Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">Устави -- Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">Інше</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="../../index.html">3D Огляд -- 3D View</a> &raquo;</li>
+        
+          <li><a href="../index.html">Об'єкти -- Objects</a> &raquo;</li>
+        
+          <li><a href="index.html">Виділення -- Selecting</a> &raquo;</li>
+        
+      <li>Засоби виділення</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/3dview/object/selecting/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tools">
+<h1>Засоби виділення<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="point-selection">
+<h2>Виділення вказуванням -- Point Selection<a class="headerlink" href="#point-selection" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd> and <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Найпростіша форма виділення об'єкта полягає у клацку <kbd class="kbd docutils literal notranslate">RMB</kbd> по ньому. Для додання у виділ ще об'єктів використовується <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd>. Якщо об'єкти перекриваються в огляді, то ви можете скористатися <kbd class="kbd docutils literal notranslate">Alt-RMB</kbd> для циклічного переходу між можливими виборами (тільки у Режимі Об'єкта -- <em>Object Mode</em>). Якщо ви хочете додати у виділ цим способом, то використовуйте скорочення <kbd class="kbd docutils literal notranslate">Shift-Alt-RMB</kbd>. Для активування об'єкта, що вже виділений клацніть на ньому <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd>.</p>
+<p>Для «зневиділення» -- <em>deselect</em> активного об'єкта, зняття з нього активності, клацніть <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> один раз по ньому, а для зняття взагалі виділення клацніть <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> двічі на будь-якому виділеному неактивному об'єкті. Зауважте, що це працює тільки, якщо жоден інший об'єкт не знаходиться під вказівником миші. Інакше, він просто додасться у виділ. Схоже не існує вирішення цієї вади.</p>
+<p>Also you can use <kbd class="kbd docutils literal notranslate">Ctrl-RMB</kbd> and <kbd class="kbd docutils literal notranslate">Shift-Ctrl-RMB</kbd> shortcut
+to select the object by its center point rather then its contents.</p>
+</div>
+<div class="section" id="border-select">
+<span id="bpy-ops-view3d-select-border"></span><h2>Виділ Рамкою -- Border Select<a class="headerlink" href="#border-select" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode and Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Border Select</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">B</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To activate the tool, press <kbd class="kbd docutils literal notranslate">B</kbd>.
+With <em>Border Select</em> you draw a rectangle while holding down <kbd class="kbd docutils literal notranslate">LMB</kbd>.
+Any object that lies even partially within this rectangle becomes selected.
+If any object that was last active appears in the selection it will become active.</p>
+<p>For deselecting objects, use <kbd class="kbd docutils literal notranslate">MMB</kbd> or <em>Border Select</em> again while holding
+<kbd class="kbd docutils literal notranslate">Shift</kbd> or <kbd class="kbd docutils literal notranslate">Alt</kbd>. To cancel the selection use <kbd class="kbd docutils literal notranslate">RMB</kbd>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last"><em>Виділ Рамкою</em> додає у попереднє виділення, а тому, щоб виділити лише те, що потрапляє всередину прямокутника, спочатку знімайте виділення зі всього у сцені за допомогою <kbd class="kbd docutils literal notranslate">A</kbd>.</p>
+</div>
+</div>
+<div class="section" id="circle-select">
+<span id="bpy-ops-view3d-select-circle"></span><h2>Виділ Кругом -- Circle Select<a class="headerlink" href="#circle-select" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode and Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Circle Select</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">C</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Circle Select</em> <kbd class="kbd docutils literal notranslate">C</kbd> is used by moving with dotted circle through objects with <kbd class="kbd docutils literal notranslate">LMB</kbd>.
+You can select any object by touching of circle area.
+It is possible to dynamically change the diameter of circle by scrolling <kbd class="kbd docutils literal notranslate">Wheel</kbd>
+or with <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd> and <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd> as seen in pictures below.
+Deselection is under the same principle -- <kbd class="kbd docutils literal notranslate">MMB</kbd>.
+To cancel the selection use <kbd class="kbd docutils literal notranslate">RMB</kbd> or key <kbd class="kbd docutils literal notranslate">Esc</kbd> or <kbd class="kbd docutils literal notranslate">Return</kbd>.</p>
+</div>
+<div class="section" id="lasso-select">
+<span id="bpy-ops-view3d-select-lasso"></span><h2>Виділ Ласо -- Lasso Select<a class="headerlink" href="#lasso-select" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode and Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділ Ласо або виділ арканом виконується рисуванням пунктирної лінії навколо вершин або початку об'єктів у Режимі Об'єкта -- <em>Object Mode</em>. Для його здійснення утримуйте натисненими <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> та просто обрисовуйте точки об'єктів, які ви хочете виділити.</p>
+<p>Lasso select adds to the previous selection. For deselection, use <kbd class="kbd docutils literal notranslate">Shift-Ctrl-LMB</kbd>.</p>
+</div>
+<div class="section" id="de-select-all">
+<span id="bpy-ops-object-select-all"></span><h2>(Зне)виділити Усе -- (De)select All<a class="headerlink" href="#de-select-all" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ (De)select All</span>,
+<span class="menuselection">Select ‣ Inverse</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">A</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Якщо наразі щось є виділеним, то це знімає виділення з усього -- зневиділяє усе. Інакше, це перемикає між станами виділення і невиділення для кожного видимого об'єкта.</p>
+<dl class="docutils">
+<dt>Дія -- Action</dt>
+<dd><p class="first">Виділення -- Select, Зневиділення -- Deselect, Інвертування -- Invert, Перемикання -- Toggle</p>
+<dl class="last docutils">
+<dt>Інверсія -- Inverse <kbd class="kbd docutils literal notranslate">Ctrl-I</kbd></dt>
+<dd>Виділяє усі об'єкти, що не були виділені, та одночасно зневиділяє усі об'єкти, що є поточно виділеними.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="random">
+<span id="bpy-ops-object-select-random"></span><h2>Випадково -- Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object and Edit Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Random</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Випадково виділяє невиділені об'єкти на основі відсоткової ймовірності на поточно активних шарах. Стає доступним на Полиці Інструментів -- <em>Tool Shelf</em> числове поле відсотка виділення на панелі оператора виділу. Важливо зазначити, що цей відсоток представляє ймовірність виділу невиділеного об'єкта, а не відсоток кількості об'єктів, що будуть виділені.</p>
+</div>
+<div class="section" id="mirror">
+<span id="bpy-ops-object-select-mirror"></span><h2>Дзеркалення -- Mirror<a class="headerlink" href="#mirror" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Mirror</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Ctrl-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділяє дзеркальні об'єкти відносно виділеного об'єкта на основі їх імен, наприклад, &quot;sword.L&quot; та &quot;sword.R&quot;.</p>
+</div>
+<div class="section" id="select-all-by-layer">
+<span id="bpy-ops-object-select-by-layer"></span><h2>Виділити Усе за Шаром -- Select All by Layer<a class="headerlink" href="#select-all-by-layer" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select All by Layer</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/editors_3dview_object_selecting_tools_all-by-layer.png" src="../../../../_images/editors_3dview_object_selecting_tools_all-by-layer.png" />
+<p class="caption"><span class="caption-text">Панель Виділення Усе за Шаром.</span></p>
+</div>
+<p>Ця опція дозволяє виділяти кожен одиничний об'єкт, що належить даному шару. Виділені об'єкти стають видимими.</p>
+<dl class="docutils">
+<dt>Відповідність -- Match</dt>
+<dd>Тип відповідності для виділення.</dd>
+<dt>Розшир -- Extend</dt>
+<dd>Вмикає додання об'єктів у поточний виділ, а не заміну поточного виділення.</dd>
+<dt>Шар -- Layer</dt>
+<dd>Шар, на якому знаходяться об'єкти.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Виділення об'єктів</p>
+<p class="last">Чим використовувати команду «Виділити Усе за Шаром» -- <span class="menuselection">Select All by Layer</span>, можливо ефективніше буде зробити усі потрібні шари видимими та скористатися командою виділення усього за <kbd class="kbd docutils literal notranslate">A</kbd>. Цей метод також дозволяє зневиділяти об'єкти.</p>
+</div>
+</div>
+<div class="section" id="select-all-by-type">
+<span id="bpy-ops-object-select-by-type"></span><h2>Виділити Усе за Типом -- Select All by Type<a class="headerlink" href="#select-all-by-type" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select All by Type</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>За допомогою цього засобу стає можливим виділяти об'єкти певного типу за раз.</p>
+<p>Такими типами є Сіть -- Mesh, Крива -- Curve, Поверхня -- Surface, Мета -- Meta, Шрифт -- Font, Арматура -- Armature, Решітка -- Lattice, Порожняк -- Empty, Камера -- Camera, Лампа -- Lamp, Гучномовець -- Speaker.</p>
+</div>
+<div class="section" id="select-camera">
+<span id="bpy-ops-object-select-camera"></span><h2>Виділити Камеру -- Select Camera<a class="headerlink" href="#select-camera" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select Camera</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділяє активну камеру, це може використовуватися у складній сцені для легшого знаходження активної камери.</p>
+</div>
+<div class="section" id="select-more-less">
+<span id="bpy-ops-object-select-hierarchy"></span><span id="bpy-ops-object-select-less"></span><span id="bpy-ops-object-select-more"></span><h2>Виділити Більше/Менше -- Select More/Less<a class="headerlink" href="#select-more-less" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ More/Less</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-NumpadPlus</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-NumpadMinus</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Збільшує або зменшує виділ на основі ієрархії.</p>
+<dl class="docutils">
+<dt>Більше -- More</dt>
+<dd>Expand the selection to the immediate parent and children of the selected objects.</dd>
+<dt>Менше -- Less</dt>
+<dd>Contrast the selection, deselect objects at the boundaries of parent/child relationships.</dd>
+<dt>Предок -- Parent</dt>
+<dd>Deselects the currently selected objects and selects their immediate parents.</dd>
+<dt>Нащадок -- Child</dt>
+<dd>Deselects the currently selected objects and selects their immediate children.</dd>
+<dt>Розшир до Предка -- Extend Parent</dt>
+<dd>Extends the selection to the immediate parents of the currently selected objects.</dd>
+<dt>Розшир до Нащадка -- Extend Child</dt>
+<dd>Extends the selection to the immediate children of the currently selected objects.</dd>
+</dl>
+</div>
+<div class="section" id="select-grouped">
+<span id="bpy-ops-object-select-grouped"></span><h2>Виділити Груповане -- Select Grouped<a class="headerlink" href="#select-grouped" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Grouped</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Існує два способи організування об'єктів один відносно одного. Першим є приріднення -- <em>parenting</em>, а другим -- просте групування -- <em>grouping</em>. Виділення цих відношень може бути корисним для митця на основі членства елементів до відповідних родин або груп. <em>Select Grouped</em> використовує активний об'єкт, як базу для виділення всіх інших.</p>
+<dl class="docutils">
+<dt>Нащадки -- Children</dt>
+<dd>Виділяє усі ієрархічні нащадки активного об'єкта.</dd>
+<dt>Найближчі Нащадки -- Immediate Children</dt>
+<dd>Виділяє усі прямі нащадки активного об'єкта.</dd>
+<dt>Предок -- Parent</dt>
+<dd>Виділяє предка цього об'єкта, якщо він має хоч одного.</dd>
+<dt>Спільнопредкові -- Siblings</dt>
+<dd>Виділяє об'єкти-нащадки, що мають спільного предка, яким є активним об'єкт. Це може також бути використаним для виділення усіх об'єктів рівня «корінь» (об'єкти без жодних предків).</dd>
+<dt>Тип -- Type</dt>
+<dd>Виділяє об'єкти, що мають однаковий з активним об'єктом тип.</dd>
+<dt>Шар -- Layer</dt>
+<dd>Об'єкти, що знаходяться принаймні на одному спільному шарі.</dd>
+<dt>Група -- Group</dt>
+<dd>Objects that are part of a group (rendered green with the default theme)
+will be selected if they are in one of the groups that the active object is in.
+If the active object belongs to more than one group,
+a list will pop up so that you can choose which group to select.</dd>
+<dt>Гачки Об'єкта -- Object Hooks</dt>
+<dd>Кожен гачок, що належить активному об'єкту.</dd>
+<dt>Прохід -- Pass</dt>
+<dd>Виділяє об'єкти, що призначені на однаковий прохід зображу -- <a class="reference internal" href="../../../../render/cycles/settings/scene/render_layers/passes.html#render-cycles-passes"><span class="std std-ref">render pass</span></a>.</dd>
+<dt>Колір -- Color</dt>
+<dd>Виділяє об'єкти, що мають однаковий колір об'єкта -- <a class="reference internal" href="../properties/display.html#objects-display-object-color"><span class="std std-ref">Object Color</span></a>.</dd>
+<dt>Властивості -- Properties</dt>
+<dd>Виділяє об'єкти, що мають однакові властивості ігрового рушія -- <a class="reference internal" href="../../../../game_engine/logic/properties.html"><span class="doc">Game Engine Properties</span></a>.</dd>
+<dt>Набір Ключування -- Keying Set</dt>
+<dd>Виділяє об'єкти, включені в активний набір ключування -- <a class="reference internal" href="../../../../animation/keyframes/keying_sets.html"><span class="doc">Keying Set</span></a>.</dd>
+<dt>Тип Лампи -- Lamp Type</dt>
+<dd>Виділяє лампи з однаковим типом.</dd>
+<dt>Індекс Проходу -- Pass Index</dt>
+<dd>Виділяє об'єкти, що мають однаковий індекс проходу.</dd>
+</dl>
+</div>
+<div class="section" id="select-linked">
+<span id="bpy-ops-object-select-linked"></span><h2>Виділити Пов’язане -- Select Linked<a class="headerlink" href="#select-linked" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Linked</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-L</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Виділяє усі об'єкти, які мають блок даних, спільний для них та активного об'єкта. <em>Select Linked</em> використовує активний об'єкт, як базу для виділення усіх інших.</p>
+<dl class="docutils">
+<dt>Дані Об'єкта -- Object Data</dt>
+<dd>Виділяє кожен об'єкт, що пов'язаний з однаковим блоком Дані Об'єкта -- Object Data, тобто такий блок даних, що визначає тип (сіть, крива тощо) та побудову (установні елементи, як вершини, керувальні точки, а також те, де вони знаходяться у просторі) для об'єкта.</dd>
+<dt>Матеріал -- Material</dt>
+<dd>Виділяє кожен об'єкт, що пов'язаний з однаковим блоком даних матеріалу.</dd>
+<dt>Текстура -- Texture</dt>
+<dd>Виділяє кожен об'єкт, що пов'язаний з однаковим блоком даних текстури.</dd>
+<dt>Дубль-Група -- DupliGroup</dt>
+<dd>Виділяє усі об'єкти, що використовують однакову Групу -- <em>Group</em> для дублювання.</dd>
+<dt>Система Частинок -- Particle System</dt>
+<dd>Виділяє усі об'єкти, що використовують однакову Систему Частинок -- <em>Particle System</em>.</dd>
+<dt>Бібліотека -- Library</dt>
+<dd>Selects all objects that are in the same <a class="reference internal" href="../../../../data_system/linked_libraries.html"><span class="doc">Library</span></a>.</dd>
+<dt>Бібліотека (Дані Об’єкта) -- Library (Object Data)</dt>
+<dd>Виділяє усі об'єкти, що знаходяться в однаковій Бібліотеці -- <a class="reference internal" href="../../../../data_system/linked_libraries.html"><span class="doc">Library</span></a> та обмежені блоком даних об'єкта -- <em>object data</em>.</dd>
+</dl>
+</div>
+<div class="section" id="select-pattern">
+<span id="bpy-ops-object-select-pattern"></span><h2>Виділ за Взірцем -- Select Pattern<a class="headerlink" href="#select-pattern" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Pattern</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Selects all objects whose name matches a given pattern.
+Supported wild-cards: * matches everything, ? matches any single character,
+[abc] matches characters in &quot;abc&quot;, and [!abc] match any character not in &quot;abc&quot;.
+As an example *house* matches any name that contains &quot;house&quot;,
+while floor* matches any name starting with &quot;floor&quot;.</p>
+<dl class="docutils">
+<dt>Чутливо Регістру -- Case Sensitive</dt>
+<dd>Визначає, чи відповідність має бути чутлива до регістру символів (заголовні або рядкові літери).</dd>
+<dt>Розшир -- Extend</dt>
+<dd>При увімкненні стяга «Розшир» -- <em>Extend</em> виділ буде розширюватися замість того, щоб генеруватися заново.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../editing/index.html" class="btn btn-neutral float-right" title="Редагування або правка -- Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

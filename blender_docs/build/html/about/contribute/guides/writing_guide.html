@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Путівник зі стилю написання &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/about/contribute/guides/writing_guide.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Підтримування -- Maintenance" href="maintenance_guide.html" />
+    <link rel="prev" title="Путівник зі стилю розмітки" href="markup_guide.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ до Довідника Blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../license.html">Ліцензування</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../whats_new.html">Thay đổi gần đây</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Đóng Góp</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#how-it-works">Phương Pháp Điều Hành</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#getting-started">Khởi Đầu</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#guidelines">Hướng dẫn</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="markup_guide.html">Путівник зі стилю розмітки</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Путівник зі стилю написання</a></li>
+<li class="toctree-l4"><a class="reference internal" href="maintenance_guide.html">Підтримування -- Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#translations">Phiên Dịch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#contacts">Mối Liên Lạc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a> &raquo;</li>
+        
+          <li><a href="../index.html">Đóng Góp</a> &raquo;</li>
+        
+      <li>Путівник зі стилю написання</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/about/contribute/guides/writing_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-style-guide">
+<h1>Путівник зі стилю написання<a class="headerlink" href="#writing-style-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="primary-goals">
+<h2>Первісні цілі<a class="headerlink" href="#primary-goals" title="Permalink to this headline">¶</a></h2>
+<p>Головні цілі цього довідника наступні.</p>
+<dl class="docutils">
+<dt>Орієнтованість на Користувача</dt>
+<dd>Хоча деякі області комп'ютерної графіки є високо технічними, цей довідник повинен зберігати зрозумілість для не-технічних користувачів.</dd>
+<dt>Повнота</dt>
+<dd>Це канонічне джерело достовірності для кожної ключової області щодо Blender'а. Це не означає, що ми повинні документувати кожну дрібницю, але користувачі не повинні залежати від пошуку ще десь для знаходження призначення ключових функцій.</dd>
+<dt>Лаконічність</dt>
+<dd>Комп'ютерна графіка є надзвичайно цікавою галуззю, тут є багато правил, винятків з цих правил та цікавих деталей. Заглиблення у деталі може давати непотрібний вміст, а тому слід зберігати текст лаконічним та відповідним темі.</dd>
+<dt>Підтримуваність</dt>
+<dd>Майте на увазі, що Blender має часті випуски, а тому намагайтеся писати вміст так, щоб він не потребував переробки через незначні зміни. Це також допомагає утримувати невелику спільноту з документації для підтримання цього довідника.</dd>
+</dl>
+</div>
+<div class="section" id="content-guidelines">
+<h2>Настанови щодо вмісту<a class="headerlink" href="#content-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Щоб підтримувати узгоджений стиль писання у межах цього довідника, будь ласка, тримайте в умі написане на цій сторінці та тільки тоді відхиляйтеся від цього, коли є на те значна причина.</p>
+<p>Повсякденні правила:</p>
+<ul class="simple">
+<li>Перевірка правопису <em>настійно</em> рекомендується.</li>
+<li>Використовуйте Американську Англійську (наприклад: modeling, а не modelling, color, а не colour).</li>
+<li>Турбуйтеся про граматику, відповідний підбір слів та використання простої Англійської.</li>
+<li>Зберігайте речення короткими і зрозумілими, результатний текст легким для читання, об'єктивним і суттєвим.</li>
+<li>Визначення того, чому і як та чи інша опція може бути корисною, -- це добра ідея.</li>
+<li>Якщо ви не впевнені у тому, як функція працює, спитайте когось ще або знайдіть того, хто її розробив та спитайте його.</li>
+</ul>
+<p>Слід уникати:</p>
+<ul>
+<li><p class="first">Уникайте писання від першої особи, про себе або про власні думки.</p>
+</li>
+<li><p class="first">Уникайте обтічних слів -- <a class="reference external" href="https://en.wikipedia.org/wiki/Weasel_word">weasel words</a> та непотрібної розпливчастості, наприклад:</p>
+<div class="line-block">
+<div class="line">«Перезавантаження файлу можливо вирішить проблему»</div>
+<div class="line">«Більшість людей не використовують цю опцію, тому що ...»</div>
+</div>
+</li>
+<li><p class="first">Уникайте включення специфічних деталей, таких як:</p>
+<div class="line-block">
+<div class="line">«Blender має 23 різних типи модифікаторів.»</div>
+<div class="line">«Вмикання передоглядів додає 65536 байтів до розміру кожного blend-файлу (допоки він не стискається).»</div>
+</div>
+<p>Ці деталі не є корисними для користувачів для запам'ятовування і можуть швидко стати не актуальними.</p>
+</li>
+<li><p class="first">Уникайте документування дефектів.</p>
+<p>Blender часто має сотні дефектів, які виправляються між випусками, а тому не реально посилатися навіть на частину з них у цьому довіднику, зберігаючи їх перелік актуальним.</p>
+<p>Проблеми, відомі розробникам і які не будуть виправлені до наступного випуску, можуть документуватися як <em>Відомі Обмеження</em> -- <em>Known Limitations</em>. У деяких випадках, можливо краще включити їх у підрозділ вирішення проблем -- <a class="reference internal" href="../../../troubleshooting/index.html"><span class="doc">troubleshooting</span></a>.</p>
+</li>
+<li><p class="first">Avoid product placements, i.e. unnecessarily promoting software or hardware brands.
+Keep content vendor-neutral where possible.</p>
+</li>
+<li><p class="first">Уникайте технічних пояснень про математичні/алгоритмічні втілення функції, якщо є простіший спосіб пояснити її.</p>
+<p>(наприклад, пояснення, як працює алгоритм згладження сіті, не є необхідним, а от типи змішання вузла «Мікс» -- «Mix» потребують математичного пояснення).</p>
+</li>
+<li><p class="first">Уникайте повторення великих частин тексту. Просто пояснюйте один раз, а потім тільки посилайтеся на це пояснення.</p>
+<p>Для загальної термінології визначайте термін <code class="docutils literal notranslate"><span class="pre">:term:</span></code> у глосарії -- <a class="reference internal" href="../../../glossary/index.html"><span class="doc">glossary</span></a>.</p>
+</li>
+<li><p class="first">Уникайте переліку подібних опцій, таких як перерахування кожної передустави або кожного набору частот кадрів у меню вибору.</p>
+<p>Їх вміст може бути узагальнений або просто пропущений. -- Такі списки тільки показують, що і так вже <em>очевидно</em> в інтерфейсі, і у результаті буде багато тексту для читання та обслуговування.</p>
+</li>
+<li><p class="first">Уникайте документування змін у Blender'і між випусками, для цього є його примітки для релізу. Нам необхідно документувати тільки поточний стан Blender'а.</p>
+</li>
+<li><p class="first">Допоки одиниця значення вимірюється нечітко і непередбачувано, відсутня необхідність згадувати про це.</p>
+</li>
+<li><p class="first">Не копіюйте просто підказки з Blender'а. -- Люди звертаються до довідника, щоб дізнатися <em>більше</em>, ніж дає інтерфейс користувача.</p>
+<p>Як останній засіб, ви можете додавати коментар (який не показується на сторінці HTML, але корисний для інших редакторів):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="cp">.. TODO, how does this tool work? ask Joe Blogg&#39;s.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="glossary">
+<h3>Глосарій -- Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h3>
+<p>Це секція про підрозділ «Глосарій» -- <a class="reference internal" href="../../../glossary/index.html"><span class="doc">Glossary</span></a>, де ми визначаємо загальні терміни у Blender'і та комп'ютерній графіці.</p>
+<p>Повсякденні правила:</p>
+<ul>
+<li><p class="first">Визначайте термін до того, як давати будь-яку подальшу щодо нього інформацію.</p>
+</li>
+<li><p class="first">Avoid using constructs such as &quot;it is&quot; or &quot;xyz is&quot; before the definition.</p>
+</li>
+<li><p class="first">Уникайте повторення терміну тут же або використання його у своєму ж визначенні.</p>
+</li>
+<li><p class="first">Уникайте додання термінів, відсутніх в інтерфейсі Blender'а або у цьому довіднику.</p>
+</li>
+<li><p class="first">Уникайте надто довгих записів. Якщо потребується пояснення складного терміну, то краще доповняйте його посиланнями на зовнішні джерела.</p>
+</li>
+<li><p class="first">Уникайте дублювання документації; якщо пояснення терміну первісно зосереджується на іншому підрозділі довідника (наприклад, якщо термін є іменем інструмента) або тільки посиланням на той підрозділ, а також уникайте створення запису у Глосарії повністю.</p>
+</li>
+<li><p class="first">Посилання URL додаються у кінець та форматуються так, як приклад:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>See also <span class="s">`OpenGL </span><span class="si">&lt;https://en.wikipedia.org/wiki/OpenGL&gt;</span><span class="s">`__</span> on Wikipedia.
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="examples">
+<h4>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<p>Цей запис:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Displacement Mapping
+   Uses a grayscale heightmap, like Bump Mapping,
+   but the image is used to physically move the vertices of the mesh at render time.
+   This is of course only useful if the mesh has large amounts of vertices.
+</pre></div>
+</div>
+<p>Може бути записаний так, з розміщенням спершу визначення:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Displacement Mapping
+   A method for distorting vertices based on an image.
+   Similar to Bump Mapping, but instead operates on the mesh&#39;s actual geometry.
+   This relies on the mesh having enough geometry.
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Цей запис:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Doppler Effect
+   The Doppler effect is the change in pitch that occurs
+   when a sound has a velocity relative to the listener.
+</pre></div>
+</div>
+<p>Може бути записаний так, з униканням негайного повторення терміну:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Doppler Effect
+   Perceived change in pitch that occurs
+   when the source of a sound is moving relative to the listener.
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Цей запис:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Curve
+   It is a class of objects.
+   In Blender there are Bézier curves and NURBS curves.
+</pre></div>
+</div>
+<p>Може бути записаний так, з униканням &quot;він є&quot;:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Curve
+   A type of object defined in terms of a line interpolated between Control Vertices.
+   Available types of curves include Bézier and NURBS.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="maintenance_guide.html" class="btn btn-neutral float-right" title="Підтримування -- Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="markup_guide.html" class="btn btn-neutral" title="Путівник зі стилю розмітки" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Режим Скриптування на Python -- Python Scripting Mode &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/render/freestyle/python.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Лінія -- Line" href="line.html" />
+    <link rel="prev" title="Геометрія -- Geometry" href="parameter_editor/line_style/modifiers/geometry.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Зображ, Рендер -- Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Вивід Зобража, Рендера -- Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Після Оброблення -- Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Рушій нефотореалістичного рендерингу Freestyle</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core.html">Опції Ядра -- Core Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="view_map.html">Карти Огляду -- View Maps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parameter_editor/index.html">Редактор Параметрів -- Parameter Editor</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Режим Скриптування на Python -- Python Scripting Mode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#writing-style-modules">Написання модулів стилю</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="line.html">Лінія -- Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="export_svg.html">Експортер Freestyle у SVG -- Freestyle SVG Exporter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Хід роботи -- Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Зображ з OpenGL -- OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Зображування, рендеринг Аудіо -- Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Зображ, Рендер -- Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Рушій нефотореалістичного рендерингу Freestyle</a> &raquo;</li>
+        
+      <li>Режим Скриптування на Python -- Python Scripting Mode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/freestyle/python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-scripting-mode">
+<span id="bpy-types-freestylemodulesettings"></span><h1>Режим Скриптування на Python -- Python Scripting Mode<a class="headerlink" href="#python-scripting-mode" title="Permalink to this headline">¶</a></h1>
+<p>The Python Scripting mode offers full programmable line stylizes.
+In this control mode, all styling operations are written as Python scripts referred to as
+style modules in the Freestyle terminology. The input to a style module is a view map
+(i.e. a set of detected feature edges), and the output is a set of stylized strokes.</p>
+<p>Модуль стилю складається з послідовних викликів п'яти базових операторів: виділення -- selection, зчіплювання -- chaining, розділення -- splitting, сортування -- sorting та створення штриха -- stroke creation. Оператор виділення -- selection ідентифікує піднабір уводу вирізнених країв на основі однієї чи кількох визначених користувачем умов виділення (предикатів, тверджень). Виділені краї обробляються операторами зчіплювання, розділення та сортування для побудови ланцюгів вирізнених країв. Ці оператори також керуються заданими користувачем предикатами та функціями, щоб визначати, як трансформувати вирізнені краї у ланцюги. Нарешті, ланцюги трансформуються у стилізовані штрихи оператором створення штриха, який приймає список визначених користувачем відтінювачів штриха.</p>
+<p>Модулі стилю Python зберігаються у межах blend-файлів як блоки даних тексту. Зовнішні файли модулів стилю спершу необхідно завантажити у Редактор Тексту -- Text Editor. Далі меню вибору у межах запису стеку модулів стилю дозволяє вам обрати модуль зі списку завантажених модулів стилю.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/render_freestyle_python_scripting-mode.png" src="../../_images/render_freestyle_python_scripting-mode.png" />
+<p class="caption"><span class="caption-text">Екранознімок модуля стилю (cartoon.py) завантажено у Text Editor (зліва), а також опції Freestyle у режимі Python Scripting у вкладці Render Layers (справа).</span></p>
+</div>
+<p>Freestyle для Blender поставляється з низкою модулів стилю Python, що можуть слугувати відправною точкою для написання вашого власного модуля стилю. Дивіться підрозділ Freestyle Python API у посібнику Blender Python API про деталі конструювання модуля стилю.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/render_freestyle_python_scripting-mode-example-1.jpg"><img alt="../../_images/render_freestyle_python_scripting-mode-example-1.jpg" src="../../_images/render_freestyle_python_scripting-mode-example-1.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Від T.K. використання режиму Python Scripting.</span></p>
+<div class="legend">
+(<a class="reference external" href="https://wiki.blender.org/index.php/File:Turning_Pages.zip">File:Turning_Pages.zip</a>, CC0).</div>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/render_freestyle_python_scripting-mode-example-2.png"><img alt="../../_images/render_freestyle_python_scripting-mode-example-2.png" src="../../_images/render_freestyle_python_scripting-mode-example-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Від T.K. використання режиму Python Scripting.</span></p>
+<div class="legend">
+(<a class="reference external" href="https://wiki.blender.org/index.php/File:Lily_Broken_Topology.zip">File:Lily_Broken_Topology.zip</a>, CC0).</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="writing-style-modules">
+<h2>Написання модулів стилю<a class="headerlink" href="#writing-style-modules" title="Permalink to this headline">¶</a></h2>
+<p>Модуль стилю -- це шматок коду, відповідальний за стилізацію прорису ліній Freestyle. Увід модуля стилю -- це набір вирізнених країв, що називається картою огляду -- view map (ViewMap). Вивід -- це набір стилізованих ліній, що також відомі, як штрихи. Модуль стилю структурований як конвеєр операцій, що дозволяють вибудовувати штрихи з увідних країв у межах карти огляду.</p>
+<p>Існує п'ять видів операцій (перераховані з відповідними функціями оператора):</p>
+<ul class="simple">
+<li>Виділення -- Selection <code class="docutils literal notranslate"><span class="pre">Operators.select()</span></code></li>
+<li>Зчіплювання -- Chaining <code class="docutils literal notranslate"><span class="pre">Operators.chain(),</span> <span class="pre">Operators.bidirectional_chain()</span></code></li>
+<li>Розділення -- Splitting <code class="docutils literal notranslate"><span class="pre">Operators.sequential_split(),</span> <span class="pre">Operators.recursive_split()</span></code></li>
+<li>Сортування -- Sorting <code class="docutils literal notranslate"><span class="pre">Operators.sort()</span></code></li>
+<li>Створення штриха -- Stroke creation <code class="docutils literal notranslate"><span class="pre">Operators.create()</span></code></li>
+</ul>
+<p>Увідна карта огляду заповнюється набором об'єктів ViewEdge. Операція виділення використовується для вибору ViewEdges, що представляють інтерес для митців на основі визначених користувачем умов (предикатів) виділення. Операції зчіплювання приймають піднабір ViewEdges та будують Ланцюги, зчіплюючи ViewEdges відповідно до визначених користувачем предикатів та функцій. Ці Ланцюги можуть бути далі уточнені, розділенням їх на менші шматки (наприклад, у точках, де краї роблять гострий поворот) та виділенням частини їх (наприклад, для збереження тільки тих, що довші, ніж поріг довжини). Операція сортування використовується для впорядкування ланцюгів у стеку для прорису однієї лінії поверхн іншої. Ланцюги фінально трансформуються у стилізовані штрихи операцією створення штрихів шляхом застосування серії відтінювачів штрихів до окремих ланцюгів.</p>
+<p>ViewEdges, Chains та Strokes загалом називаються одновимірними (1D) елементами. 1D елемент -- це полілінія, що є серією з'єднаних прямих ліній. Вершини 1D елементів називаються 0D елементами, у загальному.</p>
+<p>Усі оператори діють на наборі активних 1D елементів. Початковий активний набір -- це набір ViewEdges в увідній карті огляду. Активний набір оновлюється операторами.</p>
+<div class="section" id="selection">
+<h3>Виділення -- Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<p>Оператор виділення, вибору проходить через кожен елемент активного набору та зберігає тільки ті, які задовільняють вимоги певного предиката. Метод <code class="docutils literal notranslate"><span class="pre">Operators.select()</span></code> приймає як аргумент одноаргументний предикат, що працює на будь-якому <code class="docutils literal notranslate"><span class="pre">Interface1D</span></code>, що представляє 1D елемент. Наприклад:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Operators</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">QuantitativeInvisibilityUP1D</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ця операція виділення використовує предикат <code class="docutils literal notranslate"><span class="pre">QuantitativeInvisibilityUP1D</span></code> для вибору тільки видимих <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> (більш точно тих, яких кількісна невидимість дорівнює 0). Оператор виділення наміряється вибірково застосувати стиль до частини активних 1D елементів.</p>
+<p>Відзначено, що <code class="docutils literal notranslate"><span class="pre">QuantitativeInvisibilityUP1D</span></code> -- це клас реалізації предиката, що перевіряє видимість лінії, а метод <code class="docutils literal notranslate"><span class="pre">Operators.select()</span></code> приймає примірник класу предиката як аргумент. Перевірка предиката для даного 1D елемента фактично робиться викликом примірника предикати, тобто, залучаючи метод <code class="docutils literal notranslate"><span class="pre">__call__</span></code> класу предиката. Іншими словами, метод <code class="docutils literal notranslate"><span class="pre">Operators.select()</span></code> приймає як аргумент функтор -- functor, який, у свою чергу, приймає об'єкт <code class="docutils literal notranslate"><span class="pre">Interface0D</span></code> як аргумент. Freestyle Python API широко вживає функтори для реалізації предикатів, а також функцій.</p>
+</div>
+<div class="section" id="chaining">
+<h3>Зчіплювання -- Chaining<a class="headerlink" href="#chaining" title="Permalink to this headline">¶</a></h3>
+<p>Оператори зчіплювання діють на наборі активних об'єктів <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> та визначають топологію майбутніх штрихів. Ідея полягає в реалізації повторювача -- iterator для проходження графа ViewMap шляхом пересування уздовж ViewEdges. Повторювач визначає правило зчіплювання, яке визначає наступний <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> для слідування у задану вершину (дивіться <code class="docutils literal notranslate"><span class="pre">ViewEdgeIterator</span></code>). Кілька таких повторювачів надаються як частина Freestyle Python API (дивіться <code class="docutils literal notranslate"><span class="pre">ChainPredicateIterator</span></code> та <code class="docutils literal notranslate"><span class="pre">ChainSilhouetteIterator</span></code>). Власні користувацькі повторювачі можуть визначатися успадковуванням класу <code class="docutils literal notranslate"><span class="pre">ViewEdgeIterator</span></code>. Оператор зчіплювання також приймає як аргумент UnaryPredicate, що працює на <code class="docutils literal notranslate"><span class="pre">Interface1D</span></code>, як критерій зупинки. Зчіплювання зупиняється, коли повторювач досяг задоволення <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> умов цього предикату у ході пересування по графу.</p>
+<p>Зчіплювання може бути однонапрямним <code class="docutils literal notranslate"><span class="pre">Operators.chain()</span></code> або двонапрямним <code class="docutils literal notranslate"><span class="pre">Operators.bidirectional_chain()</span></code>. В останньому випадку, зчіплювання буде поширюватися у двох напрямках від стартового краю.</p>
+<p>Наступне є прикладом коду двонапрямного зчіплювання:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Operators</span><span class="o">.</span><span class="n">bidirectional_chain</span><span class="p">(</span>
+        <span class="n">ChainSilhouetteIterator</span><span class="p">(),</span>
+        <span class="n">NotUP1D</span><span class="p">(</span><span class="n">QuantitativeInvisibilityUP1D</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>Оператор зчіплювання використовує <code class="docutils literal notranslate"><span class="pre">ChainSilhouetteIterator</span></code> як правило зчіплювання та зупиняє зчіплювання зразу ж, як повторювач прийшов до невидимого <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code>.</p>
+<p>Оператори зчіплювання обробляють набір активних об'єктів <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> за порядком. Активні ViewEdges можуть попередньо бути сортовані за допомогою методу <code class="docutils literal notranslate"><span class="pre">Operators.sort()</span></code> (дивіться нижче). Він запускає ланцюг з першого <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> активного набору. Усі ViewEdges, що вже були залучені у процес зчіплювання, позначаються (у випадку прикладу вище, штамп часу кожного <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> модифікується стандартно), щоб не обробляти двічі один і той же <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code>. Після того, як зчіплювання досягає <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code>, що задовільняє умовам предиката зупинки, ланцюг завершується. Далі новий ланцюг починається з першого непозначеного <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> в активному наборі. Ця операція повторюється, допоки останній непозначений <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> з активного набору не буде оброблено. У кінці операції зчіплювання, активний набір -- це набір Ланцюгів, що були побудовані.</p>
+</div>
+<div class="section" id="splitting">
+<h3>Розділення -- Splitting<a class="headerlink" href="#splitting" title="Permalink to this headline">¶</a></h3>
+<p>Операція розділення використовується для уточнення топології кожного Ланцюга. Розділення здійснюється послідовно або рекурсивно. Послідовне розділення <code class="docutils literal notranslate"><span class="pre">Operators.sequentialSplit()</span></code> у своїй базовій формі, аналізує Ланцюг у заданій довільній роздільності та оцінює одноаргументний предикат (працюючи на 0D елементах) у кожній точці уздовж цього Ланцюга. Кожен раз, при задоволенні предиката, ланцюг розділюється на два ланцюги. У кінці операції послідовного розділення активний набір ланцюгів є набором нових ланцюгів.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Operators</span><span class="o">.</span><span class="n">sequentialSplit</span><span class="p">(</span><span class="n">TrueUP0D</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, the chain is split every 2 units.
+A more elaborated version uses two predicates instead of one: One to determine the starting
+point of the new chain and the other to determine its ending point. This second version can
+lead to a set of Chains that are disjoint or that overlap if the two predicates are different
+(see <code class="docutils literal notranslate"><span class="pre">Operators.sequentialSplit()</span></code> for more details).</p>
+<p>Рекурсивне розділення <code class="docutils literal notranslate"><span class="pre">Operators.recursiveSplit()</span></code> оцінює функцію на 0D елементах уздовж Ланцюга у заданій роздільності та знаходить точку, що дає максимальне значення для цієї функції. Ланцюг далі розділяється на два у цій точці. Цей процес рекурсивно повторюється на кожному з двох нових Ланцюгів, допоки увідний Ланцюг не буде задовольняти визначеній користувачем умові зупинення.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">func</span> <span class="o">=</span> <span class="n">Curvature2DAngleF0D</span><span class="p">()</span>
+<span class="n">Operators</span><span class="o">.</span><span class="n">recursive_split</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">NotUP1D</span><span class="p">(</span><span class="n">HigherLengthUP1D</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>У прикладі коду вище, Ланцюги рекурсивно розділяються у точках найвищої 2D кривини. Ця кривина оцінюється у точках уздовж Ланцюга з роздільністю 5 одиниць. Ланцюги, коротші, ніж 5 одиниць, не будуть більше розділятися.</p>
+</div>
+<div class="section" id="sorting">
+<h3>Сортування -- Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<p>Оператор сортування <code class="docutils literal notranslate"><span class="pre">Operators.sort()</span></code> впорядковує порядок нашарування активних 1D елементів. Він приймає як аргумент двоаргументний предикат, використовуваний як оператор «менше ніж» до порядку 1D елементів.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Operators</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">Length2DBP1D</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>У цьому прикладі коду, сортування використовує двоаргументний предикат <code class="docutils literal notranslate"><span class="pre">Length2DBP1D</span></code> для сортування об'єктів <code class="docutils literal notranslate"><span class="pre">Interface1D</span></code> у висхідному порядку у термінах 2D довжини.</p>
+<p>Сортування особливо корисне, коли комбінується з щільністю причин. Дійсно, щільність причин оцінює щільність результатного зображення при його модифікації. Якщо ми бажаємо використати такий інструмент для вирішення того, що слід вилучити штрихи кожен раз, коли локальна щільність є надто високою, то важливо контролювати порядок, в якому ці штрихи прорисовуються. У цьому випадку, ми скористаємося оператором сортування для гарантування, що більш «важливі» лінії прорисуються першими.</p>
+</div>
+<div class="section" id="stroke-creation">
+<h3>Створення Штриха -- Stroke Creation<a class="headerlink" href="#stroke-creation" title="Permalink to this headline">¶</a></h3>
+<p>Фінально, оператор створення штрихів <code class="docutils literal notranslate"><span class="pre">Operators.create()</span></code> приймає активний набір Ланцюгів як увід та будує Штрихи. Цей оператор приймає два аргументи. Перший -- це одноаргументний предикат, що працює на <code class="docutils literal notranslate"><span class="pre">Interface1D</span></code>, який призначений для зроблення останнього виділення на наборі ланцюгів. Ланцюг, що не задовільняє цій умові, не перейде далі у Штрих. Другий увід -- це список відтінювачів, що будуть відповідати за відтінення кожного побудованого штриха.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">shaders_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">SamplingShader</span><span class="p">(</span><span class="mf">5.0</span><span class="p">),</span>
+    <span class="n">ConstantThicknessShader</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">ConstantColorShader</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="n">Operators</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">DensityUP1D</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">IntegrationType</span><span class="o">.</span><span class="n">MEAN</span><span class="p">),</span> <span class="n">shaders_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>У цьому прикладі, предикат <code class="docutils literal notranslate"><span class="pre">DensityUP1D</span></code> використовується для вилучення усіх Ланцюгів, які мають середню щільність, вище за 0.1. Кожен ланцюг трансформується у штрих шляхом повторного відбору так, щоб мати точку через кожні 5 одиниць, призначення для нього постійної товщини у 2 одиниці та темно-сірого постійного кольору.</p>
+</div>
+<div class="section" id="user-control-on-the-pipeline-definition">
+<h3>Керування користувачем конвеєром визначення<a class="headerlink" href="#user-control-on-the-pipeline-definition" title="Permalink to this headline">¶</a></h3>
+<p>Написання модуля стилю пропонує різні типи керування користувачем, навіть хоча окремі модулі стилю мають фіксовану структуру конвеєра. Одним з них є задання послідовності різних керувальних структур конвеєра, а іншим -- через визначення об'єктів функторів, що передаються як аргумент уздовж усього конвеєра.</p>
+<p>Різні структури керування конвеєром можуть бути визначені заданням операцій виділення, зчіплювання, розділення та сортування. Створення штриха є завжди останньою операцією, що завершує модуль стилю.</p>
+<p>Предикати, функції, повторювачі зчіплювання та відтінювачі штрихів можуть визначатися успадковуванням базових класів та перевизначенням відповідних методів. Для отримання додаткової інформації про визначувані користувачем конструкції дивіться відповідні записи про наступні базові класи.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">Predicates, functions, chaining iterators, and stroke shaders can be defined by inheriting
+base classes and overriding appropriate methods. See <a class="reference external" href="https://docs.blender.org/api/2.79/freestyle.html#module-freestyle" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Freestyle</span> <span class="pre">python</span> <span class="pre">module</span></code></a> for more information on the user-scriptable constructs.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="line.html" class="btn btn-neutral float-right" title="Лінія -- Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="parameter_editor/line_style/modifiers/geometry.html" class="btn btn-neutral" title="Геометрія -- Geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

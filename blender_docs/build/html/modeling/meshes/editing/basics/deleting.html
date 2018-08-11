@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Видалення та розчинення -- Deleting &amp; Dissolving &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/modeling/meshes/editing/basics/deleting.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Зробити Ребро/Грань -- Make Edge/Face" href="make_face_edge.html" />
+    <link rel="prev" title="Додання Геометрії -- Adding Geometry" href="adding.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Моделювання</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Сітки (Meshes)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Структура</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primitives.html">Примітиви</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../selecting/index.html">Вибирання (Selecting)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Редагування -- Editing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Вступ</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Основи -- Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vertices.html">Інструменти Вершин -- Vertex Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../edges.html">Інструменти Ребер -- Edge Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../faces.html">Інструменти Граней -- Face Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../normals.html">Нормалі -- Normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transform/index.html">Трансформування -- Transformation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../duplicating/index.html">Дублювання -- Duplicating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subdividing/index.html">Підподілення -- Subdividing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cleanup.html">Вичищення -- Clean up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../misc.html">Різні інструменти правлення</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data_transfer.html">Перенос Даних -- Data Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mesh_options.html">Опції Сіті -- Mesh Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Властивості</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_display.html">Відображення полігональної сітки (Mesh Display)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_analysis.html">Аналіз Полігональної Сітки (Mesh Analysis)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../curves/index.html">Криві -- Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../surfaces/index.html">Поверхні -- Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metas/index.html">Метакуля -- Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../texts/index.html">Текст -- Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../empties.html">Порожні об'єкти (Empties)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modifiers/index.html">Модифікатори -- Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Моделювання</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Сітки (Meshes)</a> &raquo;</li>
+        
+          <li><a href="../index.html">Редагування -- Editing</a> &raquo;</li>
+        
+          <li><a href="index.html">Основи -- Basics</a> &raquo;</li>
+        
+      <li>Видалення та розчинення -- Deleting &amp; Dissolving</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modeling/meshes/editing/basics/deleting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deleting-dissolving">
+<h1>Видалення та розчинення -- Deleting &amp; Dissolving<a class="headerlink" href="#deleting-dissolving" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Mesh Tools ‣ Remove: Delete</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ці засоби можуть використовуватися для вилучення компонентів.</p>
+<div class="section" id="delete">
+<h2>Видалення -- Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd>, <kbd class="kbd docutils literal notranslate">Delete</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Видаляє виділені вершини, ребра або грані. Ця операція може також обмежуватися:</p>
+<dl class="docutils">
+<dt>Вершини -- Vertices</dt>
+<dd>Видаляє усі вершини у поточному виділі, вилучаючи будь-які грані або ребра, що з ними з'єднані.</dd>
+<dt>Ребра -- Edges</dt>
+<dd>Видаляє будь-які ребра у поточному виділі. Вилучає будь-які грані, для яких ці ребра є спільними.</dd>
+<dt>Грані -- Faces</dt>
+<dd>Вилучає будь-які грані у поточному виділі.</dd>
+<dt>Лише Ребра і Грані -- Only Edges &amp; Faces</dt>
+<dd>Лімітує дану операцію тільки виділеними ребрами та суміжними гранями.</dd>
+<dt>Лише Грані -- Only Faces</dt>
+<dd>Вилучає грані, але ребра у межах виділу граней залишаються.</dd>
+</dl>
+</div>
+<div class="section" id="dissolve">
+<h2>Розчинення -- Dissolve<a class="headerlink" href="#dissolve" title="Permalink to this headline">¶</a></h2>
+<p>Операції розчинення також доступні з меню Delete. Розчинення буде вилучати геометрію та заповняти згідно з навколишньою геометрією. Замість просто вилучення геометрії, яка може залишати отвори, які вам доведеться заповнювати знову.</p>
+<p>Вилучає виділену геометрію, але без створення отворів, ефективно перетворюючи виділ в одиничний N-бічник. Розчинення працює дещо по-різному залежно від того, чи виділеними є ребра, грані або вершини. Ви можете додавати деталізацію при потребі або швидко вилучати її, там де вона не потрібна.</p>
+<div class="section" id="dissolve-vertices">
+<h3>Розчинити Вершини -- Dissolve Vertices<a class="headerlink" href="#dissolve-vertices" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete ‣ Dissolve Vertices</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Remove the vertex merging all surrounding faces.
+In the case two edges, merging them into a single edge.</p>
+<dl class="docutils">
+<dt>Розділ Грані -- Face Split</dt>
+<dd>При розчиненні вершин у навколишніх гранях ви можете часто отримувати дуже великі нерівні N-бічники. Опція Face Split лімітує розчинення використанням тільки кутків граней, з'єднаних з даною вершиною.</dd>
+<dt>Рваний Рубіж -- Tear Boundary</dt>
+<dd>Відділяє кутки граней замість об'єднання граней.</dd>
+</dl>
+<div class="section" id="examples">
+<h4>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id1">
+<img alt="../../../../_images/modeling_meshes_editing_basics_deleting_dissolve-examples.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_dissolve-examples.png" />
+<p class="caption"><span class="caption-text">1) Оригінальна сіть. 2) Face Split: Вимк, Tear Boundaries: Вимк. 3) Face Split: Увім, Tear Boundaries: Увім. 4) Face Split: Увім/Вимк, Tear Boundaries: Увім.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="dissolve-edges">
+<h3>Розчинити Ребра -- Dissolve Edges<a class="headerlink" href="#dissolve-edges" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete ‣ Dissolve Edges</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Removes edges sharing two faces (joining those faces).</p>
+<p>Опції такі ж самі, як і для інструмента <a class="reference internal" href="#dissolve-vertices">Dissolve Vertices</a>.</p>
+</div>
+<div class="section" id="dissolve-faces">
+<span id="modeling-mesh-deleting-dissolve-faces"></span><h3>Розчинити Грані -- Dissolve Faces<a class="headerlink" href="#dissolve-faces" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete ‣ Dissolve Faces</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Об'єднує регіони граней, що мають спільні ребра, в одну грань.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Це може бути доступно швидко за допомогою клавіші <kbd class="kbd docutils literal notranslate">F</kbd>, дивіться: <a class="reference internal" href="make_face_edge.html#modeling-mesh-make-face-edge-dissolve"><span class="std std-ref">Розчинення наявних граней</span></a>.</p>
+</div>
+</div>
+<div class="section" id="dissolve-context-sensitive">
+<h3>Dissolve (Context-Sensitive)<a class="headerlink" href="#dissolve-context-sensitive" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This is a convenient shortcut that dissolves
+based on the current selection mode (vertex, edge, face).</p>
+</div>
+</div>
+<div class="section" id="limited-dissolve">
+<h2>Лімітоване Розчинення -- Limited Dissolve<a class="headerlink" href="#limited-dissolve" title="Permalink to this headline">¶</a></h2>
+<p>Цей засіб може спрощувати вашу сіть шляхом розчинення вершин та ребер, виокремлюючи плоскі регіони.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-before.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-before.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-before.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Original mesh.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-after.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-after.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_limited-dissolve-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Result of Limited Dissolve.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Макс Кут -- Max Angle</dt>
+<dd>Скорочує детальність на площинних гранях та лінеарно, прямолінійно розташованих ребрах за допомогою коригованого порогу кута.</dd>
+<dt>Усі Рубежі -- All Boundaries</dt>
+<dd>Завжди розчиняє вершини, що мають на рубежах ребра з двома користувачами.</dd>
+<dt>Розмежування -- Delimit</dt>
+<dd>Запобігає сполученню граней, коли вони не мають спільних певних властивостей (наприклад, матеріалу).</dd>
+</dl>
+</div>
+<div class="section" id="edge-collapse">
+<h2>Стягнути Ребра -- Edge Collapse<a class="headerlink" href="#edge-collapse" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete ‣ Edge Collapse</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-M</kbd>, <span class="menuselection">Collapse</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Об'єднує кожне ребро в окремі вершини. Це корисно для стягнення кільця ребер шляхом вилучення петлі граней, що проходить між ними.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-before.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-before.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-before.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Selected edge ring.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-after.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-after.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_collapse-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Edge ring collapsed.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="edge-loop">
+<h2>Петля Ребер -- Edge Loop<a class="headerlink" href="#edge-loop" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Орієнтир -- Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode (Vertex or Edge select modes)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Delete ‣ Edge Loop</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd> or <kbd class="kbd docutils literal notranslate">Delete</kbd>, <span class="menuselection">Edge Loop</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Edge Loop</em> allows you to delete a selected edge loop if it is between two other edge loops.
+This will create one face loop where two previously existed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Опція <em>Edge Loop</em> дуже відрізняється від опції <em>Edges</em>, навіть якщо ви використовуєте її на ребрах, що виглядають як петля ребер. Видалення петлі ребер об'єднує навколишні грані, зберігаючи поверхню сіті. При видаленні ланцюга ребер, ці ребра вилучаються, видаляючи також навколишні грані. Це буде залишати отвори у сіті там, де колись були ці грані.</p>
+</div>
+<div class="section" id="example">
+<h3>Приклад<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>The selected edge loop on the UV Sphere has been deleted and
+the faces have been merged with the surrounding edges.
+If the edges had been deleted by choosing <em>Edges</em> from the <em>Delete</em> menu
+there would be an empty band of deleted faces all the way around the sphere instead.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-before.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-before.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-before.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Selected edge loop.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-after.png"><img alt="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-after.png" src="../../../../_images/modeling_meshes_editing_basics_deleting_edge-loop-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Edge loop deleted.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>Об'єднання вершин -- <a class="reference internal" href="../vertices.html#vertex-merging"><span class="std std-ref">Vertex merging</span></a>.</li>
+<li>Трикутники у Чотирибічники -- <a class="reference internal" href="../faces.html#mesh-faces-tristoquads"><span class="std std-ref">Трикутники у Чотирикутники -- Triangles to Quads</span></a>.</li>
+<li>Знепідподіл -- <a class="reference internal" href="../subdividing/subdivide.html#mesh-unsubdivide"><span class="std std-ref">Зне-Підподіл -- Un-Subdivide</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="make_face_edge.html" class="btn btn-neutral float-right" title="Зробити Ребро/Грань -- Make Edge/Face" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="adding.html" class="btn btn-neutral" title="Додання Геометрії -- Adding Geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

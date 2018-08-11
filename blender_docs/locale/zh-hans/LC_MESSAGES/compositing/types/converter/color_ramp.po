@@ -1,0 +1,137 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender Reference Manual 2.76\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-17 01:30+0200\n"
+"PO-Revision-Date: 2018-04-25 22:24+0800\n"
+"Last-Translator: \n"
+"Language: zh\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+"X-Generator: Poedit 2.0.7\n"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:7
+msgid "Color Ramp Node"
+msgstr "颜色渐变节点"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:12
+msgid "Color Ramp Node."
+msgstr "颜色渐变节点。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:14
+msgid "The Color Ramp Node is used for mapping values to colors with the use of a gradient."
+msgstr "颜色渐变节点使用渐变的方式进行颜色值的匹配。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:18
+msgid "Inputs"
+msgstr "输入"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:22
+msgid "Factor"
+msgstr "系数"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:21
+msgid "The Factor input is used as an index for the color ramp."
+msgstr "系数输入连接端口用于颜色渐变的索引（即需要此节点处理的输入素材图片）。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:25
+msgid "Properties"
+msgstr "属性"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:29
+msgid "Color Ramp"
+msgstr "颜色渐变"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:28
+msgid "For controls see :ref:`ui-color-ramp-widget`."
+msgstr "渐变条控制项功能参见 :ref:`ui-color-ramp-widget`。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:32
+msgid "Outputs"
+msgstr "输出"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:34
+msgid "Image"
+msgstr "图像"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:35
+msgid "Standard image output."
+msgstr "标准化图像输出。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:38
+msgid "Alpha"
+msgstr "Alpha通道"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:37
+msgid "Standard alpha output."
+msgstr "标准化遮罩输出。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:41
+msgid "Examples"
+msgstr "范例"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:44
+msgid "Creating an Alpha Mask"
+msgstr "Alpha遮罩"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:46
+msgid ""
+"A powerful but often overlooked feature of the Color Ramp is to create an Alpha Mask, or a mask that is overlaid on top of "
+"another image, and, like a mask, allows some of the background to show through. The example map below shows how to use the "
+"Color Ramp node to do this:"
+msgstr ""
+"一个很重要却经常被忽视的用途是利用颜色渐变节点的特点来创建Alpha遮罩，将遮罩放在图片上，就像个遮片，可以允许背景中显示的部分透"
+"过遮罩显示。下面是应用颜色渐变节点的范例："
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:54
+msgid "Using the Color Ramp node to create an alpha mask."
+msgstr "使用颜色渐变节点来创建alpha遮罩。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:56
+msgid ""
+"In the map above, a black-and-white swirl image, which is lacking an alpha channel, is fed into the Color Ramp node as a "
+"*Factor*. (Technically, we should have converted the image to a value using the RGB to BW node, but hey, this works just as "
+"well since we are using a BW image as input)."
+msgstr ""
+"在上面的节点图中，旋转旋涡的灰度图，本身不带有alpha通道，将此图片连接到颜色渐变节点的 *系数* 输入端口上。（专业上来说，首先应"
+"该把图像颜色值通过RGB -> BW 节点进行转换，恰好我们这个例子使用的就是BW格式图像，所以这步省略了。备注：BW是包含各种像素信息的一"
+"种黑白图形文件格式)。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:61
+msgid ""
+"We have set the Color Ramp node to a purely transparent color on the left end of the spectrum, and a fully Red color on the "
+"right. As seen in the viewer, the Color Ramp node puts out a mask that is fully transparent where the image is black. Black "
+"is zero, so Color Ramp uses the color at the left end of the spectrum, which we have set to transparent. The Color Ramp image "
+"is fully red and opaque where the image is white (1.00)."
+msgstr ""
+"现在讲渐变节点的颜色条左侧设置为清晰的透明色，右侧是红色。在预览器节点可查看效果，颜色渐变节点输出的遮罩透明部分显示为黑色。黑"
+"色是零值，对应颜色条左侧的位置，刚才将其设置为透明了，颜色渐变图像是红色的部分是不透明的，图像为白色（1.0）。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:68
+msgid "We verify that the output image mask is indeed transparent by overlaying it on top of another image."
+msgstr "我们可以看出图像遮罩输出实际上是覆盖在另一张图像上面使其遮挡不显示的部分，使需要的部分显示出来。"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:73
+msgid "Colorizing an Image"
+msgstr "彩色化图像"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:75
+msgid ""
+"The real power of Color Ramp is that multiple colors can be added to the color spectrum. This example compositing map takes a "
+"boring BW image and makes it a flaming swirl!"
+msgstr "颜色渐变节点真正强大的地方是可以添加多种颜色到颜色条上。下面这个范例是将单调的黑白色图像转化为彩色动感的旋涡！"
+
+#: ../../manual/compositing/types/converter/color_ramp.rst:81
+msgid ""
+"In this example, we have mapped the shades of gray in the input image to three colors, blue, yellow, and red, all fully "
+"opaque (Alpha of 1.00). Where the image is black, Color Ramp substitutes blue, the currently selected color. Where it is some "
+"shade of gray, Color Ramp chooses a corresponding color from the spectrum (bluish, yellow, to reddish). Where the image is "
+"fully white, Color Ramp chooses red."
+msgstr ""
+"这个范例中，颜色条上有三种输入色，蓝色，黄色和红色，是完全不透明色（Alpha值为1）。当图像是黑色，颜色渐变用当前选择的蓝色代替。"
+"当灰度部分，颜色渐变节点用可见光谱中相应的颜色来体现（浅蓝色，黄色到淡红色）。"

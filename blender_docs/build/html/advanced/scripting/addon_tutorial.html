@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Навчальник про Додатки &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/advanced/scripting/addon_tutorial.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Шаблони Застосунку -- Application Templates" href="../app_templates.html" />
+    <link rel="prev" title="Скриптування та Безпека" href="security.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Просунуте -- Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../command_line/index.html">Командний Рядок -- Command Line</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Написання скриптів та Розширення Blender'а</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Скриптування та Безпека</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Навчальник про Додатки</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#intended-audience">Цільова аудиторія</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documentation-links">Посилання на Документацію</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-an-add-on">Що таке Додаток?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#your-first-add-on">Ваш Перший Додаток</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#your-second-add-on">Ваш Другий Додаток</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusions">Висновки</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../app_templates.html">Шаблони Застосунку -- Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../limits.html">Робочі Ліміти -- Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Просунуте -- Advanced</a> &raquo;</li>
+        
+          <li><a href="index.html">Написання скриптів та Розширення Blender'а</a> &raquo;</li>
+        
+      <li>Навчальник про Додатки</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/advanced/scripting/addon_tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="add-on-tutorial">
+<h1>Навчальник про Додатки<a class="headerlink" href="#add-on-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="intended-audience">
+<h2>Цільова аудиторія<a class="headerlink" href="#intended-audience" title="Permalink to this headline">¶</a></h2>
+<p>Цей навчальник розроблено, щоб допомогти технічним митцям або розробникам дізнатися, як розширювати Blender. Припускається розуміння основ Python, хто хоче працювати з цим навчальником.</p>
+<div class="section" id="prerequisites">
+<h3>Передумови<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>Перед приступанням до продовження цього навчальника ви повинні...</p>
+<ul class="simple">
+<li>Бути знайомими з основами роботи у Blender'і.</li>
+<li>Знати, як виконувати скрипт у редакторі Тексту Blender'а.</li>
+<li>Мати розуміння примітивних типів у Python (int (цілочислове), boolean (булеве), string (рядкове), list (список), tuple (кортеж), dictionary (словник) та set (множина, набір))</li>
+<li>Бути знайомими з концепцією модулів Python.</li>
+<li>Мати базове розуміння класів (орієнтація об'єкта) у Python.</li>
+</ul>
+<p>Рекомендується прочитати перед приступанням до цього навчальника.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://getpython3.com/diveintopython3/index.html">Dive Into Python</a> секції (1, 2, 3, 4 і 7).</li>
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/info_quickstart.html#info-quickstart" title="(in Blender v2.79.0 855d2955c49 - API)"><span class="xref std std-ref">Blender API Quickstart</span></a> для ознайомлення з основами Blender/Python.</li>
+</ul>
+<p>Щоб краще відшуковувати помилки, будь-яке повідомлення про помилку Python виводиться у вікні терміналу при запуску скрипта у Blender'і. Дивіться про використання Терміналу -- <a class="reference external" href="https://docs.blender.org/api/2.79/info_tips_and_tricks.html#use-the-terminal" title="(in Blender v2.79.0 855d2955c49 - API)"><span class="xref std std-ref">Use The Terminal</span></a>.</p>
+</div>
+</div>
+<div class="section" id="documentation-links">
+<h2>Посилання на Документацію<a class="headerlink" href="#documentation-links" title="Permalink to this headline">¶</a></h2>
+<p>При проходженні цього навчальника ви можливо захочете глянути на нашу орієнтувальну документацію.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/info_overview.html#info-overview" title="(in Blender v2.79.0 855d2955c49 - API)"><span class="xref std std-ref">blender_api:Blender API Overview</span></a> --
+<em>This document is rather detailed but helpful if you want to know more on a topic.</em></li>
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/bpy.context.html#module-bpy.context" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.context</span></code></a> API reference --
+<em>Handy to have a list of available items your script may operate on.</em></li>
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.Operator.html#bpy.types.Operator" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.types.Operator</span></code></a> --
+<em>The following add-ons define operators, these docs give details and more examples of operators.</em></li>
+</ul>
+</div>
+<div class="section" id="what-is-an-add-on">
+<h2>Що таке Додаток?<a class="headerlink" href="#what-is-an-add-on" title="Permalink to this headline">¶</a></h2>
+<p>Додаток -- add-on -- це простий модуль Python з деякими додатковими умовами, що дає Blender'у можливість показувати їх у списку з корисною інформацією.</p>
+<p>Для прикладу розглянемо найпростіший можливий додаток:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;My Test Add-on&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Goodbye World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">bl_info</span></code></dt>
+<dd>це словник, що містить мета-дані додатку такі, як назву, версію та автора, які показуються у списку додатків Уподобань Користувача.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">register</span></code></dt>
+<dd>це функція, яка виконується тільки, коли вмикається додаток, що означає, що модуль може бути завантажений в пам'ять без активації додатку.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">unregister</span></code></dt>
+<dd>це функція вивантаження з пам'яті будь-чого, що завантажене функцією <code class="docutils literal notranslate"><span class="pre">register</span></code>, вона викликається, коли додаток вимикається.</dd>
+</dl>
+<p>Зауважте, що цей додаток нічого не робить відносно Blender'а, (модуль <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.data.html#module-bpy" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy</span></code></a> не імпортується, наприклад).</p>
+<p>Це вигаданий приклад додатку, що слугує для ілюстрації того, що базові умови додатку є простими.</p>
+<p>Додаток типово буде реєструвати оператори, панелі, записи меню тощо, але варто зазначити, що <em>будь-який</em> скрипт може робити це ж саме, коли виконується з редактора Тексту або навіть з інтерактивної консолі -- немає нічого за своєю суттю відрізняльного у додатку, що дозволяє його інтегрувати з Blender'ом, дана функціональність просто забезпечується модулем <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.data.html#module-bpy" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy</span></code></a> для будь-якого скрипту, щоб він мав доступ.</p>
+<p>Звідси, додаток -- це спосіб інкапсуляції модуля Python у спосіб, щоб користувач міг легко його використовувати.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Виконання цього скрипту у редакторі Тексту нічого не виводить, щоб бачити його вивід, він повинен бути установлений через Уподобання Користувача. Повідомлення будуть виводитися при вмиканні та вимкненні.</p>
+</div>
+</div>
+<div class="section" id="your-first-add-on">
+<h2>Ваш Перший Додаток<a class="headerlink" href="#your-first-add-on" title="Permalink to this headline">¶</a></h2>
+<p>Вищенаведений найпростіший можливий додаток є корисним, як приклад, але не більше того. Наступний додаток є також простим, але показує, як інтегрувати скрипт у Blender, використовуючи оператор <code class="docutils literal notranslate"><span class="pre">Operator</span></code>, який є типовим шляхом визначення засобу, доступного за допомогою меню, кнопок та скорочень клавіатури.</p>
+<p>Для першого прикладу ми зробимо скрипт, що просто переміщує усі об'єкти у сцені.</p>
+<div class="section" id="write-the-script">
+<h3>Написання Скрипту<a class="headerlink" href="#write-the-script" title="Permalink to this headline">¶</a></h3>
+<p>Додайте наступний скрипт у редактор Тексту Blender'а:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+    <span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>Клацніть на кнопці «Виконати Скрипт» -- <a class="reference internal" href="../../editors/text_editor.html#editors-text-run-script"><span class="std std-ref">Run Script</span></a>, усі об'єкти в активній сцені перемістяться на одну одиницю 1.0 Blender.</p>
+</div>
+<div class="section" id="write-the-add-on-simple">
+<h3>Написання Додатку (Просто)<a class="headerlink" href="#write-the-add-on-simple" title="Permalink to this headline">¶</a></h3>
+<p>Цей додаток бере тіло вищеописаного скрипту та додає його у функцію оператора <code class="docutils literal notranslate"><span class="pre">execute()</span></code>.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Move X Axis&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectMoveX</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;My Object Moving Script&quot;&quot;&quot;</span>      <span class="c1"># Use this as a tooltip for menu items and buttons.</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.move_x&quot;</span>        <span class="c1"># Unique identifier for buttons and menu items to reference.</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Move X by One&quot;</span>         <span class="c1"># Display name in the interface.</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>  <span class="c1"># Enable undo for the operator.</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>        <span class="c1"># execute() is called when running the operator.</span>
+
+        <span class="c1"># The original script</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span>
+            <span class="n">obj</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>            <span class="c1"># Lets Blender know the operator finished successfully.</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectMoveX</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectMoveX</span><span class="p">)</span>
+
+
+<span class="c1"># This allows you to run the script directly from Blender&#39;s Text editor</span>
+<span class="c1"># to test the add-on without having to install it.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">bl_info</span></code> розділено на кілька рядків, це просто стиль умовності, що використовується для більш легкого додання елементів.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Замість використання <code class="docutils literal notranslate"><span class="pre">bpy.context.scene</span></code>, ми використали аргумент <code class="docutils literal notranslate"><span class="pre">context.scene</span></code>, переданий оператору <code class="docutils literal notranslate"><span class="pre">execute()</span></code>. У більшості випадків це буде давати однакові результати. Однак, у деяких ситуаціях, оператори будуть передані власному контексту, а тому автори скрипту повинні віддавати перевагу аргументу <code class="docutils literal notranslate"><span class="pre">context</span></code>, який передається операторам.</p>
+</div>
+<p>Для тестування скрипту, який ви можете скопіювати та вставити у редактор Тексту Blender'а, і виконати його. це буде виконувати цей скрипт безпосередньо і викличе негайну його реєстрацію.</p>
+<p>Однак, виконання цього скрипту у такому вигляді не буде переміщувати жоден з об'єктів, для цього вам необхідно виконати ново зареєстрований оператор.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/advanced_scripting_addon-tutorial_operator-search-menu.png" src="../../_images/advanced_scripting_addon-tutorial_operator-search-menu.png" />
+<p class="caption"><span class="caption-text">Меню Пошуку Оператора.</span></p>
+</div>
+<p>Щоб зробити це, натисніть <kbd class="kbd docutils literal notranslate">Spacebar</kbd> для виклику меню пошуку оператора та уведіть в ньому &quot;Move X by One&quot; (<code class="docutils literal notranslate"><span class="pre">bl_label</span></code>), а потім натисніть <kbd class="kbd docutils literal notranslate">Return</kbd>.</p>
+<p>Об'єкти повинні переміститися, як і у попередньому випадку.</p>
+<p><em>Утримуйте цей додаток відкритим у Blender'і для наступного кроку -- Установлення.</em></p>
+</div>
+<div class="section" id="install-the-add-on">
+<h3>Установлення Додатку<a class="headerlink" href="#install-the-add-on" title="Permalink to this headline">¶</a></h3>
+<p>Після того, як у вас є додаток у редакторі Тексту Blender'а, ви схочете змогти установити його, щоб його можна було вмикати в Уподобаннях Користувача для завантаження при запуску програми.</p>
+<p>Незважаючи на те, що цей додаток є всього лише тестом, давайте пройдемо усі потрібні кроки, щоб ви знали, як це робити на майбутнє.</p>
+<p>To install the Blender text as an add-on, you will first have to save it to disk. Take care to obey the naming
+restrictions that apply to Python modules and end with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> extension.</p>
+<p>Після збереження файлу на диску ви можете установити його так само, як і додаток, звантажений з Інтернету.</p>
+<p>Open the user <span class="menuselection">File ‣ User Preferences</span>,
+select the <em>Add-on</em> tab, press <em>Install Add-on...</em> and select the file.</p>
+<p>Тепер додаток буде показуватися у списку і ви зможете увімкнути його, поставивши стяг біля його запису, а якщо ви хочете, щоб він вмикався автоматично при запуску програми, то клацніть на кнопці «Зберегти Уподобання Користувача» -- <em>Save User Preferences</em>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Місце знаходження додатку залежить від вашої конфігурації Blender'а. При установленні додатку шлях джерела і призначення виводяться у консолі. Ви можете також знайти шлях до локації додатку, виконавши це у консолі Python.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">addon_utils</span>
+<span class="k">print</span><span class="p">(</span><span class="n">addon_utils</span><span class="o">.</span><span class="n">paths</span><span class="p">())</span>
+</pre></div>
+</div>
+<p class="last">Детальніше про цю тему тут Розстава Тек: <span class="xref std std-ref">Directory Layout</span>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="your-second-add-on">
+<h2>Ваш Другий Додаток<a class="headerlink" href="#your-second-add-on" title="Permalink to this headline">¶</a></h2>
+<p>Для нашого другого додатку ми зосередимось на примірникуванні об'єкта -- тобто -- на зробленні пов'язаних копій об'єкта подібно до тих, які ми отримуємо за допомогою модифікатора «Масив» -- Array.</p>
+<div class="section" id="id1">
+<h3>Написання Скрипту<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Як і попередньо, спершу почнемо зі скрипту, розробимо його, а потім конвертуємо у додаток.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="k">import</span> <span class="n">context</span>
+
+<span class="c1"># Get the current scene</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+
+<span class="c1"># Get the 3D cursor</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+
+<span class="c1"># Get the active object (assume we have one)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+<span class="c1"># Now make a copy of the object</span>
+<span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># The object won&#39;t automatically get into a new scene</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+<span class="c1"># Now we can place the object</span>
+<span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="n">cursor</span>
+</pre></div>
+</div>
+<p>Тепер, спробуємо скопіювати цей скрипт у Blender та виконати його на стандартному Кубі. Переконайтеся, що ви клацнули в іншому місці для переміщення 3D-курсора перед виконанням, щоб дублікат був видимий на екрані в іншій локації курсора.</p>
+<p>Після виконання, зауважте, що коли ви перемикаєтесь у режим правки -- Edit Mode та змінюєте цей Куб -- то усі копії його також будуть змінюватися -- це те, що у Blender'і називається як «Пов'язані Дублікати» -- <em>Linked Duplicates</em>.</p>
+<p>Наступне, ми зациклимо цю дію для отримання масиву між активним об'єктом та курсором.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">from</span> <span class="nn">bpy</span> <span class="k">import</span> <span class="n">context</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+<span class="c1"># Use a fixed value for now, eventually make this user adjustable</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="c1"># Add &#39;total&#39; objects into the scene</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
+    <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+    <span class="c1"># Now place the object in between the cursor</span>
+    <span class="c1"># and the active object based on &#39;i&#39;</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">total</span>
+    <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Спробуйте виконати цей скрипт на активному об'єкті і курсорі, що розташований десь подалі від нього, щоб побачити результат.</p>
+<p>Для цього скрипту, як ви помітили, ми зробили певні математичні розрахунки з локаціями об'єкта та курсора, які спрацювали, оскільки обидва є 3D-примірниками <code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.</span> <span class="pre">Vector</span></code>, зручний клас було забезпечено модулем <a class="reference external" href="https://docs.blender.org/api/2.79/mathutils.html#module-mathutils" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">mathutils</span></code></a>, який дозволяє векторам множитися на числа та матриці.</p>
+<p>If you are interested in this area, read into <a class="reference external" href="https://docs.blender.org/api/2.79/mathutils.html#mathutils.Vector" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>
+-- there are many handy utility functions such as getting the angle between vectors,
+cross product, dot products as well as more advanced functions in <a class="reference external" href="https://docs.blender.org/api/2.79/mathutils.geometry.html#module-mathutils.geometry" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">mathutils.geometry</span></code></a>
+such as Bézier spline interpolation and ray-triangle intersection.</p>
+<p>Далі ми зосередимося на перетворенні цього скрипту у додаток, але добре знати, що цей 3D-математичний модуль доступний і може допомогти вам у майбутньому отримувати просунуту функціональність.</p>
+</div>
+<div class="section" id="write-the-add-on">
+<h3>Написання Додатку<a class="headerlink" href="#write-the-add-on" title="Permalink to this headline">¶</a></h3>
+<p>Першим кроком конвертуємо цей скрипт «як є» у додаток.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cursor Array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectCursorArray</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object Cursor Array&quot;&quot;&quot;</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.cursor_array&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Cursor Array&quot;</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">10</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
+            <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="n">total</span>
+            <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Враховуючи все, що було обговорено у попередніх кроках, ви можете схотіти спробувати виконати цей додаток так, як є, та розглянути, що ще може бути зроблено для його покращення.</p>
+<p>Дві найбільш очевидні пропущені речі тут -- наявність фіксованості з 10-и елементів та наявність доступу до цього оператора через меню Пробіла -- є не дуже зручними.</p>
+<p>Обидва ці аспекти пояснюються далі, нижче.</p>
+<div class="section" id="operator-property">
+<h4>Властивість Оператора<a class="headerlink" href="#operator-property" title="Permalink to this headline">¶</a></h4>
+<p>Існують різні типи властивостей, що використовуються для установок засобів, загальними ж з них є: int (цілочислове), float (дійсночислове), vector (вектор), color (колір), boolean (булеве) and string (рядкове).</p>
+<p>Ці властивості вказуються по-різному у типових атрибутах класів Python, оскільки Blender потребує показувати в інтерфейсі, зберігати їх установки у розкладках клавіш та зберігати ці установки для повторного використання.</p>
+<p>При вказуванні їх у стилі Python, майте на увазі, що ви фактично визначаєте установки засобу, які будуть завантажуватися у Blender'і та будуть доступні іншими частинами Blender'а, поза Python.</p>
+<p>Для усунення обмеження 10-х елементів для <code class="docutils literal notranslate"><span class="pre">total</span></code> скористаємося наступною властивістю оператора. Властивості оператора визначаються через модуль bpy.props, це додається у тіло класу:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># moved assignment from execute() to the body of the class...</span>
+<span class="n">total</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Steps&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># and this is accessed on the class</span>
+<span class="c1"># instance within the execute() function as...</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+</pre></div>
+</div>
+<p>Ці властивості із <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.props.html#module-bpy.props" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.props</span></code></a> обробляються спеціально Blender'ом, коли клас реєструється, а тому вони показуються у вигляді кнопок в інтерфейсі користувача. Існують багато аргументів, які ви можете передавати у властивостях для задання лімітів, зміни стандарту та показу спливної підказки.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bpy.props.IntProperty</span></code></p>
+</div>
+<p>Цей документ не вдається у подробиці про використання інших типів властивостей, однак за цим вищенаведеним посиланням розміщено приклади більш просунутого використання властивостей.</p>
+</div>
+<div class="section" id="menu-item">
+<h4>Пункт Меню<a class="headerlink" href="#menu-item" title="Permalink to this headline">¶</a></h4>
+<p>Додатки можуть додавати в інтерфейс користувача наявні панелі, заголовки та меню, визначені у Python.</p>
+<p>Для цього прикладу ми додамо пункт у наявне вже меню.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/advanced_scripting_addon-tutorial_menu-id.png" src="../../_images/advanced_scripting_addon-tutorial_menu-id.png" />
+<p class="caption"><span class="caption-text">Menu Identifier.</span></p>
+</div>
+<p>Для знаходження ідентифікатора меню ви можете навести мишу над потрібним пунктом меню та його ідентифікатор покажеться у спливній підказці.</p>
+<p>Метод, який використовується для додання пункту меню, полягає у прикріпленні функції прорисування в наявний клас:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Детальніше про розширення меню дивіться: <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.Menu.html" title="(in Blender v2.79.0 855d2955c49 - API)"><span>Menu(bpy_struct)</span></a>.</p>
+</div>
+<div class="section" id="keymap">
+<h4>Розкладка клавіш<a class="headerlink" href="#keymap" title="Permalink to this headline">¶</a></h4>
+<p>У Blender'і додатки мають власні розкладки клавіші, які не пересікаються з вбудованими розкладками клавіш Blender'а.</p>
+<p>У прикладі нижче, додається новий режим об'єкта <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.KeyMap.html#bpy.types.KeyMap" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.types.KeyMap</span></code></a>, далі додається <a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.KeyMapItem.html#bpy.types.KeyMapItem" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.types.KeyMapItem</span></code></a> у розкладку клавіш, яка орієнтується на наш ново доданий оператор, використовуючи <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Spacebar</kbd> як скорочення клавіш для його активації.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># store keymaps here to access after registration</span>
+<span class="n">addon_keymaps</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span><span class="o">.</span><span class="n">keymaps</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Object Mode&#39;</span><span class="p">,</span> <span class="n">space_type</span><span class="o">=</span><span class="s1">&#39;EMPTY&#39;</span><span class="p">)</span>
+
+    <span class="n">kmi</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="s1">&#39;SPACE&#39;</span><span class="p">,</span> <span class="s1">&#39;PRESS&#39;</span><span class="p">,</span> <span class="n">ctrl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">kmi</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">km</span><span class="p">,</span> <span class="n">kmi</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="k">for</span> <span class="n">km</span><span class="p">,</span> <span class="n">kmi</span> <span class="ow">in</span> <span class="n">addon_keymaps</span><span class="p">:</span>
+        <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">kmi</span><span class="p">)</span>
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Зауважте, як цей елемент розкладки клавіш може мати іншу уставу <code class="docutils literal notranslate"><span class="pre">total</span></code>, ніж стандартно задана оператором, це дозволяє вам мати одночасно кілька варіантів клавіш для доступу до того ж самого оператора з різними уставами.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Хоча <kbd class="kbd docutils literal notranslate">Ctrl-Shift-Space</kbd> і не є стандартним скороченням клавіш у Blender'і, важко бути впевненим, що додаток з таким скороченням не перезапише інші розкладки клавіш. Принаймні, будьте обережні при призначенні клавіш для додатків, щоб вони не конфліктували зі скороченнями, що дають доступ до важливої функціональності у Blender'і.</p>
+</div>
+<p>Для функій, згаданих вище, дивіться наступну API документацію:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyMaps.new</span></code>,</li>
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.KeyMap.html#bpy.types.KeyMap" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.types.KeyMap</span></code></a>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">bpy.types.KeyMapItems.new</span></code>,</li>
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/bpy.types.KeyMapItem.html#bpy.types.KeyMapItem" title="(in Blender v2.79.0 855d2955c49 - API)"><code class="docutils literal notranslate"><span class="pre">bpy.types.KeyMapItem</span></code></a>.</li>
+</ul>
+</div>
+<div class="section" id="bringing-it-all-together">
+<h4>Зведення Всього В Одне<a class="headerlink" href="#bringing-it-all-together" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bl_info</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Cursor Array&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;category&quot;</span><span class="p">:</span> <span class="s2">&quot;Object&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="kn">import</span> <span class="nn">bpy</span>
+
+
+<span class="k">class</span> <span class="nc">ObjectCursorArray</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">Operator</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object Cursor Array&quot;&quot;&quot;</span>
+    <span class="n">bl_idname</span> <span class="o">=</span> <span class="s2">&quot;object.cursor_array&quot;</span>
+    <span class="n">bl_label</span> <span class="o">=</span> <span class="s2">&quot;Cursor Array&quot;</span>
+    <span class="n">bl_options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;REGISTER&#39;</span><span class="p">,</span> <span class="s1">&#39;UNDO&#39;</span><span class="p">}</span>
+
+    <span class="n">total</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">props</span><span class="o">.</span><span class="n">IntProperty</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Steps&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">cursor_location</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">active</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="p">):</span>
+            <span class="n">obj_new</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">obj_new</span><span class="p">)</span>
+
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">i</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+            <span class="n">obj_new</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">location</span> <span class="o">*</span> <span class="n">factor</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">cursor</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">factor</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">menu_func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">layout</span><span class="o">.</span><span class="n">operator</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">)</span>
+
+<span class="c1"># store keymaps here to access after registration</span>
+<span class="n">addon_keymaps</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">register_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+
+    <span class="c1"># handle the keymap</span>
+    <span class="n">wm</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">window_manager</span>
+    <span class="c1"># Note that in background mode (no GUI available), keyconfigs are not available either,</span>
+    <span class="c1"># so we have to check this to avoid nasty errors in background case.</span>
+    <span class="n">kc</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span>
+    <span class="k">if</span> <span class="n">kc</span><span class="p">:</span>
+        <span class="n">km</span> <span class="o">=</span> <span class="n">wm</span><span class="o">.</span><span class="n">keyconfigs</span><span class="o">.</span><span class="n">addon</span><span class="o">.</span><span class="n">keymaps</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Object Mode&#39;</span><span class="p">,</span> <span class="n">space_type</span><span class="o">=</span><span class="s1">&#39;EMPTY&#39;</span><span class="p">)</span>
+        <span class="n">kmi</span> <span class="o">=</span> <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="o">.</span><span class="n">bl_idname</span><span class="p">,</span> <span class="s1">&#39;SPACE&#39;</span><span class="p">,</span> <span class="s1">&#39;PRESS&#39;</span><span class="p">,</span> <span class="n">ctrl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">kmi</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">km</span><span class="p">,</span> <span class="n">kmi</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">unregister</span><span class="p">():</span>
+    <span class="c1"># Note: when unregistering, it&#39;s usually good practice to do it in reverse order you registered.</span>
+    <span class="c1"># Can avoid strange issues like keymap still referring to operators already unregistered...</span>
+    <span class="c1"># handle the keymap</span>
+    <span class="k">for</span> <span class="n">km</span><span class="p">,</span> <span class="n">kmi</span> <span class="ow">in</span> <span class="n">addon_keymaps</span><span class="p">:</span>
+        <span class="n">km</span><span class="o">.</span><span class="n">keymap_items</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">kmi</span><span class="p">)</span>
+    <span class="n">addon_keymaps</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+
+    <span class="n">bpy</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">unregister_class</span><span class="p">(</span><span class="n">ObjectCursorArray</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">VIEW3D_MT_object</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">menu_func</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">register</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure" id="id4">
+<img alt="../../_images/advanced_scripting_addon-tutorial_in-menu.png" src="../../_images/advanced_scripting_addon-tutorial_in-menu.png" />
+<p class="caption"><span class="caption-text">У меню.</span></p>
+</div>
+<p>Виконайте цей скрипт (або збережіть його у файл та установіть через Уподобання Користувача, як і попередньо) і відповідний пункт з'явиться у меню.</p>
+<div class="figure" id="id5">
+<img alt="../../_images/advanced_scripting_addon-tutorial_op-prop.png" src="../../_images/advanced_scripting_addon-tutorial_op-prop.png" />
+<p class="caption"><span class="caption-text">Властивість Оператора.</span></p>
+</div>
+<p>Після вибору його у меню ви можете вказати, скільки примірників куба ви хочете створити.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Безпосереднє виконання цього скрипту кілька разів буде додавати відповідну кількість пунктів у меню. Хоча це не корисна поведінка, тут немає нічого страшного, оскільки додатки не реєструються більше одного разу при їх увімкненні через Уподобання Користувача.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Висновки<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>Додатки можуть інкапсулювати акуратно певну функціональність при написанні засобів для покращення вашого потоку роботи або при написанні утиліт для використання іншими користувачами.</p>
+<p>Хоча існують обмеження того, що Python може робити у Blender'і, однак багато з чого може бути досягнуто без потреби заглиблюватися у код C/C++ самого Blender'а.</p>
+<p>Наведений у цьому навчальнику приклад є обмеженим, але демонструє використання Blender API для загальних завдань, які ви можете розширити, написавши власні засоби.</p>
+<div class="section" id="further-reading">
+<h3>Додаткові Матеріали<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h3>
+<p>Blender comes with commented templates which are accessible from the Text editor's header.
+If you have specific areas you want to see example code for, this is a good place to start.</p>
+<p>Ось деякі із сайтів, які можливо ви схочете переглянути після завершення цього навчальника.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.blender.org/api/2.79/info_overview.html#info-overview" title="(in Blender v2.79.0 855d2955c49 - API)"><span class="xref std std-ref">Blender/Python API Overview</span></a> -- <em>Більш детальні подробиці щодо інтеграції Blender/Python.</em></li>
+<li><a class="reference external" href="http://interactivepython.org/courselib/static/thinkcspy/index.html">How to Think Like a Computer Scientist</a> -- <em>Багато інфо для тих, хто тільки почав вивчати Python.</em></li>
+<li><a class="reference external" href="https://wiki.blender.org/index.php/Dev:Contents">Blender Development (Wiki)</a> -- <em>Розроблення Blender, загальна інформація та корисні посилання.</em></li>
+<li><a class="reference external" href="https://blenderartists.org/forum/forumdisplay.php?47-Coding">Blender Artists (Coding Section)</a> -- <em>форум, де люди задають питання щодо розроблення на Python.</em></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../app_templates.html" class="btn btn-neutral float-right" title="Шаблони Застосунку -- Application Templates" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security.html" class="btn btn-neutral" title="Скриптування та Безпека" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

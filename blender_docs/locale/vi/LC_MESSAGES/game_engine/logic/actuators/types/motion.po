@@ -1,0 +1,294 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Blender 2.78 Manual 2.78\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-23 21:02-0400\n"
+"PO-Revision-Date: 2018-02-13 15:40+0200\n"
+"Last-Translator: urko <urkokul@gmail.com>\n"
+"Language: uk\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:5
+msgid "Motion Actuator"
+msgstr "Актуатор «Рух» -- Motion Actuator"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:7
+msgid ""
+"The *Motion Actuator* sets an object into motion. There are two modes of "
+"operation, Simple or Servo, in which the object can either teleport and "
+"rotate, or dynamically move."
+msgstr ""
+"Актуатор *Motion* установлює об'єкт у рух. Існує два режими операції, "
+"простий -- Simple або серво -- Servo, в яких об'єкт може телепортуватися "
+"та обертатися або динамічно переміщатися."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:12
+msgid "Properties"
+msgstr "Властивості -- Properties"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:23
+msgid "Motion Type"
+msgstr "Тип Руху -- Motion Type"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:15
+msgid "Determines the type of motion:"
+msgstr "Визначає тип руху:"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:17
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:26
+msgid "Simple Motion"
+msgstr "Простий Рух -- Simple Motion"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:18
+msgid "Applies a change in location and/or rotation directly."
+msgstr "Застосовує зміну в локації та/або обертанні безпосередньо."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:19
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:53
+msgid "Servo Control"
+msgstr "Серво Керування -- Servo Control"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:20
+msgid "Sets a target speed, and also how quickly it reaches that speed."
+msgstr "Задає цільову швидкість, а також, як швидко досягається ця швидкість."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:23
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:120
+msgid "Character Motion"
+msgstr "Рух Персонажа -- Character Motion"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:22
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:122
+msgid "TODO."
+msgstr "TODO."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:28
+msgid ""
+"*Simple Motion* gives control over position and velocity, but does this "
+"as an instant displacement; the object never passes any of the "
+"coordinates between the start and end positions. This can interfere with "
+"the physical simulation of other objects, and can cause an object to go "
+"through another object. The `Servo Control`_ actuator does not suffer "
+"from this, since it produces physically correct velocities, and leaves "
+"updating the position to the physics simulation."
+msgstr ""
+"*Simple Motion* дає керування над позицією та скорістю, але робить це як "
+"миттєве зміщення; об'єкт ніколи не проходить жодної координати між "
+"стартовою та кінцевою позиціями. Це може втручатися у фізичну імітацію "
+"інших об'єктів та може спричиняти проходження об'єкта крізь інший об'єкт."
+" Актуатор `Servo Control`_ не страждає цим, оскільки він продукує фізично"
+" коректні скорості та залишає оновлення позиції до фізичної імітації."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:40
+msgid "Motion actuator for Simple Motion."
+msgstr "Актуатор Motion з типом Simple Motion."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:43
+msgid "Loc"
+msgstr "Loc -- Локація"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:43
+msgid ""
+"The object jumps the number of Blender units entered, each time a pulse "
+"is received."
+msgstr ""
+"Об'єкт стрибає на кількість заданих тут одиниць Blender'а, кожен раз при "
+"отриманні пульсу."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:46
+msgid "Rot"
+msgstr "Rot -- Обертання"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:46
+msgid "The object rotates by the specified amount, each time a pulse is received."
+msgstr ""
+"Об'єкт обертається на визначену тут величину, кожен раз при отриманні "
+"пульсу."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:50
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:89
+msgid "L"
+msgstr "L -- Локаль"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:49
+msgid "Coordinates specified are Global (gray) or Local (white)."
+msgstr ""
+"Перемикає визначення координат як Глобальні (позначено сірим) або "
+"Локальні (позначено білим)."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:55
+msgid ""
+"The Servo Control actuator influences the velocity of a game object by "
+"applying forces, resulting in correct behavior when colliding with other "
+"objects controlled by the physics simulation. The amount of force "
+"necessary is determined by a `PID controller "
+"<https://en.wikipedia.org/wiki/PID_controller>`__, a type of controller "
+"that is often used in control systems. Only the positional velocity is "
+"influenced by this actuator; it does not control rotation at all, and it "
+"controls position only indirectly."
+msgstr ""
+"Актуатор типу Servo Control впливає на скорість об'єкта гри шляхом "
+"застосування сил, що дають у результаті коректну поведінку при стиканні з"
+" іншими об'єктами, що керуються імітацією фізики. Величина необхідної "
+"сили визначається пропорціонально-інтегрально-диференціальним контролером"
+" -- `PID controller <https://en.wikipedia.org/wiki/PID_controller>`__, "
+"типом контролера, що часто використовується у системах керування. Цей "
+"актуатор впливає тільки на позиційну скорість; він не керує обертання "
+"взагалі та керує позицією тільки опосередковано."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:62
+msgid ""
+"Controlling the position is not necessary in that respect; that is left "
+"to a player moving the object via direction-type controls (such as the "
+"WASD keys in a first person shooter). In such a scenario, each direction-"
+"key sensor should be attached to a different Servo Control actuator "
+"setting a different target velocity."
+msgstr ""
+"Керування позицією не є необхідним у цьому відношенні; для гравця "
+"залишається рухати об'єкт за допомогою контролерів типу «напрямок» (таких"
+" як клавіші WASD у шутері від першої особи). У такому сценарії кожен "
+"сенсор клавіші напрямку повинен бути прикріплений до різних актуаторів з "
+"типом Servo Control із заданням для них різних цільових скоростей."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:70
+msgid ""
+"To use the Servo Control actuator, it is necessary to set the object's "
+"Physics Type to \"Dynamic\" or \"Rigid Body\", and to mark the object as "
+"\"Actor\" in the same panel. This actuator does not work with the "
+"Character physics type."
+msgstr ""
+"Для використання актуатора з типом Servo Control необхідно задати Тип "
+"Фізики об'єкта як \"Dynamic\" або \"Rigid Body\" та позначити об'єкт як "
+"\"Actor\" на тій же панелі. Цей актуатор не працює з типом фізики "
+"Character."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:78
+msgid "Servo Control."
+msgstr "Серво Керування -- Servo Control."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:84
+msgid "Reference Object"
+msgstr "Об'єкт Орієнтира -- Reference Object"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:81
+msgid ""
+"Specifies the object which the actuator uses as a reference for the "
+"velocity. When set, it will use a velocity relative to that object "
+"instead of absolute (i.e. world-relative) velocity. Use this for a player"
+" object standing on a moving platform."
+msgstr ""
+"Визначає об'єкт, який цей актуатор використовує як орієнтир для скорості."
+" При заданні він буде використовувати скорість відносно такого об'єкта, а"
+" не абсолютну (тобто, відносно світу) скорість. Використовуйте це для "
+"об'єкта гравця на рухомій платформі."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:86
+msgid "Linear Velocity"
+msgstr "Лінеарна Скорість -- Linear Velocity"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:87
+msgid "The target linear velocity for the object."
+msgstr "Цільова лінеарна скорість для об'єкта."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:89
+msgid ""
+"Determines whether the Linear Velocity specified are in Local (button "
+"depressed) or Global (button released) coordinates."
+msgstr ""
+"Визначає, чи Лінеарна Скорість визначається у Локальних (кнопка "
+"натиснута) або Глобальних (кнопка відпущена) координатах."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:93
+msgid "X, Y, Z force limits"
+msgstr "Ліміти сили по X, Y, Z"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:92
+msgid ""
+"Sets minimum and maximum limits for the force applied to the object. If "
+"disabled (i.e. X, Y or Z buttons are depressed) the force applied is "
+"unlimited."
+msgstr ""
+"Задає мінімальні та максимальні ліміти для сили, застосованої до об'єкта."
+" Якщо вимкнуто (тобто кнопки X, Y або Z натиснуті), то застосована сила "
+"не лімітується."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:95
+msgid ""
+"The following three coefficients determine the response to the *velocity "
+"error*, which is the difference between the target velocity and the "
+"object's actual velocity."
+msgstr ""
+"Наступні три коефіцієнти визначають відповідь на *помилку скорості*, яка "
+"є різницею між цільовою скорістю та фактичною скорістю об'єкта."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:100
+msgid "Proportional Coefficient"
+msgstr "Пропорційний Коефіцієнт -- Proportional Coefficient"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:99
+msgid ""
+"This controls the reaction proportional to the velocity error. Small "
+"values cause smooth (but possibly too slow) changes in velocity. Higher "
+"values cause rapid changes, but may cause overshooting."
+msgstr ""
+"Це керує реакцією, пропорційно до помилки скорості. Малі значення "
+"спричиняють плавні (але можливо надто повільні) зміни у скорості. Вищі "
+"значення спричиняють швидкі зміни, але можуть давати перевищення."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:112
+msgid "Integral Coefficient"
+msgstr "Інтегральний Коефіцієнт -- Integral Coefficient"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:103
+msgid ""
+"This controls the reaction to the sum of errors so far. Using only the "
+"Proportional component results in a systematic velocity error if there is"
+" friction: some velocity delta is necessary to produce the force that "
+"compensates the friction. Using the Integral component suppresses this "
+"effect (the target velocity is achieved on average) but can create "
+"oscillations; the control will speed to compensate the initial velocity "
+"error. To avoid the oscillation, the Proportional component must be used "
+"with the Integral component (the Proportional component damps the "
+"control) This is why the GUI sets the Proportional Coefficient "
+"systematically when you change the Integral Coefficient."
+msgstr ""
+"Це керує реакцією відносно суми помилок. Використання тільки "
+"Пропорційного компонента дає систематичну помилку скорості, якщо там "
+"присутнє тертя; для продукування сили, що компенсує це тертя, необхідна "
+"деяка дельта скорості. Використання Інтегрального компонента придушує цей"
+" ефект (цільова скорість досягається усередненням), але може створювати "
+"коливання; цей контролер буде пришвидшувати компенсацію помилки "
+"початкової скорості. Для запобігання коливанню Пропорційний компонент "
+"повинен використовуватися разом з Інтегральним компонентом (Пропорційний "
+"компонент гасить це керування) Ось чому графічний інтерфейс користувача "
+"задає Пропорційний Коефіцієнт систематично, коли ви змінюєте Інтегральний"
+" Коефіцієнт."
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:117
+msgid "Derivative Coefficient"
+msgstr "Коефіцієнт Похідної -- Derivative Coefficient"
+
+#: ../../manual/game_engine/logic/actuators/types/motion.rst:115
+msgid ""
+"Set the Derivative Coefficient. This dampens the acceleration when the "
+"target velocity is almost reached."
+msgstr ""
+"Задає Коефіцієнт Похідної. Це гасить прискорення, коли цільова скорість "
+"майже досягнута."
+
+#~ msgid ""
+#~ "See :doc:`Actuator Common Options "
+#~ "</game_engine/logic/actuators/common_options>` for common"
+#~ " options."
+#~ msgstr ""
+#~ "Про загальні опції дивіться тут -- "
+#~ ":doc:`Actuator Common Options "
+#~ "</game_engine/logic/actuators/common_options>`."
+

@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/game_engine/screen_layout.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Устави Гри -- Game Settings" href="settings/index.html" />
+    <link rel="prev" title="Вступ" href="introduction.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Рушій Ігор -- Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/index.html">Устави Гри -- Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materials.html">Матеріали для Гри -- Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="world.html">Світ -- World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logic/index.html">Логіка -- Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera/index.html">Камера -- Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Міркування щодо продуктивності -- Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_api/index.html">Інтерфейс програмування застосунків Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blender_player.html">Окремий Відтворювач -- Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing.html">Ліцензування ігор Blender'а -- Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Рушій Ігор -- Game Engine</a> &raquo;</li>
+        
+      <li>Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/game_engine/screen_layout.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="game-logic-screen-layout">
+<h1>Розстава Екрану «Логіка Гри» -- Game Logic Screen Layout<a class="headerlink" href="#game-logic-screen-layout" title="Permalink to this headline">¶</a></h1>
+<p>Розроблення, конструювання, налагодження та виконання гри використовує широкий діапазон функцій Blender'а. Для допомоги з цим процесом Blender включає пропоновану розставу екрану для укладання ігор BGE. Це включає багато вже відомих панелей, а також нову панель Редактора Логіки -- <a class="reference internal" href="../editors/logic_editor.html"><span class="doc">Logic Editor</span></a> (4), присвячену виключно BGE.</p>
+<p>Ілюстрація нижче демонструє цю стандартну розставу екрану «Логіка Гри» -- Game Logic разом з відповідними опціями для укладу/налагодження/виконання гри (вони повинні бути укладені у показаному порядку).</p>
+<div class="figure" id="id1">
+<img alt="../_images/game-engine_screen-layout_overview.jpg" src="../_images/game-engine_screen-layout_overview.jpg" />
+<p class="caption"><span class="caption-text">Розстава Екрану «Логіка Гри» -- Game Logic.</span></p>
+</div>
+<p class="rubric">1) Game Logic</p>
+<p>Вибрана зі списку розстав екрану для різних застосувань. Це включає багато вже відомих панелей (Information, 3D View, Properties), а також нову панель редактора Logic Editor, що присвячена виключно для BGE.</p>
+<p class="rubric">2) Blender Game</p>
+<p>Обрано з меню вибірника рушіїв рендерингу. Це визначає, що увесь вивід буде виводитися реально-часовим рендерером, зображувачем Blender Game Engine. Це також відкриває різні інші опції меню, такі як опції меню «Гра» -- Game у Редакторі Інфо (дивіться нижче) та діапазон властивостей для рендерера BGE у Редакторі Властивостей (дивіться нижче).</p>
+<div class="figure" id="id2">
+<img alt="../_images/game-engine_physics_introduction_visualization.png" src="../_images/game-engine_physics_introduction_visualization.png" />
+<p class="caption"><span class="caption-text">Game options.</span></p>
+</div>
+<p class="rubric">3) Game</p>
+<p>Це меню надає різні опції для умов виконання рушія Game Engine. Зауважте, що це меню доступне у Редакторі Інфо тільки, коли рушій рендера установлено як Blender Game.</p>
+<dl class="docutils">
+<dt>Запустити Рушій Ігор -- Start Game Engine</dt>
+<dd>Виконує гру у рушії Game Engine (<kbd class="kbd docutils literal notranslate">P</kbd> чи <kbd class="kbd docutils literal notranslate">Shift-P</kbd>, коли вказівник миші знаходиться над редактором 3D View).</dd>
+<dt>Показати Властивості Налагодження -- Show Debug Properties</dt>
+<dd>Показує властивості, позначені для налагодження під час виконання гри.</dd>
+<dt>Show frame rate and profile</dt>
+<dd>Show frame rate and profiling information while game runs.</dd>
+<dt>Показати Фізику -- Show Physics</dt>
+<dd>Показує візуалізацію меж та взаємодій фізики.</dd>
+<dt>Попередження про Небажаність -- Deprecation Warnings</dt>
+<dd>Виводить попередження, коли використовуються небажані, несхвалювані функції в Python API.</dd>
+<dt>Записати Анімацію -- Record Animation</dt>
+<dd>Записує анімацію гри у функціональні криві F-Curves.</dd>
+<dt>Авто Старт -- Auto Start</dt>
+<dd>Автоматично запускає гру під час завантаження.</dd>
+</dl>
+<p class="rubric">4) Logic Editor panel</p>
+<p>Редактор Логіки -- <a class="reference internal" href="../editors/logic_editor.html"><span class="doc">Logic Editor</span></a> -- це місце, де укладаються логіка, властивості та стани -- <a class="reference internal" href="logic/index.html"><span class="doc">logic, properties and states</span></a> для керування поведінкою об'єктів у грі. (Показ панелі редактора Logic Editor може бути також увімкнено вибором пункту Logic Editor у меню вибірника редакторів Display Editor, натисненням <kbd class="kbd docutils literal notranslate">Shift-F2</kbd> або <kbd class="kbd docutils literal notranslate">Ctrl-Right</kbd>).</p>
+<p class="rubric">5) Properties</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Два значення одного і того ж слова</p>
+<p class="last">Зауважте, що слово «властивість» -- &quot;Property&quot; має два різних використання у термінології Blender'а -- перше у широкому сенсі для панелі Properties лівого регіону Редактора Логіки, про описується тут, та друге -- як термін, використовуваний для певних змінних логіки рушія Game Engine, що також називаються &quot;properties&quot;.</p>
+</div>
+<p>Панель Properties лівого регіону Редактора Логіки вибирається, як і звичайно, з меню його заголовка. Однак, зауважте, що деякі секції цієї панелі змінюється при зміні рушія рендера (2) з Blender Render на Blender Game.</p>
+<p>Дивіться окремі підрозділи про деталі вмісту панелей вкладки <a class="reference internal" href="physics/index.html"><span class="doc">Physics</span></a> у Редакторі Properties.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="settings/index.html" class="btn btn-neutral float-right" title="Устави Гри -- Game Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Вступ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

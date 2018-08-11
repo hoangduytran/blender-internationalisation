@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Система -- System &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/preferences/system.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Редактор Інфо -- Info Editor" href="../editors/info/index.html" />
+    <link rel="prev" title="«Файл» -- File" href="file.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Компонування -- Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Уподобання Користувача -- User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Вступ</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Вкладки -- Tabs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interface.html">«Інтерфейс» -- Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">«Правка» -- Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">«Увід» - Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addons.html">«Додатки» -- Add-ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">«Теми» -- Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html">«Файл» -- File</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Система -- System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">Загальне -- General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sound">Звук -- Sound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#screencast">Екранозапис -- Screencast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compute-device">Пристрій Обчислення -- Compute Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opensubdiv-compute">Обчислення OpenSubdiv -- OpenSubdiv Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opengl">OpenGL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-draw-method">Метод Прорису Вікна -- Window Draw Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textures">Текстури -- Textures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencer-clip-editor">Відеорядник/Редактор Кліпів -- Sequencer/Clip Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solid-opengl-lights">Суцільні Освітлювачі OpenGL -- Solid OpenGL Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color-picker-type">Тип Відбірника Кольору -- Color Picker Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-weight-paint-range">Власний Діапазон Малювання Вагомостей -- Custom Weight Paint Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fonts">Шрифти -- Fonts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Редактори -- Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Уподобання Користувача -- User Preferences</a> &raquo;</li>
+        
+      <li>Система -- System</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/system.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="system">
+<span id="bpy-types-userpreferencessystem"></span><h1>Система -- System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h1>
+<p>Вкладка «Система» -- <em>System</em> дозволяє вам задавати роздільність, уподобання консолі скриптування, звуку, графічних карт та інтернаціоналізації.</p>
+<p>Якщо ваше устаткування не підтримує деякі з опцій, описаних на цій сторінці, то вони або не будуть показані, або будуть скоректовані при запуску. Якщо це трапилося, не хвилюйтеся, ви можете проконсультуватися з підручником щодо вашого комп'ютера для знаходження підтримуваних значень або просто дозволити Blender'у скоректувати їх.</p>
+<div class="figure" id="id1">
+<img alt="../_images/preferences_system_tab.png" src="../_images/preferences_system_tab.png" />
+<p class="caption"><span class="caption-text">Вкладка «Система» -- System Уподобань Користувача.</span></p>
+</div>
+<div class="section" id="general">
+<h2>Загальне -- General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="preferences-system-general-frame-server-port">
+<dt>Порт Сервера Кадрів -- Frame Server Port</dt>
+<dd>TCP/IP порт, використовуваний у поєднанні з IP Адресою комп'ютера для рендерингу на сервері. Використовується при роботі з розподіленим рендерингом. Уникайте зміни значення цього порту, інакше це буде конфліктувати з уже наявними сервісними портами, що використовується вашою Операційною Системою та/або іншими програмами. Завжди консультуйтеся з документацією до вашої операційної системи та сервісів або проконсультуйтеся з вашим системним адміністратором перед змінюванням цього значення.</dd>
+<dt>Прокрутка Консолі -- Console Scrollback</dt>
+<dd>The number of lines, buffered in memory of the console window.
+Useful for debugging purposes and command-line rendering.</dd>
+</dl>
+</div>
+<div class="section" id="sound">
+<span id="prefs-system-sound"></span><h2>Звук -- Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Пристрій Звуку -- Audio Device</dt>
+<dd><p class="first">Визначає рушій звуку для використання в обробці та виводі аудіо.</p>
+<dl class="last docutils">
+<dt>Нема -- None</dt>
+<dd>Без підтримки звуку (смужки звуку все ще можуть звичайно завантажуватися).</dd>
+<dt>SDL</dt>
+<dd>Використовує Simple Direct Media Layer API з <a class="reference external" href="https://www.libsdl.org">libsdl.org</a> для рендерингу звуку безпосередньо через вивід звукового пристрою. Дуже корисно для монтування смужок звуку у відеоряднику.</dd>
+<dt>OpenAL</dt>
+<dd>Забезпечує буферований рендеринг звуку з просторовою підтримкою/3D. Використовується для 3D джерела, що підтримується об'єктами типу «Гучномовець» -- <em>Speaker Objects</em> та ігровим рушієм <em>Game Engine</em>.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="sound-options">
+<h3>Sound Options<a class="headerlink" href="#sound-options" title="Permalink to this headline">¶</a></h3>
+<p>These settings control how sound behaves during live playback
+within Blender and are only available with <em>SDL</em> or <em>OpenAL</em>.
+To control these settings for exporting sound see the
+<a class="reference internal" href="../render/output/video.html#render-output-video-encoding-panel"><span class="std std-ref">Encoding Panel</span></a>
+and <a class="reference internal" href="../data_system/scenes/properties.html#data-scenes-audio"><span class="std std-ref">Audio Panel</span></a>.</p>
+<dl class="docutils">
+<dt>Канали -- Channels</dt>
+<dd>Sets the audio channel count. Available options are:
+<em>Mono</em>, <em>Stereo</em>, <em>4 Channels</em>, <em>5.1 Surround</em>, <em>7.1 Surround</em>.</dd>
+<dt>Буфер Мікшування -- Mixing Buffer</dt>
+<dd>Sets the number of samples used by the audio mixing buffer. Available options are:
+<em>512</em>, <em>1024</em>, <em>2048</em>, <em>4096</em>, <em>8192</em>, <em>16384</em>, and <em>32768</em>.</dd>
+<dt>Частота Вибірки -- Sample Rate</dt>
+<dd>Sets the audio <a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate">sampling rate</a>.
+Available options are: <em>44.1 Khz</em>, <em>48 Khz</em>, <em>96 Khz</em> and <em>192 Khz</em>.</dd>
+<dt>Формат Вибірки -- Sample Format</dt>
+<dd>Визначає формат вибірки звуку. Доступні опції: <em>32 bit float</em>, <em>8 bit Unsigned</em>, <em>16 Bits Signed</em>, <em>24 Bits Signed</em>, <em>32 Bits Signed</em>, <em>32 Bits Float</em> та <em>64 Bits Float</em>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="screencast">
+<span id="prefs-system-screencast"></span><h2>Екранозапис -- Screencast<a class="headerlink" href="#screencast" title="Permalink to this headline">¶</a></h2>
+<p>These settings are used to control the frame rate for recording a <a class="reference internal" href="../editors/info/screen_capture.html#info-screencast"><span class="std std-ref">Screencast</span></a>.</p>
+<dl class="docutils">
+<dt>FPS</dt>
+<dd>The frame rate for screencast playback.</dd>
+<dt>Часолік Очікування -- Wait Timer</dt>
+<dd>Час у мілісекундах між кожним записуваним кадром для екранозапису.</dd>
+</dl>
+</div>
+<div class="section" id="compute-device">
+<h2>Пристрій Обчислення -- Compute Device<a class="headerlink" href="#compute-device" title="Permalink to this headline">¶</a></h2>
+<p>Опція <em>Compute Device</em> дозволяє користувачу змінювати пристрій обчислення для рушія-рендерера <a class="reference internal" href="../render/cycles/index.html"><span class="doc">Cycles</span></a>, що буде використовуватися для рендерингу зображень. Рушій Cycles може використовувати головний процесор CPU або процесори певних відеокарт GPU для рендерингу зображень, детальніше дивіться тут -- <a class="reference internal" href="../render/cycles/gpu_rendering.html"><span class="doc">GPU Rendering</span></a>.</p>
+<dl class="docutils">
+<dt>Нема -- None</dt>
+<dd>When set to <em>None</em> or when the only option is <em>None</em>:
+the CPU will be used as the computing device for the Cycles Renderer.</dd>
+<dt>CUDA</dt>
+<dd>Якщо ваша система має установлену сумісну відеокарту Nvidia CUDA, то ви у змозі використати технологію CUDA для рендерингу рушієм <a class="reference internal" href="../render/cycles/features.html"><span class="doc">Cycles</span></a>.</dd>
+<dt>OpenCL</dt>
+<dd>Якщо ваша система має установлений пристрій з підтримкою технології AMD OpenCL, то вона буде доступна також на вибір для рендерингу з Cycles.</dd>
+</dl>
+</div>
+<div class="section" id="opensubdiv-compute">
+<span id="prefs-system-opensubdiv"></span><h2>Обчислення OpenSubdiv -- OpenSubdiv Compute<a class="headerlink" href="#opensubdiv-compute" title="Permalink to this headline">¶</a></h2>
+<p>Ці опції задають пристрій обчислення, використовуваний технологією OpenSubdiv для модифікатора «Підподіл Поверхні» -- <a class="reference internal" href="../modeling/modifiers/generate/subsurf.html"><span class="doc">Subdivision Surface Modifier</span></a>.</p>
+<dl class="docutils">
+<dt>Нема -- None</dt>
+<dd>Вимкнення усіх пристроїв обчислення Opensubdiv -- None -- гарантує використання успадкованого традиційного методу підподілення. Використовуйте цю опцію, коли OpenSubdiv призводить до будь-яких вад або регресій.</dd>
+<dt>CPU</dt>
+<dd>Одно потокова імплементація центрального процесора. Це, головним чином, корисно у випадках, коли обчислення GPU є можливим та потоковий CPU спричиняє артефакти (навряд чи це станеться, але все ще можливе).</dd>
+<dt>OpenMP</dt>
+<dd>Багато потокова імплементація центрального процесора. Використовуйте це для максимальної продуктивності у випадках, коли GPU обчислення не доступне.</dd>
+<dt>GLSL Відклик Трансформацій -- GLSL Transform Feedback</dt>
+<dd>Використовує GPU для здійснення обчислень, має мінімальні вимоги до відеокарти та її драйвера.</dd>
+<dt>GLSL Обчислення -- GLSL Compute</dt>
+<dd>Використовує GPU для здійснення обчислень, вважається більш ефективною, ніж GLSL Transform Feedback, однак має вищі вимоги до відеокарти та її драйвера.</dd>
+</dl>
+</div>
+<div class="section" id="opengl">
+<h2>OpenGL<a class="headerlink" href="#opengl" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Відсікання Альфа -- Clip Alpha</dt>
+<dd>Відсікає альфа нижче цього порогу у 3D Огляді -- 3D View. Зауважте, що стандартно задано низьке значення для запобігання проблемам на деяких GPU.</dd>
+<dt>MIP-карти -- Mipmaps</dt>
+<dd>Scale textures for 3D View using <a class="reference internal" href="../glossary/index.html#term-mip-map"><span class="xref std std-term">mip-map</span></a> filtering. This increases display quality, but uses more memory.</dd>
+<dt>Генерування MIP-карти GPU -- GPU Mipmap Generation</dt>
+<dd>Generate mip-maps on the GPU instead of the CPU.</dd>
+<dt>16 -бітні Дійсночислові Текстури -- 16 Bit Float Textures</dt>
+<dd>Enables the use of 16 Bit per component Texture Images (floating point images).</dd>
+<dt>Виділення -- Selection</dt>
+<dd><p class="first">Метод, що використовується для виділення.</p>
+<dl class="last docutils">
+<dt>Автоматично -- Automatic</dt>
+<dd>Автоматично вибирає найкращу уставу залежно від ваших ОС, GPU та драйверів.</dd>
+<dt>OpenGL Виділ -- OpenGL Select</dt>
+<dd>Успадкований традиційний метод OpenGL виділення для старішого устаткування.</dd>
+<dt>OpenGL Запити на Загороду -- OpenGL Occlusion Queries</dt>
+<dd>Більш оптимізований метод OpenGL виділення. Вживайте цей метод, якщо ви використовуєте пристрій обчислення <a class="reference internal" href="#opensubdiv-compute">OpenSubdiv Compute</a> .</dd>
+</dl>
+</dd>
+<dt>OpenGL Вказування Глибини -- OpenGL Depth Picking</dt>
+<dd><p class="first">This option uses an alternative method of picking which uses depth information to select the front-most elements.
+It is only used for selecting with the cursor (not border select, lasso, circle select, etc.).</p>
+<p class="last">Performance varies depending on your OpenGL hardware and drivers.</p>
+</dd>
+<dt>Анізотропна Фільтрація -- Anisotropic Filtering</dt>
+<dd>Встановлює рівень анізотропної фільтрації. Це підвищує якість того, як текстури рисуються, за рахунок продуктивності. Доступні опції: «Вимк» -- <em>Off</em> (Без Фільтрації), <em>2x</em>, <em>4x</em>, <em>8x</em> та <em>16x</em>.</dd>
+</dl>
+</div>
+<div class="section" id="window-draw-method">
+<span id="prefs-system-window-draw"></span><h2>Метод Прорису Вікна -- Window Draw Method<a class="headerlink" href="#window-draw-method" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Метод Прорису Вікна -- Window Draw Method</dt>
+<dd><p class="first">Визначає Метод Прорису Вікна, що використовується для показу вікна(он) Blender'а.</p>
+<dl class="last docutils">
+<dt>Автоматично -- Automatic</dt>
+<dd>Автоматично установлюється на основі відеокарти та її драйвера.</dd>
+<dt>Потрійний Буфер -- Triple Buffer</dt>
+<dd>Використовує третій буфер для мінімальних перерисувань за рахунок пам'яті. Якщо ви маєте відповідний GPU, то це найкращий та найшвидший спосіб перерисування.</dd>
+<dt>Перекриття -- Overlap</dt>
+<dd>Перерисовує усі перекривні регіони. Мінімальне використання пам'яті, але більше перерисувань. Рекомендується для деяких комбінацій відеокарт та їх драйверів.</dd>
+<dt>Переверт Перекриття -- Overlap Flip</dt>
+<dd>Перерисовує усі перекривні регіони. Мінімальне використання пам'яті, але більше перерисувань (для відеокарт, що здійснюють перевертання). Рекомендується для деяких комбінацій відеокарт та їх драйверів.</dd>
+<dt>Повністю -- Full</dt>
+<dd>Здійснює повне перерисування кожен раз. Використовується тільки орієнтира або коли все інше не працює. Корисно для певних відеокарт з поганим або взагалі без прискорення OpenGL.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="prefs-system-multi-sampling">
+<dt>Багато-Відбір -- Multi-Sampling</dt>
+<dd><p class="first">Це вмикає <a class="reference internal" href="../glossary/index.html#term-fsaa"><span class="xref std std-term">FSAA</span></a> для згладженого прорису за рахунок деякої величини продуктивності.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Це відомо спричиняє проблеми виділення на деяких конфігураціях, дивіться тут -- <a class="reference internal" href="../troubleshooting/3d_view.html#troubleshooting-3dview-invalid-selection"><span class="std std-ref">Хибне виділення</span></a>.</p>
+</div>
+</dd>
+<dt>Перекриття Регіону -- Region Overlap</dt>
+<dd><p class="first">Цей стяг дозволяє Blender'у прорисовувати регіони, перекриваючи 3D Огляд. Це означає, що регіони «Полиця Інструментів» -- <em>Tool Shelf</em> та «Властивості» -- <em>Properties</em> будуть рисуватися, перекриваючи редактор 3D Огляду.</p>
+<p class="last">Якщо ви маєте відповідну відеокарту та драйвери з підтримкою <em>Triple Buffer</em>, увімкніть цей стяг та виберіть метод <em>Triple Buffer</em>, який дозволить також прорисовувати регіони з використанням Альфа, показуючи вміст 3D Огляду крізь ці регіони.</p>
+</dd>
+<dt>Опції Прорису Тексту -- Text Draw Options</dt>
+<dd>Enable interface text anti-aliasing.
+When disabled, texts are drawn using text straight render (filling only absolute pixels).</dd>
+</dl>
+</div>
+<div class="section" id="textures">
+<h2>Текстури -- Textures<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Ліміт Розміру -- Limit Size</dt>
+<dd>Лімітує максимальну роздільність картинок, що використовуються у текстурованому показі для заощадження пам'яті. Опції ліміту визначаються у кількості пікселів, піднесеній до квадрата (наприклад: опція 256 означає текстуру 256×256 пікселів). Це корисно для розробників ігор, де ліміт текстури відповідає блокам підкачки текстур у цільову пам'ять відеокарти. Доступні опції: «Вимк» -- <em>Off</em> (Без ліміту), <em>128</em>, <em>256</em>, <em>512</em>, <em>1024</em>, <em>2048</em>, <em>4096</em> та <em>8192</em>.</dd>
+<dt>Час Очікування -- Time Out</dt>
+<dd>Час після останнього доступу до GL текстури у секундах, після якого вона вивільняється. Задання в 0 збереже текстури призначеними. Мінімум: <em>0</em>, Максимум: <em>3600</em>.</dd>
+<dt>Частота Збирання -- Collection Rate</dt>
+<dd>Кількість секунд між кожним виконанням збирача сміття GL текстури. Мінімум: <em>0</em>, Максимум: <em>3600</em>.</dd>
+<dt>Метод Прорису Зображень -- Images Draw Method</dt>
+<dd><p class="first">Метод для прорису зображень з такими підтримуваними опціями:</p>
+<dl class="last docutils">
+<dt>2D Текстура -- 2D Texture</dt>
+<dd>Використовує CPU для показу трансформувань та прорисовує зображення як 2D текстури.</dd>
+<dt>GLSL</dt>
+<dd>Найшвидший метод використання GLSL для показу трансформувань та прорисовує зображення як 2D текстури.</dd>
+<dt>Рисування Пікселів -- Draw Pixels</dt>
+<dd>Використовує CPU для показу трансформувань та прорисовує зображення як 2D текстури.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="sequencer-clip-editor">
+<h2>Відеорядник/Редактор Кліпів -- Sequencer/Clip Editor<a class="headerlink" href="#sequencer-clip-editor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Ліміт Кешу Пам'яті -- Memory Cache Limit</dt>
+<dd>Upper limit of the Sequencer's memory cache (megabytes).
+For optimum Clip editor and Sequencer performance, high values are recommended.</dd>
+</dl>
+</div>
+<div class="section" id="solid-opengl-lights">
+<span id="bpy-types-usersolidlight"></span><h2>Суцільні Освітлювачі OpenGL -- Solid OpenGL Lights<a class="headerlink" href="#solid-opengl-lights" title="Permalink to this headline">¶</a></h2>
+<p>Суцільні Освітлювачі OpenGL -- <em>Solid OpenGL Lights</em> використовуються для освітлення 3D Огляду здебільшого у режимі відтінення «Суцільно» -- <em>Solid</em>. Освітлення є постійним та базованим на позиції «світу». Існують три такі віртуальні джерела освітлення, також звані як допоміжні лампи OpenGL -- OpenGL auxiliary lamps, що використовуються для освітлення сцен у 3D Огляді та не показуються на рендерах.</p>
+<p>Іконки з лампою дозволяють користувачу вмикати або вимикати лампи OpenGL. Принаймні одна з трьох допоміжних ламп OpenGL повинна залишатися увімкненою для 3D Огляду. Ці лампи є рівнозначні й відрізняються своєю позицією та кольорами. Ви можете керувати напрямком цих ламп, а також дифузним чи розсіяним та бліковим чи відсвітним кольорами.</p>
+<dl class="docutils">
+<dt>Вживання -- Use</dt>
+<dd>Перемикає конкретну лампу.</dd>
+<dt>Розсіяння -- Diffuse</dt>
+<dd>Це постійний колір лампи.</dd>
+<dt>Блікування -- Specular</dt>
+<dd>Це колір відсвітів від лампи.</dd>
+<dt>Напрям -- Direction</dt>
+<dd>Клацання <kbd class="kbd docutils literal notranslate">LMB</kbd> на сфері та перетяг мишкою дає обертання сфери та дозволяє вам змінювати напрямок лампи. Напрямок лампи показується відтіненням поверхні сфери.</dd>
+</dl>
+</div>
+<div class="section" id="color-picker-type">
+<h2>Тип Відбірника Кольору -- Color Picker Type<a class="headerlink" href="#color-picker-type" title="Permalink to this headline">¶</a></h2>
+<p>Дає змогу вибрати бажаний колірний простір -- <a class="reference internal" href="../glossary/index.html#term-color-space"><span class="xref std std-term">color space</span></a> для відбору кольору. Він буде показуватися при клацанні вами <kbd class="kbd docutils literal notranslate">LMB</kbd> на будь-якій кнопці вибірника кольору.</p>
+<p>Дивіться про різні типи відбірника кольору тут -- <a class="reference internal" href="../interface/controls/templates/color_picker.html"><span class="doc">Color picker</span></a>.</p>
+</div>
+<div class="section" id="custom-weight-paint-range">
+<span id="prefs-system-weight"></span><h2>Власний Діапазон Малювання Вагомостей -- Custom Weight Paint Range<a class="headerlink" href="#custom-weight-paint-range" title="Permalink to this headline">¶</a></h2>
+<p><em>Виваження сітьового покриву</em> використовується для керування тим, наскільки кістка буде деформувати сіть покриву персонажа. Для візуалізації та малювання цих вагомостей Blender використовує колірний градієнт (від синього до зеленого та від жовтого до червоного). Вмикання цього стяга дозволить використовувати альтернативну розкладку, створивши її тут на основі порожнього градієнта. Ви можете створити власну розкладку, використовуючи загальні опції колірного градієнта. Детальніше дивіться тут -- <a class="reference internal" href="../interface/controls/templates/color_ramp.html"><span class="doc">Color ramps</span></a>.</p>
+</div>
+<div class="section" id="fonts">
+<h2>Шрифти -- Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interface-font">
+<h3>Шрифт Інтерфейсу -- Interface Font<a class="headerlink" href="#interface-font" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Шрифт Інтерфейсу -- Interface Font</dt>
+<dd>Дає змогу замінити стандартний шрифт інтерфейсу користувача.</dd>
+<dt>Моноширинний Шрифт -- Mono-space Font</dt>
+<dd>Дозволяє замінити стандартний моноширинний шрифт для інтерфейсу.</dd>
+</dl>
+</div>
+<div class="section" id="internationalization">
+<span id="prefs-system-international"></span><h3>Інтернаціоналізація<a class="headerlink" href="#internationalization" title="Permalink to this headline">¶</a></h3>
+<p>Blender supports a wide range of languages,
+enabling this checkbox will enable Blender to support International Fonts.
+International fonts can be loaded for the User Interface and used instead of Blender default bundled font.</p>
+<p>Це також вмикає опції для перекладу Інтерфейсу Користувача на ряд мов, а також перекладу Підказок для інструментів у Blender'і, що з'являються при наведенні вказівника миші над ними.</p>
+<p>Blender supports I18N for internationalization.
+For more Information on how to load International fonts,
+see: <a class="reference internal" href="../modeling/texts/selecting_editing.html"><span class="doc">Editing Texts</span></a> page.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../editors/info/index.html" class="btn btn-neutral float-right" title="Редактор Інфо -- Info Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file.html" class="btn btn-neutral" title="«Файл» -- File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Вузол «Розмив Боке» -- Bokeh Blur Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/dev/compositing/types/filter/bokeh_blur.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Вузол «Розфокус» -- Defocus Node" href="defocus.html" />
+    <link rel="prev" title="Вузол «Розмив» -- Blur Node" href="blur_node.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Почин</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">Інтерфейс Користувача -- User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Редактори -- Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Система Даних -- Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Моделювання</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Малювання і Ліплення -- Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Оснащення -- Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Анімація -- Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Фізика -- Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Зображ, Рендер -- Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Компонування -- Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Вступ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Властивості</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Типи Вузлів -- Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Вузли типу «Увід» -- Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Вузли типу «Вивід» -- Output nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Вузли типу «Колір» -- Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Вузли типу «Конвертер» -- Converter Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bilateral_blur.html">Вузол «Двобічний Розмив» -- Bilateral Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blur_node.html">Вузол «Розмив» -- Blur Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Вузол «Розмив Боке» -- Bokeh Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="defocus.html">Вузол «Розфокус» -- Defocus Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="despeckle.html">Вузол «Цятковивідник» -- Despeckle Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Вузол «Розширення/Звуження» -- Dilate/Erode Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Вузол «Напрямлений Розмив» -- Directional Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Вузол «Фільтр» -- Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glare.html">Вузол «Блиск» -- Glare Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inpaint.html">Вузол «Ретуш» -- Inpaint Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pixelate.html">Вузол «Пікселізація» -- Pixelate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sun_beams.html">Вузол «Сонячні Промені» -- Sun Beams Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vector_blur.html">Вузол «Векторний Розмив» -- Vector (Motion) Blur Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Вузли типу «Вектор» -- Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Вузли типу «Маска» -- Matte Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Вузли типу «Спотворення» -- Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Групи Вузлів або Групові Вузли -- Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Вузли типу «Розстава» -- Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Рушій Ігор -- Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">Уподобання Користувача -- User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Просунуте -- Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Конвеєр -- Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Вирішення проблем</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Thuật Ngữ -- Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">Thông tin về bản Hướng Dẫn Sử Dụng này</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Компонування -- Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Вузли типу «Фільтр» -- Filter Nodes</a> &raquo;</li>
+        
+      <li>Вузол «Розмив Боке» -- Bokeh Blur Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/filter/bokeh_blur.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bokeh-blur-node">
+<span id="bpy-types-compositornodebokehblur"></span><h1>Вузол «Розмив Боке» -- Bokeh Blur Node<a class="headerlink" href="#bokeh-blur-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_filter_bokeh-blur_node.png" src="../../../_images/compositing_types_filter_bokeh-blur_node.png" />
+<p class="caption"><span class="caption-text">Вузол «Розмив Боке» -- Bokeh Blur Node.</span></p>
+</div>
+<p>Вузол «Розмив Боке» -- Bokeh Blur генерує розмив типу боке подібно до вузла «Розфокус» -- Defocus. На відміну від вузла «Розфокус» фокусований регіон визначається компонівником. Існує також більш гнучкий засіб отримання цього типу розмиву за допомогою вузла <a class="reference internal" href="../input/bokeh_image.html"><span class="doc">Зображення Боке -- Bokeh Image</span></a>.</p>
+<p>Також доступні такі різні оптимізації продуктивності, як підтримка OpenCL, обчислення ділянки вимежування та маскування.</p>
+<div class="section" id="inputs">
+<h2>Уводи -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Стандартний увід зображення.</dd>
+<dt>Боке -- Bokeh</dt>
+<dd>Це увід для даних з вузла <a class="reference internal" href="../input/bokeh_image.html"><span class="doc">Зображення Боке -- Bokeh Image</span></a>.</dd>
+<dt>Розмір -- Size</dt>
+<dd>«Розмір» керує величиною розмиву. Значення розміру може бути або одиничним для усього зображення, якщо воно задане вручну в його полі устави, або змінним, що визначається увідним зображенням, якщо воно подане на цей увід. Для використання змінності розміру одночасно повинна бути увімкнена опція «Змінний Розмір» -- Variable Size. Дивіться розділ з прикладами нижче про те, як це використовувати.</dd>
+<dt>Габаритна Коробка -- Bounding Box</dt>
+<dd>Це може використовуватися разом з мате-вузлом <a class="reference internal" href="../matte/box_mask.html"><span class="doc">Прямокутна Маска -- Box Mask</span></a> або з увідним вузлом <cite>Маска -- Mask &lt;/compositing/types/input/mask&gt;</cite> для вимежування ділянки зображення, до якої буде застосовано розмив. Це може бути корисним, наприклад, при розробці системи вузлів і відведенні тільки маленької ділянки зображення для відфільтровування під розмив, і таким чином, економлячи час на внесення регулювань.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Властивості<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Змінний Розмір -- Variable Size</dt>
+<dd>Дозволяє змінний радіус розмиву, якщо на роз'єм «Розмір» -- Size подане зображення.</dd>
+<dt>Макс Розмив -- Max blur</dt>
+<dd>«Макс Розмив» призначений діяти, як засіб оптимізації шляхом лімітування кількості пікселів, через які обчислюється розмив.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Виводи -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Зображення -- Image</dt>
+<dd>Стандартний вивід зображення.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Приклади<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Три приклади того, як можна використати увід «Розмір» - Size.</p>
+<p><a class="reference internal" href="../converter/id_mask.html"><span class="doc">Відмасковане за ID -- ID masked</span></a> альфа-зображення може бути використане так, щоб задньоплан був розмитий, а об'єкти на передньоплані залишалися у фокусі. Для запобігання дивним краям повинен бути використаний вузол «Розширення/Звуження» -- <a class="reference internal" href="dilate_erode.html"><span class="doc">Dilate Node</span></a>.</p>
+<p>Прохід Z може бути візуалізований за допомогою вузла «Розкладка Значень» -- <a class="reference internal" href="../vector/map_value.html"><span class="doc">Map Value</span></a> та вузла «Колірний Градієнт» -- <a class="reference internal" href="../converter/color_ramp.html"><span class="doc">Color Ramp</span></a>, як описано тут --doc:<cite>Render Layers &lt;/compositing/types/input/render_layers&gt;</cite>. Вузол «Математика --- Множення» -- <em>multiply</em> <a class="reference internal" href="../converter/math.html"><span class="doc">Math</span></a> може бути використаний, після вузла Color Ramp, щоб значення розмиву, більше за одиницю, використовувалося для об'єктів поза діапазоном фокусування.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_bokeh-blur_example-1.png"><img alt="../../../_images/compositing_types_filter_bokeh-blur_example-1.png" src="../../../_images/compositing_types_filter_bokeh-blur_example-1.png" style="width: 640px;" /></a>
+<p class="caption"><span class="caption-text">Використано прохід Z.</span></p>
+</div>
+<p>Вручну створене сіровідтінкове зображення може використовуватися для визначення ділянок різкості та розмиву попереднього зображення. І знову, вузол «Математика: Множення» може бути використано для такого самого вживання значення розмиву, що більше ніж один.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_bokeh-blur_example-2.png"><img alt="../../../_images/compositing_types_filter_bokeh-blur_example-2.png" src="../../../_images/compositing_types_filter_bokeh-blur_example-2.png" style="width: 640px;" /></a>
+<p class="caption"><span class="caption-text">Використано Image.</span></p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../../_images/compositing_types_filter_bokeh-blur_example-1-render.jpg" src="../../../_images/compositing_types_filter_bokeh-blur_example-1-render.jpg" />
+<p class="caption"><span class="caption-text">Використано прохід Z.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../_images/compositing_types_filter_bokeh-blur_example-2-render.jpg" src="../../../_images/compositing_types_filter_bokeh-blur_example-2-render.jpg" />
+<p class="caption"><span class="caption-text">Використано Image.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="defocus.html" class="btn btn-neutral float-right" title="Вузол «Розфокус» -- Defocus Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blur_node.html" class="btn btn-neutral" title="Вузол «Розмив» -- Blur Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
