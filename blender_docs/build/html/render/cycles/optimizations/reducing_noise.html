@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Скорочення Шуму -- Reducing Noise &mdash; Blender Manual</title>
+  <title>Thuyên Giảm Nhiễu -- Reducing Noise &mdash; Blender Manual</title>
   
 
   
@@ -112,7 +112,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../gpu_rendering.html">Зображування, рендеринг за допомогою графічного процесора відеокарти -- GPU Rendering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../baking.html">Запікання Зобража -- Render Baking</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Скорочення Шуму -- Reducing Noise</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Thuyên Giảm Nhiễu -- Reducing Noise</a></li>
 <li class="toctree-l4"><a class="reference internal" href="nodes.html">Відтінювані Вузли -- Shader Nodes</a></li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
         
           <li><a href="index.html">Оптимізація зображів, рендерів -- Optimizing Renders</a> &raquo;</li>
         
-      <li>Скорочення Шуму -- Reducing Noise</li>
+      <li>Thuyên Giảm Nhiễu -- Reducing Noise</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -208,10 +208,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="reducing-noise">
-<h1>Скорочення Шуму -- Reducing Noise<a class="headerlink" href="#reducing-noise" title="Permalink to this headline">¶</a></h1>
+<h1>Thuyên Giảm Nhiễu -- Reducing Noise<a class="headerlink" href="#reducing-noise" title="Permalink to this headline">¶</a></h1>
 <p>При здійсненні фінального рендера важливо, наскільки це можливо, скоротити шум. Тут ми обговоримо ряд хитрощів, які, порушуючи закони фізики, особливо важливі при рендерингу, зображуванні анімацій у межах розумного часу. Клацайте для розгортання зображень прикладів, щоб бачити різницю у шумі.</p>
 <div class="section" id="path-tracing">
-<h2>Простеження Шляху -- Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h2>
+<h2>Dò Đường Đi -- Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h2>
 <p>Cycles використовує простеження шляху з наступною оцінкою подій, яка не є доцільною при рендерингу усіх типів ефектів освітлення, таких як каустика, але має перевагу у тому, що здатна рендерити більш деталізовані та великі сцени, порівняно з іншими алгоритмами рендерингу. Це тому, що нам не потрібно зберігати, наприклад, карту фотонів у пам'яті, і тому, що ми можемо тримати промені відносно послідовними, щоб використовувати кеш зображення на вимогу, у порівняні з, наприклад, двонапрямним простеженням шляху.</p>
 <div class="figure align-center">
 <img alt="../../../_images/render_cycles_settings_scene_render_light-paths_rays.svg" src="../../../_images/render_cycles_settings_scene_render_light-paths_rays.svg" /></div>
@@ -222,7 +222,7 @@
 </div>
 </div>
 <div class="section" id="where-noise-comes-from">
-<h2>Звідки Береться Шум -- Where Noise Comes From<a class="headerlink" href="#where-noise-comes-from" title="Permalink to this headline">¶</a></h2>
+<h2>Nhiễu Từ Đâu Đến -- Where Noise Comes From<a class="headerlink" href="#where-noise-comes-from" title="Permalink to this headline">¶</a></h2>
 <p>Для розуміння, звідки береться шум, візьмемо, наприклад, сцену нижче. Коли ми простежуємо промінь світла у локації, позначеній білим кругом на червоній точці, то друге зображення дає бачення того, що «бачить» відтінювач дифузії, розсіяння.</p>
 <p>Для знаходження світла, що відбивається від цієї поверхні, нам необхідно знайти усереднений колір з усіх цих пікселів. Зверніть увагу на глянцеву підсвітку на сфері та на яскраву пляму, яку відкидає лампа поблизу на стіну. Ці гарячі плями є у 100 разів яскравішими, ніж інші частини зображення, та значно впливатимуть на освітлення цього пікселя.</p>
 <table border="1" class="docutils">
@@ -290,7 +290,7 @@
 <tbody valign="top">
 <tr class="row-odd"><td><div class="first last figure" id="id7">
 <a class="reference internal image-reference" href="../../../_images/render_cycles_optimizations_reducing-noise_0bounce.jpg"><img alt="../../../_images/render_cycles_optimizations_reducing-noise_0bounce.jpg" src="../../../_images/render_cycles_optimizations_reducing-noise_0bounce.jpg" style="width: 180px;" /></a>
-<p class="caption"><span class="caption-text">Без відскоків.</span></p>
+<p class="caption"><span class="caption-text">Không Bật Nẩy.</span></p>
 </div>
 </td>
 <td><div class="first last figure" id="id8">
@@ -369,7 +369,7 @@ Many renderers will typically disable caustics by default.</p>
 <p>Для зменшення цієї проблеми вузол «Спад Світла» -- <a class="reference internal" href="../nodes/types/color/light_falloff.html"><span class="doc">Light Falloff</span></a> має фактор <em>Smooth</em>, що може використовуватися для скорочення максимальної інтенсивності світла, що може бути привнесене для поверхонь поблизу. Зображення вище показують приклади стандартного спаду та спаду зі значенням Smooth як 1.0.</p>
 </div>
 <div class="section" id="multiple-importance-sampling">
-<span id="render-cycles-reducing-noise-mis"></span><h2>Багатовибірка за Значністю -- Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h2>
+<span id="render-cycles-reducing-noise-mis"></span><h2>Lấy Mẫu Vật Đa Trọng -- Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h2>
 <p>Матеріали з відтінювачем Emission можуть бути налаштовані, щоб використовувати Багатовибірку за Значністю -- Multiple Importance Sampling (<a class="reference internal" href="../materials/settings.html"><span class="doc">Устави Матеріалу -- Material Settings</span></a>). Це означає, що вони будуть отримувати промені, послані у напрямку прямо на них, а не вибиратися по залишковому принципу на основі випадкових відскоків навколо. Для дуже яскравих сітьових джерел світла (mesh light) це може суттєво скоротити шум. Однак, коли емісія не є особливо яскравою, то це буде відбирати вибірки з інших яскравих джерел світла, для яких важливо виявити їх таким способом.</p>
 <p>Оптимальну уставу тут важко вгадати; це може бути справою проб і помилок, але часто ясно, що якийсь яскравий об'єкт може привносити світло тільки локально, тоді як світна сіть (mesh light) як лампа, потребує увімкнення цієї опції. Ось приклад, де емітувальні сфери привносять мало в освітлення, і рендери зображень з дещо менши шумом при вимкненій опції Multiple Importance.</p>
 <table border="1" class="docutils">
