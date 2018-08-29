@@ -358,11 +358,11 @@
 </div>
 <div class="section" id="cross-references-and-linkage">
 <h2>Đối Chiếu và Liên Kết -- Cross References and Linkage<a class="headerlink" href="#cross-references-and-linkage" title="Permalink to this headline">¶</a></h2>
-<p>Bạn có thể liên kết đến một tài liệu khác trong bản hướng dẫn sử dụng với:</p>
+<p>Bạn có thể liên kết đến một tài liệu khác trong bản hướng dẫn sử dụng bằng dòng mã sau:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="na">:doc:</span><span class="nv">`The Title &lt;/section/path/to/file&gt;`</span>
 </pre></div>
 </div>
-<p>Для посилання на певний підрозділ в іншому документі (або у цьому ж документі) передбачені такі явні позначки:</p>
+<p>Để liên kết đến một phần cụ thể nào đó trong một tài liệu khác (hoặc trong cùng một tài liệu), bạn có thể sử dụng các nhãn hiệu cụ thể như sau:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_sample-label:</span>
 
 [section or image to reference]
@@ -370,7 +370,7 @@
 Some text <span class="na">:ref:</span><span class="nv">`Optional Title &lt;sample-label&gt;`</span>
 </pre></div>
 </div>
-<p>Посилання на назву у цьому ж файлі:</p>
+<p>Kết nối với một tiêu đề nào đó trong cùng tập tin:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">Titles are Targets</span>
 <span class="gh">==================</span>
 
@@ -379,24 +379,24 @@ Body text.
 Implicit references, like <span class="s">`Titles are Targets`_</span>
 </pre></div>
 </div>
-<p>Посилання на зовнішні ресурси:</p>
+<p>Kết nối với thế giới bên ngoài:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">`Blender Website </span><span class="si">&lt;https://www.blender.org&gt;</span><span class="s">`__</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="directory-layout">
-<h2>Розстава каталогу<a class="headerlink" href="#directory-layout" title="Permalink to this headline">¶</a></h2>
-<p>Підрозділи повинні у загальному бути структуровані так:</p>
+<h2>Bố Trí của Thư Mục -- Directory Layout<a class="headerlink" href="#directory-layout" title="Permalink to this headline">¶</a></h2>
+<p>Các phần nên được kết cấu một cách chung chung như sau:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">directory_name/</span></code><ul>
-<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (містить посилання на внутрішні файли)</li>
+<li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (có chứa các đường kết nối đến những tập tin nội bộ)</li>
 <li><code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">section_1.rst</span></code></li>
 <li><code class="docutils literal notranslate"><span class="pre">section_2.rst</span></code></li>
 </ul>
 </li>
 </ul>
-<p>Наприклад:</p>
+<p>Ví dụ:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">rendering/</span></code><ul>
 <li><code class="docutils literal notranslate"><span class="pre">index.rst</span></code></li>
@@ -414,10 +414,10 @@ Implicit references, like <span class="s">`Titles are Targets`_</span>
 </ul>
 </li>
 </ul>
-<p>Ідея тут полягає у тому, щоб розмістити увесь вміст підрозділу всередині однієї теки. В ідеалі кожен підрозділ повинен мати <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (що містить зміст для цієї секції) та <code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code> (вступ) у вміст цієї секції.</p>
+<p>Đại ý là cần phải gộp tất cả các nội dung của một phần nội bên trong một thư mục. Lý tưởng nhất là mỗi phần cần có một bản <code class="docutils literal notranslate"><span class="pre">index.rst</span></code> (chứa TOC -- <code class="docutils literal notranslate"><span class="pre">Table</span> <span class="pre">Of</span> <span class="pre">Content</span> <span class="pre">:</span> <span class="pre">Mục</span> <span class="pre">Lục</span></code>) -- cho phần đó và <code class="docutils literal notranslate"><span class="pre">introduction.rst</span></code> (giới thiệu) cho nội dung của phần đó.</p>
 <div class="section" id="table-of-contents">
-<h3>Зміст<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
-<p>Стандартно, зміст повинен показувати два рівні глибини:</p>
+<h3>Mục Lục -- Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
+<p>Theo mặc định, một bảng nội dung nên có hai tầng bậc:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
    <span class="nc">:maxdepth:</span> <span class="nf">2</span>
 
@@ -429,13 +429,13 @@ Implicit references, like <span class="s">`Titles are Targets`_</span>
 </div>
 </div>
 <div class="section" id="further-reading">
-<h2>Додаткові матеріали<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
-<p>Щоб дізнатися більше про reStructuredText, дивіться:</p>
+<h2>Tham Khảo Thêm -- Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>Để học thêm về <strong>reStructuredText</strong>, xin xem:</p>
 <dl class="docutils">
 <dt><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html">Sphinx RST Primer</a></dt>
-<dd>Хороший базовий вступ.</dd>
+<dd>Giới thiệu cơ bản có chất lượng tốt.</dd>
 <dt><a class="reference external" href="http://docutils.sourceforge.net/rst.html">Docutils reStructuredText reference</a></dt>
-<dd>Посилання на орієнтири та користувацьку документацію.</dd>
+<dd>Các đường kết nối đến những tham chiếu và tài liệu cho người dùng.</dd>
 </dl>
 </div>
 </div>
