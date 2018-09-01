@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Baking Physics Simulations &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/physics/baking.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Force Fields" href="force_fields/index.html" />
+    <link rel="prev" title="Gravity" href="gravity.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">Gravity</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Baking Physics Simulations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#baking">Baking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#physics-types">Physics Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Physics</a> &raquo;</li>
+        
+      <li>Baking Physics Simulations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/physics/baking.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="baking-physics-simulations">
+<span id="bpy-ops-ptcache"></span><span id="bpy-types-pointcache"></span><h1>Baking Physics Simulations<a class="headerlink" href="#baking-physics-simulations" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference internal" href="../glossary/index.html#term-baking"><span class="xref std std-term">Baking</span></a> refers to the act of storing or caching the results of a calculation.</p>
+<p>The result of a simulation is automatically cached to memory when the animation is played,
+so that the next time it runs, it can be replayed more quickly by reading the results from the memory.</p>
+<p>If you bake the simulation the cache is protected,
+and you will be unable to change the simulation settings
+until you clear the baked frames by clicking <em>Free Bake</em>.</p>
+<p>It is generally recommended to bake your physics simulations before rendering.
+Aside from no longer needing to go through the time-consuming process of simulating again,
+baking can help prevent potential glitches and ensure that the outcome of the simulation
+remains exactly the same every time.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Most physics simulators in Blender use a similar system,
+but not all have exactly the same settings available. All the settings are covered here,
+but individual physics types may not provide all these options.</p>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../_images/physics_baking_multi-cache-interface.png" src="../_images/physics_baking_multi-cache-interface.png" />
+<p class="caption"><span class="caption-text">Two different caches stored simultaneously.</span></p>
+</div>
+<dl class="docutils">
+<dt>Caches List</dt>
+<dd><p class="first">Blender allows for storing and managing multiple caches at once for the same physics object.
+You can manage the caches with this <a class="reference internal" href="../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">list view</span></a>.</p>
+<p class="last">Caches can be added and removed with the <kbd class="kbd docutils literal notranslate">Plus</kbd> and <kbd class="kbd docutils literal notranslate">Minus</kbd> buttons.
+Renaming a cache can be done by either double-clicking or pressing <kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> on the desired cache.</p>
+</dd>
+</dl>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Disk Cache</dt>
+<dd><p class="first">The cache of a baked simulation will be stored inside the blend-file when you save it.
+When <em>Disk Cache</em> is checked, Blender will save the Cache separately to the drive
+in a folder named <code class="docutils literal notranslate"><span class="pre">blendcache_[filename]</span></code> alongside the blend-file.
+(The blend-file must be saved first.)</p>
+<dl class="last docutils">
+<dt>Use Lib Path</dt>
+<dd><p class="first">Share the disk cache when the physics object is
+<a class="reference internal" href="../data_system/linked_libraries.html"><span class="doc">linked</span></a> into another blend-file.</p>
+<p class="last">When this option is enabled, linked versions of the object will reference the same disk cache.
+Otherwise linked versions of the object will use independent caches.</p>
+</dd>
+<dt>Compression</dt>
+<dd><p class="first">The compression level for cache files. Some physics caches can be very large (such as smoke).
+Blender can compress these caches in order to save space.</p>
+<dl class="last docutils">
+<dt>None</dt>
+<dd>Do not compress the cache.</dd>
+<dt>Light</dt>
+<dd>Compression will optimize the speed of compressing/decompressing operations over file size.</dd>
+<dt>Heavy</dt>
+<dd>Compression will result in smaller cache files more than <em>Light</em>,
+however, requires more CPU time to compress/decompress.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>External</dt>
+<dd><p class="first">Allows you to read the cache from a drive using a user-specified file path.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The cache name in <em>Caches List</em> and the <em>Index Number</em>
+has to exactly match the external cache files name in order to work.
+The cache files name format is <code class="docutils literal notranslate"><span class="pre">name_frame_index.bphys</span></code>.</p>
+</div>
+<dl class="last docutils">
+<dt>Index Number</dt>
+<dd>The index number of cache files. (The last two digits of the files name.)</dd>
+<dt>File Path</dt>
+<dd>Select the directory path to the cache files.</dd>
+</dl>
+</dd>
+<dt>Start</dt>
+<dd>Frame on which to start the simulation.</dd>
+<dt>End</dt>
+<dd><p class="first">Frame on which to stop the simulation.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The simulation is only calculated for the positive frames
+in between the <em>Start</em> and <em>End</em> frames of the <em>Cache</em> panel, whether you bake or not.
+So if you want a simulation longer than default frame range you have to change the <em>End</em> frame.</p>
+</div>
+</dd>
+<dt>Cache Step</dt>
+<dd><p class="first">Interval for storing simulation data.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Some physics systems (such as particles)
+allow for positions to be stored only on every nth frame,
+letting the positions for in-between frames be interpolated.
+Using a cache step greater than one will result in a smaller cache,
+but the result may differ from the original simulation.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="baking">
+<span id="physics-bake"></span><h2>Baking<a class="headerlink" href="#baking" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bake</dt>
+<dd>Start baking.
+Blender will become unresponsive during most baking operations.
+The cursor will display as a number representing the progress of the baking.
+You need to be in Object Mode to bake.</dd>
+</dl>
+<dl class="docutils" id="free-physics-bake">
+<dt>Free Bake</dt>
+<dd>Mark the baked cache as temporary. The data will still exist,
+but will be removed with the next object modification and frame change.
+This button is only available when the physics system has been baked.</dd>
+</dl>
+<dl class="docutils" id="calc-physics-bake-to-frame">
+<dt>Calculate To Frame</dt>
+<dd>Bake only up to the current frame. Limited by <em>End</em> frame set in the cache settings.</dd>
+<dt>Current Cache to Bake</dt>
+<dd>Store any temporarily cached simulation data as a bake.
+Note that playing the animation will try to simulate any visible physics simulations.
+Depending on the physics type, this data may be temporarily cached.
+Normally such temporary caches are cleared when an object or setting is
+modified, but converting it to a bake will &quot;save&quot; it.</dd>
+<dt>Bake All Dynamics</dt>
+<dd><p class="first">Bake all physics systems in the scene, even those of different types.
+Useful for baking complex setups involving interactions between different physics types.</p>
+<p class="last">See <a class="reference internal" href="#physics-bake"><span class="std std-ref">Bake</span></a>.</p>
+</dd>
+<dt>Free All Bakes</dt>
+<dd><p class="first">Free bakes of all physics systems in the scene, even those of different types.</p>
+<p class="last">See <a class="reference internal" href="#free-physics-bake"><span class="std std-ref">Free Bake</span></a>.</p>
+</dd>
+<dt>Update All To Frame</dt>
+<dd><p class="first">Bake all physics systems in the scene to the current frame.</p>
+<p class="last">See <a class="reference internal" href="#calc-physics-bake-to-frame"><span class="std std-ref">Calculate To Frame</span></a>.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="force_fields/index.html" class="btn btn-neutral float-right" title="Force Fields" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gravity.html" class="btn btn-neutral" title="Gravity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

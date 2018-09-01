@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Display Panel &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/armatures/properties/display.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Bone Groups" href="bone_groups.html" />
+    <link rel="prev" title="Skeleton" href="skeleton.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../constraints/index.html">Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bones/index.html">Bones</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Properties</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skeleton.html">Skeleton</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Display Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bone_groups.html">Bone Groups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pose_library.html">Pose Library Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ghost.html">Ghost</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../skinning/index.html">Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../posing/index.html">Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Armatures</a> &raquo;</li>
+        
+          <li><a href="index.html">Properties</a> &raquo;</li>
+        
+      <li>Display Panel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/armatures/properties/display.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="display-panel">
+<h1>Display Panel<a class="headerlink" href="#display-panel" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Armature ‣ Display</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_armatures_properties_display_panel.png" src="../../../_images/rigging_armatures_properties_display_panel.png" />
+<p class="caption"><span class="caption-text">The Display panel.</span></p>
+</div>
+<p>This controls the way the bones appear in 3D View; you have four different visualizations you can select.</p>
+<div class="section" id="bone-types">
+<h2>Bone Types<a class="headerlink" href="#bone-types" title="Permalink to this headline">¶</a></h2>
+<p>Blender has four basic bone visualization: Octahedral, Stick, B-Bone, Envelope and Wire.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_octahedral.png"><img alt="../../../_images/rigging_armatures_properties_display_octahedral.png" src="../../../_images/rigging_armatures_properties_display_octahedral.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Octahedral bone display.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_stick.png"><img alt="../../../_images/rigging_armatures_properties_display_stick.png" src="../../../_images/rigging_armatures_properties_display_stick.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Stick bone display.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_b-bone.png"><img alt="../../../_images/rigging_armatures_properties_display_b-bone.png" src="../../../_images/rigging_armatures_properties_display_b-bone.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">B-Bone bone display.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_envelope.png"><img alt="../../../_images/rigging_armatures_properties_display_envelope.png" src="../../../_images/rigging_armatures_properties_display_envelope.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Envelope bone display.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Octahedral bone</dt>
+<dd><p class="first">This is the default visualization, well suited for most of editing tasks. It materializes:</p>
+<ul class="simple">
+<li>The bone root (&quot;big&quot; joint) and tip (&quot;small&quot; joint).</li>
+<li>The bone &quot;size&quot; (its thickness is proportional to its length).</li>
+<li>The bone roll (as it has a square section).</li>
+</ul>
+<div class="last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_type-octahedral.png"><img alt="../../../_images/rigging_armatures_properties_display_type-octahedral.png" src="../../../_images/rigging_armatures_properties_display_type-octahedral.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Note the 40° rolled Bone.001 bone.</span></p>
+</div>
+</dd>
+<dt>Stick bone</dt>
+<dd><p class="first">This is the simplest and most non-intrusive visualization.
+It just materializes bones by sticks of constant (and small) thickness,
+so it gives you no information about root and tip, nor bone size or roll angle.</p>
+<div class="last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_type-stick.png"><img alt="../../../_images/rigging_armatures_properties_display_type-stick.png" src="../../../_images/rigging_armatures_properties_display_type-stick.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Note that Bone.001 roll angle is not visible (except by its XZ axes).</span></p>
+</div>
+</dd>
+<dt>B-Bone bone</dt>
+<dd><p class="first">This visualization shows the curves of &quot;smooth&quot; multi-segmented bones;
+see the <a class="reference internal" href="../bones/properties/bendy_bones.html"><span class="doc">Bendy Bones</span></a> for details.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png"><img alt="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png" src="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">An armature of B-Bones, in Edit Mode.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png"><img alt="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png" src="../../../_images/rigging_armatures_bones_properties_bendy-bones_b-bones-3.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The same armature in Object Mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Envelope bone</dt>
+<dd><p class="first">This visualization materializes the bone deformation influence.
+More on this in the <a class="reference internal" href="../bones/structure.html#armature-bone-influence"><span class="std std-ref">bone page</span></a>.</p>
+<div class="last figure">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png"><img alt="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png" src="../../../_images/rigging_armatures_bones_structure_envelope-pose-mode.png" style="width: 300px;" /></a>
+</div>
+</dd>
+<dt>Wire bone</dt>
+<dd><p class="first">This simplest visualization shows the curves of &quot;smooth&quot; multi-segmented bones.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_type-wire-pose-mode.png"><img alt="../../../_images/rigging_armatures_properties_display_type-wire-pose-mode.png" src="../../../_images/rigging_armatures_properties_display_type-wire-pose-mode.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">An armature of Wire, in Pose Mode.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../_images/rigging_armatures_properties_display_type-wire-edit-mode.png"><img alt="../../../_images/rigging_armatures_properties_display_type-wire-edit-mode.png" src="../../../_images/rigging_armatures_properties_display_type-wire-edit-mode.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The same armature in Edit Mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="draw-options">
+<h2>Draw Options<a class="headerlink" href="#draw-options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Names</dt>
+<dd>When enabled, the name of each bone is drawn.</dd>
+<dt>Colors</dt>
+<dd>This is only relevant for <em>Pose Mode</em>,
+and is described in detail <a class="reference internal" href="bone_groups.html"><span class="doc">there</span></a>.</dd>
+<dt>Axes</dt>
+<dd>When enabled, the (local) axes of each bone are drawn (only relevant for <em>Edit Mode</em> and <em>Pose Mode</em>).</dd>
+<dt>X-Ray</dt>
+<dd>When enabled, the bones of the armature will always be drawn on top of the solid objects
+(meshes, surfaces, ...) -- i.e. they will always be visible and selectable
+(this is the same option as the one found in the <em>Display</em> panel of the <em>Object data</em> tab).
+Very useful when not in <em>Wireframe</em> mode.</dd>
+<dt>Shapes</dt>
+<dd>When enabled, the default standard bone shape is replaced,
+in <em>Object Mode</em> and <em>Pose Mode</em>, by the shape of a chosen object
+(see <a class="reference internal" href="../bones/properties/display.html"><span class="doc">Shaped Bones</span></a> for details).</dd>
+<dt>Delay Refresh</dt>
+<dd>When enabled, the bone does not deform its children when manipulating the bone in pose mode.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bone_groups.html" class="btn btn-neutral float-right" title="Bone Groups" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="skeleton.html" class="btn btn-neutral" title="Skeleton" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

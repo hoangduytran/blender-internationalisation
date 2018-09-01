@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>System &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/preferences/system.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Info Editor" href="../editors/info/index.html" />
+    <link rel="prev" title="File" href="file.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Tabs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interface.html">Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addons.html">Add-ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html">File</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sound">Sound</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#screencast">Screencast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compute-device">Compute Device</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opensubdiv-compute">OpenSubdiv Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#opengl">OpenGL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#window-draw-method">Window Draw Method</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#textures">Textures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencer-clip-editor">Sequencer/Clip Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solid-opengl-lights">Solid OpenGL Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#color-picker-type">Color Picker Type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-weight-paint-range">Custom Weight Paint Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fonts">Fonts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">User Preferences</a> &raquo;</li>
+        
+      <li>System</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/system.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="system">
+<span id="bpy-types-userpreferencessystem"></span><h1>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h1>
+<p>The <em>System</em> tab allows you to set resolution, scripting console preferences,
+sound, graphics cards, and internationalization.</p>
+<p>If your hardware does not support some of the options described on this page,
+then they will either not show up or get corrected on startup.
+If this happens do not worry, you can either consult your computer manual
+to find a supported value or just let Blender correct it.</p>
+<div class="figure" id="id1">
+<img alt="../_images/preferences_system_tab.png" src="../_images/preferences_system_tab.png" />
+<p class="caption"><span class="caption-text">User Preferences System tab.</span></p>
+</div>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils" id="preferences-system-general-frame-server-port">
+<dt>Frame Server Port</dt>
+<dd>TCP/IP port used in conjunction with the IP Address of the machine for frameserver rendering.
+Used when working with distributed rendering.
+Avoid changing this port value unless it is conflicting with already
+existing service ports used by your Operating System and/or other software.
+Always consult your operating system documentation and services or
+consult your system administrator before changing this value.</dd>
+<dt>Console Scrollback</dt>
+<dd>The number of lines, buffered in memory of the console window.
+Useful for debugging purposes and command-line rendering.</dd>
+</dl>
+</div>
+<div class="section" id="sound">
+<span id="prefs-system-sound"></span><h2>Sound<a class="headerlink" href="#sound" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Audio Device</dt>
+<dd><p class="first">Sets the audio engine to use to process and output audio.</p>
+<dl class="last docutils">
+<dt>None</dt>
+<dd>No Audio support (audio strips can still be loaded normally).</dd>
+<dt>SDL</dt>
+<dd>Uses Simple Direct Media Layer API from <a class="reference external" href="https://www.libsdl.org">libsdl.org</a>
+to render sounds directly to the sound device output. Very useful for sequencer strips editing.</dd>
+<dt>OpenAL</dt>
+<dd>Provides buffered sound rendering with 3D/spatial support.
+Used for 3D source support by <em>Speaker Objects</em> and the <em>Game Engine</em>.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="sound-options">
+<h3>Sound Options<a class="headerlink" href="#sound-options" title="Permalink to this headline">¶</a></h3>
+<p>These settings control how sound behaves during live playback
+within Blender and are only available with <em>SDL</em> or <em>OpenAL</em>.
+To control these settings for exporting sound see the
+<a class="reference internal" href="../render/output/video.html#render-output-video-encoding-panel"><span class="std std-ref">Encoding Panel</span></a>
+and <a class="reference internal" href="../data_system/scenes/properties.html#data-scenes-audio"><span class="std std-ref">Audio Panel</span></a>.</p>
+<dl class="docutils">
+<dt>Channels</dt>
+<dd>Sets the audio channel count. Available options are:
+<em>Mono</em>, <em>Stereo</em>, <em>4 Channels</em>, <em>5.1 Surround</em>, <em>7.1 Surround</em>.</dd>
+<dt>Mixing Buffer</dt>
+<dd>Sets the number of samples used by the audio mixing buffer. Available options are:
+<em>512</em>, <em>1024</em>, <em>2048</em>, <em>4096</em>, <em>8192</em>, <em>16384</em>, and <em>32768</em>.
+Higher buffer sizes can cause latency issues,
+but if you hear clicks or other problems, try to increase the size.</dd>
+<dt>Sample Rate</dt>
+<dd>Sets the audio <a class="reference external" href="https://en.wikipedia.org/wiki/Sampling_(signal_processing)#Sampling_rate">sampling rate</a>.
+Available options are: <em>44.1 Khz</em>, <em>48 Khz</em>, <em>96 Khz</em> and <em>192 Khz</em>.</dd>
+<dt>Sample Format</dt>
+<dd>Sets the audio sample format. Available options are:
+<em>32 bit float</em>, <em>8 bit Unsigned</em>, <em>16 Bits Signed</em>, <em>24 Bits Signed</em>,
+<em>32 Bits Signed</em>, <em>32 Bits Float</em>, and <em>64 Bits Float</em>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="screencast">
+<span id="prefs-system-screencast"></span><h2>Screencast<a class="headerlink" href="#screencast" title="Permalink to this headline">¶</a></h2>
+<p>These settings are used to control the frame rate for recording a <a class="reference internal" href="../editors/info/screen_capture.html#info-screencast"><span class="std std-ref">Screencast</span></a>.</p>
+<dl class="docutils">
+<dt>FPS</dt>
+<dd>The frame rate for screencast playback.</dd>
+<dt>Wait Timer</dt>
+<dd>Time in milliseconds between each frame recorded for screencast.</dd>
+</dl>
+</div>
+<div class="section" id="compute-device">
+<h2>Compute Device<a class="headerlink" href="#compute-device" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Compute Device</em> option allows the user to change the computing device
+the <a class="reference internal" href="../render/cycles/index.html"><span class="doc">Cycles</span></a> render engine uses to render images.
+Cycles can use either the CPU or certain GPU's to render images,
+for more information see the <a class="reference internal" href="../render/cycles/gpu_rendering.html"><span class="doc">GPU Rendering</span></a> page.</p>
+<dl class="docutils">
+<dt>None</dt>
+<dd>When set to <em>None</em> or when the only option is <em>None</em>:
+the CPU will be used as the computing device for the Cycles Renderer.</dd>
+<dt>CUDA</dt>
+<dd>If the system has a compatible Nvidia CUDA enabled graphics card you will be able
+to use it to render with the <a class="reference internal" href="../render/cycles/features.html"><span class="doc">Cycles</span></a> render engine.</dd>
+<dt>OpenCL</dt>
+<dd>If the system has a compatible AMD OpenCL device, it will show up an option for rendering with Cycles.</dd>
+</dl>
+</div>
+<div class="section" id="opensubdiv-compute">
+<span id="prefs-system-opensubdiv"></span><h2>OpenSubdiv Compute<a class="headerlink" href="#opensubdiv-compute" title="Permalink to this headline">¶</a></h2>
+<p>The options here will set the compute device used by OpenSubdiv for
+the <a class="reference internal" href="../modeling/modifiers/generate/subsurf.html"><span class="doc">Subdivision Surface Modifier</span></a>.</p>
+<dl class="docutils">
+<dt>None</dt>
+<dd>Disables any OpenSubdiv compute devices, makes sure legacy subdivision method is used.
+Use this option when OpenSubdiv causes any bugs or regressions.</dd>
+<dt>CPU</dt>
+<dd>Single threaded CPU implementation.
+It is mainly useful in cases when GPU compute is possible and threaded CPU option causes artifacts
+(it is unlikely to happen, but still possible).</dd>
+<dt>OpenMP</dt>
+<dd>Multi-threaded CPU implementation. Use it for maximum performance in cases when GPU compute is not available.</dd>
+<dt>GLSL Transform Feedback</dt>
+<dd>Uses GPU to perform calculations, has minimal requirements to video card and driver.</dd>
+<dt>GLSL Compute</dt>
+<dd>Uses GPU to perform calculations, supposed to be more efficient than <em>Transform Feedback</em>
+but also has higher requirements to video card and driver.</dd>
+</dl>
+</div>
+<div class="section" id="opengl">
+<h2>OpenGL<a class="headerlink" href="#opengl" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Clip Alpha</dt>
+<dd>Clip alpha below this threshold in the 3D View.
+Note that the default is set to a low value to prevent issues on some GPU's.</dd>
+<dt>Mipmaps</dt>
+<dd>Scale textures for 3D View using <a class="reference internal" href="../glossary/index.html#term-mip-map"><span class="xref std std-term">mip-map</span></a> filtering. This increases display quality, but uses more memory.</dd>
+<dt>GPU Mipmap Generation</dt>
+<dd>Generate mip-maps on the GPU instead of the CPU.</dd>
+<dt>16 Bit Float Textures</dt>
+<dd>Enables the use of 16 Bit per component Texture Images (floating point images).</dd>
+<dt>Selection</dt>
+<dd><p class="first">Selection method to use for selecting.</p>
+<dl class="last docutils">
+<dt>Automatic</dt>
+<dd>Automatically chooses the best setting depending on your OS, GPU, and drivers.</dd>
+<dt>OpenGL Select</dt>
+<dd>Legacy OpenGL selection method for legacy hardware.</dd>
+<dt>OpenGL Occlusion Queries</dt>
+<dd>More optimized OpenGL selection method.
+Use this method if you are using an <a class="reference internal" href="#opensubdiv-compute">OpenSubdiv Compute</a> compute device.</dd>
+</dl>
+</dd>
+<dt>OpenGL Depth Picking</dt>
+<dd><p class="first">This option uses an alternative method of picking which uses depth information to select the front-most elements.
+It is only used for selecting with the cursor (not border select, lasso, circle select, etc.).</p>
+<p class="last">Performance varies depending on your OpenGL hardware and drivers.</p>
+</dd>
+<dt>Anisotropic Filtering</dt>
+<dd>Sets the level of anisotropic filtering.
+This improves the quality of how textures are drawn at the cost of performance.
+Available Options are: <em>Off</em> (No Filtering), <em>2x</em>, <em>4x</em>, <em>8x</em>, and <em>16x</em>.</dd>
+</dl>
+</div>
+<div class="section" id="window-draw-method">
+<span id="prefs-system-window-draw"></span><h2>Window Draw Method<a class="headerlink" href="#window-draw-method" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Window Draw Method</dt>
+<dd><p class="first">Specifies the Window Draw Method used to display Blender Window(s).</p>
+<dl class="last docutils">
+<dt>Automatic</dt>
+<dd>Automatically set based on graphics card and driver.</dd>
+<dt>Triple Buffer</dt>
+<dd>Use a third buffer for minimal redraws at the cost of more memory.
+If you have a capable GPU, this is the best and faster method of redraw.</dd>
+<dt>Overlap</dt>
+<dd>Redraw all overlapping regions. Minimal memory usage, but more redraws.
+Recommended for some graphics cards and drivers combinations.</dd>
+<dt>Overlap Flip</dt>
+<dd>Redraw all overlapping regions. Minimal memory usage, but more redraws (for graphics drivers that do flipping).
+Recommended for some graphic cards and drivers combinations.</dd>
+<dt>Full</dt>
+<dd>Do a full redraw each time. Only use for reference, or when all else fails.
+Useful for certain cards with bad to no OpenGL acceleration at all.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="prefs-system-multi-sampling">
+<dt>Multi-Sampling</dt>
+<dd><p class="first">This enables <a class="reference internal" href="../glossary/index.html#term-fsaa"><span class="xref std std-term">FSAA</span></a> for smoother drawing, at the expense of some performance.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">This is known to cause selection issues on some configurations,
+see: <a class="reference internal" href="../troubleshooting/3d_view.html#troubleshooting-3dview-invalid-selection"><span class="std std-ref">Invalid Selection</span></a>.</p>
+</div>
+</dd>
+<dt>Region Overlap</dt>
+<dd><p class="first">This checkbox will enable Blender to draw regions overlapping the 3D View.
+It means that the <em>Tool Shelf</em> and <em>Properties regions</em>,
+will be drawn overlapping the 3D View editor.</p>
+<p class="last">If you have a capable graphics card and drivers with <em>Triple Buffer</em> support,
+clicking the checkbox will enable the overlapping regions to be drawn using the <em>Triple Buffer</em> method,
+which will also enable them to be drawn using Alpha, showing the 3D View contents through the regions.</p>
+</dd>
+<dt>Text Draw Options</dt>
+<dd>Enable interface text anti-aliasing.
+When disabled, texts are drawn using text straight render (filling only absolute pixels).</dd>
+</dl>
+</div>
+<div class="section" id="textures">
+<h2>Textures<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Limit Size</dt>
+<dd>Limit the maximum resolution for pictures used in textured display to save memory.
+The limit options are specified in a square of pixels
+(e.g: the option 256 means a texture of 256×256 pixels). This is useful for game engineers,
+whereas the texture limit matches paging blocks of the textures in the target graphic card memory.
+Available Options are: <em>Off</em> (No limit), <em>128</em>, <em>256</em>, <em>512</em>, <em>1024</em>, <em>2048</em>, <em>4096</em>, and <em>8192</em>.</dd>
+<dt>Time Out</dt>
+<dd>Time since last access of a GL texture in seconds, after which it is freed. Set to 0 to keep textures allocated.
+Minimum: <em>0</em>, Maximum: <em>3600</em>.</dd>
+<dt>Collection Rate</dt>
+<dd>Number of seconds between each run of the GL texture garbage collector.
+Minimum: <em>0</em>, Maximum: <em>3600</em>.</dd>
+<dt>Image Draw Method</dt>
+<dd><p class="first">Method to draw images as the following options are supported:</p>
+<dl class="last docutils">
+<dt>2D Texture</dt>
+<dd>Uses CPU for display transform and draws images as a 2D texture.</dd>
+<dt>GLSL</dt>
+<dd>Fastest method using GLSL for display transform and draws images as a 2D texture.</dd>
+<dt>Draw Pixels</dt>
+<dd>Uses CPU for display transform and draws images as a 2D texture.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="sequencer-clip-editor">
+<h2>Sequencer/Clip Editor<a class="headerlink" href="#sequencer-clip-editor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Memory Cache Limit</dt>
+<dd>Upper limit of the Sequencer's memory cache (megabytes).
+For optimum Clip editor and Sequencer performance, high values are recommended.</dd>
+</dl>
+</div>
+<div class="section" id="solid-opengl-lights">
+<span id="bpy-types-usersolidlight"></span><h2>Solid OpenGL Lights<a class="headerlink" href="#solid-opengl-lights" title="Permalink to this headline">¶</a></h2>
+<p><em>Solid OpenGL Lights</em> are used to light the 3D View,
+mostly during <em>Solid view</em>. Lighting is constant and position &quot;world&quot; based.
+There are three virtual light sources, also called OpenGL auxiliary lamps,
+used to illuminate 3D View scenes, which will not display in renders.</p>
+<p>The Lamp icons allow the user to enable or disable OpenGL lamps.
+At least one of the three auxiliary OpenGL Lamps must remain enabled for the 3D View.
+The lamps are equal, their difference is their positioning and colors.
+You can control the direction of the lamps, as well as their diffuse and specular colors.</p>
+<dl class="docutils">
+<dt>Use</dt>
+<dd>Toggles the specific lamp.</dd>
+<dt>Diffuse</dt>
+<dd>This is the constant color of the lamp.</dd>
+<dt>Specular</dt>
+<dd>This is the highlight color of the lamp.</dd>
+<dt>Direction</dt>
+<dd>Clicking with <kbd class="kbd docutils literal notranslate">LMB</kbd> in the sphere and dragging the mouse cursor
+let us the user change the direction of the lamp by rotating the sphere.
+The direction of the lamp will be the same as shown at the sphere surface.</dd>
+</dl>
+</div>
+<div class="section" id="color-picker-type">
+<h2>Color Picker Type<a class="headerlink" href="#color-picker-type" title="Permalink to this headline">¶</a></h2>
+<p>Choose which type of <a class="reference internal" href="../glossary/index.html#term-color-space"><span class="xref std std-term">color space</span></a> you prefer. It will show when clicking <kbd class="kbd docutils literal notranslate">LMB</kbd> on any color button.</p>
+<p>See the different color picker types at the <a class="reference internal" href="../interface/controls/templates/color_picker.html"><span class="doc">Color picker</span></a> page.</p>
+</div>
+<div class="section" id="custom-weight-paint-range">
+<span id="prefs-system-weight"></span><h2>Custom Weight Paint Range<a class="headerlink" href="#custom-weight-paint-range" title="Permalink to this headline">¶</a></h2>
+<p><em>Mesh skin weighting</em> is used to control how much a bone deforms the mesh of a character.
+To visualize and paint these weights, Blender uses a color ramp (from blue to green, and from yellow to red).
+Enabling the checkbox will enable an alternate map using a ramp starting with an empty range.
+Now you can create your custom map using the common color ramp options.
+For detailed information see the <a class="reference internal" href="../interface/controls/templates/color_ramp.html"><span class="doc">Color ramps</span></a> page.</p>
+</div>
+<div class="section" id="fonts">
+<h2>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interface-font">
+<h3>Interface Font<a class="headerlink" href="#interface-font" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Interface Font</dt>
+<dd>Replacement for the default user interface font.</dd>
+<dt>Mono-space Font</dt>
+<dd>Same as above for the mono-space font.</dd>
+</dl>
+</div>
+<div class="section" id="internationalization">
+<span id="prefs-system-international"></span><h3>Internationalization<a class="headerlink" href="#internationalization" title="Permalink to this headline">¶</a></h3>
+<p>Blender supports a wide range of languages,
+enabling this checkbox will enable Blender to support International Fonts.
+International fonts can be loaded for the User Interface and used instead of Blender default bundled font.</p>
+<p>This will also enable options for translating the User Interface
+through a list of languages and Tips for Blender tools which appear
+whenever the user hovers a mouse over Blender tools.</p>
+<p>Blender supports I18N for internationalization.
+For more Information on how to load International fonts,
+see: <a class="reference internal" href="../modeling/texts/selecting_editing.html"><span class="doc">Editing Texts</span></a> page.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../editors/info/index.html" class="btn btn-neutral float-right" title="Info Editor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file.html" class="btn btn-neutral" title="File" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

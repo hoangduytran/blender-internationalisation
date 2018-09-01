@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spline IK Constraint &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/constraints/tracking/spline_ik.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Stretch To Constraint" href="stretch_to.html" />
+    <link rel="prev" title="Locked Track Constraint" href="locked_track.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#motion-tracking">Motion Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Transform</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#tracking">Tracking</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="clamp_to.html">Clamp To Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="damped_track.html">Damped Track Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ik_solver.html">IK Solver Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="locked_track.html">Locked Track Constraint</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Spline IK Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stretch_to.html">Stretch To Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="track_to.html">Track To Constraint</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#relationship">Relationship</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Constraints</a> &raquo;</li>
+        
+      <li>Spline IK Constraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/tracking/spline_ik.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spline-ik-constraint">
+<span id="bpy-types-splineikconstraint"></span><h1>Spline IK Constraint<a class="headerlink" href="#spline-ik-constraint" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Spline IK</em> constraint aligns a chain of bones along a curve.
+By leveraging the ease and flexibility of achieving aesthetically
+pleasing shapes offered by curves and the predictability and well-integrated
+control offered by bones, <em>Spline IK</em> is an invaluable tool in the riggers' toolbox.
+It is particularly well suited for rigging flexible body parts such as tails, tentacles,
+and spines, as well as inorganic items such as ropes.</p>
+<p>To set up <em>Spline IK</em>, it is necessary to have a chain of
+connected bones and a curve to constrain these bones to:</p>
+<ul class="simple">
+<li>With the last bone in the chain selected,
+add a <em>Spline IK</em> constraint from the <em>Bone Constraints</em> tab in the <em>Properties Editor</em>.</li>
+<li>Set the 'Chain Length' setting to the number of bones in the chain
+(starting from and including the selected bone)
+that should be influenced by the curve.</li>
+<li>Finally, set <em>Target</em> to the curve that should control the curve.</li>
+</ul>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_tracking_spline-ik_panel.png" src="../../../_images/rigging_constraints_tracking_spline-ik_panel.png" />
+<p class="caption"><span class="caption-text">Spline IK panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Target</dt>
+<dd><a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Data ID</span></a> used to select the target curve.</dd>
+</dl>
+<div class="section" id="spline-fitting">
+<h3>Spline Fitting<a class="headerlink" href="#spline-fitting" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Chain Length</dt>
+<dd>How many bones are included in the chain.</dd>
+<dt>Even Division</dt>
+<dd>Ignore the relative length of the bones when fitting to the curve.</dd>
+<dt>Chain Offset</dt>
+<dd>Offset the entire chain relative to the root joint.</dd>
+</dl>
+</div>
+<div class="section" id="chain-scaling">
+<h3>Chain Scaling<a class="headerlink" href="#chain-scaling" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Y Stretch</dt>
+<dd>Stretch the Y axis of the bones to fit the curve.</dd>
+<dt>Use Curve Radius</dt>
+<dd>Average radius of the endpoints is used to tweak the X and Z
+scaling of the bones, on top of the X and Z scale mode.</dd>
+<dt>XZ Scale Mode</dt>
+<dd><p class="first">Scaling that a bone undergoes to reach its target.</p>
+<dl class="last docutils">
+<dt>None</dt>
+<dd>Do not scale the X and X axes.</dd>
+<dt>Bone Original</dt>
+<dd>Use the original scaling of the bones.</dd>
+<dt>Inverse Scale</dt>
+<dd>Scale of the X and Z axes is the inverse of the Y scale.</dd>
+<dt>Volume Preservation</dt>
+<dd>Similar to the <a class="reference internal" href="stretch_to.html#constraints-stretch-to-volume-preservation"><span class="std std-ref">Stretch to</span></a> constraint.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">This subject is seen in-depth in the
+<a class="reference internal" href="../../armatures/posing/bone_constraints/inverse_kinematics/spline_ik.html"><span class="doc">Armature Posing section</span></a>.</p>
+</div>
+<iframe src="https://player.vimeo.com/video/171282278" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stretch_to.html" class="btn btn-neutral float-right" title="Stretch To Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="locked_track.html" class="btn btn-neutral" title="Locked Track Constraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

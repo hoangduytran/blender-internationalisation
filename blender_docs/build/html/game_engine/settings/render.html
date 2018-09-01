@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Render Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/settings/render.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Object Settings" href="object.html" />
+    <link rel="prev" title="Game Settings" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Game Settings</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Render Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#embedded-player">Embedded Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#standalone-player">Standalone Player</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#stereo">Stereo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shading">Shading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system">System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display">Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bake">Bake</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="object.html">Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Game Settings</a> &raquo;</li>
+        
+      <li>Render Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/settings/render.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="render-settings">
+<h1>Render Settings<a class="headerlink" href="#render-settings" title="Permalink to this headline">¶</a></h1>
+<p>The camera (or cameras) used in a Blender game have a wide-ranging effect on the way in which
+the game is rendered and displayed.
+Mostly this is controlled using the Properties panel of the camera(s) used in the game.</p>
+<p>There are two separate game &quot;players&quot; for previewing the game during development.
+The Embedded Player renders onto the 3D scene pane in the Blender GUI using the current perspective
+and zoom level of the 3D preview.
+The Standalone Player renders the scene from the perspective of the active scene camera
+and either creates a new desktop window or switches into fullscreen rendering mode.
+Note that while the Game Engine is running in either player,
+the computer's mouse and keyboard are captured by the game and by default,
+the mouse cursor is not visible. To exit the game, press the <kbd class="kbd docutils literal notranslate">Esc</kbd> key.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Render Engine</p>
+<p class="last">Make sure that the render engine is set to Blender Game when attempting to set these controls,
+otherwise this description will not tally with what you see!</p>
+</div>
+<p>In the Camera Properties area, there are seven panels available, as shown.
+Each can be expanded or contracted using the usual triangle button.
+The features in each panel will be described in detail below.</p>
+<div class="section" id="embedded-player">
+<h2>Embedded Player<a class="headerlink" href="#embedded-player" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-embedded.png"><img alt="../../_images/game-engine_settings_render_camera-properties-embedded.png" src="../../_images/game-engine_settings_render_camera-properties-embedded.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Embedded Player panel.</span></p>
+</div>
+<p>This panel provides information for the Embedded Game Player which allows games to be run
+inside a Blender render pane.</p>
+<p>Note that the <em>Resolution</em> settings are independent of the size of the viewport preview pane.
+In fact, the <em>Resolution</em> controls seem to have no effect at all.
+The resolution and aspect ratio of the embedded preview are always fixed to the 3D preview pane,
+which behaves much like the <em>Extend</em> framing mode for the standalone player as described below.
+The <em>Framing</em> selection under the <em>Display</em> heading has no effect on the embedded preview.</p>
+<dl class="docutils">
+<dt>Start</dt>
+<dd>Starts the Game Engine inside the blender viewport preview pane. Shortcut <kbd class="kbd docutils literal notranslate">P</kbd>.</dd>
+<dt>Resolution X/Y</dt>
+<dd>Sets the internal X/Y rendering resolution.</dd>
+</dl>
+</div>
+<div class="section" id="standalone-player">
+<h2>Standalone Player<a class="headerlink" href="#standalone-player" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-standalone.png"><img alt="../../_images/game-engine_settings_render_camera-properties-standalone.png" src="../../_images/game-engine_settings_render_camera-properties-standalone.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Standalone Player panel.</span></p>
+</div>
+<p>This panel provides information for the Standalone Game Player which allows games to be run without Blender.
+See <a class="reference internal" href="../blender_player.html"><span class="doc">Standalone Player</span></a> for further details.</p>
+<p>The semantics of the Standalone Player <em>Resolution</em> controls differ for Windowed and Fullscreen modes.
+In Windowed mode (<em>Fullscreen</em> checkbox unchecked),
+the <em>Resolution</em> controls set the initial dimensions of the desktop window.
+The user may resize the window at any time, causing the rendering resolution to change accordingly.
+In Fullscreen mode (<em>Fullscreen</em> checkbox checked), the <em>Resolution</em> controls set the internal rendering resolution.
+The actual display resolution will be a best fit depending on the user's hardware.
+In either mode, the aspect ratio/cropping/scaling are determined
+by the <em>Framing</em> selection under the <em>Display</em> heading.</p>
+<p>Regarding <em>Fullscreen</em> mode, it is important to remember that the <em>Resolution</em> settings in <em>Fullscreen</em> mode
+are only hints to the operating system. Each display and monitor combination will have a different set of
+resolutions that they are capable of displaying; so there can be little confidence that all end-users will actually
+get the resolution you suggest; unless you choose one of the most standard resolutions (e.g. 800x600 or 1024x768).
+If you insist on using higher resolutions, then you may want to state clearly in your documentation that
+only certain resolutions are supported. In most other cases, the user's machine may select a resolution that is
+close to the one suggested; but the results can be unpredictable, especially in <em>Letterbox</em> mode.</p>
+<p>Note that the <em>Desktop</em> checkbox has no effect in Windowed mode.</p>
+<dl class="docutils">
+<dt>Start</dt>
+<dd>Launches the current blend-file with the Standalone Player.</dd>
+<dt>Resolution</dt>
+<dd><dl class="first last docutils">
+<dt>X</dt>
+<dd>Sets the X window size or full-screen display resolution.</dd>
+<dt>Y</dt>
+<dd>Sets the Y window size or full-screen display resolution.</dd>
+</dl>
+</dd>
+<dt>Fullscreen</dt>
+<dd><dl class="first last docutils">
+<dt>Off</dt>
+<dd>Opens standalone game as a new window.</dd>
+<dt>On</dt>
+<dd>Opens standalone game in full-screen.</dd>
+</dl>
+</dd>
+<dt>Desktop</dt>
+<dd><dl class="first last docutils">
+<dt>Off</dt>
+<dd>Attempts to obey the <em>Resolution</em> specified above when in <em>Fullscreen</em> mode.</dd>
+<dt>On</dt>
+<dd>Keeps the current desktop resolution when in <em>Fullscreen</em> mode.</dd>
+</dl>
+</dd>
+<dt>Quality</dt>
+<dd><dl class="first last docutils">
+<dt>AA Samples</dt>
+<dd>The number of AA samples to use for MSAA.</dd>
+<dt>Bit Depth</dt>
+<dd>Number of bits used to represent color of each pixel in full-screen display.</dd>
+<dt>Refresh Rate</dt>
+<dd>Number of frames per second of full-screen display.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="stereo">
+<h2>Stereo<a class="headerlink" href="#stereo" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-stereo.png"><img alt="../../_images/game-engine_settings_render_camera-properties-stereo.png" src="../../_images/game-engine_settings_render_camera-properties-stereo.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Stereo panel.</span></p>
+</div>
+<p>Select a stereo mode that will be used to capture stereo images of the game (and also,
+by implication, that stereo displays will use to render images in the standalone player).</p>
+<dl class="docutils">
+<dt>None</dt>
+<dd>Render single images with no stereo.</dd>
+<dt>Stereo</dt>
+<dd>Render dual images for stereo viewing using appropriate equipment.
+See <a class="reference internal" href="../camera/stereo.html"><span class="doc">Stereo Camera</span></a> for full details of available options.</dd>
+<dt>Dome</dt>
+<dd>Provides facilities for an immersive dome environment in which to view the game.
+See <a class="reference internal" href="../camera/dome.html"><span class="doc">Dome Camera</span></a> for full details of available options.</dd>
+</dl>
+</div>
+<div class="section" id="shading">
+<h2>Shading<a class="headerlink" href="#shading" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_camera-properties-shading.png"><img alt="../../_images/game-engine_settings_render_camera-properties-shading.png" src="../../_images/game-engine_settings_render_camera-properties-shading.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Shading panel.</span></p>
+</div>
+<p>Specifies the shading mode to be used in rendering the game.
+The shading facilities available in Blender for use in
+<a class="reference internal" href="../../render/blender_render/materials/index.html"><span class="doc">Materials</span></a> and <a class="reference internal" href="../../render/blender_render/textures/index.html"><span class="doc">Textures</span></a>
+are essentially the same in the Blender Game Engine.
+However, the constraints of real-time display mean that only some of the facilities are available.</p>
+<dl class="docutils">
+<dt>Multitexture</dt>
+<dd>Use Multi-texture shading.</dd>
+<dt>GLSL</dt>
+<dd>Use GLSL shading whenever possible for real-time image rendering.</dd>
+</dl>
+</div>
+<div class="section" id="system">
+<span id="game-engine-settings-render-system"></span><h2>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>The <em>System</em> panel at the Render tab of the Properties editor lets the game
+developer specify options about the system performance regarding to frame discard and
+restrictions about frame rendering, the key to stop the Blender Game Engine,
+and whether to maintain geometry in the internal memory of the Graphic card.</p>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/game-engine_settings_render_system.png"><img alt="../../_images/game-engine_settings_render_system.png" src="../../_images/game-engine_settings_render_system.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">System panel in the Render tab.</span></p>
+</div>
+<dl class="docutils">
+<dt>Use Frame Rate</dt>
+<dd>Respect the frame rate rather than rendering as many frames as possible.
+When unchecked, this will inform Blender to run freely without frame rate restrictions.
+The frame rate is specified at the <em>Display</em> panel in the <em>Render</em> tab of the Properties editor.
+For more information about frame rates,
+see the <a class="reference internal" href="#game-engine-settings-render-display"><span class="std std-ref">Display panel</span></a> page.</dd>
+<dt>Display Lists</dt>
+<dd>Use display lists to speed up rendering by keeping geometry on the GPU.
+When checked, this will tell Blender to maintain the lists of the meshes geometry allocated at the GPU memory.
+This can help to speed up viewport rendering during the game if
+you have enough GPU memory to allocate geometry and textures.</dd>
+<dt>Restrict Animation Updates</dt>
+<dd>Restrict number of animation updates to the animation FPS
+(this is better for performance but can cause issues with smooth playback).
+When checked, this will force the Game Engine to discard frames
+(even at the middle of redrawing, sometimes causing <em>tearing</em> artifacts)
+if the rate of frames rendered by the GPU is greater than
+the specified in the <a class="reference internal" href="#game-engine-settings-render-display"><span class="std std-ref">Display panel</span></a>.</dd>
+<dt>Use Material Caching</dt>
+<dd>Cache materials in the converter.
+This is faster but can cause problems with older single-texture and multi-texture games.</dd>
+<dt>Vsync</dt>
+<dd>Change Vsync settings.</dd>
+<dt>Storage</dt>
+<dd>Set the storage node used by the rasterizer.</dd>
+<dt>Exit Key</dt>
+<dd>This button specifies which key-press will exit the game.</dd>
+</dl>
+</div>
+<div class="section" id="display">
+<span id="game-engine-settings-render-display"></span><h2>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Display</em> panel in the <em>Render</em> tab of the <em>Properties</em> editor
+lets the game developer specify the maximum frame rate of the animations shown during
+the game execution, whether to see informations like framerate and profile, debug properties,
+physics geometry visualization, warnings,
+whether the mouse cursor is shown during the game execution, and options to specify the framing
+style of the game to fit the window with the specified resolution.</p>
+<div class="figure" id="id6">
+<img alt="../../_images/game-engine_settings_render_display.png" src="../../_images/game-engine_settings_render_display.png" />
+<p class="caption"><span class="caption-text">Display panel at the Render tab.</span></p>
+</div>
+<dl class="docutils">
+<dt>Animation Frame Rate</dt>
+<dd>This number button/slider specify the maximum frame rate at which the game will run.
+Minimum is 1, maximum is 120.</dd>
+<dt>Debug Properties</dt>
+<dd>When checked, the values of any properties which are selected to be debugged in the <em>Game Properties</em> panel
+will be shown with the <em>Framerate and Profile</em> contents.</dd>
+<dt>Framerate and Profile</dt>
+<dd>When checked, this will show values for each of the calculations Blender is doing while the game is running,
+plus the properties marked to be debugged if <em>Debug Properties</em> above is also checked.</dd>
+<dt>Physics visualization</dt>
+<dd>Shows a visualization of physics bounds and interactions (like hulls and collision shapes), and their interaction.</dd>
+<dt>Deprecation Warnings</dt>
+<dd>Every time when the game developer uses a deprecated functionality
+(which in some cases are outdated or crippled OpenGL Graphic cards functions),
+the system will emit warnings about the deprecated function.</dd>
+<dt>Mouse Cursor</dt>
+<dd>Whether to show or not the mouse cursor when the game is running.</dd>
+<dt>Framing</dt>
+<dd><p class="first">Selects how the scene is to be fitted onto the display window or screen.
+There are three types of framing available:</p>
+<dl class="last docutils">
+<dt>Letterbox</dt>
+<dd><dl class="first last docutils">
+<dt>In Windowed mode:</dt>
+<dd>Maintains a 4:3 aspect ratio by scaling to fit the current window dimensions without cropping,
+covering any portions of the display that lie outside of the aspect ratio with color bars.</dd>
+<dt>In Fullscreen mode:</dt>
+<dd>The behavior of this combination seems to be heavily dependent on the user's hardware.
+The result can be quite unpredictable, especially when the resolution and aspect ratio
+differ too much from the machine's capabilities. For this reason, <em>Extend</em> mode
+should be preferred for <em>Fullscreen</em> applications.</dd>
+</dl>
+</dd>
+<dt>Extend</dt>
+<dd>This mode behaves much like <em>Letterbox</em> mode, maintaining a 4:3 aspect ratio by scaling whenever possible;
+except that the camera frustum is expanded or contracted wherever necessary to fill
+any portions of the display that lie outside of the aspect ratio, instead of covering those portions
+of the scene with color bars, as with <em>Letterbox</em> mode, or distorting then scene, as with <em>Scale</em> mode.</dd>
+<dt>Scale</dt>
+<dd>In this mode, no attempt is made to maintain a particular aspect ratio.
+The scene and objects within will be stretched or squashed to fit the display exactly.</dd>
+</dl>
+</dd>
+<dt>Color Bar</dt>
+<dd>This will let the game developer choose the bar colors when using the <em>Letterbox</em> Framing mode.</dd>
+</dl>
+</div>
+<div class="section" id="bake">
+<h2>Bake<a class="headerlink" href="#bake" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Bake</em> panel in the <em>Render</em> tab of the <em>Properties</em> editor is very similar to its
+Blender Render counterpart and serves much the same purpose.
+See <a class="reference internal" href="../../render/blender_render/bake.html"><span class="doc">Render Baking</span></a> for further details.</p>
+<dl class="docutils">
+<dt>Bake</dt>
+<dd>Bake image textures of selected objects.</dd>
+<dt>Bake Mode</dt>
+<dd><p class="first">Shading information to bake into the image.</p>
+<dl class="last docutils">
+<dt>Full Render</dt>
+<dd>Bakes all materials, textures, and lighting except specularity and SSS.</dd>
+<dt>Ambient Occlusion</dt>
+<dd>Bakes ambient occlusion as specified in the World panels. Ignores all lights in the scene.</dd>
+<dt>Shadows</dt>
+<dd>Bakes shadows and lighting.</dd>
+<dt>Normals</dt>
+<dd>Bakes tangent and camera-space normals (among many others) to an RGB image.</dd>
+<dt>Textures</dt>
+<dd>Bakes colors of materials and textures only, without shading.</dd>
+<dt>Displacement</dt>
+<dd>Similar to baking normal maps, displacement maps can also be baked from a high-res object
+to an unwrapped low-res object, using the Selected to Active option.</dd>
+<dt>Derivative</dt>
+<dd>Bake derivative map.</dd>
+<dt>Vertex Colors</dt>
+<dd>Bake vertex colors.</dd>
+<dt>Emissions</dt>
+<dd>Bakes Emit, or the Glow color of a material.</dd>
+<dt>Alpha</dt>
+<dd>Bakes Alpha values, or transparency of a material.</dd>
+<dt>Mirror Intensity</dt>
+<dd>Bake mirror intensity values.</dd>
+<dt>Mirror Colors</dt>
+<dd>Bake mirror colors.</dd>
+<dt>Specular Intensity</dt>
+<dd>Bake specular intensity values.</dd>
+<dt>Specular Colors</dt>
+<dd>Bake specular colors.</dd>
+</dl>
+</dd>
+<dt>Bake from Multiresolution</dt>
+<dd>Bake directly from a multi-resolution object.</dd>
+<dt>Normalized</dt>
+<dd><dl class="first last docutils">
+<dt>In Displacement Mode:</dt>
+<dd>Normalize to the distance.</dd>
+<dt>In Ambient Occlusion Mode:</dt>
+<dd>Normalize without using material's settings.</dd>
+</dl>
+</dd>
+<dt>Normal Space</dt>
+<dd><p class="first">Normals can be baked in different spaces:</p>
+<dl class="last docutils">
+<dt>Camera space</dt>
+<dd>Default method.</dd>
+<dt>World space</dt>
+<dd>Normals in world coordinates, dependent on object transformation and deformation.</dd>
+<dt>Object space</dt>
+<dd>Normals in object coordinates, independent of object transformation,
+but dependent on deformation.</dd>
+<dt>Tangent space</dt>
+<dd>Normals in tangent space coordinates, independent of object transformation and deformation.
+This is the new default, and the right choice in most cases, since then the normal map
+can be used for animated objects too.</dd>
+</dl>
+</dd>
+<dt>Bake to Vertex Color</dt>
+<dd>Bake to vertex colors instead of to a UV-mapped image.</dd>
+<dt>Clear</dt>
+<dd>If selected, clears the image to selected background color (default is black) before baking render.</dd>
+<dt>Margin</dt>
+<dd>Baked result is extended this many pixels beyond the border of each UV &quot;island&quot;, to soften seams in the texture.</dd>
+<dt>Selected to Active</dt>
+<dd><p class="first">Bake shading on the surface of selected objects to the active object.</p>
+<dl class="last docutils">
+<dt>Distance</dt>
+<dd>Maximum distance in blender units from active object to other object.</dd>
+<dt>Bias</dt>
+<dd>Bias in blender units toward faces further away from the object.</dd>
+</dl>
+</dd>
+<dt>Split</dt>
+<dd><p class="first">The method used to split a quad into two triangles for baking.</p>
+<dl class="last docutils">
+<dt>Fixed</dt>
+<dd>Split quads predictably (0,1,2)(0,2,3).</dd>
+<dt>Fixed Alternate</dt>
+<dd>Split quads predictably (1,2,3)(1,3,0).</dd>
+<dt>Automatic</dt>
+<dd>Split quads to give the least distortion while baking.</dd>
+</dl>
+</dd>
+<dt>User Scale</dt>
+<dd>Apply a custom scale to the derivative map instead of normalizing to the default (0.1).</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="object.html" class="btn btn-neutral float-right" title="Object Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Game Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

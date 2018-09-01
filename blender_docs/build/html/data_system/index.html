@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Data System &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/data_system/index.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="Python Console" href="../editors/python_console.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html">Data-Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_properties.html">Custom Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenes/index.html">Scenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/index.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html">Linked Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Data System</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/data_system/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-system">
+<h1>Data System<a class="headerlink" href="#data-system" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#outliner">Outliner</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#pack-and-unpack-data">Pack and Unpack Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_blocks.html">Data-Blocks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html#users-garbage-collection">Users (Garbage Collection)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html#users-sharing">Users (Sharing)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html#make-single-user">Make Single User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html#removing-data-blocks">Removing Data-Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html#data-block-types">Data-Block Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom_properties.html">Custom Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom_properties.html#editing-properties">Editing Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scenes/index.html">Scenes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scenes/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenes/properties.html">Scene Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="files/index.html">Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="files/open.html">Opening Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/save.html">Saving Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/import_export.html">Importing &amp; Exporting Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/relative_paths.html">Relative Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/startup_file.html">Startup File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/media/index.html">Media Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linked_libraries.html">Linked Libraries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html#append-and-link">Append and Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html#proxy-objects">Proxy Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html#make-link">Make Link</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html#make-local">Make Local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linked_libraries.html#known-limitations">Known Limitations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../editors/python_console.html" class="btn btn-neutral" title="Python Console" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

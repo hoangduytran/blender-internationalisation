@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing Style Guide &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/about/contribute/guides/writing_guide.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Maintenance" href="maintenance_guide.html" />
+    <link rel="prev" title="Markup Style Guide" href="markup_guide.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">About this Manual</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction to the Blender Manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../license.html">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../whats_new.html">What's New</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Contribute</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../index.html#how-it-works">How It Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#guidelines">Guidelines</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="markup_guide.html">Markup Style Guide</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Writing Style Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="maintenance_guide.html">Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#translations">Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#contacts">Contacts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">About this Manual</a> &raquo;</li>
+        
+          <li><a href="../index.html">Contribute</a> &raquo;</li>
+        
+      <li>Writing Style Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/about/contribute/guides/writing_guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-style-guide">
+<h1>Writing Style Guide<a class="headerlink" href="#writing-style-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="primary-goals">
+<h2>Primary Goals<a class="headerlink" href="#primary-goals" title="Permalink to this headline">¶</a></h2>
+<p>The main goals for this manual are as follows.</p>
+<dl class="docutils">
+<dt>User Focused</dt>
+<dd>While some areas of computer graphics are highly technical,
+this manual shall be kept understandable by non-technical users.</dd>
+<dt>Complete</dt>
+<dd>So there is a canonical source of truth for each of Blender's key areas.
+This does not mean we have to document every small detail,
+but users should not have to rely on searching elsewhere to find the purpose of key features.</dd>
+<dt>Concise</dt>
+<dd>Computer graphics is an incredibly interesting field,
+there are many rules, exceptions to the rules and interesting details.
+Expanding into details can add unnecessary content,
+so keep the text concise and relevant to the topic at hand.</dd>
+<dt>Maintainable</dt>
+<dd>Keep in mind that Blender has frequent releases,
+so try to write content that will not have to be redone
+the moment some small change is made.
+This also helps a small documentation community to maintain the manual.</dd>
+</dl>
+</div>
+<div class="section" id="content-guidelines">
+<h2>Content Guidelines<a class="headerlink" href="#content-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>In order to maintain a consistent writing style within the manual,
+please keep this page in mind and only deviate from it when you have a good reason to do so.</p>
+<p>Rules of thumb:</p>
+<ul class="simple">
+<li>Spell checking is <em>strongly</em> recommended.</li>
+<li>Use American English (e.g: modeling and not modelling, color and not colour).</li>
+<li>Take care about grammar, appropriate wording and use simple English.</li>
+<li>Keep sentences short and clear, resulting in text that is easy to read, objective and to the point.</li>
+<li>Including why or how an option might be useful is a good idea.</li>
+<li>If you are unsure about how a feature works, ask someone else or find out who developed it and ask them.</li>
+</ul>
+<p>To be avoided:</p>
+<ul>
+<li><p class="first">Avoid writing in first person perspective, about yourself or your own opinions.</p>
+</li>
+<li><p class="first">Avoid <a class="reference external" href="https://en.wikipedia.org/wiki/Weasel_word">weasel words</a> and being unnecessarily vague, e.g:</p>
+<div class="line-block">
+<div class="line">&quot;Reloading the file will probably fix the problem&quot;</div>
+<div class="line">&quot;Most people do not use this option because ...&quot;</div>
+</div>
+</li>
+<li><p class="first">Avoid including specific details such as:</p>
+<div class="line-block">
+<div class="line">&quot;Blender has 23 different kinds of modifiers.&quot;</div>
+<div class="line">&quot;Enabling previews adds 65536 bytes to the size of each blend-file (unless it is compressed).&quot;</div>
+</div>
+<p>These details are not useful for users to memorize and they become quickly outdated.</p>
+</li>
+<li><p class="first">Avoid documenting bugs.</p>
+<p>Blender often has 100's of bugs fixed between releases, so it is not realistic to reference
+even a fraction of them from the manual, while keeping this list up to date.</p>
+<p>Issues which are known to the developers and are not going to be resolved before the next release
+can be documented as <em>Known Limitations</em>.
+In some cases, it may be best to include them in the <a class="reference internal" href="../../../troubleshooting/index.html"><span class="doc">troubleshooting</span></a> section.</p>
+</li>
+<li><p class="first">Avoid product placements, i.e. unnecessarily promoting software or hardware brands.
+Keep content vendor-neutral where possible.</p>
+</li>
+<li><p class="first">Avoid technical explanations about the mathematical/algorithmic implementation of a feature
+if there is a simpler way to explain it.</p>
+<p>(e.g. explaining how mesh smoothing algorithms work is unnecessary,
+but the blending types of a mix node do need a mathematical explanation).</p>
+</li>
+<li><p class="first">Avoid repetition of large portions of text. Simply explain it once, and from then on refer to that explanation.</p>
+<p>For general terminology, consider defining a <code class="docutils literal notranslate"><span class="pre">:term:</span></code> in the <a class="reference internal" href="../../../glossary/index.html"><span class="doc">glossary</span></a>.</p>
+</li>
+<li><p class="first">Avoid enumerations of similar options, such as listing every preset or every frame rate in a select menu.</p>
+<p>Their contents may be summarized or simply omitted.
+-- Such lists are only showing what is already <em>obvious</em> in the interface
+and end up being a lot of text to read and maintain.</p>
+</li>
+<li><p class="first">Avoid documenting changes in Blender between releases, that is what the release notes are for.
+We only need to document the current state of Blender.</p>
+</li>
+<li><p class="first">Unless the unit a value is measured in is obscure and unpredictable, there is no need to mention it.</p>
+</li>
+<li><p class="first">Do not simply copy the tooltips from Blender.
+-- People will come to the manual to learn <em>more</em> than is provided by the UI.</p>
+<p>As a last resort you can add comment (which is not shown in the HTML page, but useful for other editors):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="cp">.. TODO, how does this tool work? ask Joe Blogg&#39;s.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="glossary">
+<h3>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h3>
+<p>This section is specifically about the <a class="reference internal" href="../../../glossary/index.html"><span class="doc">Glossary</span></a> section,
+where we define common terms in Blender and computer graphics.</p>
+<p>Rules of thumb:</p>
+<ul>
+<li><p class="first">Define the term before providing any further information.</p>
+</li>
+<li><p class="first">Avoid using constructs such as &quot;it is&quot; or &quot;xyz is&quot; before the definition.</p>
+</li>
+<li><p class="first">Avoid repeating the term immediately or using it in the definition.</p>
+</li>
+<li><p class="first">Avoid adding terms not found in Blender's interface or the manual.</p>
+</li>
+<li><p class="first">Avoid overly long entries.
+If an explanation of a complex term is needed, supplement with external links.</p>
+</li>
+<li><p class="first">Avoid duplicating documentation;
+if explaining the term is the primary focus of another section of the manual
+(e.g. if the term is the name of a tool),
+either just link to that section, or avoid creating a glossary entry entirely.</p>
+</li>
+<li><p class="first">URL references are to be added at the end, formatted as follows, e.g:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>See also <span class="s">`OpenGL </span><span class="si">&lt;https://en.wikipedia.org/wiki/OpenGL&gt;</span><span class="s">`__</span> on Wikipedia.
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="examples">
+<h4>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h4>
+<p>This entry:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Displacement Mapping
+   Uses a grayscale heightmap, like Bump Mapping,
+   but the image is used to physically move the vertices of the mesh at render time.
+   This is of course only useful if the mesh has large amounts of vertices.
+</pre></div>
+</div>
+<p>Would be written like this instead, putting a definition first:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Displacement Mapping
+   A method for distorting vertices based on an image.
+   Similar to Bump Mapping, but instead operates on the mesh&#39;s actual geometry.
+   This relies on the mesh having enough geometry.
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>This entry:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Doppler Effect
+   The Doppler effect is the change in pitch that occurs
+   when a sound has a velocity relative to the listener.
+</pre></div>
+</div>
+<p>Would be written more like this, avoiding the immediate repetition of the term:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Doppler Effect
+   Perceived change in pitch that occurs
+   when the source of a sound is moving relative to the listener.
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>This entry:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Curve
+   It is a class of objects.
+   In Blender there are Bézier curves and NURBS curves.
+</pre></div>
+</div>
+<p>Would be written more like this, avoiding the &quot;it is&quot;:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Curve
+   A type of object defined in terms of a line interpolated between Control Vertices.
+   Available types of curves include Bézier and NURBS.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="maintenance_guide.html" class="btn btn-neutral float-right" title="Maintenance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="markup_guide.html" class="btn btn-neutral" title="Markup Style Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

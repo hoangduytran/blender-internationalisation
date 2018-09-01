@@ -1,0 +1,461 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Wave Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/wave.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Explode Modifier" href="../simulate/explode.html" />
+    <link rel="prev" title="Warp Modifier" href="warp.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Generate</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#deform">Deform</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="armature.html">Armature Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cast.html">Cast Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="corrective_smooth.html">Corrective Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">Curve Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">Displace Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hooks.html">Hook Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_smooth.html">Laplacian Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_deform.html">Laplacian Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lattice.html">Lattice Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_deform.html">Mesh Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Shrinkwrap Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simple_deform.html">Simple Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smooth.html">Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_deform.html">Surface Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="warp.html">Warp Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Wave Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Wave Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/deform/wave.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="wave-modifier">
+<span id="bpy-types-wavemodifier"></span><h1>Wave Modifier<a class="headerlink" href="#wave-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Wave Modifier adds a ripple-like motion to an object's geometry.</p>
+<p>This modifier is available for meshes, lattices, curves,
+surfaces and texts.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_deform_wave_example-circular.jpg"><img alt="../../../_images/modeling_modifiers_deform_wave_example-circular.jpg" src="../../../_images/modeling_modifiers_deform_wave_example-circular.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Circular wave front.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_deform_wave_example-linear.jpg"><img alt="../../../_images/modeling_modifiers_deform_wave_example-linear.jpg" src="../../../_images/modeling_modifiers_deform_wave_example-linear.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Linear wave front.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_deform_wave_example-normals.jpg"><img alt="../../../_images/modeling_modifiers_deform_wave_example-normals.jpg" src="../../../_images/modeling_modifiers_deform_wave_example-normals.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Motion enabled for X,
+Normals enabled for Y.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<img alt="../../../_images/modeling_modifiers_deform_wave_panel.png" src="../../../_images/modeling_modifiers_deform_wave_panel.png" />
+<p class="caption"><span class="caption-text">Wave Modifier.</span></p>
+</div>
+<div class="section" id="motion">
+<h3>Motion<a class="headerlink" href="#motion" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Axis</dt>
+<dd><p class="first">The wave effect deforms vertices/control points in the Z direction,
+originating from the given starting point and propagating along the object with circular wave fronts
+(if both X and Y are enabled),
+or with rectilinear wave fronts (if only one axis is enabled),
+then parallel to the axis corresponding to the X or Y button activated.</p>
+<p class="last">X, Y</p>
+</dd>
+<dt>Cyclic</dt>
+<dd>Repeats the waves cyclically, rather than a single pulse.</dd>
+<dt>Normals</dt>
+<dd>For meshes only. Displaces the mesh along the surface normals (instead of the object's Z axis).</dd>
+</dl>
+</div>
+<div class="section" id="time">
+<h3>Time<a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
+<p>Settings to control the animation.</p>
+<dl class="docutils">
+<dt>Offset</dt>
+<dd>Time offset in frames. The frame at which the wave begins (if <em>Speed</em> is positive),
+or ends (if <em>Speed</em> is negative). Use a negative frame number to prime and pre-start the waves.</dd>
+<dt>Life</dt>
+<dd>Duration of animation in frames. When set to zero, loops the animation forever.</dd>
+<dt>Damping</dt>
+<dd>An additional number of frames in which the wave slowly damps from the <em>Height</em> value
+to zero after <em>Life</em> is reached.
+The dampening occurs for all the ripples and begins in the first frame after the <em>Life</em> is over.
+Ripples disappear over <em>Damping</em> frames.</dd>
+</dl>
+</div>
+<div class="section" id="position">
+<h3>Position<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Position</dt>
+<dd><p class="first">Coordinates of the center of the waves, in the object's local coordinates.</p>
+<p class="last">X, Y</p>
+</dd>
+<dt>Falloff</dt>
+<dd>Controls how fast the waves fade out as they travel away from the coordinates above
+(or those of the <em>Start Position Object</em>).</dd>
+<dt>Start Position Object</dt>
+<dd>Use another object as the reference for the starting position of the wave.
+Note that you then can animate this object's position, to change the wave's origin across time.</dd>
+</dl>
+</div>
+<div class="section" id="delimiter-noise">
+<h3>Delimiter &amp; Noise<a class="headerlink" href="#delimiter-noise" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Vertex Group</dt>
+<dd>For meshes only. A vertex group name, used to control the parts of the mesh affected by the wave effect,
+and to what extent (using vertex weights). Note a newly created vertex group has empty weights.</dd>
+<dt>Texture</dt>
+<dd><p class="first">Use this texture to control the object's displacement level.
+Animated textures can give very interesting results here.</p>
+<dl class="last docutils">
+<dt>Texture Coordinates</dt>
+<dd><p class="first">This menu lets you choose the texture's coordinates for displacement:</p>
+<dl class="last docutils">
+<dt>Local</dt>
+<dd>Object's local coordinates.</dd>
+<dt>Global</dt>
+<dd>Global coordinates.</dd>
+<dt>Object</dt>
+<dd>Adds an additional field just below,
+to type in the name of the object from which to get the texture coordinates.</dd>
+<dt>UV</dt>
+<dd>Adds an extra <em>UV map</em> property, to select the UV map to be used.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>The arguments of the wave function.</p>
+<dl class="docutils">
+<dt>Speed</dt>
+<dd>The speed, in BU (for &quot;Blender Units&quot;) per frame, of the ripple.</dd>
+<dt>Height</dt>
+<dd>The height or amplitude, in BU, of the ripple.</dd>
+<dt>Width</dt>
+<dd>Half of the width, in BU, between the tops of two subsequent ripples (if <em>Cyclic</em> is enabled).
+This has an indirect effect on the ripple amplitude. If the pulses are too near to each other,
+the wave may not reach the zero Z position, so in this case Blender actually lowers the whole wave
+so that the minimum is zero and, consequently, the maximum is lower than the expected amplitude.
+See <a class="reference internal" href="#technical-details-and-hints">Technical Details and Hints</a> below.</dd>
+<dt>Narrowness</dt>
+<dd>The actual width of each pulse: the higher the value the narrower the pulse.
+The actual width of the area in which the single pulse is apparent is given by 4/ <em>Narrowness</em>.
+That is, if <em>Narrowness</em> is 1 the <em>pulse</em> is 4 units wide, and if <em>Narrowness</em>
+is 4 the <em>pulse</em> is 1 unit wide.</dd>
+</dl>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">All the values described above must be multiplied with the corresponding <em>Scale</em> values of
+the object to get the real dimensions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="technical-details-and-hints">
+<h2>Technical Details and Hints<a class="headerlink" href="#technical-details-and-hints" title="Permalink to this headline">¶</a></h2>
+<p>The relationship of the above values is described here:</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/modeling_modifiers_deform_wave_front-characteristics.png" src="../../../_images/modeling_modifiers_deform_wave_front-characteristics.png" />
+<p class="caption"><span class="caption-text">Wave front characteristics.</span></p>
+</div>
+<p>To obtain a nice wave effect similar to sea waves and close to a sinusoidal wave,
+make the distance between following ripples and the ripple width equal; that is,
+the <em>Narrowness</em> value must be equal to 2/ <em>Width</em>.
+E.g. for <em>Width</em> to be 1, set <em>Narrow</em> to 2.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../simulate/explode.html" class="btn btn-neutral float-right" title="Explode Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="warp.html" class="btn btn-neutral" title="Warp Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

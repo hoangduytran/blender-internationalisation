@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Common &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/constraints/interface/common.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Stack" href="stack.html" />
+    <link rel="prev" title="Header" href="header.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#interface">Interface</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="adding_removing.html">Adding/Removing a Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="header.html">Header</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Common</a></li>
+<li class="toctree-l4"><a class="reference internal" href="stack.html">Stack</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#motion-tracking">Motion Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#relationship">Relationship</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Constraints</a> &raquo;</li>
+        
+      <li>Common</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/interface/common.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="common">
+<h1>Common<a class="headerlink" href="#common" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="target">
+<span id="rigging-constraints-interface-common-target"></span><h2>Target<a class="headerlink" href="#target" title="Permalink to this headline">¶</a></h2>
+<p>The Target <a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Data ID</span></a> field lets you link the constraint to a Target object of your choosing.
+This link provides data to the constraint so that it can begin to function.
+For example, the Copy Location Constraint needs location data to function.
+Fill in the Target field, and the Copy Location constraint will begin to use location data from the Target object.</p>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_interface_common_target.png" src="../../../_images/rigging_constraints_interface_common_target.png" />
+<p class="caption"><span class="caption-text">The Target field must be filled in for the constraint to function.</span></p>
+</div>
+<p>By default, the Target will use the <a class="reference internal" href="../../../glossary/index.html#term-object-origin"><span class="xref std std-term">Object Origin</span></a> as the target point.</p>
+<p>If the Target field links to a <a class="reference internal" href="../../../glossary/index.html#term-mesh"><span class="xref std std-term">Mesh</span></a> or <a class="reference internal" href="../../../glossary/index.html#term-lattice"><span class="xref std std-term">Lattice</span></a> object, a <a class="reference internal" href="../../../glossary/index.html#term-vertex-group"><span class="xref std std-term">Vertex Group</span></a> field will appear.
+Enter the name of a vertex group and the constraint will target the median point
+of this vertex group instead of the object center.</p>
+<div class="figure">
+<img alt="../../../_images/rigging_constraints_interface_common_target-vertex-group.png" src="../../../_images/rigging_constraints_interface_common_target-vertex-group.png" />
+</div>
+<p>If the Target field links to an <a class="reference internal" href="../../../glossary/index.html#term-armature"><span class="xref std std-term">Armature</span></a>, a <a class="reference internal" href="../../../glossary/index.html#term-bone"><span class="xref std std-term">Bone</span></a> field will appear
+along with a <a class="reference internal" href="../../../glossary/index.html#term-head"><span class="xref std std-term">Head</span></a> or <a class="reference internal" href="../../../glossary/index.html#term-tail"><span class="xref std std-term">Tail</span></a> slider.
+Enter the name of a bone and the constraint will target the bone instead of the entire armature object center.
+Slide the slider and the constraint will target the head, the tail or somewhere in between.</p>
+<div class="figure">
+<img alt="../../../_images/rigging_constraints_interface_common_target-bone.png" src="../../../_images/rigging_constraints_interface_common_target-bone.png" />
+</div>
+</div>
+<div class="section" id="space">
+<h2>Space<a class="headerlink" href="#space" title="Permalink to this headline">¶</a></h2>
+<p>Constraints need a frame of reference in order to function.
+This frame of reference is called the &quot;space&quot; of the constraint.
+Choosing one space vs. another will change this frame of reference
+and substantially alter the behavior of a constraint.</p>
+<p>To understand how changing the space will change the behavior of the constraint,
+consider experimenting with two empties.
+Make sure they display as arrows so that you can see the local axes for each empty.
+Make sure to size one empty a little larger than the other so that they are both always visible
+even if directly on top of each other.
+Then add a constraint to one empty that targets the other and experiment thoroughly by
+moving, rotating and scaling the target in many different ways.</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/rigging_constraints_interface_common_space.png" src="../../../_images/rigging_constraints_interface_common_space.png" />
+<p class="caption"><span class="caption-text">This constraint is set to use World Space as the frame of reference for both
+its Target Space and its Owner Space.</span></p>
+</div>
+<div class="section" id="target-space-owner-space">
+<h3>Target Space &amp; Owner Space<a class="headerlink" href="#target-space-owner-space" title="Permalink to this headline">¶</a></h3>
+<p>The space used to evaluate the target of the constraint is called the Target Space.
+The space used to evaluate the constrained object (the object that owns the constraint) is called the Owner Space.
+Hover over the space select menu(s) to learn whether it affects the space of the target
+or the space of the owner.</p>
+<p>When the constraints use a Target and/or/nor an Owner space there will be no, one or two selector(s).
+The Copy Location constraint in example use both Target <strong>and</strong> Owner space.</p>
+<p>When a constraint uses both Target and Owner space,
+the Target and Owner can be any combination of space types.</p>
+</div>
+<div class="section" id="space-types">
+<h3>Space Types<a class="headerlink" href="#space-types" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>World Space</dt>
+<dd>In this space type the world is the frame of reference for the object (or bone).
+Location is relative to the world origin.
+Rotation and Scale are oriented to the world axes.
+Transformations to the object, the object's parent and any other constraints
+higher up in the constraint stack are all taken into account.</dd>
+<dt>Local Space</dt>
+<dd>In this space type the parent of the object (or bone) is the frame of reference.
+Location is relative to the parent object origin.
+Rotation and Scale are oriented to the parent object axes.
+Only transformations to the object itself are taken into account. Transformations to the object's parent and
+any other constraints higher up in the constraint stack are <strong>not</strong> taken into account.</dd>
+<dt>Local With Parent (bones only)</dt>
+<dd>The bone properties are evaluated in its own local space,
+<em>including</em> the transformations due to a possible parent relationship
+(i.e. the chain's transformations above the bone).</dd>
+<dt>Pose Space (bones only)</dt>
+<dd>The bone properties are evaluated in the armature object local space
+(i.e. independently from the armature transformations in <em>Object Mode</em>).
+Hence, if the armature object has null transformations,
+<em>Pose Space</em> will have the same effect as <em>World Space</em>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="influence">
+<span id="bpy-types-constraint-influence"></span><span id="rigging-constraints-influence"></span><h2>Influence<a class="headerlink" href="#influence" title="Permalink to this headline">¶</a></h2>
+<p>The influence slider determines how much the constraint will affect the constrained object (target).</p>
+<div class="figure">
+<img alt="../../../_images/rigging_constraints_interface_common_influence.png" src="../../../_images/rigging_constraints_interface_common_influence.png" />
+</div>
+<p>An influence of 0.0 will have no effect.
+An influence of 1.0 will have the full effect.</p>
+<p>Values between (0.0 and 1.0) will have a partial effect, but be careful. These partial effects can
+be difficult to control,
+especially as the <a class="reference internal" href="stack.html"><span class="doc">constraint stack</span></a> grows in complexity.</p>
+<p>The influence value is animatable, allowing constraints to be turned off, or partially on as needed.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stack.html" class="btn btn-neutral float-right" title="Stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="header.html" class="btn btn-neutral" title="Header" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linked Libraries &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/data_system/linked_libraries.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Modeling" href="../modeling/index.html" />
+    <link rel="prev" title="Supported Video Formats" href="files/media/video_formats.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Data System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html">Data-Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_properties.html">Custom Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenes/index.html">Scenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/index.html">Files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Linked Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#append-and-link">Append and Link</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#proxy-objects">Proxy Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-link">Make Link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-local">Make Local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known Limitations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#circular-dependencies">Circular Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#object-rigid-body-constraints">Object Rigid Body Constraints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Data System</a> &raquo;</li>
+        
+      <li>Linked Libraries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/data_system/linked_libraries.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linked-libraries">
+<span id="bpy-types-library"></span><h1>Linked Libraries<a class="headerlink" href="#linked-libraries" title="Permalink to this headline">¶</a></h1>
+<p>These functions help you reuse materials, objects and other <a class="reference internal" href="data_blocks.html"><span class="doc">data-blocks</span></a>
+loaded from an external source blend-file.
+You can build libraries of common content and share them across multiple referencing files.</p>
+<div class="section" id="append-and-link">
+<h2>Append and Link<a class="headerlink" href="#append-and-link" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Info Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">File ‣ Append or Link</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-F1</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl-Alt-O</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Link</em> creates a reference to the data in the source file such that
+changes made there will be reflected in the referencing file the next time it is reloaded.</p>
+<p>Whereas <em>Append</em> makes a full copy of the data into your blend.
+You can make further edits to your local copy of the data,
+but changes in the external source file will not be reflected in the referencing file.</p>
+<p>In the <a class="reference internal" href="../editors/file_browser/introduction.html"><span class="doc">File Browser</span></a>
+navigate to the external source blend-file and select the data-block you want to reuse.</p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Relative Path</dt>
+<dd>Available only when linking, see <a class="reference internal" href="files/relative_paths.html"><span class="doc">relative paths</span></a>.</dd>
+<dt>Select</dt>
+<dd>Makes the object <em>Active</em> after it is loaded.</dd>
+<dt>Active Layer</dt>
+<dd>The object will be assigned to the visible layers in your scene.
+Otherwise, it is assigned to the same layers it resides on in the source file.</dd>
+<dt>Instance Groups</dt>
+<dd>This option links the Group to an object, adding it to the active scene.</dd>
+<dt>Fake User</dt>
+<dd>Sets a <a class="reference internal" href="data_blocks.html#data-system-datablock-fake-user"><span class="std std-ref">Fake User</span></a> for the appended items.</dd>
+<dt>Localize All</dt>
+<dd>Appends/links all appended data, including those indirectly linked from other libraries.</dd>
+</dl>
+<p>When you select an Object type, it will be placed in your scene at the cursor.
+Many other data types, cameras, curves, and materials for example,
+must be linked to an object before they become visible.</p>
+<p>Newly added Group types are available in <span class="menuselection">Add ‣ Group Instances</span> in 3D View,
+or for Node Tree groups, the same menu in the Node Editor.</p>
+<p>Look in the Outliner, with display mode set to <em>blend-file</em>, to see all your linked and appended data-blocks.
+<kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> on a file name allows you to redirect a link to another file.</p>
+</div>
+</div>
+<div class="section" id="proxy-objects">
+<span id="bpy-ops-object-proxy-make"></span><span id="object-proxy"></span><h2>Proxy Objects<a class="headerlink" href="#proxy-objects" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Make Proxy...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-P</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Lets you make changes locally over an object (or group) linked from an external library.
+Some types of changes remain restricted, but others can be made locally, depending on the type of object.
+Those changes are not sent to the external library.
+<kbd class="kbd docutils literal notranslate">Ctrl-Alt-P</kbd> makes the active linked object into a local proxy, appending &quot;_proxy&quot; to its name.</p>
+<p>Used with rigged models, proxy objects, allow specified bone layers to be linked back to the source file
+while the remainder of the object and its skeleton are edited locally.
+Set the <em>Protected Layers</em> in the source file using the Skeleton panel of the Armatures tab.
+See <a class="reference internal" href="../rigging/armatures/properties/skeleton.html#armature-layers"><span class="std std-ref">Armature Layers</span></a>.
+The bones in protected layers will have their position restored from the source file
+when the referencing file is reloaded.</p>
+</div>
+<div class="section" id="make-link">
+<span id="bpy-ops-object-make-links"></span><span id="data-system-linked-libraries-make-link"></span><h2>Make Link<a class="headerlink" href="#make-link" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Make Link...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-L</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Links objects between scenes or data-blocks of the active object to all selected objects.
+In some case (i.e. Object Data, Modifier) the target objects must be of the same type
+than the active one or capable of receiving the data.
+The existing data-block of which will be unlinked from them.</p>
+<dl class="docutils">
+<dt>Objects to Scene</dt>
+<dd><p class="first">Lets you create links to the selected objects into a different scene than the current one.
+A scene name must be chosen other than that of the current one.
+The <em>Link Objects to Scene</em> Operator panel lets you choose between scenes.</p>
+<p class="last">This makes the same object exist in two different scenes at once,
+including its position and animation data. The object's origin will change its color.</p>
+</dd>
+<dt>Type</dt>
+<dd><p class="first">Data-block type to link.</p>
+<p>Object Data, Materials, Animation Data, Group, DupliGroup, Modifiers, Fonts</p>
+<dl class="last docutils">
+<dt>Transfer UV Maps</dt>
+<dd>The active UV map of the selected objects will be replaced by a copy of the active UV map of the active object.
+If the selected object doesn't have any UV maps, it is created.
+Objects must be of type mesh and must have the same number of faces (matching geometry).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="data_blocks.html#data-system-datablock-make-single-user"><span class="std std-ref">Make Single User</span></a> for unlinking data-blocks.</p>
+</div>
+</div>
+<div class="section" id="make-local">
+<span id="bpy-ops-object-make-local"></span><h2>Make Local<a class="headerlink" href="#make-local" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Make Local...</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">L</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Makes the selected or all external objects local in the current blend-file.
+This makes e.g. the position editable, because its position is defined in its source file.</p>
+<dl class="docutils">
+<dt>Type</dt>
+<dd><p class="first">Optionally unlinks the object's Object Data and Material Data.</p>
+<p class="last">Selected Objects, + Object Data, + Materials, All (i.e. including all scenes)</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Appending data you already have linked will add objects/groups to the scene,
+but will keep them linked (and un-editable).</p>
+<p class="last">This is done so existing relationships with linked data remain intact.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>Another way to transform an object locally is with
+the use of <a class="reference internal" href="../editors/3dview/object/properties/duplication/dupligroup.html"><span class="doc">Dupli-Groups</span></a>.
+Instead of linking to <em>Objects</em> directly, it is often more useful to link in <em>Groups</em>,
+which can be assigned to empties and moved, while maintaining the link to the original file.</p>
+<p class="last">It is also useful to be able to add/remove objects from the group
+without having to manage linking in multiple objects.</p>
+</div>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<p>For the most part linking data will work as expected, however,
+there are some corner cases which are not supported.</p>
+<div class="section" id="circular-dependencies">
+<h3>Circular Dependencies<a class="headerlink" href="#circular-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>In general, dependencies should not go in both directions.</p>
+<p>Attempting to link or append data which links back to the current file will likely result in missing links.</p>
+</div>
+<div class="section" id="object-rigid-body-constraints">
+<h3>Object Rigid Body Constraints<a class="headerlink" href="#object-rigid-body-constraints" title="Permalink to this headline">¶</a></h3>
+<p>When linking objects <em>directly</em> into a blend-file, the <em>Rigid Body</em> settings
+<strong>will not</strong> be linked in since they are associated with their scene's world.</p>
+<p>As an alternative, you could link in the entire scene and set it as a <a class="reference internal" href="scenes/properties.html#scene-background-set"><span class="std std-ref">Background Set</span></a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../modeling/index.html" class="btn btn-neutral float-right" title="Modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="files/media/video_formats.html" class="btn btn-neutral" title="Supported Video Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

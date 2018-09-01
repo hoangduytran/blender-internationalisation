@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extrude &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/meshes/editing/duplicating/extrude.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Inset Faces" href="inset.html" />
+    <link rel="prev" title="Duplicate" href="duplicate.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Meshes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../primitives.html">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../selecting/index.html">Selecting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Editing</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../basics/index.html">Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vertices.html">Vertex Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../edges.html">Edge Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../faces.html">Face Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../normals.html">Normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../transform/index.html">Transformation</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Duplicating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../subdividing/index.html">Subdividing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cleanup.html">Clean up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../misc.html">Miscellaneous Editing Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../data_transfer.html">Data Transfer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../mesh_options.html">Mesh Options</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_display.html">Mesh Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../mesh_analysis.html">Mesh Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../empties.html">Empties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Meshes</a> &raquo;</li>
+        
+          <li><a href="../index.html">Editing</a> &raquo;</li>
+        
+          <li><a href="index.html">Duplicating</a> &raquo;</li>
+        
+      <li>Extrude</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/modeling/meshes/editing/duplicating/extrude.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-ops-view3d-edit-mesh-extrude"></span><div class="section" id="extrude">
+<h1>Extrude<a class="headerlink" href="#extrude" title="Permalink to this headline">¶</a></h1>
+<p>Extrusion tools duplicate vertices, while keeping the new geometry connected with the original vertices.
+Vertices are turned into edges and edges will form faces.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_vert.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_vert.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_vert.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Single vertex extruded.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_edge.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_edge.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_edge.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Single edge extruded.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This tool is of paramount importance for creating new geometry.
+It allows you to create parallelepipeds from rectangles and cylinders from circles,
+as well as easily creating such things as tree limbs.</p>
+<p>The axis on which vertices and edges are extruded along can be set interactively.
+Faces are extruded by default along their averaged normal.
+The extrusion can be limited to a single axis by specifying an axis;
+see <a class="reference internal" href="../../../../editors/3dview/object/editing/transform/control/precision/axis_locking.html"><span class="doc">Axis Locking</span></a>.</p>
+<p>The extrude tools differentiate in how the new geometry is connected in itself.</p>
+<div class="section" id="extrude-region">
+<h2>Extrude Region<a class="headerlink" href="#extrude-region" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Mesh Tools ‣ Add: Extrude Region</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Extrude ‣ Extrude Region</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Only the border loop gets extruded.
+The inner region of the selection gets moved unchanged with the extrusion.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-before.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-before.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-before.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Selected face.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">During extrude.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after-zaxis.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after-zaxis.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-after-zaxis.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Set to Z axis.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="details">
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<p>Although the process is quite intuitive,
+the principles behind <em>Extrude</em> are fairly elaborate as discussed below:</p>
+<ul class="simple">
+<li>First, the algorithm determines the outside edge loop of the extrude; that is,
+which among the selected edges will be changed into faces. By default (see below),
+the algorithm considers edges belonging to two or more selected faces as internal, and hence not part of the loop.</li>
+<li>The edges in the edge loop are then changed into faces.</li>
+<li>If the edges in the edge loop belong to only one face in the complete mesh,
+then all of the selected faces are duplicated and linked to the newly created faces. For example,
+rectangles will result in parallelepipeds during this stage.</li>
+<li>In other cases, the selected faces are linked to the newly created faces but not duplicated.
+This prevents undesired faces from being retained &quot;inside&quot; the resulting mesh.
+This distinction is extremely important since it ensures the construction of consistently coherent,
+closed volumes at all times when using <em>Extrude</em>.</li>
+<li>When extruding completely closed volumes (like e.g. a cube with all its six faces),
+extrusion results merely in a duplication, as the volume is duplicated, without any link to the original one.</li>
+<li>Edges not belonging to selected faces, which form an &quot;open&quot; edge loop,
+are duplicated and a new face is created between the new edge and the original one.</li>
+<li>Single selected vertices which do not belong to selected edges
+are duplicated and a new edge is created between the two.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="extrude-individual">
+<h2>Extrude Individual<a class="headerlink" href="#extrude-individual" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Mesh Tools ‣ Add: Extrude Individual</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Extrude ‣ Individual Faces</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Extrude Individual</em> allows you to extrude a selection of multiple faces as individuals, instead of as a region.
+The faces are extruded along their own normals, rather than their average.
+This has several consequences: first, &quot;internal&quot; edges
+(i.e. edges between two selected faces) are no longer deleted (the original faces are).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Selection of multiple faces.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-region.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-region.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-region.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Extruded using extrude region.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-individual.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-individual.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_face-multi-individual.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Extruded using Extrude Individual.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extrude-edges-and-vertices-only">
+<h2>Extrude Edges and Vertices Only<a class="headerlink" href="#extrude-edges-and-vertices-only" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode, Vertex and Edge</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Mesh Tools ‣ Add: Extrude</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Extrude ‣ Extrude Edges/Vertices Only</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-E</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If vertices are selected while doing an extrude, but they do not form an edge or face,
+they will extrude as expected, forming a <a class="reference internal" href="../../../../glossary/index.html#term-non-manifold"><span class="xref std std-term">non-manifold</span></a> edge. Similarly,
+if edges are selected that do not form a face, they will extrude to form a face.</p>
+<p>When a selection of vertices forms an edge or face,
+it will extrude as if the edge was selected. Likewise for edges that form a face.</p>
+<p>To force a vertex or edge selection to extrude as a vertex or edge, respectively, use
+<kbd class="kbd docutils literal notranslate">Alt-E</kbd> to access the Extrude <em>Edges Only</em> and <em>Vertices Only</em>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-before.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-before.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-before.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Vertex selected.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-after.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-after.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_verts-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Vertices Only extrude.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-before.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-before.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-before.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Edge selected.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-after.png"><img alt="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-after.png" src="../../../../_images/modeling_meshes_editing_duplicating_extrude_edges-after.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Edge Only extrude.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extrude-repeat-mesh">
+<h2>Extrude Repeat Mesh<a class="headerlink" href="#extrude-repeat-mesh" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Operator Search ‣ Extrude Repeat Mesh</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This tool has to be called from <a class="reference internal" href="../../../../interface/controls/templates/operator_search.html"><span class="doc">Operator Search</span></a>.
+If the selection is not manifold it's extruded the specified number of times, else
+it behaves similar to the <a class="reference internal" href="../../../modifiers/generate/array.html"><span class="doc">Array Modifier</span></a>.
+The extrusion is aligned along the Z axis of the view.</p>
+<dl class="docutils">
+<dt>Offset</dt>
+<dd>Distance between the instances.</dd>
+<dt>Steps</dt>
+<dd>Number of instances.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="inset.html" class="btn btn-neutral float-right" title="Inset Faces" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="duplicate.html" class="btn btn-neutral" title="Duplicate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

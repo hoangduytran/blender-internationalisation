@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collisions &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/physics/collision.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Cloth Simulations" href="cloth/index.html" />
+    <link rel="prev" title="Smoke Flow" href="force_fields/types/smoke_flow.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="baking.html">Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="force_fields/index.html">Force Fields</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Collisions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hints">Hints</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloth/index.html">Cloth Simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dynamic_paint/index.html">Dynamic Paint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="soft_body/index.html">Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fluid/index.html">Fluid Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smoke/index.html">Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rigid_body/index.html">Rigid Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="particles/index.html">Particles System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Physics</a> &raquo;</li>
+        
+      <li>Collisions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/physics/collision.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collisions">
+<span id="bpy-types-collisionsettings"></span><span id="bpy-types-collisionmodifier"></span><h1>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Collision</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="particles/index.html"><span class="doc">Particles</span></a>, <a class="reference internal" href="soft_body/index.html"><span class="doc">Soft Bodies</span></a>
+and <a class="reference internal" href="cloth/index.html"><span class="doc">Cloth objects</span></a> may collide with mesh objects.
+<a class="reference internal" href="particles/emitter/physics/boids.html"><span class="doc">Boids</span></a> try to avoid <em>Collision</em> objects.</p>
+<ul class="simple">
+<li>The objects need to share at least one common layer to have effect.</li>
+<li>You may limit the effect on particles to a group of objects
+(in the <a class="reference internal" href="particles/emitter/physics/index.html"><span class="doc">Field Weights panel</span></a>).</li>
+<li><em>Deflection</em> for soft body objects is difficult, they often penetrate the colliding objects.</li>
+<li>Hair particles ignore deflecting objects
+(but you can animate them as soft bodies which take deflection into account).</li>
+</ul>
+<p>If you change the deflection settings for an object you have to recalculate the particle,
+soft body or cloth system by <em>Free Cache</em>, this is not done automatically. You can
+clear the cache for all selected objects with <kbd class="kbd docutils literal notranslate">Ctrl-B</kbd> <span class="menuselection">‣ Free cache selected</span>.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../_images/physics_collision_panel.png" src="../_images/physics_collision_panel.png" />
+<p class="caption"><span class="caption-text">Collision panel.</span></p>
+</div>
+<div class="section" id="particle">
+<h3>Particle<a class="headerlink" href="#particle" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Permeability</dt>
+<dd>Fraction of particles passing through the mesh.</dd>
+<dt>Stickiness</dt>
+<dd>How much particles stick to the object.</dd>
+<dt>Kill Particles</dt>
+<dd>Deletes Particles upon impact.</dd>
+<dt>Damping Factor</dt>
+<dd>Damping during a collision (independent of the velocity of the particles).</dd>
+<dt>Random damping</dt>
+<dd>Random variation of damping.</dd>
+<dt>Friction Factor</dt>
+<dd>Friction during movements along the surface.</dd>
+<dt>Random friction</dt>
+<dd>Random variation of friction.</dd>
+</dl>
+</div>
+<div class="section" id="soft-body-and-cloth">
+<h3>Soft Body and Cloth<a class="headerlink" href="#soft-body-and-cloth" title="Permalink to this headline">¶</a></h3>
+<p>An artificial padding distance added to the inside and outside of each face, to help prevent intersections.
+Soft body will come to rest this distance away from the face of the colliding object.</p>
+<dl class="docutils">
+<dt>Outer</dt>
+<dd>Size of the outer collision zone.</dd>
+<dt>Inner</dt>
+<dd>Size of the inner collision zone (padding distance).</dd>
+</dl>
+<div class="figure" id="id2">
+<span id="fig-collision-soft-plane"></span><a class="reference internal image-reference" href="../_images/physics_collision_outer-inner.png"><img alt="../_images/physics_collision_outer-inner.png" src="../_images/physics_collision_outer-inner.png" style="width: 380px;" /></a>
+<p class="caption"><span class="caption-text">A soft body vertex colliding with a plane.</span></p>
+</div>
+<p>Outside and inside is defined by the face normal, depicted as blue arrow in Fig. <a class="reference internal" href="#fig-collision-soft-plane"><span class="std std-ref">A soft body vertex colliding with a plane.</span></a>.</p>
+</div>
+<div class="section" id="soft-body-damping">
+<h3>Soft Body Damping<a class="headerlink" href="#soft-body-damping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Damping Factor</dt>
+<dd><p class="first">Damping during a collision.
+The amount of bounce that surfaces will have.</p>
+<ul class="last simple">
+<li>0.0 - No damping, soft bodies will have maximum bounce.</li>
+<li>1.0 - Maximum damping, soft bodies will not bounce at all.</li>
+</ul>
+</dd>
+</dl>
+<p><em>Soft body</em> collisions are difficult to get perfect. If one of the objects move too fast,
+the soft body will penetrate the mesh. See also the section about <a class="reference internal" href="soft_body/index.html"><span class="doc">Soft Bodies</span></a>.</p>
+</div>
+<div class="section" id="force-field">
+<h3>Force Field<a class="headerlink" href="#force-field" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Absorption</dt>
+<dd>A deflector can also deflect effectors. You can specify some collision/deflector objects which deflect a specific
+portion of the effector force using the <em>Absorption</em> value. 100% absorption results in no force getting
+through the collision/deflector object at all. If you have three collision object behind each other with e.g.
+10%, 43% and 3%, the absorption ends up at around 50% <span class="math notranslate nohighlight">\(100 × (1 - 0.1) × (1 - 0.43) × (1 - 0.03)\)</span>.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../_images/physics_collision_defected-particles.png" src="../_images/physics_collision_defected-particles.png" />
+<p class="caption"><span class="caption-text">Deflected particles.</span></p>
+</div>
+<p>Here is a <em>Meta</em> object, dupliverted to a particle system emitting downwards, and deflected by a mesh cube.</p>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Make sure that the normals of the mesh surface are facing towards the particles/points for correct deflection.</li>
+<li>Hair particles react directly to force fields,
+so if you use a force field with a short range you do not need necessarily collision.</li>
+<li>Hair particles avoid their emitting mesh if you edit them in <em>Particle Edit Mode</em>.
+So you can at least model the hair with collision.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloth/index.html" class="btn btn-neutral float-right" title="Cloth Simulations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="force_fields/types/smoke_flow.html" class="btn btn-neutral" title="Smoke Flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

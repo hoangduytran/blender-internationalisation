@@ -1,0 +1,344 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python Controller &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/logic/controllers/types/python.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Actuators" href="../../actuators/index.html" />
+    <link rel="prev" title="Expression Controller" href="expression.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../world.html">World</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Logic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensors/index.html">Sensors</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Controllers</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing.html">Controller Editing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#controller-types">Controller Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../actuators/index.html">Actuators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../states.html">States</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Logic</a> &raquo;</li>
+        
+          <li><a href="../index.html">Controllers</a> &raquo;</li>
+        
+      <li>Python Controller</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/game_engine/logic/controllers/types/python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-controller">
+<span id="bpy-types-pythoncontroller"></span><h1>Python Controller<a class="headerlink" href="#python-controller" title="Permalink to this headline">¶</a></h1>
+<p>The Python controller runs a Python script when a sensor triggers the controller.
+This Python script can interact with the scene or logic bricks through
+<a class="reference internal" href="../../../python_api/index.html"><span class="doc">Blender's API</span></a>.</p>
+<p>A Python script can either run as an entire file or a single module.
+A file must be added in the Text editor, and is identified simply by its name, not its path.
+Names are case sensitive. Modules are identified by the file name <em>without</em> the extension followed by a <code class="docutils literal notranslate"><span class="pre">.</span></code>
+and then the name of the module. For example:</p>
+<p>A file <code class="docutils literal notranslate"><span class="pre">myscript.py</span></code> contains:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myModule</span> <span class="p">():</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Go Open Source!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The function can be accessed as <code class="docutils literal notranslate"><span class="pre">myscript.myModule</span></code>, which will run <code class="docutils literal notranslate"><span class="pre">print(&quot;Go</span> <span class="pre">Open</span> <span class="pre">Source!&quot;);</span></code>
+every time the controller is triggered.</p>
+<p>The entire file can be run by setting the type to <em>Script</em> and setting the name to <em>myscript.py</em>.</p>
+<div class="section" id="parts-of-the-python-controller">
+<h2>Parts of the Python Controller<a class="headerlink" href="#parts-of-the-python-controller" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../../_images/game-engine_logic_controllers_types_python_controller.jpg" src="../../../../_images/game-engine_logic_controllers_types_python_controller.jpg" />
+<p class="caption"><span class="caption-text">Python Controller.</span></p>
+</div>
+<dl class="docutils">
+<dt>Type</dt>
+<dd>Specifies whether it is a module or entire file.</dd>
+<dt>Name</dt>
+<dd>The name of the file to be loaded.</dd>
+<dt>D (Use Debug)</dt>
+<dd>Continuously reloads the file.</dd>
+</dl>
+<p>See <a class="reference internal" href="../editing.html#id1"><span class="std std-ref">standard controller parts</span></a> for descriptions of the remaining options.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p>For more information on the Python API, see:</p>
+<ul class="last simple">
+<li><a class="reference external" href="https://www.blender.org/api/blender_python_api_current/">The API docs</a>.</li>
+<li><a class="reference internal" href="../../../python_api/index.html"><span class="doc">This chapter for more Game Engine related API</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../actuators/index.html" class="btn btn-neutral float-right" title="Actuators" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="expression.html" class="btn btn-neutral" title="Expression Controller" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

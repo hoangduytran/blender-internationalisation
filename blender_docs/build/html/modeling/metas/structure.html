@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/metas/structure.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Primitives" href="primitives.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Metaball</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#technical-details">Technical Details</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#underlying-structure">Underlying Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties.html">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Empties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="index.html">Metaball</a> &raquo;</li>
+        
+      <li>Structure</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/metas/structure.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure">
+<h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>A more formal definition of a meta object can be given as a <em>directing structure</em> which can
+be seen as the source of a static field. The field can be either positive or negative and
+hence the field generated by neighboring directing structures can attract or repel.</p>
+<p>The implicit surface is defined as the surface where the 3D field generated by
+all the directing structures assume a given value. For example a meta ball,
+whose directing structure is a point, generates
+an isotropic (i.e. identical in all directions) field around it and
+the surfaces at constant field value are spheres centered at the directing point.</p>
+<p><em>Meta</em> objects are nothing more than mathematical formula that perform logical operations on one another
+(AND, OR), and that can be added and subtracted from each other.
+This method is also called <em>Constructive Solid Geometry</em> (CSG).
+Because of its mathematical nature, CSG uses little memory, but requires lots of processing power to compute.</p>
+</div>
+<div class="section" id="underlying-structure">
+<h2>Underlying Structure<a class="headerlink" href="#underlying-structure" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Transform panel ‣ Type</span>,
+<span class="menuselection">Metaball tab ‣ Active Element panel ‣ Type</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Blender has five types of metas, each determined by its underlying (or directing) structure.</p>
+<p>In <em>Edit Mode</em>, you can change this structure,
+either using the relevant buttons in the <span class="menuselection">Metaball tab ‣ Active Element panel</span>,
+or the selector in the <em>Transform</em> panel in the Properties region.
+Depending on the structure, you might have additional parameters,
+located in both <em>Transform</em> panel and <em>Active Element</em> panel.</p>
+<dl class="docutils">
+<dt>Ball (point, zero-dimensional structure)</dt>
+<dd>This is the simplest meta, without any additional setting. As it is just a point,
+it generates an isotropic field, yielding a spherical surface
+(this is why it is called <em>Meta Ball</em> or <em>Ball</em> in Blender).</dd>
+<dt>Tube (straight line, uni-dimensional structure)</dt>
+<dd><p class="first">This is a meta which surface is generated by the field produced by a straight line of a given length.
+This gives a cylindrical surface, with rounded closed ends. It has one additional parameter:</p>
+<dl class="last docutils">
+<dt>dx</dt>
+<dd>The length of the line (and hence, of the tube).</dd>
+</dl>
+</dd>
+<dt>Plane (rectangular plane, bi-dimensional structure)</dt>
+<dd><p class="first">This is a meta which surface is generated by the field produced by a rectangular plane.
+This gives a parallel-epipedal surface, with a fixed thickness,
+and rounded borders. It has two additional parameters:</p>
+<dl class="docutils">
+<dt>dx, dy</dt>
+<dd>The length, width of the rectangle.</dd>
+</dl>
+<p class="last">Note that by default, the plane is a square.</p>
+</dd>
+<dt>Ellipsoid (ellipsoidal volume, tri-dimensional structure)</dt>
+<dd><p class="first">This is a meta which surface is generated by the field produced by an ellipsoidal volume.
+This gives an ellipsoidal surface. It has three additional parameters:</p>
+<dl class="docutils">
+<dt>dx, dy, dz</dt>
+<dd>The length, width, height of the ellipsoid (defaults set to 1.0).</dd>
+</dl>
+<p class="last">Note that by default, the volume is a sphere, producing a spherical meta, as the <em>Ball</em> option...</p>
+</dd>
+<dt>Cube (parallel-epipedal volume, tri-dimensional structure)</dt>
+<dd><p class="first">This is a meta which surface is generated by the field produced by a parallel-epipedal volume.
+This gives a parallel-epipedal surface, with rounded edges.
+As you might have guessed, it has three additional parameters:</p>
+<dl class="docutils">
+<dt>dx, dy, dz</dt>
+<dd>The length, width, height of the parallelepiped (defaults set to 1.0).</dd>
+</dl>
+<p class="last">Note that by default, the volume is a cube.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="primitives.html" class="btn btn-neutral float-right" title="Primitives" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

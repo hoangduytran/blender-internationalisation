@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vertex Weight Proximity Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/weight_proximity.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Array Modifier" href="../generate/array.html" />
+    <link rel="prev" title="Vertex Weight Mix Modifier" href="weight_mix.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#modify">Modify</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="data_transfer.html">Data Transfer Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_cache.html">Mesh Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mesh_sequence_cache.html">Mesh Sequence Cache Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="normal_edit.html">Normal Edit Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_project.html">UV Project Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="uv_warp.html">UV Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_edit.html">Vertex Weight Edit Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="weight_mix.html">Vertex Weight Mix Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Vertex Weight Proximity Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Vertex Weight Proximity Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/modify/weight_proximity.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vertex-weight-proximity-modifier">
+<span id="bpy-types-vertexweightproximitymodifier"></span><h1>Vertex Weight Proximity Modifier<a class="headerlink" href="#vertex-weight-proximity-modifier" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_modify_weight-proximity_panel.png"><img alt="../../../_images/modeling_modifiers_modify_weight-proximity_panel.png" src="../../../_images/modeling_modifiers_modify_weight-proximity_panel.png" style="width: 387px;" /></a>
+<p class="caption"><span class="caption-text">The Vertex Weight Proximity Modifier panel.</span></p>
+</div>
+<p>This modifier sets the weights of the given vertex group,
+based on the distance between the object (or its vertices),
+and another target object (or its geometry).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">This modifier does implicit clamping of weight values in the standard (0.0 to 1.0) range.
+All values below 0.0 will be set to 0.0, and all values above 1.0 will be set to 1.0.</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Vertex Group</dt>
+<dd>The vertex group to affect.</dd>
+<dt>Target Object</dt>
+<dd>The object from which to compute distances.</dd>
+<dt>Proximity mode</dt>
+<dd><dl class="first last docutils">
+<dt>Object Distance</dt>
+<dd>Use the distance between the modified mesh object and the target object as
+weight for all vertices in the affected vertex group.</dd>
+<dt>Geometry Distance</dt>
+<dd><p class="first">Use the distance between each vertex and the target object, or its geometry.</p>
+<dl class="docutils">
+<dt>Vertex</dt>
+<dd>This will set each vertex's weight from its distance to the nearest vertex of the target object.</dd>
+<dt>Edge</dt>
+<dd>This will set each vertex's weight from its distance to the nearest edge of the target object.</dd>
+<dt>Face</dt>
+<dd>This will set each vertex's weight from its distance to the nearest face of the target object.</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">If you enable more than one of them, the shortest distance will be used.
+If the target object has no geometry (e.g. an empty or camera),
+it will use the location of the object itself.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt>Lowest</dt>
+<dd>Distance mapping to 0.0 weight.</dd>
+<dt>Highest</dt>
+<dd>Distance mapping to 1.0 weight.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last"><em>Lowest</em> can be set above <em>Highest</em> to reverse the mapping.</p>
+</div>
+<dl class="docutils">
+<dt>Falloff Type</dt>
+<dd><p class="first">Type of mapping:</p>
+<dl class="last docutils">
+<dt>Linear</dt>
+<dd>No mapping.</dd>
+<dt>Custom Curve</dt>
+<dd>Allows the user to manually define the mapping using a curve.</dd>
+<dt>Sharp, Smooth, Root and Sphere</dt>
+<dd>These are classical mapping functions, from spikiest to roundest.</dd>
+<dt>Random</dt>
+<dd>Uses a random value for each vertex.</dd>
+<dt>Median Step</dt>
+<dd>Creates binary weights (0.0 or 1.0), with 0.5 as cutting value.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="influence-mask-options">
+<h3>Influence/Mask Options<a class="headerlink" href="#influence-mask-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Global Influence</dt>
+<dd><p class="first">The overall influence of the modifier
+(0.0 will leave the vertex group's weights untouched, 1.0 is standard influence).</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Influence only affects weights, adding/removing of vertices
+to/from vertex group is not prevented by setting this value to 0.0.</p>
+</div>
+</dd>
+</dl>
+<div class="section" id="vertex-group-mask">
+<h4>Vertex Group Mask<a class="headerlink" href="#vertex-group-mask" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Vertex Group Mask</dt>
+<dd>An additional vertex group, the weights of which will be
+multiplied with the global influence value for each vertex.
+If a vertex is not in the masking vertex group, its weight will not be affected.</dd>
+</dl>
+</div>
+<div class="section" id="texture-mask">
+<h4>Texture Mask<a class="headerlink" href="#texture-mask" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Texture Mask</dt>
+<dd><p class="first">An additional texture, the values of which will be multiplied with the global influence value for each vertex.</p>
+<p class="last">This is a standard texture <a class="reference internal" href="../../../data_system/data_blocks.html"><span class="doc">data-block</span></a> control.
+When set, it reveals other settings:</p>
+</dd>
+<dt>Texture Coordinates</dt>
+<dd><p class="first">How the texture is mapped to the mesh.</p>
+<dl class="last docutils">
+<dt>Local</dt>
+<dd>Use local vertex coordinates.</dd>
+<dt>Global</dt>
+<dd>Use vertex coordinates in global space.</dd>
+<dt>Object</dt>
+<dd><p class="first">Use vertex coordinates in another object's space.</p>
+<dl class="last docutils">
+<dt>Object</dt>
+<dd>The object to be used as reference for <em>Object</em> mapping.</dd>
+</dl>
+</dd>
+<dt>UV</dt>
+<dd><p class="first">Use a UV map's coordinates.</p>
+<dl class="last docutils">
+<dt>UV Map</dt>
+<dd>The UV map to be used for <em>UV</em> mapping.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Use Channel</dt>
+<dd><p class="first">Which channel to use as weight factor source.</p>
+<dl class="docutils">
+<dt>Red/Green/Blue/Alpha</dt>
+<dd>One of the color channels' values.</dd>
+<dt>Intensity</dt>
+<dd>The average of the RGB channels (if RGB(1.0, 0.0, 0.0) value is 0.33).</dd>
+<dt>Value</dt>
+<dd>The highest value of the RGB channels (if RGB(1.0, 0.0, 0.0) value is 1.0).</dd>
+<dt>Hue</dt>
+<dd>Uses the hue value from the standard color wheel (e.g. blue has a higher hue value than yellow).</dd>
+<dt>Saturation</dt>
+<dd>Uses the saturation value (e.g. pure red's value is 1.0, gray is 0.0).</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">All of the channels above are gamma corrected, except for <em>Intensity</em>.</p>
+</div>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">You can view the modified weights in <em>Weight Paint Mode</em>.
+This also implies that you will have to disable the <em>Vertex Weight Proximity Modifier</em>
+if you want to see the original weights of the vertex group you are editing.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p class="rubric">Using Distance from a Target Object</p>
+<p>In this example let us dynamically control a Wave Modifier with a modified vertex group:</p>
+<ol class="arabic">
+<li><p class="first">Add a <em>Grid</em> mesh with (100×100) X/Y subdivisions and a 5 BU Radius.</p>
+</li>
+<li><p class="first">Switch to <em>Edit Mode</em> <kbd class="kbd docutils literal notranslate">Tab</kbd>, and in the <em>Object Data</em> properties, <em>Vertex Groups</em> panel,
+add a vertex group. Assign to it all your mesh's vertices with 1.0 weight.</p>
+</li>
+<li><p class="first">Go back to <em>Object Mode</em>. Then, go to the <em>Modifiers</em> properties, and add a Vertex Weight Proximity Modifier.
+Set the Distance mode to <em>Object</em>. Select your vertex group, and the target object you want.</p>
+<p>You will likely have to adjust the linear mapping of the weights produced by
+the Vertex Weight Proximity Modifier. To do so, edit <em>Lowest Distance</em> and
+<em>Highest Distance</em> so that the first corresponds to the distance between your target
+object and the vertices you want to have lowest weight,
+and similarly with the second and highest weight...</p>
+</li>
+<li><p class="first">If your lamp is at Z height of 2 then set the settings for the Weight Proximity Modifier to:
+Lowest: 2 and highest: 7 (this will stop the waves under the lamp).
+If you want waves to be only under the lamp, set the lowest to 7 and highest to 2.</p>
+</li>
+<li><p class="first">Now add a Wave Modifier, set it to your liking, and use the same vertex group to control it.
+Example settings: Speed: 0.10, Height: 1.0, Width 1.50, Narrowness: 1.50.</p>
+</li>
+<li><p class="first">Animate your target object, making it move over the grid. As you can see, the waves are only
+visible around the reference object! Note that you can insert a <em>Vertex Weight Edit</em>
+modifier before the <em>Wave</em> one,
+and use its <em>Custom Curve</em> mapping to get larger/narrower &quot;wave influence's slopes&quot;.</p>
+</li>
+</ol>
+<iframe src="https://player.vimeo.com/video/30187079" style="border: 0; height: 345px; width: 560px">
+</iframe><p><a class="reference external" href="https://wiki.blender.org/index.php/Media:ManModifiersWeightVGroupEx.blend">The blend-file</a>, TEST_1 scene.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../generate/array.html" class="btn btn-neutral float-right" title="Array Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="weight_mix.html" class="btn btn-neutral" title="Vertex Weight Mix Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

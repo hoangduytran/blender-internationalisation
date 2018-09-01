@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Voronoi &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/textures/types/procedural/voronoi.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Wood" href="wood.html" />
+    <link rel="prev" title="Stucci" href="stucci.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../texture_panel.html">Texture Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../assigning_a_texture.html">Assigning a Texture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Texture Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Texture Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nodes/index.html">Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Textures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Texture Types</a> &raquo;</li>
+        
+          <li><a href="index.html">Procedural Textures</a> &raquo;</li>
+        
+      <li>Voronoi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/textures/types/procedural/voronoi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="voronoi">
+<span id="bpy-types-voronoitexture"></span><h1>Voronoi<a class="headerlink" href="#voronoi" title="Permalink to this headline">¶</a></h1>
+<p>The voronoi texture is used to generate very convincing Metal,
+especially the &quot;Hammered&quot; effect. Organic shaders (e.g. scales, veins in skin).</p>
+<div class="figure" id="id1">
+<img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_panel.png" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_panel.png" />
+<p class="caption"><span class="caption-text">Voronoi Texture panels.</span></p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Distance Metric</dt>
+<dd><p class="first">This procedural texture has seven Distance Metric options.
+These determine the algorithm to find the distance between cells of the texture. These options are:</p>
+<ul class="simple">
+<li>Minkowsky</li>
+<li>Minkowsky 4</li>
+<li>Minkowsky 1/2</li>
+<li>Chebychev</li>
+<li>Manhattan</li>
+<li>Distance Squared</li>
+<li>Actual Distance</li>
+</ul>
+<p>The <em>Minkowsky</em> setting has a user definable value (the <em>Exponent</em> button)
+which determines the Minkowsky exponent <em>e</em> of the distance function:</p>
+<blockquote>
+<div>(<em>x</em><sup>e</sup> + <em>y</em><sup>e</sup> + <em>z</em><sup>e</sup>)<sup>1/e</sup></div></blockquote>
+<p>A value of one produces the <em>Manhattan</em> distance metric, a value less than one produces stars
+(at 0.5, it gives a <em>Minkowsky 1/2</em>), and higher values produce square cells
+(at 4.0, it gives a <em>Minkowsky 4</em>, at 10.0, a <em>Chebychev</em>).
+So nearly all Distance Settings are basically the same -- a variation of <em>Minkowsky</em>.</p>
+<p class="last">You can get irregularly-shaped rounded cells with
+the <em>Actual Distance</em> / <em>Distance Squared</em> options.</p>
+</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky0-5.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky0-5.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky0-5.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Minkowsky Exponent: 0.5 (Minkowsky 1/2).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky1.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky1.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky1.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Minkowsky Exponent: 1 (Manhattan).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky2.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky2.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky2.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Minkowsky Exponent: 2 (Actual Distance).</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky4.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky4.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky4.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Minkowsky Exponent: 4 (Minkowsky 4).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky10.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky10.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_minkowsky10.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Minkowsky Exponent: 10 (Chebychev).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_distancesquared.jpg"><img alt="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_distancesquared.jpg" src="../../../../../_images/render_blender-render_textures_types_procedural_voronoi_distancesquared.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Distance Squared (more contrast than Actual Distance).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Feature Weights</dt>
+<dd>These four sliders at the bottom of the Voronoi panel represent the values of the four Worley constants,
+which are used to calculate the distances between each cell in the texture based on the distance metric.
+Adjusting these values can have some interesting effects on the end result...</dd>
+</dl>
+<dl class="docutils">
+<dt>Coloring</dt>
+<dd>Four settings (<em>Intensity</em>, <em>Position</em>, <em>Position and Outline</em>, and <em>Position, Outline, and Intensity</em>)
+that can use four different noise basis as methods to calculate color and intensity of the texture output.
+This gives the Voronoi texture you create with the &quot;Worley Sliders&quot;
+a completely different appearance and is the equivalent of the noise basis setting found on the other textures.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wood.html" class="btn btn-neutral float-right" title="Wood" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stucci.html" class="btn btn-neutral" title="Stucci" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

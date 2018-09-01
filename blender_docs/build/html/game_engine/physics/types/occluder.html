@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Occlude Object Physics &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/physics/types/occluder.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Sensor Physics" href="sensor.html" />
+    <link rel="prev" title="Soft Body Physics" href="soft_body.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">World Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converting.html">Converting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="no_collision.html">No Collision Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="static.html">Static Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dynamic.html">Dynamic Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigid_body.html">Rigid Body Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="soft_body.html">Soft Body Physics</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Occlude Object Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sensor.html">Sensor Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigation_mesh.html">Navigation Mesh Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="character.html">Character Physics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vehicle.html">Vehicle Controller Physics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+        
+      <li>Occlude Object Physics</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/game_engine/physics/types/occluder.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="occlude-object-physics">
+<h1>Occlude Object Physics<a class="headerlink" href="#occlude-object-physics" title="Permalink to this headline">¶</a></h1>
+<p>If an Occlude type object is between the camera and another object,
+that other object will not be rasterized (calculated for rendering).
+It is culled because it is occluded.</p>
+<p>There is a demo blend-file to exemplify some concepts:
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:BGE-Physics-Objects-Occluder.blend">BGE-Physics-Objects-Occluder.blend</a></p>
+<ul class="simple">
+<li>A messed-up, subdivided Cube named &quot;Cube&quot;.</li>
+<li>Another one behind a &quot;Physics Type: Occlude&quot; plane, named &quot;Cube.BG&quot;.</li>
+<li>Another one outside the view Frustum, named &quot;Cube.OffCamera&quot;.</li>
+</ul>
+<p>Now observe what happens to the profiling stats for each of the following (in order):</p>
+<ol class="arabic simple">
+<li>Hit <kbd class="kbd docutils literal notranslate">P</kbd> as the scene is. It hums along at a fairly slow rate. On my system the Rasterizer step takes 130ms.
+The frame rate will finally jump up once the &quot;Cube&quot; object has completely moved out of the view frustum.
+It is as if the Occluder does not do anything while the Cube is behind it.</li>
+<li>Delete the &quot;Cube.OffCamera&quot; object above,
+and notice that there is no improvement in speed.
+This is the view frustum culling working for you -- it does not matter if that object exists or not.</li>
+<li>Hit <kbd class="kbd docutils literal notranslate">Z</kbd> to view wireframe. Notice that in the 3D View you can see &quot;Cube.BG&quot;,
+but once you press <kbd class="kbd docutils literal notranslate">P</kbd>, it is not there.</li>
+<li>Make the &quot;Occluder&quot; object take up the whole camera's view with <kbd class="kbd docutils literal notranslate">S X 5</kbd>.
+You will see a huge leap in frame rate,
+since almost nothing is being Rasterized. On my system the Rasterizer step drops to 5ms.</li>
+<li>Try a run with <span class="menuselection">World properties ‣ Physics ‣ Occlusion Culling</span> disabled.
+It will be slow again.</li>
+<li>Reenable <span class="menuselection">World properties ‣ Physics ‣ Occlusion Culling</span>
+and run it one more time to prove to yourself that your speed is back.</li>
+<li>Change the Occluder to &quot;Physics Type: Static&quot;. Notice that it is back to the original slowness.</li>
+<li>Change it back to &quot;Physics Type: Occlude&quot;.</li>
+<li>Now make the &quot;Occluder&quot; invisible. The frame rate is back down to its original, slow rate.</li>
+</ol>
+<div class="section" id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<p>As far as Physics is concerned, this type is equivalent to Rigid Object &quot;No collision&quot;.
+The reason why the Occluder mode is mutually exclusive with other physics mode is
+to emphasize the fact that occluders should be specifically designed for
+that purpose and not every mesh should be an occluder.
+However, you can enable the Occlusion capability on physics objects using Python and Logic bricks.
+See (Link- TODO).</p>
+<p>When an occluder object enters the view frustum,
+the BGE builds a Z-depth buffer from the faces of that object.
+Whether the faces are one-side or two-side is important:
+only the front faces and two-side faces are used to build the Z-depth buffer.
+If multiple occluders are in the view frustum,
+the BGE combines them and keeps the most foreground faces.</p>
+<p>The resolution of the Z-depth buffer is controllable in the World settings with
+the &quot;Occlusion Culling Resolution&quot; button:</p>
+<p>By default the resolution is 128 pixels for the largest dimension of the viewport
+while the resolution of the other dimension is set proportionally.
+Although 128 is a very low resolution, it is sufficient for the purpose of culling.
+The resolution can be increased to maximum 1024 but at great CPU expense.</p>
+<p>The BGE traverses the DBVT (Dynamic Bounding Volume Tree)
+and for each node checks if it is entirely hidden by the occluders and if so, culls the node
+(and all the objects it contains).</p>
+<p>To further optimize the feature, the BGE builds and uses the Z-depth buffer only
+when at least one occluder is in the view frustum.
+Until then, there is no performance decrease compared to regular view frustum culling.</p>
+</div>
+<div class="section" id="recommendations">
+<h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+<p>Occlusion culling is most useful when the occluders are large objects (buildings, mountains...)
+that hide many complex objects in an unpredictable way. However,
+do not be too concerned about performance: even if you use it inappropriately,
+the performance decrease will be limited due to the structure of the algorithm.</p>
+<p>There are situations where occlusion culling will not bring any benefit:</p>
+<ul>
+<li><p class="first">If the occluders are small and do not hide many objects.</p>
+<p>In that case, occlusion culling is just dragging your CPU down.</p>
+</li>
+<li><p class="first">If the occluders are large but hides simple objects.</p>
+<p>In that case, you are better off sending the objects to the GPU.</p>
+</li>
+<li><p class="first">If the occluders are large and hides many complex objects but in a very predictable way.</p>
+<p>Example: a house full of complex objects. Although occlusion culling will perform well in this case,
+you will get better performance by implementing a specific logic that hides/unhides the objects;
+for instance making the objects visible only when the camera enters the house.</p>
+</li>
+<li><p class="first">Occluders can be visible graphic objects
+but beware that too many faces will make the Z-depth buffer creation slow.</p>
+<p>For example, a terrain is not a good candidate for occlusion: too many faces and too many overlap.
+Occluder can be invisible objects placed inside more complex objects
+(e.g. &quot;in the walls&quot; of a building with complex architecture).
+Occluders can have &quot;holes&quot; through which you will see objects.</p>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sensor.html" class="btn btn-neutral float-right" title="Sensor Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="soft_body.html" class="btn btn-neutral" title="Soft Body Physics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

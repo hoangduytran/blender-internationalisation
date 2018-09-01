@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/advanced/command_line/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Command Line Arguments" href="arguments.html" />
+    <link rel="prev" title="Command Line" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Advanced</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Command Line</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#platform-dependent-instructions">Platform Dependent Instructions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#console-window-status-and-error-messages">Console Window Status and Error Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="arguments.html">Command Line Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../scripting/index.html">Scripting &amp; Extending Blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app_templates.html">Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../limits.html">Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Advanced</a> &raquo;</li>
+        
+          <li><a href="index.html">Command Line</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/advanced/command_line/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Console Window</em>, also called a <em>Terminal</em>, is an operating system text window that displays
+messages about Blender's operations, status, and internal errors.</p>
+<p>Use Cases:</p>
+<ul class="simple">
+<li>For automation and batch processing which require launching Blender
+with different <a class="reference internal" href="arguments.html"><span class="doc">arguments</span></a>.</li>
+<li>For Python development, to see the output of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> command.</li>
+<li>If Blender exits unexpectedly, the messages may indicate the cause or error.</li>
+<li>When troubleshooting, to see the output of <code class="docutils literal notranslate"><span class="pre">--debug</span></code> messages.</li>
+</ul>
+<div class="section" id="platform-dependent-instructions">
+<h2>Platform Dependent Instructions<a class="headerlink" href="#platform-dependent-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>The Blender <em>Console Window</em> in Linux will typically only be visible on the desktop
+if Blender is manually started from a terminal. Blender outputs to
+the <em>Console Window</em> it is started from.</p>
+<p>Depending on your desktop environment setup, a Blender icon may appear on your desktop or
+an entry for Blender is added to your menu after you install Blender. Often you can edit such an icon
+and enable &quot;Run in terminal&quot;.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/advanced_command-line_introduction_kde.png" src="../../_images/advanced_command-line_introduction_kde.png" />
+<p class="caption"><span class="caption-text">Configuring the KDE menu icon to start Blender from a terminal.</span></p>
+</div>
+<p>This screenshot shows Blender started from a Linux Terminal and
+the resulting text output written to it:</p>
+<div class="figure" id="id2">
+<img alt="../../_images/advanced_command-line_introduction_linux.png" src="../../_images/advanced_command-line_introduction_linux.png" />
+<p class="caption"><span class="caption-text">Starting Blender from a Linux terminal window.</span></p>
+</div>
+</div>
+<div class="section" id="apple-macos">
+<h3>Apple macOS<a class="headerlink" href="#apple-macos" title="Permalink to this headline">¶</a></h3>
+<p>macOS uses &quot;files&quot; with the <code class="docutils literal notranslate"><span class="pre">.app</span></code> extension called <em>applications</em>.
+These files are actually folders that appear as files in Finder.
+In order to run Blender you will have to specify that path to the Blender executable inside this folder,
+to get all output printed to the terminal.
+You can start a terminal from <span class="menuselection">Applications ‣ Utilities</span>.
+The path to the executable in the <code class="docutils literal notranslate"><span class="pre">.app</span></code> folder is <code class="docutils literal notranslate"><span class="pre">./blender.app/Contents/MacOS/blender</span></code>.</p>
+<p>If you have Blender installed in the Applications folder, the following command can be used:</p>
+<pre class="literal-block">
+/Applications/blender-2.79/blender.app/Contents/MacOS/blender
+</pre>
+<div class="figure" id="id3">
+<img alt="../../_images/advanced_command-line_introduction_mac.png" src="../../_images/advanced_command-line_introduction_mac.png" />
+<p class="caption"><span class="caption-text">Starting Blender from a macOS console window.</span></p>
+</div>
+</div>
+<div class="section" id="microsoft-windows">
+<h3>Microsoft Windows<a class="headerlink" href="#microsoft-windows" title="Permalink to this headline">¶</a></h3>
+<p>When Blender is started on a Microsoft Windows operating system, the <em>Console Window</em>
+(called the Command Prompt) is first created as a separate window on the desktop.
+The main Blender window will also appear and the <em>Console Window</em> will then be toggled off.
+To display the console again, go to <span class="menuselection">Window ‣ Toggle System Console</span>.</p>
+<p>To start Blender from the command line you need to open an instance of Command Prompt.
+To do this, type <kbd class="kbd docutils literal notranslate">WinKey-R</kbd> then type <code class="docutils literal notranslate"><span class="pre">cmd</span></code>; this will open the Command Prompt window.
+You then need to find the path to the Blender executable. If you installed Blender via the installer
+then it can be found here:</p>
+<pre class="literal-block">
+C:\Program Files\Blender Foundation\Blender\blender.exe
+</pre>
+<div class="figure" id="id4">
+<img alt="../../_images/advanced_command-line_introduction_windows.png" src="../../_images/advanced_command-line_introduction_windows.png" />
+<p class="caption"><span class="caption-text">Blender's Console Window on Microsoft Windows.</span></p>
+</div>
+<p>The screenshot shows the Blender <em>Console Window</em> on Microsoft Windows directly after starting
+Blender and then a short while later after opening a file along with the relevant messages.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Closing the Blender Console Window</p>
+<p>Closing the <em>Console Window</em> will also close Blender, losing any unsaved work.</p>
+<p class="last">To turn off the console without closing Blender,
+just run <em>Toggle System Console</em> again from the menu (as mentioned above).</p>
+</div>
+</div>
+</div>
+<div class="section" id="console-window-status-and-error-messages">
+<h2>Console Window Status and Error Messages<a class="headerlink" href="#console-window-status-and-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Blender Console Window</em> can display many different types of status and error messages.
+Some messages simply inform the user what Blender is doing, but have no real impact on Blender's ability to function.
+Other messages can indicate serious errors that will most likely prevent Blender carrying out a particular task and
+may even make Blender non-responsive or shut down completely. The <em>Blender Console Window</em> messages can
+also originate internally from within the Blender code or from external sources such as
+<a class="reference internal" href="../../preferences/addons.html"><span class="doc">Python scripts</span></a>.</p>
+<div class="section" id="common-messages">
+<h3>Common Messages<a class="headerlink" href="#common-messages" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">found</span> <span class="pre">bundled</span> <span class="pre">python:</span> <span class="pre">(FOLDER)</span></code></p>
+<p>This message indicates that Blender was able to find the <a class="reference internal" href="../scripting/index.html#scripting-index"><span class="std std-ref">Python</span></a>
+library for the Python interpreter embedded within Blender.
+If this folder is missing or unable to be found,
+it is likely that an error will occur, and this message will not appear.</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">malloc</span> <span class="pre">returns</span> <span class="pre">nil()</span></code></p>
+<p>When Blender carries out operations that require extra memory (RAM), it calls a function called malloc
+(short for memory allocate) which tries to allocate a requested amount of memory for Blender.
+If this cannot be satisfied, malloc will return nil/null/0 to indicate that it failed to carry out the request.
+If this happens Blender will not be able to carry out the operation requested by the user.
+This will most likely result in Blender operating very slowly or shutting down.
+If you want to avoid running out of memory you can install more memory in your system,
+reduce the amount of detail in your Blender models,
+or shut down other programs and services which may be taking up memory that Blender could use.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="arguments.html" class="btn btn-neutral float-right" title="Command Line Arguments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Command Line" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

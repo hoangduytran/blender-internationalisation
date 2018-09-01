@@ -1,0 +1,337 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/armatures/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Bones" href="bones/index.html" />
+    <link rel="prev" title="Armatures" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constraints/index.html">Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Armatures</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#your-first-armature">Your First Armature</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#the-armature-object">The Armature Object</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bones/index.html">Bones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skinning/index.html">Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="posing/index.html">Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="index.html">Armatures</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/rigging/armatures/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>An Armature in Blender can be thought of as similar to the armature of a real skeleton,
+and just like a real skeleton an Armature can consist of many bones.
+These bones can be moved around and anything that they are attached to or
+associated with will move and deform in a similar way.</p>
+<p>An &quot;armature&quot; is a type of object used for <a class="reference internal" href="../index.html"><span class="doc">rigging</span></a>.
+A rig is the controls and strings that move a marionette (puppet).
+Armature object borrows many ideas from real-world skeletons.</p>
+<div class="section" id="your-first-armature">
+<h2>Your First Armature<a class="headerlink" href="#your-first-armature" title="Permalink to this headline">¶</a></h2>
+<p>In order to see what we are talking about, let us try to add the default armature in Blender.</p>
+<p>(Note that armature editing details are explained in
+the <a class="reference internal" href="bones/editing/index.html"><span class="doc">armatures editing section</span></a>).</p>
+<p>Open a default scene, then:</p>
+<ol class="arabic simple">
+<li>Delete all objects in the scene.</li>
+<li>Make sure the cursor is in the world origin with <kbd class="kbd docutils literal notranslate">Shift-C</kbd>.</li>
+<li>Press <kbd class="kbd docutils literal notranslate">Numpad1</kbd> to see the world in Front view.</li>
+<li>Add a <em>Single Bone</em> (<span class="menuselection">Add ‣ Armature ‣ Single Bone</span>).</li>
+<li>Press <kbd class="kbd docutils literal notranslate">NumpadDelete</kbd> to see the armature at maximum zoom.</li>
+</ol>
+<div class="figure" id="id1">
+<img alt="../../_images/rigging_armatures_introduction_default.png" src="../../_images/rigging_armatures_introduction_default.png" />
+<p class="caption"><span class="caption-text">The default armature.</span></p>
+</div>
+</div>
+<div class="section" id="the-armature-object">
+<h2>The Armature Object<a class="headerlink" href="#the-armature-object" title="Permalink to this headline">¶</a></h2>
+<p>As you can see, an armature is like any other object type in Blender:</p>
+<ul class="simple">
+<li>It has an origin, a position, a rotation and a scale factor.</li>
+<li>It has an Object Data data-block, that can be edited in <em>Edit Mode</em>.</li>
+<li>It can be linked to other scenes, and the same armature data can be reused on multiple objects.</li>
+<li>All animation you do in <em>Object Mode</em> is only working on the whole object,
+not the armature's bones (use the <em>Pose Mode</em> to do this).</li>
+</ul>
+<p>As armatures are designed to be posed, either for a static or animated scene,
+they have a specific state, called &quot;rest position&quot;. This is the armature's default &quot;shape&quot;,
+the default position/rotation/scale of its bones, as set in <em>Edit Mode</em>.</p>
+<p>In <em>Edit Mode</em>, you will always see your armature in rest position,
+whereas in <em>Object Mode</em> and <em>Pose Mode</em>,
+you usually get the current &quot;pose&quot; of the armature
+(unless you enable the <em>Rest Position</em> button of the <em>Armature</em> panel).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bones/index.html" class="btn btn-neutral float-right" title="Bones" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Armatures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

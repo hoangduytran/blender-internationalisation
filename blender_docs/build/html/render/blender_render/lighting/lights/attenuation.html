@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Light Attenuation &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/lighting/lights/attenuation.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Lamps Textures" href="textures.html" />
+    <link rel="prev" title="Lamp Panel" href="lamp_panel.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Lighting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../shadows/index.html">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../lamps/index.html">Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../lighting_rigs.html">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Lighting</a> &raquo;</li>
+        
+          <li><a href="index.html">Lights</a> &raquo;</li>
+        
+      <li>Light Attenuation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/lighting/lights/attenuation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="light-attenuation">
+<h1>Light Attenuation<a class="headerlink" href="#light-attenuation" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-options.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-options.png" />
+<p class="caption"><span class="caption-text">Lamp panel, falloff options highlighted.</span></p>
+</div>
+<p>There are two main controls for light falloff for <em>Point</em> and <em>Spot</em> lamps:</p>
+<ol class="arabic simple">
+<li>The lamp <em>Falloff</em> type selector.</li>
+<li>And the <em>Sphere</em> checkbox.</li>
+</ol>
+<div class="section" id="falloff-types">
+<h2>Falloff Types<a class="headerlink" href="#falloff-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lin-quad-weighted">
+<h3>Lin/Quad Weighted<a class="headerlink" href="#lin-quad-weighted" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_linear-quadratic.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_linear-quadratic.png" />
+<p class="caption"><span class="caption-text">Lamp panel with Lin/Quad Weighted Falloff options highlighted.</span></p>
+</div>
+<p>When this setting is chosen, two sliders are shown,
+<em>Linear</em> and <em>Quadratic</em>,
+which control respectively the &quot;linearness&quot; and &quot;quadraticness&quot; of the falloff curve.</p>
+<p>This lamp falloff type is in effect allowing the mixing of the two light attenuation profiles
+(linear and quadratic attenuation types).</p>
+<div class="section" id="linear">
+<h4>Linear<a class="headerlink" href="#linear" title="Permalink to this headline">¶</a></h4>
+<p>This slider input field can have a value between (0.0 to 1.0).
+A value of 1.0 in the <em>Linear</em> field and 0.0 in the <em>Quadratic</em> field
+in effect means that the light from this source is completely linear.
+This means that at the number of Blender Units distance specified in the <em>Distance</em> field,
+this light source's intensity will be half the value it was originally.</p>
+<p>When the <em>Quadratic</em> slider is set to 0.0, the formula for working out
+the attenuation at a particular range for full linear attenuation is:</p>
+<p><span class="math notranslate nohighlight">\(I = E × (D / (D + L × r))\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><em>I</em> is the calculated Intensity of light.</li>
+<li><em>E</em> is the current <em>Energy</em> slider setting.</li>
+<li><em>D</em> is the current setting of the <em>Distance</em> field.</li>
+<li><em>L</em> is the current setting of the <em>Linear</em> slider.</li>
+<li><em>r</em> is the distance from the lamp where the light intensity gets measured.</li>
+</ul>
+</div>
+<div class="section" id="quadratic">
+<h4>Quadratic<a class="headerlink" href="#quadratic" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id3">
+<span id="fig-bi-light-lin-default"></span><a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_lin-quad-weighted-default.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_lin-quad-weighted-default.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_lin-quad-weighted-default.jpg" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-text">Lamp with Lin/Quad Weighted falloff default settings.</span></p>
+</div>
+<p>This slider input field can have a value between (0.0 to 1.0). A value of 1.0
+in the <em>Quadratic</em> field and 0.0 in the <em>Linear</em> field means that
+the light from this source is completely quadratic.</p>
+<p>Quadratic attenuation type lighting is considered a more accurate representation of how light
+attenuates (in the real world). In fact, fully quadratic attenuation is selected by default.
+For <em>Lin/Quad Weighted</em> lamp falloff see Fig. <a class="reference internal" href="#fig-bi-light-lin-default"><span class="std std-ref">Lamp with Lin/Quad Weighted falloff default settings.</span></a>.</p>
+<p>Here again,
+the light intensity is half when it reaches the <em>Distance</em> value from the lamp.
+Comparing the quadratic falloff to the linear falloff,
+the intensity decays much slower at distances lower than the set <em>Distance</em>,
+but it attenuates much quicker after <em>Distance</em> is reached.</p>
+<p>When the <em>Linear</em> slider is set to 0.0, the formula for working out
+the attenuation at a particular range for full quadratic attenuation is:</p>
+<p><span class="math notranslate nohighlight">\(I = E × (D^2 / (D^2 + Q × r^2))\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><em>I</em> is the calculated Intensity of light.</li>
+<li><em>E</em> is the current <em>Energy</em> slider setting.</li>
+<li><em>D</em> is the current setting of the <em>Distance</em> field.</li>
+<li><em>Q</em> is the current setting of the <em>Quad</em> slider.</li>
+<li><em>r</em> is the distance from the lamp where the light intensity gets measured.</li>
+</ul>
+</div>
+<div class="section" id="mixing-linear-and-quad">
+<h4>Mixing &quot;Linear&quot; and &quot;Quad&quot;<a class="headerlink" href="#mixing-linear-and-quad" title="Permalink to this headline">¶</a></h4>
+<p>If both the <em>Linear</em> and <em>Quad</em> slider fields have values greater than
+0.0, then the formula used to calculate the light attenuation profile changes to this:</p>
+<p><span class="math notranslate nohighlight">\(I = E × (D / (D + L × r)) × (D^2 / (D^2 + Q × r^2))\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><em>I</em> is the calculated Intensity of light.</li>
+<li><em>E</em> is the current <em>Energy</em> slider setting.</li>
+<li><em>D</em> is the current setting of the <em>Distance</em> field.</li>
+<li><em>L</em> is the current setting of the <em>Linear</em> slider.</li>
+<li><em>Q</em> is the current setting of the <em>Quad</em> slider.</li>
+<li><em>r</em> is the distance from the lamp where the light intensity gets measured.</li>
+</ul>
+</div>
+<div class="section" id="zeroing-both-linear-and-quad">
+<h4>Zeroing both &quot;Linear&quot; and &quot;Quad&quot;<a class="headerlink" href="#zeroing-both-linear-and-quad" title="Permalink to this headline">¶</a></h4>
+<p>If both the <em>Linear</em> and <em>Quadratic</em> sliders have 0.0 as their
+values, the light intensity will not attenuate with distance.
+This does not mean that the light will not get darker, rather it will,
+but only because the energy the light has is spread out over a wider and wider distance.
+The total amount of energy in the spread-out light will remain the same, though.
+The light angle also affects the amount of light you see.
+It is in fact the behavior of light in the deep space vacuum.</p>
+<p>If what you want is a light source that does not attenuate and gives the same amount of light
+intensity to each area it hits,
+you need a light with properties like the <em>Constant</em> lamp <em>Falloff</em> type.</p>
+<p>Also, when the <em>Linear</em> and <em>Quad</em> sliders are both 0.0 values,
+the <em>Distance</em> field ceases to have any influence on the light attenuation,
+as shown by the equation above.</p>
+</div>
+<div class="section" id="graphical-summary">
+<h4>Graphical Summary<a class="headerlink" href="#graphical-summary" title="Permalink to this headline">¶</a></h4>
+<p>Below is a graph summarizing the lin/quad attenuation type,
+showing attenuation with or without the <em>Sphere</em> option (described later).</p>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_linear-quad-graph.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_linear-quad-graph.png" />
+<p class="caption"><span class="caption-text">Light Attenuation:</span></p>
+<div class="legend">
+<ol class="loweralpha simple">
+<li>Linear (Linear = 1.0, Quad = 0.0);</li>
+<li>Quadratic (Linear = 0.0, Quad = 1.0);</li>
+<li>Linear and quadratic (Linear = Quad = 0.5);</li>
+<li>Null (Linear = Quad = 0.0);</li>
+</ol>
+<p>Also shown in the graph the &quot;same&quot; curves, in the same colors,
+but with the Sphere button turned on.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="custom-curve">
+<h3>Custom Curve<a class="headerlink" href="#custom-curve" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Custom Curve</em> lamp <em>Falloff</em> type is very flexible.</p>
+<p>Most other lamp falloff types work by having their light intensity start at its maximum
+(when nearest to the light source) and then with some predetermined pattern decrease their
+light intensity when the distance from the light source increases.</p>
+<p>When using the <em>Custom Curve</em> Lamp Falloff type,
+a new panel is created, called <em>Falloff Curve</em>. This <em>Falloff Curve</em>
+profile graph allows the user to alter how intense light is at a particular point along
+a light's attenuation profile (i.e. at a specific distance from the light source).</p>
+<p>The <em>Falloff Curve</em> profile graph has two axes,
+the Distance axis and the Intensity axis.</p>
+<dl class="docutils">
+<dt>Distance axis</dt>
+<dd>It represents the position at a particular point along a light source's attenuation path.
+The far left is at the position of the light source and the far right is the place
+where the light source's influence would normally be completely attenuated.</dd>
+<dt>Intensity axis</dt>
+<dd>It represents the intensity at a particular point along a light source's attenuation path.
+Higher intensity is represented by being higher up the intensity axis,
+while lower intensity light is represented by being lower down on the intensity axis.</dd>
+</dl>
+<p>Altering the <em>Falloff Curve</em> profile graph is easy. Just <kbd class="kbd docutils literal notranslate">LMB</kbd> click on
+a part of the graph you want to alter and drag it where you want it to be.
+If when you click you are over or near one of the tiny black square handles,
+it will turn white, indicating that this handle is now selected,
+and you will be able to drag it to a new position.
+If when you click on the graph you are not near a handle,
+one will be created at the point that you clicked, which you can then drag where you wish.
+You can also create handles at specific parts of the graph,
+clicking with <kbd class="kbd docutils literal notranslate">LMB</kbd> while holding <kbd class="kbd docutils literal notranslate">Ctrl</kbd>;
+it will create a new handle at the point you have clicked.</p>
+<p>In the example below (the default for the <em>Falloff Curve</em> Profile Graph),
+the graph shows that the intensity of the light starts off at its maximum
+(when near the light), and linearly attenuates as it moves to the right
+(further away from the light source).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-default.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-default.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-default.png" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Default Falloff Curve panel graph.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_custom-curve-default.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_custom-curve-default.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_custom-curve-default.jpg" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the Custom Curve lamp falloff type effect with default settings.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If you want to have a light attenuation profile that gets more intense as it moves away from
+the light source, you could alter the graph as below:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-reversed.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-reversed.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-reversed.png" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Falloff Curve for reversed attenuation.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-reverse-render.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-reverse-render.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-reverse-render.jpg" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Falloff Curve for reversed attenuation rendered.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You are obviously not just limited to simple changes such as reversing the attenuation
+profile, you can have almost any profile you desire.</p>
+<p>Here is another example of a different <em>Falloff Curve</em> profile graph,
+along with its resultant render output:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-oscill.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-oscill.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-custom-oscill.png" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Oscillating attenuation profile.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-render.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-render.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_falloff-curve-render.jpg" style="width: 230px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the effects of a &quot;wavelet&quot; profile graph on the light attenuation.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inverse-square">
+<h3>Inverse Square<a class="headerlink" href="#inverse-square" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-square.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-square.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-square.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the Inverse Square lamp falloff type effect with default settings.</span></p>
+</div>
+<p>This lamp falloff type attenuates its intensity according to inverse square law,
+scaled by the <em>Distance</em> value. Inverse square is a sharper, realistic decay,
+useful for lighting such as desk lamps and street lights.
+This is similar to the old <em>Quad</em> option
+(and consequently, to the new <em>Lin/Quad Weighted</em> option with <em>Linear</em> to 0.0 and <em>Quad</em> to 1.0),
+with slight changes.</p>
+</div>
+<div class="section" id="inverse-linear">
+<h3>Inverse Linear<a class="headerlink" href="#inverse-linear" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-linear.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-linear.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_inverse-linear.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the Inverse Linear lamp falloff type effect with default settings.</span></p>
+</div>
+<p>This lamp falloff type attenuates its intensity linearly,
+scaled by the <em>Distance</em> value. This is the default setting, behaving the same as
+the default in previous Blender versions without <em>Quad</em> switched on, and consequently,
+like the new <em>Lin/Quad Weighted</em> option with <em>Linear</em> to 1.0 and
+<em>Quad</em> to 0.0. This is not physically accurate,
+but can be easier to light with.</p>
+</div>
+<div class="section" id="constant">
+<h3>Constant<a class="headerlink" href="#constant" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_constant.jpg"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_constant.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_constant.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the Constant lamp falloff type effect with default settings.</span></p>
+</div>
+<p>This lamp falloff type does not attenuate its intensity with distance.
+This is useful for distant light sources like the sun or sky,
+which are so far away that their falloff is not noticeable.
+<em>Sun</em> and <em>Hemi</em> lamps always have constant falloff.</p>
+</div>
+<div class="section" id="inverse-coefficients">
+<h3>Inverse Coefficients<a class="headerlink" href="#inverse-coefficients" title="Permalink to this headline">¶</a></h3>
+<p>This lamp falloff type combines the <em>Inverse Square</em>, <em>Inverse Linear</em> and <em>Constant</em>
+modes into a single inverse-quadratic formula:</p>
+<p><span class="math notranslate nohighlight">\(I = E × (1.0 / (Q × r^2 + L × r + C))\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><em>I</em> is the calculated Intensity of light.</li>
+<li><em>E</em> is the current <em>Energy</em> slider setting.</li>
+<li><em>C</em> is the current setting of the <em>Constant</em> slider setting.</li>
+<li><em>L</em> is the current setting of the <em>Linear</em> slider setting.</li>
+<li><em>Q</em> is the current setting of the <em>Quadratic</em> slider setting.</li>
+<li><em>r</em> is the distance from the lamp where the light intensity gets measured.</li>
+</ul>
+<p>Such a falloff model is commonly used in real-time rendering applications via a shading
+language like GLSL.</p>
+</div>
+</div>
+<div class="section" id="sphere">
+<h2>Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-clipping-circle.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-clipping-circle.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-clipping-circle.png" style="width: 340px;" /></a>
+<p class="caption"><span class="caption-text">Screenshot of the 3D View editor, showing the Sphere light clipping circle.</span></p>
+</div>
+<p>The <em>Sphere</em> option restricts the light illumination range of a <em>Lamp</em> or
+<em>Spot</em> lamp, so that it will completely stop illuminating an area once it reaches
+the number of Blender Units away from the Lamp, as specified in the <em>Distance</em> field.</p>
+<p>When the <em>Sphere</em> option is active,
+a dotted sphere will appear around the light source,
+indicating the demarcation point at which this light intensity will be null.</p>
+<p>The <em>Sphere</em> option adds a term to the chosen attenuation law, whatever it is:</p>
+<p><span class="math notranslate nohighlight">\(I' = I × (D - r) / D\)</span> if <span class="math notranslate nohighlight">\(r &lt; D\)</span>;</p>
+<p><span class="math notranslate nohighlight">\(I' = 0\)</span> otherwise;</p>
+<p>Where:</p>
+<ul class="simple">
+<li><em>I'</em> is the required Intensity of light (with the <em>Sphere</em> option activated).</li>
+<li><em>I</em> is the intensity of light calculated by the chosen attenuation law (without the <em>Sphere</em> option).</li>
+<li><em>D</em> is the current setting of the <em>Distance</em> field.</li>
+<li><em>r</em> is the distance from the lamp where the light intensity gets measured.</li>
+</ul>
+<p>See the graphic at the end of the description of the <em>Lin/Quad Weighted</em> attenuation option.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-activated.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-activated.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-activated.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the light attenuation of a Constant falloff light type with the Sphere option active.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id16">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-deactivated.png"><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-deactivated.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere-falloff-deactivated.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Render showing the light attenuation of a Constant falloff light type with the Sphere option deactivated.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="distance-example">
+<h3>Distance Example<a class="headerlink" href="#distance-example" title="Permalink to this headline">¶</a></h3>
+<p>In this example, the <em>Lamp</em> has been set pretty close to the group of planes.
+This causes the light to affect the front, middle and rear planes more dramatically.
+Looking at the figure below, you can see that as the Distance is increased,
+more and more objects become progressively brighter.</p>
+<table border="1" class="docutils" id="id17">
+<caption><span class="caption-text">Various Distance settings (shadows disabled).</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id18">
+<img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_distance10.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_distance10.jpg" />
+<p class="caption"><span class="caption-text">Distance: 10.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<span id="fig-bi-light-attenuation-distance100"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_distance100.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_distance100.jpg" />
+<p class="caption"><span class="caption-text">Distance: 100.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id20">
+<span id="fig-bi-light-attenuation-distance1000"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_distance1000.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_distance1000.jpg" />
+<p class="caption"><span class="caption-text">Distance: 1000.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>Distance</em> parameter is controlling where the light is falling -- at a linear
+rate by default -- to half its original value from the light's origin.
+As you increase or decrease this value, you are changing where this half falloff occurs.
+You could think of <em>Distance</em> as the surface of a sphere and the surface is
+where the light's intensity has fallen to half its strength in all directions.
+Note that the light's intensity continues to fall even after <em>Distance</em>.
+<em>Distance</em> just specifies the distance where half of the light's energy has weakened.</p>
+<p>Notice in Fig. <a class="reference internal" href="#fig-bi-light-attenuation-distance1000"><span class="std std-ref">Distance: 1000.</span></a>, that the farthest objects are very bright.
+This is because the falloff has been extended far into the distance,
+which means the light is very strong when it hits the last few objects. It is not until
+1000 units that the light's intensity has fallen to half of its original intensity.</p>
+<p>Contrast this with Fig. <a class="reference internal" href="#fig-bi-light-attenuation-distance100"><span class="std std-ref">Distance: 100.</span></a>,
+where the falloff occurs so soon that the farther objects are barely lit.
+The light's intensity has fallen by a half by time it even reaches the tenth object.</p>
+<p>You may be wondering why the first few planes appear to be dimmer? This is because the surface
+angle between the light and the object's surface normal is getting close to oblique.
+That is the nature of a <em>Lamp</em> light object. By moving the light infinitely far away
+you would begin to approach the characteristics of the <em>Sun</em> lamp type.</p>
+</div>
+<div class="section" id="inverse-square-example">
+<h3>Inverse Square Example<a class="headerlink" href="#inverse-square-example" title="Permalink to this headline">¶</a></h3>
+<p><em>Inverse Square</em> makes the light's intensity falloff with a non-linear rate, or specifically, a quadratic rate.
+The characteristic feature of using <em>Inverse Square</em> is that the light's intensity begins to
+fall off very slowly but then starts falling off very rapidly.
+We can see this in the Fig. <a class="reference internal" href="#fig-bi-light-attenuation-inverse-square"><span class="std std-ref">Inverse Square selected.
+(with the specified distances).</span></a> images.</p>
+<span id="fig-bi-light-attenuation-inverse-square"></span><table border="1" class="docutils" id="id21">
+<caption><span class="caption-text">Inverse Square selected.
+(with the specified distances).</span><a class="headerlink" href="#id21" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id22">
+<span id="fig-bi-light-attenuation-inverse-square10"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_quad10.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_quad10.jpg" />
+<p class="caption"><span class="caption-text">Inverse Square with 10.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id23">
+<span id="fig-bi-light-attenuation-inverse-square100"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_quad100.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_quad100.jpg" />
+<p class="caption"><span class="caption-text">Inverse Square with 100.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id24">
+<span id="fig-bi-light-attenuation-inverse-square1000"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_quad1000.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_quad1000.jpg" />
+<p class="caption"><span class="caption-text">Inverse Square with 1000.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>With <em>Inverse Square</em> selected, the <em>Distance</em> field specifies where the light begins to fall off faster,
+roughly speaking; see the light attenuation description in <a class="reference internal" href="#falloff-types">Falloff types</a> for more info.</p>
+<p>In Fig. <a class="reference internal" href="#fig-bi-light-attenuation-inverse-square10"><span class="std std-ref">Inverse Square with 10.</span></a>,
+the light's intensity has fallen so quickly that the last few objects are not even lit.</p>
+<p>Both Fig. <a class="reference internal" href="#fig-bi-light-attenuation-inverse-square100"><span class="std std-ref">Inverse Square with 100.</span></a> and
+Fig. <a class="reference internal" href="#fig-bi-light-attenuation-inverse-square1000"><span class="std std-ref">Inverse Square with 1000.</span></a> appear to be almost identical and that is
+because the <em>Distance</em> is set beyond the farthest object's distance which is at
+about 40 BU out. Hence, all the objects get almost the full intensity of the light.</p>
+<p>As above, the first few objects are dimmer than farther objects because they are very close to
+the light. Remember, the brightness of an object's surface is also based on the angle between
+the surface normal of an object and the ray of light coming from the lamp.</p>
+<p>This means there are at least two things that are controlling the surface's brightness:
+intensity and the angle between the light source and the surface's normal.</p>
+</div>
+<div class="section" id="sphere-example">
+<h3>Sphere Example<a class="headerlink" href="#sphere-example" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id25">
+<span id="fig-bi-light-attenuation-clip"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_example-sphere-scene.png" src="../../../../_images/render_blender-render_lighting_lights_attenuation_example-sphere-scene.png" />
+<p class="caption"><span class="caption-text">Clipping Sphere.</span></p>
+</div>
+<p><em>Sphere</em> indicates that the light's intensity is null at the <em>Distance</em> distance and beyond,
+regardless of the chosen light's falloff.
+In Fig. <a class="reference internal" href="#fig-bi-light-attenuation-clip"><span class="std std-ref">Clipping Sphere.</span></a> you can see a side view example of the setup
+with <em>Sphere</em> enabled and a distance of 10.</p>
+<p>Any objects beyond the sphere receive no light from the lamp.</p>
+<p>The <em>Distance</em> field is now specifying both where the light's rays become null,
+and the intensity's ratio falloff setting.
+Note that there is no abrupt transition at the sphere:
+the light attenuation is progressive
+(for more details, see the descriptions of the <a class="reference internal" href="#sphere">Sphere</a> and <a class="reference internal" href="#falloff-types">Falloff types</a> above).</p>
+<table border="1" class="docutils" id="id26">
+<caption><span class="caption-text">Sphere enabled with the specified distances.
+Inverse Linear light falloff.</span><a class="headerlink" href="#id26" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id27">
+<span id="fig-bi-light-attenuation-sphere10"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere10.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere10.jpg" />
+<p class="caption"><span class="caption-text">Sphere with 10.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id28">
+<span id="fig-bi-light-attenuation-sphere20"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere20.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere20.jpg" />
+<p class="caption"><span class="caption-text">Sphere with 20.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id29">
+<span id="fig-bi-light-attenuation-sphere40"></span><img alt="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere40.jpg" src="../../../../_images/render_blender-render_lighting_lights_attenuation_sphere40.jpg" />
+<p class="caption"><span class="caption-text">Sphere with 40.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Fig. <a class="reference internal" href="#fig-bi-light-attenuation-sphere10"><span class="std std-ref">Sphere with 10.</span></a>, the clipping sphere's radius is 10 units,
+which means the light's intensity is also being controlled by 10 units of distance.
+With a linear attenuation,
+the light's intensity has fallen very low even before it gets to the first object.</p>
+<p>In Fig. <a class="reference internal" href="#fig-bi-light-attenuation-sphere20"><span class="std std-ref">Sphere with 20.</span></a>,
+the clipping sphere's radius is now 20 BU and some light is reaching the middle objects.</p>
+<p>In Fig. <a class="reference internal" href="#fig-bi-light-attenuation-sphere40"><span class="std std-ref">Sphere with 40.</span></a>, the clipping sphere's radius is now 40 units,
+which is beyond the last object. However, the light does not make it to the last few objects
+because the intensity has fallen to nearly 0.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">If a <em>Lamp</em> light is set to not cast shadows,
+it illuminates through walls and the like.
+If you want to achieve some nice effects like a fire,
+or a candle-lit room interior seen from outside a window,
+the <em>Sphere</em> option is a must. By carefully working on the <em>Distance</em>
+value you can make your warm fire lit shed only within the room,
+while illuminating outside with a cool moonlight,
+the latter achieved with a <em>Sun</em> or <em>Hemi</em> light or both.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="textures.html" class="btn btn-neutral float-right" title="Lamps Textures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lamp_panel.html" class="btn btn-neutral" title="Lamp Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

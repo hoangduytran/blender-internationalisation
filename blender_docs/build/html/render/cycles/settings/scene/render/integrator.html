@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integrator &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/cycles/settings/scene/render/integrator.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Film" href="film.html" />
+    <link rel="prev" title="Render Settings" href="index.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../features.html">Render Features</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Cycles Settings</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Scene Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../objects/index.html">Object Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Cycles Settings</a> &raquo;</li>
+        
+          <li><a href="../index.html">Scene Settings</a> &raquo;</li>
+        
+          <li><a href="index.html">Render Settings</a> &raquo;</li>
+        
+      <li>Integrator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/cycles/settings/scene/render/integrator.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrator">
+<h1>Integrator<a class="headerlink" href="#integrator" title="Permalink to this headline">¶</a></h1>
+<p>The integrator is the rendering algorithm used to compute the lighting.
+Cycles currently supports a path tracing integrator with direct light sampling.
+It works well for various lighting setups,
+but is not as suitable for caustics and some other complex lighting situations.</p>
+<p>Rays are traced from the camera into the scene,
+bouncing around until they find a light source such as a lamp, an object emitting light,
+or the world background. To find lamps and surfaces emitting light,
+both indirect light sampling (letting the ray follow the surface BSDF)
+and direct light sampling (picking a light source and tracing a ray towards it) are used.</p>
+<div class="section" id="sampling">
+<h2>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render ‣ Sampling</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Sample Method</dt>
+<dd>There are two integrator modes that can be used: <em>Path Tracing</em> and <em>Branched Path Tracing</em>.</dd>
+<dt>Square Samples</dt>
+<dd>Square the amount samples.</dd>
+<dt>Seed</dt>
+<dd><p class="first">Seed value for integrator to get different noise patterns.</p>
+<dl class="last docutils">
+<dt>Animate Seed (clock icon)</dt>
+<dd>This button which can be found on the right side of the <em>Seed</em>
+value can be used to give different seed values. It is a good idea to enable this
+when making animation because in the real world each frame has a different noise pattern.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-clamp-samples">
+<dt>Clamp Direct</dt>
+<dd><p class="first">This option limits the maximum intensity a sample from rays which have not yet bounced can contribute to a pixel.
+It reduces noise at the cost of accuracy. Setting this option to 0.0 disables clamping altogether.
+Lower have a greater affect (dimmer samples) on the resulting image than higher values.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>A common issue encountered with <em>Path Tracing</em> is the occurrence of &quot;fireflies&quot;:
+improbable samples that contribute very high values to pixels.
+This option provides a way to limit that. However, note that as you clamp out such values,
+other bright lights/reflections will be dimmed as well.</p>
+<p class="last">Care must be taken when using this setting to find a balance between mitigating fireflies and
+losing intentionally bright parts. It is often useful to clamp indirect bounces separately,
+as they tend to cause more fireflies than direct bounces. See the <em>Clamp Indirect</em> setting.</p>
+</div>
+</dd>
+<dt>Clamp Indirect</dt>
+<dd>The same as <em>Clamp Direct</em>, but for rays which have bounced multiple times.</dd>
+<dt>Light Sampling Threshold</dt>
+<dd>Probabilistically terminates light samples when the light contribution
+is below this threshold (more noise but faster rendering).
+Zero disables the test and never ignores lights.
+This is useful because in large scenes with many light sources,
+some might only contribute a small amount to the final image, and increase render times.
+Using this setting can decrease the render times needed to calculate
+the rays which in the end have very little affect on the image.</dd>
+<dt>Pattern</dt>
+<dd><p class="first">Random sampling pattern used by the integrator.</p>
+<dl class="last docutils">
+<dt>Sobol</dt>
+<dd>Uses a Sobol pattern to decide the random sampling pattern used by the integrator.
+See <a class="reference external" href="https://en.wikipedia.org/wiki/Sobol_sequence">Sobol sequence</a> on Wikipedia for more information.</dd>
+<dt>Correlated Multi-Jitter</dt>
+<dd>Uses a Correlated Multi-Jitter pattern to decide the random sampling pattern used by the integrator.
+See <a class="reference external" href="http://graphics.pixar.com/library/MultiJitteredSampling/paper.pdf">this Pixar paper</a>
+for more information.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-layer-samples">
+<dt>Layer Samples</dt>
+<dd><p class="first">When render layers have per layer number of samples set, this option specifies how to use them.</p>
+<dl class="last docutils">
+<dt>Use</dt>
+<dd>The render layer samples will override the set scene samples.</dd>
+<dt>Bounded</dt>
+<dd>Bound render layer samples by scene samples.</dd>
+<dt>Ignore</dt>
+<dd>Ignore render layer sample settings.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="path-tracing">
+<h3>Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Path Tracing</em> integrator is a pure path tracer;
+at each hit it will bounce light in one direction and pick one light to receive lighting from.
+This makes each individual sample faster to compute,
+but will typically require more samples to clean up the noise.</p>
+<dl class="docutils">
+<dt>Render Samples</dt>
+<dd>Number of paths to trace for each pixel in the final render. As more samples are taken,
+the solution becomes less noisy and more accurate.</dd>
+<dt>Preview Samples</dt>
+<dd>Number of samples for viewport rendering.</dd>
+</dl>
+</div>
+<div class="section" id="branched-path-tracing">
+<h3>Branched Path Tracing<a class="headerlink" href="#branched-path-tracing" title="Permalink to this headline">¶</a></h3>
+<p>The non-progressive Branched Path Tracing integrator offers finer control over sampling.
+It is similar to <em>Path Tracing</em>, but at the first hit it will split the path for
+different surface components and will take all lights into account for shading instead of just one.</p>
+<p>This makes each sample slower, but will reduce noise,
+especially in scenes dominated by direct or one-bounce lighting.
+To get the same number of diffuse samples as in the path tracing integrator, note that e.g.
+250 path tracing samples = 10 AA samples x 25 diffuse samples.
+The Sampling panel shows this total number of samples.</p>
+<dl class="docutils">
+<dt>AA Render Samples</dt>
+<dd>Number of samples to take for each pixel in the final render. More samples will improve anti-aliasing.</dd>
+<dt>AA Preview Samples</dt>
+<dd>Number of samples for viewport rendering.</dd>
+<dt>Diffuse Samples</dt>
+<dd>Number of diffuse bounce samples to take for each AA sample.</dd>
+<dt>Glossy Samples</dt>
+<dd>Number of glossy bounce samples to take for each AA sample.</dd>
+<dt>Transmission Samples</dt>
+<dd>Number of transmission bounce samples to take for each AA sample.</dd>
+<dt>AO Samples</dt>
+<dd>Number of ambient occlusion samples to take for each AA sample.</dd>
+<dt>Mesh Light Samples</dt>
+<dd>Number of mesh light samples to take for each AA sample.</dd>
+<dt>Subsurface Samples</dt>
+<dd>Number of subsurface scattering samples to take for each AA sample.</dd>
+<dt>Volume Samples</dt>
+<dd>Number of volume scattering samples to take for each AA sample.</dd>
+<dt>Sample All Direct Lights</dt>
+<dd>When enabled, Cycles will samples all lights in the scene for direct bounces, instead of randomly picking one.
+Disabling this can improve performance, when using a lot of AA Samples anyway, to clear up the render.</dd>
+<dt>Sample All Indirect Lights</dt>
+<dd>Similar to direct light, but for indirects lights. This can reduce noise in scenes with many lights.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="light-paths">
+<span id="render-cycles-integrator-light-paths"></span><h2>Light Paths<a class="headerlink" href="#light-paths" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render ‣ Light Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bounces">
+<span id="cycles-bounces"></span><h3>Bounces<a class="headerlink" href="#bounces" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Max Bounces</dt>
+<dd>Maximum number of light bounces. For best quality, this should be set to the maximum.
+However, in practice, it may be good to set it to lower values for faster rendering.
+Setting it to maximum 0 bounces results in direct lighting only.</dd>
+<dt>Min Bounces</dt>
+<dd>Minimum number of light bounces for each path,
+after which the integrator uses Russian Roulette to terminate paths that contribute less to the image.
+Setting this higher gives less noise, but may also increase render time considerably. For a low number of bounces,
+it is strongly recommended to set this equal to the maximum number of bounces.</dd>
+<dt>Diffuse Bounces</dt>
+<dd>Maximum number of diffuse bounces.</dd>
+<dt>Glossy Bounces</dt>
+<dd>Maximum number of glossy bounces.</dd>
+<dt>Transmission Bounces</dt>
+<dd>Maximum number of transmission bounces.</dd>
+<dt>Volume Bounces</dt>
+<dd>Maximum number of volume scattering bounces.</dd>
+</dl>
+</div>
+<div class="section" id="transparency">
+<h3>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Transparency Max</dt>
+<dd>Maximum number of transparency bounces.</dd>
+<dt>Transparency Min</dt>
+<dd>Minimum number of transparency bounces, after which Russian Roulette termination is used.</dd>
+<dt>Transparent Shadows</dt>
+<dd>For direct light sampling,
+use transparency of surfaces in between to produce shadows affected by transparency of those surfaces.</dd>
+</dl>
+</div>
+<div class="section" id="caustics-filter-glossy">
+<h3>Caustics &amp; Filter Glossy<a class="headerlink" href="#caustics-filter-glossy" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils" id="render-cycles-integrator-no-caustics">
+<dt>Reflective Caustics</dt>
+<dd>While in principle path tracing supports rendering of caustics with a sufficient number of samples,
+in practice it may be inefficient to the point that there is just too much noise.
+This option can be unchecked, to disable reflective caustics.</dd>
+<dt>Refractive Caustics</dt>
+<dd>The same as above, but for refractive caustics.</dd>
+</dl>
+<dl class="docutils" id="render-cycles-integrator-filter-glossy">
+<dt>Filter Glossy</dt>
+<dd><p class="first">When using a value higher than 0.0, this will blur glossy reflections after blurry bounces,
+to reduce noise at the cost of accuracy. 1.0 is a good starting value to tweak.</p>
+<p>Some light paths have a low probability of being found while contributing much light to the pixel.
+As a result these light paths will be found in some pixels and not in others, causing fireflies.
+An example of such a difficult path might be a small light that is causing a small specular highlight
+on a sharp glossy material, which we are seeing through a rough glossy material.
+In fact in such a case we practically have a caustic.</p>
+<p class="last">With path tracing it is difficult to find the specular highlight,
+but if we increase the roughness on the material, the highlight gets bigger and softer, and so easier to find.
+Often this blurring will hardly be noticeable, because we are seeing it through a blurry material anyway,
+but there are also cases where this will lead to a loss of detail in lighting.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">See <a class="reference internal" href="../../../optimizations/reducing_noise.html#render-cycles-reducing-noise-clamp-samples"><span class="std std-ref">Reducing Noise</span></a>
+for examples of the clamp settings in use.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="film.html" class="btn btn-neutral float-right" title="Film" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Render Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Vector (Motion) Blur Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/compositing/types/filter/vector_blur.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Vector Nodes" href="../vector/index.html" />
+    <link rel="prev" title="Sun Beams Node" href="sun_beams.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Properties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bilateral_blur.html">Bilateral Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blur_node.html">Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bokeh_blur.html">Bokeh Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="defocus.html">Defocus Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sun_beams.html">Sun Beams Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Vector (Motion) Blur Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Filter Nodes</a> &raquo;</li>
+        
+      <li>Vector (Motion) Blur Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/filter/vector_blur.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="vector-motion-blur-node">
+<span id="bpy-types-compositornodevecblur"></span><h1>Vector (Motion) Blur Node<a class="headerlink" href="#vector-motion-blur-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_filter_vector-blur_node.png" src="../../../_images/compositing_types_filter_vector-blur_node.png" />
+<p class="caption"><span class="caption-text">Vector Blur Node.</span></p>
+</div>
+<p>The Vector Blur node is a fast method for simulating <a class="reference internal" href="../../../glossary/index.html#term-motion-blur"><span class="xref std std-term">Motion blur</span></a> in compositing.
+It uses the vector speed render pass to blur the image pixels in 2D.</p>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Image input, to be linked to the &quot;Combined&quot; render pass.</dd>
+<dt>Z</dt>
+<dd>Z depth, to be linked to the &quot;Depth&quot; render pass.</dd>
+<dt>Speed</dt>
+<dd>Input for the &quot;Vector&quot; render pass.
+See <a class="reference internal" href="../../../render/cycles/settings/scene/render_layers/passes.html"><span class="doc">Cycles render passes</span></a> or
+<a class="reference internal" href="../../../render/blender_render/settings/passes.html"><span class="doc">Blender internal render passes</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Samples</dt>
+<dd>Quality factor.</dd>
+<dt>Blur</dt>
+<dd>Scaling factor for the motion vector (actually the &quot;shutter speed&quot; in frames).</dd>
+<dt>Speed</dt>
+<dd><p class="first">The vector blur could produce artifacts like streaks, lines and other.
+To tackle these problems, the filter applies clamping,
+which can be used to limit which pixels get blurred. The speed is set in pixel units.</p>
+<dl class="last docutils">
+<dt>Maximum Speed</dt>
+<dd>The maximum threshold. The majority of artifacts are caused by pixels moving too fast.</dd>
+<dt>Minimum Speed</dt>
+<dd>The minimum threshold for moving pixels can separate
+the hardly moving pixels from the moving ones.
+Especially when the camera itself moves,
+the vector mask can become the entire image.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Motion blurred image output.</dd>
+</dl>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Even with a correct compositing setup with Image, Z and Speed nodes all linked to the appropriate passes,
+there may still be artifacts. The 2D render passes does not contain 3D information,
+and so the information what is behind a moving object or outside the camera view is lost.</p>
+<p>Better results can be achieved by rendering the scene into multiple render layers,
+applying vector blur to each render layer, and then compositing the results together.
+Typically an animated character would be rendered in a separate render layer than the background set.
+Especially if hair or transparency is involved this is important.</p>
+<p>For other artifacts it can help to slightly blur the Speed pass or to set a Maximum Speed limit.
+This helps to smoothen out the motion, but too much blurring leads to its own problems.</p>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The <em>speed vector</em> in this example was created by animating the patterned sphere horizontally and
+using a frame at the mid-point of the sequence.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_vector-blur_example-base.jpg"><img alt="../../../_images/compositing_types_filter_vector-blur_example-base.jpg" src="../../../_images/compositing_types_filter_vector-blur_example-base.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Render result, no post-processing.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_vector-blur_example-1.jpg"><img alt="../../../_images/compositing_types_filter_vector-blur_example-1.jpg" src="../../../_images/compositing_types_filter_vector-blur_example-1.jpg" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Composite, with Samples set to 32 and Blur set to 1.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../vector/index.html" class="btn btn-neutral float-right" title="Vector Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sun_beams.html" class="btn btn-neutral" title="Sun Beams Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

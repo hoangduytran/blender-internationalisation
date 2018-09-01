@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Drivers Panel &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/animation/drivers/drivers_panel.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Workflow &amp; Examples" href="workflow_examples.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Actions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Drivers Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflow_examples.html">Workflow &amp; Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Drivers</a> &raquo;</li>
+        
+      <li>Drivers Panel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/drivers/drivers_panel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="drivers-panel">
+<h1>Drivers Panel<a class="headerlink" href="#drivers-panel" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Graph editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Drivers</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Drivers ‣ Drivers</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/animation_drivers_drivers-panel_panel.png" src="../../_images/animation_drivers_drivers-panel_panel.png" />
+<p class="caption"><span class="caption-text">Drivers panel.</span></p>
+</div>
+<p>This panel is located in the <a class="reference internal" href="../../editors/graph_editor/introduction.html"><span class="doc">Graph Editor</span></a> with the mode set to Drivers.</p>
+<p>The Drivers panel is for setting up <em>Driver Variables</em> or a <em>Scripted Expression</em> which
+will determine the value of the <em>Driver Value</em>.</p>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Update Dependencies</dt>
+<dd>This will force an update for the Driver Value dependencies.</dd>
+<dt>Remove Driver</dt>
+<dd>Removes the driver from the property.</dd>
+<dt>Type</dt>
+<dd><p class="first">There are two categories of scripts: built-in (average, sum, minimum and maximum) and
+custom scripts (Scripted Expressions).</p>
+<dl class="last docutils">
+<dt>Average Value</dt>
+<dd>Uses the average value of the referenced Driver Variables.</dd>
+<dt>Sum Values</dt>
+<dd>Uses the sum of the referenced Driver Variables.</dd>
+<dt>Scripted Expression</dt>
+<dd>Uses a Scripted Expression. See Expression.
+You must write a Python expression which performs your own calculations on the Driver Variables.</dd>
+<dt>Minimum Value</dt>
+<dd>Uses the lowest value from the referenced Driver Variables.</dd>
+<dt>Maximum Value</dt>
+<dd>Uses the highest value from the referenced Driver Variables.</dd>
+</dl>
+</dd>
+<dt>Expression</dt>
+<dd>Scripted Expression.
+Here you can add variables, real numbers, math operators, math functions, Python properties, driver functions.
+See Driver Expression below for some examples.</dd>
+<dt>Use Self</dt>
+<dd>This allows for drivers to references their own data using the variable <code class="docutils literal notranslate"><span class="pre">self</span></code>.
+Useful for objects, bones, to avoid having to create a variable pointing to its self.</dd>
+<dt>Show Debug Info</dt>
+<dd>Shows the <em>Driver Value</em>.</dd>
+<dt>Driver Value</dt>
+<dd>The output value of the driver script.</dd>
+</dl>
+<div class="section" id="driver-variables">
+<h3>Driver Variables<a class="headerlink" href="#driver-variables" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<img alt="../../_images/animation_drivers_drivers-panel_transform-channel2.png" src="../../_images/animation_drivers_drivers-panel_transform-channel2.png" />
+<p class="caption"><span class="caption-text">Transform channel setup.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../_images/animation_drivers_drivers-panel_distance.png" src="../../_images/animation_drivers_drivers-panel_distance.png" />
+<p class="caption"><span class="caption-text">Distance setup.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Variable are references to properties or delta transformations which are a reference to two properties.</p>
+<dl class="docutils">
+<dt>Add Variable</dt>
+<dd>Adds a new Driver Variable.</dd>
+<dt>Copy/Paste</dt>
+<dd>Uses the copy of the current variable stack so it can be pasted onto another object's variable stack.</dd>
+<dt>Name</dt>
+<dd>Name to use for scripted expressions/functions.
+No spaces or dots are allowed and must start with a letter.</dd>
+<dt>Variable Type</dt>
+<dd><p class="first">The type of variable to use.</p>
+<dl class="last docutils">
+<dt>Single Property</dt>
+<dd><p class="first">Use the value from some RNA property.
+For example, the Ambient shading color from a material.
+(see Fig. <a class="reference internal" href="#fig-setup-single-property"><span class="std std-ref">Setup of a single property.</span></a>)
+First select the type of ID-block, then the ID of the ID-block, then copy and
+paste an RNA property <kbd class="kbd docutils literal notranslate">Ctrl-V</kbd>.
+See also <a class="reference internal" href="../../data_system/custom_properties.html"><span class="doc">Custom Properties</span></a>.</p>
+<dl class="last docutils">
+<dt>ID Type</dt>
+<dd>The ID-block type. For example: Key, Image, Object, Material.</dd>
+<dt>ID</dt>
+<dd>The ID of the ID-block type. For example: &quot;Material.001&quot;.</dd>
+<dt>RNA Path</dt>
+<dd>The RNA ID name of the property. For example: 'ambient' from material shading.</dd>
+</dl>
+</dd>
+<dt>Transform Channel</dt>
+<dd><p class="first">Use one of the Transform channels from an object or bone.</p>
+<dl class="last docutils">
+<dt>ID</dt>
+<dd>ID of the object. For example: Cube, Armature, Camera.</dd>
+<dt>Bone</dt>
+<dd>ID of the Armature bone. For example: &quot;Bone&quot;, &quot;Bone.002&quot;, &quot;Arm.r&quot;.
+This option is for armatures.</dd>
+<dt>Type</dt>
+<dd>For example, X Location, X Rotation, X Scale.</dd>
+<dt>Space</dt>
+<dd>World Space, Transform Space, Local Space.</dd>
+</dl>
+</dd>
+<dt>Rotational Difference</dt>
+<dd>Use the rotational difference between two objects or bones.</dd>
+<dt>Distance</dt>
+<dd>Use the distance between two objects or bones.</dd>
+</dl>
+</dd>
+<dt>Value</dt>
+<dd>Shows the value of the variable.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<span id="fig-setup-single-property"></span><img alt="../../_images/animation_drivers_drivers-panel_single-property.png" src="../../_images/animation_drivers_drivers-panel_single-property.png" />
+<p class="caption"><span class="caption-text">Setup of a single property.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../advanced/scripting/index.html#scripting-index"><span class="std std-ref">Extending Blender with Python</span></a>.</li>
+<li><a class="reference external" href="https://www.python.org">Python</a> and its <a class="reference external" href="https://docs.python.org/">documentation</a>.</li>
+<li><a class="reference external" href="http://functions.wolfram.com/">functions.wolfram.com</a>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow_examples.html" class="btn btn-neutral float-right" title="Workflow &amp; Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mix Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/nodes/types/color/mix_rgb.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="RGB Curves Node" href="rgb_curves.html" />
+    <link rel="prev" title="Invert Node" href="invert.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../../index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../properties/index.html">Material Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Materials</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Material Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Color Nodes</a> &raquo;</li>
+        
+      <li>Mix Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/render/blender_render/materials/nodes/types/color/mix_rgb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mix-node">
+<h1>Mix Node<a class="headerlink" href="#mix-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../../../../_images/compositing_types_color_mix_node.png" src="../../../../../../_images/compositing_types_color_mix_node.png" />
+<p class="caption"><span class="caption-text">Mix Node.</span></p>
+</div>
+<p>The <em>Mix Node</em> mixes images by working on the individual and corresponding pixels
+of the two input images. Called &quot;MixRGB&quot; in the shader and texture context.</p>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Factor</dt>
+<dd>Controls the amount of influence the node exerts on the output image.</dd>
+<dt>Image</dt>
+<dd>The background image. The image size and resolution sets the dimensions of the output image.</dd>
+<dt>Image</dt>
+<dd>The foreground image.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Mix</dt>
+<dd><p class="first">The Blend types can be selected in the select menu.
+See <a class="reference internal" href="../../../../../../glossary/index.html#term-color-blend-modes"><span class="xref std std-term">Color Blend Modes</span></a> for details on each blending mode.</p>
+<p class="last">Add, Subtract, Multiply, Screen, Divide, Difference,
+Darken, Lighten, Overlay, Dodge, Burn,
+Hue, Saturation, Value, Color, Soft Light, Linear Light</p>
+</dd>
+<dt>Use Alpha</dt>
+<dd>If activated, by clicking on the <em>Color and Alpha</em> icon,
+the Alpha channel of the second image is used for mixing.
+When deactivated, the default, the icon background is a light gray.
+The alpha channel of the base image is always used.</dd>
+<dt>Clamp</dt>
+<dd>Limit the highest color value to not exceed 1.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Standard image output.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Below are samples of common mix modes and uses, mixing a color or checker with a mask.</p>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_mix_blend-modes.png"><img alt="../../../../../../_images/compositing_types_color_mix_blend-modes.png" src="../../../../../../_images/compositing_types_color_mix_blend-modes.png" style="width: 700px;" /></a>
+</div>
+<p>Some explanation of the mixing methods above might help you use the Mix node effectively:</p>
+<dl class="docutils">
+<dt>Add</dt>
+<dd>Adding blue to blue keeps it blue, but adding blue to red makes purple.
+White already has a full amount of blue, so it stays white.
+Use this to shift a color of an image. Adding a blue tinge makes the image feel colder.</dd>
+<dt>Subtract</dt>
+<dd>Taking Blue away from white leaves Red and Green, which combined make Yellow.
+Taking Blue away from Purple leaves Red. Use this to desaturate an image.
+Taking away yellow makes an image bluer and more depressing.</dd>
+<dt>Multiply</dt>
+<dd>Black (0.00) times anything leaves black. Anything times White (1.00) is itself.
+Use this to mask out garbage, or to colorize a black-and-white image.</dd>
+<dt>Hue</dt>
+<dd>Shows you how much of a color is in an image,
+ignoring all colors except what is selected: makes a monochrome picture (style 'Black &amp; Hue').</dd>
+<dt>Mix</dt>
+<dd>Combines the two images, averaging the two.</dd>
+<dt>Lighten</dt>
+<dd>Like bleach makes your whites whiter. Use with a mask to lighten up a little.</dd>
+<dt>Difference</dt>
+<dd>Kinda cute in that it takes out a color. The color needed to turn Yellow into White is Blue.
+Use this to compare two very similar images to see what had been done to one to make it the other;
+sort of like a change log for images. You can use this to see a watermark (see <a class="reference internal" href="#watermark-images">Watermark images</a>)
+you have placed in an image for theft detection.</dd>
+<dt>Darken</dt>
+<dd>With the colors set here, it's like looking at the world through rose-colored glasses.</dd>
+</dl>
+<div class="section" id="contrast-enhancement">
+<h3>Contrast Enhancement<a class="headerlink" href="#contrast-enhancement" title="Permalink to this headline">¶</a></h3>
+<p>Here is a small map showing the effects of two other common uses for the RGB Curve:
+<em>Darken</em> and <em>Contrast Enhancement</em>.
+You can see the effect each curve has independently,
+and the combined effect when they are <em>mixed</em> equally.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_mix_contrast-enhancement.png"><img alt="../../../../../../_images/compositing_types_color_mix_contrast-enhancement.png" src="../../../../../../_images/compositing_types_color_mix_contrast-enhancement.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Example node setup showing &quot;Darken&quot;, &quot;Enhance Contrast&quot; and &quot;Mix&quot; nodes for composition.</span></p>
+</div>
+<p>As you can hopefully see, our original magic monkey was overexposed by too much light.
+To cure an overexposure, you must both darken the image and enhance the contrast.</p>
+<p>In the top RGB curve, <em>Darken</em>, only the right side of the curve was lowered; thus,
+any X input along the bottom results in a geometrically less Y output.
+The <em>Enhance Contrast</em> RGB (S-shaped) curve scales the output such that middle values of X change dramatically;
+namely, the middle brightness scale is expanded,
+and thus, whiter whites and blacker blacks are output. To make this curve,
+simply click on the curve and a new control point is added.
+Drag the point around to bend the curve as you wish.
+The Mix node combines these two effects equally, and Suzanne feels much better.</p>
+</div>
+<div class="section" id="watermark-images">
+<h3>Watermark Images<a class="headerlink" href="#watermark-images" title="Permalink to this headline">¶</a></h3>
+<p>In the old days, a pattern was pressed into the paper mush as it dried,
+creating a mark that identified who made the paper and where it came from.
+The mark was barely perceptible except in just the right light.
+Probably the first form of subliminal advertising. Nowadays,
+people watermark their images to identify them as personal intellectual property,
+for subliminal advertising of the author or hosting service,
+or simply to track their image's proliferation throughout the web. Blender provides a complete
+set of tools for you to both encode your watermark and to tell if an image has your watermark.</p>
+<div class="section" id="encoding-your-watermark-in-an-image">
+<h4>Encoding your Watermark in an Image<a class="headerlink" href="#encoding-your-watermark-in-an-image" title="Permalink to this headline">¶</a></h4>
+<p>First, construct your own personal watermark.
+You can use your name, a word, or a shape or image not easily replicated.
+While neutral gray works best using the encoding method suggested,
+you are free to use other colors or patterns.
+It can be a single pixel or a whole gradient; it is up to you. In the example below,
+we are encoding the watermark in a specific location in the image using the <em>Translate</em> node;
+this helps later because we only have to look at a specific location for the mark.
+We then use the RGB to BW node to convert the image to numbers
+that the Map Value node can use to make the image subliminal.
+In this case, it reduces the mark to one-tenth of its original intensity.
+The Add node adds the corresponding pixels,
+making the ones containing the mark ever-so-slightly brighter.</p>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_mix_watermark-encode.png"><img alt="../../../../../../_images/compositing_types_color_mix_watermark-encode.png" src="../../../../../../_images/compositing_types_color_mix_watermark-encode.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Embedding your mark in an image using a mark and specific position.</span></p>
+</div>
+<p>Of course, if you <em>want</em> people to notice your mark, do not scale it so much,
+or make it a contrasting color. There are also many other ways,
+using other mix settings and fancier rigs. Feel free to experiment!</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>Additional uses</p>
+<p class="last">You can also use this technique, using settings that result in visible effects,
+in title sequences to make the words appear to be cast on the water's surface,
+or as a special effect to make words appear on the possessed girl's forearm.</p>
+</div>
+</div>
+<div class="section" id="decoding-an-image-for-your-watermark">
+<h4>Decoding an Image for your Watermark<a class="headerlink" href="#decoding-an-image-for-your-watermark" title="Permalink to this headline">¶</a></h4>
+<p>When you see an image that you think might be yours,
+use the node map below to compare it to your stock image (pre-watermarked original).
+In this map, the Mix node is set to Difference,
+and the Map Value node amplifies any difference. The result is routed to a viewer,
+and you can see how the original mark clearly stands out.</p>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../../../../_images/compositing_types_color_mix_watermark-decode.png"><img alt="../../../../../../_images/compositing_types_color_mix_watermark-decode.png" src="../../../../../../_images/compositing_types_color_mix_watermark-decode.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-text">Checking an image for your watermark.</span></p>
+</div>
+<p>Various image compression algorithms lose some of the original; the difference shows as noise.
+Experiment with different compression settings and marks to see which works best for you by
+having the encoding map in one scene, and the decoding map in another.
+Use them while changing Blender's image format settings,
+reloading the watermarked image after saving, to get an acceptable result.
+In the example above, the mark was clearly visible all the way up to <code class="docutils literal notranslate"><span class="pre">JPEG</span></code> compression of 50%.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rgb_curves.html" class="btn btn-neutral float-right" title="RGB Curves Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="invert.html" class="btn btn-neutral" title="Invert Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

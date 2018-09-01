@@ -1,0 +1,427 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Duplication &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/object/editing/duplication.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Properties" href="../properties/index.html" />
+    <link rel="prev" title="Clear &amp; Apply" href="transform/clear_apply.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../startup_scene.html">Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../modes.html">Object Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../navigate/index.html">Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../3d_cursor.html">3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../../index.html">3D View</a> &raquo;</li>
+        
+          <li><a href="../index.html">Objects</a> &raquo;</li>
+        
+          <li><a href="index.html">Editing</a> &raquo;</li>
+        
+      <li>Duplication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/3dview/object/editing/duplication.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="duplication">
+<h1>Duplication<a class="headerlink" href="#duplication" title="Permalink to this headline">¶</a></h1>
+<p>There are two types of object duplication,
+being <a class="reference internal" href="#duplicate">Duplicate</a> and <a class="reference internal" href="#linked-duplicates">Linked Duplicates</a> which instance their Object Data.</p>
+<div class="section" id="duplicate">
+<span id="bpy-ops-object-duplicate-move"></span><h2>Duplicate<a class="headerlink" href="#duplicate" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit and Object Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Edit ‣ Duplicate</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Duplicate Objects</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This will create a visually-identical copy of the selected object(s).
+The copy is created at the same position as the original object and
+you are automatically placed in <em>Grab</em> mode. See the examples below.</p>
+<p>This copy is a new object, which shares some data-blocks with the original object
+(by default, all the Materials, Textures, and F-Curves), but which has copied others,
+like the mesh, for example. This is why this form of duplication is sometimes called &quot;shallow link&quot;,
+because not all data-blocks are shared; some of them are &quot;hard copied&quot;!</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">You can choose which types of data-block will be linked or copied when duplicating:
+in the <a class="reference internal" href="../../../../preferences/editing.html#prefs-editing-duplicate-data"><span class="std std-ref">User Preferences</span></a>.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../_images/editors_3dview_object_editing_duplication_example.png" src="../../../../_images/editors_3dview_object_editing_duplication_example.png" />
+<p class="caption"><span class="caption-text">The Cube object was duplicated.</span></p>
+</div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">Cube</span></code> was duplicated, using <kbd class="kbd docutils literal notranslate">Shift-D</kbd>.
+Both these cubes has separate meshes with unique names: <code class="docutils literal notranslate"><span class="pre">Cube</span></code> and <code class="docutils literal notranslate"><span class="pre">Cube.001</span></code>.</p>
+<ul class="simple">
+<li>The original left cube is being edited, the duplicated right cube remains unchanged.
+The mesh data has been copied, not linked.</li>
+<li>Likewise, if one cube is edited in Object Mode, the other cube remains unchanged.
+The new object's transform properties or data-block is a copy, not linked.</li>
+<li>When the cube was duplicated, it inherited the material of the original cube.
+The material properties were linked, not copied.</li>
+</ul>
+<p>See above if you want separate copies of the data-blocks normally linked.</p>
+</div>
+</div>
+<div class="section" id="linked-duplicates">
+<span id="bpy-ops-object-duplicate-move-linked"></span><h2>Linked Duplicates<a class="headerlink" href="#linked-duplicates" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Edit ‣ Duplicate Linked</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object ‣ Duplicate Linked</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You also have the choice of creating a <em>Linked Duplicate</em> rather than a <em>Duplicate</em>;
+this is called a deep link.
+This will create a new object with <strong>all</strong> of its data linked to the original object.
+If you modify one of the linked objects in <em>Edit Mode</em>,
+all linked copies are modified. Transform properties (object data-blocks) still remain copies,
+not links, so you still can rotate, scale, and move freely without affecting the other copies.
+Reference Expl. <a class="reference internal" href="#expl-object-link-duplicate"><span class="std std-ref">Duplicate Example</span></a> for the discussions below.</p>
+<dl class="docutils">
+<dt>Linked</dt>
+<dd>In the <em>Duplicate Objects</em> Operator panel the <em>Linked</em> checkbox is checked unlike with <em>Duplicate</em>.</dd>
+</dl>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">If you want to make changes to an object in the new linked duplicate independently of the original object,
+you will have to manually make the object a &quot;single-user&quot; copy by <kbd class="kbd docutils literal notranslate">LMB</kbd>
+the number in the <em>Object Data</em> panel of the Properties editor. (See <a class="reference internal" href="../../../../interface/controls/templates/data_block.html#ui-data-block"><span class="std std-ref">Data-Block Menu</span></a>).</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="../../../../data_system/data_blocks.html#data-system-datablock-make-single-user"><span class="std std-ref">Make Single User</span></a> for unlinking data-blocks.</p>
+</div>
+<div class="section" id="expl-object-link-duplicate">
+<span id="id1"></span><h3>Examples<a class="headerlink" href="#expl-object-link-duplicate" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../_images/editors_3dview_object_editing_duplication_linked-example.png" src="../../../../_images/editors_3dview_object_editing_duplication_linked-example.png" />
+<p class="caption"><span class="caption-text">The Cube object was linked duplicated.</span></p>
+</div>
+<p>The object <code class="docutils literal notranslate"><span class="pre">Cube</span></code> was linked duplicated, using <kbd class="kbd docutils literal notranslate">Alt-D</kbd>.
+Though both these cubes are separate objects with unique names: <code class="docutils literal notranslate"><span class="pre">Cube</span></code> and <code class="docutils literal notranslate"><span class="pre">Cube.001</span></code>,
+the single mesh named <code class="docutils literal notranslate"><span class="pre">Cube</span></code>, is shared by both.</p>
+<ul class="simple">
+<li>As a mesh is edited in <em>Edit Mode</em> in one object, the same occurs in the other cube as well.
+The mesh data are links, not copies.</li>
+<li>In contrast, if one of these two cubes is rotated or rescaled in Object Mode, the other remains unchanged.
+The transform properties are copied, not linked.</li>
+<li>As in the previous example, the newly created cube has inherited the material of the original cube.
+The material properties are linked, not copied.</li>
+</ul>
+<p>A common table has a top and four legs. Model one leg,
+and then make linked duplicates three times for each of the remaining legs.
+If you later make a change to the mesh, all the legs will still match.
+Linked duplicates also apply to a set of drinking glasses,
+wheels on a car... anywhere there is repetition or symmetry.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p>Linked Library Duplication</p>
+<p class="last"><a class="reference internal" href="../../../../data_system/linked_libraries.html"><span class="doc">Linked Libraries</span></a> are also a form of duplication.
+Any object or data-block in other blend-files can be reused in the current file.</p>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">If you want transform properties (i.e. object data-blocks) to be &quot;linked&quot;,
+see the page on <a class="reference internal" href="../properties/relations/parents.html"><span class="doc">parenting</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../properties/index.html" class="btn btn-neutral float-right" title="Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="transform/clear_apply.html" class="btn btn-neutral" title="Clear &amp; Apply" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,588 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The VideoTexture Module: bge.texture &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/python_api/videotexture.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Standalone Player" href="../blender_player.html" />
+    <link rel="prev" title="Bullet physics Python API" href="bullet_physics.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Python API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bullet_physics.html">Bullet physics Python API</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">The VideoTexture Module: bge.texture</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-it-works">How It Works</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#game-preparation">Game Preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-example">First Example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-demos">Advanced Demos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Python API</a> &raquo;</li>
+        
+      <li>The VideoTexture Module: bge.texture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/python_api/videotexture.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-videotexture-module-bge-texture">
+<h1>The VideoTexture Module: bge.texture<a class="headerlink" href="#the-videotexture-module-bge-texture" title="Permalink to this headline">¶</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> module allows you to manipulate textures during the game.
+Several sources for texture are possible: video files, image files, video capture,
+memory buffer, camera render or a mix of that.
+The video and image files can be loaded from the Internet using a URL instead of a file name.
+In addition, you can apply filters on the images before sending them to the GPU,
+allowing video effect: blue screen, gradient, gray, normal map.
+<code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> uses FFmpeg to load images and videos.
+All the formats and codecs that FFmpeg supports are supported by <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>,
+including but not limited to:</p>
+<ul class="simple">
+<li>AVI</li>
+<li>Ogg</li>
+<li>Xvid</li>
+<li>Theora</li>
+<li>dv1394 camera</li>
+<li>video4linux capture card (this includes many webcams)</li>
+<li>videoForWindows capture card (this includes many webcams)</li>
+<li>JPG</li>
+</ul>
+<div class="section" id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h2>
+<p>The principle is simple: first you identify an existing texture by object and name,
+then you create a new texture with dynamic content and swap the two textures in the GPU.
+The GE is not aware of the substitution and continues to display the object as always,
+except that you are now in control of the texture. At the end,
+the new texture is deleted and the old texture restored.</p>
+<p>The present page is a guide to the <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> module with simple examples.</p>
+</div>
+<div class="section" id="game-preparation">
+<h2>Game Preparation<a class="headerlink" href="#game-preparation" title="Permalink to this headline">¶</a></h2>
+<p>Before you can use the thing <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> module,
+you must have objects with textures applied appropriately.</p>
+<p>Imagine you want to have a television showing live broadcast programs in the game. You will
+create a television object and UV-apply a different texture at the place of the screen, for example <code class="docutils literal notranslate"><span class="pre">tv.png</span></code>.
+What this texture looks like is not important;
+probably you want to make it dark gray to simulate power-off state.
+When the television must be turned on, you create a dynamic texture from a video capture card
+and use it instead of <code class="docutils literal notranslate"><span class="pre">tv.png</span></code>: the TV screen will come to life.</p>
+<p>You have two ways to define textures that <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> can grab:</p>
+<ol class="arabic simple">
+<li>Simple UV texture.</li>
+<li>Blender material with image texture channel.</li>
+</ol>
+<p>Because <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> works at texture level,
+it is compatible with all GE fancy texturing features: GLSL, multi-texture, custom shaders,
+etc.</p>
+</div>
+<div class="section" id="first-example">
+<h2>First Example<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us assume that we have a game object with one or more faces assigned to a material/image on
+which we want to display a video.</p>
+<p>The first step is to create a <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object.
+We will do it in a script that runs once. It can be at the start of the game,
+the video is only played when you refresh the texture; we will come to that later. The script is
+normally attached to the object on which we want to display the video so that we can easily
+retrieve the object reference:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bge.texture</span>
+
+<span class="n">contr</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">getCurrentController</span><span class="p">()</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">contr</span><span class="o">.</span><span class="n">owner</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">GameLogic</span><span class="p">,</span> <span class="s1">&#39;video&#39;</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>The check on <code class="docutils literal notranslate"><span class="pre">video</span></code> attribute is just a trick to make sure we create the texture only once.</p>
+<div class="section" id="find-material">
+<h3>Find Material<a class="headerlink" href="#find-material" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;IMvideo.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bge.texture.materialID()</span></code>
+is a handy function to retrieve the object material that is using <code class="docutils literal notranslate"><span class="pre">video.png</span></code> as texture.
+This method will work with Blender material and UV texture.
+In case of UV texture, it grabs the internal material corresponding to the faces that are assigned to this texture.
+In case of Blender material,
+it grabs the material that has an image texture channel matching the name as first channel.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IM</span></code> prefix indicates that we are searching for a texture name but we can also
+search for a material by giving the <code class="docutils literal notranslate"><span class="pre">MA</span></code> prefix. For example,
+if we want to find the material called <code class="docutils literal notranslate"><span class="pre">VideoMat</span></code> on this object, the code becomes:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;MAVideoMat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-texture">
+<h3>Create Texture<a class="headerlink" href="#create-texture" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bge.texture.Texture</span></code> is the class that creates the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object that loads the dynamic texture on the GPU.
+The constructor takes one mandatory and three optional arguments:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">gameObj</span></code></dt>
+<dd>The game object.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">materialID</span></code></dt>
+<dd>Material index as returned by <code class="docutils literal notranslate"><span class="pre">bge.texture.materialID()</span></code>, 0 = first material by default.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">textureID</span></code></dt>
+<dd>Texture index in case of multi-texture channel, 0 = first channel by default.
+In case of UV texture, this parameter should always be 0.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">textureObj</span></code></dt>
+<dd>Reference to another <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object of which we want to reuse the texture.
+If we use this argument,
+we should not create any source on this texture and there is no need to refresh it either;
+the other <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object will provide the texture for both materials/textures.</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">Texture</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">matID</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-texture-persistent">
+<h3>Make Texture Persistent<a class="headerlink" href="#make-texture-persistent" title="Permalink to this headline">¶</a></h3>
+<p>Note that we have assigned the object to a <code class="docutils literal notranslate"><span class="pre">GameLogic</span></code>, <code class="docutils literal notranslate"><span class="pre">video</span></code>
+attribute that we have created for the occasion.
+The reason is that the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object must be persistent across the game scripts.
+A local variable would be deleted at the end of the script and the GPU texture deleted at
+the same time. <code class="docutils literal notranslate"><span class="pre">GameLogic</span></code> module object is a handy place to store persistent objects.</p>
+</div>
+<div class="section" id="create-a-source">
+<h3>Create a Source<a class="headerlink" href="#create-a-source" title="Permalink to this headline">¶</a></h3>
+<p>Now we have a <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object but it cannot do anything because it does not have
+any source. We must create a source object from one of the possible sources available in
+<code class="docutils literal notranslate"><span class="pre">bge.texture</span></code>:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code></dt>
+<dd>Moving pictures.
+Video file, video capture, video streaming.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageFFmpeg</span></code></dt>
+<dd>Still pictures.
+Image file, image on web.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageBuff</span></code></dt>
+<dd>Image from application memory.
+For computer generated images, drawing applications.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageViewport</span></code></dt>
+<dd>Part or whole of the viewport (=rendering of the active camera displayed on screen).</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageRender</span></code></dt>
+<dd>Render of a non-active camera.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">ImageMix</span></code></dt>
+<dd>A mix of two or more of the above sources.</dd>
+</dl>
+<p>In this example we use a simple video file as source.
+The <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code> constructor takes a file name as argument.
+To avoid any confusion with the location of the file,
+we will use <code class="docutils literal notranslate"><span class="pre">GameLogic.expandPath()</span></code> to build an absolute file name,
+assuming the video file is in the same directory as the blend-file:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">movie</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">expandPath</span><span class="p">(</span><span class="s1">&#39;//trailer_400p.ogg&#39;</span><span class="p">)</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We create the video source object and assign it to the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object
+<code class="docutils literal notranslate"><span class="pre">source</span></code> attribute to set the source and make it persistent:
+as the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object is persistent, the source object will also be persistent.</p>
+<p>Note that we can change the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> source at any time.
+Suppose we want to switch between two movies during the game.</p>
+<p>We can do the following:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="s1">&#39;movie1.avi&#39;</span><span class="p">)</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">VideoFFmpeg</span><span class="p">(</span><span class="s1">&#39;movie2.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And then assign (and reassign) the source during the game:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">mySources</span><span class="p">[</span><span class="n">movieSel</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-the-source">
+<h3>Setup the Source<a class="headerlink" href="#setup-the-source" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code> source has several attributes to control the movie playback:</p>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">range</span></code></dt>
+<dd>[start,stop] (floats).
+Set the start and stop time of the video playback, expressed in seconds from beginning.
+By default the entire video.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">repeat</span></code></dt>
+<dd>(integer).
+Number of video replay, -1 for infinite.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">framerate</span></code></dt>
+<dd>(float).
+Relative frame rate, &lt;1.0 for slow, &gt;1.0 for fast.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">scale</span></code></dt>
+<dd>(bool).
+Set to True to activate fast nearest-neighbor scaling algorithm.
+Texture width and height must be a power of 2.
+If the video picture size is not a power of 2, rescaling is required.
+By default <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> uses the precise but slow <code class="docutils literal notranslate"><span class="pre">gluScaleImage()</span></code> function.
+Best is to rescale the video offline so that no scaling is necessary at run-time!</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">flip</span></code></dt>
+<dd>(bool).
+Set to True if the image must be vertically flipped.
+FFmpeg always delivers the image upside down, so this attribute is set to True by default.</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">filter</span></code></dt>
+<dd>Set additional filter on the video before sending to GPU.
+Assign to one of <code class="docutils literal notranslate"><span class="pre">bge.texture</span></code> filter object.
+By default the image is send unchanged to the GPU.
+If an alpha channel is present in the video, it is automatically loaded and sent to the GPU as well.</dd>
+</dl>
+<p>We will simply set the <code class="docutils literal notranslate"><span class="pre">scale</span></code> attribute to True
+because the <code class="docutils literal notranslate"><span class="pre">gluScaleImage()</span></code> is really too slow for real-time video.
+In case the video dimensions are already a power of 2, it has no effect.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="play-the-video">
+<h3>Play the Video<a class="headerlink" href="#play-the-video" title="Permalink to this headline">¶</a></h3>
+<p>We are now ready to play the video:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Video playback is not a background process: it happens only when we refresh the texture.
+So we must have another script that runs on every frame and calls the <code class="docutils literal notranslate"><span class="pre">refresh()</span></code>
+method of the <code class="docutils literal notranslate"><span class="pre">Texture</span></code> object:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">GameLogic</span><span class="p">,</span> <span class="s1">&#39;video&#39;</span><span class="p">):</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the video source is stopped, <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> has no effect.
+The argument of <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> is a flag
+that indicates if the texture should be recalculated on next refresh.
+For video playback, you definitively want to set it to True.</p>
+</div>
+<div class="section" id="checking-the-video-status">
+<h3>Checking the Video Status<a class="headerlink" href="#checking-the-video-status" title="Permalink to this headline">¶</a></h3>
+<p>Video source classes (such as VideoFFMpeg) have an attribute <code class="docutils literal notranslate"><span class="pre">status</span></code>.
+If video is playing, its value is 2, if it's stopped, it's 3.
+So in our example:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+<span class="c1">#video has stopped</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-workflow">
+<h3>Advanced Workflow<a class="headerlink" href="#advanced-workflow" title="Permalink to this headline">¶</a></h3>
+<p>True argument in <code class="docutils literal notranslate"><span class="pre">Texture.refresh()</span></code> method simply invalidates the image buffer
+after sending it to the GPU so that on next frame, a new image will be loaded from the source.
+It has the side effect of making the image unavailable to Python.
+You can also do it manually by calling the <code class="docutils literal notranslate"><span class="pre">refresh()</span></code> method of the source directly.</p>
+<p>Here are some possible advanced workflow:</p>
+<ul>
+<li><p class="first">Use the image buffer in Python (does not effect the Texture):</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">image</span>
+<span class="c1"># image is a binary string buffer of row major RGBA pixels</span>
+<span class="c1"># ... use image</span>
+<span class="c1"># invalidates it for next frame</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Load image from source for Python processing without download to GPU:</p>
+</li>
+<li><p class="first">Note that we do not even call refresh on the Texture.</p>
+</li>
+<li><p class="first">We could also just create a source object without a Texture object:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">image</span>
+<span class="c1"># ... use image</span>
+<span class="n">GameLogic</span><span class="o">.</span><span class="n">video</span><span class="o">.</span><span class="n">source</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If you have more than one material on the mesh and you want to modify a texture of one particular material,
+get its ID:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">matID</span> <span class="o">=</span> <span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">materialID</span><span class="p">(</span><span class="n">gameobj</span><span class="p">,</span> <span class="s2">&quot;MAmat.001&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>GLSL material can have more than one texture channel,
+identify the texture by the texture slot where it is defined, here two:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">tex</span><span class="o">=</span><span class="n">bge</span><span class="o">.</span><span class="n">texture</span><span class="o">.</span><span class="n">Texture</span><span class="p">(</span><span class="n">gameobj</span><span class="p">,</span> <span class="n">matID</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-demos">
+<h2>Advanced Demos<a class="headerlink" href="#advanced-demos" title="Permalink to this headline">¶</a></h2>
+<p>Here is a <a class="reference external" href="http://www.graphicall.org/ftp/ben2610/VideoTextureDemo2video.blend">demo</a>
+that demonstrates the use of two videos alternatively on the same texture.
+Note that it requires an additional video file which is the <em>Elephant Dream</em> teaser.
+You can replace it with another file that you want to run the demo.</p>
+<p>Here is a <a class="reference external" href="http://www.graphicall.org/ftp/ben2610/VideoTextureDemo2videoMix.blend">demo</a>
+that demonstrates the use of the <code class="docutils literal notranslate"><span class="pre">ImageMix</span></code> source.
+<code class="docutils literal notranslate"><span class="pre">ImageMix</span></code> is a source that needs sources,
+which can be any other <code class="docutils literal notranslate"><span class="pre">Texture</span></code> source, like <code class="docutils literal notranslate"><span class="pre">VideoFFmpeg</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ImageFFmpeg</span></code> or <code class="docutils literal notranslate"><span class="pre">ImageRender</span></code>.
+You set them with <code class="docutils literal notranslate"><span class="pre">setSource()</span></code> and their relative weight with <code class="docutils literal notranslate"><span class="pre">setWeight()</span></code>.
+Pay attention that the weight is a short number between 0 and 255,
+and that the sum of all weights should be 255.
+<code class="docutils literal notranslate"><span class="pre">ImageMix</span></code> makes a mix of all the sources according to their weights.
+The sources must all have the same image size
+(after reduction to the nearest power of two dimension). If they do not,
+you will get a Python error on the console.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../blender_player.html" class="btn btn-neutral float-right" title="Standalone Player" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bullet_physics.html" class="btn btn-neutral" title="Bullet physics Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

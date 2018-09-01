@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Transparency &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/properties/transparency.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Mirror Reflections" href="mirror.html" />
+    <link rel="prev" title="Shading" href="shading.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Material Properties</a> &raquo;</li>
+        
+      <li>Transparency</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/transparency.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="transparency">
+<h1>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Transparency</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Materials in Blender can be set to be transparent,
+so that light can pass through any objects using the material.
+Transparency is controlled using an &quot;alpha&quot; channel, where each pixel has an additional value,
+range 0-1, in addition to its RGB color values. If alpha=0, then the pixel is transparent,
+and the RGB values for the surface contribute nothing to the pixel's appearance; for alpha=1,
+the surface is fully opaque,
+and the color of the surface determines the final color of the pixel.</p>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_panel.png" src="../../../../_images/render_blender-render_materials_properties_transparency_panel.png" />
+<p class="caption"><span class="caption-text">Transparency panel.</span></p>
+</div>
+<p>In Blender, there are three ways in which the transparency of a material can be set:
+Mask, Z-Buffer and Raytrace. Each of these is explained in more detail below.
+The <a class="reference internal" href="preview.html"><span class="doc">Material Preview</span></a>
+option with a sphere object gives a good demonstration
+of the capabilities of these three options.</p>
+<div class="section" id="common-options">
+<h2>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>The following property controls are available for all transparency options:</p>
+<dl class="docutils">
+<dt>Alpha</dt>
+<dd>Sets the transparency of the material by setting all pixels in the alpha channel to the given value.</dd>
+<dt>Fresnel</dt>
+<dd>Sets the power of the Fresnel effect.
+The Fresnel effect controls how transparent the material is,
+depending on the angle between the surface normal and the viewing direction.
+Typically, the larger the angle, the more opaque a material becomes
+(this generally occurs on the outline of the object).</dd>
+<dt>Specular</dt>
+<dd>Controls the alpha/falloff for the specular color.</dd>
+<dt>Blend</dt>
+<dd>Controls the blending between transparent and non-transparent areas. Only used if Fresnel is greater than 0.</dd>
+</dl>
+<div class="section" id="mask">
+<h3>Mask<a class="headerlink" href="#mask" title="Permalink to this headline">¶</a></h3>
+<p>This option simply masks the Background. It uses the alpha channel to mix the color of each
+pixel on the active object plane with the color of the corresponding background pixel,
+according to the alpha channel of the pixel. Thus for alpha = 1,
+the object color is seen -- the object is completely opaque; but if alpha = 0,
+only the background is seen -- the object is transparent
+(but note that any other object behind the active object disappears).</p>
+<p>This is useful for making textures of solid or semitransparent objects from photographic
+reference material, i.e. a mask is made with alpha opaque for pixels within the object,
+and transparent for pixels outside the object.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last"><a class="reference internal" href="#"><span class="doc">Mask Transparency</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="z-buffer">
+<h2>Z-Buffer<a class="headerlink" href="#z-buffer" title="Permalink to this headline">¶</a></h2>
+<p>This uses the alpha buffer for transparent faces.
+The alpha value of each pixel determines the mix of the basic color of the material,
+and the color of the pixel is determined from the objects/background behind it.
+Only basic settings are available with this option; it does not calculate refractions.</p>
+</div>
+<div class="section" id="ray-traced-transparency">
+<span id="bpy-types-materialraytracetransparency"></span><h2>Ray-Traced Transparency<a class="headerlink" href="#ray-traced-transparency" title="Permalink to this headline">¶</a></h2>
+<p>Uses ray tracing to calculate refractions. Ray tracing allows for complex refractions, falloff, and blurring,
+and is used for simulating the refraction of light rays through a transparent material, like a lens.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The Raytrace option is only available in the Blender Render and Cycles render
+engines, but not in the Game Engine.</p>
+</div>
+<p>A ray is sent from the camera and travels through the scene until it encounters an object.
+If the first object hit by the ray is non-transparent, then the ray takes the color of the object.</p>
+<p>If the object is transparent, then the ray continues its path through it to the next object,
+and so on, until a non-transparent object is finally encountered which gives the whole chain
+of rays its color. Eventually, the first transparent object inherits the colors of its background,
+proportional to its <em>Alpha</em> value (and the Alpha value of each transparent Material hit in between).</p>
+<p>But while the ray travels through the transparent object,
+it can be deflected from its course according to the Index of Refraction (IOR)
+of the material. When you actually look through a plain sphere of glass,
+you will notice that the background is upside-down and distorted:
+this is all because of the Index of Refraction of glass.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Enable Ray Tracing</p>
+<p>To get ray-traced transparency, you need to:</p>
+<ul class="last simple">
+<li>Enable ray tracing in your Render settings.
+This is done in the <span class="menuselection">Render ‣ Shading</span> panel. Ray tracing is enabled by default.</li>
+<li>Set your Alpha value to something other than 1.0.</li>
+<li>In order for the background material to receive light passing through your transparent object,
+<em>Receive Transparent</em> must be turned on for that material in the <span class="menuselection">Material ‣ Shadow</span> panel.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_panel-raytrace.png" src="../../../../_images/render_blender-render_materials_properties_transparency_panel-raytrace.png" />
+<p class="caption"><span class="caption-text">The Transparency panel.</span></p>
+</div>
+<p>In addition to the common options given above, the following property controls are available:</p>
+<dl class="docutils">
+<dt>IOR</dt>
+<dd>Index of Refraction. Sets how much a ray traveling through the material will be refracted,
+hence producing a distorted image of its background.
+See <a class="reference internal" href="#ior-values-for-common-materials">IOR values for Common Materials</a> below.</dd>
+<dt>Filter</dt>
+<dd>Amount of filtering for transparent ray trace. The higher this value,
+the more the base color of the material will show.
+The material will still be transparent but it will start to take on the color of the material.
+Disabled (0.0) by default.</dd>
+<dt>Falloff</dt>
+<dd>How fast light is absorbed as it passes through the material. Gives 'depth' and 'thickness' to glass.</dd>
+<dt>Limit</dt>
+<dd>Materials thicker than this are not transparent.
+This is used to control the threshold after which the filter color starts to come into play.</dd>
+<dt>Depth</dt>
+<dd>Sets the maximum number of transparent surfaces a single ray can travel through. There is no typical value.
+Transparent objects outside the <em>Depth</em> range will be rendered pitch black if viewed through
+the transparent object that the <em>Depth</em> is set for. In other words,
+if you notice black areas on the surface of a transparent object,
+the solution is probably to increase its <em>Depth</em> value
+(this is a common issue with ray tracing transparent objects).
+You may also need to turn on transparent shadows on the background object.</dd>
+<dt>Gloss</dt>
+<dd><p class="first">Settings for the glossiness of the material.</p>
+<dl class="last docutils">
+<dt>Amount</dt>
+<dd>The clarity of the refraction. Set this to something lower than zero to get a blurry refraction.</dd>
+<dt>Threshold</dt>
+<dd>Threshold for adaptive sampling.
+If a sample contributes less than this amount (as a percentage), sampling is stopped.</dd>
+<dt>Samples</dt>
+<dd>Number of cone samples averaged for blurry refraction.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="index-of-refraction">
+<h3>Index of Refraction<a class="headerlink" href="#index-of-refraction" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_ior-examples.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_ior-examples.jpg" />
+<p class="caption"><span class="caption-text">Influence of the IOR of an Object on the distortion of the background.</span></p>
+<div class="legend">
+Spheres of Water, Glass and Diamond (top to bottom).</div>
+</div>
+<p>There are different values for typical materials: Air: 1.000 (no refraction),
+Alcohol: 1.329, Glass: 1.517, Plastic: 1.460, Water: 1.333 and Diamond: 2.417.</p>
+</div>
+<div class="section" id="fresnel">
+<h3>Fresnel<a class="headerlink" href="#fresnel" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text">Pieces of glass rotated in various directions to demonstrate the angle-dependent Fresnel effect.
+Note that the major difference is the lack of IOR effect in the latter case.
+(Download <a class="reference external" href="https://wiki.blender.org/index.php/File:Manual25-Material-FresnelExample.blend">blend-file</a>).</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">With ray-traced transparency.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-example-ztransp.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">With alpha buffered transparency.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Settings for Fresnel using ray-traced.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png" src="../../../../_images/render_blender-render_materials_properties_transparency_fresnel-settings-ztransp.png" style="width: 310px;" /></a>
+<p class="caption"><span class="caption-text">Settings for Fresnel using Z transparency.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The specular highlight in the F4 glass tile
+(which is facing midway between the light and the camera); the Fresnel effect can be seen in
+row C and column 6 where the faces are turned away from the camera.</p>
+</div>
+<p>The amount of Fresnel effect can be controlled by either increasing the <em>Blend</em>
+value or decreasing the <em>Alpha</em> value.</p>
+</div>
+<div class="section" id="depth">
+<h3>Depth<a class="headerlink" href="#depth" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id9">
+<img alt="../../../../_images/render_blender-render_materials_properties_transparency_3glasses-example.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_3glasses-example.jpg" />
+<p class="caption"><span class="caption-text">A simple scene with three glasses on a surface, and three lamps.
+Depth was set to 4, 8, 12, and 14, resulting in render times of 24 sec, 34 sec, 6 min, and 11 min respectively.
+(Download <a class="reference external" href="https://wiki.blender.org/index.php/File:Manual25-Material-3GlassesExample.blend">blend-file</a>).</span></p>
+</div>
+<p>Increasing <em>Depth</em> also considerably increases render time.
+Each time a light ray passes through a surface,
+the ray-tracing algorithm is called recursively. In the example above,
+each side of each glass has an exterior and an interior surface.
+Light rays thus have to pass through four surfaces for each glass.</p>
+<p>But not only that, at every point on a surface, some of the light can be reflected,
+or mirrored off the surface in various directions.
+This results in multiple rays needing to be calculated for each point
+(often referred to as a <a class="reference external" href="https://www.cs.unc.edu/~rademach/xroads-RT/RTarticle.html">tree of rays</a>).
+In each of the rendered images above there are 640×400=256 000 pixels.
+By increasing <em>Depth</em>, at least one tree of rays is added to each pixel.</p>
+<p>Be kind to your computer. Carefully placing objects in a scene to avoid overlapping
+transparent objects is often an interesting alternative.</p>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transparent-shadows">
+<h3>Transparent Shadows<a class="headerlink" href="#transparent-shadows" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-notrasha.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">No transparent shadows.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-envlight.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">No transparent shadows, environment lighting enabled.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Transparent shadows enabled, alpha set to 0.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha2.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">As previous, alpha set to 0.25.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao1.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Transparent shadows with ambient occlusion set to multiply, distance 1 (radius of sphere).</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg" src="../../../../_images/render_blender-render_materials_properties_transparency_shadow-trasha-ao2.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">As previous, distance increased to 2 (diameter of sphere).</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>By default, the shadows of transparent objects are rendered solid black,
+as if the object was not transparent at all. But in reality,
+the more transparent an object is, the lighter its shadow will be.</p>
+<p>In Blender, transparent shadows are set on the materials
+that receive the shadows from the transparent object.
+This is enabled and disabled with the <em>Receive Transparent</em> button,
+in the <span class="menuselection">Material ‣ Shadow</span> panel. The shadow's brightness is
+dependent on the <em>Alpha</em> value of the shadow-casting material.</p>
+<p>Alternatives to transparent ray-traced shadows can be found in the <em>World</em> tab,
+namely the <em>Ambient Occlusion</em>, <em>Environment Lighting</em>,
+and <em>Gather</em> panels. Alternatively, a texture can be used to control
+the <em>Intensity</em> value of the shadow-receiving material.</p>
+</div>
+<div class="section" id="ior-values-for-common-materials">
+<span id="transparency-ior-common"></span><h3>IOR Values for Common Materials<a class="headerlink" href="#ior-values-for-common-materials" title="Permalink to this headline">¶</a></h3>
+<p>The following list provides some index of refraction values to use when ray-traced
+transparency is used for various liquids, solids (gems), and gases:</p>
+<div class="section" id="gases">
+<h4>Gases<a class="headerlink" href="#gases" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Air <code class="docutils literal notranslate"><span class="pre">1.000</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Carbon Dioxide <code class="docutils literal notranslate"><span class="pre">1.000449</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Oxygen <code class="docutils literal notranslate"><span class="pre">1.000276</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-liquids">
+<h4>Common Liquids<a class="headerlink" href="#common-liquids" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Alcohol <code class="docutils literal notranslate"><span class="pre">1.329</span></code></li>
+<li>Milk <code class="docutils literal notranslate"><span class="pre">1.35</span></code></li>
+<li>Oil, vegetable (50° C) <code class="docutils literal notranslate"><span class="pre">1.47</span></code></li>
+<li>Shampoo <code class="docutils literal notranslate"><span class="pre">1.362</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Water (0° C) <code class="docutils literal notranslate"><span class="pre">1.33346</span></code></li>
+<li>Water (100° C) <code class="docutils literal notranslate"><span class="pre">1.31766</span></code></li>
+<li>Water (20° C) <code class="docutils literal notranslate"><span class="pre">1.33283</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Water (gas) <code class="docutils literal notranslate"><span class="pre">1.000261</span></code></li>
+<li>Water (35° C, room temp) <code class="docutils literal notranslate"><span class="pre">1.33157</span></code></li>
+<li>Vodka <code class="docutils literal notranslate"><span class="pre">1.363</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-transparent-materials">
+<h4>Common Transparent Materials<a class="headerlink" href="#common-transparent-materials" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Glass <code class="docutils literal notranslate"><span class="pre">1.51714</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Ice <code class="docutils literal notranslate"><span class="pre">1.309</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Rock Salt <code class="docutils literal notranslate"><span class="pre">1.544</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="common-opaque-materials">
+<h4>Common Opaque Materials<a class="headerlink" href="#common-opaque-materials" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Asphalt <code class="docutils literal notranslate"><span class="pre">1.635</span></code></li>
+<li>Chalk <code class="docutils literal notranslate"><span class="pre">1.510</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Plastic <code class="docutils literal notranslate"><span class="pre">1.46</span></code></li>
+<li>Rubber, Natural <code class="docutils literal notranslate"><span class="pre">1.5191</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Silicon <code class="docutils literal notranslate"><span class="pre">4.24</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="gemstones">
+<h4>Gemstones<a class="headerlink" href="#gemstones" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Diamond <code class="docutils literal notranslate"><span class="pre">2.417</span></code></li>
+<li>Jade, Nephrite <code class="docutils literal notranslate"><span class="pre">1.61</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Opal <code class="docutils literal notranslate"><span class="pre">1.45</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Ruby <code class="docutils literal notranslate"><span class="pre">1.757</span> <span class="pre">-</span> <span class="pre">1.779</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+<div class="section" id="metals">
+<h4>Metals<a class="headerlink" href="#metals" title="Permalink to this headline">¶</a></h4>
+<table class="hlist"><tr><td><ul class="simple">
+<li>Aluminum <code class="docutils literal notranslate"><span class="pre">1.44</span></code></li>
+<li>Bronze <code class="docutils literal notranslate"><span class="pre">1.18</span></code></li>
+<li>Copper <code class="docutils literal notranslate"><span class="pre">1.10</span></code></li>
+<li>Gold <code class="docutils literal notranslate"><span class="pre">0.47</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Iron <code class="docutils literal notranslate"><span class="pre">1.51</span></code></li>
+<li>Lead <code class="docutils literal notranslate"><span class="pre">2.01</span></code></li>
+<li>Platinum <code class="docutils literal notranslate"><span class="pre">2.33</span></code></li>
+</ul>
+</td><td><ul class="simple">
+<li>Silver <code class="docutils literal notranslate"><span class="pre">0.18</span></code></li>
+<li>Steel <code class="docutils literal notranslate"><span class="pre">2.50</span></code></li>
+<li>Titanium <code class="docutils literal notranslate"><span class="pre">2.16</span></code></li>
+</ul>
+</td></tr></table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mirror.html" class="btn btn-neutral float-right" title="Mirror Reflections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shading.html" class="btn btn-neutral" title="Shading" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

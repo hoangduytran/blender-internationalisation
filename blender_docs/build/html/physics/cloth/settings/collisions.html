@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Collisions &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/physics/cloth/settings/collisions.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Examples" href="../examples.html" />
+    <link rel="prev" title="Settings" href="cloth_settings.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gravity.html">Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../baking.html">Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../force_fields/index.html">Force Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../collision.html">Collisions</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Cloth Simulations</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../examples.html">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dynamic_paint/index.html">Dynamic Paint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../soft_body/index.html">Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../fluid/index.html">Fluid Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../smoke/index.html">Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../rigid_body/index.html">Rigid Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../particles/index.html">Particles System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Physics</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cloth Simulations</a> &raquo;</li>
+        
+          <li><a href="index.html">Settings</a> &raquo;</li>
+        
+      <li>Collisions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/physics/cloth/settings/collisions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="collisions">
+<span id="bpy-types-clothcollisionsettings"></span><h1>Collisions<a class="headerlink" href="#collisions" title="Permalink to this headline">¶</a></h1>
+<p>In most cases, a piece of cloth does not just hang there in 3D space,
+it collides with other objects in the environment. To ensure proper simulation,
+there are several items that have to be set up and working together:</p>
+<ul class="simple">
+<li>The <em>Cloth</em> object must be told to participate in collisions.</li>
+<li>Optionally (but recommended) tell the cloth to collide with itself.</li>
+<li>Other objects must be visible to the <em>Cloth</em> object <em>via</em> shared layers.</li>
+<li>The other objects must be mesh objects.</li>
+<li>The other objects may move or be themselves deformed by other objects (like an armature or shape key).</li>
+<li>The other mesh objects must be told to deflect the cloth object.</li>
+<li>The blend-file must be saved in a directory so that simulation results can be saved.</li>
+<li>You then <em>Bake</em> the simulation. The simulator computes the shape of the cloth for a frame range.</li>
+<li>You can then edit the simulation results, or make adjustments to the cloth mesh, at specific frames.</li>
+<li>You can make adjustments to the environment or deforming objects,
+and then re-run the cloth simulation from the current frame forward.</li>
+</ul>
+<div class="section" id="collision-settings">
+<h2>Collision Settings<a class="headerlink" href="#collision-settings" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Cloth Collision</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../_images/physics_cloth_settings_collisions_panel.png" src="../../../_images/physics_cloth_settings_collisions_panel.png" />
+<p class="caption"><span class="caption-text">Cloth Collisions panel.</span></p>
+</div>
+<p>Now you must tell the <em>Cloth</em> object that you want it to participate in collisions.
+For the cloth object, locate the <em>Cloth Collision</em> panel, shown to the right:</p>
+<dl class="docutils">
+<dt>Quality</dt>
+<dd>A general setting for how fine and good a simulation you wish.
+Higher numbers take more time but ensure less tears and penetrations through the cloth.</dd>
+<dt>Distance</dt>
+<dd>As another object gets this close to it (in Blender Units),
+the simulation will start to push the cloth out of the way.</dd>
+<dt>Repel</dt>
+<dd>Repulsion force to apply when cloth is close to colliding.</dd>
+<dt>Repel Distance</dt>
+<dd>Maximum distance to apply repulsion force. Must be greater than minimum distance.</dd>
+<dt>Friction</dt>
+<dd>A coefficient for how slippery the cloth is when it collides with the mesh object.
+For example, silk has a lower coefficient of friction than cotton.</dd>
+</dl>
+<div class="section" id="self-collisions">
+<h3>Self-collisions<a class="headerlink" href="#self-collisions" title="Permalink to this headline">¶</a></h3>
+<p>Real cloth cannot permeate itself, so you normally want the cloth to self-collide.</p>
+<dl class="docutils">
+<dt>Enable Self Collisions</dt>
+<dd>Click this to tell the cloth object that it should not penetrate itself. This adds to simulation compute time,
+but provides more realistic results. A flag, viewed from a distance does not need this enabled,
+but a close-up of a cape or blouse on a character should have this enabled.</dd>
+<dt>Quality</dt>
+<dd>For higher self-collision quality just increase
+the <em>Quality</em> and more self-collision layers can be solved.
+Just keep in mind that you need to have at least the same
+<em>Collision Quality</em> value as the <em>Quality</em> value.</dd>
+<dt>Distance</dt>
+<dd>If you encounter problems, you could also change the <em>Min Distance</em> value for the self-collisions.
+The best value is 0.75; for fast things you better take 1.0. The value 0.5 is quite risky
+(most likely many penetrations) but also gives some speed-up.</dd>
+</dl>
+<p>Regression blend-file:
+<a class="reference external" href="https://wiki.blender.org/index.php/Media:Cloth-regression-selfcollisions.blend">Cloth selfcollisions</a>.</p>
+</div>
+</div>
+<div class="section" id="shared-layers">
+<h2>Shared Layers<a class="headerlink" href="#shared-layers" title="Permalink to this headline">¶</a></h2>
+<p>Suppose you have two objects: a pair of <em>pants</em> on layers 2 and 3,
+and your <em>character</em> mesh on layers 1 and 2.
+You have enabled the <em>pants</em> as cloth as described above.
+You must now make the <em>character</em> &quot;visible&quot; to the Cloth object,
+so that as your character bends its leg, it will push the cloth.
+This principle is the same for all simulations;
+simulations only interact with objects on a shared layer. In this example,
+both objects share layer 2.</p>
+<p>To view/change an object's layers,
+<kbd class="kbd docutils literal notranslate">RMB</kbd> click to select the object in <em>Object Mode</em> in the 3D View.
+<kbd class="kbd docutils literal notranslate">M</kbd> to bring up the &quot;Move Layers&quot; pop-up,
+which shows you all the layers that the object is on. To put the object on a single layer,
+<kbd class="kbd docutils literal notranslate">LMB</kbd> click the layer button. To put the object on multiple layers,
+<kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> the layer buttons. To remove an object from a selected layer,
+simply <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> the layer button again to toggle it.</p>
+</div>
+<div class="section" id="mesh-objects-collide">
+<h2>Mesh Objects Collide<a class="headerlink" href="#mesh-objects-collide" title="Permalink to this headline">¶</a></h2>
+<p>If your colliding object is not a mesh object, such as a NURBS surface, or text object,
+you must convert it to a mesh object. To do so, select the object in object mode,
+and in the 3D View header, select <span class="menuselection">Object ‣ Convert Object Type</span>
+<kbd class="kbd docutils literal notranslate">Alt-C</kbd>, and select <span class="menuselection">Mesh</span> from the pop-up menu.</p>
+<div class="section" id="cloth-object-collisions">
+<h3>Cloth - Object Collisions<a class="headerlink" href="#cloth-object-collisions" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../_images/physics_collision_panel.png" src="../../../_images/physics_collision_panel.png" />
+<p class="caption"><span class="caption-text">Collision settings.</span></p>
+</div>
+<p>The cloth object needs to be deflected by some other object. To deflect a cloth,
+the object must be enabled as an object that collides with the cloth object.
+To enable Cloth -- Object collisions, you have to enable deflections on the collision object
+(not on the cloth object).</p>
+<p>In the Properties editor, <em>Object</em> tab and <em>Physics</em> tab, locate the <em>Collision</em> panel
+shown to the right. It is also important to note that this collision panel is used to tell
+all simulations that this object is to participate in colliding/deflecting other objects
+on a shared layer (particles, soft bodies, and cloth).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">There are three different <em>Collision</em> panels, all found in the <em>Physics</em> tab.
+The first (by default), a tab beside the <em>Fields</em> panel, is the one needed here. The second panel,
+a tab in the <em>Soft Body</em> group, concern soft bodies (and so has nothing to do with cloth).
+And we have already seen the last one, by default a tab beside the <em>Cloth</em> panel.</p>
+</div>
+</div>
+</div>
+<div class="section" id="mesh-object-modifier-stack">
+<h2>Mesh Object Modifier Stack<a class="headerlink" href="#mesh-object-modifier-stack" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../../../_images/physics_cloth_settings_collisions_stack.png" src="../../../_images/physics_cloth_settings_collisions_stack.png" />
+<p class="caption"><span class="caption-text">Collision stack.</span></p>
+</div>
+<p>The object's shape deforms the cloth,
+so the cloth simulation must know the &quot;true&quot; shape of that mesh object at that frame.
+This true shape is the basis shape as modified by shape keys or armatures. Therefore,
+the Collision Modifier must be <strong>after</strong> any of those.
+The image to the right shows the <em>Modifiers</em> panel for the Character mesh object
+(not the cloth object).</p>
+</div>
+<div class="section" id="cloth-cache">
+<h2>Cloth Cache<a class="headerlink" href="#cloth-cache" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Cloth Cache</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Cache settings for cloth are the same as with other dynamic systems.
+See <a class="reference internal" href="../../particles/emitter/cache.html"><span class="doc">Particle Cache</span></a> for details.</p>
+<div class="section" id="bake-collision">
+<h3>Bake Collision<a class="headerlink" href="#bake-collision" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../_images/physics_cloth_settings_collisions_bake.png" src="../../../_images/physics_cloth_settings_collisions_bake.png" />
+<p class="caption"><span class="caption-text">After baking.</span></p>
+</div>
+<p>After you have set up the deflection mesh for the frame range you intend to run the simulation
+(including animating that mesh <em>via</em> armatures),
+you can now tell the cloth simulation to compute (and avoid) collisions.
+Select the cloth object and in the <em>Object</em> tab,
+<em>Physics</em> tab, set the <em>Start</em> and <em>End</em> settings for
+the simulation frames you wish to compute, and click the <em>Bake</em> button.</p>
+<p>You cannot change <em>Start</em> or <em>End</em> without clearing the bake simulation.
+When the simulation has finished, you will notice you have the option to free the bake,
+edit the bake and re-bake:</p>
+<p>There are a few things you will probably notice right away. First,
+it will bake significantly slower than before,
+and it will probably clip through the box pretty badly as in the picture on the right.</p>
+</div>
+<div class="section" id="editing-the-cached-simulation">
+<h3>Editing the Cached Simulation<a class="headerlink" href="#editing-the-cached-simulation" title="Permalink to this headline">¶</a></h3>
+<p>The cache contains the shape of the mesh at each frame. You can edit the cached simulation,
+after you have baked the simulation and pressed the <em>Bake Editing</em> button.
+Just go to the frame you want to fix and <kbd class="kbd docutils literal notranslate">Tab</kbd> into <em>Edit Mode</em>.
+There you can move your vertices using all of Blender's mesh shaping tools. When you exit,
+the shape of the mesh will be recorded for that frame of the animation.
+If you want Blender to resume the simulation using the new shape going forward,
+<kbd class="kbd docutils literal notranslate">LMB</kbd> click <em>Rebake from next Frame</em> and play the animation.
+Blender will then pick up with that shape and resume the simulation.</p>
+<p>Edit the mesh to correct minor tears and
+places where the colliding object has punctured the cloth.</p>
+<p>If you add, delete, or extrude vertices in the mesh, Blender will take the new mesh as
+the starting shape of the mesh back to the <em>first frame</em> of the animation,
+replacing the original shape you started with,
+up to the frame you were on when you edited the mesh. Therefore,
+if you change the content of a mesh, when you press <kbd class="kbd docutils literal notranslate">Tab</kbd> out of <em>Edit Mode</em>,
+you should unprotect and clear the cache so that Blender will make a consistent simulation.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you encounter some problems with collision detection, there are two ways to fix them:</p>
+<ul class="simple">
+<li>The fastest solution is to increase the <em>Min Distance</em> setting under the <em>Cloth Collision</em> panel.
+This will be the fastest way to fix the clipping; however, it will be less accurate and will not look as good.
+Using this method tends to make it look like the cloth is resting on air, and gives it a very rounded look.</li>
+<li>A second method is to increase the <em>Quality</em> (in the first <em>Cloth</em> panel).
+This results in smaller steps for the simulator and
+therefore to a higher probability that fast-moving collisions get caught.
+You can also increase the <em>Collision Quality</em> to perform more iterations to get collisions solved.</li>
+<li>If none of the methods help, you can easily edit the cached/baked result in <em>Edit Mode</em> afterwards.</li>
+<li>The Cloth is torn by the deforming mesh -- he &quot;Hulks Out&quot;: Increase its structural stiffness
+(<em>Structure Stiffness</em> setting, <em>Cloth</em> panel), very high, like 1000.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Subdivision Surface Modifier</p>
+<p class="last">A bake/cache is done for every subdivision level so please use
+<strong>the equal</strong> subdivision level for render and preview.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cloth_settings.html" class="btn btn-neutral" title="Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

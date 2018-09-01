@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Render Baking &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/bake.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Post Processing" href="post_processing/index.html" />
+    <link rel="prev" title="Anti-Aliasing" href="settings/antialiasing.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Render Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Render Baking</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Blender Renderer</a> &raquo;</li>
+        
+      <li>Render Baking</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/blender_render/bake.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="render-baking">
+<h1>Render Baking<a class="headerlink" href="#render-baking" title="Permalink to this headline">¶</a></h1>
+<p>Baking, in general, is the act of pre-computing something in order to speed up some other
+process later down the line.
+Rendering from scratch takes a lot of time depending on the options you choose.
+Therefore, Blender allows you to &quot;bake&quot; some parts of the render ahead of time, for select objects.
+Then, when you press Render, the entire scene is rendered much faster,
+since the colors of those objects do not have to be recomputed.</p>
+<p>Render baking creates 2D bitmap images of a mesh object's rendered surface.
+These images can be re-mapped onto the object using the object's UV coordinates.
+Baking is done for each individual mesh, and can only be done if that mesh has been UV-unwrapped.
+While it takes time to set up and perform, it saves render time. If you are rendering a long animation,
+the time spent baking can be much less than time spent rendering out each frame of a long animation.</p>
+<p>Use Render Bake in intensive light/shadow solutions,
+such as AO or soft shadows from area lights. If you bake AO for the main objects,
+you will not have to enable it for the full render, saving render time.</p>
+<p>Use <em>Full Render</em> or <em>Textures</em> to create an image texture;
+baked procedural textures can be used as a starting point for further texture painting.
+Use <em>Normals</em> to make a low resolution mesh look like a high resolution mesh.
+To do that, UV unwrap a high resolution, finely sculpted mesh and bake its normals.
+Save that normal map, and <em>Mapping</em> (texture settings)
+the UV of a similarly unwrapped low resolution mesh.
+The low resolution mesh will look just like the high resolution,
+but will have much fewer faces/polygons.</p>
+<p class="rubric">Advantages</p>
+<ul class="simple">
+<li>Can significantly reduce render times.</li>
+<li>Texture painting made easier.</li>
+<li>Reduced polygon count.</li>
+<li>Repeated renders are made faster, multiplying the time savings.</li>
+</ul>
+<p class="rubric">Disadvantages</p>
+<ul class="simple">
+<li>Object must be UV-unwrapped.</li>
+<li>If shadows are baked, lights and object cannot move with respect to each other.</li>
+<li>Large textures (e.g. 4096×4096) can be memory intensive, and be just as slow as the rendered solution.</li>
+<li>Human (labor) time must be spent unwrapping and baking and saving files and applying the textures to a channel.</li>
+</ul>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bake-mode">
+<h3>Bake Mode<a class="headerlink" href="#bake-mode" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="full-render">
+<h4>Full Render<a class="headerlink" href="#full-render" title="Permalink to this headline">¶</a></h4>
+<p>Bakes all materials, textures, and lighting except specularity and SSS.</p>
+</div>
+<div class="section" id="ambient-occlusion">
+<h4>Ambient Occlusion<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h4>
+<p>Bakes ambient occlusion as specified in the World panels. Ignores all lights in the scene.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/render_blender-render_bake_ambient-occlusion.png" src="../../_images/render_blender-render_bake_ambient-occlusion.png" />
+<p class="caption"><span class="caption-text">Ambient Occlusion.</span></p>
+</div>
+<dl class="docutils">
+<dt>Normalized</dt>
+<dd>Normalize without using material's settings.</dd>
+</dl>
+</div>
+<div class="section" id="shadow">
+<h4>Shadow<a class="headerlink" href="#shadow" title="Permalink to this headline">¶</a></h4>
+<p>Bakes shadows and lighting.</p>
+</div>
+<div class="section" id="normals">
+<h4>Normals<a class="headerlink" href="#normals" title="Permalink to this headline">¶</a></h4>
+<p>Bakes tangent and camera-space normals (among many others) to an RGB image.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/render_blender-render_bake_normals.png" src="../../_images/render_blender-render_bake_normals.png" />
+<p class="caption"><span class="caption-text">Normals.</span></p>
+</div>
+<dl class="docutils">
+<dt>Normal Space</dt>
+<dd><p class="first">Normals can be baked in different spaces:</p>
+<dl class="last docutils">
+<dt>Camera space</dt>
+<dd>Default method.</dd>
+<dt>World space</dt>
+<dd>Normals in world coordinates, dependent on object transformation and deformation.</dd>
+<dt>Object space</dt>
+<dd>Normals in object coordinates, independent of object transformation, but dependent on deformation.</dd>
+<dt>Tangent space</dt>
+<dd>Normals in tangent space coordinates, independent of object transformation and deformation.
+This is the new default, and the right choice in most cases,
+since then the normal map can be used for animated objects too.</dd>
+</dl>
+</dd>
+</dl>
+<p>For materials the same spaces can be chosen as well, in the image texture options,
+next to the existing <em>Normal Map</em> setting. For correct results,
+the setting here should match the setting used for baking.</p>
+</div>
+<div class="section" id="textures">
+<h4>Textures<a class="headerlink" href="#textures" title="Permalink to this headline">¶</a></h4>
+<p>Bakes colors of materials and textures only, without shading.</p>
+</div>
+<div class="section" id="displacement">
+<h4>Displacement<a class="headerlink" href="#displacement" title="Permalink to this headline">¶</a></h4>
+<p>Similar to baking normal maps,
+displacement maps can also be baked from a high-res object to an unwrapped low-res object,
+using the <em>Selected to Active</em> option.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/render_blender-render_bake_displacement.png" src="../../_images/render_blender-render_bake_displacement.png" />
+<p class="caption"><span class="caption-text">Displacement.</span></p>
+</div>
+<dl class="docutils">
+<dt>Normalized</dt>
+<dd>Normalize to the distance.</dd>
+</dl>
+<p>When using this in conjunction with a Subdivision Surface and Displacement modifiers within Blender, it is
+necessary to temporarily add a heavy Subdivision Surface Modifier to the 'low-res' model before baking.
+This means that if you then use a Displacement Modifier on top of the Subdivision Surface,
+the displacement will be correct, since it is stored as a relative difference to the subdivided geometry,
+rather than the original base mesh (which can get distorted significantly by a Subdivision Surface).
+The higher the render subdivision level while baking, the more accurate the displacements will be.
+This technique may also be useful when saving the displacement map out for use in external renderers.</p>
+</div>
+<div class="section" id="emission">
+<h4>Emission<a class="headerlink" href="#emission" title="Permalink to this headline">¶</a></h4>
+<p>Bakes Emit, or the Glow color of a material.</p>
+</div>
+<div class="section" id="alpha">
+<h4>Alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h4>
+<p>Bakes Alpha values, or transparency of a material.</p>
+</div>
+<div class="section" id="mirror-color-and-intensity">
+<h4>Mirror Color and Intensity<a class="headerlink" href="#mirror-color-and-intensity" title="Permalink to this headline">¶</a></h4>
+<p>Bakes Mirror color or intensity values.</p>
+</div>
+<div class="section" id="specular-color-and-intensity">
+<h4>Specular Color and Intensity<a class="headerlink" href="#specular-color-and-intensity" title="Permalink to this headline">¶</a></h4>
+<p>Bakes specular color or specular intensity values.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/render_blender-render_bake_full-render.png" src="../../_images/render_blender-render_bake_full-render.png" />
+<p class="caption"><span class="caption-text">Full render.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="additional-options">
+<h3>Additional Options<a class="headerlink" href="#additional-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Clear</dt>
+<dd>If selected, clears the image to selected background color (default is black) before baking render.</dd>
+<dt>Margin</dt>
+<dd>Baked result is extended this many pixels beyond the border of each UV &quot;island&quot;, to soften seams in the texture.</dd>
+<dt>Split</dt>
+<dd><dl class="first last docutils">
+<dt>Fixed</dt>
+<dd>Slit quads predictably (0, 1, 2) (0, 2, 3).</dd>
+<dt>Fixed Alternate</dt>
+<dd>Slit quads predictably (1, 2, 3) (1, 3, 0).</dd>
+<dt>Automatic</dt>
+<dd>Split quads to give the least distortion while baking.</dd>
+</dl>
+</dd>
+<dt>Select to Active</dt>
+<dd><p class="first">Enable information from other objects to be baked onto the active object.</p>
+<dl class="last docutils">
+<dt>Distance</dt>
+<dd>Controls how far a point on another object can be away from the point on the active object.
+Only needed for <em>Selected to Active</em>.
+A typical use case is to make a detailed, high-poly object,
+and then bake its normals onto an object with a low polygon count.
+The resulting normal map can then be applied to make the low-poly object look more detailed.</dd>
+<dt>Bias</dt>
+<dd>Bias towards further away from the object (in Blender units).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Mesh Must be Visible in Render</p>
+<p class="last">If a mesh is not visible in regular render,
+for example because it is disabled for rendering in the Outliner or has the DupliVerts setting enabled,
+it cannot be baked to.</p>
+</div>
+</div>
+</div>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>In a 3D View editor, select a mesh and enter UV/Face Select mode.</li>
+<li><a class="reference internal" href="../../editors/uv_image/index.html#editors-uv-image-index"><span class="std std-ref">Unwrap the mesh object</span></a>.</li>
+<li>In a UV/Image Editor, either create a new image or open an existing one.
+If your 3D View is in textured display mode, you should now see the image mapped to your mesh.
+Ensure that all faces are selected.</li>
+<li>In the Bake panel at the bottom of the <em>Render menu</em>, bake your desired type of image
+(<em>Full Render</em>, etc.).</li>
+<li>When rendering is complete, Blender replaces the image with the Baked image.</li>
+<li>Save the image.</li>
+<li>Apply the image to the mesh as a UV texture. For displacement and normal maps,
+refer to <a class="reference internal" href="textures/properties/influence/bump_normal.html"><span class="doc">Bump and Normal Maps</span></a>.
+For full and texture bakes, refer to <a class="reference internal" href="textures/index.html"><span class="doc">Textures</span></a>.</li>
+<li>Refine the image using the process described below,
+or embellish with <a class="reference internal" href="../../sculpt_paint/painting/texture_paint/index.html#painting-texture-index"><span class="std std-ref">Texture Paint</span></a>
+or an external image editor.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="post_processing/index.html" class="btn btn-neutral float-right" title="Post Processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="settings/antialiasing.html" class="btn btn-neutral" title="Anti-Aliasing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

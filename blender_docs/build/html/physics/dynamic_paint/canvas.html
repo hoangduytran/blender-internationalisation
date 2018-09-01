@@ -1,0 +1,612 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Canvas &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/physics/dynamic_paint/canvas.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Soft Body" href="../soft_body/index.html" />
+    <link rel="prev" title="Brush" href="brush.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gravity.html">Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../baking.html">Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../force_fields/index.html">Force Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../collision.html">Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cloth/index.html">Cloth Simulations</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Dynamic Paint</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="brush.html">Brush</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Canvas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../soft_body/index.html">Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fluid/index.html">Fluid Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../smoke/index.html">Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../rigid_body/index.html">Rigid Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../particles/index.html">Particles System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Physics</a> &raquo;</li>
+        
+          <li><a href="index.html">Dynamic Paint</a> &raquo;</li>
+        
+      <li>Canvas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/physics/dynamic_paint/canvas.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="canvas">
+<span id="bpy-types-dynamicpaintcanvassettings"></span><h1>Canvas<a class="headerlink" href="#canvas" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Canvas type makes object receive paint from Dynamic Paint brushes.</p>
+<div class="figure align-right" id="id1">
+<img alt="../../_images/physics_dynamic-paint_canvas_main-panel.png" src="../../_images/physics_dynamic-paint_canvas_main-panel.png" />
+<p class="caption"><span class="caption-text">Canvas main panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Paint Surface</dt>
+<dd><p class="first">A <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">list</span></a> of Dynamic Paint surfaces.
+These surfaces are basically layers of paint, that work independently from each other.
+You can define individual settings for them and bake them separately.</p>
+<dl class="last docutils">
+<dt>Show Preview (eye icon)</dt>
+<dd>If surface type/format allows previewing results in 3D View,
+this toggle is visible.</dd>
+<dt>Is Active</dt>
+<dd>The checkbox toggles whether surface is active at all.
+If not selected, no calculations or previews are done.</dd>
+</dl>
+</dd>
+</dl>
+<p>Below you can set surface type and adjust quality and timing settings.</p>
+<dl class="docutils">
+<dt>Format</dt>
+<dd><p class="first">Each surface has a certain format and type.
+Format determines how data is stored and outputted.</p>
+<dl class="last docutils">
+<dt>Vertex</dt>
+<dd>Dynamic Paint operates directly on mesh vertex data.
+Results are stored by point cache and can be displayed in viewports.
+However, using vertex level also requires a highly subdivided mesh to work.</dd>
+<dt>Image Sequences</dt>
+<dd>Dynamic Paint generates UV wrapped image files of defined resolution as output.</dd>
+</dl>
+</dd>
+<dt>Quality</dt>
+<dd><dl class="first last docutils">
+<dt>Resolution</dt>
+<dd>You can adjust the output image dimensions for the <em>Image Sequences</em> surface type.
+For example using 256 will lead to 256×256 image output.
+Doubling the resolution will likely quadruple the baking time and vice versa.</dd>
+<dt>Anti-aliasing</dt>
+<dd><a class="reference internal" href="../../glossary/index.html#term-anti-aliasing"><span class="xref std std-term">Anti-aliasing</span></a> to smooth paint edges using a 5× multisampling method.</dd>
+</dl>
+</dd>
+<dt>Frames</dt>
+<dd><dl class="first last docutils">
+<dt>Start, End</dt>
+<dd>Defines surface processing start and end frame.</dd>
+<dt>Sub-steps</dt>
+<dd>Sub-steps are extra samples between frames. They are usually required when there is a very fast brush.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint Advanced</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id2">
+<img alt="../../_images/physics_dynamic-paint_canvas_advanced-panel.png" src="../../_images/physics_dynamic-paint_canvas_advanced-panel.png" />
+<p class="caption"><span class="caption-text">Canvas advanced panel.</span></p>
+</div>
+<p>From <em>Advanced</em> panel you can adjust surface type and related settings.</p>
+<div class="section" id="surface-type">
+<h3>Surface Type<a class="headerlink" href="#surface-type" title="Permalink to this headline">¶</a></h3>
+<p>Each surface has a &quot;type&quot; that defines what surface is used for.</p>
+<div class="section" id="paint">
+<h4>Paint<a class="headerlink" href="#paint" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../_images/physics_dynamic-paint_canvas_surface-type-paint.jpg"><img alt="../../_images/physics_dynamic-paint_canvas_surface-type-paint.jpg" src="../../_images/physics_dynamic-paint_canvas_surface-type-paint.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Paint Surface.</span></p>
+</div>
+<p>Paint is the basic surface type that outputs color and wetness values.
+In case of vertex surfaces, results are outputted as vertex colors.</p>
+<p>A wetmap is a black-and-white output that visualizes paint wetness. White being maximum wetness,
+black being completely dry. It is usually used as mask for rendering.
+Some &quot;paint effects&quot; affect wet paint only.</p>
+<dl class="docutils">
+<dt>Dry</dt>
+<dd><p class="first">Completely disable drying is useful for indefinitely spreading paint.</p>
+<dl class="last docutils">
+<dt>Color Dry</dt>
+<dd>It can be used to define wetness level when paint colors start to shift to surface &quot;background&quot;.
+Lower values can be useful to prevent spreading paint from becoming transparent as it dries,
+while higher values give better results in general.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="displace">
+<h4>Displace<a class="headerlink" href="#displace" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/physics_dynamic-paint_canvas_surface-type-displace.jpg"><img alt="../../_images/physics_dynamic-paint_canvas_surface-type-displace.jpg" src="../../_images/physics_dynamic-paint_canvas_surface-type-displace.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Displace Surface.</span></p>
+</div>
+<p>This type of surface outputs intersection depth from brush objects.</p>
+<dl class="docutils">
+<dt>Incremental</dt>
+<dd>A new displace is added cumulatively on top of an existing displace.</dd>
+<dt>Max Displace</dt>
+<dd>The maximum level of intersection depth, larger values will be clamped to this value.</dd>
+<dt>Displace Factor</dt>
+<dd>The multiplier for the intersection depth.
+You can use it to adjust final displace strength or use negative values to paint bumps.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">If the displace output seems too rough it usually helps to add
+a Smooth Modifier after Dynamic Paint in the modifier stack.</p>
+</div>
+</div>
+<div class="section" id="waves">
+<h4>Waves<a class="headerlink" href="#waves" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/physics_dynamic-paint_canvas_surface-type-waves.jpg"><img alt="../../_images/physics_dynamic-paint_canvas_surface-type-waves.jpg" src="../../_images/physics_dynamic-paint_canvas_surface-type-waves.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Waves Surface.</span></p>
+</div>
+<p>This surface type produces simulated wave motion. Like displace,
+wave surface also uses brush intersection depth to define brush strength.</p>
+<p>You can use following settings to adjust the motion:</p>
+<dl class="docutils">
+<dt>Open Borders</dt>
+<dd>Allows waves to pass through mesh &quot;edges&quot; instead of reflecting from them.</dd>
+<dt>Timescale</dt>
+<dd>Directly adjusts simulation speed without affecting simulation outcome.
+Lower values make simulation go slower and otherwise.</dd>
+<dt>Speed</dt>
+<dd>Affects how fast waves travel on the surface.
+This setting is also corresponds to the size of the simulation.
+Half the speed equals surface double as large.</dd>
+<dt>Damping</dt>
+<dd>Reduces the wave strength over time. Basically adjusts how fast wave disappears.</dd>
+<dt>Spring</dt>
+<dd>Adjusts the force that pulls water back to &quot;zero level&quot;.</dd>
+<dt>Smoothness</dt>
+<dd>(Todo)</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">In some cases the wave motion gets very unstable around brush.
+It usually helps to reduce wave speed, brush &quot;wave factor&quot; or even the resolution of mesh/surface.</p>
+</div>
+</div>
+<div class="section" id="weight">
+<h4>Weight<a class="headerlink" href="#weight" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../_images/physics_dynamic-paint_canvas_surface-type-weight.jpg"><img alt="../../_images/physics_dynamic-paint_canvas_surface-type-weight.jpg" src="../../_images/physics_dynamic-paint_canvas_surface-type-weight.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Weight Surface.</span></p>
+</div>
+<p>This is a special surface type only available for vertex format.
+It outputs vertex weight groups that can be used by other Blender modifiers and tools.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">It is usually preferred to use &quot;proximity&quot; based brushes for
+weight surfaces to allow smooth falloff between weight values.</p>
+</div>
+</div>
+</div>
+<div class="section" id="common-options">
+<h3>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h3>
+<p>For each surface type there are special settings to adjust.
+Most types have the settings <em>Dissolve</em> and <em>Brush</em>:</p>
+<dl class="docutils">
+<dt>Dissolve</dt>
+<dd>Used to make the surface smoothly return to its original state during a defined <em>Time</em> period.</dd>
+<dt>Brush Group</dt>
+<dd>Used to define a specific object group to pick brush objects from.</dd>
+<dt>Influence Scale, Radius Scale</dt>
+<dd>For tweaking brush settings individually for each surface.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="output">
+<h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint Output</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id7">
+<img alt="../../_images/physics_dynamic-paint_canvas_output-panel.png" src="../../_images/physics_dynamic-paint_canvas_output-panel.png" />
+<p class="caption"><span class="caption-text">Canvas Output panel.</span></p>
+</div>
+<p>From Output panel you can adjust how surface outputs its results.</p>
+<dl class="docutils">
+<dt>Preview</dt>
+<dd>Allows you to define the type of Dynamic Paint output (Paint or Wetmap) displayed in the 3D View.</dd>
+</dl>
+<div class="section" id="vertex">
+<h3>Vertex<a class="headerlink" href="#vertex" title="Permalink to this headline">¶</a></h3>
+<p>For <em>Vertex</em> format surfaces, you can select a mesh data layer
+(color/weight depending on surface type) to generate results to.
+You can use the &quot;+&quot;/&quot;-&quot; icons to add/remove a data layers of given name.
+If layer with given name is not found, it is shown as red.</p>
+</div>
+<div class="section" id="image-sequence">
+<h3>Image Sequence<a class="headerlink" href="#image-sequence" title="Permalink to this headline">¶</a></h3>
+<p>For <em>Image Sequence</em> surfaces,
+you can define used UV maps and output file saving directory, filenames and image format.</p>
+</div>
+</div>
+<div class="section" id="initial-color">
+<h2>Initial Color<a class="headerlink" href="#initial-color" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint Initial Color</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Allows you to define the initial color of the canvas. (Todo 2.62)</p>
+<ul class="simple">
+<li>None</li>
+<li>Color</li>
+<li>UV Texture</li>
+<li>Vertex Color</li>
+</ul>
+</div>
+<div class="section" id="effects">
+<h2>Effects<a class="headerlink" href="#effects" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint Effects</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id8">
+<img alt="../../_images/physics_dynamic-paint_canvas_effects-panel.png" src="../../_images/physics_dynamic-paint_canvas_effects-panel.png" />
+<p class="caption"><span class="caption-text">Effects panel.</span></p>
+</div>
+<p>This is a special feature for &quot;Paint&quot; type surface.
+It generates animated movement on canvas surface.</p>
+<dl class="docutils">
+<dt>Effects</dt>
+<dd><dl class="first last docutils">
+<dt>Spread</dt>
+<dd>Paint slowly spreads to surrounding points eventually filling all connected areas.</dd>
+<dt>Drip</dt>
+<dd>Paint moves in specific direction specified by Blender force fields,
+gravity and velocity with user-defined influences.</dd>
+<dt>Shrink</dt>
+<dd>Painted area slowly shrinks until disappears completely.</dd>
+</dl>
+</dd>
+</dl>
+<p>For spread and drip effects, only &quot;wet paint&quot; is affected, so as the paint dries,
+movement becomes slower until it stops.</p>
+</div>
+<div class="section" id="cache">
+<h2>Cache<a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Canvas</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Physics ‣ Dynamic Paint Cache</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id9">
+<img alt="../../_images/physics_dynamic-paint_canvas_cache-panel.png" src="../../_images/physics_dynamic-paint_canvas_cache-panel.png" />
+<p class="caption"><span class="caption-text">Canvas cache panel.</span></p>
+</div>
+<p>This panel is currently only visible for <em>Vertex</em> format surfaces.
+You can use it to adjust and bake point cache.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../soft_body/index.html" class="btn btn-neutral float-right" title="Soft Body" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="brush.html" class="btn btn-neutral" title="Brush" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

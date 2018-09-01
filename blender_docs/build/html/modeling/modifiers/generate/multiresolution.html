@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multiresolution Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/multiresolution.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Remesh Modifier" href="remesh.html" />
+    <link rel="prev" title="Mirror Modifier" href="mirror.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Modify</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">Generate</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">Array Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">Bevel Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">Boolean Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">Build Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">Decimate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">Edge Split Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">Mask Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">Mirror Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Multiresolution Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">Remesh Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">Screw Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">Skin Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">Solidify Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="subsurf.html">Subdivision Surface Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">Triangulate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">Wireframe Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Multiresolution Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/multiresolution.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multiresolution-modifier">
+<span id="bpy-types-multiresmodifier"></span><h1>Multiresolution Modifier<a class="headerlink" href="#multiresolution-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Multiresolution Modifier (often shortened to &quot;Multires&quot;) gives you the ability to subdivide a mesh similarly
+to the <a class="reference internal" href="subsurf.html"><span class="doc">Subdivision Surface Modifier</span></a>,
+but also allows you to edit the new subdivision levels in sculpt mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The Multiresolution Modifier is the only modifier that cannot be repositioned in the stack if it means that
+there will be geometry or other object data created or removed before it
+(e.g. all <em>Generate</em>, some <em>Modify</em> and some <em>Simulate</em> modifiers
+cannot come before the Multiresolution Modifier).</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_generate_multiresolution_panel.png" src="../../../_images/modeling_modifiers_generate_multiresolution_panel.png" />
+<p class="caption"><span class="caption-text">Multiresolution Modifier.</span></p>
+</div>
+<dl class="docutils">
+<dt>Type</dt>
+<dd><p class="first">Sets the type of subdivision.</p>
+<dl class="last docutils">
+<dt>Simple</dt>
+<dd>Maintains the current shape, and simply subdivides edges.</dd>
+<dt>Catmull-Clark</dt>
+<dd>Creates a smooth surface, usually smaller than the original, using the standard
+<a class="reference external" href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface">Catmull-Clark</a>
+subdivision surface algorithm.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="levels">
+<h3>Levels<a class="headerlink" href="#levels" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Preview</dt>
+<dd>Set the level of subdivisions to show in the 3D View.</dd>
+<dt>Sculpt</dt>
+<dd>Set the number of subdivisions to use in Sculpt Mode.</dd>
+<dt>Render</dt>
+<dd>Set the number of subdivisions to show when rendering.</dd>
+</dl>
+</div>
+<div class="section" id="operations">
+<h3>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Subdivide</dt>
+<dd>Add another level of subdivision.</dd>
+<dt>Delete Higher</dt>
+<dd>Deletes all subdivision levels that are higher than the current one.</dd>
+<dt>Reshape</dt>
+<dd>Copies vertex coordinates from another mesh.
+To use, first select a different mesh object with matching topology and vertex indices,
+then <kbd class="kbd docutils literal notranslate">Shift</kbd> select the object you wish to copy vertex coordinates to and click <em>Reshape</em>.</dd>
+<dt>Apply Base</dt>
+<dd>Modifies the original unsubdivided mesh to match the form of the subdivided mesh.</dd>
+</dl>
+</div>
+<div class="section" id="further-options">
+<h3>Further Options<a class="headerlink" href="#further-options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Subdivide UVs</dt>
+<dd>When enabled, the UV maps will also be subdivided.
+(i.e. Blender will add &quot;virtual&quot; coordinates for all sub-faces created by this modifier).</dd>
+<dt>Optimal Display</dt>
+<dd>When drawing the wireframe of this object, the wires of the new subdivided edges will be skipped
+(only draws the edges of the original geometry).</dd>
+<dt>Save External</dt>
+<dd>Saves displacements to an external <code class="docutils literal notranslate"><span class="pre">.btx</span></code> file.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="remesh.html" class="btn btn-neutral float-right" title="Remesh Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mirror.html" class="btn btn-neutral" title="Mirror Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

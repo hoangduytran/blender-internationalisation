@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/graph_editor/fcurves/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Properties" href="properties.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Channels</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">Graph Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">F-Curves</a> &raquo;</li>
+        
+      <li>Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/graph_editor/fcurves/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing">
+<h1>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
+<p>By default, when new channels are added, the <em>Graph Editor</em> sets them to <em>Edit Mode</em>.</p>
+<p>Many of the hotkeys are the same as the <a class="reference internal" href="../../3dview/object/index.html"><span class="doc">3D View ones</span></a>,
+for example:</p>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">G</kbd> to grab</li>
+<li><kbd class="kbd docutils literal notranslate">R</kbd> to rotate</li>
+<li><kbd class="kbd docutils literal notranslate">S</kbd> to scale</li>
+<li><kbd class="kbd docutils literal notranslate">B</kbd> for border select/deselect</li>
+</ul>
+<p>And of course you can lock the transformation along the X axis (time frame) or
+Y axis (value) by pressing <kbd class="kbd docutils literal notranslate">X</kbd> or <kbd class="kbd docutils literal notranslate">Y</kbd> during transformation.</p>
+<p>For precise control of the keyframe position and value,
+you can set values in the <em>Active Keyframe</em> of the Properties Region.</p>
+<div class="section" id="insert-keyframe">
+<h2>Insert Keyframe<a class="headerlink" href="#insert-keyframe" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Ctrl-LMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><kbd class="kbd docutils literal notranslate">Ctrl-LMB</kbd> inserts a keyframe to the active F-Curve at the mouse position.
+The newly added keyframes will be selected, making it easier to quickly tweak the newly added keyframes.
+All previously selected keyframes are kept selected by using <kbd class="kbd docutils literal notranslate">Shift-Ctrl-LMB</kbd>.</p>
+</div>
+<div class="section" id="transform-snapping">
+<h2>Transform Snapping<a class="headerlink" href="#transform-snapping" title="Permalink to this headline">¶</a></h2>
+<p>When transforming keyframes with <kbd class="kbd docutils literal notranslate">G</kbd>, <kbd class="kbd docutils literal notranslate">R</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd>,
+the transformation can be snapped to increments.</p>
+<p>Snap Transformation to 1.0 <kbd class="kbd docutils literal notranslate">Ctrl</kbd>.</p>
+<p>Divide Transformation by 10.0 <kbd class="kbd docutils literal notranslate">Shift</kbd>.</p>
+<div class="section" id="snap">
+<h3>Snap<a class="headerlink" href="#snap" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Snap</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Keyframes can be snapped to different properties by using the <em>Snap Keys</em> tool.</p>
+<dl class="docutils">
+<dt>Current Frame</dt>
+<dd>Snap the selected keyframes to the <em>Time Cursor</em>.</dd>
+<dt>Cursor Value</dt>
+<dd>Snap the selected keyframes to the <em>Cursor</em>.</dd>
+<dt>Nearest Frame</dt>
+<dd>Snap the selected keyframes to their nearest frame individually.</dd>
+<dt>Nearest Second</dt>
+<dd>Snap the selected keyframes to their nearest second individually, based on the <em>FPS</em> of the scene.</dd>
+<dt>Nearest Marker</dt>
+<dd>Snap the selected keyframes to their nearest marker individually.</dd>
+<dt>Flatten Handles</dt>
+<dd><p class="first">Flatten the <em>Bézier</em> handles for the selected keyframes.</p>
+<table border="1" class="last docutils" id="id1">
+<caption><span class="caption-text">Flatten Handles snapping example.</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png" src="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-1.png" style="width: 204px;" /></a>
+<p class="caption"><span class="caption-text">Before Flatten Handles.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png" src="../../../_images/editors_graph-editor_fcurves_editing_flatten-handles-2.png" style="width: 204px;" /></a>
+<p class="caption"><span class="caption-text">After Flatten Handles.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="mirror">
+<h2>Mirror<a class="headerlink" href="#mirror" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Mirror</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Selected keyframes can be mirrored over different properties using the <em>Mirror Keys</em>
+tool.</p>
+<dl class="docutils">
+<dt>By Times Over Current Frame</dt>
+<dd>Mirror horizontally over the <em>Time Cursor</em>.</dd>
+<dt>By Values over Cursor Value</dt>
+<dd>Mirror vertically over the <em>Cursor</em>.</dd>
+<dt>By Times over Time 0</dt>
+<dd>Mirror horizontally over frame 0.</dd>
+<dt>By Values over Value 0</dt>
+<dd>Mirror vertically over value 0.</dd>
+<dt>By Times over First Selected Marker</dt>
+<dd>Mirror horizontally the over the first selected <em>Marker</em>.</dd>
+</dl>
+</div>
+<div class="section" id="clean-keyframes">
+<h2>Clean Keyframes<a class="headerlink" href="#clean-keyframes" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Clean Keyframes</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em>Clean Keyframes</em> resets the keyframe tangents on selected keyframes to their auto-clamped shape,
+if they have been modified.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve before cleaning.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean2.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve after cleaning.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="clean-channels">
+<h2>Clean Channels<a class="headerlink" href="#clean-channels" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Channels</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Acts like the <em>Clean Keyframes</em> tool but will also delete the channel itself if it is only left with
+a single keyframe containing the default property value and
+it's not being used by any generative f-curve modifiers or drivers.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The modified curve left after the Clean tool is run is not the same as the original,
+so this tool is better used before doing custom editing of f-curves and after initial keyframe insertion,
+to get rid of any unwanted keyframes inserted while doing mass keyframe insertion
+(by selecting all bones and pressing <kbd class="kbd docutils literal notranslate">I</kbd> for instance).</p>
+</div>
+</div>
+<div class="section" id="smoothing">
+<h2>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Smooth Keys</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-O</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There is also an option to smooth the selected curves, but beware: its algorithm seems to be
+to divide by two the distance between each keyframe and the average linear value of the curve,
+without any setting, which gives quite a strong smoothing! Note that the first and last keys
+seem to be never modified by this tool.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_clean1.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" src="../../../_images/editors_graph-editor_fcurves_editing_clean1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve before smoothing.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_smooth.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_smooth.png" src="../../../_images/editors_graph-editor_fcurves_editing_smooth.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve after smoothing.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sampling-and-baking-keyframes">
+<h2>Sampling and Baking Keyframes<a class="headerlink" href="#sampling-and-baking-keyframes" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Sample Keyframes <kbd class="kbd docutils literal notranslate">Shift-O</kbd></dt>
+<dd><p class="first">Sampling a set of keyframes replaces interpolated values with a new keyframe for each frame.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_sample.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_sample.png" src="../../../_images/editors_graph-editor_fcurves_editing_sample.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve before sampling.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/editors_graph-editor_fcurves_editing_sample2.png"><img alt="../../../_images/editors_graph-editor_fcurves_editing_sample2.png" src="../../../_images/editors_graph-editor_fcurves_editing_sample2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">F-Curve after sampling.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Bake Curves <kbd class="kbd docutils literal notranslate">Alt-C</kbd></dt>
+<dd>Baking a curve replaces it with a set of sampled points, and removes the ability to edit the curve.</dd>
+</dl>
+</div>
+<div class="section" id="bake-sound-to-f-curves">
+<h2>Bake Sound to F-Curves<a class="headerlink" href="#bake-sound-to-f-curves" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Key ‣ Bake Sound to F-Curves</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <em>Bake Sound to F-Curves</em> tool takes a sound file and uses its sound wave to create the animation data.</p>
+<dl class="docutils">
+<dt>Lowest frequency</dt>
+<dd>Cutoff frequency of a high-pass filter that is applied to the audio data.</dd>
+<dt>Highest frequency</dt>
+<dd>Cutoff frequency of a low-pass filter that is applied to the audio data.</dd>
+<dt>Attack time</dt>
+<dd>Value for the hull curve calculation that tells how fast the hull curve can rise.
+The lower the value the steeper it can rise.</dd>
+<dt>Release time</dt>
+<dd>Value for the hull curve calculation that tells how fast the hull curve can fall.
+The lower the value the steeper it can fall.</dd>
+<dt>Threshold</dt>
+<dd>Minimum amplitude value needed to influence the hull curve.</dd>
+<dt>Accumulate</dt>
+<dd>Only the positive differences of the hull curve amplitudes are summarized to produce the output.</dd>
+<dt>Additive</dt>
+<dd>The amplitudes of the hull curve are summarized. If <em>Accumulate</em> is enabled,
+both positive and negative differences are accumulated.</dd>
+<dt>Square</dt>
+<dd><p class="first">Gives the output as a square curve.
+Negative values always result in -1, and positive ones in 1.</p>
+<dl class="last docutils">
+<dt>Square Threshold</dt>
+<dd>All values lower than this threshold result in 0.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="show-hide">
+<h2>Show/Hide<a class="headerlink" href="#show-hide" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Hide <kbd class="kbd docutils literal notranslate">H</kbd></dt>
+<dd>Hide selected curves.</dd>
+<dt>Hide Unselected <kbd class="kbd docutils literal notranslate">Shift-H</kbd></dt>
+<dd>Show only the selected curve (and hide everything else).</dd>
+<dt>Show Hidden <kbd class="kbd docutils literal notranslate">Alt-H</kbd></dt>
+<dd>Show all previous hidden curves.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="properties.html" class="btn btn-neutral float-right" title="Properties" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

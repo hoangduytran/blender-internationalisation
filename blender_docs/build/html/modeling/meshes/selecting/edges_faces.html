@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Edges &amp; Faces &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/meshes/selecting/edges_faces.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Editing" href="../editing/index.html" />
+    <link rel="prev" title="Advanced" href="advanced.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Meshes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Selecting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced.html">Advanced</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Edges &amp; Faces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../editing/index.html">Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_display.html">Mesh Display</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mesh_analysis.html">Mesh Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Meshes</a> &raquo;</li>
+        
+          <li><a href="index.html">Selecting</a> &raquo;</li>
+        
+      <li>Edges &amp; Faces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/meshes/selecting/edges_faces.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="edges-faces">
+<h1>Edges &amp; Faces<a class="headerlink" href="#edges-faces" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="edges">
+<h2>Edges<a class="headerlink" href="#edges" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_mode-buttons-edge-activated.png" src="../../../_images/modeling_meshes_selecting_edges-faces_mode-buttons-edge-activated.png" />
+<p class="caption"><span class="caption-text">Buttons for the selection modes.</span></p>
+</div>
+<p>Edges can be selected in much the same way as vertices and faces
+by <kbd class="kbd docutils literal notranslate">RMB</kbd>-clicking them while Edge Select Mode is activated.
+Pressing <kbd class="kbd docutils literal notranslate">Shift</kbd> while clicking will add/subtract to the existing selection.</p>
+<div class="section" id="edge-loops">
+<span id="modeling-meshes-selecting-edge-loops"></span><h3>Edge Loops<a class="headerlink" href="#edge-loops" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode (Mesh)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Edge Loop</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-RMB</kbd>, or <kbd class="kbd docutils literal notranslate">Shift-Alt-RMB</kbd> for modifying existing selection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Edge loops can be selected by first selecting an edge (vertex or edge selection mode),
+and then going to <span class="menuselection">Select ‣ Edge Loop</span>. The shortcut <kbd class="kbd docutils literal notranslate">Alt-RMB</kbd> on an edge
+(either vertex or edge select mode) is a quicker and more powerful way of doing so.
+More powerful, because you can add/remove loops from an existing selection if you press
+<kbd class="kbd docutils literal notranslate">Shift</kbd> too.</p>
+<p>Note, that if you want to select a loop while being in vertex select mode,
+you still have to perform the shortcut on an edge -- while you,
+for just selecting vertices, would <kbd class="kbd docutils literal notranslate">RMB</kbd> on a vertex.</p>
+<div class="figure" id="id2">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_edge-loop-example.png" src="../../../_images/modeling_meshes_selecting_edges-faces_edge-loop-example.png" />
+<p class="caption"><span class="caption-text">An edge loop.</span></p>
+</div>
+</div>
+<div class="section" id="edge-rings">
+<h3>Edge Rings<a class="headerlink" href="#edge-rings" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode (Mesh)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Edge Ring</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-RMB</kbd>, or <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-RMB</kbd> for modifying existing selection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Edge Rings are selected similarly.
+Based on the selection of an edge go to <span class="menuselection">Select ‣ Edge Ring</span>.
+Or use <kbd class="kbd docutils literal notranslate">Ctrl-Alt-RMB</kbd> on an edge.</p>
+<div class="figure" id="id3">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_edge-ring-example.png" src="../../../_images/modeling_meshes_selecting_edges-faces_edge-ring-example.png" />
+<p class="caption"><span class="caption-text">An edge ring.</span></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Convert Selection to Whole Faces</p>
+<p>If the edge ring selection happened in Edge Select Mode, switching to Face Select Mode will erase the selection.</p>
+<p>This is because none of those faces had all its (four) edges selected,
+just two of them.</p>
+<p class="last">Instead of selecting the missing edges manually or by using <kbd class="kbd docutils literal notranslate">Shift-Alt-RMB</kbd> twice,
+it is easier to first switch to Vertex Select Mode, which will kind of &quot;flood&quot; the selection.
+A subsequent switch to Face Select Mode will then properly select the faces.</p>
+</div>
+</div>
+</div>
+<div class="section" id="faces">
+<h2>Faces<a class="headerlink" href="#faces" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_mode-buttons-face-activated.png" src="../../../_images/modeling_meshes_selecting_edges-faces_mode-buttons-face-activated.png" />
+<p class="caption"><span class="caption-text">The Face Select Mode activated.</span></p>
+</div>
+<p>To select parts of a mesh face-wise, you have to switch to Face Select Mode.
+Do this by clicking the button shown above, or press <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> to spawn a menu.
+The selection works as usual with <kbd class="kbd docutils literal notranslate">RMB</kbd>;
+to add/remove to an existing selection, additionally press <kbd class="kbd docutils literal notranslate">Shift</kbd>.
+The Border, Circle and Lasso Selection Tools must intersect the face indicators
+usually represented by small pixel squares; one at the center of each face.</p>
+<div class="section" id="face-loops">
+<span id="modeling-meshes-selecting-face-loops"></span><h3>Face Loops<a class="headerlink" href="#face-loops" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode (Mesh)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-RMB</kbd> or <kbd class="kbd docutils literal notranslate">Shift-Alt-RMB</kbd> for modifying existing selection</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Face Loops are pretty much the same as Edge Rings. If you want to select a Face Loop,
+there is no menu entry that works based on a selected face. Using <span class="menuselection">Select ‣ Edge Ring</span>
+would select a &quot;cross&quot; with the prior selected face as the middle.
+If you want to avoid switching to Edge Select Mode to select a Face Loop,
+use the <kbd class="kbd docutils literal notranslate">Alt-RMB</kbd> shortcut.</p>
+<div class="figure" id="id5">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_face-mode-different-loop-selections.png" src="../../../_images/modeling_meshes_selecting_edges-faces_face-mode-different-loop-selections.png" />
+<p class="caption"><span class="caption-text">Different loop selection operations on a grid in Face Select Mode.</span></p>
+</div>
+<ul class="simple">
+<li>Just the selected face.</li>
+<li>Select the face, then <span class="menuselection">Select ‣ Edge Ring</span>.
+See, how Blender selects edges, even if being in Face Select Mode.
+If these edges are desired and you want to work on them, switch in Edge Select Mode.
+Switching to Vertex Select Mode would flood the selection and leave you with the 4th image as result,
+after going back to Face Select Mode.</li>
+<li>Select the face, the <span class="menuselection">Select ‣ Edge Loop</span>.
+As in the example above, Blender pretends to be in Edge Select Mode and takes the four edges of the selected face
+as base for the selection operation.</li>
+<li>This selection was created by <kbd class="kbd docutils literal notranslate">Alt-RMB</kbd> on the left edge of the center face,
+followed by twice <kbd class="kbd docutils literal notranslate">Shift-Alt-RMB</kbd> on the top edge of the center face. Two times,
+because the first click will remove the selected face loop (in this case, just the original selected face),
+while the second click will add the whole vertical running loop to the selection, creating the cross.</li>
+</ul>
+</div>
+<div class="section" id="n-gons-in-face-select-mode">
+<h3>N-gons in Face Select Mode<a class="headerlink" href="#n-gons-in-face-select-mode" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<img alt="../../../_images/modeling_meshes_selecting_edges-faces_face-mode-ngon-visual-problem.png" src="../../../_images/modeling_meshes_selecting_edges-faces_face-mode-ngon-visual-problem.png" />
+<p class="caption"><span class="caption-text">N-gon face having its center dot inside another face.</span></p>
+</div>
+<p>As already known, faces are marked with a little square dot in the middle of the face.
+With n-gons that can lead in certain cases to a confusing display.
+The example shows the center dot of the U-shaped n-gon being inside of the oblong face inside the &quot;U&quot;.
+It is not easy to say which dot belongs to which face (the orange dot in the image is the object origin).
+Luckily, you do not need to care much, because to select a face, you do not have to click the center dot,
+but the face itself.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Face selection</p>
+<p class="last"><em>To select a face</em>: Click the face, not the dot!</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../editing/index.html" class="btn btn-neutral float-right" title="Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="advanced.html" class="btn btn-neutral" title="Advanced" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

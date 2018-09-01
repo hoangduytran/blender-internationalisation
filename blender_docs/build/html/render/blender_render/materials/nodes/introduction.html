@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction to Nodes &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/nodes/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Color Nodes" href="types/color/index.html" />
+    <link rel="prev" title="Material Nodes" href="index.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Material Properties</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Material Nodes</a> &raquo;</li>
+        
+      <li>Introduction to Nodes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/nodes/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-nodes">
+<h1>Introduction to Nodes<a class="headerlink" href="#introduction-to-nodes" title="Permalink to this headline">¶</a></h1>
+<p>In addition to creating materials as just described
+using all the settings on all the materials panels,
+Blender allows you to create a material by routing basic materials through a set of nodes.
+Each node performs some operation on the material,
+changing how it will appear when applied to the mesh, and passes it on to the next node.
+In this way, very complex material appearances can be achieved.</p>
+<p>You should already be familiar with general material concepts and how to create
+materials/textures using the material menu. You should also have a general understanding of
+the texture coordinate systems available in Blender (e.g. Generated, UV, etc.). Also, many
+aspects of a node will be skipped here because in later sections you will see the function
+expanded upon. Each section builds off the previous.</p>
+<p>To start, the node system does not make the material menu obsolete.
+Many features and material settings are still only accessible through the material panel
+(e.g. Ray Mirror). However, with the advent of nodes,
+more complex and fantastic materials can be created since we now have greater control.</p>
+<p>Just in case you are not (yet) familiar with the concepts: when you create a system of nodes,
+you are describing a data-processing pipeline of sorts,
+where data &quot;flows from&quot; nodes which describe various <em>sources</em>,
+&quot;flows through&quot; nodes which represent various processing and filtering stages,
+and finally &quot;flows into&quot; nodes which represent outputs or destinations.
+You can connect the nodes to one another in many different ways, and you can adjust &quot;properties&quot;
+or parameters, that control the behavior of each node.
+This gives you a tremendous amount of creative control. And,
+it will very quickly become intuitive.</p>
+<p>Having said all that, let us begin with a normal material.</p>
+<p>Here we have the standard material we have added to a cube mesh. We could,
+as we have in the past,
+add color and other settings to this material and it would certainly look nice. But let us say
+we are just not getting what we are looking for? What if we want to control the creation more
+tightly or add more complexity? Here is where nodes come in.</p>
+<p>Making this node map is accomplished by working in
+a <a class="reference internal" href="../../../../editors/node_editor/index.html"><span class="doc">Node Editor</span></a>.
+This section covers:</p>
+<ul class="simple">
+<li>Enabling Material Nodes.</li>
+<li>The Node Editor, its basic controls, and working with nodes.</li>
+<li>The specific types of nodes available for materials.</li>
+</ul>
+<div class="section" id="accessing-the-node-editor">
+<h2>Accessing the Node Editor<a class="headerlink" href="#accessing-the-node-editor" title="Permalink to this headline">¶</a></h2>
+<p>First lets enter the <a class="reference internal" href="../../../../editors/node_editor/index.html"><span class="doc">Node editor</span></a>
+and make sure that the Node editor has the material node button (sphere icon) pressed,
+not the composite or texture node buttons.</p>
+<div class="section" id="enabling-node-materials-in-the-material-buttons">
+<h3>Enabling Node Materials in the Material Buttons<a class="headerlink" href="#enabling-node-materials-in-the-material-buttons" title="Permalink to this headline">¶</a></h3>
+<p>Let us take the base material and hit the Nodes button next to the material name
+in the material panel or the Node editor. You will see a change in the material panel.</p>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_blender-render_materials_nodes_introduction_use-nodes-button.png" src="../../../../_images/render_blender-render_materials_nodes_introduction_use-nodes-button.png" />
+<p class="caption"><span class="caption-text">Use material nodes button.</span></p>
+</div>
+<p>What you have just done is told Blender to make the material you were on to become the node tree.
+Most of the panels we normally find in the material menu are now gone.</p>
+<p>If you switch to the <em>Compositing</em> <a class="reference internal" href="../../../../interface/window_system/screens.html"><span class="doc">screen</span></a>
+with <kbd class="kbd docutils literal notranslate">Ctrl-Left</kbd>, if you are on the default screen,
+you will find a <em>Node Editor</em> on the top half of the screen.
+When you enabled material nodes,
+a material node and an output node were automatically added to the Node editor.</p>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_blender-render_materials_nodes_introduction_nodes-default.png" src="../../../../_images/render_blender-render_materials_nodes_introduction_nodes-default.png" />
+<p class="caption"><span class="caption-text">Default nodes.</span></p>
+</div>
+<p>You can also split the 3D View in the default screen in two and
+change one into a <em>Node Editor</em>.</p>
+<p>It is important to note that you can add a new material
+(which you can edit and change like any other material in the material panel),
+add an already created material or append a material from another blend-file,
+and also use the material that you used to create the node tree.</p>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_blender-render_materials_nodes_introduction_nodes-material.png" src="../../../../_images/render_blender-render_materials_nodes_introduction_nodes-material.png" />
+<p class="caption"><span class="caption-text">A first material added to the node setup.</span></p>
+</div>
+<p>Here, we added a new material in the <em>Node editor</em> &quot;Material.001&quot;,
+and as we did, we can access the properties of this material in the material's menu.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="types/color/index.html" class="btn btn-neutral float-right" title="Color Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Material Nodes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

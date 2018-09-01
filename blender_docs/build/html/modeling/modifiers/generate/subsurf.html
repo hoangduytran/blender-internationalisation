@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Subdivision Surface Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/generate/subsurf.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Triangulate Modifier" href="triangulate.html" />
+    <link rel="prev" title="Solidify Modifier" href="solidify.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Modify</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#generate">Generate</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="array.html">Array Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bevel.html">Bevel Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="booleans.html">Boolean Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="build.html">Build Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="decimate.html">Decimate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="edge_split.html">Edge Split Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mask.html">Mask Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mirror.html">Mirror Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="multiresolution.html">Multiresolution Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="remesh.html">Remesh Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="screw.html">Screw Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skin.html">Skin Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="solidify.html">Solidify Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Subdivision Surface Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="triangulate.html">Triangulate Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wireframe.html">Wireframe Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#deform">Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Subdivision Surface Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/generate/subsurf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="subdivision-surface-modifier">
+<span id="bpy-types-subsurfmodifier"></span><h1>Subdivision Surface Modifier<a class="headerlink" href="#subdivision-surface-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Subdivision Surface Modifier is used to split the faces of a mesh into smaller faces giving a smooth appearance.
+Using this modifier, enables you to model complex smooth surfaces with simple, low-vertex meshes.
+This allows modeling of high resolution meshes without the need to save and
+maintain huge amounts of data and it gives a smooth <em>organic</em> look to the object.</p>
+<p>This process creates virtual geometry that is generated non-destructively without modifying the original mesh,
+but it can be converted to real geometry that you could edit with the <em>Apply</em> button.</p>
+<p>Also, like the rest of the Modifiers, order of execution has an important bearing on the results.
+For this, see the documentation on the <a class="reference internal" href="../introduction.html#modifier-stack"><span class="std std-ref">modifier stack</span></a>.</p>
+<p>Keep in mind that this is a different operation than its companion,
+<a class="reference internal" href="../../meshes/editing/normals.html#modeling-meshes-editing-normals-shading"><span class="std std-ref">Smooth Shading</span></a>.
+You can see the difference between the two in the grid image below.</p>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_generate_subsurf_grid.png" src="../../../_images/modeling_modifiers_generate_subsurf_grid.png" />
+<p class="caption"><span class="caption-text">Subdivisions levels 0 to 3, without and with Smooth Shading.</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">The Subdivision Surface Modifier does not allow you to edit the new subdivided geometry without applying it,
+but the <a class="reference internal" href="multiresolution.html"><span class="doc">Multiresolution Modifier</span></a> does (in sculpt mode).</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../../../_images/modeling_modifiers_generate_subsurf_panel.png" src="../../../_images/modeling_modifiers_generate_subsurf_panel.png" />
+<p class="caption"><span class="caption-text">Modifier's panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Type</dt>
+<dd><p class="first">This toggle button allows you to choose the subdivision algorithm:</p>
+<dl class="last docutils">
+<dt>Catmull-Clark</dt>
+<dd>The default option, subdivides and smooths the surfaces.
+According to its <a class="reference external" href="https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface">Wikipedia page</a>,
+the &quot;arbitrary-looking formula was chosen by Catmull and Clark based on the aesthetic appearance of
+the resulting surfaces rather than on a mathematical derivation.&quot;</dd>
+<dt>Simple</dt>
+<dd>Only subdivides the surfaces, without any smoothing
+(the same as <span class="menuselection">Specials ‣ Subdivide</span>, in Edit Mode).
+Can be used, for example, to increase base mesh resolution when using displacement maps.</dd>
+</dl>
+</dd>
+<dt>Subdivisions</dt>
+<dd><p class="first">Recursively adds more geometry. For details on polygon counts, see the <a class="reference internal" href="#performance-considerations">Performance Considerations</a> section.</p>
+<dl class="last docutils">
+<dt>View</dt>
+<dd>The number of subdivision levels shown in the 3D View.</dd>
+<dt>Render</dt>
+<dd>The number of subdivision levels shown in renders.</dd>
+</dl>
+</dd>
+</dl>
+<p>The right combination of these settings will allow you to keep a fast and lightweight approximation of your model
+when interacting with it in 3D, but use a higher quality version when rendering.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Be careful not to set the <em>View</em> subdivisions higher than the <em>Render</em> subdivisions,
+this would mean the 3D View will be higher quality than the render.</p>
+</div>
+<dl class="docutils">
+<dt>Options</dt>
+<dd><dl class="first docutils">
+<dt>Subdivide UVs</dt>
+<dd>When enabled, the UV maps will also be subdivided
+(i.e. Blender will add &quot;virtual&quot; coordinates for all sub-faces created by this modifier).</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-no.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-no.png" src="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-no.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">No Subsurf.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-off.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-off.png" src="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-off.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Subdivide UVs off.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-on.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-on.png" src="../../../_images/modeling_modifiers_generate_subsurf_subdivide-uvs-on.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Subdivide UVs on.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="last docutils">
+<dt>Optimal Display</dt>
+<dd>When drawing the wireframe of this object, the wires of the new subdivided edges will be skipped
+(only draws the edges of the original geometry).</dd>
+<dt>Opensubdiv</dt>
+<dd>See the <a class="reference internal" href="#opensubdiv">OpenSubdiv</a> section.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="opensubdiv">
+<h2>OpenSubdiv<a class="headerlink" href="#opensubdiv" title="Permalink to this headline">¶</a></h2>
+<p>When <em>OpenSubdiv</em> is enabled, the modifier evaluation will happen on a compute device.
+To enable OpenSubdiv you must first choose the fastest compute device
+in the <a class="reference internal" href="../../../preferences/system.html#prefs-system-opensubdiv"><span class="std std-ref">User Preferences</span></a>.
+Most of the time the best performance will be achieved when using <em>GLSL</em>.
+As a result performance of the modifier will be much higher which is great for animations.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">To find more on OpenSubdiv read
+the <a class="reference external" href="https://wiki.blender.org/wiki/Reference/Release_Notes/2.76/OpenSubdiv">Release Notes</a>.</p>
+</div>
+<div class="section" id="improving-performance">
+<h3>Improving Performance<a class="headerlink" href="#improving-performance" title="Permalink to this headline">¶</a></h3>
+<p>In order to utilize maximum performance form OpenSubdiv the following things are required:</p>
+<ul class="simple">
+<li>The modifier must be last in the <a class="reference internal" href="../introduction.html#modifier-stack"><span class="std std-ref">modifier stack</span></a>.</li>
+<li>There should be no modifiers prior to the which changes mesh topology across the time.</li>
+<li>Other objects should not use geometry of OpenSubdiv mesh</li>
+</ul>
+</div>
+</div>
+<div class="section" id="control">
+<h2>Control<a class="headerlink" href="#control" title="Permalink to this headline">¶</a></h2>
+<p>Catmull-Clark subdivision rounds off edges, and often this is not what you want.
+There are several solutions that allow you to control the subdivision.</p>
+<div class="section" id="weighted-edge-creases">
+<span id="modifiers-generate-subsurf-creases"></span><h3>Weighted Edge Creases<a class="headerlink" href="#weighted-edge-creases" title="Permalink to this headline">¶</a></h3>
+<p>Weighted edge creases for subdivision surfaces allows you to change the way
+the Subdivision Surface modifier subdivides the geometry to give the edges a smooth or sharp appearance.</p>
+<div class="figure" id="id6">
+<img alt="../../../_images/modeling_modifiers_generate_subsurf_withcrease.png" src="../../../_images/modeling_modifiers_generate_subsurf_withcrease.png" />
+<p class="caption"><span class="caption-text">A subdivided cube with creased edges.</span></p>
+</div>
+<p>The crease weight of selected edges can be changed in the <em>Transform</em> panel of the properties region
+<kbd class="kbd docutils literal notranslate">N</kbd>, or by using the shortcut <kbd class="kbd docutils literal notranslate">Shift-E</kbd> and moving the mouse closer
+or further from the selected edges to adjust the crease weight.
+A higher value makes the edge &quot;stronger&quot; and more resistant to the smoothing effect of subdivision surfaces.</p>
+</div>
+<div class="section" id="edge-loops">
+<h3>Edge Loops<a class="headerlink" href="#edge-loops" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id7">
+<img alt="../../../_images/modeling_modifiers_generate_subsurf_cube-with-edge-loops.png" src="../../../_images/modeling_modifiers_generate_subsurf_cube-with-edge-loops.png" />
+<p class="caption"><span class="caption-text">Subdivision Level 2 cube, the same with an extra Edge Loop, and the same with six extra Edge Loops.</span></p>
+</div>
+<p>The Subdivision Surface Modifier demonstrates why good, clean topology is so important.
+As you can see in the figure, the Subdivision Surface Modifier has a drastic effect on a default Cube.
+Until you add in additional Loops (with <kbd class="kbd docutils literal notranslate">Ctrl-R</kbd>), the shape is almost unrecognizable as a cube.</p>
+<p>A mesh with deliberate topology has good placement of Edge Loops,
+which allow the placement of more Loops
+(or removal of Loops, with <kbd class="kbd docutils literal notranslate">X</kbd> <span class="menuselection">‣ Edge Loop</span>)
+to control the sharpness/smoothness of the resultant mesh.</p>
+</div>
+</div>
+<div class="section" id="performance-considerations">
+<h2>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Permalink to this headline">¶</a></h2>
+<p>Higher levels of subdivisions mean more vertices, and more vertices means more memory will be used
+(both video memory for display (VRAM), and system RAM for rendering).
+Blender could potentially crash or hang if you do not have enough memory.</p>
+<p>When using high levels of subdivision with a graphics card that has a low total amount
+of VRAM, some parts of the geometry will disappear visually. Your mesh will actually be intact,
+because the render is generated using your Object Data,
+(even though it cannot be shown by your graphics card).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">To improve performance in the viewport try enabling <a class="reference internal" href="#opensubdiv">OpenSubdiv</a>
+or if you are using the Cycles Renderer consider using
+<a class="reference internal" href="../../../render/cycles/settings/objects/adaptive_subsurf.html#render-cycles-settings-object-subdivision"><span class="std std-ref">Adaptive Subdivision</span></a>.</p>
+</div>
+</div>
+<div class="section" id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h2>
+<p>To quickly add a Subdivision Surface Modifier to one or more objects, select it/them and press <kbd class="kbd docutils literal notranslate">Ctrl-1</kbd>.
+That will add a Subdivision Surface Modifier with <em>View Subdivisions</em> on 1.</p>
+<p>You can use other numbers too, such as <kbd class="kbd docutils literal notranslate">Ctrl-2</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-3</kbd>, etc,
+to add a Subdivision Surface Modifier with that number of subdivisions.
+The <em>Render Subdivisions</em> will always be on 2 when added like this.</p>
+<p>If an object already has a Subdivision Surface Modifier,
+doing this will simply change its subdivision level instead of adding another modifier.</p>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="non-contiguous-normals">
+<h3>Non-Contiguous Normals<a class="headerlink" href="#non-contiguous-normals" title="Permalink to this headline">¶</a></h3>
+<p>Blender's subdivision system produces nice smooth subdivided meshes, but any subdivided face
+(that is, any small face created by the algorithm from a single face of the original mesh),
+shares the overall normal orientation of that original face.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-1.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-1.png" src="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Comparison of good normals and bad normals.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-2.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-2.png" src="../../../_images/modeling_modifiers_generate_subsurf_normal-orientation-2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Side view of image on left.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Abrupt normal changes can produce ugly black gouges even though
+these flipped normals are not an issue for the shape itself.</p>
+<p>A quick way to fix this is to use Blender's
+<a class="reference internal" href="../../meshes/editing/normals.html"><span class="doc">Recalculate Normals</span></a> operation in Edit Mode.</p>
+<p>If you still have some ugly black gouges you will have to
+<a class="reference internal" href="../../meshes/editing/normals.html"><span class="doc">Manually Flip the Normals</span></a>.</p>
+</div>
+<div class="section" id="concave-n-gons">
+<h3>Concave N-Gons<a class="headerlink" href="#concave-n-gons" title="Permalink to this headline">¶</a></h3>
+<p>While n-gons are supported,
+concave n-gons may give ugly overlapping results.</p>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../_images/modeling_modifiers_generate_subsurf_ngon-concave.png"><img alt="../../../_images/modeling_modifiers_generate_subsurf_ngon-concave.png" src="../../../_images/modeling_modifiers_generate_subsurf_ngon-concave.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">The n-gons on the right show overlapping results.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="triangulate.html" class="btn btn-neutral float-right" title="Triangulate Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="solidify.html" class="btn btn-neutral" title="Solidify Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

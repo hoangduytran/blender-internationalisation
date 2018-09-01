@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Child Of Constraint &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/constraints/relationship/child_of.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Floor Constraint" href="floor.html" />
+    <link rel="prev" title="Action Constraint" href="action.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#motion-tracking">Motion Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Tracking</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#relationship">Relationship</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="action.html">Action Constraint</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Child Of Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="floor.html">Floor Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow_path.html">Follow Path Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pivot.html">Pivot Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rigid_body_joint.html">Rigid Body Joint Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Shrinkwrap Constraint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Constraints</a> &raquo;</li>
+        
+      <li>Child Of Constraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/relationship/child_of.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="child-of-constraint">
+<span id="bpy-types-childofconstraint"></span><h1>Child Of Constraint<a class="headerlink" href="#child-of-constraint" title="Permalink to this headline">¶</a></h1>
+<p><em>Child Of</em> is the constraint version of the standard parent/children relationship between objects
+(the one established through the <kbd class="kbd docutils literal notranslate">Ctrl-P</kbd> shortcut, in the 3D Views).</p>
+<p>Parenting with a constraint has several advantages and enhancements,
+compared to the traditional method:</p>
+<ul>
+<li><p class="first">You can have several different parents for the same object
+(weighting their respective influence with the <em>Influence</em> slider).</p>
+</li>
+<li><p class="first">As with any constraint, you can key (i.e. animate) its Influence setting.
+This allows the object which has a Child Of constraint upon it to change over time which
+target object will be considered the parent, and therefore have influence over it.</p>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">Do not confuse this &quot;basic&quot; object parenting with the one that defines
+the <a class="reference internal" href="../../armatures/structure.html#armature-bone-chain"><span class="std std-ref">chains of bones</span></a> inside of an armature.
+This constraint is used to parent an object to a bone
+(the so-called <a class="reference internal" href="../../../editors/3dview/object/properties/relations/parents.html"><span class="doc">object skinning</span></a>),
+or even bones to bones. But do not try to use it to define chains of bones.</p>
+</div>
+</li>
+</ul>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_panel.png" src="../../../_images/rigging_constraints_relationship_child-of_panel.png" />
+<p class="caption"><span class="caption-text">Child Of panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Target</dt>
+<dd>The target object that this object will act as a child of.
+<a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Data ID</span></a> used to select the constraint's target, and is not functional (red state) when it has none.</dd>
+<dt>Location X, Y, Z</dt>
+<dd>Each of these buttons will make the parent affect or not affect the location along the corresponding axis.</dd>
+<dt>Rotation X, Y, Z</dt>
+<dd>Each of these buttons will make the parent affect or not affect the rotation around the corresponding axis.</dd>
+<dt>Scale X, Y, Z</dt>
+<dd>Each of these buttons will make the parent affect or not affect the scale along the corresponding axis.</dd>
+<dt>Set Inverse</dt>
+<dd>By default, when you parent your owner to your target, the target becomes the origin of the owner's space.
+This means that the location, rotation and scale of the owner are offset by the same properties of the target.
+In other words, the owner is transformed when you parent it to your target.
+This might not be desired!
+So, if you want to restore your owner to its before-parenting state, click on the <em>Set Inverse</em> button.</dd>
+<dt>Clear Inverse</dt>
+<dd>This button reverses (cancels) the effects of the above one,
+restoring the owner/child to its default state regarding its target/parent.</dd>
+</dl>
+<div class="section" id="tips">
+<h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
+<p>When creating a new parent relationship using this constraint, it is usually necessary to
+click on the <em>Set Inverse</em> button after assigning the parent. As noted above,
+this cancels out any unwanted transform from the parent, so that the owner returns to
+the location/rotation/scale it was in before the constraint was applied.
+Note that you should apply <em>Set Inverse</em> with all other constraints disabled
+(their <em>Influence</em> set to 0.0) for a particular <em>Child Of</em> constraint,
+and before transforming the target/parent (see example below).</p>
+<p>About the toggle buttons that control which target's (i.e. parent's)
+individual transform properties affect the owner,
+it is usually best to leave them all enabled, or to disable all three of the given Location,
+Rotation and Scale transforms.</p>
+</div>
+</div>
+<div class="section" id="technical-note">
+<h2>Technical Note<a class="headerlink" href="#technical-note" title="Permalink to this headline">¶</a></h2>
+<p>If you use this constraint with all channels on,
+it will use a straight matrix multiplication for the parent relationship,
+not decomposing the parent matrix into loc/rot/size.
+This ensures any transformation correctly gets applied,
+also for combinations of rotated and non-uniform scaled parents.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example1.png" src="../../../_images/rigging_constraints_relationship_child-of_example1.png" />
+<p class="caption"><span class="caption-text">No constraint.</span></p>
+<div class="legend">
+Note the position of Owner empty 1.0 BU along the X and Y axes.</div>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example2.png" src="../../../_images/rigging_constraints_relationship_child-of_example2.png" />
+<p class="caption"><span class="caption-text">Child Of just added.</span></p>
+<div class="legend">
+Here you can see that Owner empty is now 1.0 BU away
+from Target_1 empty along X and Y axes.</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id4">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example3.png" src="../../../_images/rigging_constraints_relationship_child-of_example3.png" />
+<p class="caption"><span class="caption-text">Offset set.</span></p>
+<div class="legend">
+Set Inverse has been clicked, and Owner is back to its original position.</div>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example4.png" src="../../../_images/rigging_constraints_relationship_child-of_example4.png" />
+<p class="caption"><span class="caption-text">Target/parent transformed.</span></p>
+<div class="legend">
+Target_1 has been translated in the XY plane, rotated around the Z axis,
+and scaled along its local X axis.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example5.png" src="../../../_images/rigging_constraints_relationship_child-of_example5.png" />
+<p class="caption"><span class="caption-text">Offset cleared.</span></p>
+<div class="legend">
+Clear Inverse has been clicked. Owner is fully again controlled by Target_1.</div>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../_images/rigging_constraints_relationship_child-of_example6.png" src="../../../_images/rigging_constraints_relationship_child-of_example6.png" />
+<p class="caption"><span class="caption-text">Offset set again.</span></p>
+<div class="legend">
+Set Offset has been clicked again.
+As you can see, it does not gives the same result as in (Target/parent transformed).
+As noted above, use Set Inverse only once, before transforming your target/parent.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<iframe src="https://player.vimeo.com/video/171554131" style="border: 0; height: 345px; width: 560px">
+</iframe></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="floor.html" class="btn btn-neutral float-right" title="Floor Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="action.html" class="btn btn-neutral" title="Action Constraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

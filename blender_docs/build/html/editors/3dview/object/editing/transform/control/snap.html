@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Snapping &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/object/editing/transform/control/snap.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Pivot Point" href="pivot_point/index.html" />
+    <link rel="prev" title="Transform Orientations" href="orientations.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html">3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../startup_scene.html">Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modes.html">Object Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../navigate/index.html">Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../3d_cursor.html">3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">3D View</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Objects</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Editing</a> &raquo;</li>
+        
+          <li><a href="../index.html">Transform</a> &raquo;</li>
+        
+          <li><a href="index.html">Transform Control</a> &raquo;</li>
+        
+      <li>Snapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/editors/3dview/object/editing/transform/control/snap.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="snapping">
+<h1>Snapping<a class="headerlink" href="#snapping" title="Permalink to this headline">¶</a></h1>
+<p>There are two types of snap operations that you can use in Blender. The first type snaps your
+selection or cursor to a given point while the second type is used during transformations
+(translate, rotate, scale) and snaps your selection to elements within the scene.</p>
+<div class="section" id="snap-menu">
+<span id="bpy-ops-view3d-snap"></span><h2>Snap Menu<a class="headerlink" href="#snap-menu" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Object type ‣ Snap</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-S</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <em>Snap</em> menu (also available from the 3D header in both <em>Object Mode</em> and <em>Edit Mode</em>
+<span class="menuselection">Object ‣ Snap</span> and <span class="menuselection">Mesh ‣ Snap</span>).
+This menu provides a number of options to move the cursor or your selection to a defined point
+(the cursor, selection or the grid).</p>
+<dl class="docutils">
+<dt>Selection to Grid</dt>
+<dd>Snaps the currently selected object(s) to the nearest grid point.</dd>
+<dt>Selection to Cursor</dt>
+<dd>Moves each one of the currently selected object(s) to the cursor location.</dd>
+<dt>Selection to Cursor (Offset)</dt>
+<dd>Places the selection at the position of the 3D cursor.
+If there are multiple objects selected, they are not moved individually at the cursor position;
+instead, they are centered around the 3D cursor, maintaining their relative distances.</dd>
+<dt>Selection to Active</dt>
+<dd>Moves the selection to the origin of the active object.</dd>
+<dt>Cursor to Selected</dt>
+<dd>Places the cursor to the center of the current selection, unless see below.</dd>
+<dt>Cursor to Center</dt>
+<dd>Places the cursor to the origin of the world (location 0, 0, 0).</dd>
+<dt>Cursor to Grid</dt>
+<dd>Places the cursor to the nearest grid point.</dd>
+<dt>Cursor to Active</dt>
+<dd>Places the cursor to the origin of the <em>active</em> (last selected) object.</dd>
+</dl>
+<p>The <em>Cursor to Selected</em> option is also affected by the current <a class="reference internal" href="pivot_point/index.html#pivot-point-index"><span class="std std-ref">Pivot Point</span></a>. For example:</p>
+<ul class="simple">
+<li>With the <em>Bounding Box Center</em> pivot point active,
+the <em>Cursor to Selected</em> option will snap the 3D cursor to
+the center of the bounding box surrounding the objects' origins.</li>
+<li>When the <em>Median Point</em> pivot point is selected,
+<em>Cursor to Selected</em> will snap the 3D cursor to
+the <a class="reference external" href="https://en.wikipedia.org/wiki/Median">median</a> of the object origins.</li>
+</ul>
+</div>
+<div class="section" id="transform-snapping">
+<span id="transform-snap"></span><h2>Transform Snapping<a class="headerlink" href="#transform-snapping" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Snap</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The ability to snap Objects and Mesh element to various types of scene elements during
+a transformation is available by toggling the magnet icon (which will turn red)
+in the 3D View's header buttons.</p>
+<div class="figure" id="id1">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_header-magnet-icon.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_header-magnet-icon.png" />
+<p class="caption"><span class="caption-text">Magnet icon in the 3D View header (red when enabled).</span></p>
+</div>
+<div class="section" id="snap-element">
+<span id="transform-snap-element"></span><h3>Snap Element<a class="headerlink" href="#snap-element" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object, Edit, and Pose Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Snap Element</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Ctrl-Tab</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id2">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_element-menu.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_element-menu.png" />
+<p class="caption"><span class="caption-text">Snap Element menu.</span></p>
+</div>
+<dl class="docutils">
+<dt>Volume</dt>
+<dd>Snaps to regions within the volume of the first Object found below the mouse cursor.
+Unlike the other options, this one controls the depth
+(i.e. Z coordinates in current view space) of the transformed element.
+By toggling the button that appears to the right of the snap target menu (see below),
+target objects will be considered as a whole when determining the volume center.</dd>
+<dt>Face</dt>
+<dd>Snap to the surfaces of faces in mesh objects. Useful for retopologizing.</dd>
+<dt>Edge</dt>
+<dd>Snap to edges of mesh objects.</dd>
+<dt>Vertex</dt>
+<dd>Snap to vertices of mesh objects.</dd>
+<dt>Increment</dt>
+<dd><p class="first">Snap to grid points. When in Orthographic view, the snapping increment changes depending on zoom level.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">In this context the grid does not mean the visual grid cue displayed.
+Snapping will use the resolution of the displayed grid,
+but all transformations are relative to the initial position (before the snap operation).</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="snap-target">
+<h3>Snap Target<a class="headerlink" href="#snap-target" title="Permalink to this headline">¶</a></h3>
+<p>Snap target options become active when either <em>Vertex</em>, <em>Edge</em>,
+<em>Face</em>, or <em>Volume</em> is selected as the snap element.
+These determine what part of the selection snaps to the target objects.</p>
+<dl class="docutils">
+<dt>Active</dt>
+<dd>Moves the active element (vertex in Edit Mode, object in Object Mode) to the target.</dd>
+<dt>Median</dt>
+<dd>Moves the median of the selection to the target.</dd>
+<dt>Center</dt>
+<dd>Moves the current transformation center to the target. Can be used with 3D cursor to snap with an offset.</dd>
+<dt>Closest</dt>
+<dd>Moves the closest point of the selection to the target.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-closest.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-closest.png" />
+<p class="caption"><span class="caption-text">Closest.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-active.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-active.png" />
+<p class="caption"><span class="caption-text">Active.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-median.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-median.png" />
+<p class="caption"><span class="caption-text">Median.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="additional-snap-options">
+<h3>Additional Snap Options<a class="headerlink" href="#additional-snap-options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id6">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-object-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-object-mode.png" />
+<p class="caption"><span class="caption-text">In Object Mode.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-edit-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_options-edit-mode.png" />
+<p class="caption"><span class="caption-text">In Edit Mode.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>As seen by the yellow highlighted areas in the image above,
+additional controls are available to alter snap behavior. These options vary between mode
+(Object and Edit) as well as Snap Element. The four options available are:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Icon</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-rotation.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Align rotation with the snapping target.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-project.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Project individual elements on the surface of other objects.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-self.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Snaps elements to its own mesh.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-whole.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Consider Objects as whole when finding volume center.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_option-icon-absolute.png" style="width: 42px;" /></a>
+</div>
+</td>
+<td>Snap to grid, instead of snapping in increments relative to the current location.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="multiple-snap-targets">
+<h4>Multiple Snap Targets<a class="headerlink" href="#multiple-snap-targets" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id8">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-multiple.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_snap_target-multiple.png" />
+<p class="caption"><span class="caption-text">Multiple snapping targets.</span></p>
+</div>
+<p>Once transforming a selection with Snapping on (not just when holding <kbd class="kbd docutils literal notranslate">Ctrl</kbd>),
+you can press <kbd class="kbd docutils literal notranslate">A</kbd> to mark the current snapping point, then proceed to mark as many other
+snapping points as you wish and the selection will be snapped to the average location of all
+the marked points.</p>
+<p>Marking a point more than once will give it more weight in the averaged location.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pivot_point/index.html" class="btn btn-neutral float-right" title="Pivot Point" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="orientations.html" class="btn btn-neutral" title="Transform Orientations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

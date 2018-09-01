@@ -1,0 +1,589 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Specular Shaders &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/properties/specular_shaders.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Color Ramps" href="ramps.html" />
+    <link rel="prev" title="Diffuse Shaders" href="diffuse_shaders.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Material Properties</a> &raquo;</li>
+        
+      <li>Specular Shaders</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/properties/specular_shaders.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="specular-shaders">
+<span id="bpy-types-material-specular"></span><h1>Specular Shaders<a class="headerlink" href="#specular-shaders" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Specular</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Specular shaders create the bright highlights that one would see on a glossy surface,
+mimicking the reflection of light sources.
+Unlike <a class="reference internal" href="diffuse_shaders.html"><span class="doc">diffuse shading</span></a>,
+specular reflection is <em>viewpoint dependent</em>.
+According to Snell's Law, light striking a specular surface will be reflected at an angle which mirrors
+the incident light angle (with regard to the surface's normal),
+which makes the viewing angle very important.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Not a Mirror!</p>
+<p class="last">It is important to stress that the <em>specular reflection</em>
+phenomenon discussed here is not the reflection we would see in a mirror,
+but rather the light highlights we would see on a glossy surface.
+To obtain true mirror-like reflections you would need to use the internal ray tracer.</p>
+</div>
+<div class="section" id="common-options">
+<h2>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>Each specular shader share the following common options:</p>
+<dl class="docutils">
+<dt>Specular Color</dt>
+<dd>The color of the specular highlight.</dd>
+<dt>Intensity</dt>
+<dd>The intensity, or brightness of the specular highlight. This has a range of [0-1].</dd>
+<dt>Ramp</dt>
+<dd>Allows you to set a range of specular colors for <em>Material</em>,
+and define how the range will vary over a surface.
+See <a class="reference internal" href="ramps.html"><span class="doc">Ramps</span></a> for details.</dd>
+</dl>
+<p>As a result, a material has at least two different colors, a diffuse, and a specular one.
+The specular color is normally set to pure white
+(the same &quot;pure white&quot; as the reflected light source),
+but it can be set to different values for various effects
+(e.g. metals tend to have colored highlights).</p>
+<div class="section" id="technical-details">
+<h3>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_reflection.svg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_reflection.svg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_reflection.svg" width="480px" /></a>
+<p class="caption"><span class="caption-text">Specular reflection.</span></p>
+</div>
+<p>In reality, the quality of Diffuse and Specular reflection are generated during the same
+process of light scattering, but are not the same.
+Diffusion is actually subsurface scattering at a very small scale.</p>
+<p>Imagine that a surface is made up of extremely microscopic semitransparent,
+reflective facets. The sharpness of Specular reflection is determined by the distribution of
+the angle of these microfacets on the surface of an object.
+The more deep and jagged these facets are,
+the more the light spreads when it hits the surface.
+When these facets are flatter against the &quot;macrosurface&quot;,
+the surface will have a tighter reflection, closer to a mirror.
+This is a condensed explanation of the generally accepted microfacet theory of reflectance,
+which is the basis of all modern <abbr title="Bidirectional Reflectance Distribution Function">BRDF</abbr>s,
+or shading models.</p>
+<p>Because these microfacets are transparent,
+some light that hits them travels into the surface and diffuses.
+The light that makes it back out is roughly Lambertian most of the time,
+meaning that it spreads evenly in all directions.
+It is also attenuated by the pigmentation in the surface,
+hence creating what we perceive as diffuse, and the color of an object.</p>
+<p>Note that at glancing angles, the reflectivity of a surface will always go to 1.</p>
+<p>If it is difficult for you to understand this relationship, try to imagine a ball
+(say, of centimeter scale): if you throw it against a wall of raw stones
+(with a scale of roughness of a decimeter), it will bounce in a different direction each time,
+and you will likely quickly lose it! On the other hand,
+if you throw it against a smooth concrete wall (with a roughness of, say, a millimeter scale),
+you can quite easily anticipate its bounce, which follow (more or less!)
+the same law as the light reflection.</p>
+</div>
+</div>
+<div class="section" id="cook-torrance">
+<h2>Cook-Torrance<a class="headerlink" href="#cook-torrance" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Shaders</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_cooktorr.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_cooktorr.jpg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_cooktorr.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Cook-Torrance Shader (Lambert 0.8).</span></p>
+</div>
+<p>Cook-Torrance
+is a basic specular shader that is most useful for creating shiny plastic surfaces.
+It is a slightly optimized version of Phong.
+Robert L. Cook (LucasFilm) and Kenneth E. Torrance (Cornell University) In their 1982 paper
+<a class="reference external" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.83.7263&amp;rep=rep1&amp;type=pdf">A Reflectance Model for Computer Graphics</a>
+(PDF),
+they described &quot;a new reflectance model for rendering computer synthesized images&quot;
+and applied it to the simulation of metal and plastic.</p>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Hardness</dt>
+<dd>Size of the specular highlight.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="phong">
+<h2>Phong<a class="headerlink" href="#phong" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Shaders</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_phong.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_phong.jpg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_phong.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Phong Shader (Lambert 0.8).</span></p>
+</div>
+<p>Phong is a basic shader that is very similar to Cook-Torr,
+but is better for skin and organic surfaces.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bui_Tuong_Phong">Bui Tuong Phong</a> (1942-1975)
+was a Vietnamese-born computer graphics pioneer that developed the first algorithm for
+simulating specular phenomenon.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Phong_reflection_model">His model</a>
+included components not only for specular lighting, but also diffuse and ambient lighting.</p>
+<div class="section" id="id1">
+<h3>Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Hardness</dt>
+<dd>Size of the specular highlight.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Planet Atmosphere</p>
+<p class="last">Because of its fuzziness, this shader is good for atmosphere around a planet.
+Add a sphere around the planet, slightly larger than the planet.
+For its material, use a phong specular shader.
+Set it to a very low alpha (.05), zero diffuse, low hardness (5) but high specularity (1).</p>
+</div>
+</div>
+</div>
+<div class="section" id="blinn">
+<h2>Blinn<a class="headerlink" href="#blinn" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Shaders</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_blinn.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_blinn.jpg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_blinn.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Blinn Shader (Oren-Nayar Int 0.8, Rough 0.5).</span></p>
+</div>
+<p>Blinn is a more 'physical' specular shader, often used with the Oren-Nayar diffuse shader.
+It can be more controllable because it adds a fourth option, an <a class="reference internal" href="../../../../glossary/index.html#term-index-of-refraction"><span class="xref std std-term">index of refraction</span></a>,
+to the aforementioned three.
+<a class="reference external" href="https://en.wikipedia.org/wiki/Jim_Blinn">James F. Blinn</a>
+worked at NASA's Jet Propulsion Laboratory and became widely known for his work
+on Carl Sagan's TV documentary <em>Cosmos</em>. The model he described in his 1977 paper
+<a class="reference external" href="https://www.microsoft.com/en-us/research/publication/models-of-light-reflection-for-computer-synthesized-pictures/">Models of Light Reflection for Computer Synthesized Pictures</a>
+(PDF) included changes in specular intensity with light
+direction and more accurately positioned highlights on a surface.</p>
+<div class="section" id="id2">
+<h3>Options<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Hardness</dt>
+<dd>Size of the specular highlight.
+The Blinn shader is capable of much tighter specular highlights than Phong or Cook-Torr.</dd>
+<dt>IOR</dt>
+<dd>'Index of Refraction'.
+This parameter is not actually used to compute refraction of light rays through the material
+(a ray tracer is needed for that),
+but to correctly compute specular reflection intensity and extension via Snell's Law.</dd>
+</dl>
+</div>
+<div class="section" id="toon">
+<h3>Toon<a class="headerlink" href="#toon" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Shaders</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_toonspec.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_toonspec.jpg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_toonspec.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Toon Specular Shader (Toon Diffuse, Int 0.8, Size &amp; Smooth match).</span></p>
+</div>
+<p>The Toon specular shader matches the Toon diffuse shader. It is designed to produce the sharp,
+uniform highlights of cartoon cels.</p>
+</div>
+<div class="section" id="id3">
+<h3>Options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Size</dt>
+<dd>Size of the specular highlight.</dd>
+<dt>Smooth</dt>
+<dd>Softness of the highlight's edge.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Alternative Method</p>
+<p class="last">The Toon shader effect can also be accomplished in a more controllable way using color ramps.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ward-isotropic">
+<h2>Ward Isotropic<a class="headerlink" href="#ward-isotropic" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Shaders</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_properties_specular-shaders_wardiso.jpg"><img alt="../../../../_images/render_blender-render_materials_properties_specular-shaders_wardiso.jpg" src="../../../../_images/render_blender-render_materials_properties_specular-shaders_wardiso.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Ward isotropic Shader.</span></p>
+</div>
+<p>Ward isotropic is a flexible specular shader that can be useful for metal or plastic.</p>
+<dl class="docutils">
+<dt>Gregory J. Ward</dt>
+<dd>developed a relatively simple model that obeyed the most basic laws of physics. In his 1992 paper,
+&quot;Measuring and modeling anisotropic reaction&quot;, Ward introduced a Bidirectional Reflectance Distribution Function
+(BRDF) since then widely used in computer graphics because the few parameters it uses are simple to control.
+His model could represent both isotropic surfaces (independent of light direction) and anisotropic surfaces
+(direction dependent). In Blender,
+the Ward specular shader is still called &quot;Ward Isotropic&quot; but is actually anisotropic.
+(<a class="reference external" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.69.6812&amp;rep=rep1&amp;type=pdf">PDF</a>).</dd>
+</dl>
+<div class="section" id="id4">
+<h3>Options<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Slope</dt>
+<dd>Standard deviation for of surface slope.
+Previously known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Root_mean_square">root-mean-square</a> or rms value,
+this parameter in effect controls the size of the specular highlight,
+though using a different method to that of the other specular shaders.
+It is capable of extremely sharp highlights.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ramps.html" class="btn btn-neutral float-right" title="Color Ramps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="diffuse_shaders.html" class="btn btn-neutral" title="Diffuse Shaders" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

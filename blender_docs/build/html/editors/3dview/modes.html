@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Object Modes &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/modes.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Navigating" href="navigate/index.html" />
+    <link rel="prev" title="Startup Scene" href="startup_scene.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="startup_scene.html">Startup Scene</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Object Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="navigate/index.html">Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3d_cursor.html">3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object/index.html">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">3D View</a> &raquo;</li>
+        
+      <li>Object Modes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/3dview/modes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-modes">
+<h1>Object Modes<a class="headerlink" href="#object-modes" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id11">
+<span id="fig-view3d-mode-select"></span><img alt="../../_images/editors_3dview_modes_menu.png" src="../../_images/editors_3dview_modes_menu.png" />
+<p class="caption"><span class="caption-text">The Mode select menu.</span></p>
+</div>
+<p><em>Modes</em> are a Blender-level object-oriented feature,
+which means that whole Blender application is always in a singular mode,
+and that the available modes vary depending on the selected active object's type --
+most of them only enable the default <em>Object Mode</em> (like cameras, lamps, etc.).
+Each mode is designed to edit an aspect of the selected object.
+See Tab. <a class="reference internal" href="#tab-view3d-modes"><span class="std std-ref">Blender's Modes</span></a> below for details.</p>
+<p>You set the current mode in the <em>Mode</em> selector of <em>3D View</em> header
+(see Fig. <a class="reference internal" href="#fig-view3d-mode-select"><span class="std std-ref">The Mode select menu.</span></a>).</p>
+<div class="lead docutils container">
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">You can only select objects in <em>Object Mode</em>.
+In all others, the current object selection is &quot;locked&quot;
+(except, to some extent, with an armature's <em>Pose Mode</em>).</p>
+</div>
+<p>Modes might affect many things in Blender:</p>
+<ul class="simple">
+<li>They can modify the panels and/or controls available in some Properties editor tabs.</li>
+<li>They can modify the behavior of the whole editor, like e.g.
+the <em>UV/Image Editor</em> and <em>3D View</em>.</li>
+<li>They can modify the available header tools (menus and/or menu entries, as well as other controls...).
+For example, in the <em>3D View</em> editor, the <em>Object</em> menu in <em>Object Mode</em> changes to a <em>Mesh</em> menu in
+<em>Edit Mode</em> (with an active mesh object!), and a <em>Paint</em> menu in <em>Vertex Paint Mode</em>...</li>
+</ul>
+<span id="tab-view3d-modes"></span><table border="1" class="colwidths-given valign docutils" id="id12">
+<caption><span class="caption-text">Blender's Modes</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="10%" />
+<col width="24%" />
+<col width="16%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Icon</th>
+<th class="head">Name</th>
+<th class="head">Shortcut</th>
+<th class="head">Details</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-object-mode.png" src="../../_images/editors_3dview_modes_icons-object-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="object/index.html"><span class="doc">Object Mode</span></a></td>
+<td><em>None</em> <a class="footnote-reference" href="#id9" id="id1">[1]</a></td>
+<td>The default mode, available for all object types,
+as it is dedicated to <em>Object</em> data-block editing (e.g. position, rotation, size).</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-edit-mode.png" src="../../_images/editors_3dview_modes_icons-edit-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../modeling/index.html"><span class="doc">Edit Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Tab</kbd> <a class="footnote-reference" href="#id9" id="id2">[1]</a></td>
+<td>A mode available for all renderable object types,
+as it is dedicated to their &quot;shape&quot; <em>Object Data</em> data-block editing
+(e.g. vertices/edges/faces for meshes, control points for curves/surfaces, etc.).</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-sculpt-mode.png" src="../../_images/editors_3dview_modes_icons-sculpt-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/sculpting/index.html"><span class="doc">Sculpt Mode</span></a></td>
+<td><em>None</em> <a class="footnote-reference" href="#id9" id="id3">[1]</a></td>
+<td>A mesh-only mode, that enables Blender's mesh 3D-sculpting tool.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-vertex-paint.png" src="../../_images/editors_3dview_modes_icons-vertex-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/vertex_paint/index.html"><span class="doc">Vertex Paint Mode</span></a></td>
+<td><em>None</em> <a class="footnote-reference" href="#id9" id="id4">[1]</a></td>
+<td>A mesh-only mode, that allows you to set your mesh's vertices colors (i.e. to &quot;paint&quot; them).</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-weight-paint.png" src="../../_images/editors_3dview_modes_icons-weight-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/weight_paint/index.html"><span class="doc">Weight Paint Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> <a class="footnote-reference" href="#id10" id="id5">[2]</a></td>
+<td>A mesh-only mode, dedicated to vertex group weighting.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-texture-paint.png" src="../../_images/editors_3dview_modes_icons-texture-paint.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../sculpt_paint/painting/texture_paint/index.html"><span class="doc">Texture Paint Mode</span></a></td>
+<td><em>None</em> <a class="footnote-reference" href="#id9" id="id6">[1]</a></td>
+<td>A mesh-only mode, that allows you to paint your mesh's texture directly on the model, in the 3D Views.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-particle-edit.png" src="../../_images/editors_3dview_modes_icons-particle-edit.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../physics/particles/mode.html"><span class="doc">Particle Edit Mode</span></a></td>
+<td><em>None</em> <a class="footnote-reference" href="#id9" id="id7">[1]</a></td>
+<td>A mesh-only mode, dedicated to particle systems, useful with editable systems (hair).</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-pose-mode.png" src="../../_images/editors_3dview_modes_icons-pose-mode.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../rigging/armatures/posing/index.html"><span class="doc">Pose Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> <a class="footnote-reference" href="#id10" id="id8">[2]</a></td>
+<td>An armature only mode, dedicated to armature posing.</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure">
+<img alt="../../_images/editors_3dview_modes_icons-grease-pencil.png" src="../../_images/editors_3dview_modes_icons-grease-pencil.png" />
+</div>
+</td>
+<td><a class="reference internal" href="../../interface/grease_pencil/stroke_edit.html"><span class="doc">Edit Strokes Mode</span></a></td>
+<td><kbd class="kbd docutils literal notranslate">D-Tab</kbd></td>
+<td>A Grease Pencil only mode, dedicated to editing Grease Pencil strokes.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id2">2</a>, <a class="fn-backref" href="#id3">3</a>, <a class="fn-backref" href="#id4">4</a>, <a class="fn-backref" href="#id6">5</a>, <a class="fn-backref" href="#id7">6</a>)</em> <kbd class="kbd docutils literal notranslate">Tab</kbd> toggles <em>Edit Mode</em>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd> switches between the <em>Weight Paint Mode</em> (meshes)/<em>Pose Mode</em> (armatures),
+and the other current one (by default, the <em>Object Mode</em>).
+However, the same shortcut has other, internal meanings in some modes
+(e.g. in <em>Sculpt Mode</em>, it is used to select the current brush)...</td></tr>
+</tbody>
+</table>
+<p>As you can see, using shortcuts to switch between modes can become quite tricky, especially with meshes.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The cursor becomes a brush in <a class="reference internal" href="../../sculpt_paint/index.html"><span class="doc">Paint and Sculpt Modes</span></a>.</p>
+</div>
+<p>We will not go into any more detail on mode usages here, because most of them
+are tackled in their specific section.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">If you are reading this manual and some button or menu option is referenced that does not appear on your screen,
+it may be that you are not in the proper mode for that option to be valid.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="navigate/index.html" class="btn btn-neutral float-right" title="Navigating" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="startup_scene.html" class="btn btn-neutral" title="Startup Scene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Navigation &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/navigation.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Walk/Fly Mode" href="walk_fly.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../startup_scene.html">Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../modes.html">Object Modes</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../3d_cursor.html">3D Cursor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../object/index.html">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">3D View</a> &raquo;</li>
+        
+          <li><a href="index.html">Navigating</a> &raquo;</li>
+        
+      <li>Navigation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/3dview/navigate/navigation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="navigation">
+<h1>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h1>
+<p>Navigating in the 3D space is done with the use of both mouse movement and keyboard shortcuts.</p>
+<p>To be able to work in the three-dimensional space that Blender uses,
+you must be able to change your viewpoint as well as the viewing direction of the scene.
+While we will describe the <em>3D View</em> editor, most of the other editors have similar functions.
+For example, it is possible to translate and zoom in the UV/Image editor.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Mouse Buttons and Numpad</p>
+<p class="last">If you have a mouse with less than three buttons or a keyboard without a numpad,
+see the <a class="reference internal" href="../../../getting_started/installing/configuration/hardware.html"><span class="doc">Keyboard and Mouse</span></a>
+page of the manual to learn how to use them with Blender.</p>
+</div>
+<div class="section" id="orbit">
+<h2>Orbit<a class="headerlink" href="#orbit" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Navigation ‣ Orbit</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">MMB</kbd>, <kbd class="kbd docutils literal notranslate">Numpad2</kbd>, <kbd class="kbd docutils literal notranslate">Numpad4</kbd>, <kbd class="kbd docutils literal notranslate">Numpad6</kbd>,
+<kbd class="kbd docutils literal notranslate">Numpad8</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Wheel</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Alt-Wheel</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Rotate the view around the point of interest.
+Click and drag <kbd class="kbd docutils literal notranslate">MMB</kbd> on the viewport's area.
+If you start in the middle of the area and move up and down or left and right,
+the view is rotated around the middle of the area.</p>
+<p>To change the viewing angle in discrete steps, use <kbd class="kbd docutils literal notranslate">Numpad8</kbd> and <kbd class="kbd docutils literal notranslate">Numpad2</kbd> or <kbd class="kbd docutils literal notranslate">Shift-Alt-Wheel</kbd>
+(which correspond to vertical <kbd class="kbd docutils literal notranslate">MMB</kbd> dragging, from any viewpoint),
+or use <kbd class="kbd docutils literal notranslate">Numpad4</kbd> and <kbd class="kbd docutils literal notranslate">Numpad6</kbd> (or <kbd class="kbd docutils literal notranslate">Ctrl-Alt-Wheel</kbd>)
+to rotate the scene around the global Z axis from your current point of view.
+Finally <kbd class="kbd docutils literal notranslate">Numpad9</kbd> switches to the opposite side of the view.</p>
+<p>Alternatively, if the <em>Emulate 3 button mouse</em> option is select in the <em>User Preferences</em>
+you can press and hold <kbd class="kbd docutils literal notranslate">Alt</kbd> while dragging <kbd class="kbd docutils literal notranslate">LMB</kbd> in the viewport's area.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Hotkeys</p>
+<p class="last">Remember that most hotkeys affect the <strong>active</strong> area (the one that has focus),
+so check that the mouse cursor is in the area you want to work in before you use the hotkeys.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../../../preferences/input.html#prefs-input-orbit-style"><span class="std std-ref">Orbit Style Preference</span></a></li>
+<li><a class="reference internal" href="../../../preferences/interface.html#prefs-interface-auto-perspective"><span class="std std-ref">Auto-Perspective Preference</span></a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="roll">
+<h2>Roll<a class="headerlink" href="#roll" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Navigation ‣ Roll</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Numpad4</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Numpad6</kbd>, <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Wheel</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Rotate the viewport camera around its local Z axis in 15° discrete steps.</p>
+</div>
+<div class="section" id="panning">
+<h2>Panning<a class="headerlink" href="#panning" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Navigation ‣ Pan</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-MMB</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Numpad2</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Numpad4</kbd>,
+<kbd class="kbd docutils literal notranslate">Ctrl-Numpad6</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Numpad8</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moves the view up, down, left and right.
+To pan the view, hold down <kbd class="kbd docutils literal notranslate">Shift</kbd> and drag <kbd class="kbd docutils literal notranslate">MMB</kbd> in the 3D View.
+For discrete steps, use the hotkeys <kbd class="kbd docutils literal notranslate">Ctrl-Numpad8</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Numpad2</kbd>,
+<kbd class="kbd docutils literal notranslate">Ctrl-Numpad4</kbd> and <kbd class="kbd docutils literal notranslate">Ctrl-Numpad6</kbd> as with orbiting
+(note: you can replace <kbd class="kbd docutils literal notranslate">Ctrl</kbd> by <kbd class="kbd docutils literal notranslate">Shift</kbd>).</p>
+<p>For those without a middle mouse button,
+you can hold <kbd class="kbd docutils literal notranslate">Shift-Alt</kbd> while dragging with <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+</div>
+<div class="section" id="zooming">
+<h2>Zooming<a class="headerlink" href="#zooming" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Navigation ‣ Zoom</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd>, <kbd class="kbd docutils literal notranslate">Wheel</kbd>, <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd>, <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moves the camera forwards and backwards.
+You can zoom in and out by holding down <kbd class="kbd docutils literal notranslate">Ctrl</kbd> and dragging <kbd class="kbd docutils literal notranslate">MMB</kbd>.
+The hotkeys are <kbd class="kbd docutils literal notranslate">NumpadPlus</kbd> and <kbd class="kbd docutils literal notranslate">NumpadMinus</kbd>.
+The <span class="menuselection">View ‣ Navigation</span> submenu holds these functions too as well.
+Refer to the 3D View's <em>View</em> menu image above for more information.
+If you have a wheel mouse, you can zoom by rotating the <kbd class="kbd docutils literal notranslate">Wheel</kbd>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>If You Get Lost</p>
+<p class="last">If you get lost in 3D space, which is not uncommon, two hotkeys will help you:
+<kbd class="kbd docutils literal notranslate">Home</kbd> changes the view so that you can see all objects <span class="menuselection">View ‣ View All</span>,
+while <kbd class="kbd docutils literal notranslate">NumpadPeriod</kbd> zooms the view to the currently selected objects when in perspective mode
+<span class="menuselection">View ‣ View Selected</span>.</p>
+</div>
+<div class="section" id="zoom-border">
+<span id="dview-nav-zoom-border"></span><h3>Zoom Border<a class="headerlink" href="#zoom-border" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Zoom Border</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-B</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <em>Zoom Border</em> tool allows you to specify a rectangular region and zoom in so
+that the region fills the 3D View.</p>
+<p>You can access this through the <em>View</em> menu, or the shortcut <kbd class="kbd docutils literal notranslate">Shift-B</kbd>,
+then <kbd class="kbd docutils literal notranslate">LMB</kbd> click and drag a rectangle to zoom into.</p>
+<p>Alternatively you can zoom out using the <kbd class="kbd docutils literal notranslate">MMB</kbd>.</p>
+</div>
+<div class="section" id="dolly-zoom">
+<span id="dview-nav-zoom-dolly"></span><h3>Dolly Zoom<a class="headerlink" href="#dolly-zoom" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-Ctrl-MMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In most cases its sufficient to zoom the view to get a closer look at something,
+however, you may notice that at a certain point you cannot zoom any closer.</p>
+<p>This is because Blender stores a view-point that is used for orbiting and zooming.
+It works well in many cases, but sometimes you want to move the view-point to a different place.
+This is what Dolly supports, allowing you to transport the view from one place to another.</p>
+<p>You can dolly back and forth by holding down <kbd class="kbd docutils literal notranslate">Shift-Ctrl</kbd> and dragging <kbd class="kbd docutils literal notranslate">MMB</kbd>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="walk_fly.html" class="btn btn-neutral float-right" title="Walk/Fly Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

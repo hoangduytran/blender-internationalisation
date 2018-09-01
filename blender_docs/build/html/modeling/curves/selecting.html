@@ -1,0 +1,487 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Selecting &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/curves/selecting.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Editing" href="editing/index.html" />
+    <link rel="prev" title="Primitives" href="primitives.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Curves</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Selecting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#select-menu">Select Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-linked">Select Linked</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-similar">Select Similar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shortest-path">Shortest Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-deselect-first-last">Select/Deselect First/Last</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-next-previous">Select Next/Previous</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#select-more-less">Select More/Less</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="editing/index.html">Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="curve_display.html">Curve Display</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Empties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="index.html">Curves</a> &raquo;</li>
+        
+      <li>Selecting</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/curves/selecting.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="selecting">
+<h1>Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h1>
+<p>Curve selection in <em>Edit Mode</em> has fewer options than with meshes.
+Mainly this is, because there is only one selectable element type, the control points
+(no select mode needed here...). These points are a bit more complex than simple vertices,
+however, especially for Béziers, as there is the central vertex, and its two handles...</p>
+<p>The basic tools are the same as with <a class="reference internal" href="../meshes/selecting/introduction.html"><span class="doc">meshes</span></a>,
+so you can select a simple control point with the <kbd class="kbd docutils literal notranslate">RMB</kbd>,
+add to current selection with <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd>, Border Select <kbd class="kbd docutils literal notranslate">B</kbd>, and so on.</p>
+<p>One word about the Bézier control points: when you select the main central vertex,
+the two handles are automatically selected too, so you can grab it as a whole,
+without creating an angle in the curve. However, when you select a handle,
+only this vertex is selected, allowing you to modify this control vector...</p>
+<p>Note that, unlike mesh edges, you cannot directly select a segment. Instead,
+select all of the control points that make up the segment you want to edit.</p>
+<div class="section" id="select-menu">
+<h2>Select Menu<a class="headerlink" href="#select-menu" title="Permalink to this headline">¶</a></h2>
+<p>With curves, all &quot;advanced&quot; selection options are regrouped in the <em>Select</em> menu of
+the 3D Views header. Let us detail them:</p>
+<ul class="simple">
+<li>Random...</li>
+<li>Inverse</li>
+<li>Select/Deselect All</li>
+</ul>
+<dl class="docutils">
+<dt>Border/Circle Select</dt>
+<dd>All these options have the same meaning and behavior as in
+<a class="reference internal" href="../../editors/3dview/object/selecting/tools.html"><span class="doc">Object Mode</span></a>
+(and the specifics of <em>Border Select</em> in <em>Edit Mode</em> have already been discussed
+<a class="reference internal" href="../meshes/selecting/introduction.html"><span class="doc">here</span></a>).</dd>
+</dl>
+</div>
+<div class="section" id="select-linked">
+<h2>Select Linked<a class="headerlink" href="#select-linked" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select Linked</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">L</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-L</kbd>, <kbd class="kbd docutils literal notranslate">Shift-L</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><kbd class="kbd docutils literal notranslate">L</kbd> (or <kbd class="kbd docutils literal notranslate">Ctrl-L</kbd> for all) will add to the selection the cursor's nearest control point,
+and all the linked ones, i.e. all points belonging to the same curve. Note that for Bézier,
+using <kbd class="kbd docutils literal notranslate">L</kbd> with a handle selected will select the whole control point and all the linked ones.</p>
+</div>
+<div class="section" id="select-similar">
+<h2>Select Similar<a class="headerlink" href="#select-similar" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select Similar</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Selects control points that have certain similar properties to the active one.
+The Operator panel provides several selection options:</p>
+<dl class="docutils">
+<dt>Type</dt>
+<dd><dl class="first last docutils">
+<dt>Type</dt>
+<dd>Selects splines that have the same spline Type i.e. Bézier, NURBS or Poly.</dd>
+<dt>Radius</dt>
+<dd>Selects control points that have a similar Radius value.</dd>
+<dt>Weight</dt>
+<dd>Selects all points that have a similar Weight value.</dd>
+<dt>Direction</dt>
+<dd>Selects control points that have a similar handles direction.</dd>
+</dl>
+</dd>
+<dt>Compare</dt>
+<dd>Equal, Greater, Less. (only for Radius, Weight) (ToDo 2.76)</dd>
+<dt>Threshold</dt>
+<dd>Precision (ToDo 2.76)</dd>
+</dl>
+</div>
+<div class="section" id="shortest-path">
+<h2>Shortest Path<a class="headerlink" href="#shortest-path" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Operator Search ‣ Pick Shortest Path</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-RMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Selects the curve segments between two control points: the active and the one under the cursor.
+In the case of a closed curve, the shortest path will be selected.</p>
+</div>
+<div class="section" id="select-deselect-first-last">
+<h2>Select/Deselect First/Last<a class="headerlink" href="#select-deselect-first-last" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select/Deselect First</span>,
+<span class="menuselection">Select ‣ Select/Deselect Last</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These operators will toggle the selection of the first or last control point(s) of the curve(s)
+in the object. This is useful to quickly find the start of a curve
+(e.g. when using it as path...).</p>
+</div>
+<div class="section" id="select-next-previous">
+<h2>Select Next/Previous<a class="headerlink" href="#select-next-previous" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ Select Next</span>, <span class="menuselection">Select ‣ Select Previous</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>These operators will select the next or previous control point(s),
+based on the current selection
+(i.e. the control points following or preceding the selected ones along the curve).
+In case of a cyclic curve, the first and last points are not considered as neighbors.</p>
+</div>
+<div class="section" id="select-more-less">
+<h2>Select More/Less<a class="headerlink" href="#select-more-less" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Select ‣ More/Less</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-NumpadPlus</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-NumpadMinus</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Their purpose, based on the currently selected control points, is to reduce or enlarge this selection.</p>
+<dl class="docutils">
+<dt>More</dt>
+<dd>For each selected control point, select <em>all</em> its linked points (i.e. one or two...).</dd>
+<dt>Less</dt>
+<dd>For each selected control point, if <em>all</em> points linked to this point are selected, keep this one selected.
+Otherwise, de-select it.</dd>
+</dl>
+<p>This implies two points:</p>
+<ol class="arabic simple">
+<li>When <em>all</em> control points of a curve are selected, nothing will happen
+(as for <em>Less</em>, all linked points are always selected, and of course, <em>More</em> cannot add any).
+Conversely, the same goes when no control points are selected.</li>
+<li>Second, these tools will never &quot;go outside&quot; of a curve
+(they will never &quot;jump&quot; to another curve in the same object).</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="editing/index.html" class="btn btn-neutral float-right" title="Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="primitives.html" class="btn btn-neutral" title="Primitives" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

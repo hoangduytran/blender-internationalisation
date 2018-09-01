@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lighting Rigs &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/lighting/lighting_rigs.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="World" href="../world/index.html" />
+    <link rel="prev" title="Area Ray-Traced Shadows" href="lamps/area/raytraced_shadows.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Lighting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lights/index.html">Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shadows/index.html">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lamps/index.html">Lamp Types</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Lighting</a> &raquo;</li>
+        
+      <li>Lighting Rigs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/lighting/lighting_rigs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lighting-rigs">
+<h1>Lighting Rigs<a class="headerlink" href="#lighting-rigs" title="Permalink to this headline">¶</a></h1>
+<p>A rig is a standard setup and combination of objects; there can be lighting rigs,
+or armature rigs, etc.
+A rig provides a basic setup and allows you to start from a known point and go from there.
+Different rigs are used for different purposes and emulate different conditions;
+the rig you start with depends on what you want to convey in your scene.
+Lighting can be very confusing, and the defaults do not give good results. Further,
+very small changes can have a dramatic effect on the mood and colors.</p>
+<p>In all the lighting rigs,
+the default camera is always positioned nearly 15 degrees off dead-on, about 25 BU
+(Blender Units) back and 9 BU to the side of the subject, at eye level,
+and uses a long lens of 80 mm. Up close, a 35 mm lens will distort the image.
+A long lens takes in more of the scene.
+A dead-on camera angle is too dramatic and frames too wide a scene to take in.
+So now you know; next time you go to a play, sit off-center and you will not miss the action
+happening on the sidelines and will have a greater appreciation for the depth of the set.
+Anyway, enough about camera angles; this is about lighting.</p>
+<div class="section" id="environment-or-ambient-only">
+<h2>Environment or Ambient Only<a class="headerlink" href="#environment-or-ambient-only" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_eniviroment.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_eniviroment.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_eniviroment.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Environment (Ambient) lighting only.</span></p>
+</div>
+<p>In the <em>World</em> tab, there is a panel <em>Environment Lighting</em>,
+where you enable environment or ambient lighting of your scene. Ambient light is the scattered
+light that comes from sunlight being reflected off every surface it hits, hitting your object,
+and traveling to camera.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_ao.jpg"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_ao.jpg" src="../../../_images/render_blender-render_lighting_lighting-rigs_ao.jpg" style="width: 256px;" /></a>
+<p class="caption"><span class="caption-text">Ambient occlusion.</span></p>
+</div>
+<p>Ambient light illuminates, in a perfectly balanced, shadeless way, without casting shadows.
+You can vary the intensity of the ambient light across your scene via
+<a class="reference internal" href="../world/ambient_occlusion.html"><span class="doc">ambient occlusion</span></a>. The ambient color is a sunny white.</p>
+</div>
+<div class="section" id="single-rig">
+<h2>Single Rig<a class="headerlink" href="#single-rig" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_spot.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_spot.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_spot.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Standard Spotlight rig.</span></p>
+</div>
+<p>The sole, or key, spotlight rig provides a dramatic, showy,
+yet effective illumination of one object or a few objects close together.
+It is a single <em>Spot</em> light, usually with a hard edge.
+Halos are enabled in this render to remind you of a smoky nightclub scene.
+It is placed above and directly in front of the subject;
+in this case 10 BU in front and 10 BU high, just like a stage,
+it shines down at about a 40 degrees angle. We use quadratic attenuation.</p>
+<p>You can make the spot wider by increasing <em>Size Spot Shape</em> and softening the edge
+by increasing <em>Blend Spot Shape</em>, and parent it to the main actor,
+so that the spot follows him as he moves around. Objects close to the main actor will
+naturally be more lit and your viewer will pay attention to them.</p>
+<p>Moving this spot directly overhead and pointing down gives the interrogation effect.
+At the opposite end of the show-off emotional spectrum is one soft candlelight
+(<em>Point</em> lamp, short falloff <em>Distance</em>, yellow light)
+placed really up close to the subject, dramatizing the fearsome &quot;lost in the darkness&quot; effect.</p>
+<p>Somewhere in the macabre spectrum is a hard spot on the floor shining upward. For fun,
+grab a flashlight, head into the bathroom and close the door.
+Turn out the light and hold the flashlight under your chin, pointing up.
+Look in the mirror and turn it on. From this you can see that lighting,
+<em>even</em> with a single light, varying the intensity,
+location and direction, changes <em>everything</em> in a scene.</p>
+<p>Use this rig, with <em>Environment Lighting</em> light
+(and props receiving and being lit by ambient light in their material settings)
+for scenes that feature one main actor or a product being spotlighted.
+Do not use this rig for big open spaces or to show all aspects of a model.</p>
+</div>
+<div class="section" id="two-point-rig">
+<h2>Two-Point Rig<a class="headerlink" href="#two-point-rig" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_two-point.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_two-point.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_two-point.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Standard two-point light rig.</span></p>
+</div>
+<p>The two-point lighting rig provides a balanced illumination of an object.
+Shown to the right are the views of the standard two-point lighting rig.
+It is called the two-point because there are two points of light.
+The standard two-point lighting rig provides a balanced illumination of
+untextured objects hanging out there in 3D space.
+This rig is used in real studios for lighting a product, especially a glossy one.</p>
+<p>Both lights are almost the same but do different things. Both emulate very wide,
+soft light by being <em>Hemi</em>. In the real world,
+these lights bounce light off the inside of a silver umbrella.</p>
+<p>Notice how we use low <em>Energy</em> to bring out the dimensionality of the sphere;
+I cannot stress that enough. Hard, bright lights actually flatten it and make you squint.
+Soft lights allow your eye to focus. We disable specular for right <em>Hemi</em>,
+so we do not get that shiny forehead or nose.</p>
+<p>The lamp on the left however, lets it be known that it is there by enabling specular;
+specular flare is that bright spot that is off-center above the midline on the sphere.</p>
+<p>Use this rig to give even illumination of a scene, where there is no main focus.
+The <em>Hemi</em>'s will light up background objects and props,
+so <em>Environment Lighting</em> is not that important.
+At the opposite end of the lighting spectrum are two narrow <em>Spot</em> lights at higher
+power creating shadows with a hard edge like from a searchlight.</p>
+</div>
+<div class="section" id="three-point-rigs">
+<h2>Three-Point Rigs<a class="headerlink" href="#three-point-rigs" title="Permalink to this headline">¶</a></h2>
+<p>The standard three-point lighting rig is the most common illumination of objects and
+scenes bar none. If you want to show off your model, use this rig. As you can see,
+the untextured sphere with no assigned material seems to come out at you.
+There are multiple thesis on this rig, and you will use one of two:</p>
+<ol class="arabic simple">
+<li>Studio: Used in a real studio to film in front of a green screen or backdrop.
+Use this rig when you are rendering your CG objects to alpha into the scene
+so that the lighting on the actors <em>and</em> your CG objects is the same.</li>
+<li>Standard: Used in the real world to light actors on a set, and gives some backlighting to
+highlight the sides of actors, making them stand out more and giving them depth.</li>
+</ol>
+<div class="section" id="studio-rig">
+<h3>Studio Rig<a class="headerlink" href="#studio-rig" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_studio.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_studio.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_studio.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Studio three-point light rig.</span></p>
+</div>
+<p>Shown to the right are the &quot;Studio&quot; top, front,
+and side views of the standard three-point lighting rig. It changes the dynamics of the scene,
+by making a brighter &quot;key&quot; light give some highlights to the object,
+while two side &quot;fill&quot; lights soften the shadows created by the key light.</p>
+<p>In the studio, use this rig to film a talking head (actor) in front of a green screen,
+or with multiple people, keeping the key light on the main actor.
+This rig is also used to light products from all angles,
+and the side fill lights light up the props.</p>
+<p>The key light is the <em>Area</em> light placed slightly above and to the left of the camera.
+It allows the specular to come out. It is about 30 BU back from the subject,
+and travels with the camera. A little specular shine lets you know there is a light there,
+and that you are not looking at a ghost. In the real world, it is a spot with baffles, or blinders,
+that limit the area of the light.</p>
+<p>The two sidelights are reduced to only fill; each of them are <em>Hemi</em> lights placed
+20 BU to the side and 5 BU in front of the subject, at ground level.
+They do not cause a spotshine on the surface by disabling specular, and at ground level,
+light under the chin or any horizontal surfaces,
+countering the shadows caused by the key light.</p>
+<p>Use this rig to give balanced soft lighting that also highlights your main actor or object.
+It combines the best of both the single rig and the two-point rig,
+providing balanced illumination and frontal highlights. For a wide scene,
+you may have to pull the sidelights back to be more positioned like the two-point rig.</p>
+</div>
+<div class="section" id="standard-rig">
+<h3>Standard Rig<a class="headerlink" href="#standard-rig" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_standart.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_standart.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_standart.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Standard three-point light rig.</span></p>
+</div>
+<p>Without a curtain in back of your main subject, you have depth to work with.
+The left fill light has been moved behind the subject (so it is now called a backlight)
+and is just off-camera, while the right side fill light remains the same. The keylight gives
+you specular reflection so you can play with specularity and hardness in your object's
+material settings. The key light gives that &quot;in-the-spotlight&quot; feel, highlighting the subject,
+while the backlight gives a crisp edge to the subject against the background.
+This helps them stand out.</p>
+<p>In this rig, the key light is a fairly bright spot light.
+Use a slighter tinge of yellow because the light is so bright;
+it is the only light for that side.
+The other sidelight has been moved in back and raised to eye (camera) level.
+You need to cut the energy of the backlight in half,
+or when it is added to the remaining sidelight,
+it will light up the side too much and call too much attention to itself.
+You can vary the angle and height of the backlight to mimic a sun lighting up the objects.</p>
+<p>Use this rig in normal 3D animations to light the main actor.
+Use this rig especially if you have transparent objects (like glass)
+so that there is plenty of light to shine through them to the camera.
+The tricky part here is balancing the intensities of the lights
+so that no one light competes with or overpowers the others,
+while making sure all three work together as a team.</p>
+</div>
+</div>
+<div class="section" id="four-point-rig">
+<h2>Four-point Rig<a class="headerlink" href="#four-point-rig" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_lighting_lighting-rigs_four-point.png"><img alt="../../../_images/render_blender-render_lighting_lighting-rigs_four-point.png" src="../../../_images/render_blender-render_lighting_lighting-rigs_four-point.png" style="width: 300px;" /></a>
+<p class="caption"><span class="caption-text">Four-point light rig.</span></p>
+</div>
+<p>The four-point lighting rig provides a better simulation of outside lighting,
+by adding a <em>Sun</em> lamp 30 Blender Units above, 10 to the side,
+and 15 BU behind the subject.
+This sunlight provides backlighting and fills the top of the subject;
+even producing an intentional glare on the top of their head,
+telling you there is a sun up there. Notice it is colored yellow,
+which balances out the blue sidelights.</p>
+<p>Changing the key light to a <em>Spot</em>, select <em>Inverse Square</em>, disable
+<em>Specular</em> and pure white light combines with and softens the top sun flare while
+illuminating the face, resulting in a bright sunshine effect.
+Two lights above means sharper shadows as well,
+so you might want to adjust the side fill lights. In this picture,
+they are still <em>Hemi</em>, disable <em>Specular</em>.</p>
+<p>Use this rig when the camera will be filming from behind the characters,
+looking over their shoulder or whatnot, because the sun provides the backlight there.
+Also use this rig when you have transparent objects,
+so there is light to come through the objects to the camera.</p>
+<p>Another spot for the fill light is shining up onto the main actor's face,
+illuminating the underside of his chin and neck.
+This gets rid of a shadow under the chin, which if not corrected,
+can be unflattering, as if they have a double chin or be otherwise distracting.
+It evens out the lighting of the face.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>If you run into a problem with your render, where there are really bright areas,
+or really dark ones, or strange shadows, or lines on your objects,
+here are some good steps to debugging what is wring:</p>
+<ol class="arabic simple">
+<li>First, try deactivating all materials
+(create a default, gray one, and enter its name in the <em>Material</em> field, <em>Layer</em> panel,
+the <em>Render Layer</em> tab to get back all your normal materials, just erase this text field!).
+See if you get those problems with just grayness objects. If you do not have the problem anymore,
+that should tell you that you have got a materials-interacting-with-light problem.
+Check the material settings, especially ambient,
+reflection and all those little buttons and sliders in the <em>Material</em> tab.
+You can set some lights to affect only certain materials,
+so if there is an issue with only a few objects being really bright, start with those.</li>
+<li>Then start removing lights (e.g. moving them to an unused layer);
+regress all the way back to one light, make sure it is smooth,
+then add them in one by one. As they add together, reduce power in the tested ones so they merge cleanly,
+or consider not adding it at all, or, especially, reduce the energy of the lamp you just introduced.</li>
+<li>You can also set lights to only light objects on a layer, so again, if some of the gray spheres have weirdness,
+check for that as well. Again, you may have done some of this accidentally,
+so sometimes deleting the light and re-adding it with defaults helps you reset to a known-good situation.</li>
+<li>Negative lights can be very tricky, and make your model blotchy,
+so pay special attention to your use of those special lights.
+Shadow-only lights can throw off the look of the scene as well.
+Overly textured lights can make your scene have random weird colors.
+Do not go too far off a slight tinge of blue or yellow or shades of white,
+or your material may show blue in the <em>Material</em> tab but render green, and you will be very confused.</li>
+<li>Look at your environment settings <em>World</em> tab: <em>Horizon</em>, <em>Zenith</em>, and <em>Environment Lighting</em>.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../world/index.html" class="btn btn-neutral float-right" title="World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lamps/area/raytraced_shadows.html" class="btn btn-neutral" title="Area Ray-Traced Shadows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scripting &amp; Security &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/advanced/scripting/security.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Add-on Tutorial" href="addon_tutorial.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Advanced</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../command_line/index.html">Command Line</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Scripting &amp; Extending Blender</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scripting &amp; Security</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripts-in-blend-files">Scripts in Blend-Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#controlling-script-execution">Controlling Script Execution</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="addon_tutorial.html">Add-on Tutorial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../app_templates.html">Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../limits.html">Working Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../operators.html">Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Advanced</a> &raquo;</li>
+        
+          <li><a href="index.html">Scripting &amp; Extending Blender</a> &raquo;</li>
+        
+      <li>Scripting &amp; Security</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/advanced/scripting/security.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="scripting-security">
+<h1>Scripting &amp; Security<a class="headerlink" href="#scripting-security" title="Permalink to this headline">¶</a></h1>
+<p>The ability to include Python scripts within blend-files is valuable for advanced tasks such
+as rigging, automation and using the Game Engine.
+However, it poses a security risk since Python does not restrict what a script can do.</p>
+<p>Therefore, you should only run scripts from sources you know and trust.</p>
+<p>Automatic execution is disabled by default,
+however, some blend-files need this to function properly.</p>
+<p>When a blend-file tries to execute a script and is not allowed, a message will appear in
+the header with the option to <strong>Reload Trusted</strong> or <strong>Ignore</strong> the message.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/animation_drivers_troubleshooting_autorun-info-header.png" src="../../_images/animation_drivers_troubleshooting_autorun-info-header.png" />
+<p class="caption"><span class="caption-text">An Auto-run warning in the Info editor's header.</span></p>
+</div>
+<div class="section" id="scripts-in-blend-files">
+<h2>Scripts in Blend-Files<a class="headerlink" href="#scripts-in-blend-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auto-execution">
+<h3>Auto Execution<a class="headerlink" href="#auto-execution" title="Permalink to this headline">¶</a></h3>
+<p>Here are the different ways blend-files may automatically run scripts.</p>
+<dl class="docutils">
+<dt>Registered Text-Blocks</dt>
+<dd>A text block can have its <em>Register</em> option enabled which means it will load on start.</dd>
+<dt>Animation Drivers</dt>
+<dd>Python expressions can be used to <em>Drive</em> values and are often used in more advanced rigs and animations.</dd>
+<dt>Game Engine Auto Start</dt>
+<dd>Scripts are often used for game logic, blend-files can have <em>Auto Start</em> enabled which runs the game on load.</dd>
+</dl>
+</div>
+<div class="section" id="manual-execution">
+<h3>Manual Execution<a class="headerlink" href="#manual-execution" title="Permalink to this headline">¶</a></h3>
+<p>There are other ways scripts in a blend-file may execute that require user
+interaction (therefore will run even when auto execution is off),
+but you should be aware that this is the case since it is not necessarily obvious.</p>
+<ul class="simple">
+<li>Running a script in the Text editor.</li>
+<li>Rendering with FreeStyle, because FreeStyle uses scripts to control line styles.</li>
+<li>Running the Game Engine.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="controlling-script-execution">
+<h2>Controlling Script Execution<a class="headerlink" href="#controlling-script-execution" title="Permalink to this headline">¶</a></h2>
+<p>Blender provides a number of ways to control whether scripts
+from a blend-file are allowed to automatically execute.</p>
+<p>First of all, the File Browser has the option <strong>Trusted Source</strong> which you can use on
+a case-by-case basis to control auto execution.</p>
+<p>However, you may forget to set this,
+or open a file without going through the File Browser --
+so you can change the default (described next).</p>
+<div class="section" id="setting-defaults">
+<h3>Setting Defaults<a class="headerlink" href="#setting-defaults" title="Permalink to this headline">¶</a></h3>
+<p>In the <em>File</em> tab of the User Preferences,
+there is the toggle <a class="reference internal" href="../../preferences/file.html#prefs-auto-execution"><span class="std std-ref">Auto Run Python Scripts</span></a>.</p>
+<p>This means the <strong>Trusted Source</strong> option in the File Browser will be enabled by default,
+and scripts can run when blend-files are loaded without using the File Browser.</p>
+<p>Once enabled you have the option to exclude certain directories,
+a typical configuration would be to trust all paths except for the download directory.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/animation_drivers_troubleshooting_autorun-user-preference.png" src="../../_images/animation_drivers_troubleshooting_autorun-user-preference.png" />
+<p class="caption"><span class="caption-text">The Auto Run Python Scripts checkbox.</span></p>
+</div>
+</div>
+<div class="section" id="command-line">
+<h3>Command Line<a class="headerlink" href="#command-line" title="Permalink to this headline">¶</a></h3>
+<p>You may want to perform batch rendering or some other task from the command line --
+running Blender without an interface.</p>
+<p>In this case, the User Preferences are still used but you may want to override them:</p>
+<ul class="simple">
+<li>Enable with <code class="docutils literal notranslate"><span class="pre">-y</span></code> or <code class="docutils literal notranslate"><span class="pre">--enable-autoexec</span></code></li>
+<li>Disable with <code class="docutils literal notranslate"><span class="pre">-Y</span></code> or <code class="docutils literal notranslate"><span class="pre">--disable-autoexec</span></code></li>
+</ul>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<p>Rendering an animation in background mode, allowing drivers and other scripts to run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>blender --background --enable-autoexec my_movie.blend --render-anim
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">These command-line arguments can be used to start a regular Blender instance and
+will still override the User Preferences.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="addon_tutorial.html" class="btn btn-neutral float-right" title="Add-on Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

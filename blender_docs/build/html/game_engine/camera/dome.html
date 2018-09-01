@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Dome Camera &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/camera/dome.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Physics" href="../physics/index.html" />
+    <link rel="prev" title="Stereo Camera" href="stereo.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Camera</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="stereo.html">Stereo Camera</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dome Camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dome-camera-settings">Dome Camera Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Camera</a> &raquo;</li>
+        
+      <li>Dome Camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/camera/dome.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dome-camera">
+<h1>Dome Camera<a class="headerlink" href="#dome-camera" title="Permalink to this headline">¶</a></h1>
+<p>This feature allows artists to visualize their interactive projects within an immersive dome environment.
+In order to make it an extensible tool, we are supporting Fulldome, Truncated domes (front and rear),
+Planetariums and domes with spherical mirrors.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">The Dome camera uses a multi-pass texture algorithm as developed by Paul Bourke and
+was implemented by Dalai Felinto with sponsorship from SAT -- Society for Arts and
+Technology within the SAT Metalab
+<a class="reference external" href="http://paulbourke.net/miscellaneous/domemirror/BlenderiDome/">immersion research program</a>,
+that involves rendering the scene four times and placing the subsequent images
+onto a mesh designed especially such that the result,
+when viewed with an orthographic camera, is a fisheye projection.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Remember to use Blender in 'fullscreen mode' to get the maximum out of your projector.</p>
+<p class="last">To accomplish that launch Blender with the command-line argument <code class="docutils literal notranslate"><span class="pre">-W</span></code>.
+Also to get away of the top menu on Blender try to join all areas
+(buttons, 3D View, text, etc.) in a single one. Otherwise if you only maximize it (<kbd class="kbd docutils literal notranslate">Ctrl-Up</kbd>)
+you cannot get the whole screen free to run your game
+(the top menu bar takes about 20 pixels).</p>
+</div>
+<div class="section" id="dome-camera-settings">
+<h2>Dome Camera Settings<a class="headerlink" href="#dome-camera-settings" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="../../_images/game-engine_camera_dome_dome.png" src="../../_images/game-engine_camera_dome_dome.png" />
+</div>
+<dl class="docutils">
+<dt>Dome Type</dt>
+<dd>This menu allows you to select which type of dome camera to use.
+They are outlined below, along with their respective settings.</dd>
+</dl>
+<ul class="simple">
+<li><a class="reference internal" href="#fisheye-mode">Fisheye Mode</a></li>
+<li><a class="reference internal" href="#front-truncated-dome-mode">Front-Truncated Dome Mode</a></li>
+<li><a class="reference internal" href="#rear-truncated-dome-mode">Rear-Truncated Dome Mode</a></li>
+<li><a class="reference internal" href="#cube-map-mode">Cube Map Mode</a></li>
+<li><a class="reference internal" href="#spherical-panoramic-mode">Spherical Panoramic Mode</a></li>
+</ul>
+<p>Available camera settings change depending on the selected Dome Type:</p>
+<dl class="docutils">
+<dt>Resolution</dt>
+<dd>Sets the resolution of the Buffer. Decreasing this value increases speed, but decreases quality.</dd>
+<dt>Tessellation</dt>
+<dd>This is the tessellation level of the mesh (not available in Cube Map mode).</dd>
+<dt>Angle</dt>
+<dd>Sets the field of view of the dome in degrees, from 90 to 250. (Available in Fisheye and Truncated modes).</dd>
+<dt>Tilt</dt>
+<dd>Set the camera rotation in the horizontal axis (available in Fisheye and Truncated modes).</dd>
+<dt><a class="reference internal" href="#warp-data-mesh">Warp Data Mesh</a></dt>
+<dd>Use a custom warp mesh data file.</dd>
+</dl>
+<div class="section" id="fisheye-mode">
+<h3>Fisheye Mode<a class="headerlink" href="#fisheye-mode" title="Permalink to this headline">¶</a></h3>
+<p>An Orthogonal Fisheye view from 90° to 250° degrees.</p>
+<ul class="simple">
+<li>From 90° to 180° we are using four renders.</li>
+<li>From 181° to 250° we are using five renders.</li>
+</ul>
+<div class="figure" id="id1">
+<img alt="../../_images/game-engine_camera_dome_fisheye.jpg" src="../../_images/game-engine_camera_dome_fisheye.jpg" />
+<p class="caption"><span class="caption-text">Fisheye Mode.</span></p>
+</div>
+</div>
+<div class="section" id="front-truncated-dome-mode">
+<h3>Front-Truncated Dome Mode<a class="headerlink" href="#front-truncated-dome-mode" title="Permalink to this headline">¶</a></h3>
+<p>Designed for truncated domes,
+this mode aligns the fisheye image with the top of the window, while touching the sides.</p>
+<ul class="simple">
+<li>The Field of view goes from 90° to 250° degrees.</li>
+<li>From 90° to 180° we are using four renders.</li>
+<li>From 181° to 250° we are using five renders.</li>
+</ul>
+<div class="figure" id="id2">
+<img alt="../../_images/game-engine_camera_dome_front-truncated.jpg" src="../../_images/game-engine_camera_dome_front-truncated.jpg" />
+<p class="caption"><span class="caption-text">Front Truncated Dome Mode.</span></p>
+</div>
+</div>
+<div class="section" id="rear-truncated-dome-mode">
+<h3>Rear-Truncated Dome Mode<a class="headerlink" href="#rear-truncated-dome-mode" title="Permalink to this headline">¶</a></h3>
+<p>Designed for truncated domes,
+this mode aligns the fisheye image with the bottom of the window, while touching the sides.</p>
+<ul class="simple">
+<li>The Field of view goes from 90° to 250° degrees.</li>
+<li>From 90° to 180° we are using four renders.</li>
+<li>From 181° to 250° we are using five renders.</li>
+</ul>
+<div class="figure" id="id3">
+<img alt="../../_images/game-engine_camera_dome_rear-truncated.jpg" src="../../_images/game-engine_camera_dome_rear-truncated.jpg" />
+<p class="caption"><span class="caption-text">Rear Truncated Dome Mode.</span></p>
+</div>
+</div>
+<div class="section" id="cube-map-mode">
+<h3>Cube Map Mode<a class="headerlink" href="#cube-map-mode" title="Permalink to this headline">¶</a></h3>
+<p>Cube Map mode can be used for pre-generate animated images for CubeMaps.</p>
+<p>We are using six renders for that. The order of the images follows Blender internal EnvMap file format:
+- First line: right, back, left.
+- Second line: bottom, top, front.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/game-engine_camera_dome_envmap.jpg" src="../../_images/game-engine_camera_dome_envmap.jpg" />
+<p class="caption"><span class="caption-text">Environment Map Mode.</span></p>
+</div>
+</div>
+<div class="section" id="spherical-panoramic-mode">
+<h3>Spherical Panoramic Mode<a class="headerlink" href="#spherical-panoramic-mode" title="Permalink to this headline">¶</a></h3>
+<p>A full spherical panoramic mode.</p>
+<ul class="simple">
+<li>We are using six cameras here.</li>
+<li>The bottom and top start to get precision with <em>Definition</em> set to 5 or more.</li>
+</ul>
+<div class="figure" id="id5">
+<img alt="../../_images/game-engine_camera_dome_panoramic.jpg" src="../../_images/game-engine_camera_dome_panoramic.jpg" />
+<p class="caption"><span class="caption-text">Full Spherical Panoramic Mode.</span></p>
+</div>
+</div>
+<div class="section" id="warp-data-mesh">
+<h3>Warp Data Mesh<a class="headerlink" href="#warp-data-mesh" title="Permalink to this headline">¶</a></h3>
+<p>Many projection environments require images that are not simple perspective projections that
+are the norm for flat screen displays. Examples include geometry correction for cylindrical
+displays and some new methods of projecting into planetarium domes or upright domes intended
+for VR.</p>
+<p>For more information on the mesh format see <a class="reference external" href="http://paulbourke.net/dataformats/meshwarp/">Paul Bourke's article</a>.</p>
+<div class="figure">
+<img alt="../../_images/game-engine_camera_dome_warped.jpg" src="../../_images/game-engine_camera_dome_warped.jpg" />
+</div>
+<p>In order to produce those images, we are using a specific file format.</p>
+<p>File template:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mode
+width height
+n0_x n0_y n0_u n0_v n0_i
+n1_x n1_y n1_u n1_v n1_i
+n2_x n1_y n2_u n2_v n2_i
+n3_x n3_y n3_u n3_v n3_i
+(...)
+</pre></div>
+</div>
+<p>First line is the image type the mesh is support to be applied to:
+<code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">=</span> <span class="pre">rectangular</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">=</span> <span class="pre">radial</span></code> Next line has the mesh dimensions in
+pixels. Rest of the lines are the nodes of the mesh.</p>
+<p>Each line is compound of <em>x</em>, <em>y</em>, <em>u</em>, <em>v</em>, <em>i</em>. (x, y)
+are the normalized screen coordinates, (u, v)
+texture coordinates, <em>i</em> a multiplicative intensity factor.</p>
+<p><em>x</em> varies from negative screen aspect to positive screen aspect.
+<em>y</em> varies from -1 to 1. <em>u</em> and <em>v</em> vary from 0 to 1.
+<em>i</em> ranges from 0 to 1, if negative do not draw that mesh node.</p>
+<ol class="arabic simple">
+<li>You need to create the file and add it to the Text Editor in order to select it as your Warp Mesh data file.</li>
+<li>Open the Text Editor <span class="menuselection">Editor Types ‣ Text Editor</span>.</li>
+<li>Open your mesh data file (e.g. myDome.data) in the Text editor (<span class="menuselection">Text ‣ Open</span> or <kbd class="kbd docutils literal notranslate">Alt-O</kbd>).</li>
+<li>Go to Game Framing Settings <span class="menuselection">Editor Types ‣ Properties editor ‣ Scene</span>.</li>
+<li>Enable Dome Mode.</li>
+<li>Type filename in Warp Data field (e.g. myDome.data).</li>
+</ol>
+<p>To create your own Warp Meshes an interactive tool called meshmapper is available as part of
+<a class="reference external" href="http://paulbourke.net/miscellaneous/domemirror/warpplayer/">Paul Bourke's Warpplayer</a>
+software package (requires full version).</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://wiki.blender.org/uploads/8/81/Dev-GameEngine-Dome-Standard_4x3.data">Spherical Mirror Dome 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/9/9b/Dev-GameEngine-Dome-Truncated_4x3.data">Truncated Dome 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/d/d4/Dev-GameEngine-Dome-Sample-FullScreen_4x3.data">Sample Fullscreen File 4×3</a>.</li>
+<li><a class="reference external" href="https://wiki.blender.org/uploads/3/3d/Dev-GameEngine-Dome-Sample-FullBuffer_4x3.data">Sample Fullbuffer File 4×3</a>.</li>
+</ul>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">The viewport is calculated using the ratio of canvas width by canvas height.
+Therefore different screen sizes will require different warp mesh files. Also in order to get
+the correct ratio of your projector you need to use Blender in Fullscreen mode.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../physics/index.html" class="btn btn-neutral float-right" title="Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="stereo.html" class="btn btn-neutral" title="Stereo Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

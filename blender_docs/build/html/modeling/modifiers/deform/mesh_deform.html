@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mesh Deform Modifier &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/deform/mesh_deform.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Shrinkwrap Modifier" href="shrinkwrap.html" />
+    <link rel="prev" title="Lattice Modifier" href="lattice.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#modify">Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#generate">Generate</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#deform">Deform</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="armature.html">Armature Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cast.html">Cast Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="corrective_smooth.html">Corrective Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="curve.html">Curve Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displace.html">Displace Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hooks.html">Hook Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_smooth.html">Laplacian Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="laplacian_deform.html">Laplacian Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lattice.html">Lattice Modifier</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Mesh Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Shrinkwrap Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="simple_deform.html">Simple Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="smooth.html">Smooth Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface_deform.html">Surface Deform Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="warp.html">Warp Modifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="wave.html">Wave Modifier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Mesh Deform Modifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/modeling/modifiers/deform/mesh_deform.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mesh-deform-modifier">
+<span id="bpy-types-meshdeformmodifier"></span><h1>Mesh Deform Modifier<a class="headerlink" href="#mesh-deform-modifier" title="Permalink to this headline">¶</a></h1>
+<p>The Mesh Deform Modifier allows an arbitrary mesh (of any closed shape)
+to act as a deformation cage around another mesh.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/modeling_modifiers_deform_mesh-deform_panel.png" src="../../../_images/modeling_modifiers_deform_mesh-deform_panel.png" />
+<p class="caption"><span class="caption-text">Mesh Deform Modifier.</span></p>
+</div>
+<p>The Mesh Deform Modifier is reasonably easy to use but it can be very slow to do
+the calculations needed to properly map the deform mesh cage to the deformed object.</p>
+<dl class="docutils">
+<dt>Object</dt>
+<dd>The name of the mesh object to be used as a deforming mesh cage.</dd>
+<dt>Vertex Group</dt>
+<dd>An optional vertex group of the object's mesh to restrict the vertices that
+will be affected by this modifier.
+Vertices not in this group will not be deformed.</dd>
+<dt>Invert <code class="docutils literal notranslate"><span class="pre">&lt;-&gt;</span></code></dt>
+<dd><p class="first">Inverts the influence of the selected vertex group, meaning that the group
+now represents vertices that will not be deformed by the modifier.</p>
+<p class="last">(The setting reverses the weight values of the group).</p>
+</dd>
+<dt>Precision</dt>
+<dd><p class="first">The <em>Precision</em> number button controls the accuracy with
+which the deform mesh cage alters the deformed object,
+when the points on the cage are moved.
+Raising this value higher can greatly increase the time it takes
+the Mesh Deform Modifier to complete its binding calculations,
+but it will get more accurate cage mapping to the deformed object.</p>
+<p class="last">This setting becomes unavailable once a cage has been bound.</p>
+</dd>
+<dt>Dynamic</dt>
+<dd><p class="first">When activated, other mesh altering features (such as other modifiers and shape keys)
+are taken into account when binding, increasing deformation quality.</p>
+<p class="last">The setting is deactivated by default to save memory and processing time when binding.
+Like with <em>Precision</em>, this setting is unavailable once a cage has been bound.</p>
+</dd>
+<dt>Bind</dt>
+<dd><p class="first">Links the current vertex positions of both the modified geometry and the deformer <em>Object</em> chosen together.
+An unbound Mesh Deform Modifier has no effect --
+it must be bound so that altering the shape of the deform mesh cage
+actually alters the shape of the modified object.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>Depending on the settings of the Mesh Deform Modifier and complexity of the deform mesh cage and/or
+deformed object, it can take a long time for this operation to complete.
+This can result in Blender not responding to user's actions until it has completed.</p>
+<p>It is also possible that Blender will run out of memory and crash.</p>
+<p class="last">To be safe, save your blend-file before proceeding!</p>
+</div>
+</dd>
+<dt>Unbind</dt>
+<dd><p class="first">When a deformed object has been associated to a deform mesh cage,
+it can later be disassociated by clicking the <em>Unbind</em> button which replaced the <em>Bind</em> one.
+When <em>Unbind</em> is clicked, the <em>deform mesh cage</em> will keep its current shape;
+it will not reset itself back to its original start shape.</p>
+<p>If you need its original shape, you will have to save a copy of it before you alter it.</p>
+<p class="last">The deformed object will, however, reset back to its original shape that it had
+before it was bound to the deform mesh cage.</p>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>Significant changes to the entire change mesh <em>(such as rotating the cage upside down)</em>
+can cause noticeable artifacts.</p>
+<p class="last">These can be reduced by binding with a higher <em>Precision</em>,
+however, it is a known limitation with this modifier and cannot be avoided entirely.</p>
+</div>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Ensure that the normals on the cage mesh point to the outside;
+they are used to determine the inside and outside of the cage.</li>
+<li>Besides the outer cage, more faces within the cage, either loose or forming another smaller cage,
+can be used for extra control. Such smaller cages may also overlap with the main cage;
+for example, to get extra control over eyes, two small sphere cages could be added around them.</li>
+</ul>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>The <a class="reference internal" href="lattice.html"><span class="doc">Lattice Modifier</span></a>.</li>
+<li><a class="reference external" href="http://graphics.pixar.com/library/HarmonicCoordinatesB/">Original paper</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shrinkwrap.html" class="btn btn-neutral float-right" title="Shrinkwrap Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lattice.html" class="btn btn-neutral" title="Lattice Modifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

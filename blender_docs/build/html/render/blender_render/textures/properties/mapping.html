@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mapping &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/textures/properties/mapping.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Influence" href="influence/index.html" />
+    <link rel="prev" title="Colors" href="color.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../materials/index.html">Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../texture_panel.html">Texture Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_texture.html">Assigning a Texture</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Texture Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../types/index.html">Texture Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Textures</a> &raquo;</li>
+        
+          <li><a href="index.html">Texture Properties</a> &raquo;</li>
+        
+      <li>Mapping</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/textures/properties/mapping.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mapping">
+<h1>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline">¶</a></h1>
+<p>Textures need mapping coordinates, to determine how they are applied to the object.
+The mapping specifies how the texture will ultimately wrap itself to the object.</p>
+<p>For example,
+a 2D image texture could be configured to wrap itself around a cylindrical-shaped object.</p>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_blender-render_textures_properties_mapping_panel-generated.png" src="../../../../_images/render_blender-render_textures_properties_mapping_panel-generated.png" />
+<p class="caption"><span class="caption-text">Mapping panel.</span></p>
+</div>
+<div class="section" id="coordinates">
+<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
+<p>Mapping works by using a set of coordinates to guide the mapping process.
+These coordinates can come from anywhere, usually the object to which the texture is being applied to.</p>
+<dl class="docutils">
+<dt>Global</dt>
+<dd>The scene's global 3D coordinates. This is also useful for animations;
+if you move the object, the texture moves across it.
+It can be useful for letting objects appear or disappear at a certain position in space.</dd>
+<dt>Object</dt>
+<dd><p class="first">Uses an object as source for coordinates. Often used with an <em>Empty</em>,
+this is an easy way to place a small image at a given point on the object.
+This object can also be animated, to move a texture around or through a surface.</p>
+<dl class="last docutils">
+<dt>Object</dt>
+<dd>Select the name of an object.</dd>
+</dl>
+</dd>
+<dt>Generated</dt>
+<dd>The original undeformed coordinates of the object. This is the default option for mapping textures.</dd>
+<dt>UV</dt>
+<dd><p class="first">UV mapping is a very precise way of mapping a 2D texture to a 3D surface.
+Each vertex of a mesh has its own UV coordinates which can be unwrapped and laid flat like a skin.
+You can almost think of UV coordinates as a mapping that works on a 2D plane with its own local coordinate system
+to the plane on which it is operating on.
+This mapping is especially useful when using 2D images as textures,
+as seen in <a class="reference internal" href="../../../../editors/uv_image/index.html#editors-uv-image-index"><span class="std std-ref">UV Mapping</span></a>.
+You can use multiple textures with one set of UV coordinates.</p>
+<dl class="last docutils">
+<dt>UV Map</dt>
+<dd>UV map to use for mapping.</dd>
+</dl>
+</dd>
+<dt>Strand/Particle</dt>
+<dd>Uses normalized 1D strand texture coordinate or particle age (X) and trail position (Y).
+Use when texture is applied to hair strands or particles.</dd>
+<dt>Window</dt>
+<dd>The rendered image window coordinates. This is well suited to blending two objects.</dd>
+<dt>Normal</dt>
+<dd>Uses the direction of the surface's normal vector as coordinates.
+This is very useful when creating certain special effects that depend on viewing angle.</dd>
+<dt>Reflection</dt>
+<dd>Uses the direction of the reflection vector as coordinates.
+This is useful for adding reflection maps. You will need this input when Environment Mapping.</dd>
+<dt>Stress</dt>
+<dd>Uses the difference of edge length compared to original coordinates of the mesh.
+This is useful, for example, when a mesh is deformed by modifiers.</dd>
+<dt>Tangent</dt>
+<dd>Uses the optional tangent vector as texture coordinates.</dd>
+</dl>
+</div>
+<div class="section" id="projection">
+<h2>Projection<a class="headerlink" href="#projection" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Flat</dt>
+<dd>Flat mapping gives the best results on single planar faces.
+It does produce interesting effects on the sphere, but compared to a sphere-mapped sphere the result looks flat.
+On faces that are not in the mapping plane the last pixel of the texture is extended,
+which produces stripes on the cube and cylinder.</dd>
+<dt>Cube</dt>
+<dd>Cube mapping often gives the most useful results when the objects are not too curvy and organic
+(notice the seams on the sphere).</dd>
+<dt>Tube</dt>
+<dd>Tube mapping maps the texture around an object like a label on a bottle.
+The texture is therefore more stretched on the cylinder.
+This mapping is of course very good for making the label on a bottle or assigning stickers to rounded objects.
+However, this is not a cylindrical mapping so the ends of the cylinder are undefined.</dd>
+<dt>Sphere</dt>
+<dd>Sphere mapping is the best type for mapping a sphere,
+and it is perfect for making planets and similar objects.
+It is often very useful for creating organic objects.
+It also produces interesting effects on a cylinder.</dd>
+</dl>
+</div>
+<div class="section" id="inheriting-coordinates-from-the-parent-object">
+<h2>Inheriting Coordinates from the Parent Object<a class="headerlink" href="#inheriting-coordinates-from-the-parent-object" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>From Dupli</dt>
+<dd>Duplis instanced from vertices, faces, or particles,
+inherit texture coordinates from their parent.</dd>
+</dl>
+</div>
+<div class="section" id="coordinate-offset-scaling-and-transformation">
+<h2>Coordinate Offset, Scaling and Transformation<a class="headerlink" href="#coordinate-offset-scaling-and-transformation" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Offset</dt>
+<dd>The texture coordinates can be translated by an offset.
+Enlarging of the Offset moves the texture towards the top left.</dd>
+<dt>Size</dt>
+<dd><p class="first">These buttons allow you to change the mapping of axes between the texture's own coordinate system,
+and the mapping system you choose (Generated, UV, etc.).
+More precisely, to each axis of the texture corresponds one of four choices,
+that allow you to select to which axis in the mapping system it maps! This implies several points:</p>
+<ul class="last simple">
+<li>For 2D textures (such as images), only the first two rows are relevant, as they have no Z data.</li>
+<li>You can rotate a 2D picture a quarter turn by setting the first row (i.e. X texture axis) to Y,
+and the second row (Y texture axis) to X.</li>
+<li>When you map no texture axis (i.e. the three &quot;void&quot; buttons are set),
+you will get a solid uniform texture, as you use zero dimension (i.e. a dot, or pixel) of it
+(and then Blender extends or repeats this point's color along all axes).</li>
+<li>When you only map one texture axis (i.e. two &quot;void&quot; buttons are enabled)
+you will get a &quot;striped&quot; texture, as you only use one dimension (i.e. a line of pixel) of it,
+(and then Blender stretches this line along the two other axes).</li>
+<li>The same goes, for 3D textures (i.e. procedural ones), when one axis is mapped to nothing,
+Blender extends the plan (&quot;slice&quot;) along the relevant third axis.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="influence/index.html" class="btn btn-neutral float-right" title="Influence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="color.html" class="btn btn-neutral" title="Colors" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

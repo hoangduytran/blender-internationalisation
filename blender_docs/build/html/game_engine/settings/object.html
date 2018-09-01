@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Object Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/settings/object.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Game Materials" href="../materials.html" />
+    <link rel="prev" title="Render Settings" href="render.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Game Settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="render.html">Render Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Object Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#level-of-detail">Level of Detail</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="index.html">Game Settings</a> &raquo;</li>
+        
+      <li>Object Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/game_engine/settings/object.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="object-settings">
+<h1>Object Settings<a class="headerlink" href="#object-settings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="level-of-detail">
+<span id="bpy-types-lodlevel"></span><h2>Level of Detail<a class="headerlink" href="#level-of-detail" title="Permalink to this headline">¶</a></h2>
+<p>When creating visual assets it is often desirable to have a high amount of detail in the asset
+for up close viewing. However,
+this high amount of detail is wasted if the object is viewed from a distance,
+and brings down the scene's performance. To solve this,
+the asset can be swapped out at certain viewing distances.
+This is commonly referred to as a level of detail system.
+Each visual step of the asset is known as a level of detail. Levels of detail are most
+appropriate to use when you have a large scene where certain objects can be viewed both up
+close and from a distance.</p>
+<div class="section" id="settings">
+<h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Modifiers on Level of Detail Objects</p>
+<p class="last">Any level of detail objects that have a modifier do not display correctly in the Game Engine.
+You will need to apply any modifiers for level of detail objects to appear correctly.
+A fix for this is being looked into.</p>
+</div>
+<div class="figure">
+<img alt="../../_images/game-engine_settings_object_level-of-detail-panel.png" src="../../_images/game-engine_settings_object_level-of-detail-panel.png" />
+</div>
+<p>Level of detail settings can be found in the Object settings when the renderer is set to
+Blender Game.
+In the Levels of Detail panel is a button to add a new level of detail to the current object.
+The settings for each level of detail are displayed in its own box.
+The exception to this is the base level of detail.
+This is automatically setup as the current object with a distance setting of 0.
+To remove a level of detail,
+click on the X button in the top right corner of the box of the level to be removed.</p>
+<dl class="docutils">
+<dt>Object</dt>
+<dd>The object to use for this level of detail.</dd>
+<dt>Distance</dt>
+<dd>The distance at which this level of detail becomes visible.</dd>
+<dt>Use Mesh</dt>
+<dd>When this option is enabled,
+the mesh from the level of detail object is used until a lower level of detail overrides it.</dd>
+<dt>Use Material</dt>
+<dd>When this option is enabled,
+the material from the level of detail object is used until a lower level of detail overrides it.</dd>
+</dl>
+</div>
+<div class="section" id="tools">
+<h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<p>Some tools for making levels of detail easier to manage and create can be found from
+the select menu next to the add button in the Levels of Detail panel.</p>
+<div class="section" id="set-by-name">
+<h4>Set By Name<a class="headerlink" href="#set-by-name" title="Permalink to this headline">¶</a></h4>
+<p>Searches the scene for specifically named objects and attempts to set them up as levels of
+detail on the currently selected object. The selected object must be the base level of detail
+(e.g. LOD0). This can be useful to quickly setup levels of detail on imported assets.
+In order to make use of this tool, your naming must be consistent, and each level must be
+prefixed or suffixed with &quot;lodx&quot; where x is the level that object is intended for.
+The case on &quot;lod&quot; must be consistent across all objects.
+Below are some example names that the tool will recognize.</p>
+<ul class="simple">
+<li>LOD0_Box, LOD1_Box, LOD2_Box</li>
+<li>Box.lod0, Box.lod1, Box.lod2</li>
+<li>LoD0box, LoD1box, LoD2box</li>
+</ul>
+</div>
+<div class="section" id="generate">
+<h4>Generate<a class="headerlink" href="#generate" title="Permalink to this headline">¶</a></h4>
+<div class="figure">
+<img alt="../../_images/game-engine_settings_object_level-of-detail-generation.png" src="../../_images/game-engine_settings_object_level-of-detail-generation.png" />
+</div>
+<p>This tool generates and sets up levels of details based on the selected object.
+Generation is done using the Decimate Modifier.
+Generation does not apply the modifier to allow further changing the settings.
+Generated objects are automatically named based on the level they are generated for.
+Below are some settings for the operator.</p>
+<dl class="docutils">
+<dt>Count</dt>
+<dd>The number of levels desired after generation. This operator creates Count-1 new objects.</dd>
+<dt>Target Size</dt>
+<dd>The ratio setting for the Decimate Modifier on the last level of detail.
+The ratio settings for the other levels are determined by linear interpolation.</dd>
+<dt>Package into Group</dt>
+<dd>With this setting enabled the operator performs some extra tasks
+to make the asset ready for easy linking into a new file.
+The base object and all of its levels of detail are placed into a group based on the base object's name.
+Levels other than the base are hidden for both the viewport and rendering.
+This simplifies the appearance of the system and does not affect the appearance of the base object.
+Finally, all levels are parented to the base object to remove clutter from the Outliner.</dd>
+</dl>
+</div>
+<div class="section" id="clear-all">
+<h4>Clear All<a class="headerlink" href="#clear-all" title="Permalink to this headline">¶</a></h4>
+<p>Clears the level of detail settings from the current object.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../materials.html" class="btn btn-neutral float-right" title="Game Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="render.html" class="btn btn-neutral" title="Render Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

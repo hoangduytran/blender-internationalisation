@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Image Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/uv_image/image/image_settings.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Scopes" href="scopes.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Animation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#image-video">Image/Video</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">UV/Image Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../navigating.html">Navigating</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../uv/index.html">UV</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../display_panel.html">Display Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../movie_clip_editor/index.html">Movie Clip Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../vse/index.html">Video Sequence Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../index.html">UV/Image Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">Image</a> &raquo;</li>
+        
+      <li>Image Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/editors/uv_image/image/image_settings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="image-settings">
+<h1>Image Settings<a class="headerlink" href="#image-settings" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/editors_uv-image_image_image-settings_movie-image-panel.png" src="../../../_images/editors_uv-image_image_image-settings_movie-image-panel.png" />
+<p class="caption"><span class="caption-text">Image panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Image</dt>
+<dd><p class="first">Data-block menu.</p>
+<dl class="last docutils">
+<dt>New <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>The <em>New Image</em> button opens a pop-up to configure a <a class="reference internal" href="#generated">Generated</a> image.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="source">
+<h2>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h2>
+<p>See about supported <a class="reference internal" href="../../../data_system/files/media/image_formats.html"><span class="doc">Supported Graphics Formats</span></a>.</p>
+<div class="section" id="single-image">
+<h3>Single Image<a class="headerlink" href="#single-image" title="Permalink to this headline">¶</a></h3>
+<p>Still image or a single frame.</p>
+</div>
+<div class="section" id="image-sequence">
+<h3>Image Sequence<a class="headerlink" href="#image-sequence" title="Permalink to this headline">¶</a></h3>
+<p>Each frame is stored in a separate file.
+How to <a class="reference internal" href="../../../data_system/files/media/image_formats.html#image-formats-open-sequence"><span class="std std-ref">Opening an Image Sequence</span></a>.</p>
+<dl class="docutils">
+<dt>Frame</dt>
+<dd>A label showing the current frame.</dd>
+<dt>Further options</dt>
+<dd>See <a class="reference internal" href="#movie">Movie</a> below.</dd>
+</dl>
+</div>
+<div class="section" id="movie">
+<h3>Movie<a class="headerlink" href="#movie" title="Permalink to this headline">¶</a></h3>
+<p>Frames packed into a container.</p>
+<dl class="docutils">
+<dt>Deinterlace</dt>
+<dd>Removes fields in a video file. For example,
+if it is an analog video and it has even or odd interlacing fields.</dd>
+<dt>Fields</dt>
+<dd>Sets the number of fields per rendered frame (2 fields is 1 frame).
+Used with Fields and interlaced video,
+it says whether each image has both odd and even, or just one.</dd>
+<dt>Frame</dt>
+<dd><dl class="first last docutils">
+<dt>Frames</dt>
+<dd>Sets the range of frames to use.</dd>
+<dt>Start</dt>
+<dd>Global starting frame of the sequence, when the playback should start.
+This is a global setting which means it affects all clip users such as the Movie Clip editor itself,
+motion tracking constraints and compositor nodes.</dd>
+<dt>Offset</dt>
+<dd>Offsets the first frame of the clip. It adds an extra offset to the frame number when
+converting a scene frame to the frame number in the file name.
+This option does not affect tracking data or any other associated data.</dd>
+</dl>
+</dd>
+<dt>Match Movie Length</dt>
+<dd>This button set image's user's length to the one of selected movie.</dd>
+<dt>Auto Refresh</dt>
+<dd>Automatically refresh images on frame changes.</dd>
+<dt>Cyclic</dt>
+<dd>Start over and repeats after the last frame to create a continuous loop.</dd>
+</dl>
+</div>
+<div class="section" id="generated">
+<span id="image-generated"></span><h3>Generated<a class="headerlink" href="#generated" title="Permalink to this headline">¶</a></h3>
+<p>Image generated in Blender or preloaded.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<img alt="../../../_images/editors_uv-image_image_image-settings_generated-image-panel.png" src="../../../_images/editors_uv-image_image_image-settings_generated-image-panel.png" />
+<p class="caption"><span class="caption-text">Image panel for Generated source.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/editors_uv-image_image_image-settings_generated-new-image.png" src="../../../_images/editors_uv-image_image_image-settings_generated-new-image.png" />
+<p class="caption"><span class="caption-text">The New Image pop-up menu.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Width, Height</dt>
+<dd>The size of image in pixels.</dd>
+<dt>Color</dt>
+<dd>Sets the fill color if creating a blank image.</dd>
+<dt>32 bit Float / Float Buffer</dt>
+<dd>Creates a 32 bit image. This is a larger file size,
+but holds much more color information than the standard 8 bit image.
+For close ups and large gradients, it may be better to use a 32 bit image.</dd>
+<dt>Type</dt>
+<dd><dl class="first last docutils">
+<dt>Blank</dt>
+<dd>Creates a Blank image of a single specified color.</dd>
+<dt>UV Grid</dt>
+<dd>Creates a checkerboard pattern with a colored cross (+) in each square.</dd>
+<dt>Color Grid</dt>
+<dd>Creates a more complex colored grid with letters and numbers denoting locations in the grid.
+It could be used for testing how the UVs have been mapped and to reduce stretching or distortion.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-options">
+<h2>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>File</dt>
+<dd><p class="first">Use for replacing or packing files.</p>
+<dl class="last docutils">
+<dt>Pack</dt>
+<dd>Embed the resource into the current blend-file.</dd>
+<dt>Path</dt>
+<dd>Path to the linked file.</dd>
+<dt>Open</dt>
+<dd>Opens the <a class="reference internal" href="../../file_browser/index.html"><span class="doc">File Browser</span></a> to select a file from a drive.</dd>
+<dt>Reload</dt>
+<dd>Reloads the file. Useful when a file has been rework in an external application.</dd>
+</dl>
+</dd>
+<dt>Color Space</dt>
+<dd><p class="first"><a class="reference internal" href="../../../glossary/index.html#term-color-space"><span class="xref std std-term">Color Space</span></a>.</p>
+<dl class="last docutils">
+<dt>XYZ</dt>
+<dd>XYZ space.</dd>
+<dt>VD16</dt>
+<dd>The simple video conversion from a gamma 2.2 sRGB space.</dd>
+<dt>sRGB</dt>
+<dd>Standard RGB display space.</dd>
+<dt>Raw</dt>
+<dd>Raw space.</dd>
+<dt>Non-Color</dt>
+<dd>Color space used for images which contains non-color data (e.g. normal maps).</dd>
+<dt>Linear ACES</dt>
+<dd>ACES linear space.</dd>
+<dt>Linear</dt>
+<dd>Linear 709 (full range). Blender native linear space.</dd>
+</dl>
+</dd>
+<dt>View as Render</dt>
+<dd>Applies <a class="reference internal" href="../../../render/post_process/color_management.html"><span class="doc">color transform</span></a> when displaying this image on the screen.</dd>
+<dt>Use Multi-View</dt>
+<dd>See <a class="reference internal" href="../../../render/workflows/multiview/index.html"><span class="doc">Multi-View</span></a>.</dd>
+<dt>Use Alpha</dt>
+<dd><p class="first">Determines whether the alpha channel of the image is used.</p>
+<dl class="last docutils">
+<dt>Alpha Mode</dt>
+<dd><p class="first"><a class="reference internal" href="../../../glossary/index.html#term-alpha-channel"><span class="xref std std-term">Alpha Channel</span></a>.</p>
+<p class="last">Straight, Premultiplied</p>
+</dd>
+</dl>
+</dd>
+<dt>Fields</dt>
+<dd><p class="first">Work with <a class="reference internal" href="../../../render/blender_render/post_processing/fields.html"><span class="doc">Fields</span></a> images.
+Video frames consist of two different images (fields) that are merged.
+This option ensures that when fields are rendered,
+the correct field of the image is used in the correct field of the rendering.
+<em>Mip-mapping</em> cannot be combined with <em>Fields</em>. Order of video fields:</p>
+<p class="last">Upper First, Lower First.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scopes.html" class="btn btn-neutral float-right" title="Scopes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Rigid Body Joint Constraint &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/constraints/relationship/rigid_body_joint.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Shrinkwrap Constraint" href="shrinkwrap.html" />
+    <link rel="prev" title="Pivot Constraint" href="pivot.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#motion-tracking">Motion Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Tracking</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#relationship">Relationship</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="action.html">Action Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="child_of.html">Child Of Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="floor.html">Floor Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow_path.html">Follow Path Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pivot.html">Pivot Constraint</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Rigid Body Joint Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shrinkwrap.html">Shrinkwrap Constraint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../index.html">Constraints</a> &raquo;</li>
+        
+      <li>Rigid Body Joint Constraint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/rigging/constraints/relationship/rigid_body_joint.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rigid-body-joint-constraint">
+<span id="bpy-types-rigidbodyjointconstraint"></span><h1>Rigid Body Joint Constraint<a class="headerlink" href="#rigid-body-joint-constraint" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Rigid Body Joint</em> constraint is very special, it is used by the physics part of
+the Blender Game Engine to simulate a joint between its owner and its target.
+It offers four joint types: hinge type, ball-and-socket type, cone-twist type, and
+generic six-<abbr title="Degrees of Freedom">DoF</abbr> type.</p>
+<div class="admonition important">
+<p class="first admonition-title">Quan trọng</p>
+<p class="last">This constraint only works with the <a class="reference internal" href="../../../game_engine/index.html"><span class="doc">Game Engine</span></a>.</p>
+</div>
+<p>The joint point and axes are defined and fixed relative to the owner.
+The target moves as if it were stuck to the center point of a stick,
+the other end of the stick rotating around the joint/pivot point...</p>
+<p>This constraint is of no use in most &quot;standard&quot; static or animated projects. However,
+you can use its results outside of the BGE, through the <span class="menuselection">Game ‣ Record Animation</span>.
+(see <a class="reference internal" href="../../../game_engine/physics/converting.html"><span class="doc">Rigid Bodies</span></a> for more info on this topic).</p>
+<p>For a demo file that shows some of the different types, see: <a class="reference external" href="https://wiki.blender.org/index.php/Media:BGE-Physics-RigidBodyJoints.blend">BGE-Physics-RigidBodyJoints.blend</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">In order for this constraint to work properly, both objects
+(so the owner and the target object) need to have <em>Collision Bounds</em> enabled.</p>
+</div>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/rigging_constraints_relationship_rigid-body-joint_panel.png" src="../../../_images/rigging_constraints_relationship_rigid-body-joint_panel.png" />
+<p class="caption"><span class="caption-text">Rigid Body Joint panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Target</dt>
+<dd><a class="reference internal" href="../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Data ID</span></a> used to select the constraints target, and is not functional (red state) when it has none.</dd>
+<dt>Joint Type</dt>
+<dd><dl class="first last docutils">
+<dt>Ball</dt>
+<dd>Works like an ideal ball-and-socket joint, i.e. allows rotations around all axes like a shoulder joint.</dd>
+<dt>Hinge</dt>
+<dd><p class="first">Works in one plane, like an elbow: the owner and target can only rotate around the X axis of the pivot
+(joint point).</p>
+<dl class="last docutils">
+<dt>Limits</dt>
+<dd>Angular limits for the X axis.</dd>
+</dl>
+</dd>
+<dt>Cone Twist</dt>
+<dd><p class="first">Similar to <em>Ball</em>, this is a point-to-point joint with limits added for the cone and twist axis.</p>
+<dl class="last docutils">
+<dt>Limits</dt>
+<dd>Angular limits.</dd>
+</dl>
+</dd>
+<dt>Generic 6DOF</dt>
+<dd><p class="first">Works like the <em>Ball</em> option,
+but the target is no longer constrained at a fixed distance from the pivot point, by default
+(hence the six degrees of freedom: rotation and translation around/along the three axes).
+In fact, there is no longer a joint by default, with this option,
+but it enables additional settings which allow you to restrict some of these DoF:</p>
+<dl class="last docutils">
+<dt>Limits</dt>
+<dd>Linear and angular limits for a given axis (of the pivot) in Blender Units and degrees respectively.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Child Object</dt>
+<dd>Normally, leave this blank. You can reset it to blank by right-clicking and selecting Reset to Default Value.</dd>
+<dt>Linked Collision</dt>
+<dd>When enabled, this will disable the collision detection between the owner and the target
+(in the physical engine of the BGE).</dd>
+<dt>Display Pivot</dt>
+<dd>When enabled, this will draw the pivot of the joint in the 3D Views.
+The most useful, especially with the <em>Generic 6DOF</em> joint type!</dd>
+<dt>Pivot</dt>
+<dd>These three numeric fields allow you to relocate the pivot point, <em>in the owner's space</em>.</dd>
+<dt>Axis</dt>
+<dd>These three numeric fields allow you to rotate the pivot point, <em>in the owner's space</em>.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shrinkwrap.html" class="btn btn-neutral float-right" title="Shrinkwrap Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pivot.html" class="btn btn-neutral" title="Pivot Constraint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>World &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/cycles/world.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Nodes" href="nodes/index.html" />
+    <link rel="prev" title="Lamps" href="lamps.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lamps.html">Lamps</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">World</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#surface">Surface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#volume">Volume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ambient-occlusion">Ambient Occlusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mist-pass">Mist Pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ray-visibility">Ray Visibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="nodes/index.html">Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="features.html">Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpu_rendering.html">GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Cycles Renderer</a> &raquo;</li>
+        
+      <li>World</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/cycles/world.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="world">
+<span id="bpy-types-cyclesworldsettings"></span><h1>World<a class="headerlink" href="#world" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/render_cycles_world_environment-lighting.jpg" src="../../_images/render_cycles_world_environment-lighting.jpg" />
+<p class="caption"><span class="caption-text">Lighting with an HDR image.</span></p>
+</div>
+<p>The world environment can emit light, ranging from a single solid color,
+physical sky model, to arbitrary textures.</p>
+<div class="section" id="surface">
+<h2>Surface<a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Surface</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The surface shader defines the light emission from the environment into the scene.
+The world surface is rendered as if it is very distant from the scene,
+and as such there is no two-way interacting between objects in the scene and the environment,
+only light coming in. The only shader accepted is the Background node with a color input and
+strength factor for the intensity of the light.</p>
+<div class="section" id="image-based-lighting">
+<h3>Image Based Lighting<a class="headerlink" href="#image-based-lighting" title="Permalink to this headline">¶</a></h3>
+<p>For image based lighting,
+use the Environment Texture node rather than the Image Texture node for correct mapping.
+This supports <em>Equirectangular</em> (also known as Lat/Long) for environment maps,
+and <em>Mirror Ball</em> mapping for converting photos of mirror balls to environment maps.</p>
+</div>
+</div>
+<div class="section" id="volume">
+<h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Volume</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A volume shader can be applied to the entirely world, filling the entire space.</p>
+<p>Currently this is most useful for night time or other dark scenes,
+as the world surface shader or sun lamps will have no effect if a volume shader is used.
+This is because the world background is assumed to be infinitely far away,
+which is accurate enough for the sun for example.
+However, for modeling effects such as fog or atmospheric scattering,
+it is not a good assumption that the volume fills the entire space,
+as most of the distance between the sun and the earth is empty space.
+For such effects it is be better to create a volume object surrounding the scene.
+The size of this object will determine how much light is scattered or absorbed.</p>
+</div>
+<div class="section" id="ambient-occlusion">
+<h2>Ambient Occlusion<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Ambient Occlusion</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ambient occlusion is a lighting method based on how much a point on a surface is occluded by
+nearby surfaces. This is a trick that is not physically accurate,
+but it is useful to emphasize shapes of surfaces,
+or as a cheap way to get an effect that looks a bit like indirect lighting.</p>
+<dl class="docutils">
+<dt>Factor</dt>
+<dd>The strength of the ambient occlusion; value 1.0 is like a white world shader.</dd>
+<dt>Distance</dt>
+<dd>Distance from shading point to trace rays.
+A shorter distance emphasizes nearby features,
+while longer distances make it also take objects farther away into account.</dd>
+</dl>
+<p>Lighting from ambient occlusion is only applied to diffuse reflection BSDFs;
+glossy or transmission BSDFs are not affected.
+Transparency of surfaces will be taken into account, i.e.
+a half-transparent surface will only half occlude.</p>
+<p>An alternative method of using Ambient Occlusion on a per-shader basis is to use
+the <a class="reference internal" href="nodes/types/shaders/ao.html"><span class="doc">Ambient Occlusion</span></a> shader.</p>
+</div>
+<div class="section" id="mist-pass">
+<span id="render-cycles-integrator-world-mist"></span><h2>Mist Pass<a class="headerlink" href="#mist-pass" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Mist Pass</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Shown when the Mist pass is enabled. Mist values will range from 0.0 - 1.0 and
+are available from the Render Layers node.</p>
+<dl class="docutils">
+<dt>Start</dt>
+<dd>Defines the beginning of the mist range from the camera.</dd>
+<dt>Depth</dt>
+<dd>Defines the length over which mist values will be provided.</dd>
+<dt>Falloff</dt>
+<dd><p class="first">The curve function that determines the mist values within its depth.</p>
+<dl class="last docutils">
+<dt>Quadratic</dt>
+<dd>Uses the same calculation as light falloff (<span class="math notranslate nohighlight">\(1\over{x^2}\)</span>) and provides the smoothest
+transition from transparent (0.0) to opaque (1.0).</dd>
+<dt>Linear</dt>
+<dd>Has a steeper start than quadratic (<span class="math notranslate nohighlight">\(1\over{x}\)</span>).</dd>
+<dt>Inverse Quadratic</dt>
+<dd>Has the steepest start (<span class="math notranslate nohighlight">\(1\over{\sqrt{x}}\)</span>) and approaches 1.0 faster than the other two
+functions.</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">A visualization can be activated in the <span class="menuselection">Camera ‣ Display</span> panel.</p>
+</div>
+</div>
+<div class="section" id="settings">
+<span id="render-cycles-integrator-world-settings"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Settings</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id1">
+<h3>Surface<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Multiple Importance Sample</dt>
+<dd><p class="first">Enabling this will sample the background texture such that lighter parts are favored,
+creating an importance map. It will producing less noise in the render in trade of artifacts (fireflies).
+It is almost always a good idea to enable this when
+using an image texture to light the scene, otherwise noise can take a very long time to converge.</p>
+<p>Below is a comparison between <em>Multiple Importance Sample</em> off and on.
+Both images are rendered for 25 seconds (Off: 1500 samples, On: 1000 samples).</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../_images/render_cycles_world_mis-off.jpg" src="../../_images/render_cycles_world_mis-off.jpg" />
+<p class="caption"><span class="caption-text">Multiple Importance Sample off.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../_images/render_cycles_world_mis-on.jpg" src="../../_images/render_cycles_world_mis-on.jpg" />
+<p class="caption"><span class="caption-text">Multiple Importance Sample on.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Map Resolution</dt>
+<dd>Sets the resolution of the importance map.
+A higher resolution will better detect small features in the map and give more accurate sampling.
+but conversely will take up more memory and render slightly slower.
+Higher values also may produce less noise when using high-res images.</dd>
+<dt>Max Bounces</dt>
+<dd>Maximal number of bounces the background light will contribute to the render.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">See <a class="reference internal" href="optimizations/reducing_noise.html"><span class="doc">Reducing Noise</span></a>
+for more information on how to reduce noise.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Volume<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Sampling Method</dt>
+<dd><dl class="first last docutils">
+<dt>Distance</dt>
+<dd>If you have got a pretty dense volume that is lit from far away
+then <em>Distance</em> sampling is usually more efficient.</dd>
+<dt>Equiangular</dt>
+<dd>If you have got a light inside or near the volume then <em>equiangular</em> sampling is better.</dd>
+<dt>Multiple Importance</dt>
+<dd>If you have a combination of both, then the multiple importance sampling will be better.</dd>
+</dl>
+</dd>
+<dt>Interpolation</dt>
+<dd><p class="first">Interpolation method to use for the volume.</p>
+<dl class="last docutils">
+<dt>Linear</dt>
+<dd>Good smoothness and speed.</dd>
+<dt>Cubic</dt>
+<dd>Smoothed high-quality interpolation, but slower.</dd>
+</dl>
+</dd>
+<dt>Homogeneous Volume</dt>
+<dd>Assume volume has the same density everywhere (not using any textures), for faster rendering.
+For example absorption in a glass object would typically not have any textures,
+and by knowing this we can avoid taking small steps to sample the volume shader.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="ray-visibility">
+<h2>Ray Visibility<a class="headerlink" href="#ray-visibility" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">World ‣ Ray Visibility</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>As with other objects,
+<em>Ray Visibility</em> allows you to control which other shaders can &quot;see&quot; the environment.</p>
+<div class="section" id="tricks">
+<h3>Tricks<a class="headerlink" href="#tricks" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes it may be useful to have a different background that is directly visible versus one
+that is indirectly lighting the objects. A simple solution to this is to add a Mix node,
+with the Blend Factor set to Is Camera Ray. The first input color is then the indirect color,
+and the second the directly visible color. This is useful when using a high-res image for
+the background and a low-res image for the actual lighting.</p>
+<p>Similarly, adding the <em>Is Camera</em> and <em>Is Glossy</em> rays will mean that the high-res image
+will also be visible in reflections.</p>
+<div class="figure" id="id6">
+<img alt="../../_images/render_cycles_world_tricks.png" src="../../_images/render_cycles_world_tricks.png" />
+<p class="caption"><span class="caption-text">Nodes for the trick above.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nodes/index.html" class="btn btn-neutral float-right" title="Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lamps.html" class="btn btn-neutral" title="Lamps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

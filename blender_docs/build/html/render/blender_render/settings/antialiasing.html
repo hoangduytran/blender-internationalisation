@@ -1,0 +1,516 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Anti-Aliasing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/settings/antialiasing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Render Baking" href="../bake.html" />
+    <link rel="prev" title="Motion Blur" href="motion_blur.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Render Settings</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="layers.html">Render Layers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="passes.html">Render Passes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shading.html">Shading</a></li>
+<li class="toctree-l4"><a class="reference internal" href="motion_blur.html">Motion Blur</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Anti-Aliasing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Render Settings</a> &raquo;</li>
+        
+      <li>Anti-Aliasing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/settings/antialiasing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="anti-aliasing">
+<h1>Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h1>
+<p>A computer generated image is made up of pixels;
+each pixel can of course only be a single color. In the rendering process the rendering engine
+must therefore assign a single color to each pixel on the basis of what object is shown in
+that pixel. This often leads to poor results, especially at sharp boundaries,
+or where thin lines are present, and it is particularly evident for oblique lines.</p>
+<p>To overcome this problem, which is known as <em>Aliasing</em>,
+it is possible to resort to an Anti-Aliasing technique. Basically,
+each pixel is 'oversampled', by rendering it as if it were five pixels or more,
+and assigning an 'average' color to the rendered pixel.</p>
+<p>The buttons to control Anti-Aliasing, or Oversampling (OSA),
+are below the rendering button in the <em>Render</em> Panel.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Anti-Aliasing (checkbox)</dt>
+<dd>Enables oversampling.</dd>
+<dt>Samples</dt>
+<dd><p class="first">The number of samples per pixel. Higher value produces better edges, but slows down the rendering.</p>
+<p class="last">5, 8, 11, 16</p>
+</dd>
+</dl>
+<p>By default, we use in Blender a fixed &quot;Distributed Jitter&quot; table. The samples within a pixel
+are distributed and jittered in a way that guarantees two characteristics:</p>
+<ol class="arabic simple">
+<li>Each sample has equal distances to its neighbor samples.</li>
+<li>The samples cover all sub-pixel positions equally, both horizontally and vertically.</li>
+</ol>
+<p>The images below show Blender sample patterns for 5, 8, 11 and 16 samples.
+To show that the distribution is equalized over multiple pixels, the neighbor pixel patterns were drawn as well.
+Note that each pixel has an identical pattern.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-5.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-5.jpg" />
+<p class="caption"><span class="caption-text">5 samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-8.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-8.jpg" />
+<p class="caption"><span class="caption-text">8 samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-11.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-11.jpg" />
+<p class="caption"><span class="caption-text">11 samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-16.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-pattern-16.jpg" />
+<p class="caption"><span class="caption-text">16 samples.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils" id="render-internal-aa-full-sample">
+<dt>Full Sample</dt>
+<dd>For every anti-aliasing sample, save the entire Render Layer results.
+This solves anti-aliasing issues with compositing.</dd>
+</dl>
+</div>
+<div class="section" id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">¶</a></h2>
+<p>When the samples have been rendered,
+we've got color and alpha information available per sample.
+It then is important to define how much each sample contributes to a pixel.</p>
+<p>The simplest method is to average all samples and make that the pixel color.
+This is called using a &quot;Box Filter&quot;. The disadvantage of this method is that it does not take
+into account that some samples are very close to the edge of a pixel,
+and therefore could influence the color of the neighbor pixel(s) as well.</p>
+<p>Filter menu: Set The filter type to use to 'average' the samples:</p>
+<dl class="docutils">
+<dt>Box</dt>
+<dd><p class="first">A low-quality box-shaped curve.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">This filter is relatively low quality.
+You can see that only the samples within the pixel itself are added to the pixel's color.
+For the other filters,
+the formula ensures that a certain amount of the sample color gets distributed over the other pixels as well.</p>
+</div>
+</dd>
+<dt>Tent</dt>
+<dd>A simplistic filter that gives sharp results.</dd>
+<dt>Quadratic</dt>
+<dd>A Quadratic curve.</dd>
+<dt>Cubic</dt>
+<dd>A Cubic curve.</dd>
+<dt>Gauss</dt>
+<dd>Gaussian distribution, the most blurry.</dd>
+<dt>Catmull-Rom</dt>
+<dd>Catmull-Rom filter, gives the most sharpening.</dd>
+<dt>Mitchell-Netravali</dt>
+<dd>A good all-around filter that gives reasonable sharpness.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-box.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-box.jpg" />
+<p class="caption"><span class="caption-text">Box.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-tent.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-tent.jpg" />
+<p class="caption"><span class="caption-text">Tent.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-quadratic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-quadratic.jpg" />
+<p class="caption"><span class="caption-text">Quadratic.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-cubic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-cubic.jpg" />
+<p class="caption"><span class="caption-text">Cubic.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id9">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-gaussian.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-gaussian.jpg" />
+<p class="caption"><span class="caption-text">Gaussian.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-catmullrom.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-catmullrom.jpg" />
+<p class="caption"><span class="caption-text">Catmull-Rom.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-mitchell-netravali.jpg" src="../../../_images/render_blender-render_settings_antialiasing_oversampling-graph-mitchell-netravali.jpg" />
+<p class="caption"><span class="caption-text">Mitchell-Netravali.</span></p>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="filter-size">
+<h2>Filter Size<a class="headerlink" href="#filter-size" title="Permalink to this headline">¶</a></h2>
+<p>Making the filter size value smaller will squeeze the samples more into the center,
+and blur the image more. A larger filter size makes the result sharper.
+Notice that the last two filters also have a negative part;
+this will give an extra sharpening result.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-box.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-box.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Box filter.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-tent.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-tent.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Tent filter.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id14">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-quad.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-quad.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Quadratic filter.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-cubic.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-cubic.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Cubic filter.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id16">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-gauss.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-gauss.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Gaussian filter.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-catrom.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-catrom.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Catmull-Rom filter.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id18">
+<img alt="../../../_images/render_blender-render_settings_antialiasing_osa8-mitch.jpg" src="../../../_images/render_blender-render_settings_antialiasing_osa8-mitch.jpg" />
+<p class="caption"><span class="caption-text">AA 8, Mitchell-Netravali filter.</span></p>
+</div>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bake.html" class="btn btn-neutral float-right" title="Render Baking" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="motion_blur.html" class="btn btn-neutral" title="Motion Blur" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

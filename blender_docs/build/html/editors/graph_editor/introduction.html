@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/graph_editor/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Channels" href="channels.html" />
+    <link rel="prev" title="Graph Editor" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../index.html#d">3D</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html#animation">Animation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../timeline.html">Timeline Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Graph Editor</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="channels.html">Channels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fcurves/index.html">F-Curves</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dope_sheet/index.html">Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nla/index.html">NLA Editor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">Graph Editor</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/editors/graph_editor/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>The Graph editor is the main animation editor.
+It allows you to modify the animation for any properties using
+<a class="reference internal" href="fcurves/introduction.html"><span class="doc">F-Curves</span></a>.</p>
+<p>The Graph editor has two modes, <em>F-Curve</em> for <a class="reference internal" href="../../animation/actions.html"><span class="doc">Actions</span></a>,
+and <em>Drivers</em> for <a class="reference internal" href="../../animation/drivers/index.html"><span class="doc">Drivers</span></a>. Both are very similar in function.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/editors_graph-editor_introduction_example.png" src="../../_images/editors_graph-editor_introduction_example.png" />
+<p class="caption"><span class="caption-text">The Graph Editor.</span></p>
+</div>
+<div class="section" id="curve-view">
+<h2>Curve View<a class="headerlink" href="#curve-view" title="Permalink to this headline">¶</a></h2>
+<p>The curve view allows you to view and edit F-Curves.
+An F-Curve has several key parts:</p>
+<dl class="docutils">
+<dt>Curve</dt>
+<dd><p class="first">The curve defines the value (Y axis) of the property over time (X axis).</p>
+<p class="last">See <a class="reference internal" href="fcurves/index.html"><span class="doc">F-Curves</span></a></p>
+</dd>
+<dt>Keyframes</dt>
+<dd><p class="first">Keyframes are user-defined values on certain frames and are represented by little black squares.
+These become orange if selected.</p>
+<p class="last">See <a class="reference internal" href="../../animation/keyframes/index.html"><span class="doc">Keyframes</span></a> for more information.</p>
+</dd>
+<dt>Handles</dt>
+<dd><p class="first">Each keyframe has a handle that helps determine the values of the curve between keyframes.
+These handles are represented by extruding lines with circular ends
+and can be selected and modified to change the shape of the curve.</p>
+<p class="last">See <a class="reference internal" href="fcurves/introduction.html#editors-graph-fcurves-settings-handles"><span class="std std-ref">Handle Types</span></a> for more information.</p>
+</dd>
+</dl>
+<div class="figure" id="id2">
+<img alt="../../_images/editors_graph-editor_fcurves_introduction.png" src="../../_images/editors_graph-editor_fcurves_introduction.png" />
+<p class="caption"><span class="caption-text">A simple curve.</span></p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">See <a class="reference internal" href="fcurves/introduction.html"><span class="doc">F-Curves</span></a> for more info.</p>
+</div>
+<div class="section" id="navigation">
+<h3>Navigation<a class="headerlink" href="#navigation" title="Permalink to this headline">¶</a></h3>
+<p>As with most editors, you can:</p>
+<dl class="docutils">
+<dt>Pan</dt>
+<dd>Pan the view vertically (values) or horizontally (time) with click and drag (<kbd class="kbd docutils literal notranslate">MMB</kbd>).</dd>
+<dt>Zoom</dt>
+<dd>Zoom in and out with the mouse wheel (<kbd class="kbd docutils literal notranslate">Wheel</kbd>).</dd>
+<dt>Scale View</dt>
+<dd>Scale the view vertically or horizontally (<kbd class="kbd docutils literal notranslate">Ctrl-MMB</kbd>).</dd>
+</dl>
+</div>
+<div class="section" id="d-cursor">
+<span id="bpy-types-spacegrapheditor-cursor"></span><span id="graph-editor-2d-cursor"></span><h3>2D Cursor<a class="headerlink" href="#d-cursor" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id3">
+<img alt="../../_images/editors_graph-editor_introduction_2dcursor.png" src="../../_images/editors_graph-editor_introduction_2dcursor.png" />
+<p class="caption"><span class="caption-text">Graph Editor 2D Cursor.</span></p>
+</div>
+<p>The current frame is represented by a green vertical line called the <em>Time Cursor</em>.</p>
+<p>As in the <a class="reference internal" href="../timeline.html"><span class="doc">Timeline</span></a>,
+you can change the current frame by pressing or holding <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+<p>The green horizontal line is called the <em>Cursor</em>.
+This can be disabled via the <em>View Menu</em> or the <em>View Properties</em> panel.</p>
+<p>The <em>Time Cursor</em> and the <em>Cursor</em> make the <em>2D Cursor</em>.
+The <em>2D Cursor</em> is mostly used for editing tools.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p class="last">See Graph Editor's <a class="reference internal" href="fcurves/properties.html#graph-editor-view-properties"><span class="std std-ref">View Properties</span></a>.</p>
+</div>
+</div>
+<div class="section" id="view-axes">
+<h3>View Axes<a class="headerlink" href="#view-axes" title="Permalink to this headline">¶</a></h3>
+<p>For <em>Actions</em> the X axis represents time,
+the Y axis represents the value to set the property.</p>
+<p>For <em>Drivers</em> the X axis represents the <em>Driver Value</em>,
+the Y axis represents the value to set the property.</p>
+<p>Depending on the selected curves, the values have different meaning:
+For example rotation properties are shown in degrees,
+location properties are shown in Blender Units.
+Note that <em>Drivers</em> use radians for rotation properties.</p>
+</div>
+</div>
+<div class="section" id="header">
+<h2>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="view-menu">
+<span id="graph-view-menu"></span><h3>View Menu<a class="headerlink" href="#view-menu" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Realtime Updates</dt>
+<dd>When transforming keyframes, changes to the animation data are propagated to other views.</dd>
+<dt>Show Cursor</dt>
+<dd>Toggles the visibility of the <a class="reference internal" href="#d-cursor">2D Cursor</a>.</dd>
+<dt>Show Sliders</dt>
+<dd>A toggle option that shows the value sliders for the channels.
+See the Fig. <a class="reference internal" href="../dope_sheet/introduction.html#fig-dope-sheet-action"><span class="std std-ref">The Action editor's channels region.</span></a>.</dd>
+<dt>Show Group Colors</dt>
+<dd>Draw groups and channels with colors matching their corresponding groups.</dd>
+<dt>AutoMerge Keyframes</dt>
+<dd>Automatically merge nearby keyframes.</dd>
+<dt>Use High Quality Drawing</dt>
+<dd>Draws F-Curves using anti-aliasing and other fancy effects (disable for better performance).</dd>
+<dt>Show Handles <kbd class="kbd docutils literal notranslate">Ctrl-H</kbd></dt>
+<dd>Toggles the display of a curve's handles in the curve view.</dd>
+<dt>Only Selected Curve Keyframes</dt>
+<dd>Only shows the keyframes markers on the selected curves.</dd>
+<dt>Only Selected Keyframes Handles</dt>
+<dd>Only shows the handles for the currently selected curves.</dd>
+<dt>View All <kbd class="kbd docutils literal notranslate">Home</kbd></dt>
+<dd>Reset viewable area to show all keyframes.</dd>
+<dt>View Selected <kbd class="kbd docutils literal notranslate">NumpadPeriod</kbd></dt>
+<dd>Reset viewable area to show selected keyframes.</dd>
+<dt>View Frame <kbd class="kbd docutils literal notranslate">Numpad0</kbd></dt>
+<dd>Centers the area to the Time cursor.</dd>
+</dl>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li>See Graph Editor's <a class="reference internal" href="fcurves/properties.html#graph-editor-view-properties"><span class="std std-ref">View Properties</span></a></li>
+<li>See Timeline's <a class="reference internal" href="../timeline.html#timeline-view-menu"><span class="std std-ref">View Menu</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="preview-range">
+<span id="graph-preview-range"></span><h4>Preview Range<a class="headerlink" href="#preview-range" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Set Preview Range <kbd class="kbd docutils literal notranslate">P</kbd></dt>
+<dd>Interactively define frame range used for playback.
+Allow you to define a temporary preview range to use for the <kbd class="kbd docutils literal notranslate">Alt-A</kbd> real-time playback
+(this is the same thing as the <em>Playback Range</em> option of
+the <a class="reference internal" href="../timeline.html#animation-editors-timeline-headercontrols"><span class="std std-ref">Timeline editor header</span></a>).</dd>
+<dt>Clear Preview Range <kbd class="kbd docutils literal notranslate">Alt-P</kbd></dt>
+<dd>Clears the preview range.</dd>
+<dt>Auto-Set Preview Range <kbd class="kbd docutils literal notranslate">Ctrl-Alt-P</kbd></dt>
+<dd>Automatically sets the preview range to playback the whole action or
+the selected NLA strips.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="markers-menu">
+<h3>Markers Menu<a class="headerlink" href="#markers-menu" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../../animation/markers.html"><span class="doc">Markers</span></a> are used to denote frames with key points or significant events
+within an animation. Like with most animation editors, markers are shown at the bottom of the editor.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/editors_graph-editor_introduction_markers.png" src="../../_images/editors_graph-editor_introduction_markers.png" />
+<p class="caption"><span class="caption-text">Markers in animation editor.</span></p>
+</div>
+<p>For descriptions of the different marker tools see <a class="reference internal" href="../../animation/markers.html#animation-markers-editing"><span class="std std-ref">Editing Markers</span></a>.</p>
+</div>
+<div class="section" id="mode">
+<h3>Mode<a class="headerlink" href="#mode" title="Permalink to this headline">¶</a></h3>
+<p>F-Curve for <a class="reference internal" href="../../animation/actions.html"><span class="doc">Actions</span></a>,
+and Drivers for <a class="reference internal" href="../../animation/drivers/index.html"><span class="doc">Drivers</span></a>.</p>
+<div class="figure" id="id5">
+<img alt="../../_images/editors_graph-editor_introduction_header-mode.png" src="../../_images/editors_graph-editor_introduction_header-mode.png" />
+<p class="caption"><span class="caption-text">Graph Mode.</span></p>
+</div>
+</div>
+<div class="section" id="view-controls">
+<h3>View Controls<a class="headerlink" href="#view-controls" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id6">
+<img alt="../../_images/editors_graph-editor_introduction_header-view.png" src="../../_images/editors_graph-editor_introduction_header-view.png" />
+<p class="caption"><span class="caption-text">View controls.</span></p>
+</div>
+<dl class="docutils">
+<dt>Show Only Selected (mouse cursor icon)</dt>
+<dd>Only include curves related to the selected objects and data.</dd>
+<dt>Show Hidden (ghost icon)</dt>
+<dd>Include curves from objects/bones that are not visible.</dd>
+<dt>Show Only Errors (livesaver icon)</dt>
+<dd>Only include curves and drivers that are disabled or have errors.
+Useful for debugging.</dd>
+<dt>Search Filter (magnifying glass icon) <kbd class="kbd docutils literal notranslate">F</kbd></dt>
+<dd><p class="first">Only include curves with keywords contained in the search field.</p>
+<dl class="last docutils">
+<dt>Multi-Word (az icon)</dt>
+<dd>Fuzzy/Multi-Word name filtering matches word snippets/partial words,
+instead of having to match everything. It breaks down the search string based on white-space placement.
+e.g. &quot;lo ro&quot; will filter all location and rotation, while &quot;lc rt&quot; will <em>not</em> work.</dd>
+</dl>
+</dd>
+<dt>Type Filter</dt>
+<dd><p class="first">Filter curves by property type.</p>
+<dl class="last docutils">
+<dt>Data-block Sort (az icon)</dt>
+<dd><p class="first">Objects data-blocks appear in alphabetical order, so that it is easier to find where they occur
+(as well as helping to keep the animation of related objects together in the NLA for instance).</p>
+<p class="last">If you find that your playback speed suffers from this being enabled
+(it should only really be an issue when working with lots of objects in the scene),
+you can turn this off.</p>
+</dd>
+</dl>
+</dd>
+<dt>Normalize</dt>
+<dd><p class="first">Normalize curves so the maximum or minimum point equals 1.0 or -1.0.</p>
+<dl class="last docutils">
+<dt>Auto</dt>
+<dd>Automatically recalculate curve normalization on every curve edit.
+This is useful to prevent curves from jumping after tweaking it.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="curve-controls">
+<h3>Curve Controls<a class="headerlink" href="#curve-controls" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id7">
+<img alt="../../_images/editors_graph-editor_introduction_header-edit.png" src="../../_images/editors_graph-editor_introduction_header-edit.png" />
+<p class="caption"><span class="caption-text">Curve controls.</span></p>
+</div>
+<dl class="docutils">
+<dt>Proportional Editing <kbd class="kbd docutils literal notranslate">O</kbd></dt>
+<dd>See <a class="reference internal" href="../3dview/object/editing/transform/control/proportional_edit.html"><span class="doc">Proportional editing</span></a>.</dd>
+<dt>Auto Snap</dt>
+<dd><p class="first">Auto snap the keyframes for transformations.</p>
+<ul class="last simple">
+<li>No Auto-Snap</li>
+<li>Frame Step</li>
+<li>Second Step</li>
+<li>Nearest Frame</li>
+<li>Nearest Second</li>
+<li>Nearest Marker</li>
+</ul>
+</dd>
+<dt>Pivot Point</dt>
+<dd><p class="first">Pivot point for rotation.</p>
+<dl class="last docutils">
+<dt>Bounding Box Center</dt>
+<dd>Center of the selected keyframes.</dd>
+<dt>2D Cursor</dt>
+<dd>Center of the <em>2D Cursor</em>. <em>Time Cursor</em> + <em>Cursor</em>.</dd>
+<dt>Individual Centers</dt>
+<dd>Rotate the selected keyframe <em>Bézier</em> handles.</dd>
+</dl>
+</dd>
+<dt>Copy Keyframes <kbd class="kbd docutils literal notranslate">Ctrl-C</kbd></dt>
+<dd>Copy the selected keyframes to memory.</dd>
+<dt>Paste Keyframes <kbd class="kbd docutils literal notranslate">Ctrl-V</kbd></dt>
+<dd>Paste keyframes from memory to the current frame for selected curves.</dd>
+<dt>Create Snapshot (ghost icon)</dt>
+<dd>Creates a picture with the current shape of the curves.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="properties-region">
+<h2>Properties Region<a class="headerlink" href="#properties-region" title="Permalink to this headline">¶</a></h2>
+<p>The panels in the <em>Properties Region</em>.</p>
+<div class="section" id="view-tab">
+<h3>View Tab<a class="headerlink" href="#view-tab" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="view-properties-panel">
+<h3>View Properties Panel<a class="headerlink" href="#view-properties-panel" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id8">
+<img alt="../../_images/editors_graph-editor_fcurves_properties_view-panel.png" src="../../_images/editors_graph-editor_fcurves_properties_view-panel.png" />
+<p class="caption"><span class="caption-text">View Properties panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Show Cursor</dt>
+<dd>Show the vertical <em>Cursor</em>.</dd>
+<dt>Cursor from Selection</dt>
+<dd>Set the <em>2D cursor</em> to the center of the selected keyframes.</dd>
+<dt>Cursor X</dt>
+<dd><p class="first"><em>Time Cursor</em> X position.</p>
+<dl class="last docutils">
+<dt>To Keys</dt>
+<dd>Snap selected keyframes to the <em>Time Cursor</em>.</dd>
+</dl>
+</dd>
+<dt>Cursor Y</dt>
+<dd><p class="first">Vertical <em>Cursor</em> Y position.</p>
+<dl class="last docutils">
+<dt>To Keys</dt>
+<dd>Snap selected keyframes to the <em>Cursor</em>.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="further-tabs">
+<h3>Further Tabs<a class="headerlink" href="#further-tabs" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>F-Curve Tab</dt>
+<dd>See <a class="reference internal" href="fcurves/properties.html"><span class="doc">F-Curve</span></a>.</dd>
+<dt>Drivers Tab</dt>
+<dd>See <a class="reference internal" href="../../animation/drivers/drivers_panel.html"><span class="doc">Drivers Panel</span></a>.</dd>
+<dt>Modifiers Tab</dt>
+<dd>See <a class="reference internal" href="fcurves/modifiers.html"><span class="doc">F-Modifiers</span></a>.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="channels.html" class="btn btn-neutral float-right" title="Channels" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Graph Editor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

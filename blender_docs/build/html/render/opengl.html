@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OpenGL Render &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/opengl.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Audio Rendering" href="audio/index.html" />
+    <link rel="prev" title="Usage" href="workflows/multiview/usage.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflows/index.html">Workflows</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">OpenGL Render</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rendering">Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known Limitations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#opengl-anti-aliasing-support">OpenGL Anti-Aliasing Support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Render</a> &raquo;</li>
+        
+      <li>OpenGL Render</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/render/opengl.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opengl-render">
+<h1>OpenGL Render<a class="headerlink" href="#opengl-render" title="Permalink to this headline">¶</a></h1>
+<p>OpenGL rendering uses the 3D View's drawing for quick <em>preview</em> renders.</p>
+<p>This allows you to inspect your animatic
+(for object movements, alternate angles, etc.).</p>
+<p>This can also be used to preview your animations --
+in the event your scene is too complex for your system to play back in real-time in the 3D View.</p>
+<p>You can use OpenGL to render both images and animations.</p>
+<p>Below is a comparison between the OpenGL render and a final render using
+the Cycles Renderer.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Model by © 2016 pokedstudio.com</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/render_opengl_example-opengl-render.jpg"><img alt="../_images/render_opengl_example-opengl-render.jpg" src="../_images/render_opengl_example-opengl-render.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">OpenGL render.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../_images/render_opengl_example-cycles-render.jpg"><img alt="../_images/render_opengl_example-cycles-render.jpg" src="../_images/render_opengl_example-cycles-render.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Full render.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Showing Only Rendered Objects</p>
+<p>To access this option, enable the <em>Only Render</em> in the <a class="reference internal" href="../editors/3dview/properties/panels.html"><span class="doc">Display Panel</span></a>.</p>
+<p class="last">While this option is not specific to OpenGL rendering, it's often useful to enable,
+since it removes data such as rigs and empties that can be a distraction.</p>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Info Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Render ‣ OpenGL Render Options</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the most part, <em>OpenGL Render</em> uses the viewport settings,
+Sampling and Alpha Transparency Mode options can be set by
+the <span class="menuselection">Render ‣ OpenGL Render Options</span> from the Info Editor header.
+Additionally, some render settings are used too:</p>
+<ul class="simple">
+<li>Render Dimensions</li>
+<li>Render Aspect</li>
+<li>File Format &amp; Output (file path, format, compression settings, etc.)</li>
+</ul>
+</div>
+<div class="section" id="rendering">
+<h2>Rendering<a class="headerlink" href="#rendering" title="Permalink to this headline">¶</a></h2>
+<p>Activating OpenGL render from the menu will render from the active camera.</p>
+<p>You can also render any viewport, from the header of the <em>3D View</em>,
+using the small button showing a <em>Camera</em>.</p>
+<div class="figure" id="id4">
+<img alt="../_images/render_opengl_view-port-render-buttons.png" src="../_images/render_opengl_view-port-render-buttons.png" />
+<p class="caption"><span class="caption-text">OpenGL Render buttons.</span></p>
+</div>
+<p>As with a normal render, you can abort it with <kbd class="kbd docutils literal notranslate">Esc</kbd>.</p>
+<dl class="docutils">
+<dt>Render a Still Image</dt>
+<dd><p class="first">Click on the small button showing a <em>camera</em> in the header of the 3D View.</p>
+<p class="last">Or from the menu: <span class="menuselection">Render ‣ OpenGL Render Image</span>
+from the header of the <em>Info Editor</em></p>
+</dd>
+<dt>Render an Animation</dt>
+<dd><p class="first">Click on the small button showing a <em>slate</em> in the header of the 3D View.</p>
+<p class="last">Or from the menu: <span class="menuselection">Render ‣ OpenGL Render Animation</span>
+from the header of the <em>Info Editor</em></p>
+</dd>
+<dt>Render from the Sequencer</dt>
+<dd><p class="first">Click on the small button showing a <em>slate</em> in the header of <em>Sequencer</em> preview region.</p>
+<p>Using scene strips in the Sequencer you can edit together scenes to quickly render an entire sequence of shots.</p>
+<p class="last">This can be activated using the render icons in the Sequencer's playback header.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="opengl-anti-aliasing-support">
+<h3>OpenGL Anti-Aliasing Support<a class="headerlink" href="#opengl-anti-aliasing-support" title="Permalink to this headline">¶</a></h3>
+<p>Some graphics cards do not support this feature
+(known as the frame-buffer multi-sample OpenGL extensions).</p>
+<p>In this case rendering works but no anti-aliasing is performed.</p>
+<p>Enabling <em>Full Sample</em>, can be used to workaround this limit,
+because it does not rely on hardware multi-sample support.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>Exact extensions needed, as listed in output from <a class="reference internal" href="../getting_started/help.html#help-system-info"><span class="std std-ref">Save System Info</span></a> (OpenGL section):</p>
+<ul class="last simple">
+<li><code class="docutils literal notranslate"><span class="pre">GL_ARB_texture_multisample</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">GL_EXT_framebuffer_blit</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">GL_EXT_framebuffer_multisample_blit_scaled</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">GL_EXT_framebuffer_multisample</span></code></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="audio/index.html" class="btn btn-neutral float-right" title="Audio Rendering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workflows/multiview/usage.html" class="btn btn-neutral" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

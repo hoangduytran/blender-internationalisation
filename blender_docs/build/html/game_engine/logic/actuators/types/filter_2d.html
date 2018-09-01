@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Filter 2D Actuator &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/game_engine/logic/actuators/types/filter_2d.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Game Actuator" href="game.html" />
+    <link rel="prev" title="Edit Object Actuator" href="edit_object.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Game Engine</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../screen_layout.html">Game Logic Screen Layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../materials.html">Game Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../world.html">World</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Logic</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sensors/index.html">Sensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../controllers/index.html">Controllers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Actuators</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing.html">Actuator Editing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html#actuators-types">Actuators Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../states.html">States</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../performance.html">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../python_api/index.html">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../licensing.html">Licensing of Blender Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Game Engine</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Logic</a> &raquo;</li>
+        
+          <li><a href="../index.html">Actuators</a> &raquo;</li>
+        
+      <li>Filter 2D Actuator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/game_engine/logic/actuators/types/filter_2d.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filter-2d-actuator">
+<span id="bpy-types-filter2dactuator"></span><h1>Filter 2D Actuator<a class="headerlink" href="#filter-2d-actuator" title="Permalink to this headline">¶</a></h1>
+<p>The <em>Filter 2D Actuator</em> adds image filters, that apply on final render of objects.
+There are several 2D filters each listed below. Most are self-explanatory, however,
+some are special and will be described in detail later.</p>
+<ul class="simple">
+<li>Custom Filter</li>
+<li>Invert</li>
+<li>Sepia</li>
+<li>Gray Scale</li>
+<li>Prewitt</li>
+<li>Sobel</li>
+<li>Laplacian</li>
+<li>Erosion</li>
+<li>Dilation</li>
+<li>Sharpen</li>
+<li>Blur</li>
+<li>Motion Blur</li>
+<li>Remove Filter</li>
+<li>Disable Filter</li>
+<li>Enable Filter</li>
+</ul>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../../_images/game-engine_logic_actuators_types_filter-2d_node.png"><img alt="../../../../_images/game-engine_logic_actuators_types_filter-2d_node.png" src="../../../../_images/game-engine_logic_actuators_types_filter-2d_node.png" style="width: 271px;" /></a>
+<p class="caption"><span class="caption-text">Edit Object actuator.</span></p>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Filter 2D Type</dt>
+<dd>Selects the type of 2D filter to use. All 2D filters are rendered with fragment shaders
+so your hardware must support fragment shaders. Several of the filters are called &quot;built-in filters&quot;,
+these are: Blur, Sharpen, Dilation, Erosion, Laplacian, Sobel, Prewitt, Gray Scale, Sepia, and Invert.
+There are however some filters that work differently from the ones above and are described separately.</dd>
+<dt>Pass Number</dt>
+<dd>The pass number for the filter to use.</dd>
+</dl>
+<p>Details of special filters are described below.</p>
+<div class="section" id="motion-blur">
+<h3>Motion Blur<a class="headerlink" href="#motion-blur" title="Permalink to this headline">¶</a></h3>
+<p><em>Motion Blur</em> is a <em>2D Filter</em> that needs previous rendering information to produce motion effect on objects.
+Below you can see <em>Motion Blur</em> filter in Blender window, along with its logic bricks:</p>
+<div class="figure" id="id2">
+<img alt="../../../../_images/game-engine_logic_actuators_types_filter-2d_motionblur-render-full.jpg" src="../../../../_images/game-engine_logic_actuators_types_filter-2d_motionblur-render-full.jpg" />
+<p class="caption"><span class="caption-text">2D Filters: Motion Blur.</span></p>
+</div>
+<p>You can enable Motion Blur filter using a <em>Python</em> controller:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bge</span> <span class="k">import</span> <span class="n">render</span>
+<span class="n">render</span><span class="o">.</span><span class="n">enableMotionBlur</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And disable it:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bge</span> <span class="k">import</span> <span class="n">render</span>
+<span class="n">render</span><span class="o">.</span><span class="n">disableMotionBlur</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Your graphic hardware and OpenGL driver must support accumulation buffer (<code class="docutils literal notranslate"><span class="pre">glAccum</span></code> function).</p>
+</div>
+</div>
+<div class="section" id="enable-disable-filters">
+<h3>Enable/Disable Filters<a class="headerlink" href="#enable-disable-filters" title="Permalink to this headline">¶</a></h3>
+<p>There are two filters which can be used to either <em>Enable</em> or <em>Disable</em> other filters.</p>
+<p>To enable/disable a filter on a specific pass:</p>
+<ol class="arabic simple">
+<li>Create appropriate sensor(s) and controller(s).</li>
+<li>Create a <em>2D Filter</em> actuator.</li>
+<li>Select either <em>Enable Filter</em> or <em>Disable Filter</em> depending on what you want to do.</li>
+<li>Set the pass number you want to disable the filter on it.</li>
+</ol>
+</div>
+<div class="section" id="removing-filters">
+<h3>Removing Filters<a class="headerlink" href="#removing-filters" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Remove Filter</em> is used to remove other 2D filters.</p>
+<p>To remove a filter on a specific pass:</p>
+<ol class="arabic simple">
+<li>Create appropriate sensor(s) and controller(s).</li>
+<li>Create a <em>2D Filter</em> actuator.</li>
+<li>Select <em>Remove Filter</em>.</li>
+<li>Set the pass number you want to remove the filter from it.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="custom-filters">
+<h2>Custom Filters<a class="headerlink" href="#custom-filters" title="Permalink to this headline">¶</a></h2>
+<p>Custom filters give you the ability to define your own 2D filter using GLSL.
+Its usage is the same as built-in filters,
+but you must select <em>Custom Filter</em> in <em>2D Filter</em> actuator,
+then write shader program into the Text Editor, and then place shader script name on actuator.</p>
+<div class="figure" id="id3">
+<img alt="../../../../_images/game-engine_logic_actuators_types_filter-2d_custom-2d.jpg" src="../../../../_images/game-engine_logic_actuators_types_filter-2d_custom-2d.jpg" />
+<p class="caption"><span class="caption-text">2D Filters: Custom Filter.</span></p>
+</div>
+<p>Blue Sepia Example:</p>
+<div class="highlight-glsl notranslate"><div class="highlight"><pre><span></span><span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">bgl_RenderedTexture</span><span class="p">;</span>
+<span class="k">void</span> <span class="n">main</span><span class="p">(</span><span class="k">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">vec4</span> <span class="n">texcolor</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">bgl_RenderedTexture</span><span class="p">,</span> <span class="n">gl_TexCoord</span><span class="p">[</span><span class="mo">0</span><span class="p">].</span><span class="n">st</span><span class="p">);</span>
+  <span class="k">float</span> <span class="n">gray</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">texcolor</span><span class="p">.</span><span class="n">rgb</span><span class="p">,</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.299</span><span class="p">,</span> <span class="mf">0.587</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">));</span>
+  <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="k">vec4</span><span class="p">(</span><span class="n">gray</span> <span class="o">*</span> <span class="k">vec3</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">),</span> <span class="n">texcolor</span><span class="p">.</span><span class="n">a</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="built-in-filters">
+<h3>Built-in Filters<a class="headerlink" href="#built-in-filters" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<img alt="../../../../_images/game-engine_logic_actuators_types_filter-2d_sepia-render-full.jpg" src="../../../../_images/game-engine_logic_actuators_types_filter-2d_sepia-render-full.jpg" />
+<p class="caption"><span class="caption-text">Sepia Filter.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<img alt="../../../../_images/game-engine_logic_actuators_types_filter-2d_sobel-render-full.jpg" src="../../../../_images/game-engine_logic_actuators_types_filter-2d_sobel-render-full.jpg" />
+<p class="caption"><span class="caption-text">Sobel Filter.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="game.html" class="btn btn-neutral float-right" title="Game Actuator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="edit_object.html" class="btn btn-neutral" title="Edit Object Actuator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

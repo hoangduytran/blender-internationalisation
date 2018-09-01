@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Ambient Occlusion &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/world/ambient_occlusion.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Mist" href="mist.html" />
+    <link rel="prev" title="Indirect Lighting" href="indirect_lighting.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">World</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="world_panel.html">World Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="exposure.html">Exposure &amp; Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ambient_light.html">Environment Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="indirect_lighting.html">Indirect Lighting</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ambient Occlusion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="mist.html">Mist</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">World</a> &raquo;</li>
+        
+      <li>Ambient Occlusion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/world/ambient_occlusion.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ambient-occlusion">
+<span id="bpy-types-worldlighting-ao"></span><h1>Ambient Occlusion<a class="headerlink" href="#ambient-occlusion" title="Permalink to this headline">¶</a></h1>
+<p>Ambient Occlusion is a sophisticated ray-tracing calculation which simulates soft global
+illumination shadows by faking darkness perceived in corners and at mesh intersections,
+creases, and cracks, where ambient light is occluded, or blocked.</p>
+<p>There is no such thing as AO in the real world; AO is a specific not-physically-accurate
+(but generally nice-looking) rendering trick.
+It basically samples a hemisphere around each point on the face,
+sees what proportion of that hemisphere is occluded by other geometry,
+and shades the pixel accordingly.</p>
+<p>It is got nothing to do with light at all; it is purely a rendering trick that tends to look
+nice because generally in real-world surfaces that are close together (like small cracks)
+will be darker than surfaces that do not have anything in front of them, because of shadows,
+dirt, etc.</p>
+<p>The AO process, though, approximates this result;
+it is not simulating light bouncing around or going through things.
+That is why AO still works when you do not have any lights in the scene,
+and it is why just switching on AO alone is a very bad way of &quot;lighting&quot; a scene.</p>
+<p>You must have ray tracing enabled as a <em>Render</em> panel option
+in the <em>Shading</em> section for this to work.</p>
+<p>You must have an ambient light color set as you desire. By default, the ambient light color
+(world) is black, simulating midnight in the basement during a power outage.
+Applying that color as ambient will actually darken all colors.
+A good outdoor mid-day color is RGB(0.9, 0.9, 0.8)
+which is a whitish yellow sunny kind of color on a bright-but-not-harshly-bright day.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_panel.png" src="../../../_images/render_blender-render_world_ambient-occlusion_panel.png" />
+<p class="caption"><span class="caption-text">The World panel with ambient color sliders highlighted.</span></p>
+</div>
+<dl class="docutils">
+<dt>Factor</dt>
+<dd>The strength of the AO effect, a multiplier for addition.</dd>
+</dl>
+<p>Ambient Occlusion is composited during the render. Two blending modes are available:</p>
+<dl class="docutils">
+<dt>Add</dt>
+<dd>The pixel receives light according to the number of non-obstructed rays.
+The scene is lighter. This simulates global illumination.</dd>
+<dt>Multiply</dt>
+<dd>Ambient occlusion is multiplied over the shading, making things darker.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">If <em>Multiply</em> is chosen, there must be other light sources; otherwise the scene will be pitch black.
+In the other two cases the scene is lit even if no explicit light is present, just from the AO effect.
+Although many people like to use AO alone as a quick shortcut to light a scene,
+the results it gives will be muted and flat, like an overcast day. In most cases,
+it is best to light a scene properly with Blender's standard lamps, then use AO on top of that,
+set to <em>Multiply</em>, for the additional details and contact shadows.</p>
+</div>
+<p>The <em>Gather</em> panel contains settings for the ambient occlusion quality.
+Note that these settings also apply to Environment Lighting and Indirect Lighting.</p>
+<p>Ambient occlusion has two main methods of calculation: <em>Raytrace</em> and <em>Approximate</em>.</p>
+<div class="section" id="gather">
+<span id="bpy-types-worldlighting"></span><h3>Gather<a class="headerlink" href="#gather" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="raytrace">
+<h4>Raytrace<a class="headerlink" href="#raytrace" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_gather.png" src="../../../_images/render_blender-render_world_ambient-occlusion_gather.png" />
+<p class="caption"><span class="caption-text">The Ambient Occlusion panel, Raytrace method.</span></p>
+</div>
+<p>The <em>Raytrace</em> method gives the more accurate, but also the more noisy results.
+You can get a nearly noiseless image, but at the cost of render time... It is the only option if
+you want to use the colors of your sky's texture.</p>
+<dl class="docutils">
+<dt>Attenuation</dt>
+<dd>Length of rays defines how far away other faces may be and still have an occlusion effect.
+The longer this distance, the greater impact that far away geometry will have on the occlusion effect.
+A high <em>Distance</em> value also means that the renderer has to search a greater area for geometry that occludes,
+so render time can be optimized by making this distance as short as possible for the visual effect that you want.</dd>
+</dl>
+<p class="rubric">Sampling</p>
+<dl class="docutils">
+<dt>Sampling Method</dt>
+<dd><dl class="first docutils">
+<dt>Constant QMC</dt>
+<dd>The base Quasi-Monte Carlo, gives evenly and randomly distributed rays.</dd>
+<dt>Adaptive QMC</dt>
+<dd><p class="first">An improved method of QMC,
+that tries to determine when the sample rate can be lowered or the sample skipped, based on its two settings:</p>
+<dl class="last docutils">
+<dt>Threshold</dt>
+<dd>The limit below which the sample is considered fully occluded (&quot;black&quot;)
+or un-occluded (&quot;white&quot;), and skipped.</dd>
+<dt>Adapt to Speed</dt>
+<dd>A factor to reduce AO sampling on fast-moving pixels.
+As it uses the <em>Vector</em> render pass, that must also be enabled
+(see <a class="reference internal" href="../../post_process/layers.html"><span class="doc">render passes page</span></a>).</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>About QMC</p>
+<p class="last">See also
+the <a class="reference internal" href="../lighting/shadows/raytraced_properties.html#render-blender-internal-quasi-monte-carlo"><span class="std std-ref">ray-traced shadows page</span></a>
+for more info about the Quasi-Monte Carlo sampling method.</p>
+</div>
+<dl class="last docutils">
+<dt>Constant Jittered</dt>
+<dd><p class="first">The historical sample method, more prone to &quot;bias&quot; artifacts...</p>
+<dl class="last docutils">
+<dt>Bias</dt>
+<dd><p class="first">The angle (in radians) the hemisphere will be made narrower
+(i.e. the hemisphere will no longer be a real hemisphere: its section will no longer be a semicircle,
+but an arc of a circle of: pi - <em>bias</em> radians).</p>
+<p>The bias setting allows you to control how smooth &quot;smooth&quot; faces will appear in AO rendering.
+Since AO occurs on the original faceted mesh,
+it is possible that the AO light makes faces visible even on objects with &quot;smooth&quot; on.
+This is due to the way AO rays are shot, and can be controlled with the <em>Bias</em> slider.
+Note that while it might even happen with QMC sampling methods,
+it is much more visible with the <em>Constant Jittered</em> one and anyway,
+you have no <em>Bias</em> option for QMC.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_bias0-05.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">24×24 UV Sphere with Bias: 0.05 (default).
+Note the facets on the sphere's surface even though it is set to smooth.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_bias0-15.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Raising the Bias to 0.15 removes the faceted artifacts.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Samples</dt>
+<dd><p class="first">The number of rays used to detect if an object is occluded.
+Higher numbers of samples give smoother and more accurate results, at the expense of slower render times.
+The default value of 5 is usually good for previews.
+The actual number of rays shot out is the square of this number (i.e.*Samples* at 5 means 25 rays).
+Rays are shot at the hemisphere according to a random pattern
+(determined by the sample methods described above); this causes differences in the occlusion pattern of
+neighboring pixels unless the number of shot rays is big enough to produce good statistical data.</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_3samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion with 3 Samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_6samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion with 6 Samples.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg"><img alt="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg" src="../../../_images/render_blender-render_world_ambient-occlusion_12samples.jpg" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Ambient Occlusion with 12 Samples.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="approximate">
+<h4>Approximate<a class="headerlink" href="#approximate" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id8">
+<img alt="../../../_images/render_blender-render_world_ambient-occlusion_gather2.png" src="../../../_images/render_blender-render_world_ambient-occlusion_gather2.png" />
+<p class="caption"><span class="caption-text">The Ambient Occlusion panel, Approximate method.</span></p>
+</div>
+<p>The <em>Approximate</em> method gives a much smoother result for the same amount of render
+time, but as its name states, it is only an approximation of the <em>Raytrace</em> method,
+which implies it might produce some artifacts and it cannot use the sky's texture
+as the base color.</p>
+<p>This method seems to tend to &quot;over-occlude&quot; the results.
+You have two complementary options to reduce this problem:</p>
+<dl class="docutils">
+<dt>Passes</dt>
+<dd>Set the number of pre-processing passes, between (0 to 10) passes.
+Keeping the pre-processing passes high will increase render time
+but will also clear some artifacts and over-occlusions.</dd>
+<dt>Error</dt>
+<dd>This is the tolerance factor for approximation error
+(i.e. the max allowed difference between approximated result and fully computed result).
+The lower, the slower the render, but the more accurate the results...
+Ranges between (0.0 to 10.0), defaults to 0.250.</dd>
+<dt>Pixel Cache</dt>
+<dd>When enabled, it will keep values of computed pixels to interpolate it with its neighbors.
+This further speeds up the render, generally without visible loss in quality...</dd>
+<dt>Correction</dt>
+<dd>A correction factor to reduce over-occlusion. Ranges between (0.0 to 1.0) correction.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-settings">
+<h3>Common Settings<a class="headerlink" href="#common-settings" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Falloff</dt>
+<dd><p class="first">When activated, the distance to the occluding objects will influence the &quot;depth&quot; of the shadow.
+This means that the further away the occluding geometry is, the lighter its &quot;shadow&quot; will be.
+This effect only occurs when the <em>Strength</em> factor is higher than 0.0.
+It mimics light dispersion in the atmosphere...</p>
+<dl class="last docutils">
+<dt>Strength</dt>
+<dd>Controls the attenuation of the shadows enabled with <em>Use Falloff</em>.
+Higher values give a shorter shadow, as it falls off more quickly
+(corresponding to a more foggy/dusty atmosphere).
+Ranges from (0.0 to 10.0), default is 0.0, which means no falloff.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<p>Ambient occlusion is calculated by casting rays from each visible point,
+and by counting how many of them actually reach the sky, and how many, on the other hand,
+are obstructed by objects.</p>
+<p>The amount of light on the point is then proportional to the number of rays which have
+&quot;escaped&quot; and have reached the sky. This is done by firing a hemisphere of shadow rays around.
+If a ray hits another face (it is occluded) then that ray is considered &quot;shadow&quot;,
+otherwise it is considered &quot;light&quot;.
+The ratio between &quot;shadow&quot; and &quot;light&quot; rays defines how bright a given pixel is.</p>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>Ambient occlusion is a ray-tracing technique (at least with the <em>Raytrace</em> method), so it tends to be slow.
+Furthermore, performance severely depends on octree size,
+see the <a class="reference internal" href="../../index.html"><span class="doc">rendering chapter</span></a> for more information.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mist.html" class="btn btn-neutral float-right" title="Mist" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="indirect_lighting.html" class="btn btn-neutral" title="Indirect Lighting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

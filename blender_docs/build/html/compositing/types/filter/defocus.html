@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Defocus Node &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/compositing/types/filter/defocus.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Despeckle Node" href="despeckle.html" />
+    <link rel="prev" title="Bokeh Blur Node" href="bokeh_blur.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Compositing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../properties.html">Properties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../input/index.html">Input Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="bilateral_blur.html">Bilateral Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blur_node.html">Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="bokeh_blur.html">Bokeh Blur Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Defocus Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sun_beams.html">Sun Beams Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="vector_blur.html">Vector (Motion) Blur Node</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Compositing</a> &raquo;</li>
+        
+          <li><a href="index.html">Filter Nodes</a> &raquo;</li>
+        
+      <li>Defocus Node</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/compositing/types/filter/defocus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-types-compositornodedefocus"></span><div class="section" id="defocus-node">
+<h1>Defocus Node<a class="headerlink" href="#defocus-node" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/compositing_types_filter_defocus_node.png" src="../../../_images/compositing_types_filter_defocus_node.png" />
+<p class="caption"><span class="caption-text">Defocus Node.</span></p>
+</div>
+<p>The <em>Defocus Node</em> blurs areas of an image based on a map/mask input.</p>
+<p>It is typically used to emulate depth of field (<a class="reference internal" href="../../../glossary/index.html#term-dof"><span class="xref std std-term">DOF</span></a>) using a post-processing method with a Z-buffer input.
+But also allows to blur images that are not based on Z depth too.</p>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Standard image input.</dd>
+<dt>Z</dt>
+<dd>Z-buffer input, but could also be a (grayscale) image used as a mask, or a single value input.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bokeh Type</dt>
+<dd><p class="first">The number of iris blades of the virtual camera's diaphragm.</p>
+<p class="last">Disk (to emulate a perfect circle) or Triangle (3 blades), Square (4 blades),
+Pentagon (5 blades), Hexagon (6 blades), Heptagon (7 blades) or Octagon (8 blades).</p>
+</dd>
+<dt>Angle</dt>
+<dd>This button is deactivated, if the Bokeh Type is set to Disk.
+It can be used to add a rotation offset to the Bokeh shape.
+The value is the angle in degrees.</dd>
+<dt>Gamma Correction</dt>
+<dd>Applies a gamma correction on the image before and after blurring it.</dd>
+<dt>F-Stop</dt>
+<dd>This option controls the amount of focal blur in the same way as a real camera.
+It simulates the aperture <em>f</em> of a real lens' iris, without modifying the luminosity of the picture.
+The default value 128 is assumed to be infinity:
+everything is in perfect focus. Half the value will double the amount of blur.
+This button is deactivated, if <em>No Z-buffer</em> is enabled.</dd>
+<dt>Max Blur</dt>
+<dd>This value limits the amount of blur by setting a maximum blur radius.
+Could be used to optimize the performance.
+The default value of 0 means no limit.</dd>
+<dt>Threshold</dt>
+<dd><p class="first">Some artifacts, like edge bleed, may occur, if the blur difference between pixels is large.
+This value controls how large that blur difference considered to be safe.</p>
+<div class="last admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Only change this value, if there is an occurring problem with an in-focus object.</p>
+</div>
+</dd>
+<dt>Preview</dt>
+<dd>If enabled a limited amount of (quasi-)random samples are used to render the preview.
+This way of sampling introduces additional noise, which will not show up in the final render.</dd>
+<dt>Scene</dt>
+<dd>To select the linked scene.</dd>
+<dt>No Z-buffer</dt>
+<dd>Should be activate for a non Z-buffer in the Z input.
+No Z-buffer will be enabled automatically
+whenever a node that is not image based is connected to the Z input.</dd>
+<dt>Z Scale</dt>
+<dd>Only active when <em>No Z-buffer</em> is enabled. When <em>No Z-buffer</em> is used,
+the input is used directly to control the blur radius (similar to <em>f-Stop</em> when using the Z-buffer).
+This parameter can be used to scale the range of the Z input.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Image</dt>
+<dd>Standard image output.</dd>
+</dl>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<a class="reference internal image-reference" href="../../../_images/compositing_types_filter_defocus_example.jpg"><img alt="../../../_images/compositing_types_filter_defocus_example.jpg" src="../../../_images/compositing_types_filter_defocus_example.jpg" style="width: 300px;" /></a>
+</div>
+<p>In this <a class="reference external" href="https://wiki.blender.org/uploads/7/79/Doftest.blend">blend-file example</a>,
+the ball array image is blurred as if it was taken by a camera with an f-stop of 2.8 resulting
+in a fairly narrow depth of field centered on 7.5 Blender units from the camera.
+As the balls recede into the distance, they get blurrier.</p>
+<div class="section" id="no-z-buffer-examples">
+<h3>No Z-Buffer Examples<a class="headerlink" href="#no-z-buffer-examples" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes might want to have more control to blur the image. For instance,
+you may want to only blur one object while leaving everything else alone (or the other way around),
+or you want to blur the whole image uniformly all at once.
+The node, therefore, allows you to use something other than an actual Z-buffer as the Z input.
+For instance, you could connect an image node and use a grayscale image where the color designates
+how much to blur the image at that point, where white is the maximum blur and black is no blur.
+Or, you could use a Time node to uniformly blur the image,
+where the time value controls the maximum blur for that frame.
+It may also be used to obtain a possibly slightly better DoF blur,
+by using a fake depth-shaded image instead of a Z-buffer.
+(A typical method to create the fake depth-shaded image is by using a linear blend texture
+for all objects in the scene or by using the &quot;fog/mist&quot; fake depth shading method).
+This also has the advantage that the fake depth image can have anti-aliasing,
+which is not possible with a real Z-buffer.</p>
+<p>The parameter <em>No Z-buffer</em>, becomes then the main blur control.
+The input has to be scaled, because usually the value of a texture is only in the numeric range 0.0 to 1.0.</p>
+</div>
+<div class="section" id="camera-settings">
+<h3>Camera Settings<a class="headerlink" href="#camera-settings" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../_images/render_blender-render_camera_object-data_depth-of-field-panel.png" src="../../../_images/render_blender-render_camera_object-data_depth-of-field-panel.png" />
+<p class="caption"><span class="caption-text">Distance setting in the Camera Depth of Field panel.</span></p>
+</div>
+<p>The <em>Defocus</em> node uses the actual camera data in your scene if supplied by a <em>Render Layer</em> node.</p>
+<p>To set the point of focus, the camera now has a <em>Distance</em> parameter,
+which is shorthand for Depth of Field Distance.
+Use this camera parameter to set the focal plane of the camera
+(objects Depth of Field Distance away from the camera are in focus).
+Set <em>Distance</em> in the main <em>Camera</em> edit panel;
+the button is right below the <em>Depth of Field</em>.</p>
+<p>To make the focal point visible, enable the camera <em>Limits</em> option,
+the focal point is then visible as a yellow cross along the view direction of the camera.</p>
+</div>
+<div class="section" id="hints">
+<h3>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Preview</dt>
+<dd>In general, use preview mode, change parameters to your liking,
+only then disable preview mode for the final render.
+This node is computationally intensive, so watch your console window,
+and it will give you status as it computes each render scan line.</dd>
+<dt>Edge Artifacts</dt>
+<dd>For minimum artifacts, try to setup your scene such that differences in distances between two objects that may
+visibly overlap at some point are not too large.</dd>
+<dt>&quot;Focus Pull&quot;</dt>
+<dd><p class="first">Keep in mind that this is not real DoF, only a post-processing simulation.
+Some things cannot be done which would be no problem for real DoF at all.
+A typical example is a scene with some object very close to the camera,
+and the camera focusing on some point far behind it. In the real world, using shallow depth of field,
+it is not impossible for nearby objects to become completely invisible,
+in effect allowing the camera to see behind it.
+Hollywood cinematographers use this visual characteristic to
+to achieve the popular &quot;focus pull&quot; effect,
+where the focus shifts from a nearby to a distant object, such that the &quot;other&quot; object all but disappears.
+Well, this is simply not possible to do with the current post-processing method in a single pass.
+If you really want to achieve this effect, quite satisfactorily, here is how:</p>
+<ul class="last simple">
+<li>Split up your scene into &quot;nearby&quot; and &quot;far&quot; objects, and render them in two passes.</li>
+<li>Now, combine the two results, each with their own &quot;defocus&quot; nodes driven by the same Time node,
+but with one of them inverted. (e.g. using a &quot;Map Value&quot; node with a Size of -1).
+As the defocus of one increases,
+the defocus on the other decreases at the same rate, creating a smooth transition.</li>
+</ul>
+</dd>
+<dt>Aliasing at Low f-Stop Values</dt>
+<dd><p class="first">At very low values, less than 5,
+the node will start to remove any oversampling and bring the objects at DoF Distance very sharply into focus.
+If the object is against a contrasting background, this may lead to visible stair-stepping (aliasing)
+which OSA is designed to avoid. If you run into this problem:</p>
+<ul class="last simple">
+<li>Do your own OSA by rendering at twice the intended size and then scaling down,
+so that adjacent pixels are blurred together.</li>
+<li>Use the blur node with a setting of 2 for X and Y.</li>
+<li>Set DoF Distance off by a little, so that the object in focus is blurred by the tiniest bit.</li>
+<li>Use a higher f-Stop, which will start the blur,
+and then use the Z socket to a Map Value to a Blur node to enhance the blur effect.</li>
+<li>Rearrange the objects in your scene to use a lower-contrast background.</li>
+</ul>
+</dd>
+<dt>No Z-Buffer</dt>
+<dd>A final word of warning, since there is no way to detect if an actual Z-buffer is connected to the node,
+be <strong>very</strong> careful with the <em>No Z-buffer</em> switch. If the <em>Z scale</em> value happens to be large,
+and you forget to set it back to some low value,
+the values may suddenly be interpreted as huge blur radius values that will cause processing times to explode.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="despeckle.html" class="btn btn-neutral float-right" title="Despeckle Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bokeh_blur.html" class="btn btn-neutral" title="Bokeh Blur Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

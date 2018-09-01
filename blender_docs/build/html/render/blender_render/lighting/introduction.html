@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/lighting/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Lights" href="lights/index.html" />
+    <link rel="prev" title="Lighting" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Lighting</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lights/index.html">Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="shadows/index.html">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lamps/index.html">Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="lighting_rigs.html">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Lighting</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/lighting/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Lighting is a very important topic in rendering, standing equal to modeling,
+materials and textures. The most accurately modeled and textured scene will yield poor results
+without a proper lighting scheme,
+while a simple model can become very realistic if skillfully lit.</p>
+<div class="section" id="viewing-restrictions">
+<h2>Viewing Restrictions<a class="headerlink" href="#viewing-restrictions" title="Permalink to this headline">¶</a></h2>
+<p>The color of an object and the lighting of your scene is affected by:</p>
+<ul class="simple">
+<li>Your ability to see different colors (partial color blindness is common).</li>
+<li>The medium in which you are viewing the image (e.g. an LCD panel versus printed glossy paper).</li>
+<li>The quality of the image (e.g. a <code class="docutils literal notranslate"><span class="pre">jpeg</span></code> at 0.4 compression versus 1.0).</li>
+<li>The environment in which you are viewing the image
+(e.g. a CRT monitor with glare versus in a dark room, or in a sunshiny blue room).</li>
+<li>Your brain's perception of the color and intensity relative to
+those objects around it and the world background color,
+which can be changed using color manipulation techniques using Blender
+<a class="reference internal" href="../../../compositing/introduction.html"><span class="doc">Composite Nodes</span></a>.</li>
+</ul>
+</div>
+<div class="section" id="global-influences">
+<h2>Global Influences<a class="headerlink" href="#global-influences" title="Permalink to this headline">¶</a></h2>
+<p>In Blender, the elements under your control which affect lighting are:</p>
+<ul class="simple">
+<li>The color of the world <a class="reference internal" href="../world/ambient_light.html"><span class="doc">ambient light</span></a>.</li>
+<li>The use of <a class="reference internal" href="../world/ambient_occlusion.html"><span class="doc">Ambient Occlusion</span></a>
+as a way to cast that ambient light onto the object.</li>
+<li>The degree to which the ambient light colors
+the <a class="reference internal" href="../materials/index.html"><span class="doc">material</span></a> of the object.</li>
+<li>The use of <a class="reference internal" href="../world/indirect_lighting.html"><span class="doc">Indirect lighting</span></a>,
+where the color of one object radiates onto another.</li>
+<li>The <a class="reference internal" href="lamps/introduction.html"><span class="doc">lamps</span></a> in your scene.</li>
+</ul>
+<p>The physics of light bouncing around in the real world is simulated by Ambient Occlusion (a world setting),
+buffer shadows (which approximate shadows being cast by objects), ray tracing
+(which traces the path of photons from a light source). Also,
+within Blender you can use <a class="reference internal" href="../world/indirect_lighting.html"><span class="doc">Indirect lighting</span></a>.
+Ray tracing, ambient occlusion, and indirect lighting are computationally intensive processes.
+Blender can perform much faster rendering with its internal scan line renderer,
+which is a very good scan line renderer indeed.
+This kind of rendering engine is much faster since it does not try to simulate the real behavior of light,
+assuming many simplifying hypotheses.</p>
+</div>
+<div class="section" id="lighting-settings">
+<h2>Lighting Settings<a class="headerlink" href="#lighting-settings" title="Permalink to this headline">¶</a></h2>
+<p>Only after the above global influences have been considered,
+do you start adding light from lamps in your scene.
+The main things under your control are the:</p>
+<ul class="simple">
+<li>Type of light used (<em>Sun</em>, <em>Spot</em>, <em>Lamp</em>, <em>Hemi</em>, etc.).</li>
+<li>Color of the light.</li>
+<li>Position of the light and its direction.</li>
+<li>Settings for the light, including energy and falloff.</li>
+</ul>
+<p>Then you are back to how that material's
+<a class="reference internal" href="../materials/properties/diffuse_shaders.html"><span class="doc">shader</span></a> reacts to the light.</p>
+<p>This chapter attempts to address the above,
+including how lights can work together in rigs to light your scene.
+In this chapter we will analyze the different types of light in Blender and their behavior;
+we will discuss their strong and weak points. We will also describe many lighting rigs,
+including the ever-popular three-point light method.</p>
+</div>
+<div class="section" id="lighting-in-the-workflow">
+<h2>Lighting in the Workflow<a class="headerlink" href="#lighting-in-the-workflow" title="Permalink to this headline">¶</a></h2>
+<p>In this user manual we have placed Lighting before Materials;
+you should set up your lighting before assigning materials to your meshes.
+Since the material shaders react to light, without proper lighting,
+the material shaders will not look right, and you will end up fighting the shaders,
+when it is really the bad lighting that is causing you grief.
+All of the example images in this section do not use any material setting at all on the ball,
+cube or background.</p>
+</div>
+<div class="section" id="overriding-materials-to-reset-lighting">
+<h2>Overriding Materials to Reset Lighting<a class="headerlink" href="#overriding-materials-to-reset-lighting" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../../../_images/render_blender-render_lighting_introduction_material-field.png" src="../../../_images/render_blender-render_lighting_introduction_material-field.png" />
+<p class="caption"><span class="caption-text">Material field in the Render Layers panel.</span></p>
+</div>
+<p>If you have started down the road of assigning materials,
+and are now fiddling with the lighting, we suggest that you create a default,
+generic gray material -- no <em>Vertex Color</em>, no <em>Face Texture</em>,
+no <em>Shadeless</em>, just plain old middle gray with RGB(0.8, 0.8, 0.8).
+Name this &quot;Gray&quot;.</p>
+<p>Next go to the <em>Render Layer</em> tab. In the <em>Layer</em> panel,
+select your new &quot;Gray&quot; material in the <em>Material</em> field.
+This will override any materials you may have set, and render everything with this color.
+Using this material, you can now go about adjusting the lighting.
+Just empty this field to get back to your original materials.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lights/index.html" class="btn btn-neutral float-right" title="Lights" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Lighting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

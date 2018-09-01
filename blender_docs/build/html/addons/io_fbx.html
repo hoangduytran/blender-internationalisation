@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Autodesk FBX &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/addons/io_fbx.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="OBJ" href="io_obj.html" />
+    <link rel="prev" title="Biovision Hierarchy" href="io_bvh.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Add-ons</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#import-export">Import Export</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="io_3ds.html">Autodesk 3DS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_bvh.html">Biovision Hierarchy</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Autodesk FBX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="io_obj.html">OBJ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_ply.html">PLY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_stl.html">STL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_svg.html">SVG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_uv_layout.html">UV Layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_web3d.html">Web3D</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Add-ons</a> &raquo;</li>
+        
+      <li>Autodesk FBX</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/addons/io_fbx.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="autodesk-fbx">
+<h1>Autodesk FBX<a class="headerlink" href="#autodesk-fbx" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body">FBX format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Location:</th><td class="field-body"><span class="menuselection">File ‣ Import/Export ‣ FBX (.fbx)</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body">3.9.1</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Blender:</th><td class="field-body">2.79</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Category:</th><td class="field-body">Import-Export</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body">Campbell Barton, Bastien Montagne, Jens Restemeier</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>This format is mainly use for interchanging character animations between applications
+and is supported by applications such as Cinema4D, Maya, Autodesk 3ds Max, Wings3D and
+engines such as Unity3D, Unreal Engine 3/UDK and Unreal Engine 4.</p>
+<p>The exporter can bake mesh modifiers and animation into the FBX so the final result looks the same as in Blender.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<ul class="last simple">
+<li>Bones would need to get a correction to their orientation
+(FBX bones seems to be -X aligned, Blender’s are Y aligned),
+this does not affect skinning or animation, but imported bones in other applications will look wrong.</li>
+<li>Animations (FBX AnimStacks, Blender actions) <strong>are not linked</strong> to there object,
+because there is no real way to know which stack to use as 'active' action for a given object, mesh or bone.
+This may be enhanced to be smarter in future, but not really considered urgent,
+so for now you'll have to link actions to objects by hand.</li>
+<li>Armatures’ instances (through e.g. dupli or group instancing) <strong>are not supported</strong>.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<ul class="last simple">
+<li>Bones' orientation importing is complex, you may have to play a bit with
+related settings until you get expected result.</li>
+<li>Animation support is minimal currently, we read all curves as if they were 'baked' ones
+(i.e. a set of close keyframes with linear interpolation).</li>
+<li>Imported actions are linked to their related object, bone or shape key, on a 'first one wins' basis.
+If you exported a set of them for a single object you'll have to reassign them yourself.</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Saving Just Animations</p>
+<p class="last">The FBX file format supports files that only contain takes.
+It is up to you to keep track of which animations belongs to which model.
+The animation that will be exported is the currently selected action within the Action editor.
+To reduce the file size, turn off the exporting of any parts you do not want and disable <em>All Actions</em>.
+For armature animations typically you just leave the armature enabled which is necessary for that type of animation.
+Reducing what is output makes the export and future import much faster.
+Normally each action will have its own name but the current or
+only take can be forced to be named &quot;Default Take&quot;. Typically ensure that this option remains off.</p>
+</div>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import">
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="main">
+<h4>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Manual Orientation</dt>
+<dd>TODO.</dd>
+<dt>Forward / Up Axis</dt>
+<dd><p class="first">Since many applications use a different axis for 'Up', there are axis conversion there settings,
+Forward and Up axis -- By mapping these to different axis you can convert rotations
+between applications default up and forward axis.</p>
+<p class="last">Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, its common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+<dt>Apply Transform</dt>
+<dd>TODO.</dd>
+<dt>Import Normals</dt>
+<dd>TODO.</dd>
+<dt>Import Animation</dt>
+<dd><p class="first">TODO.</p>
+<dl class="last docutils">
+<dt>Animation Offset</dt>
+<dd>TODO.</dd>
+</dl>
+</dd>
+<dt>Import User Properties</dt>
+<dd>TODO.</dd>
+<dt>Import Enums As Strings</dt>
+<dd>TODO.</dd>
+<dt>Image Search</dt>
+<dd>TODO.</dd>
+<dt>Decal Offset</dt>
+<dd>TODO.</dd>
+<dt>Use Pre/Post Rotation</dt>
+<dd>TODO.</dd>
+</dl>
+</div>
+<div class="section" id="armatures">
+<h4>Armatures<a class="headerlink" href="#armatures" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Ignore Leaf Bones</dt>
+<dd>TODO.</dd>
+<dt>Force Connect Children</dt>
+<dd>TODO.</dd>
+<dt>Automatic Bone Orientation</dt>
+<dd>TODO.</dd>
+<dt>Primary/Secondary Bone Axis</dt>
+<dd>TODO.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="export">
+<h3>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>Main<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Selected Objects</dt>
+<dd>Only export the selected objects. Otherwise export all objects in the scene.
+Note, this does not apply when batch exporting.</dd>
+<dt>Scale</dt>
+<dd>Scale the exported data by this value. 10 is the default because this
+fits best with the scale most applications import FBX to.</dd>
+<dt>Apply Scale</dt>
+<dd>TODO.</dd>
+<dt>Apply Scalings</dt>
+<dd>TODO.</dd>
+<dt>Forward / Up Axis</dt>
+<dd><p class="first">Since many applications use a different axis for 'Up', there are axis conversion there settings,
+Forward and Up axis -- By mapping these to different axis you can convert rotations
+between applications default up and forward axis.</p>
+<p class="last">Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
+For example, its common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
+</dd>
+<dt>Empty/Camera/Lamp/Armature/Mesh/Other</dt>
+<dd>Enable/Disable exporting of respective object types.</dd>
+<dt>Apply Transform</dt>
+<dd>TODO.</dd>
+<dt>Custom Properties</dt>
+<dd>TODO.</dd>
+<dt>Path Mode</dt>
+<dd><p class="first">When referencing paths in exported files you may want some control as to the method used since absolute paths
+may only be correct on you're own system. Relative paths on the other hand are more portable
+but mean that you have to keep your files grouped when moving about on you're local file system.
+In some cases the path doesn't matter since the target application will search
+a set of predefined paths anyway so you have the option to strip the path too.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Auto:</th><td class="field-body">Uses relative paths for files which are in a subdirectory of the exported location,
+absolute for any directories outside that.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Absolute:</th><td class="field-body">Uses full paths.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Relative:</th><td class="field-body">Uses relative paths in every case (except when on a different drive on windows).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Match:</th><td class="field-body">Uses relative / absolute paths based on the paths used in Blender.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Strip Path:</th><td class="field-body">Only write the filename and omit the path component.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Copy:</th><td class="field-body">Copy the file on exporting and reference it with a relative path.</td>
+</tr>
+</tbody>
+</table>
+<dl class="last docutils">
+<dt>Embed Textures</dt>
+<dd>TODO.</dd>
+</dl>
+</dd>
+<dt>Batch Mode</dt>
+<dd><p class="first">When enabled, export each group or scene to a file.</p>
+<dl class="last docutils">
+<dt>Group/Scene</dt>
+<dd>Choose whether to batch export groups or scenes to files.
+Note, when Group/Scene is enabled, you cannot use the animation option <em>Current Action</em>
+since that uses scene data and groups are not attached to any scenes.
+Also note, when Group/Scene is enabled you must include the armature objects
+in the group for animated actions to work.</dd>
+<dt>Own Dir</dt>
+<dd>When enabled, each file is exported into its own directory,
+this is useful when using the <em>Copy Images</em> option. so each directory contains
+one model with all the images it uses. Note, this requires a full Python installation
+if you do not have a full Python installation this button will not be shown.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="geometries">
+<h4>Geometries<a class="headerlink" href="#geometries" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Apply Modifiers</dt>
+<dd>When enabled, the mesh will be from the output of the modifiers applied to the mesh.</dd>
+<dt>Use Modifiers Render Setting</dt>
+<dd>TODO.</dd>
+<dt>Smoothing</dt>
+<dd>TODO.</dd>
+<dt>Loose Edges</dt>
+<dd>TODO.</dd>
+<dt>Tangent Space</dt>
+<dd>TODO.</dd>
+</dl>
+</div>
+<div class="section" id="id2">
+<h4>Armatures<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Only Deform Bones</dt>
+<dd>TODO.</dd>
+<dt>Add Leaf Bones</dt>
+<dd>TODO.</dd>
+<dt>Primary/Secondary Bone Axis</dt>
+<dd>TODO.</dd>
+<dt>Armature FBXNode Type</dt>
+<dd>TODO.</dd>
+</dl>
+</div>
+<div class="section" id="animation">
+<h4>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Baked Animation</dt>
+<dd>TODO.</dd>
+<dt>Key All Bones</dt>
+<dd>TODO.</dd>
+<dt>NLA Strips</dt>
+<dd>TODO.</dd>
+<dt>All Actions</dt>
+<dd>Export all actions compatible with the selected armatures
+start/end times which are derived from the keyframe range of each action.
+When disabled only the currently assigned action is exported.</dd>
+<dt>Force Start/End Keying</dt>
+<dd>TODO.</dd>
+<dt>Sampling Rate</dt>
+<dd>TODO.</dd>
+<dt>Simplify</dt>
+<dd>TODO.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Import<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Note that the importer is a new addition and lacks many features the exporter supports.</p>
+<ul class="simple">
+<li>binary FBX files only.</li>
+<li>Version 7.1 or newer.</li>
+</ul>
+<div class="section" id="missing">
+<h4>Missing<a class="headerlink" href="#missing" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Mesh: shape keys.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Export<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>NURBS surfaces, text3D and metaballs are converted to meshes at export time.</p>
+<div class="section" id="id5">
+<h4>Missing<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<p>Some of the following features are missing because they
+are not supported by the FBX format, others may be added later.</p>
+<ul class="simple">
+<li>Object instancing -- exported objects do not shared data,
+instanced objects will each be written with their own data.</li>
+<li>Material textures -- only texface images are supported.</li>
+<li>Vertex shape keys -- FBX supports them but this exporter does not write them yet.</li>
+<li>Animated fluid simulation -- FBX does not support this kind of animation,
+You can however use the OBJ exporter to write a sequence of files.</li>
+<li>Constraints -- The result of using constraints is exported as a keyframe animation
+however the constraints themselves are not saved in the FBX.</li>
+<li>Dupli-objects -- At the moment dupli-objects are only written in static scenes (when animation is disabled).</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="io_obj.html" class="btn btn-neutral float-right" title="OBJ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="io_bvh.html" class="btn btn-neutral" title="Biovision Hierarchy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,524 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tabs &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/freestyle/parameter_editor/line_style/tabs.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Nodes" href="nodes/index.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Freestyle</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core.html">Core Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../view_map.html">View Maps</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Parameter Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../line_set.html">Line Set</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Line Style &amp; Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python.html">Python Scripting Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../line.html">Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../export_svg.html">Freestyle SVG Exporter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Freestyle</a> &raquo;</li>
+        
+          <li><a href="../index.html">Parameter Editor</a> &raquo;</li>
+        
+          <li><a href="index.html">Line Style &amp; Modifiers</a> &raquo;</li>
+        
+      <li>Tabs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/freestyle/parameter_editor/line_style/tabs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tabs">
+<h1>Tabs<a class="headerlink" href="#tabs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="stroke">
+<h2>Stroke<a class="headerlink" href="#stroke" title="Permalink to this headline">¶</a></h2>
+<p>Strokes are the final rendered lines. Yet you can tweaks them, for example,
+by removing the ones longer/shorter than some threshold,
+chaining lines into a single stroke or breaking a stroke into several ones based on angles,
+dashed pattern, etc.</p>
+<div class="section" id="chaining">
+<h3>Chaining<a class="headerlink" href="#chaining" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id1">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-chaining.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-chaining.png" />
+<p class="caption"><span class="caption-text">Chaining.</span></p>
+</div>
+<p>By default all retrieved lines from the line set are chained together.
+There are two basic chaining methods:</p>
+<dl class="docutils">
+<dt>Plain</dt>
+<dd>The default chaining method; it creates simple chains.</dd>
+<dt>Sketchy</dt>
+<dd>This chaining option allows for generating chains of feature edges with sketchy multiple strokes.
+Basically, it generates <em>Round</em> strokes instead of a single one.
+It is only really useful if you use some random-driven modifiers in the line style!</dd>
+<dt>Rounds</dt>
+<dd>It specifies the number of rounds in sketchy strokes.</dd>
+</dl>
+<p>Chaining can also be turned off to render each line separately,
+which can be useful for line styles which depend on accurate representation of the line set.</p>
+</div>
+<div class="section" id="splitting">
+<h3>Splitting<a class="headerlink" href="#splitting" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-splitting.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-splitting.png" />
+<p class="caption"><span class="caption-text">Splitting.</span></p>
+</div>
+<p>You can split up chains of Freestyle lines by checking one of the following:</p>
+<dl class="docutils">
+<dt>Min, Max 2D Angle</dt>
+<dd>Splits chains of feature edges when they make a 2D angle above (or below) a minimum (or maximum) threshold.</dd>
+<dt>2D Length</dt>
+<dd>Splits chains when they are longer than the given value.</dd>
+<dt>Material Boundary</dt>
+<dd>Splits chains of feature edges if they cross from one material to another.</dd>
+<dt>Split Dash, Gap</dt>
+<dd><p class="first">Splits the chains using the given dashed pattern
+(&quot;D&quot; stands for &quot;dash&quot;, &quot;G&quot; stands for &quot;gap&quot;; see also <a class="reference internal" href="#dashed-line">Dashed Line</a>).</p>
+<p class="last">D1, G1, D2, G2, D3, G3</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="sorting">
+<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-sorting.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-sorting.png" />
+<p class="caption"><span class="caption-text">Sorting.</span></p>
+</div>
+<p>You can sort the order of your strokes, allowing the lines to stack in the order given.</p>
+<dl class="docutils">
+<dt>Sort key</dt>
+<dd><p class="first">A sort key is used to determine the stacking order of lines.</p>
+<dl class="last docutils">
+<dt>Distance from camera</dt>
+<dd>Lines closer to the camera lie on top of further lines.</dd>
+<dt>2D length</dt>
+<dd>Longer lines lie on top of shorter lines.</dd>
+<dt>Projected X, Y</dt>
+<dd>Sort by the projected X or Y value in the image coordinate system.</dd>
+</dl>
+</dd>
+<dt>Integration Type</dt>
+<dd><p class="first">Use in tandem with the Sort Key to determine the range for sorting.
+Since the distance of a line from the camera may vary over vertices,
+this option computes the sort key for a line from the values computed at
+individual vertices. The value computed for the line is:</p>
+<dl class="last docutils">
+<dt>Mean</dt>
+<dd>The mean of the values obtained for the vertices.</dd>
+<dt>Min</dt>
+<dd>The minimum of the values obtained for the vertices.</dd>
+<dt>Max</dt>
+<dd>The maximum of the values obtained for the vertices.</dd>
+<dt>First</dt>
+<dd>The value obtained for the first vertex.</dd>
+<dt>Last</dt>
+<dd>The value obtained for the last vertex.</dd>
+</dl>
+</dd>
+<dt>Sort Order</dt>
+<dd>With the given result you can choose to &quot;Reverse&quot; the sort order.</dd>
+</dl>
+</div>
+<div class="section" id="selection">
+<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-selection.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-selection.png" />
+<p class="caption"><span class="caption-text">Selection.</span></p>
+</div>
+<p>You can also choose to only render selected chains.</p>
+<dl class="docutils">
+<dt>Minimal, Maximal 2D Length</dt>
+<dd>Chains longer and/or shorter than <em>2D Length</em>.</dd>
+<dt>Chain Count</dt>
+<dd>Allows the selection of first N chains.</dd>
+</dl>
+<div class="section" id="caps">
+<h4>Caps<a class="headerlink" href="#caps" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id5">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps.png" />
+<p class="caption"><span class="caption-text">Line tip caps.</span></p>
+</div>
+<p>You can choose between three types of line caps:</p>
+<dl class="docutils">
+<dt>Butt</dt>
+<dd>Flat cap, exactly at the point the line ends.</dd>
+<dt>Round</dt>
+<dd>A half circle centered on the end point of the line.</dd>
+<dt>Square</dt>
+<dd>A square centered on the end point of the line
+(hence, like the circle, the drawn end of the line is slightly extended compared to its computed value).</dd>
+</dl>
+<div class="figure" id="id6">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps-example.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-caps-example.png" />
+<p class="caption"><span class="caption-text">Line caps example.</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="dashed-line">
+<h3>Dashed Line<a class="headerlink" href="#dashed-line" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id7">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-dashed-line.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_stroke-dashed-line.png" />
+<p class="caption"><span class="caption-text">Dashes Line UI.</span></p>
+</div>
+<p>By enabling the <em>Dashed Line</em> checkbox,
+you can specify three pairs of dash and gap lengths.
+Dash values define the lengths of dash strokes,
+while gap values specify intervals between two dashes.</p>
+<p>If a zero gap is specified,
+then the corresponding dash is ignored even if it has a non-zero value.</p>
+<p>Dashes are treated as separate strokes, meaning that you can apply line caps,
+as well as color, alpha and thickness modifiers.</p>
+</div>
+</div>
+<div class="section" id="color">
+<h2>Color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id8">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_color.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_color.png" />
+<p class="caption"><span class="caption-text">Line Style Color UI.</span></p>
+</div>
+<p>In this tab you control the color of your strokes.</p>
+<dl class="docutils">
+<dt>Base Color</dt>
+<dd>The base color for this line style.</dd>
+</dl>
+</div>
+<div class="section" id="alpha">
+<h2>Alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id9">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_alpha.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_alpha.png" />
+<p class="caption"><span class="caption-text">Line Style Alpha UI.</span></p>
+</div>
+<p>In this tab you control the alpha (transparency) of your strokes.</p>
+<dl class="docutils">
+<dt>Base Transparency</dt>
+<dd>The base alpha for this line style.</dd>
+</dl>
+</div>
+<div class="section" id="thickness">
+<h2>Thickness<a class="headerlink" href="#thickness" title="Permalink to this headline">¶</a></h2>
+<p>In this tab you control the thickness of your strokes.</p>
+<div class="figure">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_thickness.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_thickness.png" />
+</div>
+<dl class="docutils">
+<dt>Base Thickness</dt>
+<dd>The base thickness for this line style.</dd>
+<dt>Thickness Position</dt>
+<dd><p class="first">Control the position of stroke thickness from the original (backbone) stroke geometry. There are four choices:</p>
+<dl class="last docutils">
+<dt>Center</dt>
+<dd>The thickness is evenly split to the left and right side of the stroke geometry.</dd>
+<dt>Inside</dt>
+<dd>The strokes are drawn within object boundary.</dd>
+<dt>Outside</dt>
+<dd>The strokes are drawn outside the object boundary.</dd>
+<dt>Relative</dt>
+<dd>This allows you to specify the relative position by a number between 0.0 (inside) and 1.0 (outside),
+in the <em>Thickness Ratio</em> number button just below.</dd>
+</dl>
+</dd>
+</dl>
+<p>The thickness position options are applied only to strokes of edge types
+<em>Silhouette</em> and <em>Border</em>,
+since these are the only edge types defined in terms of the object boundary.
+Strokes of other edge types are always drawn using the <em>Center</em> option.</p>
+</div>
+<div class="section" id="geometry">
+<h2>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id10">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_geometry.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_geometry.png" />
+<p class="caption"><span class="caption-text">Line Style Geometry Overall UI.</span></p>
+</div>
+<p>In this tab you control the geometry of your strokes.
+It contains only the option to add modifiers.</p>
+</div>
+<div class="section" id="texture">
+<h2>Texture<a class="headerlink" href="#texture" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id11">
+<img alt="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_texture.png" src="../../../../_images/render_freestyle_parameter-editor_line-style_tabs_texture.png" />
+<p class="caption"><span class="caption-text">Line Style Texture.</span></p>
+</div>
+<dl class="docutils">
+<dt>Use Nodes/Textures</dt>
+<dd>Blender Render uses texture mapping and influence panels.
+In Cycles textures are defined by means of
+shader <a class="reference internal" href="nodes/index.html"><span class="doc">nodes</span></a>.</dd>
+<dt>Spacing Along Stroke</dt>
+<dd>Allows to set the &quot;pace&quot; of textures mapped along the length of strokes.</dd>
+<dt>Go to LineStyle Textures</dt>
+<dd>The &quot;Go to LineStyle Textures&quot; button is a shortcut to texture settings in the other tab.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nodes/index.html" class="btn btn-neutral float-right" title="Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

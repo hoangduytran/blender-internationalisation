@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Motion Paths &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/animation/motion_paths.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Physics" href="../physics/index.html" />
+    <link rel="prev" title="Workflow" href="shape_keys/workflow.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Shape Keys</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Motion Paths</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#show">Show</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Animation</a> &raquo;</li>
+        
+      <li>Motion Paths</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/animation/motion_paths.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="motion-paths">
+<span id="bpy-ops-object-paths-calculate"></span><span id="bpy-types-animviz"></span><h1>Motion Paths<a class="headerlink" href="#motion-paths" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View, Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Motion Paths: Calculate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Object ‣ Motion Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View, Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Pose Mode</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Pose Tools ‣ Motion Paths: Calculate</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Armature ‣ Motion Paths</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Pose ‣ Motion Paths</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../_images/animation_motion-paths_example-object.png"><img alt="../_images/animation_motion-paths_example-object.png" src="../_images/animation_motion-paths_example-object.png" style="width: 400px;" /></a>
+<p class="caption"><span class="caption-text">An animated cube with its motion path displayed.</span></p>
+</div>
+<p>The Motion Paths tool allows you to visualize the motion of points as paths over a series of frames.
+These points can be object origins and bone joints.</p>
+<p>Before we look at its options, let us first see how to display/hide these paths.
+Unlike <a class="reference internal" href="../rigging/armatures/properties/ghost.html"><span class="doc">Ghost</span></a>, you have to do it manually
+and you have to first select the bones you want to show/hide the motion paths. Then:</p>
+<ol class="arabic simple">
+<li>To show the paths (or update them, if needed), click on the <em>Calculate Path</em> button.</li>
+<li>To hide the paths, click on the <em>Clear Paths</em> button.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Remember that only selected bones and their paths are affected by these actions!</p>
+</div>
+<p>The paths are drawn in a light shade of gray for unselected points,
+and a slightly blueish gray for selected ones.
+Around the current frame a glow indicate the direction of movement:
+blue towards future frames and green towards the past.
+Each frame is displayed by a small white dot on the paths.</p>
+<p>As with ghosts, the paths are automatically updated when you edit your poses/keyframes,
+and they are also active during animation playback. <kbd class="kbd docutils literal notranslate">Alt-A</kbd> is
+only useful when the <em>Around Current Frame</em> option is enabled.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<img alt="../_images/animation_motion-paths_panel.png" src="../_images/animation_motion-paths_panel.png" />
+<p class="caption"><span class="caption-text">The Motion Paths panel in the Armature tab.</span></p>
+</div>
+<dl class="docutils">
+<dt>Type</dt>
+<dd><dl class="first last docutils">
+<dt>Around Frame</dt>
+<dd>Display paths of points within a fixed number of frames around the current frame.
+When you enable this button, you get paths for a given number of frames before and after the current one
+(again, as with ghosts).</dd>
+<dt>In Range</dt>
+<dd>Display paths of points within specified range.</dd>
+</dl>
+</dd>
+<dt>Display Range</dt>
+<dd><dl class="first last docutils">
+<dt>Before, After</dt>
+<dd>Number of frames to show before and after the current frame
+(only for <em>Around Current Frame</em> Onion-skinning method).</dd>
+<dt>Start, End</dt>
+<dd>Starting and Ending frame of range of paths to display/calculate
+(not for <em>Around Current Frame</em> Onion-skinning method).</dd>
+<dt>Step</dt>
+<dd>This is the same as the <em>Step</em> for ghosts.
+It allows you to only display on the path one frame for each <em>n</em> ones.
+Mostly useful when you enable the frame number display (see below), to avoid cluttering the 3D Views.</dd>
+</dl>
+</dd>
+<dt>Cache/Cache for Bone</dt>
+<dd><dl class="first last docutils">
+<dt>From, To</dt>
+<dd>These are the start/end frames of the range in which motion paths are drawn.
+You cannot modify this range without deleting the motion path first.</dd>
+</dl>
+</dd>
+<dt>Calculate/Update Paths</dt>
+<dd><p class="first">If no paths have been calculated, Calculate Paths will create a new motion path in cache based on
+the options specified in the pop-up menu or Operator panel.</p>
+<p>If a path has already been calculated, Update Paths will update the path shape to the current animation.
+To change the frame range of the calculated path, you need to delete the path and calculate it again.</p>
+<dl class="last docutils">
+<dt>Start, End</dt>
+<dd>These are the start/end frames of the range in which motion paths are drawn.
+You have to <em>Calculate Paths</em> again if you modify this setting, to update the paths in the 3D Views.
+Note that unlike with ghosts, the start frame is <em>inclusive</em>
+(i.e. if you set <em>Start</em> to 1, you will really see the frame 1 as starting point of the paths...).</dd>
+<dt>Bake Location</dt>
+<dd>Bones only -- By default, you get the tips' paths.
+By changing this setting to Tails, you will get the paths of the bone's roots
+(remember that in Blender UI, bones' roots are called &quot;heads&quot;...).
+You have to <em>Calculate Paths</em> again if you modify this setting,
+to update the paths in the 3D Views.</dd>
+</dl>
+</dd>
+<dt>Clear Paths <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Clears paths on all objects/bones or just the selected ones when holding <kbd class="kbd docutils literal notranslate">Shift</kbd>.</dd>
+</dl>
+<div class="section" id="show">
+<h3>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Frame Numbers</dt>
+<dd>When enabled, a small number appears next to each frame dot on the path,
+which is of course the number of the corresponding frame.</dd>
+<dt>Line</dt>
+<dd><p class="first">Toggles whether the lines between the points are drawn.</p>
+<dl class="last docutils">
+<dt>Thickness, Color (color wheel icon)</dt>
+<dd>Customizable thickness and color for the lines.</dd>
+</dl>
+</dd>
+<dt>Keyframes</dt>
+<dd>When enabled, big yellow square dots are drawn on motion paths, showing the keyframes of their bones
+(i.e. only the paths of keyed bones at a given frame get a yellow dot at this frame).</dd>
+<dt>+ Non-Grouped Keyframes</dt>
+<dd>For bone motion paths, it searches the whole Action for keyframes instead of
+in groups with matching name only (this is slower).</dd>
+<dt>Keyframe Numbers</dt>
+<dd>When enabled, you will see the numbers of the displayed keyframes,
+so this option is obviously only valid when <em>Show Keys</em> is enabled.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<img alt="../_images/animation_motion-paths_example-armature.png" src="../_images/animation_motion-paths_example-armature.png" />
+<p class="caption"><span class="caption-text">An example of a motion path of an armature.</span></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../physics/index.html" class="btn btn-neutral float-right" title="Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="shape_keys/workflow.html" class="btn btn-neutral" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

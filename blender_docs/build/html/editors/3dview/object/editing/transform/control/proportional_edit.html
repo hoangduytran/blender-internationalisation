@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Proportional Edit &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/3dview/object/editing/transform/control/proportional_edit.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../../search.html" />
+    <link rel="next" title="Transform Orientations" href="orientations.html" />
+    <link rel="prev" title="Transformation Manipulators" href="manipulators.html" /> 
+
+  
+  <script src="../../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../../../../index.html#d">3D</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../../../index.html">3D View</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../startup_scene.html">Startup Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../modes.html">Object Modes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../navigate/index.html">Navigating</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../3d_cursor.html">3D Cursor</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../../index.html">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../properties/index.html">Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">3D View</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Objects</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Editing</a> &raquo;</li>
+        
+          <li><a href="../index.html">Transform</a> &raquo;</li>
+        
+          <li><a href="index.html">Transform Control</a> &raquo;</li>
+        
+      <li>Proportional Edit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../_sources/editors/3dview/object/editing/transform/control/proportional_edit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="proportional-edit">
+<h1>Proportional Edit<a class="headerlink" href="#proportional-edit" title="Permalink to this headline">¶</a></h1>
+<p>Proportional Edit is a way of transforming selected elements (such as vertices)
+while having that transformation affect other nearby elements. For example,
+having the movement of a single vertex cause the movement of unselected vertices within a given range.
+Unselected vertices that are closer to the selected vertex will move more than those farther from it
+(i.e. they will move proportionally relative to the location of the selected element).
+Since proportional editing affects the nearby geometry,
+it is very useful when you need to smoothly deform the surface of a dense mesh.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Sculpting</p>
+<p class="last">Blender also has <a class="reference internal" href="../../../../../../sculpt_paint/sculpting/index.html#painting-sculpting-index"><span class="std std-ref">Sculpting</span></a>
+that contains brushes and tools for proportionally editing a mesh without seeing the individual vertices.</p>
+</div>
+<div class="section" id="object-mode">
+<h2>Object Mode<a class="headerlink" href="#object-mode" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">Via the <img alt="prop-edit-icon" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_header-object-mode.png" /> icon in the header indicated by the yellow square in the below image.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">O</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Proportional editing is typically used in <em>Edit Mode</em>, however, it can also be used in <em>Object Mode</em>.
+In <em>Object Mode</em> the tool works on entire objects rather than individual mesh components.</p>
+<p>In the image below, the right cylinder is scaled along the Z axis.
+When the <em>Proportional Editing</em> is enabled, the adjacent cylinders is also within the tool's radius of influence.</p>
+<div class="figure" id="id1">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_object-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_object-mode.png" />
+<p class="caption"><span class="caption-text">Proportional Editing in Object Mode.</span></p>
+</div>
+</div>
+<div class="section" id="edit-mode">
+<h2>Edit Mode<a class="headerlink" href="#edit-mode" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Edit Mode</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Mesh ‣ Proportional Editing</span> and via the <img alt="prop-edit-edit-mode-icon" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_header-edit-mode.png" /> highlighted icon</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">O</kbd>, <kbd class="kbd docutils literal notranslate">Alt-O</kbd>, <kbd class="kbd docutils literal notranslate">Shift-O</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When working with dense geometry, it can become difficult to make subtle adjustments to
+the vertices without causing visible lumps and creases in the model's surface.
+When you face situations like this the Proportional editing tool
+can be used to smoothly deform the surface of the model.
+This is done by the tool's automatic modification of unselected vertices within a given range.</p>
+<div class="figure" id="id2">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_edit-mode.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_edit-mode.png" />
+<p class="caption"><span class="caption-text">Proportional editing in Edit Mode.</span></p>
+</div>
+<div class="section" id="influence">
+<h3>Influence<a class="headerlink" href="#influence" title="Permalink to this headline">¶</a></h3>
+<p>You can increase or decrease the radius of the proportional editing influence with
+the mouse wheel <kbd class="kbd docutils literal notranslate">WheelUp</kbd>, <kbd class="kbd docutils literal notranslate">WheelDown</kbd> or
+<kbd class="kbd docutils literal notranslate">PageUp</kbd>, <kbd class="kbd docutils literal notranslate">PageDown</kbd> respectively. As you change the radius,
+the points surrounding your selection will adjust their positions accordingly.</p>
+<div class="figure" id="id3">
+<img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_influence.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_influence.png" />
+<p class="caption"><span class="caption-text">Influence circle.</span></p>
+</div>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_tool.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_tool.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_tool.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-text">Proportional Editing tool.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-options.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-options.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-options.png" style="width: 250px;" /></a>
+<p class="caption"><span class="caption-text">Falloff menu.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The <em>Proportional Editing</em> mode menu is on the <em>3D View</em> header.</p>
+<dl class="docutils">
+<dt>Disable <kbd class="kbd docutils literal notranslate">O</kbd>, <kbd class="kbd docutils literal notranslate">Alt-O</kbd></dt>
+<dd>Proportional Editing is Off, only selected vertices will be affected.</dd>
+<dt>Enable <kbd class="kbd docutils literal notranslate">O</kbd>, <kbd class="kbd docutils literal notranslate">Alt-O</kbd></dt>
+<dd>Vertices other than the selected vertex are affected, within a defined radius.</dd>
+<dt>Projected (2D)</dt>
+<dd><p class="first">Depth along the view is ignored when applying the radius.</p>
+<div class="last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_2d-compare.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_2d-compare.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_2d-compare.png" style="width: 560px;" /></a>
+<p class="caption"><span class="caption-text">The difference between regular and Projected (2D) proportional option (right).</span></p>
+</div>
+</dd>
+<dt>Connected <kbd class="kbd docutils literal notranslate">Alt-O</kbd></dt>
+<dd>Rather than using a radius only, the proportional falloff spreads via connected geometry. This means that you can
+proportionally edit the vertices in a finger of a hand without affecting the other fingers.
+While the other vertices are physically close (in 3D space),
+they are far away following the topological edge connections of the mesh.
+The icon will have a gray center when <em>Connected</em> is active.
+This mode is only available in <em>Edit Mode</em>.</dd>
+</dl>
+<dl class="docutils" id="dview-transform-control-proportional-edit-falloff">
+<dt>Falloff</dt>
+<dd>While editing, you can change the curve profile used by either using
+the <span class="menuselection">Mesh ‣ Proportional Falloff</span> submenu, using the header icon <em>Falloff menu</em>,
+or by pressing <kbd class="kbd docutils literal notranslate">Shift-O</kbd> to toggle between the various options.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-constant.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-constant.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-constant.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Constant, No Falloff.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-random.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-random.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-random.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Random Falloff.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-linear.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-linear.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-linear.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Linear Falloff.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sharp.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sharp.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sharp.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Sharp Falloff.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-root.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-root.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-root.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Root Falloff.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sphere.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sphere.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-sphere.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Sphere Falloff.</span></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-smooth.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-smooth.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-smooth.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Smooth Falloff.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-inverse-square.png"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-inverse-square.png" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_falloff-inverse-square.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Inverse Square Falloff.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>The image below shows the final render of the low-poly landscape
+obtained by moving up the vertices of the triangulated grid
+with enabled <em>Proportional Editing</em>.</p>
+<div class="figure" id="id15">
+<a class="reference internal image-reference" href="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_landscape.jpg"><img alt="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_landscape.jpg" src="../../../../../../_images/editors_3dview_object_editing_transform_control_proportional-edit_landscape.jpg" style="width: 620px;" /></a>
+<p class="caption"><span class="caption-text">A landscape obtained via proportional editing.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="orientations.html" class="btn btn-neutral float-right" title="Transform Orientations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="manipulators.html" class="btn btn-neutral" title="Transformation Manipulators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

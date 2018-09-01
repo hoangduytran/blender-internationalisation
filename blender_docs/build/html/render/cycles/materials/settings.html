@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Material Settings &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/cycles/materials/settings.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Texture Editing" href="texture_editing.html" />
+    <link rel="prev" title="Displacement" href="displacement.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="surface.html">Surfaces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="volume.html">Volumes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="displacement.html">Displacement</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Material Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="texture_editing.html">Texture Editing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../lamps.html">Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nodes/index.html">Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../features.html">Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gpu_rendering.html">GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../baking.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Materials</a> &raquo;</li>
+        
+      <li>Material Settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/cycles/materials/settings.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="material-settings">
+<span id="bpy-types-cyclesmaterialsettings"></span><h1>Material Settings<a class="headerlink" href="#material-settings" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Material ‣ Settings</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure align-right" id="id1">
+<img alt="../../../_images/render_cycles_materials_settings_panel.png" src="../../../_images/render_cycles_materials_settings_panel.png" />
+<p class="caption"><span class="caption-text">Material Settings.</span></p>
+</div>
+<div class="section" id="surface">
+<h2>Surface<a class="headerlink" href="#surface" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Multiple Importance Sample</dt>
+<dd><p class="first">By default objects with emitting materials use both direct and indirect light sampling methods,
+but in some cases it may lead to less noise overall to disable direct light sampling for some materials.
+This can be done by disabling the <em>Multiple Importance Sample</em> option.
+This is especially useful on large objects that emit little light compared to other light sources.</p>
+<p class="last">This option will only have an influence if the material contains an emission node;
+it will be automatically disabled otherwise.</p>
+</dd>
+<dt>Transparent Shadows</dt>
+<dd>Use transparent shadows if it contains a <a class="reference internal" href="../nodes/types/shaders/transparent.html"><span class="doc">Transparent BSDF</span></a>,
+disabling will render faster but will not give accurate shadows.</dd>
+</dl>
+</div>
+<div class="section" id="volume">
+<h2>Volume<a class="headerlink" href="#volume" title="Permalink to this headline">¶</a></h2>
+<p>Similar volume settings as the <a class="reference internal" href="../world.html#render-cycles-integrator-world-settings"><span class="std std-ref">World settings</span></a> per material.</p>
+</div>
+<div class="section" id="displacement">
+<span id="cycles-materials-settings-displace"></span><span id="bpy-types-cyclesmaterialsettings-displacement"></span><h2>Displacement<a class="headerlink" href="#displacement" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">These Options are only available if <a class="reference internal" href="../features.html#cycles-experimental-features"><span class="std std-ref">Experimental Feature Set</span></a> is turned on.</p>
+</div>
+<dl class="docutils">
+<dt>Displacement Method</dt>
+<dd><p class="first">Method used to perform <a class="reference internal" href="displacement.html"><span class="doc">Displacement</span></a> on materials.</p>
+<dl class="last docutils">
+<dt>Displacement Only</dt>
+<dd>Mesh vertices will be displaced before rendering, modifying the actual mesh.
+This gives the best quality results, if the mesh is finely subdivided.
+As a result, this method is also the most memory intensive.</dd>
+<dt>Bump only</dt>
+<dd>When executing the surface shader, a modified surface normal is used instead of the true normal.
+This is a less memory intensive alternative to actual displacement, but only an approximation.
+Surface silhouettes will not be accurate and there will be no self-shadowing of the displacement.</dd>
+<dt>Displacement and Bump</dt>
+<dd>Both methods can be combined, to do displacement on a coarser mesh,
+and use bump mapping for the final detail.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="viewport-settings">
+<h2>Viewport Settings<a class="headerlink" href="#viewport-settings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="viewport-color">
+<h3>Viewport Color<a class="headerlink" href="#viewport-color" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Color</dt>
+<dd>Diffuse color of the object in the 3D viewport.</dd>
+<dt>Alpha</dt>
+<dd>Transparency of the object in the 3D viewport.</dd>
+</dl>
+</div>
+<div class="section" id="viewport-specular">
+<h3>Viewport Specular<a class="headerlink" href="#viewport-specular" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Color</dt>
+<dd>Specular reflection color of the object in the 3D viewport.</dd>
+<dt>Hardness</dt>
+<dd>Roughness control for the object in the 3D viewport.</dd>
+</dl>
+</div>
+<div class="section" id="viewport-alpha">
+<h3>Viewport Alpha<a class="headerlink" href="#viewport-alpha" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Blend Mode</dt>
+<dd><p class="first"><a class="reference internal" href="../../../glossary/index.html#term-blend-modes"><span class="xref std std-term">Blend modes</span></a> for transparent faces.</p>
+<dl class="last docutils">
+<dt>Opaque</dt>
+<dd>Render color of textured face as color.</dd>
+<dt>Add</dt>
+<dd>Render transparent and add color of face.</dd>
+<dt>Alpha Clip</dt>
+<dd>Use the image alpha values clipped with no blending (binary alpha).</dd>
+<dt>Alpha Blend</dt>
+<dd>Render polygon transparent, depending on alpha channel of the texture.</dd>
+<dt>Alpha Sort</dt>
+<dd>Sort faces for correct alpha drawing (slow, use <em>Alpha Clip</em> instead when possible).</dd>
+<dt>Alpha Anti-Aliasing</dt>
+<dd>Use texture alpha to add an anti-aliasing mask, requires multi-sample OpenGL display.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="pass-index">
+<h3>Pass Index<a class="headerlink" href="#pass-index" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Pass Index</dt>
+<dd>Index number for the <em>Material Index</em> <a class="reference internal" href="../settings/scene/render_layers/passes.html"><span class="doc">render pass</span></a>.
+This can be used to give a mask to a material and then be read with
+the <a class="reference internal" href="../../../compositing/types/converter/id_mask.html"><span class="doc">ID Mask Node</span></a> in the compositor.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="texture_editing.html" class="btn btn-neutral float-right" title="Texture Editing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="displacement.html" class="btn btn-neutral" title="Displacement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

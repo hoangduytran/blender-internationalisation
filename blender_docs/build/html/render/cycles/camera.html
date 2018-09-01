@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Camera &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/cycles/camera.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Render Features" href="features.html" />
+    <link rel="prev" title="Node Groups" href="nodes/types/groups.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lamps.html">Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="world.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nodes/index.html">Nodes</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Camera</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lens">Lens</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#depth-of-field">Depth of Field</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="features.html">Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gpu_rendering.html">GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="baking.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Cycles Renderer</a> &raquo;</li>
+        
+      <li>Camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/cycles/camera.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="camera">
+<h1>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="lens">
+<h2>Lens<a class="headerlink" href="#lens" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Camera ‣ Lens</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="type">
+<h3>Type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="perspective">
+<h4>Perspective<a class="headerlink" href="#perspective" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Focal Length/Field of View</dt>
+<dd>Control the field of view set by lens property or by angle as selected in the <em>Lens Unit</em> menu.</dd>
+</dl>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/render_cycles_camera_perspective.svg"><img alt="../../_images/render_cycles_camera_perspective.svg" src="../../_images/render_cycles_camera_perspective.svg" width="340px" /></a>
+</div>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>Dolly Zoom</p>
+<p>While the camera is moving towards an object the <em>Focal Length</em> property can be decreased
+to produce a <em>Dolly Zoom</em> camera effect, or vice versa.</p>
+<p class="last"><a class="reference external" href="https://vimeo.com/15837189">This video</a> demos the <em>Dolly Zoom</em> camera effect.</p>
+</div>
+</div>
+<div class="section" id="orthographic">
+<h4>Orthographic<a class="headerlink" href="#orthographic" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>Scale</dt>
+<dd>Controls the size of objects projected on the image.</dd>
+</dl>
+<div class="figure">
+<a class="reference internal image-reference" href="../../_images/render_cycles_camera_orthographic.svg"><img alt="../../_images/render_cycles_camera_orthographic.svg" src="../../_images/render_cycles_camera_orthographic.svg" width="340px" /></a>
+</div>
+</div>
+<div class="section" id="panoramic">
+<span id="cycles-panoramic-camera"></span><h4>Panoramic<a class="headerlink" href="#panoramic" title="Permalink to this headline">¶</a></h4>
+<p>Cycles supports Equirectangular and Fisheye panoramic cameras.
+Note that these cannot be displayed with OpenGL rendering in the viewport;
+they will only work for rendering.</p>
+<div class="section" id="equirectangular">
+<h5>Equirectangular<a class="headerlink" href="#equirectangular" title="Permalink to this headline">¶</a></h5>
+<p>Render a panoramic view of the scenes from the camera location and use an equirectangular projection,
+always rendering the full 360° over the X axis and 180° over the Y axis.</p>
+<p>This projection is compatible with the environment texture as used for world shaders,
+so it can be used to render an environment map. To match the default mapping,
+set the camera object rotation to (90, 0, -90) or pointing along the positive X axis.
+This corresponds to looking at the center of the image using the default environment texture mapping.</p>
+<dl class="docutils">
+<dt>Minimum/Maximum Latitude/Longitude</dt>
+<dd>Limits of the vertical and horizontal field of view angles.</dd>
+</dl>
+</div>
+<div class="section" id="fisheye">
+<h5>Fisheye<a class="headerlink" href="#fisheye" title="Permalink to this headline">¶</a></h5>
+<p>Fisheye lenses are typically wide angle lenses with strong distortion,
+useful for creating panoramic images for e.g. dome projection, or as an artistic effect.</p>
+<p>The <em>Fisheye Equisolid</em> lens will best match real cameras.
+It provides a lens focal length and field of view angle,
+and will also take the sensor dimensions into account.</p>
+<p>The <em>Fisheye Equidistant</em> lens does not correspond to any real lens model;
+it will give a circular fisheye that does not take any sensor information into account
+but rather uses the whole sensor. This is a good lens for full-dome projections.</p>
+<dl class="docutils">
+<dt>Lens</dt>
+<dd>Lens focal length in millimeters.</dd>
+<dt>Field of View</dt>
+<dd>Field of view angle, going to 360 and more to capture the whole environment.</dd>
+</dl>
+</div>
+<div class="section" id="mirror-ball">
+<h5>Mirror Ball<a class="headerlink" href="#mirror-ball" title="Permalink to this headline">¶</a></h5>
+<p>Render is if taking a photo of a reflective mirror ball.
+This can be useful in rare cases to compare with a similar photo taken to capture an environment.</p>
+</div>
+</div>
+</div>
+<div class="section" id="clipping">
+<h3>Clipping<a class="headerlink" href="#clipping" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Clip Start and End</dt>
+<dd>The interval in which objects are directly visible,
+Any objects outside this range still influence the image indirectly,
+as further light bounces are not clipped.</dd>
+</dl>
+<p>When <em>Limits</em> in the <em>Display</em> panel is enabled,
+the clip bounds will be visible as two yellow connected dots on the camera line of sight.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">Changing the clipping value can have a serious impact on render performance.
+It is important to always set the <em>Start</em> and <em>End</em> values to a safe distance that is both not too extreme,
+nor too small to have the best possible render times.</p>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<ul class="last simple">
+<li><a class="reference internal" href="../blender_render/camera/object_data.html#camera-clipping"><span class="std std-ref">Blender Render Camera Clipping</span></a>.</li>
+<li><a class="reference internal" href="../../editors/3dview/properties/panels.html"><span class="doc">3D View clipping</span></a>.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="depth-of-field">
+<h2>Depth of Field<a class="headerlink" href="#depth-of-field" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Camera ‣ Depth of Field</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure">
+<img alt="../../_images/render_cycles_camera_depth-of-field-panel.png" src="../../_images/render_cycles_camera_depth-of-field-panel.png" />
+</div>
+<div class="section" id="focus">
+<h3>Focus<a class="headerlink" href="#focus" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Object</dt>
+<dd>Set an object to be used as a focal point by the camera, causing the camera
+to focus on the selected object origin.</dd>
+<dt>Distance</dt>
+<dd>When a <em>Focus</em> object is not used, the camera can be set to focus on an area in 3D
+space set by the distance from the camera.
+Using the <em>Limit</em> Display option, you are able to view the distance in the 3D space.</dd>
+</dl>
+</div>
+<div class="section" id="viewport">
+<h3>Viewport<a class="headerlink" href="#viewport" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>High Quality</dt>
+<dd>Enables the High Quality <em>viewport</em> depth of field, giving a more accurate
+representation of <em>depth of field</em>. This allows the viewport depth of field
+to be closely represented to that of the render and render preview depth of field.</dd>
+<dt>F-Stop</dt>
+<dd>Viewport depth of field aperture measured in F-Stops. Smaller numbers will
+cause more blur in the viewport, OpenGL renders, and Sequencer.</dd>
+<dt>Blades</dt>
+<dd>The number of polygonal sides to give blurred objects in the viewport.
+The minimum number of blades needed to enable the bokeh effect is 3 (triangle).
+(Only available with High Quality).</dd>
+</dl>
+</div>
+<div class="section" id="aperture">
+<h3>Aperture<a class="headerlink" href="#aperture" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Aperture type</dt>
+<dd>Use F-Stop or Radius to set the aperture for the render, and render preview.
+F-Stop is the focal ratio, where Radius is the radius of the focal point.</dd>
+<dt>Size/Number</dt>
+<dd>Aperture radius <em>size</em>, or F-Stop <em>number</em> used for the render, and render preview.
+Using the F-Stop with a low number, or Radius with a large size will result in a strong blur,
+also allowing the use of the <em>bokeh effect</em>.</dd>
+<dt>Blades</dt>
+<dd>Total number of polygonal blades used to alter the shape of the blurred objects
+in the render, and render preview. As with the viewport, the minimum amount of
+blades to enable the bokeh effect is 3, resulting in a triangular-shaped blur.</dd>
+<dt>Rotation</dt>
+<dd>Rotate the polygonal blades along the facing axis, and will rotate in a clockwise,
+and counter-clockwise fashion.</dd>
+<dt>Ratio</dt>
+<dd>Change the amount of distortion to simulate the anamorphic bokeh effect.
+A setting of 1.0 shows no distortion, where a number below 1.0 will cause a horizontal distortion,
+and a higher number will cause a vertical distortion.</dd>
+</dl>
+<div class="figure">
+<img alt="../../_images/render_cycles_camera_dof-bokeh.jpg" src="../../_images/render_cycles_camera_dof-bokeh.jpg" />
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">Xem thêm</p>
+<p>Switching between Cameras</p>
+<p class="last">By <a class="reference internal" href="../../animation/markers.html#marker-bind-camera"><span class="std std-ref">binding the camera to markers</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="features.html" class="btn btn-neutral float-right" title="Render Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nodes/types/groups.html" class="btn btn-neutral" title="Node Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

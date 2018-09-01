@@ -1,0 +1,445 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keying Sets &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/animation/keyframes/keying_sets.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Actions" href="../actions.html" />
+    <link rel="prev" title="Editing" href="editing.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Keyframes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">Editing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Keying Sets</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#keying-set-panel">Keying Set Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#active-keying-set-panel">Active Keying Set Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adding-properties">Adding Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Keyframes</a> &raquo;</li>
+        
+      <li>Keying Sets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/keyframes/keying_sets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keying-sets">
+<span id="bpy-ops-anim-keying-set"></span><h1>Keying Sets<a class="headerlink" href="#keying-sets" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id2">
+<img alt="../../_images/editors_timeline_keying-sets.png" src="../../_images/editors_timeline_keying-sets.png" />
+<p class="caption"><span class="caption-text">The Active Keying Sets data ID in the Timeline.</span></p>
+</div>
+<p>Keying Sets are a collection of properties.
+They are used to record multiple properties at the same time.</p>
+<p>Now when you press <kbd class="kbd docutils literal notranslate">I</kbd> in the 3D View,
+Blender will add keyframes for all the properties in the active keying set.</p>
+<p>There are some built-in Keying Sets and,
+also custom Keying Sets called <em>Absolute Keying Sets</em>.</p>
+<p>To select and use a Keying Set, set the <em>Active Keying Set</em>
+in the <a class="reference internal" href="../../editors/timeline.html#animation-editors-timeline-autokeyframe"><span class="std std-ref">Timeline Header</span></a>,
+or the Keying Set panel, or press <kbd class="kbd docutils literal notranslate">Shift-Ctrl-Alt-I</kbd> in the 3D View.</p>
+<div class="section" id="keying-set-panel">
+<h2>Keying Set Panel<a class="headerlink" href="#keying-set-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Scene ‣ Keying Set</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This panel is used to add, select, manage <em>Absolute Keying Sets</em>.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/animation_keyframes_keying-sets_scene-keying-set-panel.png" src="../../_images/animation_keyframes_keying-sets_scene-keying-set-panel.png" />
+<p class="caption"><span class="caption-text">The Keying Set panel.</span></p>
+</div>
+<dl class="docutils">
+<dt>Active Keying Set</dt>
+<dd><p class="first">The <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a> of Keying Sets in the active Scene.</p>
+<dl class="last docutils">
+<dt>Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Adds an empty Keying Set.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Description</dt>
+<dd>A short description of the keying set.</dd>
+<dt>Export to File</dt>
+<dd>Export Keying Set to a Python script <code class="docutils literal notranslate"><span class="pre">File.py</span></code>.
+To re-add the keying set from the <code class="docutils literal notranslate"><span class="pre">File.py</span></code>, open then run the <code class="docutils literal notranslate"><span class="pre">File.py</span></code> from the Text Editor.</dd>
+<dt>Keyframing Settings</dt>
+<dd><p class="first">These options control all properties in the Keying Set.
+Note that the same settings in <em>User Preferences</em> override these settings if enabled.</p>
+<dl class="last docutils">
+<dt>Only Needed</dt>
+<dd>Only insert keyframes where they are needed in the relevant F-Curves.</dd>
+<dt>Visual Keying</dt>
+<dd>Insert keyframes based on the visual transformation.</dd>
+<dt>XYZ to RGB</dt>
+<dd>For new F-Curves, set the colors to RGB for the property set, Location XYZ for example.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="active-keying-set-panel">
+<h2>Active Keying Set Panel<a class="headerlink" href="#active-keying-set-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Scene ‣ Active Keying Set</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>This panel is used to add properties to the active Keying Set.</p>
+<div class="figure" id="id4">
+<img alt="../../_images/animation_keyframes_keying-sets_scene-active-keying-set-panel.png" src="../../_images/animation_keyframes_keying-sets_scene-active-keying-set-panel.png" />
+<p class="caption"><span class="caption-text">The Active Keying Set panel.</span></p>
+</div>
+<div class="figure" id="id5">
+<img alt="../../_images/editors_graph-editor_channels_region.png" src="../../_images/editors_graph-editor_channels_region.png" />
+<p class="caption"><span class="caption-text">The Graph Editor's channels region with named groups.</span></p>
+</div>
+<dl class="docutils">
+<dt>Active Keying Set Paths</dt>
+<dd><p class="first">A collection of paths in a <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List View</span></a> each with a <em>Data Path</em> to a property
+to add to the active Keying Set.</p>
+<dl class="last docutils">
+<dt>Add <code class="docutils literal notranslate"><span class="pre">+</span></code></dt>
+<dd>Adds an empty path.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="id1">
+<h3>Properties<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Target</dt>
+<dd><dl class="first last docutils">
+<dt>ID-Block</dt>
+<dd>Set the ID Type and the <em>Object IDs</em> Data Path for the property.</dd>
+<dt>Data Path</dt>
+<dd>Set the rest of the Data Path for the property.</dd>
+<dt>Array Target</dt>
+<dd>Use <em>All Items</em> from the Data Path or select the array index for a specific property.</dd>
+</dl>
+</dd>
+<dt>F-Curve Grouping</dt>
+<dd><p class="first">This controls what group to add the channels to.</p>
+<p class="last">Keying Set Name, None, Named Group</p>
+</dd>
+<dt>Keyframing Settings</dt>
+<dd><p class="first">These options control individual properties in the Keying Set.</p>
+<dl class="last docutils">
+<dt>Only Needed</dt>
+<dd>Only insert keyframes where they are needed in the relevant F-Curves.</dd>
+<dt>Visual Keying</dt>
+<dd>Insert keyframes based on the visual transformation.</dd>
+<dt>XYZ to RGB</dt>
+<dd>For new F-Curves, set the colors to RGB for the property set, Location XYZ for example.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="adding-properties">
+<h2>Adding Properties<a class="headerlink" href="#adding-properties" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Context menu ‣ Add All/Single to Keying Set</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">K</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Some ways to add properties to keying sets.</p>
+<p><kbd class="kbd docutils literal notranslate">RMB</kbd> the property in the <em>User Interface</em>, then select <em>Add Single to Keying Set</em> or <em>Add All to Keying Set</em>.
+This will add the properties to the active keying set, or to a new keying set if none exist.</p>
+<p>Hover the mouse over the properties, then press <kbd class="kbd docutils literal notranslate">K</kbd>, to add <em>Add All to Keying Set</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../actions.html" class="btn btn-neutral float-right" title="Actions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editing.html" class="btn btn-neutral" title="Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

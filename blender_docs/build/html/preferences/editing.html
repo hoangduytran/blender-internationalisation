@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Editing &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/preferences/editing.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Input" href="input.html" />
+    <link rel="prev" title="Interface" href="interface.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Preferences</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#tabs">Tabs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="interface.html">Interface</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Editing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#link-materials-to">Link Materials To</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-objects">New Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#undo">Undo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grease-pencil">Grease Pencil</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#playback">Playback</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#node-editor">Node Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animation-editors">Animation Editors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#keyframing">Keyframing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-f-curve-defaults">New F-Curve Defaults</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform">Transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sculpt-overlay-color">Sculpt Overlay Color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-data">Duplicate Data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="input.html">Input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="addons.html">Add-ons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="file.html">File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="system.html">System</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../editors/index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="index.html">User Preferences</a> &raquo;</li>
+        
+      <li>Editing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/preferences/editing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="editing">
+<span id="bpy-types-userpreferencesedit"></span><h1>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h1>
+<p>These preferences control how several tools will interact with your input.</p>
+<div class="figure">
+<img alt="../_images/preferences_editing_tab.png" src="../_images/preferences_editing_tab.png" />
+</div>
+<div class="section" id="link-materials-to">
+<h2>Link Materials To<a class="headerlink" href="#link-materials-to" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id1">
+<img alt="../_images/preferences_editing_data-blocks-hierarchy.png" src="../_images/preferences_editing_data-blocks-hierarchy.png" />
+<p class="caption"><span class="caption-text">Example for a mesh.</span></p>
+</div>
+<p>To understand this option properly, you need to understand how Blender works with Objects.
+Almost everything in Blender is organized in a hierarchy of data-blocks.
+A data-block can be thought of as containers for certain pieces of information. For example,
+the Object data-block contains information about the Object's location while the Object Data
+&quot;ObData&quot; data-block contains information about the mesh.</p>
+<p>A material may be linked in two different ways:</p>
+<div class="figure" id="id2">
+<img alt="../_images/preferences_editing_data-blocks-link.png" src="../_images/preferences_editing_data-blocks-link.png" />
+<p class="caption"><span class="caption-text">A material linked to Object Data (left) and Object (right).</span></p>
+</div>
+<dl class="docutils">
+<dt>Object Data</dt>
+<dd>Any created material will be created as part of the Object Data data-block.</dd>
+<dt>Object</dt>
+<dd>Any created material will be created as part of the Object data-block.</dd>
+</dl>
+<p><a class="reference internal" href="../data_system/index.html"><span class="doc">Read more about Blender's Data System</span></a>.</p>
+</div>
+<div class="section" id="new-objects">
+<h2>New Objects<a class="headerlink" href="#new-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Enter Edit Mode</dt>
+<dd>If selected, Edit Mode is automatically activated when you create a new object.</dd>
+<dt>Align To</dt>
+<dd><dl class="first last docutils">
+<dt>World</dt>
+<dd>New objects align with world coordinates.</dd>
+<dt>View</dt>
+<dd>New object align with view coordinates.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="undo">
+<h2>Undo<a class="headerlink" href="#undo" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Global Undo</dt>
+<dd><p class="first">This enables Blender to save actions done when you are <strong>not</strong> in <em>Edit Mode</em>.
+For example, duplicating Objects, changing panel settings or switching between modes.</p>
+<div class="last admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p>While disabling this option does save memory, it stops the <a class="reference internal" href="../interface/undo_redo.html#ui-redo-last"><span class="std std-ref">Redo Panel</span></a>
+from functioning, also preventing tool options from being changed in some cases.</p>
+<p class="last">For typical usage, its best to keep this enabled.</p>
+</div>
+</dd>
+<dt>Steps</dt>
+<dd>Number of Undo steps available.</dd>
+<dt>Memory Limit</dt>
+<dd>Maximum memory usage in Mb (0 is unlimited).</dd>
+</dl>
+<p><a class="reference internal" href="../interface/undo_redo.html"><span class="doc">Read more about Undo and Redo options</span></a>.</p>
+</div>
+<div class="section" id="grease-pencil">
+<h2>Grease Pencil<a class="headerlink" href="#grease-pencil" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Eraser Radius</dt>
+<dd>The size of the eraser used with the Grease pencil.</dd>
+<dt>Manhattan Distance</dt>
+<dd>The minimum number of pixels the mouse should have moved either
+horizontally or vertically before the movement is recorded.
+Decreasing this should work better for curvy lines.</dd>
+<dt>Euclidean Distance</dt>
+<dd>The minimum distance that mouse has to travel before movement is recorded.</dd>
+<dt>Simplify Stroke</dt>
+<dd>This turns on the post-processing step of simplifying the stroke to remove about half of current points in it.
+It is only relevant when not drawing straight lines.</dd>
+<dt>Default Color</dt>
+<dd>The default color for new Grease Pencil layers.</dd>
+</dl>
+<p><a class="reference internal" href="../interface/grease_pencil/index.html"><span class="doc">Read more about Grease Pencil</span></a>.</p>
+</div>
+<div class="section" id="playback">
+<h2>Playback<a class="headerlink" href="#playback" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Allow Negative Frame</dt>
+<dd>Time Cursor can be set to negative frames with mouse or keyboard.
+When using <em>Use Preview Range</em>, this also allows playback.</dd>
+</dl>
+</div>
+<div class="section" id="node-editor">
+<h2>Node Editor<a class="headerlink" href="#node-editor" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Auto-offset Margin</dt>
+<dd>Margin to use for <a class="reference internal" href="../editors/node_editor/introduction.html#editors-nodes-usage-auto-offset"><span class="std std-ref">offsetting nodes</span></a>.</dd>
+</dl>
+</div>
+<div class="section" id="animation-editors">
+<h2>Animation Editors<a class="headerlink" href="#animation-editors" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>F-Curve Visibility</dt>
+<dd>Opacity that unselected <a class="reference internal" href="../editors/graph_editor/fcurves/index.html"><span class="doc">F-Curves</span></a>
+stand out from the <em>Graph Editor</em>.</dd>
+</dl>
+</div>
+<div class="section" id="keyframing">
+<h2>Keyframing<a class="headerlink" href="#keyframing" title="Permalink to this headline">¶</a></h2>
+<p>In many situations, animation is controlled by keyframes. The state of a value (e.g. location)
+is recorded in a keyframe and the animation between two keyframes is interpolated by Blender.</p>
+<dl class="docutils">
+<dt>Visual Keying</dt>
+<dd>When an object is using constraints, the object property value does not actually change.
+<em>Visual Keying</em> will add keyframes to the object property,
+with a value based on the visual transformation from the constraint.</dd>
+<dt>Only Insert Needed</dt>
+<dd>This will only insert keyframes if the value of the property is different.</dd>
+<dt>Auto Keyframing</dt>
+<dd>Enables <em>Auto Keyframe</em> by default for new scenes.</dd>
+<dt>Show Auto Keying Warning</dt>
+<dd>Displays a warning at the top right of the <em>3D View</em>, when moving objects, if <em>Auto Keyframe</em> is on.</dd>
+<dt>Only Insert Available</dt>
+<dd>This will only add keyframes to channel F-Curves that already exist.</dd>
+</dl>
+</div>
+<div class="section" id="new-f-curve-defaults">
+<h2>New F-Curve Defaults<a class="headerlink" href="#new-f-curve-defaults" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Interpolation</dt>
+<dd>Controls the default <a class="reference internal" href="../editors/graph_editor/fcurves/introduction.html#editors-graph-fcurves-settings-interpolation"><span class="std std-ref">Interpolation</span></a>
+for newly created keyframes.</dd>
+<dt>Handles</dt>
+<dd>Controls the default <a class="reference internal" href="../editors/graph_editor/fcurves/introduction.html#editors-graph-fcurves-settings-handles"><span class="std std-ref">Handle</span></a> for newly created F-Curves.</dd>
+<dt>XYZ to RGB</dt>
+<dd>Color for X, Y or Z animation curves (location, scale or rotation)
+is the same as the color for the X, Y and Z axis.</dd>
+</dl>
+</div>
+<div class="section" id="transform">
+<h2>Transform<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Release confirms</dt>
+<dd>Dragging <kbd class="kbd docutils literal notranslate">LMB</kbd> on an object will move it.
+To confirm this (and other) transform, an <kbd class="kbd docutils literal notranslate">LMB</kbd> is necessary by default.
+When this option is activated, the release of <kbd class="kbd docutils literal notranslate">LMB</kbd> acts as confirmation of the transform.</dd>
+</dl>
+</div>
+<div class="section" id="sculpt-overlay-color">
+<h2>Sculpt Overlay Color<a class="headerlink" href="#sculpt-overlay-color" title="Permalink to this headline">¶</a></h2>
+<p>This color button allows the user to define a color to be used in the inner part of
+the brushes circle when in sculpt mode, and it is placed as an overlay to the brush,
+representing the focal point of the brush influence.
+The overlay color is visible only when the overlay visibility is selected
+(clicking at the <em>eye</em> to set its visibility), and the transparency of the overlay is
+controlled by the alpha slider located at the <span class="menuselection">Option tab ‣ Overlay panel</span>
+in the Tool Shelf.</p>
+</div>
+<div class="section" id="duplicate-data">
+<span id="prefs-editing-duplicate-data"></span><h2>Duplicate Data<a class="headerlink" href="#duplicate-data" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Duplicate Data</em> checkboxes define what data is copied with a duplicated Object and
+what data remains linked. Any boxes that are checked will have their data copied along with
+the duplication of the Object. Any boxes that are not checked will instead have their data linked
+from the source Object that was duplicated.</p>
+<p>For example, if you have Mesh checked,
+then a full copy of the mesh data is created with the new Object,
+and each mesh will behave independently of the duplicate.
+If you leave the mesh box unchecked then when you change the mesh of one object,
+the change will be mirrored in the duplicate Object.</p>
+<p>The same rules apply to each of the checkboxes in the 'Duplicate Data' list.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="input.html" class="btn btn-neutral float-right" title="Input" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interface.html" class="btn btn-neutral" title="Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

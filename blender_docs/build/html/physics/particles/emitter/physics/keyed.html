@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Keyed &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/physics/particles/emitter/physics/keyed.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Boids" href="boids.html" />
+    <link rel="prev" title="Newtonian" href="newtonian.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Physics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../gravity.html">Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../baking.html">Baking Physics Simulations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#physics-types">Physics Types</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../force_fields/index.html">Force Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../collision.html">Collisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cloth/index.html">Cloth Simulations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../dynamic_paint/index.html">Dynamic Paint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../soft_body/index.html">Soft Body</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../fluid/index.html">Fluid Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../smoke/index.html">Smoke Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rigid_body/index.html">Rigid Body</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Particles System</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../particle_system_panel.html">Particle System Panel</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Emitter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../hair/index.html">Hair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../texture_influence.html">Texture Influence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../mode.html">Particle Edit Mode</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Physics</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Particles System</a> &raquo;</li>
+        
+          <li><a href="../index.html">Emitter</a> &raquo;</li>
+        
+          <li><a href="index.html">Physics</a> &raquo;</li>
+        
+      <li>Keyed</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/physics/particles/emitter/physics/keyed.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="keyed">
+<span id="bpy-types-particletarget"></span><span id="bpy-types-particlekey"></span><span id="bpy-types-particlehairkey"></span><h1>Keyed<a class="headerlink" href="#keyed" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Particle System ‣ Physics</span></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body">Keyed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The paths of Keyed particles are determined between particles of any two (or more) particle systems.
+This allows creation of chains of systems to create long strands or groovy moving particles.
+Basically the particles have no dynamics but are interpolated from one system to the next at draw-time.</p>
+<p>To setup <em>Keyed</em> particles you need at least two particle systems in the <em>Keys</em> list.</p>
+<p>By default, the <em>Use Timing</em> option is deactivated, and the particles will pass through all keys
+for a time equal to its lifetime. A shorter lifetime means faster movement.
+The lifetime will be split equally between the keys,
+this may lead to varying particle speeds between the targets.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id1">
+<img alt="../../../../_images/physics_particles_emitter_physics_keyed_panel.png" src="../../../../_images/physics_particles_emitter_physics_keyed_panel.png" />
+<p class="caption"><span class="caption-text">Keyed Physics settings.</span></p>
+</div>
+<dl class="docutils">
+<dt>Loops</dt>
+<dd>Sets the number of times the entire <em>Keys</em> list is repeated. Disabled if <em>Use Timing</em> is enabled.</dd>
+<dt>Use Timing</dt>
+<dd>Enabling this option allows you to specify the timing for each key independently,
+using the <em>Time</em> and <em>Duration</em> options.</dd>
+</dl>
+<div class="section" id="keys">
+<h3>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Key Targets</dt>
+<dd><p class="first">The <a class="reference internal" href="../../../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">list view</span></a> of keys (target particle systems).</p>
+<p class="last">Click the <kbd class="kbd docutils literal notranslate">Plus</kbd> to add a key, then select the <em>Object</em>.</p>
+</dd>
+<dt>Object</dt>
+<dd>The name of a target object for the selected key. If empty it uses the current particle system.</dd>
+<dt>System</dt>
+<dd>Index of particle system on the target object.</dd>
+<dt>Time</dt>
+<dd>The time (frame number) at which the particles will be in the position of selected system.
+Note also that the <em>Start</em> frame of the Keyed system adds an offset to this time.</dd>
+<dt>Duration</dt>
+<dd>How long (in frames) the particles stay on this system before they start moving to the next one.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="boids.html" class="btn btn-neutral float-right" title="Boids" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="newtonian.html" class="btn btn-neutral" title="Newtonian" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

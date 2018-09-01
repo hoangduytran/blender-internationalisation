@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python Console &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/python_console.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Data System" href="../data_system/index.html" />
+    <link rel="prev" title="Data Previews" href="file_browser/previews.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#animation">Animation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-video">Image/Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#settings">Settings</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#other">Other</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="file_browser/index.html">File Browser</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Python Console</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Editors</a> &raquo;</li>
+        
+      <li>Python Console</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/editors/python_console.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-console">
+<span id="bpy-ops-console"></span><span id="bpy-types-spaceconsole"></span><span id="bpy-types-consoleline"></span><h1>Python Console<a class="headerlink" href="#python-console" title="Permalink to this headline">¶</a></h1>
+<p>The Python Console is a quick way to execute commands,
+with access to the entire Python API, command history and auto-complete.</p>
+<p>Its a good way to explore possibilities, which can then be pasted into larger scripts.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="accessing-built-in-python-console">
+<h3>Accessing Built-in Python Console<a class="headerlink" href="#accessing-built-in-python-console" title="Permalink to this headline">¶</a></h3>
+<p>By pressing <kbd class="kbd docutils literal notranslate">Shift-F4</kbd> in any Blender Editor type (3D View, Timeline, etc.)
+you can change it to a Console Editor.</p>
+<div class="figure">
+<img alt="../_images/editors_python-console_default.png" src="../_images/editors_python-console_default.png" />
+</div>
+<p>The command prompt is typical for Python 3.x,
+the interpreter is loaded and is ready to accept commands at the prompt <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code>.</p>
+</div>
+<div class="section" id="first-look-at-the-console-environment">
+<h3>First Look at the Console Environment<a class="headerlink" href="#first-look-at-the-console-environment" title="Permalink to this headline">¶</a></h3>
+<p>To check what is loaded into the interpreter environment, type <code class="docutils literal notranslate"><span class="pre">dir()</span></code>
+at the prompt and execute it.</p>
+<div class="figure">
+<img alt="../_images/editors_python-console_dir.png" src="../_images/editors_python-console_dir.png" />
+</div>
+</div>
+<div class="section" id="auto-completion">
+<h3>Auto Completion<a class="headerlink" href="#auto-completion" title="Permalink to this headline">¶</a></h3>
+<p>Now, type <code class="docutils literal notranslate"><span class="pre">bpy.</span></code> and then press <kbd class="kbd docutils literal notranslate">Ctrl-Spacebar</kbd> and you will see the Console
+auto-complete feature in action.</p>
+<div class="figure">
+<img alt="../_images/editors_python-console_completion.png" src="../_images/editors_python-console_completion.png" />
+</div>
+<p>You will notice that a list of sub-modules inside of <code class="docutils literal notranslate"><span class="pre">bpy</span></code> appear. These modules encapsulate all
+that we can do with Blender Python API and are very powerful tools.</p>
+<p>Lets list all the contents of <code class="docutils literal notranslate"><span class="pre">bpy.app</span></code> module.</p>
+<p>Notice the green output above the prompt where you enabled auto-completion.
+What you see is the result of auto completion listing.
+In the above listing all are module attributed names,
+but if you see any name end with <code class="docutils literal notranslate"><span class="pre">(</span></code>, then that is a function.</p>
+<p>We will make use of this a lot to help our learning the API faster.
+Now that you got a hang of this, lets proceed to investigate some of modules in <code class="docutils literal notranslate"><span class="pre">bpy</span></code>.</p>
+</div>
+<div class="section" id="before-tinkering-with-the-modules">
+<h3>Before Tinkering with the Modules<a class="headerlink" href="#before-tinkering-with-the-modules" title="Permalink to this headline">¶</a></h3>
+<p>If you look at the 3D View in the default Blender scene, you will notice three objects: Cube,
+Lamp and Camera.</p>
+<ul class="simple">
+<li>All objects exist in a context and there can be various modes under which they are operated upon.</li>
+<li>At any instance, only one object is active and there can be more than one selected object.</li>
+<li>All objects are data in the blend-file.</li>
+<li>There are operators/functions that create and modify these objects.</li>
+</ul>
+<p>For all the scenarios listed above (not all were listed, mind you...)
+the <code class="docutils literal notranslate"><span class="pre">bpy</span></code> module provides functionality to access and modify data.</p>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bpy-context">
+<h3>bpy.context<a class="headerlink" href="#bpy-context" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">For the commands below to show the proper output, make sure you have selected object(s) in the 3D View.</p>
+</div>
+<div class="figure">
+<img alt="../_images/editors_python-console_bpy-context.png" src="../_images/editors_python-console_bpy-context.png" />
+</div>
+<div class="section" id="try-it-out">
+<h4>Try It Out!<a class="headerlink" href="#try-it-out" title="Permalink to this headline">¶</a></h4>
+<dl class="docutils">
+<dt>bpy.context.mode</dt>
+<dd>Will print the current 3D View mode (Object, Edit, Sculpt, etc.).</dd>
+<dt>bpy.context.object or bpy.context.active_object</dt>
+<dd>Will give access to the active object in the 3D View.</dd>
+</dl>
+<p>Change X location to a value of 1:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Move object from previous X location by 0.5 unit:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+<p>Change X, Y, Z location:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Change only the X, Y components:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">xy</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Data type of object's location:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now that is a lot of data that you have access to:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">location</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><code class="docutils literal notranslate"><span class="pre">bpy.context.selected_objects</span></code></dt>
+<dd>Will give access to a list of all selected objects.</dd>
+</dl>
+<p>Type this and then press <kbd class="kbd docutils literal notranslate">Ctrl-Spacebar</kbd>:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
+</pre></div>
+</div>
+<p>To print out the name of first object in the list:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The complex one... But this prints a list of objects not including the active object:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">obj</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span> <span class="k">if</span> <span class="n">obj</span> <span class="o">!=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">object</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bpy-data">
+<h3>bpy.data<a class="headerlink" href="#bpy-data" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bpy.data</span></code> has functions and attributes that give you access to all the data in the blend-file.</p>
+<p>You can access following data in the current blend-file:
+objects, meshes, materials, textures, scenes, screens, sounds, scripts, etc.</p>
+<p>That is a lot of data.</p>
+<div class="section" id="id1">
+<h4>Try It Out!<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="figure">
+<img alt="../_images/editors_python-console_bpy-data.png" src="../_images/editors_python-console_bpy-data.png" />
+</div>
+</div>
+<div class="section" id="exercise">
+<h4>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h4>
+<p>After <kbd class="kbd docutils literal notranslate">Return</kbd> twice it prints the names of all objects
+belonging to the Blender scene with name &quot;Scene&quot;:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">objects</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Unlink the active object from the Blender scene named 'Scene':</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">active_object</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s1">&#39;Material&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shadows</span>
+
+<span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">materials</span><span class="p">[</span><span class="s1">&#39;Material&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shadows</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="bpy-ops">
+<h3>bpy.ops<a class="headerlink" href="#bpy-ops" title="Permalink to this headline">¶</a></h3>
+<p>The tool system is built around the concept of operators.
+Operators are typically executed from buttons or menus but can be called directly from Python too.</p>
+<p>See the <a class="reference external" href="https://www.blender.org/api/blender_python_api_current/bpy.ops.html">bpy.ops</a> API documentation
+for a list of all operators.</p>
+<p>Lets create a set of five Cubes in the 3D View. First,
+delete the existing Cube object by selecting it and pressing <kbd class="kbd docutils literal notranslate">X</kbd>.</p>
+<div class="section" id="id2">
+<h4>Try It Out!<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>The following commands are used to specify that the objects are created in layer 1.
+So first we define an array variable for later reference:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylayers</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="mi">20</span>
+<span class="n">mylayers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>We create a reference to the operator that is used for creating a cube mesh primitive:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_cube</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">primitive_cube_add</span>
+</pre></div>
+</div>
+<p>Now in a <em>for loop</em>, we create the five objects like this
+(in the screenshot above, another method is used):
+Press <kbd class="kbd docutils literal notranslate">Return</kbd> twice after entering the command at the shell prompt:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">add_cube</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="n">index</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">layers</span><span class="o">=</span><span class="n">mylayers</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/editors_python-console_bpy-ops.png" src="../_images/editors_python-console_bpy-ops.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h3>
+<p>Some variables and modules are available for convenience:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">C</span></code>: Quick access to <code class="docutils literal notranslate"><span class="pre">bpy.context</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">D</span></code>: Quick access to <code class="docutils literal notranslate"><span class="pre">bpy.data</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">bpy</span></code>: Top level Blender Python API module.</li>
+</ul>
+</div>
+<div class="section" id="key-bindings">
+<h3>Key Bindings<a class="headerlink" href="#key-bindings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">Up</kbd> / <kbd class="kbd docutils literal notranslate">Down</kbd> -- Cycle command history.</li>
+<li><kbd class="kbd docutils literal notranslate">Left</kbd> / <kbd class="kbd docutils literal notranslate">Right</kbd> -- Cursor motion.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-Left</kbd> / <kbd class="kbd docutils literal notranslate">Ctrl-Right</kbd> -- Cursor motion, by word.</li>
+<li><kbd class="kbd docutils literal notranslate">Backspace</kbd> / <kbd class="kbd docutils literal notranslate">Delete</kbd> -- Erase characters.</li>
+<li><kbd class="kbd docutils literal notranslate">Tab</kbd> -- Indent.</li>
+<li><kbd class="kbd docutils literal notranslate">Shift-Tab</kbd> -- Unindent.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-Backspace</kbd> / <kbd class="kbd docutils literal notranslate">Ctrl-Delete</kbd> -- Erase words.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-Spacebar</kbd> -- Auto complete.</li>
+<li><kbd class="kbd docutils literal notranslate">Return</kbd> -- Execute command.</li>
+<li><kbd class="kbd docutils literal notranslate">Shift-Return</kbd> -- Add to command history without executing.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-C</kbd> -- Copy the selection.</li>
+<li><kbd class="kbd docutils literal notranslate">Ctrl-V</kbd> -- Paste into the command line.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../data_system/index.html" class="btn btn-neutral float-right" title="Data System" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file_browser/previews.html" class="btn btn-neutral" title="Data Previews" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

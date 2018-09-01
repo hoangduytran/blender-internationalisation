@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Supported Video Formats &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/data_system/files/media/video_formats.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Linked Libraries" href="../../linked_libraries.html" />
+    <link rel="prev" title="Supported Graphics Formats" href="image_formats.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Data System</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../data_blocks.html">Data-Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../custom_properties.html">Custom Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scenes/index.html">Scenes</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Files</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../open.html">Opening Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../save.html">Saving Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../import_export.html">Importing &amp; Exporting Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../relative_paths.html">Relative Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../startup_file.html">Startup File</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Media Formats</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="image_formats.html">Supported Graphics Formats</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Supported Video Formats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../linked_libraries.html">Linked Libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Data System</a> &raquo;</li>
+        
+          <li><a href="../index.html">Files</a> &raquo;</li>
+        
+          <li><a href="index.html">Media Formats</a> &raquo;</li>
+        
+      <li>Supported Video Formats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/data_system/files/media/video_formats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="supported-video-formats">
+<h1>Supported Video Formats<a class="headerlink" href="#supported-video-formats" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="video-formats">
+<h2>Video Formats<a class="headerlink" href="#video-formats" title="Permalink to this headline">¶</a></h2>
+<p>These formats are primarily used for compressing rendered sequences into a playable movie
+(they can also be used to make plain audio files).</p>
+<p>A codec is a little routine that compresses the video so that it will fit on a DVD,
+or be able to be streamed out over the Internet, over a cable, or just be a reasonable file size.
+Codecs compress the channels of a video down to save space and enable continuous playback.
+<em>Lossy</em> codecs make smaller files at the expense of image quality. Some codecs, like H.264,
+are great for larger images. Codecs are used to encode and decode the movie,
+and so must be present on both the encoding machine (Blender) and the target machine.
+The results of the encoding are stored in a container file.</p>
+<p>There are dozens, if not hundreds, of codecs, including Xvid, H.264, DivX, Microsoft,
+and so on. Each has advantages and disadvantages and compatibility with different players on
+different operating systems.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Most codecs can only compress the RGB or YUV <a class="reference internal" href="../../../glossary/index.html#term-color-space"><span class="xref std std-term">color space</span></a>,
+but some support the Alpha channel as well. Codecs that support RGBA include:</p>
+<ul class="last simple">
+<li>Quicktime</li>
+<li>PNG TIFF Pixlet is not lossless, and may be only available on macOS.</li>
+<li><a class="reference external" href="http://lags.leetcode.net/codec.html">Lagarith Lossless Video Codec</a></li>
+</ul>
+</div>
+<dl class="docutils">
+<dt>AVI Codec</dt>
+<dd>AVI codec compression. Which codecs are available depends on the operating system.
+When an AVI codec is initially chosen, the codec dialog is automatically launched.
+The codec can be changed directly using the <em>Set Codec</em> button which appears (<em>AVI Codec settings.</em>).</dd>
+<dt>AVI Jpeg</dt>
+<dd>AVI but with Jpeg compression.
+Lossy, smaller files but not as small as you can get with a Codec compression algorithm.
+Jpeg compression is also the one used in the DV format used in digital camcorders.</dd>
+<dt>AVI Raw</dt>
+<dd>Audio-Video Interlaced (AVI) uncompressed frames.</dd>
+<dt>Frameserver</dt>
+<dd>Blender puts out frames upon request as part of a render farm.
+The port number is specified in the <a class="reference internal" href="../../../preferences/system.html#preferences-system-general-frame-server-port"><span class="std std-ref">User Preferences</span></a>.</dd>
+<dt>H.264</dt>
+<dd>Encodes movies with the H.264 codec.</dd>
+<dt>MPEG</dt>
+<dd>Encodes movies with the MPEG codec.</dd>
+<dt>Ogg Theora</dt>
+<dd>Encodes movies with the Theora codec as Ogg files.</dd>
+<dt>QuickTime</dt>
+<dd>Apple's Quicktime <code class="docutils literal notranslate"><span class="pre">.mov</span></code> file.
+The Quicktime codec dialog is available when this codec is installed on macOS.
+See <em>Quicktime</em> in <a class="reference internal" href="#video-containers">Video Containers</a>.</dd>
+<dt>Xvid</dt>
+<dd>Encodes movies with the Xvid codec.</dd>
+</dl>
+</div>
+<div class="section" id="video-containers">
+<h2>Video Containers<a class="headerlink" href="#video-containers" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1</a>: <code class="docutils literal notranslate"><span class="pre">.mpg</span></code>, <code class="docutils literal notranslate"><span class="pre">.mpeg</span></code></dt>
+<dd>A standard for lossy compression of video and audio.
+It is designed to compress VHS-quality raw digital video and CD audio down to 1.5 Mbit/s.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-2">MPEG-2</a>: <code class="docutils literal notranslate"><span class="pre">.dvd</span></code>, <code class="docutils literal notranslate"><span class="pre">.vob</span></code>, <code class="docutils literal notranslate"><span class="pre">.mpg</span></code>, <code class="docutils literal notranslate"><span class="pre">.mpeg</span></code></dt>
+<dd>A standard for &quot;the generic coding of moving pictures and associated audio information&quot;.
+It describes a combination of lossy video compression and lossy audio data compression
+methods which permit storage and transmission of movies using currently
+available storage media and transmission bandwidth.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-4">MPEG-4(DivX)</a>: <code class="docutils literal notranslate"><span class="pre">.mp4</span></code>, <code class="docutils literal notranslate"><span class="pre">.mpg</span></code>, <code class="docutils literal notranslate"><span class="pre">.mpeg</span></code></dt>
+<dd>Absorbs many of the features of MPEG-1 and MPEG-2 and other related standards, and adds new features.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Audio_Video_Interleave">AVI</a>: <code class="docutils literal notranslate"><span class="pre">.avi</span></code></dt>
+<dd>A derivative of the Resource Interchange File Format (RIFF), which divides a file's data into blocks, or &quot;chunks&quot;.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/.mov">Quicktime</a>: <code class="docutils literal notranslate"><span class="pre">.mov</span></code></dt>
+<dd>A multi-tracked format. QuickTime and MP4 container formats can use the same MPEG-4 formats;
+they are mostly interchangeable in a QuickTime-only environment.
+MP4, being an international standard, has more support.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/DV">DV</a>: <code class="docutils literal notranslate"><span class="pre">.dv</span></code></dt>
+<dd>An intra-frame video compression scheme,
+which uses the discrete cosine transform (DCT) to compress video on a frame-by-frame basis.
+Audio is stored uncompressed.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/H.264">H.264</a>: <code class="docutils literal notranslate"><span class="pre">.avi</span></code> <em>for now</em>.</dt>
+<dd>A standard for video compression, and is currently one of the most commonly used formats for the recording,
+compression, and distribution of high definition video.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Xvid">Xvid</a>: <code class="docutils literal notranslate"><span class="pre">.avi</span></code> <em>for now</em></dt>
+<dd>A video codec library following the MPEG-4 standard. It uses ASP features such as b-frames,
+global and quarter pixel motion compensation, lumi masking, Trellis quantization, and H.263,
+MPEG and custom quantization matrices. Xvid is a primary competitor of the DivX Pro Codec.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Theora">Ogg</a>: <code class="docutils literal notranslate"><span class="pre">.ogg</span></code>, <code class="docutils literal notranslate"><span class="pre">.ogv</span></code></dt>
+<dd>A free lossy video compression format.
+It is developed by the Xiph.Org Foundation and distributed without licensing fees.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Matroska">Matroska</a>: <code class="docutils literal notranslate"><span class="pre">.mkv</span></code></dt>
+<dd>A free open-standard container format, a file format that can hold an unlimited number of video,
+audio, picture or subtitle tracks in one file.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Flash_Video">Flash</a>: <code class="docutils literal notranslate"><span class="pre">.flv</span></code></dt>
+<dd>A container file format used to deliver video over the Internet using Adobe Flash Player.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Wav">Wav</a>: <code class="docutils literal notranslate"><span class="pre">.wav</span></code></dt>
+<dd>An uncompressed (or lightly compressed) Microsoft and IBM audio file format.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MP3">Mp3</a>: <code class="docutils literal notranslate"><span class="pre">.mp3</span></code></dt>
+<dd>A highly-compressed, patented digital audio encoding format using a form of lossy data compression.
+It is a common audio format for consumer audio storage, as well as a de facto standard of digital
+audio compression for the transfer and playback of music on digital audio players.</dd>
+</dl>
+<div class="section" id="video-codecs">
+<h3>Video Codecs<a class="headerlink" href="#video-codecs" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>None</dt>
+<dd>For audio-only encoding.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-1">MPEG-1</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-2">MPEG-2</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-4">MPEG-4(DivX)</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Huffyuv">HuffYUV</a></dt>
+<dd>Lossless video codec created by Ben Rudiak-Gould which is
+meant to replace uncompressed YCbCr as a video capture format.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/DV">DV</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/H.264">H.264</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Xvid">Xvid</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Theora">Theora</a></dt>
+<dd>See Ogg in <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Flash_Video">Flash Video</a></dt>
+<dd>See <a class="reference internal" href="#video-formats">Video Formats</a>.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/FFV1">FFmpeg video codec #1</a></dt>
+<dd>A.K.A. FFV1, a lossless intra-frame video codec.
+It can use either variable length coding or arithmetic coding for entropy coding.
+The encoder and decoder are part of the free, open-source library libavcodec in FFmpeg.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="audio-containers">
+<h2>Audio Containers<a class="headerlink" href="#audio-containers" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MPEG-1_Audio_Layer_II">MP2</a></dt>
+<dd>A lossy audio compression format defined by ISO/IEC 11172-3.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/MP3">MP3</a></dt>
+<dd>See MP3 in <a class="reference internal" href="#video-formats">Video Formats</a> (above).</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Dolby_Digital">AC3</a></dt>
+<dd>Audio Codec 3, an audio compression technology developed by Dolby Laboratories.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Audio_Coding">AAC</a></dt>
+<dd>Advanced Audio Codec, a standardized, lossy compression and encoding scheme for digital audio.
+-- AAC generally achieves better sound quality than MP3 at similar bit rates.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></dt>
+<dd>An open-standard, highly-compressed format comparable to MP3 or AAC.
+-- Vorbis generally achieves better sound quality than MP3 at similar bit rates.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></dt>
+<dd>Free Lossless Audio Codec.
+Digital audio compressed by FLAC's algorithm can typically be reduced to 50-60% of its original size,
+and decompressed into an identical copy of the original audio data.</dd>
+<dt><a class="reference external" href="https://en.wikipedia.org/wiki/PCM">PCM</a></dt>
+<dd>Pulse Code Modulation, a method used to digitally represent sampled analog signals.
+It is the standard form for digital audio in computers and various Blu-ray,
+Compact Disc and DVD formats, as well as other uses such as digital telephone systems.</dd>
+</dl>
+</div>
+<div class="section" id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="video-output-size">
+<h3>Video Output Size<a class="headerlink" href="#video-output-size" title="Permalink to this headline">¶</a></h3>
+<p>Some codecs impose limitations on output size,
+<code class="docutils literal notranslate"><span class="pre">H.264</span></code>, for example requires both the height and width to be divisible by 2.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../linked_libraries.html" class="btn btn-neutral float-right" title="Linked Libraries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="image_formats.html" class="btn btn-neutral" title="Supported Graphics Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

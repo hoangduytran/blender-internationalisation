@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Relations &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/rigging/armatures/bones/properties/relations.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Display Panel" href="display.html" />
+    <link rel="prev" title="Bendy Bones" href="bendy_bones.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Rigging</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../constraints/index.html">Constraints</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Armatures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Bones</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../structure.html">Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../selecting.html">Selecting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../editing/index.html">Editing</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Properties</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../properties/index.html">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../skinning/index.html">Skinning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../posing/index.html">Posing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../lattice.html">Lattice</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Rigging</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Armatures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Bones</a> &raquo;</li>
+        
+          <li><a href="index.html">Properties</a> &raquo;</li>
+        
+      <li>Relations</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/rigging/armatures/bones/properties/relations.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="relations">
+<h1>Relations<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Bone ‣ Relations</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../../../_images/rigging_armatures_bones_properties_relations_panel.png" src="../../../../_images/rigging_armatures_bones_properties_relations_panel.png" />
+<p class="caption"><span class="caption-text">The Relations panel.</span></p>
+</div>
+<p>In this panel you can arrange sets of bones in different layers for easier manipulation.</p>
+<div class="section" id="bone-layers">
+<h2>Bone Layers<a class="headerlink" href="#bone-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="moving-bones-between-layers">
+<h3>Moving Bones between Layers<a class="headerlink" href="#moving-bones-between-layers" title="Permalink to this headline">¶</a></h3>
+<p>Obviously, you have to be in <em>Edit Mode</em> or <em>Pose Mode</em> to move bones between layers.
+Note that as with objects, bones can lay in several layers at once,
+just use the usual <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd> clicks...
+First of all, you have to select the chosen bone(s)!</p>
+<ul class="simple">
+<li>In the Properties editor, use the &quot;layer buttons&quot; of each selected bone Relations panel (<em>Bones</em> tab)
+to control in which layer(s) it lays.</li>
+<li>In the <em>3D View</em> editor, use the menu <span class="menuselection">Armature ‣ Move Bone To Layer</span> or
+<span class="menuselection">Pose ‣ Move Bone To Layer</span> or press <kbd class="kbd docutils literal notranslate">M</kbd> to show the usual pop-up layers menu.
+Note that this way, you assign the same layers to all selected bones.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bone-group">
+<span id="bone-relations-bone-group"></span><h2>Bone Group<a class="headerlink" href="#bone-group" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Pose Mode</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id2">
+<img alt="../../../../_images/rigging_armatures_bones_properties_relations_group-list.png" src="../../../../_images/rigging_armatures_bones_properties_relations_group-list.png" />
+<p class="caption"><span class="caption-text">The Bone Group data ID.</span></p>
+</div>
+<p>To assign a selected bone to a given bone group use the <em>Bone Group</em> data ID.</p>
+</div>
+<div class="section" id="object-children">
+<h2>Object Children<a class="headerlink" href="#object-children" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Pose Mode</td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="docutils">
+<dt>Relative Parenting</dt>
+<dd>ToDo 2.66.</dd>
+</dl>
+</div>
+<div class="section" id="parenting">
+<span id="bone-relations-parenting"></span><h2>Parenting<a class="headerlink" href="#parenting" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Parent</dt>
+<dd>A <a class="reference internal" href="../../../../interface/controls/templates/data_block.html#ui-data-id"><span class="std std-ref">Data ID</span></a> to select the bone to set as a parent.</dd>
+<dt>Connected</dt>
+<dd>The <em>Connected</em> checkbox set the head of the bone to be connected with its parent root.</dd>
+</dl>
+<div class="section" id="transformations">
+<h3>Transformations<a class="headerlink" href="#transformations" title="Permalink to this headline">¶</a></h3>
+<p>Bones relationships have effects on transformations behavior.</p>
+<p>By default, children bones inherit:</p>
+<ul class="simple">
+<li>Their parent position, with their own offset of course.</li>
+<li>Their parent rotation (i.e. they keep a constant rotation relatively to their parent).</li>
+<li>Their parent scale, here again with their own offset.</li>
+</ul>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Examples of transforming parented/connected bones.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_rest.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_rest.png" src="../../../../_images/rigging_armatures_bones_properties_relations_rest.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">The armature in its rest position.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_root-rotation.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_root-rotation.png" src="../../../../_images/rigging_armatures_bones_properties_relations_root-rotation.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Rotation of a root bone.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_root-scale.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_root-scale.png" src="../../../../_images/rigging_armatures_bones_properties_relations_root-scale.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Scaling of a root bone.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Exactly like standard children objects. You can modify this behavior on a per-bone basis,
+using the Relations panel in the <em>Bones</em> tab:</p>
+<div class="figure" id="id7">
+<img alt="../../../../_images/rigging_armatures_bones_properties_relations_panel.png" src="../../../../_images/rigging_armatures_bones_properties_relations_panel.png" />
+<p class="caption"><span class="caption-text">Relations panel in Pose Mode.</span></p>
+</div>
+<dl class="docutils">
+<dt>Inherit Rotation</dt>
+<dd>When disabled, this will &quot;break&quot; the rotation relationship to the bone's parent.
+This means that the child will keep its rotation in the armature object space when its parent is rotated.</dd>
+<dt>Inherit Scale</dt>
+<dd>When disabled, this will &quot;break&quot; the scale relationship to the bone's parent.</dd>
+</dl>
+<p>These inheriting behaviors propagate along the bones' hierarchy.
+So when you scale down a bone, all its descendants are by default scaled down accordingly.
+However, if you set one bone's <em>Inherit Scale</em> or <em>Inherit Rotation</em>
+property on in this &quot;family&quot;, this will break the scaling propagation,
+i.e. this bone <em>and all its descendants</em> will no longer be affected when you scale one of its ancestors.</p>
+<table border="1" class="docutils" id="id8">
+<caption><span class="caption-text">Examples of transforming parented/connected bones with Inherit Rotation disabled.</span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled.png" src="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">The yellow outlined Inherit Rotation disabled bone in the armature.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-descendant.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-descendant.png" src="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-descendant.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Rotation of a bone with an Inherit Rotation disabled bone among its descendants.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-scale.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-scale.png" src="../../../../_images/rigging_armatures_bones_properties_relations_inherit-rot-disabled-scale.png" style="width: 200px;" /></a>
+<p class="caption"><span class="caption-text">Scaling of a bone with an Inherit Rotation disabled bone among its descendants.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Connected bones have another specificity: they cannot be translated. Indeed,
+as their root must be at their parent's tip, if you do not move the parent,
+you cannot move the child's root, but only its tip, which leads to a child rotation.
+This is exactly what happens, when you press <kbd class="kbd docutils literal notranslate">G</kbd> with a connected bone selected,
+Blender automatically switches to rotation operation.</p>
+<p>Bones relationships also have important consequences on how selections of multiple bones
+behave when transformed. There are many different situations which may not be included on this list,
+however, this should give a good idea of the problem:</p>
+<ul class="simple">
+<li>Non-related selected bones are transformed independently, as usual.</li>
+</ul>
+<div class="figure" id="id12">
+<span id="fig-rig-pose-edit-scale"></span><a class="reference internal image-reference" href="../../../../_images/rigging_armatures_bones_properties_relations_scale-related.png"><img alt="../../../../_images/rigging_armatures_bones_properties_relations_scale-related.png" src="../../../../_images/rigging_armatures_bones_properties_relations_scale-related.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Scaling bones, some of them related.</span></p>
+</div>
+<ul class="simple">
+<li>When several bones of the same &quot;family&quot; are selected,
+<em>only</em> the &quot;most parent&quot; ones are really transformed --
+the descendants are just handled through the parent relationship process, as if they were not selected
+(see Fig. <a class="reference internal" href="#fig-rig-pose-edit-scale"><span class="std std-ref">Scaling bones, some of them related.</span></a> the third tip bone,
+outlined in yellow, was only scaled down through the parent relationship,
+exactly as the unselected ones, even though it is selected and active.
+Otherwise, it should have been twice smaller!).</li>
+<li>When connected and unconnected bones are selected,
+and you start a grab operation, only the unconnected bones are affected.</li>
+<li>When a child connected hinge bone is in the selection,
+and the &quot;most parent&quot; selected one is connected, when you press <kbd class="kbd docutils literal notranslate">G</kbd>,
+nothing happens, because Blender remains in grab operation, which of course has no effect on a connected bone.</li>
+</ul>
+<p>So, when posing a chain of bones, you should always edit its elements from the root bone to the tip bone.
+This process is known as <em>forward kinematics</em> (FK).
+We will see in a <a class="reference internal" href="../../posing/bone_constraints/index.html#bone-constraints-inverse-kinematics"><span class="std std-ref">later page</span></a>
+that Blender features another pose method,
+called <em>inverse kinematics</em> (IK), which allows you to pose a whole chain just by moving its tip.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">This feature is somewhat extended/completed by
+the <a class="reference internal" href="../../properties/pose_library.html"><span class="doc">pose library</span></a> tool.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="display.html" class="btn btn-neutral float-right" title="Display Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bendy_bones.html" class="btn btn-neutral" title="Bendy Bones" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shape Keys Panel &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/animation/shape_keys/shape_keys_panel.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Workflow" href="workflow.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drivers/index.html">Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Markers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Shape Keys</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shape Keys Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Animation</a> &raquo;</li>
+        
+          <li><a href="index.html">Shape Keys</a> &raquo;</li>
+        
+      <li>Shape Keys Panel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/animation/shape_keys/shape_keys_panel.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shape-keys-panel">
+<span id="bpy-ops-object-join-shapes"></span><h1>Shape Keys Panel<a class="headerlink" href="#shape-keys-panel" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Properties editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Object Data ‣ Shape Keys</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_basis.png" src="../../_images/animation_shape-keys_shape-keys-panel_basis.png" />
+<p class="caption"><span class="caption-text">Shape Keys panel.</span></p>
+</div>
+<div class="section" id="settings">
+<h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Active Shape Key Index</dt>
+<dd><p class="first">A <a class="reference internal" href="../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">List Views</span></a>.</p>
+<dl class="last docutils">
+<dt>Value</dt>
+<dd>Current Value of the Shape Key (0.0 to 1.0).</dd>
+<dt>Mute (eye icon)</dt>
+<dd>This visually disables the shape key in the 3D View.</dd>
+<dt>Specials</dt>
+<dd><dl class="first last docutils">
+<dt>Transfer Shape Key</dt>
+<dd>Transfer the active <em>Shape Key</em> from a different object.
+Select two objects, the active Shape Key is copied to the active object.</dd>
+<dt>Join as Shapes</dt>
+<dd>Transfer the <em>Current Shape</em> from a different object.
+Select two objects, the Shape is copied to the active object.</dd>
+<dt>Mirror Shape Key</dt>
+<dd>If your mesh is nice and symmetrical, in <em>Object Mode</em>, you can mirror the shape keys on the X axis.
+This will not work unless the mesh vertices are perfectly symmetrical.
+Use the <span class="menuselection">Mesh ‣ Symmetrize</span> tool in <em>Edit Mode</em>.</dd>
+<dt>Mirror Shape Key (Topology)</dt>
+<dd>This is the same as <em>Mirror Shape Key</em> though it detects
+the mirrored vertices based on the topology of the mesh.
+The mesh vertices do not have to be perfectly symmetrical for this one to work.</dd>
+<dt>New Shape From Mix</dt>
+<dd>Add a new shape key with the current deformed shape of the object.</dd>
+<dt>Delete All Shapes</dt>
+<dd>Delete all shape keys.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>Relative</dt>
+<dd>Set the shape keys to <em>Relative</em> or <em>Absolute</em>.</dd>
+<dt>Show Only (pin icon)</dt>
+<dd>Show the shape of the active shape key without interpolation in the 3D View.
+<em>Show Only</em> is enabled while the object is in <em>Edit Mode</em>, unless the setting below is enabled.</dd>
+<dt>Edit Mode</dt>
+<dd>Modify the shape key while the object is in <em>Edit Mode</em>.</dd>
+</dl>
+<div class="section" id="relative-shape-keys">
+<h3>Relative Shape Keys<a class="headerlink" href="#relative-shape-keys" title="Permalink to this headline">¶</a></h3>
+<p>Relative shape keys deform from a selected shape key.
+By default, all relative shape keys deform from the first shape key called the Basis shape key.</p>
+<div class="figure" id="id2">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_relative.png" src="../../_images/animation_shape-keys_shape-keys-panel_relative.png" />
+<p class="caption"><span class="caption-text">Relative Shape Keys options.</span></p>
+</div>
+<dl class="docutils">
+<dt>Clear Weights <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Set all values to zero.</dd>
+</dl>
+<dl class="docutils" id="animation-shapekey-relative-value">
+<dt>Value</dt>
+<dd>The value of the active shape key.</dd>
+<dt>Range</dt>
+<dd>Min and Max range of the active shape key value.</dd>
+<dt>Blend</dt>
+<dd><dl class="first last docutils">
+<dt>Vertex Group</dt>
+<dd>Limit the active shape key deformation to a vertex group.</dd>
+<dt>Relative</dt>
+<dd>Select the shape key to deform from.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="absolute-shape-keys">
+<h3>Absolute Shape Keys<a class="headerlink" href="#absolute-shape-keys" title="Permalink to this headline">¶</a></h3>
+<p>Absolute shape keys deform from the previous and to the next shape key.
+They are mainly used to deform the object into different shapes over time.</p>
+<div class="figure" id="id3">
+<img alt="../../_images/animation_shape-keys_shape-keys-panel_absolute.png" src="../../_images/animation_shape-keys_shape-keys-panel_absolute.png" />
+<p class="caption"><span class="caption-text">Absolute Shape Keys options.</span></p>
+</div>
+<dl class="docutils">
+<dt>Reset Timing (clock icon)</dt>
+<dd>Reset the timing for absolute shape keys.</dd>
+<dt>Interpolation</dt>
+<dd><p class="first">This controls the interpolation between shape keys.</p>
+<p>Linear, Cardinal, Catmull-Rom, B-Spline</p>
+<div class="last figure" id="id4">
+<span id="fig-interpolation-type"></span><img alt="../../_images/animation_shape-keys_shape-keys-panel_interpolation-types.png" src="../../_images/animation_shape-keys_shape-keys-panel_interpolation-types.png" />
+<p class="caption"><span class="caption-text">Different types of interpolation.</span></p>
+<div class="legend">
+The red line represents interpolated values between keys (black dots).</div>
+</div>
+</dd>
+<dt>Evaluation Time</dt>
+<dd>This is used to control the shape key influence.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="reset-timing">
+<h3>Reset Timing<a class="headerlink" href="#reset-timing" title="Permalink to this headline">¶</a></h3>
+<p>For example, if you have the shape keys, Basis, Key_1, Key_2, in that order.</p>
+<p>Reset Timing will loop the shape keys, and set the shape keyframes to +0.1:</p>
+<ul class="simple">
+<li>Basis 0.1</li>
+<li>Key_1 0.2</li>
+<li>Key_2 0.3</li>
+</ul>
+<p>Evaluation Time will show this as frame 100:</p>
+<ul class="simple">
+<li>Basis 10.0</li>
+<li>Key_1 20.0</li>
+<li>Key_2 30.0</li>
+</ul>
+</div>
+<div class="section" id="evaluation-time">
+<h3>Evaluation Time<a class="headerlink" href="#evaluation-time" title="Permalink to this headline">¶</a></h3>
+<p>For example, if you have the shape keys, Basis, Key_1, Key_2, in that order, and you reset timing:</p>
+<ul class="simple">
+<li>Basis 10.0</li>
+<li>Key_1 20.0</li>
+<li>Key_2 30.0</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Movie &amp; Image Strips &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/editors/vse/sequencer/strips/movie_image.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Sound Strips" href="sound.html" />
+    <link rel="prev" title="Clip &amp; Mask Strip" href="clip_mask.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Editors</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#d">3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">Animation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#image-video">Image/Video</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../uv_image/index.html">UV/Image Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../movie_clip_editor/index.html">Movie Clip Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Video Sequence Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../preview/index.html">Preview</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#nodes-logic">Nodes/Logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#settings">Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../index.html#other">Other</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Editors</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Video Sequence Editor</a> &raquo;</li>
+        
+          <li><a href="../index.html">Sequencer</a> &raquo;</li>
+        
+          <li><a href="index.html">Strips</a> &raquo;</li>
+        
+      <li>Movie &amp; Image Strips</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/editors/vse/sequencer/strips/movie_image.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="movie-image-strips">
+<h1>Movie &amp; Image Strips<a class="headerlink" href="#movie-image-strips" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="movie">
+<span id="bpy-types-moviesequence"></span><h2>Movie<a class="headerlink" href="#movie" title="Permalink to this headline">¶</a></h2>
+<p>To add a movie (with or without audio) select a movie file(s) in the File Browser
+e.g. in the Audio-Video Interleaved format (<code class="docutils literal notranslate"><span class="pre">*.avi</span></code> file).</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Clips can be Huge</p>
+<p class="last">A three minute quicktime <code class="docutils literal notranslate"><span class="pre">.mov</span></code> file can be 140Megs.
+Loading it, even over a high-speed LAN can take some time.
+Do not assume your computer or Blender has locked up if nothing happens for awhile.</p>
+</div>
+</div>
+<div class="section" id="image">
+<span id="bpy-types-imagesequence"></span><h2>Image<a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-image">
+<h3>Single Image<a class="headerlink" href="#single-image" title="Permalink to this headline">¶</a></h3>
+<p>When you add a single still image (<code class="docutils literal notranslate"><span class="pre">*.jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">*.png</span></code>, etc.),
+Blender creates a 25 frames long strip which will show this image along the strips range.</p>
+</div>
+<div class="section" id="image-sequence">
+<h3>Image Sequence<a class="headerlink" href="#image-sequence" title="Permalink to this headline">¶</a></h3>
+<p>In the case of (numbered) image sequences
+(e.g. <code class="docutils literal notranslate"><span class="pre">*-0001.jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">*-0002.jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">*-0003.jpg</span></code>, etc, of any image format), you have a choice:</p>
+<dl class="docutils">
+<dt>Range</dt>
+<dd>Navigate into the directory and <kbd class="kbd docutils literal notranslate">RMB</kbd> click and drag over a range of names to highlight multiple files.
+You can page down and continue <kbd class="kbd docutils literal notranslate">RMB</kbd> click-dragging to add more to the selection.</dd>
+<dt>Batch</dt>
+<dd><kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> click selected non-related stills for batch processing; each image will be one frame,
+in sort order, and can be a mix of file types (<code class="docutils literal notranslate"><span class="pre">jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">png</span></code>, <code class="docutils literal notranslate"><span class="pre">exr</span></code>, etc.).</dd>
+<dt>All</dt>
+<dd>Press <kbd class="kbd docutils literal notranslate">A</kbd> to select/deselect all files in the directory.</dd>
+</dl>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Dealing with Different Sizes</p>
+<p class="last">Dealing with different sized images and different sized outputs is tricky.
+If you have a mis-match between the size of the input image and the render output size,
+the VSE will try to auto-scale the image to fit it entirely in the output.
+This may result in clipping. If you do not want that, use <em>Crop</em> and/or <em>Offset</em> in the Input
+panel to move and select a region of the image within the output. When you use <em>Crop</em> or <em>Offset</em>,
+the auto-scaling will be disabled and you can manually re-scale by adding the Transform effect.</p>
+</div>
+</div>
+<div class="section" id="add-image-strip">
+<h3>Add Image Strip<a class="headerlink" href="#add-image-strip" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="placeholder-images">
+<h4>Placeholder Images<a class="headerlink" href="#placeholder-images" title="Permalink to this headline">¶</a></h4>
+<p>Image sequences can use placeholder files. This works by enabling <em>Use placeholders</em> checkbox
+when adding an image strip. The option detects the frame range of opened images using
+Blender's frame naming scheme (filename + frame number + .extension) and makes an image sequence with
+all files in between even if they are missing.
+This allows you to render an image sequence with a few frames missing and
+still the image strip will have the correct range to account for the missing frames displayed as black.
+When the missing frames are rendered or placed in the same folder, you can refresh the Sequencer and
+get the missing frames in the strip. The option is also available when using the <em>Change Data/File</em> operator and
+allows you to add more images to the range.</p>
+</div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="figure">
+<img alt="../../../../_images/editors_vse_sequencer_strips_movie-image_example.png" src="../../../../_images/editors_vse_sequencer_strips_movie-image_example.png" />
+</div>
+<p>If you scroll up the workspace, you will see an information channel
+(at vertical location channel 0) that gives you some helpful hints about the active strip.
+The example above shows a color strip from frames 1 to 25, then a <code class="docutils literal notranslate"><span class="pre">mov</span></code> file,
+and then an image strip. The info channel shows handy information about the image strip,
+whose name has been scrunched in the strip display,
+but is clearly spelled out in the information strip.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sound.html" class="btn btn-neutral float-right" title="Sound Strips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clip_mask.html" class="btn btn-neutral" title="Clip &amp; Mask Strip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

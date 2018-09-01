@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Principled Hair BSDF &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/cycles/nodes/types/shaders/hair_principled.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Principled Volume" href="volume_principled.html" />
+    <link rel="prev" title="Principled BSDF" href="principled.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">World</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../osl.html">Open Shading Language</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../features.html">Render Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">GPU Rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Nodes</a> &raquo;</li>
+        
+          <li><a href="index.html">Shader Nodes</a> &raquo;</li>
+        
+      <li>Principled Hair BSDF</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/cycles/nodes/types/shaders/hair_principled.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="principled-hair-bsdf">
+<span id="bpy-types-shadernodebsdfhairprincipled"></span><h1>Principled Hair BSDF<a class="headerlink" href="#principled-hair-bsdf" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-right" id="id5" style="width: 30%">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_node_melaninconcentration.png" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_node_melaninconcentration.png" />
+<p class="caption"><span class="caption-text">Principled Hair BSDF under Melanin concentration.</span></p>
+</div>
+<p>The <em>Principled Hair</em> <abbr title="Bidirectional scattering distribution function">BSDF</abbr> is a physically-based,
+easy-to-use shader for rendering hair and fur.</p>
+<div class="section" id="coloring-hair">
+<h2>Coloring Hair<a class="headerlink" href="#coloring-hair" title="Permalink to this headline">¶</a></h2>
+<p>The shader provides three different ways, or <em>parametrizations</em>, to color the hair strands.</p>
+<dl class="docutils">
+<dt>Direct coloring</dt>
+<dd>Choose the desired RGB color and the shader will approximate
+the necessary <em>absorption coefficient</em> (below).</dd>
+<dt>Melanin concentration</dt>
+<dd><p class="first">This mode defines the color as the quantity and
+ratio of the pigments which are commonly found in hair and fur,
+<em>eumelanin</em> (prevalent in brown-black hair) and <em>pheomelanin</em> (red hair).
+The quantity is specified in the <em>Melanin</em> input, and the ratio between them in <em>Melanin Redness</em>.
+Increasing concentrations darken the hair (the following are with <em>Melanin Redness</em> <span class="math notranslate nohighlight">\(1\)</span>):</p>
+<ul class="simple">
+<li>White (Melanin <span class="math notranslate nohighlight">\(0\)</span>),</li>
+<li>Blonde (Melanin <span class="math notranslate nohighlight">\(0.25\)</span>)</li>
+<li>Reddish (Melanin <span class="math notranslate nohighlight">\(0.5\)</span>)</li>
+<li>Brown (Melanin <span class="math notranslate nohighlight">\(0.75\)</span>)</li>
+<li>Black (Melanin <span class="math notranslate nohighlight">\(1\)</span>)</li>
+</ul>
+<p class="last">Additionally, the <em>Tint</em> inputs allows to dye the hair with the desired color.</p>
+</dd>
+<dt>Absorption coefficient</dt>
+<dd>Specifies the attenuation coefficient <span class="math notranslate nohighlight">\(\sigma_{a}\)</span>, as applied by the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law#Expression_with_attenuation_coefficient">Beer-Lambert law</a>.
+This mode is intended mainly for technical users who want to use
+coefficients from the literature without any sort of conversion.</dd>
+</dl>
+</div>
+<div class="section" id="randomizing-properties">
+<h2>Randomizing Properties<a class="headerlink" href="#randomizing-properties" title="Permalink to this headline">¶</a></h2>
+<p>Realistic hair should have a minimum of variance between each strand.
+The shader allows for this by specifying two values, <em>Random Color</em>
+and <em>Random Roughness</em>, which remap the specified Melanin/Roughness
+values to the range <span class="math notranslate nohighlight">\(Color/Roughness \pm Randomization\%\)</span>.</p>
+</div>
+<div class="section" id="inputs">
+<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Color</dt>
+<dd><p class="first">The RGB color of the strand. Only used in Direct coloring.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>The chosen color is converted to an absorption coefficient with
+the following formula (section 4.2 of <a class="reference internal" href="#cbtb16" id="id1">[CBTB16]</a>):</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{a} = \frac{\ln(Color)}
+{\left(5.969 - 0.215\beta_{N} + 2.532\beta_{N}^{2} -
+10.73\beta_{N}^{3} + 5.574\beta_{N}^{4} + 0.245\beta_{N}^{5}\right)^{2}}\]</div>
+<p class="last">where <span class="math notranslate nohighlight">\(\beta_{N}\)</span> is the radial roughness of the hair after applying randomization (if specified).</p>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id6">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_color.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_color.jpg" />
+<p class="caption"><span class="caption-text">Coloring hair using the Direct coloring parametrization. (The numbers on top are the RGB values.)</span></p>
+</div>
+<dl class="docutils">
+<dt>Melanin</dt>
+<dd><p class="first">Absolute quantity of pigment.
+Range <span class="math notranslate nohighlight">\([0, 1]\)</span> equivalent to <span class="math notranslate nohighlight">\([0\%, 100\%]\)</span>.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>This is a linear mapping to the underlying exponential function:</p>
+<div class="last math notranslate nohighlight">
+\[melanin\_qty = -\ln(\max(1.0 - Melanin, 0.0001))\]</div>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id7">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_melanin.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_melanin.jpg" />
+<p class="caption"><span class="caption-text">Melanin.</span></p>
+</div>
+<dl class="docutils">
+<dt>Melanin Redness</dt>
+<dd><p class="first">Ratio of pheomelanin to eumelanin.
+Range <span class="math notranslate nohighlight">\([0, 1]\)</span> equivalent to <span class="math notranslate nohighlight">\([0\%, 100\%]\)</span>.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p>The ratio formula is: <span class="math notranslate nohighlight">\(eumelanin = Melanin*(1.0-MelaninRedness)\)</span>,
+<span class="math notranslate nohighlight">\(pheomelanin = Melanin*MelaninRedness\)</span>.</p>
+<p>The resulting quantities are converted (after randomization, if specified)
+to absorption concentration via the following formula
+(section 6.1 of <a class="reference internal" href="#efhla11" id="id2">[EFHLA11]</a>, adjusted for the range <span class="math notranslate nohighlight">\([0, 1]\)</span>):</p>
+<div class="last math notranslate nohighlight">
+\[\begin{split}\sigma_{a} =
+eumelanin * \left[\begin{matrix}   0.506 \\ 0.841 \\ 1.653 \\ \end{matrix}\right] +
+pheomelanin * \left[\begin{matrix} 0.343 \\ 0.733 \\ 1.924 \\ \end{matrix}\right]\end{split}\]</div>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id8">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_melanin_redness.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_melanin_redness.jpg" />
+<p class="caption"><span class="caption-text">Melanin Redness.</span></p>
+</div>
+<dl class="docutils">
+<dt>Tint</dt>
+<dd><p class="first">Color used for dyeing the hair after applying the melanin pigment.
+It is not subject to randomization.
+It can be disabled by setting the color to white.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">This is converted via the Color mapping above and added to
+the absorption coefficient of the melanin concentration.</p>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id9">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_tint.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_tint.jpg" />
+<p class="caption"><span class="caption-text">Tint, using Melanin 0.1 and the corresponding RGB values.</span></p>
+</div>
+<dl class="docutils">
+<dt>Absorption coefficient</dt>
+<dd>Attenuation coefficient <span class="math notranslate nohighlight">\(\sigma\)</span>.</dd>
+<dt>Roughness</dt>
+<dd>Specify how much the glints are smoothed in the direction of the hair shaft.
+Too low values will smoothen the hair to the point of looking almost metallic,
+making glints look like fireflies; while setting it too high will result in a Lambertian look.</dd>
+</dl>
+<div class="figure align-center" id="id10">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_roughness.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_roughness.jpg" />
+<p class="caption"><span class="caption-text">Roughness.</span></p>
+</div>
+<dl class="docutils">
+<dt>Radial Roughness</dt>
+<dd><p class="first">Specify how much the glints are smoothed in the direction of the hair tangent.
+Too low values will concentrate the glint;
+while setting it too high will spread the light across the width of the strand.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Mathematically, this parameter is mapped to the logistic distribution's
+scale factor <span class="math notranslate nohighlight">\(s\)</span> (section 4.1 of <a class="reference internal" href="#cbtb16" id="id3">[CBTB16]</a>).</p>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id11">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_radial_roughness.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_radial_roughness.jpg" />
+<p class="caption"><span class="caption-text">Radial Roughness.</span></p>
+</div>
+<dl class="docutils">
+<dt>Coat</dt>
+<dd>Simulate a shiny coat of fur, by reducing the Roughness to the given factor
+only for the first light bounce (diffuse).
+Range <span class="math notranslate nohighlight">\([0, 1]\)</span> equivalent to a reduction of <span class="math notranslate nohighlight">\([0\%, 100\%]\)</span> of the original Roughness.</dd>
+</dl>
+<div class="figure align-center" id="id12">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_coat.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_coat.jpg" />
+<p class="caption"><span class="caption-text">Coat.</span></p>
+</div>
+<dl class="docutils">
+<dt>IOR</dt>
+<dd>Index of refraction (<a class="reference internal" href="../../../../../glossary/index.html#term-ior"><span class="xref std std-term">IOR</span></a>) defining how much the ray changes direction.
+At 1.0 rays pass straight through like in a transparent material;
+higher values give more refraction.
+Default value is <span class="math notranslate nohighlight">\(1.55\)</span>.</dd>
+<dt>Offset</dt>
+<dd>Tilts the glint of the hair by increasing the angle of the scales of
+the hair's cuticle with respect to the hair shaft.
+Human hair usually has low values.</dd>
+<dt>Random Color</dt>
+<dd><p class="first">For each strand, vary the melanin concentration by <span class="math notranslate nohighlight">\(RandomFactor\)</span>.
+Range <span class="math notranslate nohighlight">\([0, 1]\)</span> equivalent to <span class="math notranslate nohighlight">\([0\%, 100\%]\)</span> of
+the initial melanin concentration.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">The melanin concentration is multiplied by <span class="math notranslate nohighlight">\(randomFactor\)</span>,
+where <span class="math notranslate nohighlight">\(randomFactor = 1.0 + 2.0*(Random - 0.5) * RandomColor\)</span>.</p>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id13">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_random_color.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_random_color.jpg" />
+<p class="caption"><span class="caption-text">Random Color.</span></p>
+</div>
+<dl class="docutils">
+<dt>Random Roughness</dt>
+<dd><p class="first">For each strand, vary both Roughness values by <span class="math notranslate nohighlight">\(RandomFactor\)</span>.
+Range <span class="math notranslate nohighlight">\([0, 1]\)</span> equivalent to <span class="math notranslate nohighlight">\([0\%, 100\%]\)</span> of
+the initial roughness values.</p>
+<div class="last admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">The applied formula is the same one as for <em>Random Color</em>.</p>
+</div>
+</dd>
+</dl>
+<div class="figure align-center" id="id14">
+<img alt="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_random_roughness.jpg" src="../../../../../_images/render_cycles_nodes_types_shaders_principled_hair_demo_random_roughness.jpg" />
+<p class="caption"><span class="caption-text">Random Roughness.</span></p>
+</div>
+<dl class="docutils">
+<dt>Random</dt>
+<dd>Random number source. If no node is connected here, it is automatically
+instanced with the value obtained from <span class="menuselection">Hair Info ‣ Random</span>.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Parametrization</dt>
+<dd>Choose one of the three coloring modes described above.</dd>
+</dl>
+</div>
+<div class="section" id="outputs">
+<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>BSDF</dt>
+<dd>Standard shader output.</dd>
+</dl>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p>This shader is an implementation of the paper by Chiang et al. <a class="reference internal" href="#cbtb16" id="id4">[CBTB16]</a>,
+which was used in the Disney film, &quot;Zootopia&quot;<sup>®</sup>.</p>
+<table class="docutils citation" frame="void" id="cbtb16" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[CBTB16]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id3">2</a>, <a class="fn-backref" href="#id4">3</a>)</em> Chiang, M. J. , Bitterli, B. , Tappan, C. and Burley, B. (2016),
+A Practical and Controllable Hair and Fur Model for Production Path Tracing. Computer Graphics Forum, 35: 275-283.
+<a class="reference external" href="https://doi.org/10.1111/cgf.12830">doi:10.1111/cgf.12830</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="efhla11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[EFHLA11]</a></td><td>d'Eon, E. , Francois, G. , Hill, M. , Letteri, J. and Aubry, J. (2011),
+An Energy‐Conserving Hair Reflectance Model. Computer Graphics Forum, 30: 1181-1187.
+<a class="reference external" href="https://doi.org/10.1111/j.1467-8659.2011.01976.x">doi:10.1111/j.1467-8659.2011.01976.x</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="volume_principled.html" class="btn btn-neutral float-right" title="Principled Volume" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="principled.html" class="btn btn-neutral" title="Principled BSDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

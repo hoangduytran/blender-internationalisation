@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
+    <link rel="next" title="Material Panel" href="material_panel.html" />
+    <link rel="prev" title="Materials" href="index.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Materials</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="properties/index.html">Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="special_effects/index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="index.html">Materials</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/render/blender_render/materials/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>A material defines the artistic qualities of the substance that an object is made of.
+In its simplest form, you can use materials to show the substance an object is made of,
+or to &quot;paint&quot; the object with different colors. Usually,
+the substance is represented by its surface qualities (color, shininess, reflectance, etc.)
+but it can also exhibit more complicated effects such as transparency,
+diffraction and subsurface scattering. Typical materials might be brass, skin, glass, or linen.</p>
+<div class="figure" id="id1">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_materials_introduction_demo.jpg"><img alt="../../../_images/render_blender-render_materials_introduction_demo.jpg" src="../../../_images/render_blender-render_materials_introduction_demo.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">Various basic materials (single, multiple material, transparency, vertex paint).</span></p>
+</div>
+<p>The basic (un-textured) Blender material is uniform across each face of an object
+(although the various pixels of each face of the object may appear differently because of lighting effects).
+However, different faces of the object may use different materials (see <a class="reference internal" href="assigning_a_material.html#bi-multiple-materials"><span class="std std-ref">Multiple Materials</span></a>).</p>
+<p>In Blender, materials can (optionally) have associated textures.
+Textures <em>describe</em> the substance: e.g. <em>polished</em> brass,
+<em>dirty</em> glass or <em>embroidered</em> linen. The <a class="reference internal" href="../textures/index.html"><span class="doc">Textures</span></a>
+chapter describes how to add textures to materials.</p>
+<div class="section" id="how-materials-work">
+<h2>How Materials Work<a class="headerlink" href="#how-materials-work" title="Permalink to this headline">¶</a></h2>
+<p>Before you can understand how to design effectively with materials, you must understand how
+simulated light and surfaces interact in Blender's rendering engine and how material settings
+control those interactions.
+A deep understanding of the engine will help you to get the most from it.</p>
+<p>The rendered image you create with Blender is a projection of the scene onto an imaginary
+surface called the <em>viewing plane</em>.
+The viewing plane is analogous to the film in a traditional camera,
+or the rods and cones in the human eye, except that it receives simulated light,
+not real light.</p>
+<p>To render an image of a scene we must first determine what light from the scene is arriving at
+each point on the viewing plane.
+The best way to answer this question is to follow a straight line (the simulated light ray)
+backwards through that point on the viewing plane and the focal point
+(the location of the camera) until it hits a renderable surface in the scene,
+at which point we can determine what light would strike that point.</p>
+<p>The surface properties and incident light angle tells how much of that light would be
+reflected back along the incident viewing angle <em>(Rendering engine basic principle)</em>.</p>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../_images/render_blender-render_materials_introduction_basic-principle.svg"><img alt="../../../_images/render_blender-render_materials_introduction_basic-principle.svg" src="../../../_images/render_blender-render_materials_introduction_basic-principle.svg" width="480px" /></a>
+<p class="caption"><span class="caption-text">Rendering engine basic principle.</span></p>
+</div>
+<p>Two basic types of phenomena take place at any point on a surface when a light ray strikes it:
+diffusion and specular reflection. Diffusion and specular reflection are distinguished from
+each other mainly by the relationship between the incident light angle and the reflected light
+angle.</p>
+<p>The shading (or coloring) of the object during render will then take into account the base color
+(as modified by the diffusion and specular reflection phenomenon) and the light intensity.</p>
+<p>Using the internal ray tracer, other (more advanced) phenomena could occur.
+In ray-traced reflections, the point of a surface struck by a light ray will return the color
+of its surrounding environment, according to the rate of reflection of the material
+(mixing the base color and the surrounding environment's) and the viewing angle.</p>
+<p>On the other hand, in ray-traced refractions, the point of a surface struck by a light ray
+will return the color of its background environment, according to the rate of transparency
+(mixing the base color and the background environment's along with its optional filtering value)
+of the material and the optional index of refraction of the material,
+which will distort the viewing angle.</p>
+<p>Of course, shading of the object hit by a light ray will be about mixing all these phenomena
+at the same time during the rendering. The appearance of the object, when rendered,
+depends on many interrelated settings:</p>
+<ul class="simple">
+<li>World (Ambient color, Radiosity, Ambient Occlusion)</li>
+<li>Lights</li>
+<li>Material settings (including ambient, emission, and every other setting on every panel in that tab)</li>
+<li>Texture(s) and how they are mixed</li>
+<li>Material Nodes</li>
+<li>Camera</li>
+<li>Viewing angle</li>
+<li>Obstructions and transparent occlusions</li>
+<li>Shadows from other opaque/transparent objects</li>
+<li>Render settings</li>
+<li>Object dimensions (SS settings are relevant to dimensions)</li>
+<li>Object shape (refractions, Fresnel effects)</li>
+</ul>
+</div>
+<div class="section" id="using-materials">
+<h2>Using Materials<a class="headerlink" href="#using-materials" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>Check your Render</p>
+<p class="last">When designing materials (and textures and lighting), frequently check the rendered appearance of your scene,
+using your chosen render engine/shader settings.
+The appearance might be quite different from that shown in the texture display in the 3D panel.</p>
+</div>
+<p>As stated above, the material settings usually determine the surface properties of the object.
+There are several ways in which materials can be set up in Blender.
+Generally speaking, these are not compatible.
+You must choose which method you are going to use for each particular object in your scene:</p>
+<ol class="arabic simple">
+<li>First, you can set the <a class="reference internal" href="properties/introduction.html"><span class="doc">Properties</span></a>
+in the various Material panels.</li>
+<li>Second, you can use <a class="reference internal" href="nodes/index.html"><span class="doc">Nodes</span></a>;
+a graphical nodes editor is available.</li>
+<li>Last, you can directly set the color of object surfaces using various special effects. Strictly speaking,
+these are not materials at all, but they are included here because they affect the appearance of your objects.
+These include <a class="reference internal" href="../../../sculpt_paint/painting/vertex_paint/index.html#painting-vertex-index"><span class="std std-ref">Vertex Painting</span></a>,
+<a class="reference internal" href="special_effects/wire.html"><span class="doc">Wire Rendering</span></a>,
+<a class="reference internal" href="special_effects/volume.html"><span class="doc">Volume Rendering</span></a>,
+and <a class="reference internal" href="special_effects/halo.html"><span class="doc">Halo Rendering</span></a>.</li>
+</ol>
+<p>The exact effect of Material settings can be affected by a number of system settings.
+First and foremost is the renderer used:
+Cycles and the Blender Renderer (aka Blender Internal or BI)
+require quite different illumination levels to achieve similar results,
+and even then the appearance of objects can be quite different.
+Also, the material properties settings can be affected by the texture method used
+(single-texture, multi-texture or GLSL). So it is recommended to always select
+the appropriate system settings before starting the design of materials.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="material_panel.html" class="btn btn-neutral float-right" title="Material Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Materials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

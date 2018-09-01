@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Properties &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/metas/properties.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Text" href="../texts/index.html" />
+    <link rel="prev" title="Editing" href="editing.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Metaball</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="editing.html">Editing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Properties</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#resolution">Resolution</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#threshold-influence">Threshold (Influence)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update">Update</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Empties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="index.html">Metaball</a> &raquo;</li>
+        
+      <li>Properties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/metas/properties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="properties">
+<h1>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h1>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Object or Edit Modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Metaball</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>All Meta objects in a scene interact with each other.
+The settings in the <em>Metaball</em> section apply to all meta objects.
+In <em>Edit Mode</em>,
+the <em>Active Element</em> panel appears for editing individual meta elements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id1">
+<img alt="../../_images/modeling_metas_properties_metaball-panel.png" src="../../_images/modeling_metas_properties_metaball-panel.png" />
+<p class="caption"><span class="caption-text">global meta properties.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id2">
+<img alt="../../_images/modeling_metas_properties_active-element-panel.png" src="../../_images/modeling_metas_properties_active-element-panel.png" />
+<p class="caption"><span class="caption-text">individual meta properties.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="resolution">
+<h2>Resolution<a class="headerlink" href="#resolution" title="Permalink to this headline">¶</a></h2>
+<p>The <em>Resolution</em> controls the resolution of the resultant mesh as generated by the Meta object.</p>
+<dl class="docutils">
+<dt>View</dt>
+<dd>The 3D View resolution of the generated mesh. The range is from (0.05 to 1.0) (finest to coarsest).</dd>
+<dt>Render</dt>
+<dd>The rendered resolution of the generated mesh. The range is from (0.05 to 1.0) (finest to coarsest).</dd>
+</dl>
+<p>One way to see the underlying mathematical structure is to lower the <em>Resolution</em>,
+increase the <em>Threshold</em> and set the <em>Stiffness</em> (see below)
+a fraction above the <em>Threshold</em>. Fig. <a class="reference internal" href="#fig-meta-intro-underlying"><span class="std std-ref">Underlying structure.</span></a> is a <em>Meta cube</em>
+with the above mentioned configuration applied as follows:
+<em>Resolution</em> of 0.410, <em>Threshold</em> of 5.0 and <em>Stiffness</em> a fraction above at 5.01.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id3">
+<span id="fig-meta-intro-underlying"></span><img alt="../../_images/modeling_metas_properties_underlying-structure.png" src="../../_images/modeling_metas_properties_underlying-structure.png" />
+<p class="caption"><span class="caption-text">Underlying structure.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id4">
+<img alt="../../_images/modeling_metas_properties_underlying-structure-shape.png" src="../../_images/modeling_metas_properties_underlying-structure-shape.png" />
+<p class="caption"><span class="caption-text">Meta cube shape.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can clearly see the underlying cubic structure that gives the meta cube its shape.</p>
+</div>
+<div class="section" id="threshold-influence">
+<h2>Threshold (Influence)<a class="headerlink" href="#threshold-influence" title="Permalink to this headline">¶</a></h2>
+<p><em>Threshold</em> defines how much a meta's surface &quot;influences&quot; other metas.
+It controls the <em>field level</em> at which the surface is computed.
+The setting is global to a group of <em>Meta</em> objects.
+As the threshold increases, the influence that each meta has on each other increases.</p>
+<p>There are two types of influence: <em>positive</em> or <em>negative</em>. The type can be toggled on
+the <em>Active Element</em> panel while in <em>Edit Mode</em>,
+using the <em>Negative</em> button.
+You could think of <em>positive</em> as attraction and <em>negative</em> as repulsion of meshes.
+A negative meta will push away or repel the meshes of positive <em>Meta</em> objects.</p>
+<div class="figure" id="id5">
+<span id="fig-meta-intro-positive"></span><a class="reference internal image-reference" href="../../_images/modeling_metas_editing_family.png"><img alt="../../_images/modeling_metas_editing_family.png" src="../../_images/modeling_metas_editing_family.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-text">Positive influence of three meta balls.</span></p>
+</div>
+<p>A <em>positive</em> influence is defined as an attraction,
+meaning the meshes will stretch towards each other as the <em>rings of influence</em> intersect.
+Fig. <a class="reference internal" href="#fig-meta-intro-positive"><span class="std std-ref">Positive influence of three meta balls.</span></a> shows three meta balls' <em>rings of influence</em>
+intersecting with a <em>positive</em> influence.</p>
+<p>Notice how the meshes have pulled towards one another.
+The area circled in white shows the green <em>influence</em> rings intersecting.</p>
+</div>
+<div class="section" id="update">
+<h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>While transforming metas (grab/move, scale, etc.), you have four &quot;modes&quot; of visualization,
+located in the <em>Update</em> buttons group of the <em>Metaball</em> panel:</p>
+<dl class="docutils">
+<dt>Always</dt>
+<dd>fully draw the meta during transformations.</dd>
+<dt>Half</dt>
+<dd>During transformations, draw the meta at half its <em>Wiresize</em> resolution.</dd>
+<dt>Fast</dt>
+<dd>Do not show meta mesh during transformations.</dd>
+<dt>Never</dt>
+<dd>Never show meta mesh (not a very recommended option, as the meta is only visible at render time!).</dd>
+</dl>
+<p>This should help you if you experience difficulties (metas are quite computationally intensive...),
+but with modern computers, this should not happen, unless you use many metas,
+or very high resolutions...</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../texts/index.html" class="btn btn-neutral float-right" title="Text" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="editing.html" class="btn btn-neutral" title="Editing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

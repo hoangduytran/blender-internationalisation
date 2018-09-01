@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Area Ray-Traced Shadows &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/lighting/lamps/area/raytraced_shadows.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Lighting Rigs" href="../../lighting_rigs.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../textures/index.html">Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Lighting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lights/index.html">Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shadows/index.html">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lighting_rigs.html">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Lighting</a> &raquo;</li>
+        
+          <li><a href="../index.html">Lamp Types</a> &raquo;</li>
+        
+          <li><a href="index.html">Area</a> &raquo;</li>
+        
+      <li>Area Ray-Traced Shadows</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/lighting/lamps/area/raytraced_shadows.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="area-ray-traced-shadows">
+<h1>Area Ray-Traced Shadows<a class="headerlink" href="#area-ray-traced-shadows" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_area_introduction_adaptive-qmc.png" src="../../../../../_images/render_blender-render_lighting_lamps_area_introduction_adaptive-qmc.png" />
+<p class="caption"><span class="caption-text">Adaptive QMC settings.</span></p>
+</div>
+<p>The <em>Area</em> light source can only cast ray-traced shadows.
+The ray-traced shadows settings of this lamp are mostly shared with other lamps,
+as described in <a class="reference internal" href="../../shadows/raytraced_properties.html"><span class="doc">Ray-traced Properties</span></a>.
+However, there are some specifics with this lamp, which are detailed below:</p>
+<div class="section" id="shadow-samples">
+<h2>Shadow Samples<a class="headerlink" href="#shadow-samples" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Samples</dt>
+<dd>This have the same role as with other lamps, but when using a <em>Rectangle</em> Area lamp,
+you have two samples settings: <em>Samples X</em> and <em>Samples Y</em>, for the two axes of the area plane.
+Note also that when using the <em>Constant Jittered</em> sample generator method,
+this is more or less equivalent to the number of virtual lamps in the area.
+With QMC sample generator methods, it behaves similarly to with <em>Lamp</em> or <em>Spot</em> lamps.</dd>
+</dl>
+</div>
+<div class="section" id="sample-generator-types">
+<h2>Sample Generator Types<a class="headerlink" href="#sample-generator-types" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Adaptive QMC / Constant QMC</dt>
+<dd>These common settings are described in
+<a class="reference internal" href="../../shadows/shadow_panel.html"><span class="doc">Shadow Panel</span></a>.</dd>
+<dt>Constant Jittered</dt>
+<dd><p class="first">The <em>Area</em> lamp has a third sample generator method, <em>Constant Jittered</em>,
+which is more like simulating an array of lights.
+It has the same options as the old one: <em>Umbra</em>, <em>Dither</em> and <em>Jitter</em>.</p>
+<div class="figure" id="id2">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_area_introduction_constant-jittered.png" src="../../../../../_images/render_blender-render_lighting_lamps_area_introduction_constant-jittered.png" />
+<p class="caption"><span class="caption-text">Constant Jittered settings.</span></p>
+</div>
+<p>The following three parameters are only available when using the <em>Constant Jittered</em> sample generator method,
+and are intended to artificially boost the &quot;soft&quot; shadow effect, with possible loss in quality:</p>
+<dl class="last docutils">
+<dt>Umbra</dt>
+<dd>Emphasizes the intensity of shadows in the area fully within the shadow rays.
+The light transition between fully shadowed areas and fully lit areas changes more quickly
+(i.e. a sharp shadow gradient).
+You need <em>Samples</em> values equal to or greater than 2 to see any influence of this button.</dd>
+<dt>Dither</dt>
+<dd>Applies a sampling over the borders of the shadows,
+similar to the way anti-aliasing is applied by the <em>OSA</em> button on the borders of an object.
+It artificially softens the borders of shadows; when <em>Samples</em> is set very low,
+you can expect poor results, so <em>Dither</em> is better used with medium <em>Samples</em> values.
+It is not useful at all with high <em>Samples</em> values, as the borders will already appear soft.</dd>
+<dt>Jitter</dt>
+<dd>Adds noise to break up the edges of solid shadow samples,
+offsetting them from each other in a pseudo-random way.
+Once again, this option is not very useful when you use high <em>Samples</em> values
+where the drawback is that noise generates quite visible graininess.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id3">
+<span id="fig-bi-light-rayshadow-area"></span><a class="reference internal image-reference" href="../../../../../_images/render_blender-render_lighting_lamps_area_raytraced-shadows_concept.svg"><img alt="../../../../../_images/render_blender-render_lighting_lamps_area_raytraced-shadows_concept.svg" src="../../../../../_images/render_blender-render_lighting_lamps_area_raytraced-shadows_concept.svg" width="280px" /></a>
+<p class="caption"><span class="caption-text">Principles behind the Area light.</span></p>
+</div>
+<p>The Fig. <a class="reference internal" href="#fig-bi-light-rayshadow-area"><span class="std std-ref">Principles behind the Area light.</span></a>
+picture helps to understand how the soft shadows are simulated.</p>
+<p>&quot;(a)&quot; is the <em>Area</em> light as defined in Blender. If its shape is <em>Square</em>,
+then the softness of the shadow is defined by the number of light <em>Samples</em> in each direction of the shape.
+For example, &quot;(b)&quot; illustrates the equivalent case of an <em>Area</em> light
+(<em>Square</em> shape), with <em>Samples</em> set at 3 on the <em>Shadow and Spot</em> panel.</p>
+<p>The <em>Area</em> lamp is then considered as a grid with a resolution of three in each
+direction, and with a light &quot;dupliverted&quot; at each node for a total of nine lights.</p>
+<p>In case &quot;(a)&quot;, the energy <em>E</em> is <em>E</em>/1, and in case &quot;(b)&quot;,
+the energy of each individual pseudo-light is equal to
+<em>E</em>/ (nbr. of lights). Each pseudo-light produces a faint shadow
+(proportional to its energy), and the overlay of the shadows produces the soft shadow
+(it is darker where the individual shadows overlap, and lighter everywhere else).</p>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>You will note that changing the <em>Size</em> parameter of your area lamp does not affect
+the lighting intensity of your scene. On the other hand,
+rescaling the lamp using the <kbd class="kbd docutils literal notranslate">S</kbd> in the 3D View could
+dramatically increase or decrease the lighting intensity of the scene.
+This behavior has been coded this way so that you can fine-tune all your light
+settings and then decide to scale up (or down)
+the whole scene without suffering from a drastic change in the lighting intensity.
+If you only want to change the dimensions of your <em>Area</em> lamp,
+without messing with its lighting intensity,
+you are strongly encouraged to use the <em>Size</em> button(s) instead.</p>
+<p>If your computer is not very fast,
+when using the <em>Constant Jittered</em> sample generator method,
+you could find it useful to set a low <em>Samples</em> value (like 2)
+and activate <em>Umbra</em>, <em>Dither</em>,
+and/or <em>Jitter</em> in order to simulate slightly softer shadows. However,
+these results will never be better than the same lighting with high <em>Samples</em> values.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../lighting_rigs.html" class="btn btn-neutral float-right" title="Lighting Rigs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Markers &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/animation/markers.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Shape Keys" href="shape_keys/index.html" />
+    <link rel="prev" title="Troubleshooting" href="drivers/troubleshooting.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Animation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Drivers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Markers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard">Standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencer">Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-view">3D View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pose-markers">Pose Markers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#add-marker">Add Marker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#marker-pose-add">Pose Markers</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting">Selecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing">Editing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker">Duplicate Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker-to-scene">Duplicate Marker to Scene</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-markers">Deleting Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rename-marker">Rename Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grab-move-marker">Grab/Move Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-pose-markers">Show Pose Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#make-markers-local">Make Markers Local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#jump-to-next-previous-marker">Jump to Next/Previous Marker</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bind-camera-to-marker">Bind Camera to Marker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">Workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Motion Paths</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Animation</a> &raquo;</li>
+        
+      <li>Markers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/animation/markers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="markers">
+<span id="bpy-ops-marker"></span><span id="bpy-types-timelinemarker"></span><h1>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h1>
+<p>Markers are used to denote frames with key points or significant events within an animation.
+E.g. it could be that a character's animation starts, the camera changes position, or a door opens.
+Markers can be given names to make them more meaningful at a quick glance.
+They are available in many of Blender's editors.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Unlike keyframes, markers are always placed at a whole frame number, you cannot set a marker at frame 2.5.</p>
+</div>
+<p>Markers can be created and edited in the following editors:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../editors/graph_editor/introduction.html"><span class="doc">Graph Editor</span></a></li>
+<li><a class="reference internal" href="../editors/dope_sheet/introduction.html"><span class="doc">Dope Sheet</span></a></li>
+<li><a class="reference internal" href="../editors/nla/index.html"><span class="doc">NLA Editor</span></a></li>
+<li><a class="reference internal" href="../editors/vse/index.html"><span class="doc">Video Sequence Editor</span></a></li>
+<li><a class="reference internal" href="../editors/timeline.html"><span class="doc">Timeline</span></a></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">A marker created in one of these editors will also appear in all others that support them.</p>
+</div>
+<div class="section" id="types">
+<h2>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h2>
+<p>Next to the standard markers <em>pose markers</em> are another type of markers,
+which are specific to armatures and shape keys.
+They are used to denote poses in the Action Editor mode and Shape Keys Editor of Dope Sheet.</p>
+</div>
+<div class="section" id="visualization">
+<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="standard">
+<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id2">
+<img alt="../_images/animation_markers_standard.png" src="../_images/animation_markers_standard.png" />
+<p class="caption"><span class="caption-text">Markers: small but useful.</span></p>
+</div>
+<p>Most of the editors visualize markers the same way: as small triangles at their bottom,
+white if unselected or yellow if selected.</p>
+<p>If they have a name, this is shown to their right, in white when the marker is selected.</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="sequencer">
+<h3>Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id3">
+<img alt="../_images/animation_markers_sequencer.png" src="../_images/animation_markers_sequencer.png" />
+<p class="caption"><span class="caption-text">Markers in the Sequencer.</span></p>
+</div>
+<p>The <em>Video Sequence Editor</em> just adds a vertical dashed line to each marker
+(gray if the marker is unselected, or white if it is selected).</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="d-view">
+<h3>3D View<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id4">
+<img alt="../_images/animation_markers_3d-view.png" src="../_images/animation_markers_3d-view.png" />
+<p class="caption"><span class="caption-text">Marker in a 3D View.</span></p>
+</div>
+<p>The 3D View does not allow you to create, edit, and remove markers,
+it just show their name in the Object Info in the bottom left corner,
+when on their frame (see Marker in a 3D View).</p>
+<div class="lead docutils container">
+</div>
+</div>
+<div class="section" id="pose-markers">
+<h3>Pose Markers<a class="headerlink" href="#pose-markers" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-right" id="id5">
+<img alt="../_images/animation_markers_pose.png" src="../_images/animation_markers_pose.png" />
+<p class="caption"><span class="caption-text">Pose markers in the Action editor.</span></p>
+</div>
+<p>Pose markers show a diamond-shaped icon in the Dope Sheet.
+In the NLA editor the pose markers are shown as a red dashed line.</p>
+<div class="lead docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="add-marker">
+<h2>Add Marker<a class="headerlink" href="#add-marker" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Add Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">M</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl-Alt-M</kbd> in the VSE editor</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The simplest way to add a marker is to move to the frame where you would like it to appear,
+and press <kbd class="kbd docutils literal notranslate">M</kbd>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Gợi ý</p>
+<p class="last">Markers can also be added while playback.</p>
+</div>
+<div class="section" id="marker-pose-add">
+<span id="id1"></span><h3>Pose Markers<a class="headerlink" href="#marker-pose-add" title="Permalink to this headline">¶</a></h3>
+<p>If <em>Show Pose Markers</em> is checked a pose marker and
+a new pose in the <a class="reference internal" href="../rigging/armatures/properties/pose_library.html"><span class="doc">Pose Library</span></a> are added.</p>
+</div>
+</div>
+<div class="section" id="selecting">
+<h2>Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Click <kbd class="kbd docutils literal notranslate">RMB</kbd> on the marker's triangle to select it.
+Use <kbd class="kbd docutils literal notranslate">Shift-RMB</kbd> to select multiple markers.</p>
+<p>In the Graph Editor, Dope Sheet, NLA Editor, and Video Sequence Editor,
+you can also select all markers with <kbd class="kbd docutils literal notranslate">Ctrl-A</kbd>, and apply selection tools on them like Border Select etc.
+(as usual, <kbd class="kbd docutils literal notranslate">LMB</kbd> to select, <kbd class="kbd docutils literal notranslate">RMB</kbd> to deselect).
+The corresponding options are found in the Select menu of these editors.</p>
+<p>In the Timeline, you can select all markers with <kbd class="kbd docutils literal notranslate">A</kbd>, and border select with <kbd class="kbd docutils literal notranslate">B</kbd>.</p>
+</div>
+<div class="section" id="editing">
+<span id="animation-markers-editing"></span><h2>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duplicate-marker">
+<h3>Duplicate Marker<a class="headerlink" href="#duplicate-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can duplicate the selected markers by pressing <kbd class="kbd docutils literal notranslate">Shift-D</kbd>. Once duplicated,
+the new ones are automatically placed in grab mode, so you can move them to the desired location.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Note that unlike most other duplications in Blender,
+the names of the duplicated markers are not altered at all
+(no <code class="docutils literal notranslate"><span class="pre">.001</span></code> numeric counter append).</p>
+</div>
+</div>
+<div class="section" id="duplicate-marker-to-scene">
+<h3>Duplicate Marker to Scene<a class="headerlink" href="#duplicate-marker-to-scene" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker to Scene...</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Duplicates the selected markers into another scene.</p>
+</div>
+<div class="section" id="deleting-markers">
+<h3>Deleting Markers<a class="headerlink" href="#deleting-markers" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Delete Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To delete the selected markers simply press <kbd class="kbd docutils literal notranslate">X</kbd>,
+and confirm the pop-up message with <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
+</div>
+<div class="section" id="rename-marker">
+<h3>Rename Marker<a class="headerlink" href="#rename-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Rename Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Having dozens of markers scattered throughout your scene's time will not help you much unless you
+know what they stand for. You can name a marker by selecting it, pressing <kbd class="kbd docutils literal notranslate">Ctrl-M</kbd>,
+typing the name, and pressing the OK button.</p>
+</div>
+<div class="section" id="grab-move-marker">
+<h3>Grab/Move Marker<a class="headerlink" href="#grab-move-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Grab/Move Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Once you have one or more markers selected, press <kbd class="kbd docutils literal notranslate">G</kbd>,
+while hovering with the mouse over the marker bar,
+to move them, and confirm the move with <kbd class="kbd docutils literal notranslate">LMB</kbd> or <kbd class="kbd docutils literal notranslate">Return</kbd>
+(as usual, cancel the move with <kbd class="kbd docutils literal notranslate">RMB</kbd>, or <kbd class="kbd docutils literal notranslate">Esc</kbd>).
+Or drag them with the <kbd class="kbd docutils literal notranslate">RMB</kbd>.</p>
+<p>By default, you grab the markers in one-frame steps, but if you hold <kbd class="kbd docutils literal notranslate">Ctrl</kbd>,
+the markers will move in steps corresponding to one second (according to the scene's <em>FPS</em>).</p>
+</div>
+<div class="section" id="show-pose-markers">
+<h3>Show Pose Markers<a class="headerlink" href="#show-pose-markers" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Action Editor and Shape Keys Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Show Pose Markers</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Only pose markers are shown and editable in Action editor or Shape Keys editor by enabling
+the <span class="menuselection">Marker ‣ Show Pose Markers</span> checkbox.</p>
+</div>
+<div class="section" id="make-markers-local">
+<h3>Make Markers Local<a class="headerlink" href="#make-markers-local" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Make Markers Local</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>It is possible to convert standard markers into pose markers with <span class="menuselection">Marker ‣ Make Markers Local</span>.
+Note that the original marker will be gone. If you want to keep it, make a duplicate before you convert.</p>
+</div>
+<div class="section" id="jump-to-next-previous-marker">
+<h3>Jump to Next/Previous Marker<a class="headerlink" href="#jump-to-next-previous-marker" title="Permalink to this headline">¶</a></h3>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Jump to Next/Previous Marker</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Moves the time cursor to the next/previous marker relative to the current time cursor position.</p>
+</div>
+</div>
+<div class="section" id="bind-camera-to-marker">
+<span id="marker-bind-camera"></span><h2>Bind Camera to Marker<a class="headerlink" href="#bind-camera-to-marker" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Timeline Editor</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Bind Camera to Marker</span></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-B</kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Switching cameras can be done with the <em>Timeline</em> operator <em>Bind Camera to Markers</em> by
+having both the camera and marker selected.</p>
+<p>The triangle above the camera will become shaded when active.</p>
+<div class="section" id="workflow">
+<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
+<div class="figure">
+<img alt="../_images/animation_markers_camera-switch.png" src="../_images/animation_markers_camera-switch.png" />
+</div>
+<p>First in the Timeline, add a set of markers used to switch cameras.
+Press <kbd class="kbd docutils literal notranslate">M</kbd> to add marker, then <kbd class="kbd docutils literal notranslate">Ctrl-M</kbd> to rename,
+duplicated markers should retain the same name.</p>
+<ol class="arabic simple">
+<li>In the 3D View, select the Camera the Markers will switch to.</li>
+<li>In the Timeline, select the Marker(s) to switch to the Camera.</li>
+<li>In the Timeline, press <kbd class="kbd docutils literal notranslate">Ctrl-B</kbd> to Bind Cameras to Markers.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shape_keys/index.html" class="btn btn-neutral float-right" title="Shape Keys" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="drivers/troubleshooting.html" class="btn btn-neutral" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

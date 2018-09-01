@@ -1,0 +1,779 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Volume Rendering &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/materials/special_effects/volume.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
+    <link rel="next" title="Wire Render" href="wire.html" />
+    <link rel="prev" title="Halo Rendering" href="halo.html" /> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Materials</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../material_panel.html">Material Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../assigning_a_material.html">Assigning a Material</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../properties/index.html">Material Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../nodes/index.html">Material Nodes</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Special Material Effects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../textures/index.html">Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../index.html">Materials</a> &raquo;</li>
+        
+          <li><a href="index.html">Special Material Effects</a> &raquo;</li>
+        
+      <li>Volume Rendering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/render/blender_render/materials/special_effects/volume.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="volume-rendering">
+<span id="bpy-types-materialvolume"></span><h1>Volume Rendering<a class="headerlink" href="#volume-rendering" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_activate.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_activate.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_activate.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">Activating Volume rendering.</span></p>
+</div>
+<p>Volume rendering is a method for rendering light as it passes through participating media,
+within a 3D region. The implementation in Blender a physically-based model,
+which represents the various interactions of light in a volume relatively realistically.</p>
+<div class="figure" id="id3">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_volume-eq.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_volume-eq.jpg" />
+<p class="caption"><span class="caption-text">Volume rendering.</span></p>
+</div>
+<p>Rendering a volume is different from
+<a class="reference internal" href="../properties/diffuse_shaders.html"><span class="doc">Solid Render</span></a>.
+For volume light enters a 3D region of space (defined as the volume)
+that may be filled with small particles, such as smoke, mist or clouds.
+The light bounces around off the various molecules, being scattered or absorbed,
+until some light passes through the volume and reaches the camera.
+In order for that volume to be visible, the renderer must figure out how much material
+the light has passed through and how it has acted and reacted within that volume,
+the volume object needs to contain a 3D region of space, for example a <a class="reference internal" href="../../../../glossary/index.html#term-manifold"><span class="xref std std-term">manifold</span></a> closed mesh,
+such as a cube, not just a flat surface like a plane. To get an image,
+the renderer has to step through that region, and see how much 'stuff' is there (density)
+in order to see how light is absorbed or scattered or whatever. This can be a time-consuming
+process since it has to check a lot of points in space and evaluate the density at each.</p>
+<div class="section" id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="density">
+<h3>Density<a class="headerlink" href="#density" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_density.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_density.jpg" />
+<p class="caption"><span class="caption-text">Constant density vs textured density.</span></p>
+</div>
+<p>Many things can happen to the light as it passes through the volume,
+which will influence the final color that arrives at the camera.
+These represent physical interactions that happen in the real world,
+and most of these are dependent on the density of the volume,
+which can either be a constant density throughout, or varied, controlled by a texture. It is
+by controlling the density that one can get the typical 'volumetric' effects such as clouds or
+thick smoke.</p>
+<dl class="docutils">
+<dt>Density</dt>
+<dd>The base density of the material. Other densities from textures are added on top.</dd>
+<dt>Density Scale</dt>
+<dd>A global multiplier to increase or decrease the apparent density.
+This can be useful for getting consistent results across different scene scales.</dd>
+</dl>
+</div>
+<div class="section" id="shading">
+<h3>Shading<a class="headerlink" href="#shading" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id5">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_scattering1.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_scattering1.jpg" />
+<p class="caption"><span class="caption-text">Spot lamp scattering in a constant volume.</span></p>
+</div>
+<p>When light enters a volume from an external source, it does not just pass straight through.
+Light gets scattered off tiny particles in the volume,
+and some proportion of that light reaches the camera. This property makes it possible to see
+light beams as they travel though a volume and are scattered towards the eye.</p>
+<div class="figure" id="id6">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_shading-panel.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_shading-panel.png" />
+<p class="caption"><span class="caption-text">Shading options.</span></p>
+</div>
+<dl class="docutils">
+<dt>Scattering</dt>
+<dd>The amount of light that is scattered out of the volume.
+The more light that is scattered out of the volume, the less it will penetrate through the rest of the volume.
+Raising this parameter can have the effect of making the volume seem denser,
+as the light is scattered out quickly at the 'surface' of the volume,
+leaving the areas internal to the volume darker, as the light does not reach it.</dd>
+</dl>
+<p>Note in the examples below, the less light that is scattered out of the volume,
+the more easily it penetrates throughout the volume and to the shadow.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc0-5.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc0-5.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc0-5.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Scattering: 0.5.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc1-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc1-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc1-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Scattering: 1.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc2-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc2-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc2-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Scattering: 2.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc5-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc5-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_scatter-sc5-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Scattering: 5.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="asymmetry">
+<h3>Asymmetry<a class="headerlink" href="#asymmetry" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_phase-diagram.svg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_phase-diagram.svg" src="../../../../_images/render_blender-render_materials_special-effects_volume_phase-diagram.svg" width="380px" /></a>
+<p class="caption"><span class="caption-text">Isotropic and Anisotropic scattering.</span></p>
+</div>
+<p>The default method for scattering light in a volume is for the light to be deflected evenly in
+all directions, also known as Isotropic scattering.
+In the real world different types of media can scatter light in different angular directions,
+known as Anisotropic scattering.
+Backscattering means that light is scattered more towards the incoming light direction, and
+forward scattering means it is scattered along the same direction as the light is traveling.</p>
+<dl class="docutils">
+<dt>Asymmetry</dt>
+<dd>Asymmetry controls the range between backscattering (-1.0) and forward scattering (1.0).
+The default value of 0.0 gives Isotropic scattering (even in all directions).</dd>
+</dl>
+</div>
+<div class="section" id="transmission">
+<h3>Transmission<a class="headerlink" href="#transmission" title="Permalink to this headline">¶</a></h3>
+<p>Transmission is a general term for light that is transmitted throughout a volume.</p>
+<p>This transmitted light can be the result of various different interactions, for example:</p>
+<ul class="simple">
+<li>The left over result of incoming light after it has reflected/scattered out of the volume.</li>
+<li>The left over result of light after being absorbed by the volume (and converted to heat).</li>
+</ul>
+<p>Here, the transmission color is used to set the end result color
+that light becomes after it is transmitted through the volume.</p>
+<dl class="docutils">
+<dt>Transmission Color</dt>
+<dd>The resultant color of light that is transmitted through the volume.</dd>
+</dl>
+<p>Note in the examples below, as more light is scattered out of the volume,
+there is less available to be transmitted through.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc0-5.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc0-5.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc0-5.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Transmission color: Yellow, Scattering: 0.5.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc1-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc1-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc1-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Transmission color: Yellow, Scattering: 1.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc2-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc2-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc2-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Transmission color: Yellow, Scattering: 2.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id15">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc5-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc5-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_tr-y-sc5-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Transmission color: Yellow, Scattering: 5.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="emission">
+<h3>Emission<a class="headerlink" href="#emission" title="Permalink to this headline">¶</a></h3>
+<p>Some volumes can emit light where there was none before, via chemical or thermal processes,
+such as fire. This light is generated from the volume itself and is independent of light
+coming from external sources.</p>
+<p>Currently, this emitted light does not affect other volumes or surfaces
+(similar to surface material type, 'Emit' option).</p>
+<dl class="docutils">
+<dt>Emission Color</dt>
+<dd>The color of light that is emitted by the volume.</dd>
+<dt>Emission</dt>
+<dd>An intensity multiplier for the emitted color, for scaling up and down.</dd>
+</dl>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id16">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc0-5.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc0-5.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc0-5.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Emission 0.25, Scattering: 0.5.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id17">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc1-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc1-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc1-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Emission 0.25, Scattering: 1.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id18">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc2-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc2-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc2-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Emission 0.25, Scattering: 2.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id19">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc5-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc5-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_emission-0-25-sc5-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Emission 0.25, Scattering: 5.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="reflection">
+<h3>Reflection<a class="headerlink" href="#reflection" title="Permalink to this headline">¶</a></h3>
+<p>The <em>Reflection</em> parameters can be used to tint or scale the light that is scattered out of the volume.
+This only affects light that has come from lamps and been scattered out,
+it does not affect the color of transmitted or emitted light and is.</p>
+<p>These settings are not physically correct, because they do not conserve energy.
+This means the light scattering out does not affect the remaining light,
+that is transmitted throughout the rest of the volume.</p>
+<p>For example, physically speaking,
+if the orange components of the light are scattered out of the volume towards the camera,
+only the inverse of that (blue) will remain to continue penetrating through the volume,
+causing the volume to take on a multi-colored appearance, which can be difficult to use.
+To make it a bit easier to plainly set the color of the volume,
+you can use the reflection parameters to quickly set an overall tint.</p>
+<dl class="docutils">
+<dt>Reflection Color</dt>
+<dd>The color of light that is scattered out of the volume.</dd>
+<dt>Reflection</dt>
+<dd>An intensity multiplier for the reflection, for scaling up and down.</dd>
+</dl>
+<div class="section" id="hints">
+<h4>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h4>
+<p>Ideally try to accomplish as much as you can with the other volume settings and lighting
+before using the reflection controls. If you stick to what is physically plausible,
+the material will act correctly,
+and be more predictable and usable in a wider range of lighting scenarios.
+Of course you can always break the rules too!</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id20">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc0-5.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc0-5.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc0-5.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Scattering: 0.5.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id21">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc1-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc1-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc1-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Scattering: 1.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id22">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc2-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc2-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc2-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Scattering: 2.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id23">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc5-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc5-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_reflection-sc5-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Scattering: 5.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id24">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc0-5.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc0-5.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc0-5.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Transmission: Yellow, Scattering: 0.5.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id25">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc1-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc1-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc1-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Transmission: Yellow, Scattering: 1.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id26">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc2-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc2-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc2-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Transmission: Yellow, Scattering: 2.0.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id27">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc5-0.jpg"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc5-0.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_refl-g-tr-y-sc5-0.jpg" style="width: 150px;" /></a>
+<p class="caption"><span class="caption-text">Reflection: Green, Transmission: Yellow, Scattering: 5.0.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="lighting">
+<h2>Lighting<a class="headerlink" href="#lighting" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id28">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_lighting-panel.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_lighting-panel.png" />
+<p class="caption"><span class="caption-text">Lighting options.</span></p>
+</div>
+<p>Several shading modes are available,
+providing a range of options between fast to render and physically accurate.</p>
+<dl class="docutils">
+<dt>Lighting Mode</dt>
+<dd><dl class="first last docutils">
+<dt>Shadeless</dt>
+<dd>Shadeless is the simplest, useful for thin, wispy mist or steam.</dd>
+<dt>Shadowed</dt>
+<dd>Shadowed is similar, but with shadows of external objects.</dd>
+<dt>Shaded</dt>
+<dd>Shaded uses a volumetric single-scattering method, for self-shading the volume as light penetrates through.</dd>
+<dt>Multiple Scattering</dt>
+<dd>Allows multiple scatter calculations.</dd>
+<dt>Shaded + Multiple Scattering</dt>
+<dd>Combines Shaded and Multiple Scattering functionality.</dd>
+</dl>
+</dd>
+<dt>Shaded Options</dt>
+<dd><dl class="first last docutils">
+<dt>External Shadows</dt>
+<dd>Receive shadows from sources outside the volume (temporary).</dd>
+<dt>Light Cache</dt>
+<dd>Pre-calculate the shading information into a voxel grid, speeds up shading at slightly less accuracy.</dd>
+<dt>Resolution</dt>
+<dd>Resolution of the voxel grid, low resolutions are faster, high resolutions use more memory.</dd>
+</dl>
+</dd>
+<dt>Multiple Scattering Options</dt>
+<dd><dl class="first last docutils">
+<dt>Diffusion</dt>
+<dd>Diffusion factor, the strength of the blurring effect.</dd>
+<dt>Spread</dt>
+<dd>Proportional distance over which the light is diffused.</dd>
+<dt>Intensity</dt>
+<dd>Multiplier for multiple scattered light energy.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="transparency">
+<h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+<p>The transparency settings are the same as
+<a class="reference internal" href="../properties/diffuse_shaders.html"><span class="doc">Solid Render</span></a> except you have less settings.
+For volume rendering you only have:</p>
+<ul class="simple">
+<li>Mask</li>
+<li>Z Transparency</li>
+<li>Raytrace</li>
+</ul>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id29">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_integration-panel.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_integration-panel.png" />
+<p class="caption"><span class="caption-text">Integration options.</span></p>
+</div>
+<dl class="docutils">
+<dt>Step Calculation Method</dt>
+<dd><p class="first">Method of calculating the step through the volume.</p>
+<dl class="last docutils">
+<dt>Randomized</dt>
+<dd>Randomized method of calculating the step.</dd>
+<dt>Constant</dt>
+<dd>Constant method of calculating the step.</dd>
+</dl>
+</dd>
+<dt>Step Size</dt>
+<dd>Distance between subsequent volume depth samples.
+Step Sizes determine how noisy the volume is.
+Higher values result in lower render times and higher noise.</dd>
+<dt>Depth Cutoff</dt>
+<dd>Stop ray marching early if transmission drops below this luminance threshold.
+Higher values will give a speedups in dense volumes at the expense of accuracy.</dd>
+</dl>
+</div>
+<div class="section" id="id1">
+<h2>Options<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id30">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_options-panel.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_options-panel.png" />
+<p class="caption"><span class="caption-text">Material volume options.</span></p>
+</div>
+<dl class="docutils">
+<dt>Traceable</dt>
+<dd>Allow this material to calculate ray tracing.</dd>
+<dt>Full Oversample</dt>
+<dd>Force this material to render full shading/textures for all anti-aliasing samples.</dd>
+<dt>Use Mist</dt>
+<dd>Use mist with this material (in world settings).</dd>
+<dt>Light Group</dt>
+<dd>Limit lighting of this material to lamps in this group.</dd>
+<dt>Exclusive</dt>
+<dd>Material uses this group exclusively. Lamps are excluded from other scene lighting.</dd>
+</dl>
+</div>
+<div class="section" id="smoke-and-fire">
+<h2>Smoke and Fire<a class="headerlink" href="#smoke-and-fire" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-the-material">
+<h3>Create the Material<a class="headerlink" href="#create-the-material" title="Permalink to this headline">¶</a></h3>
+<p>The material must be a volumetric material with a Density of 0, and a high Density Scale.</p>
+<div class="figure" id="id31">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_tab.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_tab.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_tab.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">The material settings.</span></p>
+</div>
+<p>Smoke requires a complex material to render correctly. Select the big cube and go to the material tab.
+There change the material to 'Volume' and set the density to 0.
+If you set the density to values bigger than 0 the domain cube will be filled with the volume material.
+The other settings will affect the smoke, though.</p>
+</div>
+<div class="section" id="add-the-texture">
+<h3>Add the Texture<a class="headerlink" href="#add-the-texture" title="Permalink to this headline">¶</a></h3>
+<p>In addition, Smoke requires its own texture,
+you can use a volumetric texture known as
+<a class="reference internal" href="../../textures/types/volume/index.html"><span class="doc">Voxel Data</span></a>.
+You must remember to set the domain object and change the influence.</p>
+<div class="figure" id="id32">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_fire-texture-tab0.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_fire-texture-tab0.png" />
+<p class="caption"><span class="caption-text">The texture settings.</span></p>
+</div>
+<p>Go to the texture tab and change the type to <em>Voxel Data</em>.
+Under the Voxel Data-Settings set the domain object to our domain cube
+(it should be listed just as 'Cube' since we are using Blender's default cube).
+Under Influence check 'Density' and leave it at 1.000
+(Emission should be automatically checked, too).
+Now you should be able to render single frames. You can choose to color your smoke as well,
+by turning <em>Emission Color</em> back on.</p>
+<div class="figure" id="id33">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_smoke-render.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_smoke-render.jpg" />
+<p class="caption"><span class="caption-text">Finished result.</span></p>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p>To see the smoke more clearly.</p>
+<p class="last">Under the world tab, choose a very dark color for the horizon.</p>
+</div>
+</div>
+<div class="section" id="smoke-simulator-with-fire-texture">
+<h3>Smoke Simulator with Fire Texture<a class="headerlink" href="#smoke-simulator-with-fire-texture" title="Permalink to this headline">¶</a></h3>
+<p>You can also turn your smoke into fire with another texture! To make fire,
+turn up the Emission Value in the Materials panel.</p>
+<div class="figure" id="id34">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_fire-material-tab.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_fire-material-tab.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_fire-material-tab.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">The fire material.</span></p>
+</div>
+<p>Then, add another texture (keep the old texture or the smoke will not show).
+Give it a fiery color ramp- which colors based on the alpha,
+and change the influence to emission and emission color. Change the blend to Multiply.</p>
+<div class="figure" id="id35">
+<a class="reference internal image-reference" href="../../../../_images/render_blender-render_materials_special-effects_volume_fire-texture-tab.png"><img alt="../../../../_images/render_blender-render_materials_special-effects_volume_fire-texture-tab.png" src="../../../../_images/render_blender-render_materials_special-effects_volume_fire-texture-tab.png" style="width: 305px;" /></a>
+<p class="caption"><span class="caption-text">The fire texture settings.</span></p>
+</div>
+<div class="figure" id="id36">
+<img alt="../../../../_images/render_blender-render_materials_special-effects_volume_fire-render3.jpg" src="../../../../_images/render_blender-render_materials_special-effects_volume_fire-render3.jpg" />
+<p class="caption"><span class="caption-text">The fire render.</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="wire.html" class="btn btn-neutral float-right" title="Wire Render" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="halo.html" class="btn btn-neutral" title="Halo Rendering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

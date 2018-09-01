@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/modifiers/introduction.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Data Transfer Modifier" href="modify/data_transfer.html" />
+    <link rel="prev" title="Modifiers" href="index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../texts/index.html">Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../empties.html">Empties</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Modifiers</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#interface">Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#modify">Modify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#generate">Generate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#deform">Deform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#simulate">Simulate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Modeling</a> &raquo;</li>
+        
+          <li><a href="index.html">Modifiers</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/modeling/modifiers/introduction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Modifiers are automatic operations that affect an object in a non-destructive way. With modifiers,
+you can perform many effects automatically that would otherwise be too tedious to do manually
+(such as subdivision surfaces) and without affecting the base geometry of your object.</p>
+<p>They work by changing how an object is displayed and rendered, but not the geometry which you can edit directly.
+You can add several modifiers to a single object to form <a class="reference internal" href="#the-modifier-stack">The Modifier Stack</a>
+and <em>Apply</em> a modifier if you wish to make its changes permanent.</p>
+<div class="figure" id="id1">
+<img alt="../../_images/modeling_modifiers_introduction_menu.png" src="../../_images/modeling_modifiers_introduction_menu.png" />
+<p class="caption"><span class="caption-text">Modifiers menu.</span></p>
+</div>
+<p>There are four types of modifiers:</p>
+<dl class="docutils">
+<dt>Modify</dt>
+<dd>The <em>Modify</em> group of modifiers includes tools similar to the <em>Deform Modifiers</em> (see below),
+but which do not directly affect the shape of the object;
+rather they affect some other data, such as vertex groups.</dd>
+<dt>Generate</dt>
+<dd>The <em>Generate</em> group of modifiers includes constructive tools that either change
+the general appearance of or automatically add new geometry to an object.</dd>
+<dt>Deform</dt>
+<dd>The <em>Deform</em> group of modifiers only changes the shape of an object without adding new geometry,
+and are available for meshes, and often texts, curves, surfaces and/or lattices.</dd>
+<dt>Simulate</dt>
+<dd>The <em>Simulate</em> group of modifiers activates simulations. In most cases, these
+modifiers are automatically added to the modifiers stack whenever a <em>Particle System</em>
+or <em>Physics</em> simulation is enabled. Their only role is to define
+the place in the modifier stack used as base data by the tool they represent.
+Generally, the attributes of these modifiers are accessible in separate panels.</dd>
+</dl>
+<div class="section" id="interface">
+<span id="bpy-types-modifier-show"></span><h2>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id2">
+<span id="fig-modifiers-panel-layout"></span><img alt="../../_images/modeling_modifiers_introduction_panel-layout.png" src="../../_images/modeling_modifiers_introduction_panel-layout.png" />
+<p class="caption"><span class="caption-text">Panel layout (Subdivision Surface as an example).</span></p>
+</div>
+<p>Each modifier has been brought in from a different part of Blender,
+so each has its own unique settings and special considerations. However,
+each modifier's interface has the same basic components, see Fig. <a class="reference internal" href="#fig-modifiers-panel-layout"><span class="std std-ref">Panel layout (Subdivision Surface as an example).</span></a>.</p>
+<p>At the top is the <em>panel header</em>.
+The icons each represent different settings for the modifier (left to right):</p>
+<dl class="docutils">
+<dt>Expand (down/right arrow icon)</dt>
+<dd>Collapse modifier to show only the header and not its options.</dd>
+<dt>Type</dt>
+<dd>An icon as a quick visual reference of the modifier's type.</dd>
+<dt>Name</dt>
+<dd>Every modifier has a unique name per object. Two modifiers on one object must have unique names,
+but two modifiers on different objects can have the same name. The default name is based off the modifier type.</dd>
+<dt>Render (camera icon)</dt>
+<dd>Toggles visibility of the modifier's effect in the render.</dd>
+<dt>Show in viewport (eye icon)</dt>
+<dd>Toggles visibility of the modifier's effect in the 3D View.</dd>
+<dt>Show in Edit Mode (box icon)</dt>
+<dd>Displays the modified geometry in Edit Mode, as well as the original geometry which you can edit.</dd>
+<dt>Show on cage (triangle icon)</dt>
+<dd>When enabled, the final modified geometry will be shown in Edit Mode and can be edited directly.</dd>
+<dt>Move (up/down arrow icon)</dt>
+<dd>Moves modifier up/down in the stack.</dd>
+<dt>Delete <code class="docutils literal notranslate"><span class="pre">X</span></code></dt>
+<dd>Deletes the modifier.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The <em>Box</em> and <em>Triangle</em> icons may not be available depending on the type of modifier.</p>
+</div>
+<p>Below the header are two buttons:</p>
+<dl class="docutils">
+<dt>Apply</dt>
+<dd>Makes the modifier &quot;real&quot; -- converts the object's geometry to match the applied modifier,
+and deletes the modifier.</dd>
+<dt>Copy</dt>
+<dd>Creates a duplicate of the modifier at the bottom of the stack.</dd>
+</dl>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Applying a modifier that is not first in the stack will ignore the stack order and
+could produce undesired results.</p>
+</div>
+<p>Below this header, all of the options unique to each modifier will be displayed.</p>
+<div class="section" id="the-modifier-stack">
+<span id="modifier-stack"></span><h3>The Modifier Stack<a class="headerlink" href="#the-modifier-stack" title="Permalink to this headline">¶</a></h3>
+<p>Modifiers are a series of non-destructive operations which can be applied on top of an object's geometry.
+They can be applied in just about any order the users chooses.</p>
+<p>This kind of functionality is often referred to as a &quot;modifier stack&quot;
+and is also found in several other 3D applications.</p>
+<p>In a modifier stack the order in which modifiers are applied has an effect on the result.
+Fortunately modifiers can be rearranged easily by clicking the convenient up and down arrow icons.
+For example, the image below shows <a class="reference internal" href="generate/subsurf.html"><span class="doc">Subdivision Surface</span></a>
+and <a class="reference internal" href="generate/mirror.html"><span class="doc">Mirror</span></a> modifiers that have switched places.</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Modifier Stack example.</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id4">
+<a class="reference internal image-reference" href="../../_images/modeling_modifiers_generate_mirror_subsurf2.png"><img alt="../../_images/modeling_modifiers_generate_mirror_subsurf2.png" src="../../_images/modeling_modifiers_generate_mirror_subsurf2.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The Mirror modifier is the last item in the stack and
+the result looks like two surfaces.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id5">
+<a class="reference internal image-reference" href="../../_images/modeling_modifiers_generate_mirror_subsurf1.png"><img alt="../../_images/modeling_modifiers_generate_mirror_subsurf1.png" src="../../_images/modeling_modifiers_generate_mirror_subsurf1.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">The Subdivision surface modifier is the last
+item in the stack and the result is a single merged surface.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Modifiers are calculated from top to bottom in the stack.
+In this example, the desired result (on right) is achieved by first mirroring the object,
+and then calculating the subdivision surface.</p>
+<div class="section" id="example">
+<h4>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h4>
+<div class="figure" id="id6">
+<img alt="../../_images/modeling_modifiers_introduction_stack-example-3.png" src="../../_images/modeling_modifiers_introduction_stack-example-3.png" />
+<p class="caption"><span class="caption-text">In this example a simple subdivided cube has been transformed into a rather complex object using
+a stack of modifiers.</span></p>
+</div>
+<p><a class="reference external" href="https://wiki.blender.org/index.php/File:25-Manual-Modifiers-example.blend">Download example file</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modify/data_transfer.html" class="btn btn-neutral float-right" title="Data Transfer Modifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Modifiers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

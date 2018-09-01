@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Spot Buffered Shadow &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/lighting/lamps/spot/buffered_shadow.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Spot Volumetric Effects" href="halo.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../textures/index.html">Textures</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Lighting</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lights/index.html">Lights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../shadows/index.html">Shadows</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../volumetric_lights.html">Volumetric Lighting</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Lamp Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../lighting_rigs.html">Lighting Rigs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Lighting</a> &raquo;</li>
+        
+          <li><a href="../index.html">Lamp Types</a> &raquo;</li>
+        
+          <li><a href="index.html">Spot</a> &raquo;</li>
+        
+      <li>Spot Buffered Shadow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/lighting/lamps/spot/buffered_shadow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="spot-buffered-shadow">
+<h1>Spot Buffered Shadow<a class="headerlink" href="#spot-buffered-shadow" title="Permalink to this headline">¶</a></h1>
+<div class="figure" id="id1">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" />
+<p class="caption"><span class="caption-text">Buffered Shadow enabled for a Spot lamp.</span></p>
+</div>
+<p>Spotlights can use either
+<a class="reference internal" href="../../shadows/raytraced_properties.html"><span class="doc">Ray-traced Shadows</span></a>
+or buffered shadows. Either of the two can provide various extra options.</p>
+<p>Ray-traced shadows are generally more accurate,
+with extra capabilities such as transparent shadows, although they are quite slower to render.</p>
+<p>Buffered shadows are more complex to set up and involve more faking,
+but the speed of rendering is a definite advantage.
+Nevertheless, it shares with other lamp types common shadows options described in
+<a class="reference internal" href="../../shadows/shadow_panel.html"><span class="doc">Shadow Panel</span></a>.</p>
+<div class="section" id="shadow-buffer-types">
+<h2>Shadow Buffer Types<a class="headerlink" href="#shadow-buffer-types" title="Permalink to this headline">¶</a></h2>
+<p>When the <em>Buffer Shadow</em> button is activated,
+the currently selected <em>Spot</em> light generates shadows,
+using a &quot;shadow buffer&quot; rather than using ray tracing,
+and various extra options and buttons appear in the <em>Shadow</em> panel.</p>
+<dl class="docutils">
+<dt>Buffer Type</dt>
+<dd>There are more than one way to generate buffered shadows.
+The shadow buffer generation type controls which generator to use.</dd>
+<dt>There are four shadow generation types, those being:</dt>
+<dd><ul class="first last simple">
+<li>Classical</li>
+<li>Classic-Halfway</li>
+<li>Irregular</li>
+<li>Deep</li>
+</ul>
+</dd>
+</dl>
+<p>For more information on the different shadow generation methods see these links:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.blender.org/development/release-logs/blender-243/irregular-shadow-buffer/">Development Release Logs 2.43: Irregular Shadow Buffer</a>.</li>
+<li><a class="reference external" href="http://www.blendernation.com/2006/10/15/blender-gets-irregular-shadow-buffers/">Blender Nation: Blender Gets Irregular Shadow Buffers</a>.</li>
+<li><a class="reference external" href="https://www.blender.org/development/release-logs/blender-243/shadow-buffer-halfway-average/">Development Release Logs 2.43: Shadow Buffer Halfway Average</a>.</li>
+</ul>
+<div class="section" id="classical-and-classic-halfway">
+<h3>&quot;Classical&quot; and &quot;Classic-Halfway&quot;<a class="headerlink" href="#classical-and-classic-halfway" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id2">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_panel.png" />
+<p class="caption"><span class="caption-text">Buffer Shadow set to Classic-Halfway.</span></p>
+</div>
+<dl class="docutils">
+<dt>Classical</dt>
+<dd><p class="first">A shadow generation which used to be the Blender default and unique method for generation of buffered shadows.
+It used an older way of generating buffered shadows,
+but it could have some problems with accuracy of the generated shadows and can be very
+sensitive to the resolution of the shadow buffer <span class="menuselection">Shadow Buffer ‣ Size</span>,
+different <em>Bias</em> values, and all the self-shadowing issues that brings up.</p>
+<p class="last">The <em>Classical</em> method of generating shadows is obsolete and is really only still present to
+allow for backward compatibility with older versions of Blender.
+In most other cases you will want to use <em>Classic-Halfway</em> instead.</p>
+</dd>
+<dt>Classic-Halfway</dt>
+<dd><p class="first">This shadow buffer type is an improved shadow buffering method and is the default option selected in Blender.
+It works by taking an averaged reading of the first and second nearest Z depth values
+allowing the <em>Bias</em> value to be lowered and yet not suffer as much from self-shadowing issues.</p>
+<p>Not having to increase <em>Bias</em> values helps with shadow accuracy,
+because large <em>Bias</em> values can mean small faces can lose their shadows,
+as well as preventing shadows being overly offset from the larger <em>Bias</em> value.</p>
+<p class="last"><em>Classic-Halfway</em> does not work very well when faces overlap, and biasing problems can happen.</p>
+</dd>
+</dl>
+<p>Here are now the options specific to these generation methods:</p>
+<dl class="docutils">
+<dt>Size</dt>
+<dd><p class="first">The <em>Size</em> number button can have a value from (512 to 10240).
+<em>Size</em> represents the resolution used to create a shadow map.
+This shadow map is then used to determine where shadows lay within a scene.</p>
+<p>As an example, if you have a <em>Size</em> with a value of 1024,
+you are indicating that the shadow data will be written to a buffer which will have a <em>square</em>
+resolution of 1024×1024 pixels/samples from the selected spotlight.</p>
+<p>The higher the value of <em>Size</em>, the higher resolution and accuracy of the resultant shadows,
+assuming all other properties of the light and scene are the same,
+although more memory and processing time would be used.
+The reverse is also true -- if the <em>Size</em> value is lowered,
+the resultant shadows can be of lower quality,
+but would use less memory and take less processing time to calculate.</p>
+<p>As well as the <em>Size</em> value affecting the quality of generated shadows,
+another property of <em>Spot</em> lamps that affects the quality of their buffered shadows is
+the angle of the spotlights lighted area (given in the <em>Spot Shape</em> panel's <em>Size</em> field).</p>
+<p>As the spot shape <em>Size</em> value is increased, the quality of the cast shadows degrades.
+This happens because when the <em>Spot</em> lighted area is made larger (by increasing spot shape <em>Size</em>),
+the shadow buffer area has to be stretched and scaled to fit the size of the new lighted area.</p>
+<p class="last">The <em>Size</em> resolution is not altered to compensate for the change in size of the spotlight,
+so the quality of the shadows degrades. If you want to keep the generated shadows the same quality,
+as you increase the spot shape <em>Size</em> value, you also need to increase the buffer <em>Size</em> value.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>The above basically boils down to</p>
+<p class="last">If you have a spotlight that is large you will need to have a larger buffer <em>Size</em> to keep
+the shadows good quality.
+The reverse is true also -- the quality of the generated shadows will usually improve
+(up to a point) as the <em>Spot</em> lamp covers a smaller area.</p>
+</div>
+<dl class="docutils">
+<dt>Filter Type</dt>
+<dd><p class="first">The <em>Box</em>, <em>Tent</em>, and <em>Gauss</em> filter types control what filtering algorithm to use to
+anti-alias the buffered shadows.</p>
+<p>They are closely related to the <em>Samples</em> number button,
+as when this setting is set to 1, shadow filtering is disabled,
+so none of these buttons will have any effect whatsoever.</p>
+<dl class="docutils">
+<dt>Box</dt>
+<dd>The buffered shadows will be anti-aliased using the &quot;box&quot; filtering method.
+This is the original filter used in Blender.
+It is relatively low quality and is used for low resolution renders, as it produces very sharp anti-aliasing.
+When this filter is used,
+it only takes into account oversampling data which falls within a single pixel,
+and does not take into account surrounding pixel samples.
+It is often useful for images which have sharply angled elements and horizontal/vertical lines.</dd>
+<dt>Tent</dt>
+<dd>The buffered shadows will be anti-aliased using the &quot;tent&quot; filtering method.
+It is a simple filter that gives sharp results, an excellent general-purpose filtering method.
+This filter also takes into account the sample values of neighboring pixels when
+calculating its final filtering value.</dd>
+<dt>Gauss</dt>
+<dd>The buffered shadows will be anti-aliased using the &quot;Gaussian&quot; filtering method.
+It produces a very soft/blurry anti-aliasing. As result, this filter is excellent with high resolution renders.</dd>
+</dl>
+<p class="last">The <a class="reference internal" href="../../../settings/antialiasing.html"><span class="doc">Anti-Aliasing page</span></a> in the Render chapter will give
+more information on the various filtering/distribution methods and their uses.</p>
+</dd>
+<dt>Samples</dt>
+<dd><p class="first">The <em>Samples</em> number button can have a value between (1 and 16).
+It controls the number of samples taken per pixel when calculating shadow maps.</p>
+<p>The higher this value, the more filtered,
+smoothed and anti-aliased the shadows cast by the current lamp will be,
+but the longer they will take to calculate and the more memory they will use.
+The anti-aliasing method used is determined by having one of the <em>Box</em>,
+<em>Tent</em> or <em>Gauss</em> buttons activated (see above).</p>
+<p class="last">Having a <em>Samples</em> value of 1 is similar to turning off anti-aliasing for buffered shadows.</p>
+</dd>
+<dt>Soft</dt>
+<dd>The <em>Soft</em> number button can have a value between (1.0 to 100.0).
+It indicates how wide an area is sampled when doing anti-aliasing on buffered shadows.
+The larger the <em>Soft</em> value,
+the more graduated/soft the area that is anti-aliased/softened on the edge of generated shadows.</dd>
+<dt>Sample Buffers</dt>
+<dd><p class="first">The <em>Sample Buffers</em> setting can be set to values (1, 4 or 9),
+and represents the number of shadow buffers that will be used when doing anti-aliasing on buffered shadows.</p>
+<p>This option is used in special cases,
+like very small objects which move and need to generate really small shadows (such as strands).
+It appears that normally, pixel width shadows do not anti-alias properly,
+and that increasing <em>Buffer Size</em> does not help much.</p>
+<p>So this option allows you to have a sort of extra sample pass, done above the regular one
+(the one controlled by the <em>Box</em> / <em>Tent</em> / <em>Gauss</em>, <em>Samples</em> and <em>Soft</em> settings).</p>
+<p>The default 1 value will disable this option.</p>
+<p class="last">Higher values will produce a smoother anti-aliasing --
+but be careful: using a <em>Sample Buffers</em> of 4 will require four times as much memory and process time,
+and so on, as Blender will have to compute that number of sample buffers.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="irregular">
+<h3>&quot;Irregular&quot;<a class="headerlink" href="#irregular" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id3">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_irregular.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_irregular.png" />
+<p class="caption"><span class="caption-text">Buffer Shadow set to Irregular.</span></p>
+</div>
+<p>Irregular shadow method is used to generate sharp/hard shadows that are placed as accurately as ray-traced shadows.
+This method offers very good performance because it can be done as a multi-threaded process.</p>
+<p>This method supports transparent shadows.
+To do so, you will first need to setup the shadow setting for the object which will receive the transparent shadow
+<span class="menuselection">Material ‣ Shadow ‣ Cat Buffer Shadows and Buffer Bias</span>.</p>
+</div>
+<div class="section" id="deep-generation-method">
+<h3>Deep Generation Method<a class="headerlink" href="#deep-generation-method" title="Permalink to this headline">¶</a></h3>
+<div class="figure" id="id4">
+<img alt="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_deep.png" src="../../../../../_images/render_blender-render_lighting_lamps_spot_buffered-shadow_deep.png" />
+<p class="caption"><span class="caption-text">Buffer Shadow set to Deep.</span></p>
+<div class="legend">
+Deep Shadow buffer supports transparency and better filtering,
+at the cost of more memory usage and processing time.</div>
+</div>
+<dl class="docutils">
+<dt>Compress</dt>
+<dd>Deep shadow map compression threshold.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="common-options">
+<h2>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h2>
+<p>The following settings are common to all buffered shadow generation methods.</p>
+<dl class="docutils">
+<dt>Bias</dt>
+<dd><p class="first">The <em>Bias</em> number button can have a value between (0.001 to 5.0).
+<em>Bias</em> is used to add a slight offset distance between an object and the shadows cast by it.
+This is sometimes required because of inaccuracies in the calculation which determines
+whether an area of an object is in shadow or not.</p>
+<p>Making the <em>Bias</em> value smaller results in the distance between the object and its shadow being smaller.
+If the <em>Bias</em> value is too small, an object can get artifacts,
+which can appear as lines and interference patterns on objects.
+This problem is usually called &quot;self-shadowing&quot;,
+and can usually be fixed by increasing the <em>Bias</em> value, which exists for that purpose!</p>
+<p>Other methods for correcting self-shadowing include increasing the size of the <em>Shadow Buffer Size</em>
+or using a different buffered shadow calculation method such as <em>Classic-Halfway</em> or <em>Irregular</em>.</p>
+<p>Self-shadowing interference tends to affect curved surfaces more than flat ones,
+meaning that if your scene has a lot of curved surfaces it may be necessary to increase
+the <em>Bias</em> value or <em>Shadow Buffer Size</em> value.</p>
+<p class="last">Having overly large <em>Bias</em> values not only places shadows further away from their casting objects,
+but can also cause objects that are very small to not cast any shadow at all.
+At that point altering <em>Bias</em>, <em>Shadow Buffer Size</em> or <em>Spot Size</em> values,
+among other things, may be required to fix the problem.</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Finer Bias tuning</p>
+<p class="last">You can now refine the <em>Bias</em> value independently for each
+<a class="reference internal" href="../../../materials/index.html"><span class="doc">Material</span></a>,
+using the <em>Bias</em> slider (<em>Material</em> menu, <em>Shadow</em> panel).
+This value is a factor by which the <em>Bias</em> value of each <em>Spot</em> buffered shadows lamp is multiplied,
+each time its light hits an object using this material.
+The (0.0 and 1.0) values are equivalent. They do not alter the lamp's <em>Bias</em> original value.</p>
+</div>
+<dl class="docutils">
+<dt>Clip Start/End</dt>
+<dd><p class="first">When a <em>Spot</em> light with buffered shadows is added to a scene,
+an extra line appears on the <em>Spot</em> 3D View representation.</p>
+<p>The start point of the line represents <em>Clip Start</em>'s value and the end of the line
+represents <em>Clip End</em>'s value.
+<em>Clip Start</em> can have a value between (0.1 to 1000.0), and <em>Clip End</em>
+between (1.0 to 5000.0). Both values are represented in Blender Units.</p>
+<p><em>Clip Start</em> indicates the point after which buffered shadows can be present within the <em>Spot</em> light area.
+Any shadow which could be present before this point is ignored and no shadow will be generated.</p>
+<p><em>Clip End</em> indicates the point after which buffered shadows will not be generated within the <em>Spot</em> light area.
+Any shadow which could be present after this point is ignored and no shadow will be generated.</p>
+<p>The area between <em>Clip Start</em> and <em>Clip End</em> will be capable of having buffered shadows generated.</p>
+<p>Altering the <em>Clip Start</em> and <em>Clip End</em> values helps in controlling where shadows can be generated.
+Altering the range between <em>Clip Start</em> and <em>Clip End</em> can help speed up rendering,
+save memory and make the resultant shadows more accurate.</p>
+<p class="last">When using a <em>Spot</em> lamp with buffered shadows,
+to maintain or increase quality of generated shadows,
+it is helpful to adjust the <em>Clip Start</em> and <em>Clip End</em> such that their values closely bound
+around the areas which they want to have shadows generated at.
+Minimizing the range between <em>Clip Start</em> and <em>Clip End</em>,
+minimizes the area shadows are computed in and therefore helps increase shadow quality in
+the more restricted area.</p>
+</dd>
+<dt>Autoclip Start/End</dt>
+<dd><p class="first">As well as manually setting <em>Clip Start</em> and <em>Clip End</em> fields to control when buffered shadows start and end,
+it is also possible to have Blender pick the best value independently for each <em>Clip Start</em> and <em>Clip End</em> field.</p>
+<p class="last">Blender does this by looking at where the visible vertices are when viewed from the <em>Spot</em> lamp position.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="hints">
+<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<p>Any object in Blender can act as a camera in the 3D View. Hence you can select
+the <em>Spot</em> light and switch to a view from its perspective by pressing <kbd class="kbd docutils literal notranslate">Ctrl-Numpad0</kbd>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="halo.html" class="btn btn-neutral float-right" title="Spot Volumetric Effects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

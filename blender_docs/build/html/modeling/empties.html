@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Empties &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/modeling/empties.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../search.html" />
+    <link rel="next" title="Modifiers" href="modifiers/index.html" />
+    <link rel="prev" title="Properties" href="texts/properties.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Data System</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meshes/index.html">Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curves/index.html">Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfaces/index.html">Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metas/index.html">Metaball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="texts/index.html">Text</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Empties</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-editing">Selecting &amp; Editing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modifiers/index.html">Modifiers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../render/index.html">Render</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Modeling</a> &raquo;</li>
+        
+      <li>Empties</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modeling/empties.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <span class="target" id="bpy-ops-object-empty"><span id="bpy-types-object-empty"></span></span><div class="section" id="empties">
+<h1>Empties<a class="headerlink" href="#empties" title="Permalink to this headline">¶</a></h1>
+<p>The &quot;Empty&quot; is a single coordinate point with no additional geometry.
+Because an Empty has no volume and surface, it cannot be rendered.
+Still it can be used as a handle for many purposes.</p>
+<div class="section" id="selecting-editing">
+<h2>Selecting &amp; Editing<a class="headerlink" href="#selecting-editing" title="Permalink to this headline">¶</a></h2>
+<p>An Empty can only be edited in <em>Object Mode</em>, which includes its transformation and parenting properties.
+For other tools see the <a class="reference internal" href="../editors/3dview/object/index.html"><span class="doc">Object section</span></a>.</p>
+<dl class="docutils">
+<dt>Apply Scale <kbd class="kbd docutils literal notranslate">Ctrl-A</kbd></dt>
+<dd>While Empties don't exactly have any object data attached to them which can be used for supporting
+&quot;true&quot; apply scale (i.e. with non-uniform scaling), they do have a draw size value which controls how
+large the empties are drawn (before scaling). This works by taking the scale factor on the most-scaled axis,
+and combines this with the existing empty draw size to maintain the correct dimensions on that axis.</dd>
+</dl>
+</div>
+<div class="section" id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-right" id="id1">
+<img alt="../_images/modeling_empties_draw-types.png" src="../_images/modeling_empties_draw-types.png" />
+<p class="caption"><span class="caption-text">Empty Draw Types.</span></p>
+</div>
+<dl class="docutils">
+<dt>Display</dt>
+<dd><dl class="first last docutils">
+<dt>Plain Axes</dt>
+<dd>Draws as six lines, initially with one pointing in each of the +X, -X, +Y, -Y, +Z, and -Z axis directions.</dd>
+<dt>Arrows</dt>
+<dd>Draws as arrows, initially pointing in the positive X, Y, and Z axis directions, each with a label.</dd>
+<dt>Single Arrow</dt>
+<dd>Draws as a single arrow, initially pointing in the +Z axis direction.</dd>
+<dt>Circle</dt>
+<dd>Draws as a circle initially in the XZ plane.</dd>
+<dt>Cube</dt>
+<dd>Draws as a cube, initially aligned to the XYZ axes.</dd>
+<dt>Sphere</dt>
+<dd>Draws as an implied sphere defined by three circles.
+Initially, the circles are aligned, one each, to the X, Y, and Z axes.</dd>
+<dt>Cone</dt>
+<dd>Draws as a cone, initially pointing in the +Y axis direction.</dd>
+<dt>Image</dt>
+<dd><p class="first">Empties can display images. This can be used to create reference images,
+including blueprints or character sheets to model from, instead of using background images.
+The image is displayed regardless of the 3D display mode.
+The settings are the same as in
+<a class="reference internal" href="../editors/3dview/properties/background_images.html"><span class="doc">Background Image Settings</span></a>.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">While images with an alpha channel can be used, there is a known limitation with object draw order,
+where alpha-images will not always be drawn on top of other objects when unselected.</p>
+</div>
+</dd>
+<dt>Size</dt>
+<dd>Controls the size of the empties visualization. This does not change its scale, but functions as an offset.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Empties can serve as transform handles. Some examples of ways to use them include:</p>
+<p class="rubric">Parent object for a group of objects</p>
+<p>An Empty can be parented to any number of other objects.
+This gives the user the ability to control a group of objects easily, and without affecting a render.</p>
+<p class="rubric">Target for constraints</p>
+<p>An empty can also be used as a target for normal, or bone constraints.
+This gives the user far more control; for instance,
+a rig can easily be set up to enable a camera to point towards an empty using the <em>Track to</em> constraint.</p>
+<p class="rubric">Array offset</p>
+<p>An empty can be used to offset an Array Modifier,
+meaning complex deformations can be achieved by only moving a single object.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure" id="id2">
+<a class="reference internal image-reference" href="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg"><img alt="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg" src="../_images/modeling_modifiers_generate_array_example-fractal-1.jpg" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">An example of an empty being used to control an array.</span></p>
+</div>
+</td>
+<td><div class="first last figure" id="id3">
+<a class="reference internal image-reference" href="../_images/modeling_empties_example-track-to-simple.png"><img alt="../_images/modeling_empties_example-track-to-simple.png" src="../_images/modeling_empties_example-track-to-simple.png" style="width: 320px;" /></a>
+<p class="caption"><span class="caption-text">An example of an empty being used to control the track to constraint.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Other common uses:</p>
+<ul class="simple">
+<li>Placeholders</li>
+<li>Rigging controls</li>
+<li>DOF distances</li>
+<li>Reference Images</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modifiers/index.html" class="btn btn-neutral float-right" title="Modifiers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="texts/properties.html" class="btn btn-neutral" title="Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

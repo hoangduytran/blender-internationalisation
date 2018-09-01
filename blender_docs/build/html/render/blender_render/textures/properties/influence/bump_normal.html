@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bump &amp; Normal Maps &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/blender_render/textures/properties/influence/bump_normal.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../../../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
+    <link rel="next" title="Displacement Maps" href="displacement.html" />
+    <link rel="prev" title="Texture Blending Modes" href="blending_modes.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../../../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Blender Renderer</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Textures</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../texture_panel.html">Texture Panel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../assigning_a_texture.html">Assigning a Texture</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Texture Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../types/index.html">Texture Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../nodes/index.html">Texture Nodes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lighting/index.html">Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world/index.html">World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Render Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../bake.html">Render Baking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Blender Renderer</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Textures</a> &raquo;</li>
+        
+          <li><a href="../index.html">Texture Properties</a> &raquo;</li>
+        
+          <li><a href="index.html">Influence</a> &raquo;</li>
+        
+      <li>Bump &amp; Normal Maps</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/render/blender_render/textures/properties/influence/bump_normal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bump-normal-maps">
+<h1>Bump &amp; Normal Maps<a class="headerlink" href="#bump-normal-maps" title="Permalink to this headline">¶</a></h1>
+<p><em>Normal Maps</em> and <em>Bump Maps</em> both serve the same purpose:
+they simulate the impression of a detailed 3D surface,
+by modifying the shading as if the surface had lots of small angles, rather than being completely flat.
+Because it is just modifying the shading of each pixel,
+this will not cast any shadows and will not obstruct other objects. If the camera angle is too flat to the surface,
+you will notice that the surface is not really shaped.</p>
+<p>Both <em>Bump Maps</em> and <em>Normal Maps</em> work by modifying the normal angle
+(the direction pointing perpendicular from a face), which influences how a pixel is shaded.
+Although the terms <em>Normal Map</em> and <em>Bump Map</em> are often used
+synonymously, there are certain differences.</p>
+<dl class="docutils">
+<dt>Bump maps</dt>
+<dd>These are textures that store an <em>intensity</em>, the relative height of pixels from the viewpoint of the camera.
+The pixels seem to be moved by the required distance in the direction of the face normals.
+(The &quot;bump&quot; consists only of a displacement, which takes place along the existing,
+and unchanged, normal vector of the face).
+You may either use grayscale pictures or the intensity values of an RGB texture (including images).</dd>
+<dt>Normal maps</dt>
+<dd><p class="first">These are images that store a <em>direction</em>, the direction of normals directly in the RGB values of an image.
+They are much more accurate, as rather than only simulating the pixel being away from the face along a line,
+they can simulate that pixel being moved at any direction, in an arbitrary way.
+The drawbacks to normal maps are that unlike bump maps, which can easily be painted by hand,
+normal maps usually have to be generated in some way,
+often from higher resolution geometry than the geometry you are applying the map to.</p>
+<p>Normal maps in Blender store a normal as follows:</p>
+<ul class="simple">
+<li>Red maps from (0 - 255) to X (-1.0 - 1.0)</li>
+<li>Green maps from (0 - 255) to Y (-1.0 - 1.0)</li>
+<li>Blue maps from (0 - 255) to Z (0.0 - 1.0)</li>
+</ul>
+<p class="last">Since normals all point towards a viewer, negative Z values are not stored (they would be invisible anyway).
+In Blender we store a full blue range, although some other implementations also map blue colors (128 - 255) to
+(0.0 - 1.0). The latter convention is used in &quot;Doom 3&quot; for example.</p>
+</dd>
+</dl>
+<div class="section" id="workflow">
+<h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>The steps involved in making and using Bump and Normal Maps is:</p>
+<ol class="arabic simple">
+<li>Model a highly detailed (&quot;hi-poly&quot;) model.</li>
+<li>Bake the Bump and/or Normal maps.</li>
+<li>Make a low-poly, less detailed model.</li>
+<li>Map the map to the low-poly model using a common coordinate system.</li>
+</ol>
+<p>Consult the Modeling section for how to model a highly detailed model using the Mesh tools.
+How much detail you put in is totally up to you.
+The more ridges and details (knobs, creases, protrusions) you put in, the more detailed your map will be.</p>
+<p>Baking a map, simply put, is to take the detail of a high polygon mesh, and apply it to a similar object.
+The similar object is identical to the high-poly mesh except with less vertices.
+Use the <a class="reference internal" href="../../../bake.html"><span class="doc">Render Bake</span></a> feature in Blender to accomplish this.</p>
+<p>Modeling a low-poly using Blender's Mesh editing tools. In general,
+the same or similar faces should exist that reflect the model. For example,
+a highly detailed ear may have 1000 faces in the high-poly model. In the low-poly model,
+this may be replaced with a single plane, oriented in the same direction as the detailed ear mesh.
+(<em>Tip</em>: Blender's <a class="reference internal" href="../../../../../modeling/modifiers/generate/multiresolution.html"><span class="doc">multi-resolution mesh</span></a>
+modeling feature can be used to good effect here).</p>
+<p>Mapping is the process of applying a texture to the low-poly mesh.
+Consult the <a class="reference internal" href="../mapping.html"><span class="doc">Textures Mapping section</span></a>
+for more information on applying a texture to a mesh's material. Special considerations for Bump and Normal Maps is:</p>
+<ul class="simple">
+<li>When using a Bump map, map the texture to <em>Normal</em> and enable <em>No RGB</em>.</li>
+<li>When using a Normal map, map the texture to <em>Normal</em>.</li>
+</ul>
+<p>The coordinate systems of the two objects must match. For example, if you bake using a UV map of the high-poly model,
+you must UV map the low-poly model and line up its UV coordinates to match the outline of the high-poly image.
+(see <a class="reference internal" href="../../../../../editors/uv_image/index.html#editors-uv-image-index"><span class="std std-ref">UV unwrapping</span></a> to line up with the high-poly map edges).</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="displacement.html" class="btn btn-neutral float-right" title="Displacement Maps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="blending_modes.html" class="btn btn-neutral" title="Texture Blending Modes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../../../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="vi" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="vi" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Video Output &mdash; Blender Manual</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+  
+  
+    <link rel="canonical" href="https://docs.blender.org/manual/en/latest/render/output/video.html"/>
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml"
+            title="Tìm kiếm trong Blender Manual"
+            href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Tìm Kiếm" href="../../search.html" />
+    <link rel="next" title="Metadata" href="metadata.html" />
+    <link rel="prev" title="Output Options" href="output.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Blender 2.79 Manual
+          
+
+          
+            
+            <img src="../../_static/blender-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interface/index.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_system/index.html">Data System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../modeling/index.html">Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Painting &amp; Sculpting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Rigging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Animation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Render</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Output</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="render_panel.html">Render Panel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output.html">Output Options</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Video Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-your-work-for-video">Preparing your Work for Video</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#encoding-panel">Encoding Panel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="animation_player.html">Animation Player</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Compositing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../game_engine/index.html">Game Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../preferences/index.html">User Preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../addons/index.html">Add-ons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline/index.html">Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting/index.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary/index.html">Glossary</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../about/index.html">About this Manual</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Blender 2.79 Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Render</a> &raquo;</li>
+        
+          <li><a href="index.html">Render Output</a> &raquo;</li>
+        
+      <li>Video Output</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/render/output/video.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="video-output">
+<h1>Video Output<a class="headerlink" href="#video-output" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="preparing-your-work-for-video">
+<h2>Preparing your Work for Video<a class="headerlink" href="#preparing-your-work-for-video" title="Permalink to this headline">¶</a></h2>
+<p>Once you master the art of 3D animation, you will probably want to share your work with others;
+either on the Internet (YouTube, Vimeo, etc.) or with family and friends (DVD/Blu-ray)
+or even possibly for television broadcast.</p>
+<p>To spare you some disappointment, here are some tips specifically targeted at video preparation.</p>
+<div class="section" id="safe-areas-and-overscan">
+<h3>Safe Areas and Overscan<a class="headerlink" href="#safe-areas-and-overscan" title="Permalink to this headline">¶</a></h3>
+<p>For anyone creating motion graphics or simple text overlays, overscan is an important consideration.
+Although its origins are rooted in historic analog TV systems, unfortunately even in 2017,
+for various reasons it can still be an issue with modern digital flat screen TVs.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Due to various limitations in analog TV equipment, the displayed image could sometimes
+end up shifted horizontally or vary in size, which could lead to the area beyond
+the intended visible picture being shown. This hidden area sometimes contained junk noise,
+timing signals or closed-caption/subtitle data. To avoid this being visible to the viewer,
+the standard approach for TV manufacturers was to 'overscan' (zoom in) the displayed picture
+by a small amount (between 5-10% edge crop) to ensure that at no time would the hidden areas be visible.</p>
+<p class="last">Although modern digital electronics have eliminated the issue of shifting image position,
+unfortunately, some TV manufacturers have included overscan on their flat screen TVs.
+Why? Because for many years it was given that the edge of the visible image would rarely be seen,
+so broadcasters would sometimes overlay 'hidden' data to the very edge of the image
+(e.g. some types of closed captions). Also, legacy analog recordings might still
+contain unwanted noise around the edge. To avoid consumer complaints,
+overscan is quite often enabled by default. For some flat screen TVs, it is not possible to disable it.</p>
+</div>
+</div>
+<div class="section" id="enabling-safe-areas">
+<h3>Enabling Safe Areas<a class="headerlink" href="#enabling-safe-areas" title="Permalink to this headline">¶</a></h3>
+<p>Blender has configurable safe-area markings which can be made visible by selecting the scene camera,
+then in the camera settings by enabling <a class="reference internal" href="../blender_render/camera/object_data.html#camera-safe-areas"><span class="std std-ref">Safe Areas</span></a>. Several presets are available.
+If you are producing work for a television network or indeed any client,
+they may have their own rules and requirements on safe area dimensions -- so consult with them.</p>
+</div>
+<div class="section" id="color-reproduction">
+<h3>Color Reproduction<a class="headerlink" href="#color-reproduction" title="Permalink to this headline">¶</a></h3>
+<p>When exporting to many of the common video formats, the rendered RGB(A) images go through a conversion process
+whereby they are translated to the YCbCr color model. Y corresponds to a gray-scale representation of the image,
+Cb and Cr contain data for the blue and red channels respectively.
+Green is encoded into the Y and Cb, Cr channels with some clever math.</p>
+<p>Importantly, the color components are often stored at a lower resolution to the Y (grayscale) channel.
+This can cause blurring/smearing which can be a problem with small text and some saturated color combinations --
+so it is well worth doing test encodes to make sure that text remains legible. As with safe areas,
+a TV network or client might have their own rules on minimum text size and positioning,
+so always seek clarification when unsure.</p>
+</div>
+</div>
+<div class="section" id="encoding-panel">
+<span id="bpy-types-ffmpegsettings"></span><span id="render-output-video-encoding-panel"></span><h2>Encoding Panel<a class="headerlink" href="#encoding-panel" title="Permalink to this headline">¶</a></h2>
+<div class="refbox admonition">
+<p class="first admonition-title">Reference</p>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Render ‣ Encoding</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure" id="id1">
+<img alt="../../_images/render_output_video_encoding-panel.png" src="../../_images/render_output_video_encoding-panel.png" />
+<p class="caption"><span class="caption-text">Encoding panel.</span></p>
+</div>
+<p>Here you choose which video container, codec, and compression settings you want to use.
+With all of these compression choices, there is a trade-off between file size,
+compatibility across platforms, and playback quality.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">When you view the <a class="reference internal" href="../../advanced/command_line/introduction.html"><span class="doc">System Console</span></a>,
+you can see some of the output of the encoding process.
+You will see even more output if you execute Blender as <code class="docutils literal notranslate"><span class="pre">blender</span> <span class="pre">-d</span></code>.</p>
+</div>
+<dl class="docutils">
+<dt>Presets</dt>
+<dd>You can use the presets, which choose optimum settings for you for that type of output.</dd>
+<dt>Container</dt>
+<dd>Video container or file type. For a list of all available options, see
+<a class="reference internal" href="../../data_system/files/media/video_formats.html"><span class="doc">video formats</span></a>.</dd>
+<dt>Autosplit Output</dt>
+<dd>If your video is huge and exceeds 2GiB, enable Autosplit Output.
+This will automatically split the output into multiple files after the first file is 2Gig.</dd>
+<dt>Codec</dt>
+<dd>Chooses the method of compression and encoding.
+For a list of all available options see <a class="reference internal" href="../../data_system/files/media/video_formats.html"><span class="doc">video formats</span></a>.</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p>Standards</p>
+<p class="last">Some containers and codecs are not compatible with each other,
+so if you are getting errors check that your container and codec are compatible.
+Like containers and codecs are sometimes not compatible with each other, some codecs
+do not work with arbitrary dimensions. So, try to stick with common dimensions
+or research the limitations of the codec you are trying to use.</p>
+</div>
+<dl class="docutils">
+<dt>Output Quality</dt>
+<dd>These are preset <a class="reference external" href="Rate">Rates</a>.</dd>
+<dt>Encoding Speed</dt>
+<dd>Presets to change between a fast encode (bigger file size) and more compression (smaller file size).</dd>
+<dt>Keyframe Interval</dt>
+<dd>The number of pictures per <a class="reference external" href="https://en.wikipedia.org/wiki/Group_of_pictures">Group of Pictures</a>.
+Set to 0 for &quot;intra_only&quot;, which disables <a class="reference external" href="https://en.wikipedia.org/wiki/Inter-frame">inter-frame</a> video.
+A higher number generally leads to a smaller file but needs a higher-powered device to replay it.</dd>
+<dt>Max B-frames</dt>
+<dd><p class="first">Enables the use of <a class="reference internal" href="../../glossary/index.html#term-frame-types"><span class="xref std std-term">B‑frames</span></a>.</p>
+<dl class="last docutils">
+<dt>Interval</dt>
+<dd>The maximum number of <a class="reference internal" href="../../glossary/index.html#term-frame-types"><span class="xref std std-term">B‑frames</span></a> between non-B-frames.</dd>
+</dl>
+</dd>
+</dl>
+<div class="section" id="rate">
+<h3>Rate<a class="headerlink" href="#rate" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Bitrate</dt>
+<dd>Sets the average <a class="reference external" href="https://en.wikipedia.org/wiki/Bit_rate">bit rate</a> (quality),
+which is the count of binary digits per frame.
+See also: <a class="reference external" href="https://ffmpeg.org/ffmpeg.html#Description">FFmpeg -b:v</a>.</dd>
+<dt>Rate</dt>
+<dd>Video files can use what is called variable bit rate (VBR).
+This is used to give some segments of the video less compressing to frames that need more data
+and less to frames with less data. This can be controlled by the <em>Minimum</em> and <em>Maximum</em> values.</dd>
+<dt>Buffer</dt>
+<dd>The <a class="reference external" href="https://en.wikipedia.org/wiki/Video_buffering_verifier">decoder bitstream buffer</a> size.</dd>
+</dl>
+</div>
+<div class="section" id="mux">
+<h3>Mux<a class="headerlink" href="#mux" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.afterdawn.com/glossary/term.cfm/multiplexing">Multiplexing</a>
+is the process of combining separate video and audio streams into a single file,
+similar to packing a video file and .mp3 audio file in a zip-file.</p>
+<dl class="docutils">
+<dt>Rate</dt>
+<dd>Maximum bit rate of the multiplexed stream.</dd>
+<dt>Packet Size</dt>
+<dd>Reduces data fragmentation or muxer overhead depending on the source.</dd>
+</dl>
+</div>
+<div class="section" id="audio">
+<span id="bpy-types-ffmpegsettings-audio"></span><span id="render-output-video-encoding-audio"></span><h3>Audio<a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Audio Codec</dt>
+<dd>Audio format to use. For a list of all available options, see
+<a class="reference internal" href="../../data_system/files/media/video_formats.html"><span class="doc">video formats</span></a>.</dd>
+<dt>Bitrate</dt>
+<dd>For each codec, you can control the bit rate (quality) of the sound in the movie.
+Higher bit rates are bigger files that stream worse but sound better.
+Use powers of 2 for compatibility.</dd>
+<dt>Volume</dt>
+<dd>Sets the output volume of the audio.</dd>
+</dl>
+</div>
+<div class="section" id="tips">
+<h3>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">The choice of video format depends on what you are planning to do.</p>
+</div>
+<p>It's not recommended to render directly to a video format in the first instance.
+If a problem occurs while rendering, the file might become unplayable and you will
+have to re-render all frames from the beginning. If you first render out a set
+of static images such as the default PNG format or the higher-quality OpenEXR
+(which can retain HDR pixel data), you can combine them as
+an <a class="reference internal" href="../../editors/vse/sequencer/strips/movie_image.html"><span class="doc">Image Strip</span></a>
+in the Video Sequence Editor (VSE). This way, you can easily:</p>
+<ul class="simple">
+<li>Restart the rendering from the place (the frame) where any problem occurred.</li>
+<li>Try out different video encoding options in seconds,
+rather than minutes or hours as encoding is usually much faster than rendering the 3d scene.</li>
+<li>Enjoy the rest of the features of the VSE, such as adding
+<a class="reference internal" href="../../editors/vse/sequencer/strips/movie_image.html"><span class="doc">Image Strips</span></a>
+from previous renders, audio, video clips, etc.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Mẹo</p>
+<p class="last">You shouldn't post-process a lossy-compressed file as the compression artifacts may become visible.
+Lossy compression should be reserved as a final 'delivery format'.</p>
+</div>
+<p>If you are planning on doing significant post-processing and color correction,
+it is best to output a frameset rendered in OpenEXR format.
+If you plan to do only minimal changes after rendering and would prefer a single file,
+choose lossless H.264 for high quality, or regular H.264 for lower quality.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="metadata.html" class="btn btn-neutral float-right" title="Metadata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="output.html" class="btn btn-neutral" title="Output Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright : This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="document versions">
+<ul id="versionwrap" role="presentation">
+   <li style="float:left" role="presentation">
+		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
+		2.79 
+		</span>
+		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+   <li style="float:right" role="presentation">
+		<span id="lang-dropdown" class="version-btn" tabindex="0" role="button"  aria-label="language selector" aria-haspopup="true" aria-controls="version-langlist">
+			 vi 
+		</span>
+		<ul id="version-langlist" class="version-list" role="menu" aria-labelledby="lang-dropdown" aria-hidden="true">
+			<li role="presentation">Loading...</li>
+		</ul>
+	</li>
+</ul>
+</div>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'2.79',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/js/version_switch.js"></script>
+      <script type="text/javascript" src="../../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-1418081-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
