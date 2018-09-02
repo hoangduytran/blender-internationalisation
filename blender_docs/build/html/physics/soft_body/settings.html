@@ -228,7 +228,7 @@ Friction always appears when a vertex moves relative to its surround medium.</dd
 Larger mass slows down acceleration, except for gravity where the motion is constant regardless of mass.
 Larger mass means larger inertia, so also braking a soft body is more difficult.</dd>
 <dt>Mass Vertex Group</dt>
-<dd>You can paint weight and use a specified vertex group for mass values.</dd>
+<dd>You can paint weights and use a specified vertex group for mass values.</dd>
 </dl>
 </dd>
 <dt>Simulation</dt>
@@ -237,7 +237,7 @@ Larger mass means larger inertia, so also braking a soft body is more difficult.
 <dd>You can control the internal timing of the soft body system with this value.
 It sets the correlation between frame rate and tempo of the simulation.
 A free falling body should cover a distance of about five meters after one second.
-You can adjust the scale of your scene and your simulation with this correlation. If you
+You can adjust the scale of your scene and simulation with this correlation. If you
 render with 25 frames per second and 1 meter shall be 1 BU, you have to set <em>Speed</em> to 1.3.</dd>
 </dl>
 </dd>
@@ -258,7 +258,7 @@ render with 25 frames per second and 1 meter shall be 1 BU, you have to set <em>
 </tbody>
 </table>
 </div>
-<p>Soft Body physic simulations use a unified system for caching and baking.
+<p>Soft Body physics simulations use a unified system for caching and baking.
 See <a class="reference internal" href="../particles/emitter/cache.html"><span class="doc">Particle Cache</span></a> and
 <a class="reference internal" href="../baking.html"><span class="doc">General Baking</span></a> documentation for reference.</p>
 </div>
@@ -277,9 +277,9 @@ See <a class="reference internal" href="../particles/emitter/cache.html"><span c
 </div>
 <dl class="docutils">
 <dt>Use Goal</dt>
-<dd><p class="first">Enabling this tells Blender to use the motion from animations (F-Curves,
-Armatures, Parents, Lattices, etc) in the simulation.
-The &quot;goal&quot; is the desired end-position for vertices based on this animation.</p>
+<dd><p class="first">Enabling this tells Blender to use the motion from animations
+(F-curves, armatures, parents, lattices, etc.) in the simulation.
+The &quot;goal&quot; is the desired end position for vertices based on this animation.</p>
 <p class="last">See <a class="reference internal" href="forces/exterior.html#physics-softbody-forces-exterior-goal"><span class="std std-ref">exterior forces</span></a> for details.</p>
 </dd>
 <dt>Goal Strength</dt>
@@ -330,7 +330,7 @@ See <a class="reference internal" href="forces/interior.html"><span class="doc">
 <dd><p class="first">The spring stiffness for edges (how much the edges are allowed to stretch).
 A low value means very weak springs (a very elastic material),
 a high value is a strong spring (a stiffer material) that resists being pulled apart.</p>
-<p class="last">Value of 0.5 is latex, 0.9 is like a sweater, 0.999 is a highly-starched napkin or leather.
+<p class="last">A value of 0.5 is latex, 0.9 is like a sweater, 0.999 is a highly-starched napkin or leather.
 The soft body simulation tends to get unstable if you use a value of 0.999,
 so you should lower this value a bit if that happens.</p>
 </dd>
@@ -370,9 +370,9 @@ See <a class="reference internal" href="forces/exterior.html#physics-softbody-fo
 <dt>Type</dt>
 <dd><dl class="first last docutils">
 <dt>Simple</dt>
-<dd>Edges receive a drag force from surrounding media.</dd>
+<dd>Edges receive a drag force from the surrounding media.</dd>
 <dt>Lift Force</dt>
-<dd>Edges receive a lift force when passing through surrounding media.</dd>
+<dd>Edges receive a lift force when passing through the surrounding media.</dd>
 </dl>
 </dd>
 <dt>Factor</dt>
@@ -444,7 +444,7 @@ Too low of a level will let other vertices get too close and thus possibly inter
 there will not be enough time to slow them down.</dd>
 <dt>Stiffness</dt>
 <dd>How elastic that ball of personal space is.
-A high stiffness means that the vertex reacts immediately to someone invading their space.</dd>
+A high stiffness means that the vertex reacts immediately to another vertex enters their space.</dd>
 <dt>Dampening</dt>
 <dd>How the vertex reacts.
 A low value just slows down the vertex as it gets too close. A high value repulses it.</dd>
@@ -483,7 +483,7 @@ Helps the Solver figure out how much work it needs to do based on how fast thing
 <dt>Error Limit</dt>
 <dd>Rules the overall quality of the solution delivered. Default 0.1.
 The most critical setting that says how precise the solver should check for collisions.
-Start with a value that is 1/2 the average edge length.
+Start with a value that is half the average edge length.
 If there are visible errors, jitter, or over-exaggerated responses, decrease the value.
 The solver keeps track of how &quot;bad&quot; it is doing and the <em>Error Limit</em> causes the solver to
 do some &quot;adaptive step sizing&quot;.</dd>

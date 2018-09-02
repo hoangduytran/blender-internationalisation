@@ -206,8 +206,8 @@
   <div class="section" id="interior">
 <h1>Interior<a class="headerlink" href="#interior" title="Permalink to this headline">¶</a></h1>
 <p>In between each neighboring vertex of a mesh, you typically create edges to connect them.
-Imagine each edge is really a spring. Any mechanical spring is able to stretch under tension,
-and able to squeeze under pressure. All springs have an ideal length,
+Imagine each edge as a spring. Any mechanical spring is able to stretch under tension,
+and to squeeze under pressure. All springs have an ideal length,
 and a stiffness that limits how far you can stretch or squeeze the spring.</p>
 <p>In Blender's case, the ideal length is the original edge length which you designed as a part of your mesh,
 even before you enable the Soft Body system. Until you add the Soft Body physics,
@@ -243,9 +243,9 @@ Fig. <a class="reference internal" href="#fig-softbody-force-interior-connection
 The logical method to keep a body from collapsing would be to create additional edges between the vertices.
 This works pretty well, but would change your mesh topology drastically.</p>
 <p>Luckily, Blender allows to define additional <em>virtual</em> connections.
-On one hand we can define virtual connections between the diagonal edges of a quad face
+On one hand you can define virtual connections between the diagonal edges of a quad face
 (<em>Stiff Quads</em> Fig. <a class="reference internal" href="#fig-softbody-force-interior-stiff"><span class="std std-ref">Additional forces with Stiff Quads enabled.</span></a>),
-on the other hand we can define virtual connections between a vertex and any vertices connected
+on the other hand you can define virtual connections between a vertex and any vertices connected
 to its neighbors' <em>Bending Stiffness</em>. In other words, the amount of bend that is allowed between
 a vertex and any other vertex that is separated by two edge connections.</p>
 <div class="section" id="settings">

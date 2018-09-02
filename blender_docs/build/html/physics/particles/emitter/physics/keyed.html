@@ -221,14 +221,10 @@
 </tbody>
 </table>
 </div>
-<p>The paths of Keyed particles are determined between particles of any two (or more) particle systems.
-This allows creation of chains of systems to create long strands or groovy moving particles.
+<p>The path of Keyed particles is determined between particles of any two (or more) particle systems.
+This allows the creation of a chains of systems to create long strands or groovy moving particles.
 Basically the particles have no dynamics but are interpolated from one system to the next at draw-time.</p>
 <p>To setup <em>Keyed</em> particles you need at least two particle systems in the <em>Keys</em> list.</p>
-<p>By default, the <em>Use Timing</em> option is deactivated, and the particles will pass through all keys
-for a time equal to its lifetime. A shorter lifetime means faster movement.
-The lifetime will be split equally between the keys,
-this may lead to varying particle speeds between the targets.</p>
 <div class="section" id="options">
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-right" id="id1">
@@ -240,21 +236,23 @@ this may lead to varying particle speeds between the targets.</p>
 <dd>Sets the number of times the entire <em>Keys</em> list is repeated. Disabled if <em>Use Timing</em> is enabled.</dd>
 <dt>Use Timing</dt>
 <dd>Enabling this option allows you to specify the timing for each key independently,
-using the <em>Time</em> and <em>Duration</em> options.</dd>
+using the <em>Time</em> and <em>Duration</em> options.
+By default, the <em>Use Timing</em> option is deactivated, and the particles will pass through all keys
+for a time equal to its lifetime. A shorter lifetime means faster movement.
+The lifetime will be split equally between the keys,
+this may lead to varying particle speeds between the targets.</dd>
 </dl>
 <div class="section" id="keys">
 <h3>Keys<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>Key Targets</dt>
-<dd><p class="first">The <a class="reference internal" href="../../../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">list view</span></a> of keys (target particle systems).</p>
-<p class="last">Click the <kbd class="kbd docutils literal notranslate">Plus</kbd> to add a key, then select the <em>Object</em>.</p>
-</dd>
+<dd>The <a class="reference internal" href="../../../../interface/controls/templates/list_presets.html#ui-list-view"><span class="std std-ref">list view</span></a> of keys (target particle systems).</dd>
 <dt>Object</dt>
 <dd>The name of a target object for the selected key. If empty it uses the current particle system.</dd>
 <dt>System</dt>
 <dd>Index of particle system on the target object.</dd>
 <dt>Time</dt>
-<dd>The time (frame number) at which the particles will be in the position of selected system.
+<dd>The time (frame number) at which the particles will be at the position of the selected system.
 Note also that the <em>Start</em> frame of the Keyed system adds an offset to this time.</dd>
 <dt>Duration</dt>
 <dd>How long (in frames) the particles stay on this system before they start moving to the next one.</dd>
