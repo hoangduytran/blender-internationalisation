@@ -199,19 +199,15 @@
 <h1>Bảo Quản -- Maintenance<a class="headerlink" href="#maintenance" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="adding-removing-moving-files">
 <h2>Tạo Thêm/Xóa Bỏ/Di Chuyển các Tập Tin<a class="headerlink" href="#adding-removing-moving-files" title="Permalink to this headline">¶</a></h2>
-<p>When RST-files are added or removed the corresponding locale files
-are added or removed automatically by the update script.
-However, if files need to be moved please use this Python script:</p>
+<p>Khi các tập tin RST được cho thêm vào hoặc bị loại bỏ đi thì các tập tin địa phương tương ứng cũng sẽ được thêm vào hoặc gỡ bỏ tự động bởi tập lệnh cập nhật. Tuy nhiên, nếu các tập tin cần được di chuyển thì xin vui lòng sử dụng tập lệnh Python này:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python tools_rst/rst_remap.py start
 </pre></div>
 </div>
-<p>RST-files can then be freely moved and the remap script will move the locale file after:</p>
+<p>Các tập tin RST sau đó có thể được tự do di chuyển và tập lệnh <code class="docutils literal notranslate"><span class="pre">remap</span></code> sẽ di chuyển tập tin ở thư mục <code class="docutils literal notranslate"><span class="pre">locale</span></code> theo:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python tools_rst/rst_remap.py finish
 </pre></div>
 </div>
-<p>It is best to avoid moving/renaming files as this breaks URLs and
-without this script translators will lose all their work in these files.
-Please ask an administrator if you think something should be renamed/moved.</p>
+<p>Tốt nhất là nên tránh di chuyển/đổi tên các tập tin, vì điều này sẽ phá hỏng các địa chỉ URL và nếu không có tập lệnh này thì tất cả công việc của các phiên dịch viên trong các tập tin này sẽ bị mất đi. Xin vui lòng kiểm tra với quản trị viên nếu bạn cho rằng có một cái gì đó cần phải được đổi tên/di chuyển, trước khi làm.</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
 <p class="last">Kịch bản này cũng hoạt động với các tên tập tin hình ảnh nữa.</p>
