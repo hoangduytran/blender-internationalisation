@@ -205,13 +205,13 @@
 <dd>Vị trí của dữ liệu sử dụng thời gian chạy (lúc đang hoạt động) để cài đặt trên toàn hệ thống (có thể chỉ đọc mà thôi).</dd>
 </dl>
 <p>Để cài đặt hệ thống, cả hai thư mục <strong>SYSTEM</strong> và <strong>USER</strong> đều cần thiết.</p>
-<p>Đối với các bản phân phối Blender được trích xuất cục bộ (giải nén địa phương), cấu hình người dùng và dữ liệu thời gian chạy được lưu giữ trong cùng thư mục nhánh, cho phép nhiều phiên bản Blender cùng hoạt động mà không gây ra xung đột. Chúng sẽ bỏ qua các tập tin <strong>USER</strong> và <strong>SYSTEM</strong>.</p>
+<p>Đối với các bản phân phối Blender được trích xuất cục bộ (giải nén địa phương, như bản zip), cấu hình người dùng và dữ liệu hoạt động (<em>thời gian chạy</em>) được lưu giữ trong cùng thư mục nhánh, cho phép nhiều phiên bản Blender cùng hoạt động một lúc mà không gây ra xung đột. Chúng sẽ bỏ qua các tập tin <strong>USER</strong> và <strong>SYSTEM</strong>.</p>
 <div class="section" id="platform-dependent-paths">
 <h2>Những Đường Dẫn Phụ Thuộc Nền Tảng (Hệ Điều Hành) -- Platform Dependent Paths<a class="headerlink" href="#platform-dependent-paths" title="Permalink to this headline">¶</a></h2>
 <p>Dưới đây là các vị trí mặc định cho mỗi hệ thống:</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p class="last">Đường dẫn <code class="docutils literal notranslate"><span class="pre">./|BLENDER_VERSION|/</span></code> chỉ liên quan đến bản thực thi Blender (bản nhị phân, thi hành được) và được sử dụng cho các gói khép kín (<strong>self-contained bundles</strong>), được phân phối bởi các phiên bản blender.org chính thức.</p>
+<p class="last">Đường dẫn <code class="docutils literal notranslate"><span class="pre">./|BLENDER_VERSION|/</span></code> chỉ liên quan đến bản thực thi Blender (bản nhị phân, thi hành được) và được sử dụng cho các gói khép kín (<em>self-contained bundles</em>), được phân phối bởi các phiên bản blender.org chính thức.</p>
 </div>
 <div class="section" id="ms-windows">
 <h3>MS-Windows<a class="headerlink" href="#ms-windows" title="Permalink to this headline">¶</a></h3>
@@ -281,7 +281,7 @@ $HOME/.config/blender/2.79/
 </dl>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p>Đường dẫn <strong>USER</strong> sẽ sử dụng <code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME</span></code> nếu nó được thiết lập:</p>
+<p>Đường dẫn <strong>USER</strong> (<em>NGƯỜI DÙNG</em>) sẽ sử dụng biến môi trường <code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME</span></code> nếu nó được thiết lập:</p>
 <pre class="last literal-block">
 $XDG_CONFIG_HOME/blender/2.79/
 </pre>
@@ -291,7 +291,7 @@ $XDG_CONFIG_HOME/blender/2.79/
 <div class="section" id="path-layout">
 <h2>Bố Trí Đường Dẫn -- Path Layout<a class="headerlink" href="#path-layout" title="Permalink to this headline">¶</a></h2>
 <p>Đây là cách bố trí đường dẫn được sử dụng trong các thư mục được mô tả ở trên.</p>
-<p>Nơi mà <code class="docutils literal notranslate"><span class="pre">./config/startup.blend</span></code> có thể nằm tại <code class="docutils literal notranslate"><span class="pre">~/.blender/|BLENDER_VERSION|/config/startup.blend</span></code> chẳng hạn.</p>
+<p>Trong đó <code class="docutils literal notranslate"><span class="pre">./config/startup.blend</span></code> có thể nằm tại <code class="docutils literal notranslate"><span class="pre">~/.blender/|BLENDER_VERSION|/config/startup.blend</span></code> chẳng hạn.</p>
 <dl class="docutils">
 <dt><code class="docutils literal notranslate"><span class="pre">./autosave/</span> <span class="pre">...</span></code></dt>
 <dd><p class="first">Địa điểm của tập tin lưu tự động blend. (Chỉ trong Windows thôi, thư mục tạm thời (<em>temp directory</em>) là để sử dụng cho các hệ thống khác)</p>
@@ -334,9 +334,9 @@ $XDG_CONFIG_HOME/blender/2.79/
 <dt><code class="docutils literal notranslate"><span class="pre">./scripts/presets/{preset}/*.py</span></code></dt>
 <dd>Những sắp đặt sẵn được sử dụng để lưu trữ các cài đặt do người dùng xác định cho vải, các định dạng kết xuất, v.v.</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">./scripts/templates_py/*.py</span></code></dt>
-<dd>Các tập lệnh mẫu có thể được truy cập từ <span class="menuselection">Trình Biên Soạn Văn Bản ‣ Khuôn Mẫu ‣ Python -- Text Editor ‣ Templates ‣ Python</span>.</dd>
+<dd>Các tập lệnh mẫu có thể được truy cập từ <span class="menuselection">Trình Biên Soạn Văn Bản (Text Editor) ‣ Khuôn Mẫu (Templates) ‣ Python</span>.</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">./scripts/templates_osl/*.py</span></code></dt>
-<dd>Ví dụ về các bộ tô bóng OSL, có thể được truy cập từ <span class="menuselection">Trình Biên Soạn Văn Bản ‣ Khuôn Mẫu ‣ Ngôn Ngữ Tô Bóng Mở -- Text Editor ‣ Templates ‣ Open Shading Language</span>.</dd>
+<dd>Ví dụ về các bộ tô bóng OSL, có thể được truy cập từ <span class="menuselection">Trình Biên Soạn Văn Bản (Text Editor) ‣ Khuôn Mẫu (Templates) ‣ Ngôn Ngữ Tô Bóng Mở (Open Shading Language)</span>.</dd>
 <dt><code class="docutils literal notranslate"><span class="pre">./python/</span> <span class="pre">...</span></code></dt>
 <dd><p class="first">Bản phân phối có kèm Python.</p>
 <p class="last">Thứ tự lùng tìm: <code class="docutils literal notranslate"><span class="pre">LOCAL,</span> <span class="pre">SYSTEM</span></code>.</p>

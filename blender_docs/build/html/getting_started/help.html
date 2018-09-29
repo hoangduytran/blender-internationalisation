@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
     <link rel="next" title="Giao Diện Người Dùng -- User Interface" href="../interface/index.html" />
-    <link rel="prev" title="Configuring Directories" href="installing/configuration/directories.html" /> 
+    <link rel="prev" title="Cấu Hình các Thư Mục" href="installing/configuration/directories.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,16 +92,16 @@
 <li class="toctree-l2"><a class="reference internal" href="about/index.html">Giới Thiệu về Blender -- About Blender</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing/index.html">Cài Đặt Blender -- Installing Blender</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Hệ Thống Trợ Giúp -- Help System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tooltips">Tooltips</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#elements">Elements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tooltips">Chú Giải Công Cụ -- Tooltips</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#elements">Các yếu tố -- Elements</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#context-sensitive-manual-access">Context-Sensitive Manual Access</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#help-menu">Help Menu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#web-links">Web Links</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#scripting-reference">Scripting Reference</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#save-system-info">Save System Info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#splash-screen">Splash Screen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#context-sensitive-manual-access">Truy Cập Hướng Dẫn Sử Dụng Nhạy Cảm Với Ngữ Cảnh Vận Hành -- Context-Sensitive Manual Access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-menu">Trình Đơn Giúp Đỡ -- Help Menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#web-links">Các Đường Kết Nối Mạng -- Web Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scripting-reference">Tham Chiếu về Viết Tập Lệnh -- Scripting Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#save-system-info">Lưu Thông Tin Hệ Thống -- Save System Info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#splash-screen">Màn Hình Chào Đón -- Splash Screen</a></li>
 </ul>
 </li>
 </ul>
@@ -196,137 +196,121 @@
             
   <div class="section" id="help-system">
 <h1>Hệ Thống Trợ Giúp -- Help System<a class="headerlink" href="#help-system" title="Permalink to this headline">¶</a></h1>
-<p>Blender has a range of built-in and web-based help options.</p>
+<p>Blender có nhiều tùy chọn trợ giúp dựa trên web và tích hợp sẵn.</p>
 <div class="section" id="tooltips">
-<h2>Tooltips<a class="headerlink" href="#tooltips" title="Permalink to this headline">¶</a></h2>
+<h2>Chú Giải Công Cụ -- Tooltips<a class="headerlink" href="#tooltips" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id2">
 <img alt="../_images/getting-started_help_tooltip.png" src="../_images/getting-started_help_tooltip.png" />
-<p class="caption"><span class="caption-text">Tooltip of the Renderer selector in the Info Editor.</span></p>
+<p class="caption"><span class="caption-text">Chú giải công cụ của nút lựa chọn Bộ Máy Kết Xuất (<em>Renderer</em>) trong trình Biên Soạn Thông Tin (<em>Info Editor</em>).</span></p>
 </div>
-<p>When hovering the mouse cursor over a button or setting, after a few instants a tooltip appears.</p>
+<p>Khi di chuột qua một nút bấm hoặc một cài đặt, sau một vài lần di, mình sẽ thấy một chú giải công cụ xuất hiện.</p>
 <div class="section" id="elements">
-<h3>Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
-<p>The context-sensitive Tooltip might contain some of these elements:</p>
+<h3>Các yếu tố -- Elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
+<p>Chú giải công cụ theo ngữ cảnh có thể chứa một số yếu tố sau:</p>
 <dl class="docutils">
-<dt>Short Description</dt>
-<dd>Related details depending on the control.</dd>
-<dt>Shortcut</dt>
-<dd>A keyboard or mouse shortcut associated to the tool.</dd>
-<dt>Value</dt>
-<dd>The value of the property.</dd>
-<dt>Library</dt>
-<dd>Source file of the active object. See also <a class="reference internal" href="../data_system/linked_libraries.html"><span class="doc">Linked Libraries</span></a>.</dd>
-<dt>Disabled (red)</dt>
-<dd>The reason why the value is not editable.</dd>
+<dt>Miêu Tả Vắn Tắt -- Short Description</dt>
+<dd>Chi tiết liên quan còn tùy thuộc vào điều khiển nói đến.</dd>
+<dt>Tổ Hợp Phím Đường Tắt -- Shortcut</dt>
+<dd>Bố trí đường tắt bàn phím hoặc chuột liên quan đến công cụ.</dd>
+<dt>Giá Trị -- Value</dt>
+<dd>Giá trị của tính chất.</dd>
+<dt>Thư Viện -- Library</dt>
+<dd>Tập tin nguồn của vật thể đang hoạt động. Xin xem thêm trong mục <a class="reference internal" href="../data_system/linked_libraries.html"><span class="doc">Linked Libraries</span></a>.</dd>
+<dt>Đã Bị Giải Hoạt (Tắt) (màu đỏ) -- Disabled (red)</dt>
+<dd>Lý do tại sao giá trị không thể chỉnh sửa được.</dd>
 <dt>Python</dt>
-<dd>For <a class="reference internal" href="../advanced/scripting/index.html#scripting-index"><span class="std std-ref">scripting</span></a> -- A Python command associated to
-the control (usually an operator or property).</dd>
+<dd>Đối với việc <a class="reference internal" href="../advanced/scripting/index.html#scripting-index"><span class="std std-ref">Viết tập lệnh -- scripting</span></a> -- Một lệnh Python được liên kết với điều khiển (thường là một toán tử (<em>operator</em>) hoặc một tính chất (<em>property</em>)).</dd>
 </dl>
 </div>
 </div>
 <div class="section" id="context-sensitive-manual-access">
-<span id="help-manual-access"></span><h2>Context-Sensitive Manual Access<a class="headerlink" href="#context-sensitive-manual-access" title="Permalink to this headline">¶</a></h2>
+<span id="help-manual-access"></span><h2>Truy Cập Hướng Dẫn Sử Dụng Nhạy Cảm Với Ngữ Cảnh Vận Hành -- Context-Sensitive Manual Access<a class="headerlink" href="#context-sensitive-manual-access" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Khảo/Tra Cứu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế độ:</th><td class="field-body">Tổng thể -- All modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd>, <span class="menuselection">Online Manual</span></td>
+<tr class="field-even field"><th class="field-name">Trình đơn:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">NCP</kbd>, <span class="menuselection">Hướng dẫn sử dụng trực tuyến, trên mạng -- Online Manual</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-F1</kbd></td>
+<tr class="field-odd field"><th class="field-name">Phím nóng:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-F1</kbd></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>You may want to access help for a tool or area from within Blender.</p>
-<p>Use the key-shortcut, or context menu to visit pages from this reference manual within Blender.
-This opens a webpage relating to the button under the cursor, supporting both tool and value buttons.</p>
+<p>Bạn có thể muốn truy cập trợ giúp đối với một công cụ hoặc một khu vực nào đó ngay từ trong Blender.</p>
+<p>Sử dụng phím tắt hoặc trình đơn ngữ cảnh (<em>context menu</em> -- bấm phải chuột) để truy cập các trang trong bản hướng dẫn sử dụng và tra cứu này trong Blender. Thao tác này sẽ mở một trang web liên quan đến nút bên dưới con trỏ, hỗ trợ cả nút công cụ và giá trị.</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p>We do not currently have 100% coverage,
-you may see an alert in the info header if some tools do not have a link to the manual.</p>
-<p class="last">Other times buttons may link to more general sections of the documentation.</p>
+<p>Hiện tại chúng tôi chưa hoàn toàn quản lý được 100%, bạn có thể nhìn thấy cảnh báo trong thanh tiêu đề thông tin (<em>info header</em>) nếu một số các công cụ nào đó không có liên kết đến bản hướng dẫn sử dụng.</p>
+<p class="last">Có những lúc các nút bấm có thể sẽ liên kết đến các phần chung chung hơn của bản tài liệu hướng dẫn sử dụng này.</p>
 </div>
 </div>
 <div class="section" id="help-menu">
-<span id="id1"></span><h2>Help Menu<a class="headerlink" href="#help-menu" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Help</em> menu in the Info Editor header.</p>
+<span id="id1"></span><h2>Trình Đơn Giúp Đỡ -- Help Menu<a class="headerlink" href="#help-menu" title="Permalink to this headline">¶</a></h2>
+<p>Trình đơn <em>Giúp Đỡ</em> (Help) trong thanh tiêu đề của trình Biên Soạn Thông Tin (<em>Info Editor</em>)</p>
 <div class="figure align-right" id="id3">
 <img alt="../_images/getting-started_help_menu.png" src="../_images/getting-started_help_menu.png" />
-<p class="caption"><span class="caption-text">Help menu.</span></p>
+<p class="caption"><span class="caption-text">Trình đơn Giúp Đỡ</span></p>
 </div>
 <div class="section" id="web-links">
-<h3>Web Links<a class="headerlink" href="#web-links" title="Permalink to this headline">¶</a></h3>
-<p>The first options of this menu provide direct links to Blender-related websites:
-The same links can also be found in the <a class="reference internal" href="../interface/splash.html#splash"><span class="std std-ref">Splash Screen</span></a>.</p>
+<h3>Các Đường Kết Nối Mạng -- Web Links<a class="headerlink" href="#web-links" title="Permalink to this headline">¶</a></h3>
+<p>Các tùy chọn đầu tiên của trình đơn này cung cấp các đường liên kết trực tiếp đến các trang web liên quan đến Blender: Trong <a class="reference internal" href="../interface/splash.html#splash"><span class="std std-ref">Splash Screen</span></a> cũng có các đường liên kết tương tự nữa.</p>
 <dl class="docutils">
-<dt>Manual</dt>
-<dd>This is a link to the <a class="reference internal" href="../index.html"><span class="doc">Official Blender Manual</span></a>
-which you are now reading.</dd>
-<dt>Release Log</dt>
-<dd>The <a class="reference external" href="https://www.blender.org/features/releases/">release notes</a> on the Web
-for the changes made for the current Blender version.</dd>
-<dt>Blender Website</dt>
-<dd>The <a class="reference external" href="https://www.blender.org/">blender.org</a> home page.</dd>
-<dt>Blender Store</dt>
-<dd>The <a class="reference external" href="https://store.blender.org/">Blender Store</a>, where you can buy
-Training DVD's, books, t-shirts and other products.</dd>
-<dt>Developer Community</dt>
-<dd>The <em>blender.org</em> <a class="reference external" href="https://www.blender.org/get-involved/">Get Involved</a> page.
-This is the launch page for Blender software development, bug tracking, patches and scripts,
-education and training, documentation development and functionality research.</dd>
-<dt>User Community</dt>
-<dd>Lists of many different <a class="reference external" href="https://www.blender.org/support/user-community/">support venues</a>.</dd>
-<dt>Report a Bug</dt>
-<dd>The <a class="reference external" href="https://developer.blender.org/maniphest/task/edit/form/1/">Blender Bug Tracker</a> (registration needed).</dd>
+<dt>Bản Hướng Dẫn Sử Dụng -- Manual</dt>
+<dd>Đây là đường liên kết đến <a class="reference internal" href="../index.html"><span class="doc">Bản Hướng Dẫn Sử Dụng Blender Chính Thức -- Official Blender Manual</span></a> mà bạn đang đọc.</dd>
+<dt>Nhật Ký Phát Hành</dt>
+<dd><a class="reference external" href="https://www.blender.org/features/releases/">Ghi chú về bản phát hành -- release notes</a> trên mạng đối với các thay đổi đã thực hiện cho phiên bản Blender hiện tại.</dd>
+<dt>Trang Mạng Blender -- Blender Website</dt>
+<dd>Trang chính của tổ chức <a class="reference external" href="https://www.blender.org/">blender.org</a></dd>
+<dt>Cửa Hàng Blender -- Blender Store</dt>
+<dd><a class="reference external" href="https://store.blender.org/">Cửa hàng Blender -- Blender Store</a>, nơi bạn có thể mua đĩa DVD hướng dẫn, sách đào tạo, áo phông và các sản phẩm khác nữa.</dd>
+<dt>Cộng Đồng Lập Trình Viên -- Developer Community</dt>
+<dd>Trang <a class="reference external" href="https://www.blender.org/get-involved/">Tham gia -- Get Involved</a> của <em>blender.org</em>. Đây là trang khai chương về sự phát triển phần mềm Blender, theo dõi lỗi lầm trong phần mềm (<em>bug tracking</em>), các bản sửa lỗi (<em>patches</em>) và các tập lệnh (<em>scripts</em>), tài liệu về giáo dục và đào tạo, thông tin về quá trình gây dựng bản tài liệu và những nghiên cứu về chức năng của phần mềm.</dd>
+<dt>Cộng Đồng Người Dùng -- User Community</dt>
+<dd>Danh sách các <a class="reference external" href="https://www.blender.org/support/user-community/">địa điểm hỗ trợ -- support venues</a> khác nhau.</dd>
+<dt>Báo cáo lỗi trong phần mềm -- Report a Bug</dt>
+<dd><a class="reference external" href="https://developer.blender.org/maniphest/task/edit/form/1/">Trình theo dõi lỗi lầm của Blender -- Blender Bug Tracker</a> (cần phải đăng ký tài khoản).</dd>
 </dl>
 <div class="admonition tip">
 <p class="first admonition-title">Mẹo</p>
-<p>Browser and Internet Connection</p>
-<p class="last">Some forms of Help start up your web browser and access the Blender Foundation's web servers.
-In order to do this, you must have configured a default web browser for your Operating System,
-and have a connection to the Internet.</p>
+<p>Trình Duyệt Mạng và Kết Nối Internet -- Browser and Internet Connection</p>
+<p class="last">Một số hình thức Trợ Giúp khởi động trình duyệt mạng của bạn và truy cập vào các máy chủ trang mạng của Blender. Để thực hiện việc này, bạn phải định cấu hình trình duyệt mạng mặc định cho Hệ Điều Hành của mình và có đường kết nối vào Internet.</p>
 </div>
 </div>
 <div class="section" id="scripting-reference">
-<h3>Scripting Reference<a class="headerlink" href="#scripting-reference" title="Permalink to this headline">¶</a></h3>
+<h3>Tham Chiếu về Viết Tập Lệnh -- Scripting Reference<a class="headerlink" href="#scripting-reference" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Python API Reference</dt>
-<dd>Python application programming interface (API)
-<a class="reference external" href="https://www.blender.org/api/blender_python_api_current/">Reference</a>.</dd>
-<dt>Operator Cheat Sheet</dt>
-<dd>Creates the <code class="docutils literal notranslate"><span class="pre">OperatorList.txt</span></code> text data-block, which you can access in the <em>Text Editor</em>.
-You can also use Blender Search to generate the file. It lists the available Python operators.</dd>
+<dt>Tham Chiếu API của Python -- Python API Reference</dt>
+<dd><a class="reference external" href="https://www.blender.org/api/blender_python_api_current/">Tham chiếu -- Reference</a> -- cho Giao Diện Lập Trình Ứng Dụng Python (API : Application Programming Interface).</dd>
+<dt>Bảng Liệt Kê Operator -- Operator Cheat Sheet</dt>
+<dd>Tạo khối dữ liệu văn bản <code class="docutils literal notranslate"><span class="pre">OperatorList.txt</span></code> (<em>Bảng Liệt Kê Operator</em>), mà bạn có thể truy cập trong <em>trình Biên Soạn Văn Bản -- Text Editor</em>. Bạn còn có thể sử dụng chức năng Blender Search (Lùng Tìm Blender) để tạo tập tin nữa. Nó liệt kê các Operator (<em>toán tử</em>) Python có sẵn để sử dụng.</dd>
 </dl>
 </div>
 <div class="section" id="save-system-info">
-<span id="help-system-info"></span><h3>Save System Info<a class="headerlink" href="#save-system-info" title="Permalink to this headline">¶</a></h3>
-<p>Access <span class="menuselection">Help ‣ Save System Info</span>.</p>
-<p>This extracts system information which can be useful to include in bug reports,
-inspecting the configuration or diagnosing problems.</p>
-<p>You will be prompted to save a text file <code class="docutils literal notranslate"><span class="pre">system-info.txt</span></code>.</p>
-<p>The text file contains sections:</p>
+<span id="help-system-info"></span><h3>Lưu Thông Tin Hệ Thống -- Save System Info<a class="headerlink" href="#save-system-info" title="Permalink to this headline">¶</a></h3>
+<p>Truy cập <span class="menuselection">Help (Trợ Giúp)‣ Save System Info (Lưu Thông Tin Hệ Thống)</span>.</p>
+<p>Thao tác này trích xuất thông tin hệ thống có thể hữu ích để đưa vào các bản báo cáo lỗi phần mềm, kiểm tra cấu hình hoặc chẩn đoán sự cố.</p>
+<p>Bạn sẽ được nhắc để lưu tập tin văn bản <code class="docutils literal notranslate"><span class="pre">system-info.txt</span></code>.</p>
+<p>Tập tin văn bản có chứa các phần sau:</p>
 <dl class="docutils">
 <dt>Blender</dt>
-<dd>This section shows you the Blender version, details about the build configuration,
-and the path in which Blender is running.</dd>
+<dd>Phần này cho bạn thấy số phiên bản của Blender, chi tiết về cấu hình xây dựng (biên dịch) và đường dẫn mà bản Blender đang hoạt động sử dụng.</dd>
 <dt>Python</dt>
-<dd>The Python version you are using, showing the paths of the Python programming language paths.</dd>
-<dt>Directories</dt>
-<dd><p class="first">Paths used for scripts, data files, presets and temporary files.</p>
-<p class="last">Those directories are configured using the <a class="reference internal" href="../preferences/file.html"><span class="doc">User Preferences</span></a> Editor.</p>
+<dd>Phiên bản Python bạn đang sử dụng, hiển thị các đường dẫn về ngôn ngữ lập trình Python.</dd>
+<dt>Các Thư Mục -- Directories</dt>
+<dd><p class="first">Các đường dẫn sử dụng cho các tập lệnh, các tập tin dữ liệu, các giá trị đặt trước và các tập tin tạm thời.</p>
+<p class="last">Những thư mục đó được cấu hình bằng cách sử dụng trình Biên Soạn <a class="reference internal" href="../preferences/file.html"><span class="doc">Tùy Chọn Người Dùng -- User Preferences</span></a>.</p>
 </dd>
 <dt>OpenGL</dt>
-<dd>This section shows the OpenGL version, the name of the manufacturer,
-and lists the capabilities of your hardware and driver.</dd>
+<dd>Phần này hiển thị phiên bản OpenGL, tên của nhà sản xuất và liệt kê các khả năng của phần cứng và trình điều vận (<em>driver</em>) của bạn.</dd>
 </dl>
 </div>
 <div class="section" id="splash-screen">
-<h3>Splash Screen<a class="headerlink" href="#splash-screen" title="Permalink to this headline">¶</a></h3>
-<p>Shows the <a class="reference internal" href="../interface/splash.html#splash"><span class="std std-ref">Splash Screen</span></a>.</p>
+<h3>Màn Hình Chào Đón -- Splash Screen<a class="headerlink" href="#splash-screen" title="Permalink to this headline">¶</a></h3>
+<p>Hiển thị <a class="reference internal" href="../interface/splash.html#splash"><span class="std std-ref">Splash Screen</span></a>.</p>
 </div>
 </div>
 </div>
@@ -342,7 +326,7 @@ and lists the capabilities of your hardware and driver.</dd>
         <a href="../interface/index.html" class="btn btn-neutral float-right" title="Giao Diện Người Dùng -- User Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installing/configuration/directories.html" class="btn btn-neutral" title="Configuring Directories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installing/configuration/directories.html" class="btn btn-neutral" title="Cấu Hình các Thư Mục" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
