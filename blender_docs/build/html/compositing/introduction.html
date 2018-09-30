@@ -101,9 +101,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tổng Hợp -- Compositing</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Giới Thiệu -- Introduction</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-started">Bắt Đầu -- Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#image-size">Image Size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#saving-your-composite-image">Saving your Composite Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Ví Dụ -- Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-size">Kích Thước Hình Ảnh -- Image Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#saving-your-composite-image">Lưu Hình Ảnh Tổng Hợp của bạn -- Saving your Composite Image</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="properties.html">Properties</a></li>
@@ -192,7 +192,7 @@
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
 <p>Thuật Ngữ: Hình Ảnh -- Image</p>
-<p class="last">Thuật ngữ <em>Hình Ảnh</em> có thể ám chỉ đơn cử một hình ảnh, một hình ảnh trong một trình tự nhiều hình ảnh, hoặc một khung hình của một đoạn phim. Trình Tổng Hợp -- <cite>Compositor</cite> -- sẽ xử lý lần lượt từng hình ảnh một, bất kể loại đầu vào bạn cung cấp là gì.</p>
+<p class="last">Thuật ngữ <em>Hình Ảnh</em> có thể ám chỉ đơn cử một hình ảnh, một hình ảnh trong một trình tự của nhiều hình ảnh, hoặc một khung hình của một đoạn phim. Trình Tổng Hợp -- <cite>Compositor</cite> -- sẽ xử lý lần lượt từng hình ảnh một, bất kể loại đầu vào bạn cung cấp là gì.</p>
 </div>
 <p>Để xử lý hình ảnh của bạn, bạn phải sử dụng các nút để nhập hình ảnh vào Blender, thay đổi nó, ngoài ra còn tùy thích hợp nhất nó với các hình ảnh khác, và cuối cùng, lưu nó lại.</p>
 <div class="figure" id="id1">
@@ -206,69 +206,46 @@
 <div class="section" id="getting-started">
 <h2>Bắt Đầu -- Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Truy cập <a class="reference internal" href="../editors/node_editor/index.html"><span class="doc">Trình Biên Soạn Nút</span></a> và cho bật <em>Nút kết hợp</em> bằng cách nhấp vào biểu tượng <em>Hình Ảnh</em>.</p>
-<p>To activate nodes for compositing, click the <em>Use Nodes</em> checkbox
-(see <a class="reference internal" href="properties.html"><span class="doc">Properties</span></a>).</p>
+<p>Để kích hoạt các nút cho quá trình tổng hợp, hãy nhấp chuột vào hộp kiểm <em>Sử Dụng Nút -- Use Nodes</em> (xin xem thêm ở bài <a class="reference internal" href="properties.html"><span class="doc">Properties</span></a>).</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p class="last">After clicking <em>Use Nodes</em> the Compositor is enabled, however,
-it can also be disabled in the <a class="reference internal" href="../render/post_process/panel.html"><span class="doc">Post Processing Panel</span></a>.</p>
+<p class="last">Sau khi nhấp vào <em>Sử Dụng Nút -- Use Nodes</em>, trình Tổng Hợp sẽ được kích hoạt, song, nó cũng có thể bị giải hoạt (<em>disabled : tắt đi</em>) trong <a class="reference internal" href="../render/post_process/panel.html"><span class="doc">Bảng Xử Lý Hậu Kỳ -- Post Processing Panel</span></a>.</p>
 </div>
-<p>You now have your first node setup, from here you can add and connect many types of
-<a class="reference internal" href="index.html"><span class="doc">Compositing Nodes</span></a>, in a sort of map layout,
-to your heart's content (or physical memory constraints, whichever comes first).</p>
+<p>Bây giờ bạn đã thiết lập nút đầu tiên. Từ đây, bạn có thể cho thêm và kết nối nhiều loại <a class="reference internal" href="index.html"><span class="doc">Các Nút Tổng Hợp -- Compositing Nodes</span></a>, trong cách bố trí giống như bản đồ, cho đến khi mãn nguyện thì thôi (hoặc cho đến điểm tới hạn của bộ nhớ, cái nào xảy ra trước còn tùy hoàn cảnh).</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p class="last">Nodes and node concepts are explained in more detail in the <a class="reference internal" href="../editors/node_editor/index.html"><span class="doc">Node Editor</span></a>.</p>
+<p class="last">Các nút và khái niệm về nút đã được giải thích chi tiết trong bài về <a class="reference internal" href="../editors/node_editor/index.html"><span class="doc">Trình Biên Soạn Nút -- Node Editor</span></a>.</p>
 </div>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>You can do just about anything with images using nodes.</p>
-<p>Raw footage from a foreground actor in front of a blue screen,
-or a rendered object doing something, can be layered on top of a background.
-Composite both together, and you have composited footage.</p>
-<p>You can change the mood of an image:</p>
+<h2>Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Bạn có thể làm bất cứ điều gì với các hình ảnh bằng cách sử dụng các nút.</p>
+<p>Đoạn phim thô về một diễn viên nằm ở đằng trước màn hình màu xanh lam, hoặc một đối tượng được kết xuất đang làm gì đó, đều có thể được chồng tầng (<em>layered</em>) trên nền. Tổng hợp cả hai lại với nhau và bạn có một đoạn phim tổng hợp.</p>
+<p>Bạn có thể thay đổi tâm trạng của một hình ảnh:</p>
 <ul class="simple">
-<li>To make an image 'feel' colder, a blue tinge is added.</li>
-<li>To convey a flashback or memory, the image may be softened.</li>
-<li>To convey hatred and frustration, add a red tinge or enhance the red.</li>
-<li>A startling event may be sharpened and contrast-enhanced.</li>
-<li>A happy feeling -- you guessed it -- add yellow (equal parts red and green, no blue) for bright and sunny.</li>
-<li>Dust and airborne dirt are often added as a cloud texture over the image to give a little more realism.</li>
+<li>Để làm cho hình ảnh có 'cảm giác' lạnh hơn, một chuyển sắc màu xanh lam có thể được thêm vào.</li>
+<li>Để truyền tải một hồi tưởng hoặc một kỷ niệm, hình ảnh có thể được làm nhòe đi một cách mềm mại.</li>
+<li>Để truyền đạt lòng hận thù và sự khó chịu, hãy cho thêm màu đỏ hoặc tăng cường màu đỏ lên.</li>
+<li>Một sự kiện đáng kinh ngạc có thể được tăng cường độ rõ nét và độ tương phản lên (để nêu bật).</li>
+<li>Một cảm giác vui vẻ - chắc bạn đoán được rồi - thì thêm màu vàng vào (cho lượng màu đỏ và màu xanh lá cây non bằng nhau, không có màu lam vào) để làm sáng lên và tràn đầy ánh nắng.</li>
+<li>Bụi bẩn và bụi bay trong không khí thường được thêm vào như một chất liệu mây mù che phủ hình ảnh để tạo cảm quan chân thực hơn.</li>
 </ul>
 </div>
 <div class="section" id="image-size">
-<h2>Image Size<a class="headerlink" href="#image-size" title="Permalink to this headline">¶</a></h2>
-<p>It is recommended to pay attention to image resolution and color depth when mixing and
-matching images. Aliasing (rough edges), color <em>flatness</em>,
-or distorted images can all be traced to mixing inappropriate resolutions and color depths.</p>
-<p>The compositor can mix images with any size,
-and will only perform operations on pixels where images have an overlap.
-When nodes receive inputs with differently sized Images, these rules apply:</p>
+<h2>Kích Thước Hình Ảnh -- Image Size<a class="headerlink" href="#image-size" title="Permalink to this headline">¶</a></h2>
+<p>Bạn nên chú ý đến độ phân giải hình ảnh và độ sâu màu (<em>color depth</em>) khi pha trộn và ghép các hình ảnh với nhau. Sự gai góc (các cạnh thô thiển), màu sắc <em>nhạt nhẽo</em> (<em>flatness</em>) hoặc hình ảnh bị méo mó đều có thể lần rò ra được nguyên nhân là do độ phân giải và độ sâu màu khi pha trộn không phù hợp.</p>
+<p>Trình tổng hợp (<em>Compositor</em>) có thể pha trộn các hình ảnh với bất kỳ kích thước nào và sẽ chỉ thực hiện các thao tác trên những điểm ảnh (<em>pixel</em>) nơi hình ảnh bị chồng gối lên nhau. Khi các nút tiếp nhận sự cung cấp dữ liệu từ các đầu vào với các hình ảnh có kích thước khác nhau thì các quy tắc sau đây sẽ được áp dụng:</p>
 <ul class="simple">
-<li>The first/top Image input socket defines the output size.</li>
-<li>The composite is centered by default,
-unless a translation has been assigned to a buffer using a <em>Translate</em> node.</li>
+<li>Ổ cắm đầu vào của Hình ảnh đầu tiên/trên cùng sẽ xác định kích thước ở đầu ra.</li>
+<li>Bản tổng hợp sẽ được đặt ở trung tâm (<em>centered</em>) theo mặc định, trừ khi có một sự dịch chuyển nào đó đã được gán cho bộ đệm (<em>buffer</em>) bằng nút <em>Dịch Chuyển</em> (Translate).</li>
 </ul>
-<p>So each node in a composite can operate on different sized images as defined by its inputs.
-Only the <em>Composite</em> output node has a fixed size,
-as defined by the settings in Properties Editor <span class="menuselection">Render ‣ Dimensions</span>.
-The <em>Viewer</em> node always shows the size from its input, but when not linked
-(or linked to a value) it shows a small 320×256 pixel image.</p>
+<p>Vì vậy, mỗi nút trong một tổng hợp có thể hoạt động trên các hình ảnh có kích thước khác nhau như được xác định bởi các nguồn đầu vào của nó. Chỉ nút đầu ra của <em>Tổng Hợp</em> (Composite) là có kích thước cố định, như được xác định bởi các thiết lập trong Trình Biên Soạn Tính Chất <span class="menuselection">Render ‣ Dimensions</span>. Nút <em>Xem Hình</em> (Viewer) luôn luôn hiển thị kích thước từ nguồn đầu vào của nó, nhưng khi không được kết nối (hoặc được liên kết với một giá trị nào đó), nó sẽ hiển thị một hình ảnh nhỏ với cỡ 320×256 điểm ảnh (pixel).</p>
 </div>
 <div class="section" id="saving-your-composite-image">
-<h2>Saving your Composite Image<a class="headerlink" href="#saving-your-composite-image" title="Permalink to this headline">¶</a></h2>
-<p>The <em>Render</em> button renders a single frame or image.
-Save your image using <span class="menuselection">Image ‣ Save Image</span> or <kbd class="kbd docutils literal notranslate">F3</kbd>.
-The image will be saved using the image format settings on the Render panel.</p>
-<p>To save a sequence of images, for example,
-if you input a movie clip or used a Time node with each frame in its own file,
-use the <em>Animation</em> button and its settings. If you might want to later overlay them,
-be sure to use an image format that supports an Alpha channel (such as <code class="docutils literal notranslate"><span class="pre">PNG</span></code>).
-If you might want to later arrange them front to back or create a depth of field effect,
-use a format that supports a Z-depth channel (such as <code class="docutils literal notranslate"><span class="pre">EXR</span></code>).</p>
-<p>To save a composition as a movie clip (all frames in a single file),
-use an <code class="docutils literal notranslate"><span class="pre">AVI</span></code> or <code class="docutils literal notranslate"><span class="pre">Quicktime</span></code> format, and use the <em>Animation</em> button and its settings.</p>
+<h2>Lưu Hình Ảnh Tổng Hợp của bạn -- Saving your Composite Image<a class="headerlink" href="#saving-your-composite-image" title="Permalink to this headline">¶</a></h2>
+<p>Nút <em>Kết Xuất</em> (Render) chỉ kết xuất một khung hình hoặc một hình ảnh duy nhất mà thôi. Lưu hình ảnh của bạn bằng cách sử dụng <span class="menuselection">Image (Hình Ảnh) ‣ Save Image (Lưu Hình Ảnh)</span> hoặc bấm phím <kbd class="kbd docutils literal notranslate">F3</kbd>. Hình ảnh sẽ được lưu bằng cách sử dụng sắp đặt về định dạng hình ảnh trên bảng <em>Kết Xuất</em> (Render panel).</p>
+<p>Để lưu một trình tự hình ảnh, ví dụ: nếu bạn nhập một đoạn phim (movie clip) hoặc sử dụng nút Thời Gian (Time node) với mỗi khung hình trong tập tin riêng của nó, thì hãy sử dụng nút <em>Hoạt Họa</em> (Animation) và các cài đặt của nó. Nếu như sau này bạn muốn phủ chồng (overlay) lên chúng, thì nên nhớ sử dụng định dạng hình ảnh nào có hỗ trợ kênh Alpha (chẳng hạn như <code class="docutils literal notranslate"><span class="pre">PNG</span></code>). Nếu như sau này bạn muốn sắp xếp chúng từ trước đến sau hoặc muốn tạo độ sâu trường ảnh, thì hãy sử dụng định dạng hỗ trợ kênh chiều sâu Z (Z-depth channel) (chẳng hạn như định dạng <code class="docutils literal notranslate"><span class="pre">EXR</span></code>).</p>
+<p>Để lưu một tổng hợp thành một đoạn phim (movie clip) (tất cả các khung hình nằm trong một tập tin), thì xin sử dụng định dạng <code class="docutils literal notranslate"><span class="pre">AVI</span></code> hoặc <code class="docutils literal notranslate"><span class="pre">Quicktime</span></code>, và sử dụng nút <em>Hoạt Họa</em> (Animation) và các sắp đặt của nó.</p>
 </div>
 </div>
 
