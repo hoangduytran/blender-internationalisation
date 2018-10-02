@@ -57,7 +57,7 @@
           
 
           
-            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+            <a href="../../../../../index.html" class="icon icon-home"> Blender 2.80 Manual
           
 
           
@@ -143,7 +143,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../../index.html">Blender 2.79 Manual</a>
+          <a href="../../../../../index.html">Blender 2.80 Manual</a>
         
       </nav>
 
@@ -272,21 +272,152 @@ Please refer to these pages for detail about the settings for the constraints:</
 </tbody>
 </table>
 </div>
-<p>This panel is used to select the IK Solver type for the armature. <em>Standard</em> or <em>iTaSC</em>.</p>
+<p>This panel is used to select the IK Solver type for the armature. <em>Standard</em> or <em>iTaSC</em>.
+Most the time people will use the <em>Standard</em> IK solver.</p>
 <div class="figure" id="id1">
 <img alt="../../../../../_images/rigging_armatures_posing_bone-constraints_inverse-kinematics_introduction_panel.png" src="../../../../../_images/rigging_armatures_posing_bone-constraints_inverse-kinematics_introduction_panel.png" />
 <p class="caption"><span class="caption-text">The armature IK panel.</span></p>
 </div>
-<p>Most the time people will use the <em>Standard</em> IK solver.
-There is some documentation for
-the <abbr title="instantaneous Task Specification using Constraints">iTaSC</abbr> IK solver here.</p>
-<div class="admonition seealso">
-<p class="first admonition-title">Xem thêm</p>
-<p class="last"><a class="reference external" href="https://wiki.blender.org/index.php/Dev:Source/GameEngine/RobotIKSolver">Robot IK Solver</a>.</p>
+<div class="section" id="standard">
+<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<p>TODO.</p>
+</div>
+<div class="section" id="itasc">
+<span id="rigging-armatures-posing-bone-constraints-ik-model-itasc"></span><span id="bpy-types-itasc"></span><h3>iTaSC<a class="headerlink" href="#itasc" title="Permalink to this headline">¶</a></h3>
+<p>iTaSC stands for instantaneous Task Specification using Constraints.</p>
+<p>iTaSC uses a different method to compute the Jacobian, which makes it able to handle other
+constraints than just end effectors position and orientation: iTaSC is a generic multi-constraint IK solver.
+However, this capability is not yet fully exploited in the current implementation,
+only 2 other types of constraints can be handled: Distance in the cartesian space,
+and Joint Rotation in the joint space. The first one allows maintaining an end-effector
+inside, at, or outside a sphere centered on a target position,
+the second one is the capability to control directly the rotation of a bone relative to its parent.
+Those interested in the mathematics can find a short description of the method used to build the Jacobian here.</p>
+<p>iTaSC accepts a mix of constraints, and multiple constraints per bone:
+the solver computes the optimal pose according to the respective weights of each constraint.
+This is a major improvement from the current constraint system where constraints are solved
+one by one in order of definition so that conflicting constraints overwrite each other.</p>
+<dl class="docutils">
+<dt>Precision</dt>
+<dd>The maximum variation in Blender unit of the end effector between two successive iterations
+at which the solver decides that a stable pose is obtained and stops the iterations.
+Lower values means higher precision on the end effector position.</dd>
+<dt>Iterations</dt>
+<dd>The upper bound for the number of iterations.</dd>
+<dt>Solver</dt>
+<dd><p class="first">Selects the inverse Jacobian solver that iTaSC will use.</p>
+<dl class="docutils">
+<dt><abbr title="Selective Damped Least Square">SDLS</abbr></dt>
+<dd>Computes the damping automatically by estimating the level of 'cancellation' in the armature kinematics.
+This method works well with the Copy Pose constraint but has the inconvenient of damping more than
+necessary around the singular pose, which means slower movements.
+Of course, this is only noticeable in Simulation mode.</dd>
+<dt><abbr title="Damped Least Square">DLS</abbr></dt>
+<dd><p class="first">Computes the damping manually which can provide more reactivity and more precision.</p>
+<dl class="docutils">
+<dt>Damping Max</dt>
+<dd>Maximum amount of damping. Smaller values means less damping, hence more velocity
+and better precision but also more risk of oscillation at singular pose. 0 means no damping at all.</dd>
+<dt>Damping Epsilon</dt>
+<dd>Range of the damping zone around singular pose. Smaller values means smaller zone
+of control and greater risk of passing over the singular pose, which means oscillation.</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Damp and Epsilon must be tuned for each armature. You should use the smallest values that preserve stability.</p>
+</div>
+</dd>
+</dl>
+<div class="last admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<ul class="last simple">
+<li>The SDLS solver is inoperant if you use the Distance constraint.
+You must use the DLS solver if you are going to have a singular pose
+in your animation with the Distance constraint.</li>
+<li>Both solvers perform well if you do not have singular pose.</li>
+</ul>
+</div>
+</dd>
+</dl>
+<div class="section" id="animation">
+<h4>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h4>
+<p>In Animation mode, iTaSC operates like iksolver:
+it is stateless and uses the pose from Fcurves interpolation as the start pose before the IK convergence.
+The target velocity is ignored and the solver converges until the given precision is obtained.
+Still the new solver is usually faster than the old one and provides features that are inherent to iTaSC:
+multiple targets per bone and multiple types of constraints.</p>
+</div>
+<div class="section" id="simulation">
+<h4>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h4>
+<p>The Simulation mode is the stateful mode of the solver: it estimates the targets velocity,
+operates in a 'true time' context, ignores rotation from keyframes
+(except via a joint rotation constraint) and builds up a state cache automatically.</p>
+<dl class="docutils">
+<dt>Reiteration</dt>
+<dd><dl class="first last docutils">
+<dt>Never</dt>
+<dd>The solver starts from the rest pose and does not reiterate (converges) even for the first frame.
+This means that it will take a few frames to get to the target at the start of the animation.</dd>
+<dt>Initial</dt>
+<dd>The solver starts from the rest pose and re-iterates until the given precision is achieved,
+but only on the first frame (i.e. a frame which doesn't have any previous frame in the cache).
+This option basically allows you to chose a different start pose than the rest pose
+and it is the default value. For the subsequent frames, the solver will track the target
+by integrating the joint velocity computed by the Jacobian solver over the time interval
+that the frame represents. The precision of the tracking depends on the feedback coefficient,
+number of substeps and velocity of the target.</dd>
+<dt>Always</dt>
+<dd>The solver re-iterates on each frame until the given precision is achieved.
+This option destroys most of the iTaSC dynamic behavior: the maximum joint velocity
+and the continuity between frames is not guaranteed anymore in compensation of better
+precision on the end effector positions. It is an intermediate mode
+between <em>Animation</em> and real time <em>Simulation</em>.</dd>
+</dl>
+</dd>
+<dt>Auto Step</dt>
+<dd><p class="first">use this option if you want to let the solver decide how many substeps should be executed for each frame.
+A substep is a subdivision on the time between 2 frames for which the solver resolves the
+IK equation and updates the joint position. More substeps means more processing but better precision
+on tracking the targets. The auto step algorithm estimates the optimal number of steps to get
+the best trade off between processing and precision. It works by estimation of the non-linearity
+of the pose and by limiting the amplitude of joint variation during a substep.
+It can be configured with next 2 parameters:</p>
+<dl class="last docutils">
+<dt>Min</dt>
+<dd>Proposed minimum substep duration (in second). The auto step algorithm may decide to reduce the substep further based on joint velocity.</dd>
+<dt>Max</dt>
+<dd>maximum substep duration (in second). The auto step algorthm will not allow substep longer than this value.</dd>
+</dl>
+</dd>
+<dt>Steps</dt>
+<dd>If Auto Step is disabled, you can choose a fixed number of substeps with this parameter.
+Substep should not be longer than 10ms, which means Num Steps=4 for 25 fps animation.
+If the armature seems unstable (vibrates) between frames,
+you can improve the stability by increasing the number of steps.</dd>
+<dt>Feedback</dt>
+<dd>Coefficient on end effector position error to set corrective joint velocity.
+The time constant of the error correction is the inverse of the this value.
+However, this parameter has little effect on the dynamic of the armature
+since the algorithm evaluates the target velocity in any case.
+Setting this parameter to 0 means 'opening the loop':
+the solver tracks the velocity but not the position; the error will accumulate rapidly.
+Setting this value too high means an excessive amount of correction and risk of instability.
+The value should be in the range 20-100. Default value is 20, which means that tracking errors
+are corrected in a typical time of 100-200ms.
+The feedback coefficient is the reason why the armature continues to move slightly
+in Simulation mode even if the target has stopped moving: the residual error
+is progressively suppressed frame after frame.</dd>
+<dt>Max Velocity</dt>
+<dd>Indicative maximum joint velocity in radiant per second.
+This parameter has an important effect on the armature dynamic.
+Smaller value will cause the armature to move slowly and lag behind if the targets are moving rapidly.
+You can simulate an inertia by setting this parameter to a low value.</dd>
+</dl>
+</div>
 </div>
 </div>
 <div class="section" id="bone-ik-panel">
-<h2>Bone IK Panel<a class="headerlink" href="#bone-ik-panel" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-posebone-ik"></span><h2>Bone IK Panel<a class="headerlink" href="#bone-ik-panel" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
 <p class="first admonition-title">Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
@@ -306,15 +437,37 @@ the <abbr title="instantaneous Task Specification using Constraints">iTaSC</abbr
 <p class="caption"><span class="caption-text">The bone IK panel.</span></p>
 </div>
 <dl class="docutils">
+<dt>IK Stretch</dt>
+<dd>Stretch influence to IK target.</dd>
 <dt>Lock</dt>
 <dd>Disallow movement around the axis.</dd>
 <dt>Stiffness</dt>
 <dd>Stiffness around the axis. Influence disabled if using <em>Lock</em>.</dd>
 <dt>Limit</dt>
 <dd>Limit movement around the axis.</dd>
-<dt>Stretch</dt>
-<dd>Stretch influence to IK target.</dd>
 </dl>
+<div class="section" id="itasc-solver">
+<span id="bpy-types-posebone-ik-rotation-weight"></span><span id="bpy-types-posebone-use-ik-rotation-control"></span><h3>iTaSC Solver<a class="headerlink" href="#itasc-solver" title="Permalink to this headline">¶</a></h3>
+<p>If the <a class="reference internal" href="#rigging-armatures-posing-bone-constraints-ik-model-itasc"><span class="std std-ref">iTaSC IK Solver</span></a>
+is used, the bone IK panel changes to add these addition parameters.</p>
+<dl class="docutils">
+<dt>Control Rotation</dt>
+<dd><p class="first">Activates a joint rotation constraint on that bone.
+The pose rotation computed from Action or UI interaction will be converted
+into a joint value and passed to the solver as target for the joint.
+This will give you control over the joint while the solver still tracks the other IK targets.
+You can use this feature to give a preferred pose for joints (e.g. rest pose)
+or to animate a joint angle by playing an action on it.</p>
+<dl class="last docutils">
+<dt>Weight</dt>
+<dd>The importance of the joint rotation constraint in case all constraints cannot be achieved at the same time:
+the constraints with a low weight will be less respected in favor of the constraints with a high weight.
+For example, if you want to enforce strongly the joint rotation, set a high weight on the joint rotation
+constraint and a low weight on the IK constraints.</dd>
+</dl>
+</dd>
+</dl>
+</div>
 </div>
 <div class="section" id="arm-rig-example">
 <h2>Arm Rig Example<a class="headerlink" href="#arm-rig-example" title="Permalink to this headline">¶</a></h2>
@@ -324,7 +477,7 @@ but the forearm can still be twisted manually by pressing <kbd class="kbd docuti
 or by using other constraints.</p>
 <div class="figure align-center" id="id3">
 <img alt="../../../../../_images/rigging_armatures_posing_bone-constraints_inverse-kinematics_introduction_example.png" src="../../../../../_images/rigging_armatures_posing_bone-constraints_inverse-kinematics_introduction_example.png" />
-<p class="caption"><span class="caption-text"><a class="reference external" href="https://wiki.blender.org/index.php/File:IK_Arm_Example.blend">IK Arm Example</a>.</span></p>
+<p class="caption"><span class="caption-text"><a class="reference external" href="https://wiki.blender.org/wiki/File:IK_Arm_Example.blend">IK Arm Example</a>.</span></p>
 </div>
 <p>Note that, if a <em>Pole Target</em> is used, IK locking will not work on the root boot.</p>
 </div>
@@ -367,7 +520,7 @@ or by using other constraints.</p>
 <ul id="versionwrap" role="presentation">
    <li style="float:left" role="presentation">
 		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-		2.79 
+		2.80 
 		</span>
 		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
 			<li role="presentation">Loading...</li>
@@ -389,7 +542,7 @@ or by using other constraints.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../../',
-            VERSION:'2.79',
+            VERSION:'2.80',
             LANGUAGE:'vi',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

@@ -57,7 +57,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home"> Blender 2.79 Manual
+            <a href="../../../index.html" class="icon icon-home"> Blender 2.80 Manual
           
 
           
@@ -146,7 +146,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Blender 2.79 Manual</a>
+          <a href="../../../index.html">Blender 2.80 Manual</a>
         
       </nav>
 
@@ -243,8 +243,64 @@ the <a class="reference internal" href="../../armatures/posing/bone_constraints/
 <dt>Rotation</dt>
 <dd>Chain follows rotation of target.</dd>
 </dl>
+<div class="section" id="itasc-solver">
+<h3>iTaSC Solver<a class="headerlink" href="#itasc-solver" title="Permalink to this headline">¶</a></h3>
+<p>If the <a class="reference internal" href="../../armatures/posing/bone_constraints/inverse_kinematics/introduction.html#rigging-armatures-posing-bone-constraints-ik-model-itasc"><span class="std std-ref">iTaSC IK Solver</span></a>
+is used, the IK Solver Constraint changes to add these addition parameters.</p>
+<dl class="docutils">
+<dt>IK Type</dt>
+<dd><dl class="first last docutils">
+<dt>Copy Pose</dt>
+<dd><p class="first">Equivalent to the traditional end effector position and orientation constraint:
+the end effector is constrained to take the position, and optionally the orientation,
+of a given target, which is set in the target field.</p>
+<dl class="last docutils">
+<dt>Position/Rotation Locking</dt>
+<dd><p class="first">Allows to obtain various effect by not constraining the coordinates along certain axis.</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>Axis Ref</dt>
+<dd><p class="first">Specifies how to compute the axis coordinates.</p>
+<dl class="last docutils">
+<dt>Bone</dt>
+<dd>The coordinates are the position and orientation of the target relative to the bone.</dd>
+<dt>Target</dt>
+<dd>The opposite of <em>Bone</em>, the coordinates are the position and orientation
+of the tip of the bone relative to the target.</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</dd>
+<dt>Distance</dt>
+<dd><p class="first">Specify that the end effector will stay inside, at, or outside a sphere centered on the target object.</p>
+<dl class="last docutils">
+<dt>Limit Mode</dt>
+<dd><dl class="first last docutils">
+<dt>Inside</dt>
+<dd>The end effector will stay inside of the distance from the target object.</dd>
+<dt>Outside</dt>
+<dd>The end effector will stay outside of the distance from the target object.</dd>
+<dt>On Surface</dt>
+<dd>The end effector will stay exactly at the distance from the target object.</dd>
+</dl>
+</dd>
+<dt>Distance</dt>
+<dd>The radius from the target object.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">The <em>Influence</em> parameter is not implemented if <em>Pole Target</em> is used.</p>
+</div>
 <iframe src="https://player.vimeo.com/video/171279647" style="border: 0; height: 345px; width: 560px">
 </iframe></div>
+</div>
 </div>
 
 
@@ -284,7 +340,7 @@ the <a class="reference internal" href="../../armatures/posing/bone_constraints/
 <ul id="versionwrap" role="presentation">
    <li style="float:left" role="presentation">
 		<span id="version-dropdown" class="version-btn" tabindex="0" role="button" aria-label="versions selector" aria-haspopup="true" aria-controls="version-vsnlist" aria-disabled="true">
-		2.79 
+		2.80 
 		</span>
 		<ul id="version-vsnlist" class="version-list" role="menu" aria-labelledby="version-dropdown" aria-hidden="true">
 			<li role="presentation">Loading...</li>
@@ -306,7 +362,7 @@ the <a class="reference internal" href="../../armatures/posing/bone_constraints/
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'2.79',
+            VERSION:'2.80',
             LANGUAGE:'vi',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

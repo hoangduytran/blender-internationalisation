@@ -23,7 +23,7 @@ Scale
 
 *Make Dupli-Face* tool converts linked objects (that share mesh data) into dupli-face instanced.
 This tool creates the parent object (duplicator) with faces where the objects were,
-then it uses *Duplication Faces* to put instances at the location of every created faces.
+then it uses *Duplication Faces* to put instances at the location of every created face.
 
 You can to go back from *DupliFaces* instancing to multiple linked objects using
 :menuselection:`Object --> Apply --> Make Duplicates Real`, :kbd:`Shift-Ctrl-A`.
@@ -31,7 +31,7 @@ You can to go back from *DupliFaces* instancing to multiple linked objects using
 .. seealso:: Example blend-file
 
    Download the blend-file used for the examples on this page
-   `here <https://wiki.blender.org/index.php/File:Manual-2.5-Duplifaces-Example01.blend>`__.
+   `here <https://wiki.blender.org/wiki/File:Manual-2.5-Duplifaces-Example01.blend>`__.
 
 
 Basic Usage
