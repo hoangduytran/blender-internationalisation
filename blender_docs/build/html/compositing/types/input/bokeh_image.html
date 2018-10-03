@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Bokeh Image Node &mdash; Blender Manual</title>
+  <title>Nút Hình Nhòe Bokeh -- Bokeh Image Node &mdash; Blender Manual</title>
   
 
   
@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Các Nút Đầu Vào -- Input Nodes</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Bokeh Image Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Nút Hình Nhòe Bokeh -- Bokeh Image Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="image.html">Image Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mask.html">Mask Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="movie_clip.html">Movie Clip Node</a></li>
@@ -187,7 +187,7 @@
         
           <li><a href="index.html">Các Nút Đầu Vào -- Input Nodes</a> &raquo;</li>
         
-      <li>Bokeh Image Node</li>
+      <li>Nút Hình Nhòe Bokeh -- Bokeh Image Node</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,50 +207,46 @@
            <div itemprop="articleBody">
             
   <div class="section" id="bokeh-image-node">
-<span id="bpy-types-compositornodebokehimage"></span><h1>Bokeh Image Node<a class="headerlink" href="#bokeh-image-node" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-compositornodebokehimage"></span><h1>Nút Hình Nhòe Bokeh -- Bokeh Image Node<a class="headerlink" href="#bokeh-image-node" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../../../_images/compositing_types_input_bokeh-image_node.png" src="../../../_images/compositing_types_input_bokeh-image_node.png" />
-<p class="caption"><span class="caption-text">Bokeh Image Node.</span></p>
+<p class="caption"><span class="caption-text">Nút hình nhòe Bokeh.</span></p>
 </div>
-<p>The <em>Bokeh Image</em> node generates a special input image for use with
-the <a class="reference internal" href="../filter/bokeh_blur.html"><span class="doc">Bokeh Blur</span></a> filter node.</p>
-<p>The <em>Bokeh Image</em> node is designed to create a reference image which simulates optical parameters
-such as aperture shape and lens distortions which have important impacts on bokeh in real cameras.</p>
+<p>Nút <em>Hình Nhòe Bokeh</em> tạo ra một hình ảnh đầu vào đặc biệt để sử dụng với nút lọc <a class="reference internal" href="../filter/bokeh_blur.html"><span class="doc">Nhòe Bokeh -- Bokeh Blur</span></a>.</p>
+<p>Nút <em>Hình Nhòe Bokeh</em> được thiết kế để tạo hình ảnh tham chiếu, mô phỏng các thông số quang học, như hình dạng khẩu độ và những sự biến dạng của ống kính, có tác động quan trọng đến sự làm nhòe kiểu bokeh trong máy ảnh thực.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
-<p>This node has no input sockets.</p>
+<h2>Các đầu vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<p>Nút này không có ổ cắm đầu vào.</p>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
-<p>The first three settings simulate the aperture of the camera.</p>
+<h2>Các Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<p>Ba cài đặt đầu tiên mô phỏng khẩu độ của máy ảnh.</p>
 <dl class="docutils">
-<dt>Flaps</dt>
-<dd>Sets an integer number of blades for the cameras iris diaphragm.</dd>
-<dt>Angle</dt>
-<dd>Gives these blades an angular offset relative to the image plane.</dd>
-<dt>Rounding</dt>
-<dd>Sets the curvature of the blades with (0 to 1) from straight to bringing them to a perfect circle.</dd>
-<dt>Catadioptric</dt>
-<dd>Provides a type of distortion found in mirror lenses and some telescopes.
-This can be useful to produce a visual complex bokeh.</dd>
-<dt>Lens Shift</dt>
-<dd>Introduces chromatic aberration into the blur such as would be caused by a tilt-shift lens.</dd>
+<dt>Số Cánh -- Flaps</dt>
+<dd>Đặt một số nguyên làm số cánh cho mành của đồng tử trong máy ảnh.</dd>
+<dt>Góc Độ -- Angle</dt>
+<dd>Cung cấp các cánh này một góc bù tương đối với bề mặt hình ảnh.</dd>
+<dt>Làm Tròn -- Rounding</dt>
+<dd>Đặt độ cong của các cánh với giá trị (từ 0 đến 1) từ thẳng đến một vòng tròn hoàn hảo.</dd>
+<dt>Khúc Phản Xạ -- Catadioptric</dt>
+<dd>Cung cấp một hình thức biến dạng tìm thấy trong các ống kính phản xạ gương (<em>mirror lenses</em>) và một số kính viễn vọng (<em>telescopes</em>). Cái này có thể hữu ích trong việc tạo ra một hình bokeh trực quan phức tạp.</dd>
+<dt>Dịch Chuyển Thấu Kính -- Lens Shift</dt>
+<dd>Cho thêm quang sai vào những chỗ nhòe mờ, giống như tình trạng gây ra bởi các ống kính có khả năng dịch chuyển/nghiêng (tilt-shift lens).</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Các Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>The generated bokeh image.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Hình ảnh bokeh sinh tạo.</dd>
 </dl>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>In the example below the <em>Bokeh Image</em> is used to define the shape of the bokeh for
-the <a class="reference internal" href="../filter/bokeh_blur.html"><span class="doc">Bokeh Blur</span></a> node.</p>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Trong ví dụ bên dưới <em>Hình ảnh Bokeh</em> (Bokeh Image) được sử dụng để xác định hình bokeh cho nút <a class="reference internal" href="../filter/bokeh_blur.html"><span class="doc">Nhòe Bokeh -- Bokeh Blur</span></a>.</p>
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../../../_images/compositing_types_filter_bokeh-blur_example-1.png"><img alt="../../../_images/compositing_types_filter_bokeh-blur_example-1.png" src="../../../_images/compositing_types_filter_bokeh-blur_example-1.png" style="width: 640px;" /></a>
-<p class="caption"><span class="caption-text">Example of <em>Bokeh Image</em> node.</span></p>
+<p class="caption"><span class="caption-text">Ví dụ về nút <em>Hình Nhòe Bokeh</em> (Bokeh Image).</span></p>
 </div>
 </div>
 </div>
