@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Levels Node &mdash; Blender Manual</title>
+  <title>Nút Mức Độ -- Levels Node &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
     <link rel="next" title="Split Viewer Node" href="split_viewer.html" />
-    <link rel="prev" title="File Output Node" href="file.html" /> 
+    <link rel="prev" title="Nút Xuất Ra Tập Tin -- File Output Node" href="file.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -103,10 +103,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Output Nodes</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="composite.html">Composite Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="file.html">File Output Node</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Levels Node</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Các Nút Đầu Ra -- Output Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="composite.html">Nút Tổng Hợp -- Composite Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file.html">Nút Xuất Ra Tập Tin -- File Output Node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Nút Mức Độ -- Levels Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="split_viewer.html">Split Viewer Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="viewer.html">Viewer Node</a></li>
 </ul>
@@ -180,9 +180,9 @@
         
           <li><a href="../../index.html">Tổng Hợp -- Compositing</a> &raquo;</li>
         
-          <li><a href="index.html">Output Nodes</a> &raquo;</li>
+          <li><a href="index.html">Các Nút Đầu Ra -- Output Nodes</a> &raquo;</li>
         
-      <li>Levels Node</li>
+      <li>Nút Mức Độ -- Levels Node</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,41 +202,36 @@
            <div itemprop="articleBody">
             
   <div class="section" id="levels-node">
-<span id="bpy-types-compositornodelevels"></span><h1>Levels Node<a class="headerlink" href="#levels-node" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-compositornodelevels"></span><h1>Nút Mức Độ -- Levels Node<a class="headerlink" href="#levels-node" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../../../_images/compositing_types_output_levels_node.png" src="../../../_images/compositing_types_output_levels_node.png" />
-<p class="caption"><span class="caption-text">Levels Node.</span></p>
+<p class="caption"><span class="caption-text">Nút Mức Độ.</span></p>
 </div>
-<p>The Levels Node read the inputs color channels
-and outputs analytical values.</p>
+<p>Nút Mức Độ đọc các kênh màu của đầu vào và đưa ra các giá trị phân tích.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Các Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image input.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Hình ảnh cung cấp tiêu chuẩn.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Các Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Channel</dt>
-<dd>C (Combined RGB), R (Red), G (Green), B (Blue), L (Luminance)</dd>
+<dt>Kênh -- Channel</dt>
+<dd>T (RGB Tổng hợp -- Combined RGB), R (Đỏ -- Red), G (Lục -- Green), B (Lam -- Blue), L (Độ Sáng -- Luminance)</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
-<p>1D values based on the levels of an image.</p>
+<h2>Các Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<p>Các giá trị 1D (1 chiều, thay vì 3 chiều) dựa trên mức độ của hình ảnh.</p>
 <dl class="docutils">
-<dt>Mean</dt>
-<dd>The mean is the average value of all image pixels in specified channel
-(combined, red, green, blue, luminance). It tells you how dark or bright the image
-is and can be used as such for setups that depend on how is input &quot;bright&quot; or &quot;dark&quot;.</dd>
-<dt>Standard deviation</dt>
-<dd>How much those pixel values differ from the mean.
-A low standard deviation indicates that the pixel values tend to be very close to the mean.
-A high standard deviation indicates that the values are spread out over a large range of values.</dd>
+<dt>Trung Bình -- Mean</dt>
+<dd>Giá trị trung bình của tất cả các điểm ảnh (<em>pixel</em>) của hình ảnh trong kênh được chỉ định (tổng hợp (cả 3), đỏ, lục, lam, độ sáng). Nó cho bạn biết hình ảnh tối hoặc sáng bao nhiêu và có được sử dụng trong những trường hợp mà các sắp đặt phụ thuộc vào độ &quot;sáng chói (<em>bright</em>)&quot; hoặc độ &quot;tối (<em>dark</em>)&quot;.</dd>
+<dt>Độ Lệch Chuẩn -- Standard deviation</dt>
+<dd>Các giá trị điểm ảnh ấy khác với giá trị trung bình là bao nhiêu. Độ lệch chuẩn thấp cho biết giá trị điểm ảnh có xu hướng rất gần với giá trị trung bình. Độ lệch chuẩn cao chỉ ra rằng các giá trị được trải rộng trên một phạm vi lớn các giá trị.</dd>
 </dl>
-<p>The visualization of such data is just a gray rectangle.</p>
+<p>Sự hình dung các dữ liệu như vậy chỉ là một hình chữ nhật màu xám.</p>
 </div>
 </div>
 
@@ -251,7 +246,7 @@ A high standard deviation indicates that the values are spread out over a large 
         <a href="split_viewer.html" class="btn btn-neutral float-right" title="Split Viewer Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="file.html" class="btn btn-neutral" title="File Output Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="file.html" class="btn btn-neutral" title="Nút Xuất Ra Tập Tin -- File Output Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
