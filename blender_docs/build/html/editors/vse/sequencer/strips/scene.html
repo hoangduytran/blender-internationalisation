@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Scene Strip &mdash; Blender Manual</title>
+  <title>Dải về Cảnh -- Scene Strip &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../../search.html" />
     <link rel="next" title="Clip &amp; Mask Strip" href="clip_mask.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="prev" title="Giới Thiệu -- Introduction" href="introduction.html" /> 
 
   
   <script src="../../../../_static/js/modernizr.min.js"></script>
@@ -94,12 +94,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../index.html#d">3D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../index.html#animation">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html#image-video">Hình Ảnh/Phim Video -- Image/Video</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../uv_image/index.html">UV/Image Editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../movie_clip_editor/index.html">Movie Clip Editor</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Video Sequence Editor</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Sequencer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../preview/index.html">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../uv_image/index.html">Trình Biên Soạn UV/Hình Ảnh -- UV/Image Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../movie_clip_editor/index.html">Trình Biên Soạn Đoạn Phim -- Movie Clip Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Trình Phối Hình Video -- Video Sequence Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="../index.html">Bộ Phối Hình -- Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../preview/index.html">Duyệt Thảo -- Preview</a></li>
 </ul>
 </li>
 </ul>
@@ -174,13 +174,13 @@
         
           <li><a href="../../../index.html">Các Trình Biên Soạn -- Editors</a> &raquo;</li>
         
-          <li><a href="../../index.html">Video Sequence Editor</a> &raquo;</li>
+          <li><a href="../../index.html">Trình Phối Hình Video -- Video Sequence Editor</a> &raquo;</li>
         
-          <li><a href="../index.html">Sequencer</a> &raquo;</li>
+          <li><a href="../index.html">Bộ Phối Hình -- Sequencer</a> &raquo;</li>
         
-          <li><a href="index.html">Strips</a> &raquo;</li>
+          <li><a href="index.html">Dải Phim -- Strips</a> &raquo;</li>
         
-      <li>Scene Strip</li>
+      <li>Dải về Cảnh -- Scene Strip</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,32 +200,32 @@
            <div itemprop="articleBody">
             
   <div class="section" id="scene-strip">
-<span id="bpy-types-scenesequence"></span><h1>Scene Strip<a class="headerlink" href="#scene-strip" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-scenesequence"></span><h1>Dải về Cảnh -- Scene Strip<a class="headerlink" href="#scene-strip" title="Permalink to this headline">¶</a></h1>
 <p>Scene strips are a way to insert the render output of a scene into your sequence.
 Instead of rendering out a video, then inserting the video file, you can insert the scene directly.</p>
 <p>The strip length will be determined based on the animation settings in that scene.</p>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Use Sequence</dt>
+<dt>Dùng Đoạn Phim -- Use Sequence</dt>
 <dd><p class="first">Expand the scenes sequence strips, allowing one scene to reuse another scene's edit
 (instead of taking the render output from the scene).</p>
 <p class="last">This is similar to how <a class="reference internal" href="../meta.html"><span class="doc">Meta Strips</span></a> work,
 with the added advantage of supporting multiple instances of the same data.</p>
 </dd>
-<dt>Camera Override</dt>
+<dt>Thay Thế Máy Quay Phim -- Camera Override</dt>
 <dd><p class="first">This can be used to override the scene's camera with any other object.</p>
 <p class="last">It is useful to support switching views within a single scene.</p>
 </dd>
-<dt>Show Grease Pencil</dt>
+<dt>Hiển Thị Bút Chì Dầu -- Show Grease Pencil</dt>
 <dd>Shows <a class="reference internal" href="../../../../interface/grease_pencil/index.html"><span class="doc">Grease Pencil</span></a> in OpenGL preview.</dd>
-<dt>Audio Volume</dt>
+<dt>Âm Lượng -- Audio Volume</dt>
 <dd>Volume of the audio taken from the chosen scene.</dd>
-<dt>Alpha Mode</dt>
+<dt>Chế Độ Alpha -- Alpha Mode</dt>
 <dd><dl class="first last docutils">
-<dt>Sky</dt>
+<dt>Bầu Trời -- Sky</dt>
 <dd>Fills in a solid background.</dd>
-<dt>Transparent</dt>
+<dt>Trong Suốt -- Transparent</dt>
 <dd>Creates a transparent background.
 This is useful for doing overlays like rendering out Grease Pencil films via the Sequencer.</dd>
 </dl>
@@ -250,7 +250,7 @@ While this is supported, it can be confusing when changing the start and end fra
         <a href="clip_mask.html" class="btn btn-neutral float-right" title="Clip &amp; Mask Strip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral" title="Giới Thiệu -- Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

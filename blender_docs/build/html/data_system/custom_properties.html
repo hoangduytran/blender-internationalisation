@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Custom Properties &mdash; Blender Manual</title>
+  <title>Tính Chất Tùy Chỉnh -- Custom Properties &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
-    <link rel="next" title="Scenes" href="scenes/index.html" />
-    <link rel="prev" title="Data-Blocks" href="data_blocks.html" /> 
+    <link rel="next" title="Cảnh -- Scenes" href="scenes/index.html" />
+    <link rel="prev" title="Khối Dữ Liệu -- Data-Blocks" href="data_blocks.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -92,18 +92,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../interface/index.html">Giao Diện Người Dùng -- User Interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Các Trình Biên Soạn -- Editors</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Hệ Thống Dữ Liệu -- Data System</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="data_blocks.html">Data-Blocks</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Properties</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_blocks.html">Khối Dữ Liệu -- Data-Blocks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tính Chất Tùy Chỉnh -- Custom Properties</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#editing-properties">Editing Properties</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user-interface">User Interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-interface">Giao Diện Người Dùng -- User Interface</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#python-access">Python Access</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="scenes/index.html">Scenes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="files/index.html">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scenes/index.html">Cảnh -- Scenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files/index.html">Tập Tin -- Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linked_libraries.html">Linked Libraries</a></li>
 </ul>
 </li>
@@ -171,7 +171,7 @@
         
           <li><a href="index.html">Hệ Thống Dữ Liệu -- Data System</a> &raquo;</li>
         
-      <li>Custom Properties</li>
+      <li>Tính Chất Tùy Chỉnh -- Custom Properties</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -191,7 +191,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="custom-properties">
-<span id="bpy-ops-wm-properties"></span><span id="bpy-types-bpy-struct"></span><h1>Custom Properties<a class="headerlink" href="#custom-properties" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-ops-wm-properties"></span><span id="bpy-types-bpy-struct"></span><h1>Tính Chất Tùy Chỉnh -- Custom Properties<a class="headerlink" href="#custom-properties" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../_images/data-system_custom-properties_add.png" src="../_images/data-system_custom-properties_add.png" />
 <p class="caption"><span class="caption-text">Custom Properties panel.</span></p>
@@ -210,16 +210,16 @@ found at the bottom of most <a class="reference internal" href="../editors/prope
 <div class="section" id="editing-properties">
 <h2>Editing Properties<a class="headerlink" href="#editing-properties" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="user-interface">
-<h3>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h3>
+<h3>Giao Diện Người Dùng -- User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h3>
 <p>Custom properties can be edited using the panel available for data types that support it.</p>
 <div class="figure align-right" id="id2">
 <img alt="../_images/data-system_custom-properties_edit.png" src="../_images/data-system_custom-properties_edit.png" />
 <p class="caption"><span class="caption-text">Custom Properties edit pop-up.</span></p>
 </div>
 <dl class="docutils">
-<dt>Property Name</dt>
+<dt>Tên Tính Chất -- Property Name</dt>
 <dd>The name of the custom property.</dd>
-<dt>Property Value</dt>
+<dt>Giá Trị -- Property Value</dt>
 <dd><p class="first">This does two things, first it sets the default value of the custom property
 second, it define the type of property it is. For example, custom properties
 can either be of type: Integers, Floats, or Booleans.
@@ -230,7 +230,8 @@ See the table below for a list of examples for each:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Integers:</th><td class="field-body">1, 2, 3, 4...</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Floats:</th><td class="field-body">3.141, 5.0, 6.125,</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Bọt Trôi Nổi -- Floats:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">3.141, 5.0, 6.125,</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Booleans:</th><td class="field-body">True, False</td>
 </tr>
@@ -244,11 +245,11 @@ when using Min/Max values that are integers and that are no more than 1 apart.</
 booleans having one lower, off, value and a higher, on, value.</p>
 </div>
 </dd>
-<dt>Min</dt>
+<dt>Nhỏ Nhất -- Min</dt>
 <dd>The minimum value the custom property can take.</dd>
-<dt>Max</dt>
+<dt>Lớn Nhất -- Max</dt>
 <dd>The maximum value the custom property can take.</dd>
-<dt>Use Soft Limits</dt>
+<dt>Dùng Giới Hạn Năng Động -- Use Soft Limits</dt>
 <dd><p class="first">Enables limits that the <em>Property Value</em> slider can be adjusted to
 without having to input the value numerically.</p>
 <dl class="last docutils">
@@ -258,7 +259,7 @@ without having to input the value numerically.</p>
 <dd>The maximum value for the soft limit.</dd>
 </dl>
 </dd>
-<dt>Tooltip</dt>
+<dt>Chú Giải -- Tooltip</dt>
 <dd>Allows you to write a custom <a class="reference internal" href="../getting_started/help.html"><span class="doc">Tooltip</span></a> for your property.</dd>
 </dl>
 </div>
@@ -282,10 +283,10 @@ for details.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="scenes/index.html" class="btn btn-neutral float-right" title="Scenes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scenes/index.html" class="btn btn-neutral float-right" title="Cảnh -- Scenes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="data_blocks.html" class="btn btn-neutral" title="Data-Blocks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="data_blocks.html" class="btn btn-neutral" title="Khối Dữ Liệu -- Data-Blocks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

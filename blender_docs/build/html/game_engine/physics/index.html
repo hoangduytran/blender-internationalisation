@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Physics &mdash; Blender Manual</title>
+  <title>Vật Lý -- Physics &mdash; Blender Manual</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
-    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="next" title="Giới Thiệu -- Introduction" href="introduction.html" />
     <link rel="prev" title="Dome Camera" href="../camera/dome.html" /> 
 
   
@@ -100,15 +100,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Kết Xuất -- Render</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Tổng Hợp -- Compositing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bộ Máy Trò Chơi -- Game Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">Thế Giới -- World</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Camera</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Physics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Máy Quay Phim -- Camera</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Vật Lý -- Physics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="world.html">World Physics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="converting.html">Converting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#physics-types">Physics Types</a><ul>
@@ -128,7 +128,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Máy Chơi Độc Lập -- Standalone Player</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
         
           <li><a href="../index.html">Bộ Máy Trò Chơi -- Game Engine</a> &raquo;</li>
         
-      <li>Physics</li>
+      <li>Vật Lý -- Physics</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -208,14 +208,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="physics">
-<span id="game-engine-physics-index"></span><h1>Physics<a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h1>
+<span id="game-engine-physics-index"></span><h1>Vật Lý -- Physics<a class="headerlink" href="#physics" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#global-options">Global Options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#object-physics">Object Physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#material-physics">Material Physics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="introduction.html#constraints">Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#material-physics">Vật Lý của Nguyên Liệu -- Material Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#constraints">Ràng Buộc -- Constraints</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#visualizing-physics">Visualizing Physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#mesh-deformations">Mesh Deformations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#digging-deeper">Digging Deeper</a></li>
@@ -225,8 +225,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="world.html">World Physics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="world.html#physics-panel">Physics Panel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="world.html#navigation-mesh">Navigation Mesh</a></li>
-<li class="toctree-l2"><a class="reference internal" href="world.html#obstacle-simulation">Obstacle Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="world.html#navigation-mesh">Khung Lưới Điều Hướng -- Navigation Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="world.html#obstacle-simulation">Mô Phỏng Trở Ngại -- Obstacle Simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="converting.html">Converting</a></li>
@@ -259,7 +259,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Giới Thiệu -- Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../camera/dome.html" class="btn btn-neutral" title="Dome Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

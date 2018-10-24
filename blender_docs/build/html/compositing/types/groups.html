@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Node Groups &mdash; Blender Manual</title>
+  <title>Nhóm Nút -- Node Groups &mdash; Blender Manual</title>
   
 
   
@@ -103,18 +103,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filter/index.html">Filter Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Node Groups</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#make-group">Make Group</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#edit-group">Edit Group</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ungroup">Ungroup</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#group-insert">Group Insert</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Nhóm Nút -- Node Groups</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#make-group">Tạo Nhóm -- Make Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-group">Biên Soạn Nhóm -- Edit Group</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ungroup">Rã Nhóm -- Ungroup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#group-insert">Chèn Thêm vào Nhóm -- Group Insert</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#appending-node-groups">Appending Node Groups</a></li>
 </ul>
 </li>
@@ -180,7 +180,7 @@
         
           <li><a href="../index.html">Tổng Hợp -- Compositing</a> &raquo;</li>
         
-      <li>Node Groups</li>
+      <li>Nhóm Nút -- Node Groups</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,7 +200,7 @@
            <div itemprop="articleBody">
             
   <span class="target" id="bpy-types-compositornodegroup"></span><div class="section" id="node-groups">
-<h1>Node Groups<a class="headerlink" href="#node-groups" title="Permalink to this headline">¶</a></h1>
+<h1>Nhóm Nút -- Node Groups<a class="headerlink" href="#node-groups" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../../_images/editors_node-editor_nodes_groups_node-group-example.png" src="../../_images/editors_node-editor_nodes_groups_node-group-example.png" />
 <p class="caption"><span class="caption-text">Example of a node group.</span></p>
@@ -219,23 +219,25 @@ A better method of reuse is to create node groups, exposing only the variable in
 <p>Also nested node groups are supported. I.e. a node group can be inserted or created inside another node group.</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p>Recursion</p>
+<p>Đệ Quy -- Recursion</p>
 <p class="last">Recursive node groups are prohibited for all the current node systems to prevent infinite recursion.
 A node group can never contain itself (or another group that contains it).</p>
 </div>
 <div class="section" id="make-group">
-<h2>Make Group<a class="headerlink" href="#make-group" title="Permalink to this headline">¶</a></h2>
+<h2>Tạo Nhóm -- Make Group<a class="headerlink" href="#make-group" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Make Group</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Group ‣ Make Group</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-G</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-G</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -265,20 +267,23 @@ and once outside the group in the new material node-network.</dd>
 </div>
 </div>
 <div class="section" id="edit-group">
-<h2>Edit Group<a class="headerlink" href="#edit-group" title="Permalink to this headline">¶</a></h2>
+<h2>Biên Soạn Nhóm -- Edit Group<a class="headerlink" href="#edit-group" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Edit Group</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Group ‣ Edit Group</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Header:</th><td class="field-body"><span class="menuselection">Go to Parent Node Tree</span></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tiêu Đề -- Header:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><span class="menuselection">Go to Parent Node Tree</span></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Tab</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Tab</kbd>, <kbd class="kbd docutils literal notranslate">Ctrl-Tab</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +299,7 @@ While <kbd class="kbd docutils literal notranslate">Tab</kbd> can be used to bot
 <p class="caption"><span class="caption-text">Example of an expanded node group.</span></p>
 </div>
 <div class="section" id="interface">
-<h3>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h3>
+<h3>Giao Diện -- Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="interactively">
 <h4>Interactively<a class="headerlink" href="#interactively" title="Permalink to this headline">¶</a></h4>
 <p>When a node group is created, new <em>Group Input</em> and <em>Group Output</em> nodes are generated
@@ -310,16 +315,16 @@ The process is similar for the <em>Group Output</em> regarding data
 you want to be made available outside the group.</p>
 </div>
 <div class="section" id="panel">
-<h4>Panel<a class="headerlink" href="#panel" title="Permalink to this headline">¶</a></h4>
+<h4>Bảng -- Panel<a class="headerlink" href="#panel" title="Permalink to this headline">¶</a></h4>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Interface</span></td>
+<tr class="field-even field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Interface</span></td>
 </tr>
 </tbody>
 </table>
@@ -340,18 +345,20 @@ if the group has a large number of sockets.</p>
 </div>
 </div>
 <div class="section" id="ungroup">
-<h2>Ungroup<a class="headerlink" href="#ungroup" title="Permalink to this headline">¶</a></h2>
+<h2>Rã Nhóm -- Ungroup<a class="headerlink" href="#ungroup" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Ungroup</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Group ‣ Ungroup</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-G</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-G</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -362,25 +369,26 @@ No internal connections are lost, and now you can thread internal nodes to other
 <dt>Separate <kbd class="kbd docutils literal notranslate">P</kbd></dt>
 <dd><p class="first">Separate selected nodes from the node group.</p>
 <dl class="last docutils">
-<dt>Copy</dt>
+<dt>Sao Chép -- Copy</dt>
 <dd>Copy to parent node tree, keep group intact.</dd>
-<dt>Move</dt>
+<dt>Di Chuyển -- Move</dt>
 <dd>Move to parent node tree, remove from group.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="group-insert">
-<h2>Group Insert<a class="headerlink" href="#group-insert" title="Permalink to this headline">¶</a></h2>
+<h2>Chèn Thêm vào Nhóm -- Group Insert<a class="headerlink" href="#group-insert" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Group ‣ Group Insert</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Group ‣ Group Insert</span></td>
 </tr>
 </tbody>
 </table>
@@ -395,16 +403,18 @@ The node group must be edited to contain a single <em>Group Input</em> and a sin
 <div class="section" id="appending-node-groups">
 <h2>Appending Node Groups<a class="headerlink" href="#appending-node-groups" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Info Editor</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Biên Soạn -- Editor:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Info Editor</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-even field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">File ‣ Link/Append</span></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><span class="menuselection">File ‣ Link/Append</span></td>
 </tr>
 </tbody>
 </table>

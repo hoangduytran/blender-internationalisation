@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Nút Bộ Lọc -- Filter Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -217,34 +217,34 @@
 </div>
 <p>The Blur node blurs an image, providing several blur modes.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image input.</dd>
-<dt>Size</dt>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu vào hình ảnh tiêu chuẩn.</dd>
+<dt>Kích Thước -- Size</dt>
 <dd>The optional Size input will be multiplied with the X and Y blur radius values.
 It accepts also a value image, to control the blur radius with a mask.
 The values should be mapped between (0 to 1) for an optimal effect.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Type</dt>
+<dt>Thể Loại -- Type</dt>
 <dd><p class="first">The difference between the types is in the way they handle sharp edges, smooth gradients and
 preserve the highs and the lows.</p>
 <dl class="last docutils">
-<dt>Flat</dt>
+<dt>Bằng Phẳng -- Flat</dt>
 <dd>Simply blurs everything uniformly.</dd>
-<dt>Tent</dt>
+<dt>Hình Lều -- Tent</dt>
 <dd>Preserves the high and the lows better by making a linear falloff.</dd>
-<dt>Quadratic</dt>
+<dt>Bậc Hai -- Quadratic</dt>
 <dd>Looks similar to <em>Gaussian</em> but can be a little faster but slightly worse looking.</dd>
-<dt>Cubic</dt>
+<dt>Lập Phương -- Cubic</dt>
 <dd>Preserve the highs, but give an almost out-of-focus blur while smoothing sharp edges.</dd>
-<dt>Gaussian</dt>
+<dt>Gauss -- Gaussian</dt>
 <dd>Gives the best looking results but tends to be the slowest.</dd>
-<dt>Fast Gaussian</dt>
+<dt>Guass Nhanh -- Fast Gaussian</dt>
 <dd>An approximation of the Gaussian.</dd>
 <dt>Catmull-Rom</dt>
 <dd>Catmull-Rom keeps sharp contrast edges crisp.</dd>
@@ -252,38 +252,38 @@ preserve the highs and the lows.</p>
 <dd>Preserve the highs, but give an almost out-of-focus blur while smoothing sharp edges.</dd>
 </dl>
 </dd>
-<dt>Variable Size</dt>
+<dt>Kích Thước Biến Thiên -- Variable Size</dt>
 <dd><p class="first">Allows a variable blur radius, if the size input is an image.</p>
 <dl class="last docutils">
-<dt>Bokeh</dt>
+<dt>Nhòe Bokeh -- Bokeh</dt>
 <dd>The Bokeh button will force the blur node to use a circular blur filter.
 This gives higher quality results, but is slower than using a normal filter.</dd>
 </dl>
 </dd>
 <dt>Gamma</dt>
 <dd>The Gamma button applies a gamma correction on the image before blurring it.</dd>
-<dt>Relative</dt>
+<dt>Tương Đối -- Relative</dt>
 <dd><p class="first">Percentage Value of the blur radius relative to the image size.</p>
 <dl class="last docutils">
-<dt>Aspect Correction</dt>
+<dt>Điều Chỉnh Tỷ Lệ Tương Quan -- Aspect Correction</dt>
 <dd>None, Y, X</dd>
 </dl>
 </dd>
 <dt>X, Y</dt>
 <dd>Values set the ellipsoid radius in numbers of pixels over which to spread the blur effect.</dd>
-<dt>Extend Bounds</dt>
+<dt>Nới Rộng Đường Biên -- Extend Bounds</dt>
 <dd>Allows the image, that is being blurred, to extend past its original dimension.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image output.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu ra tiêu chuẩn của hình ảnh.</dd>
 </dl>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils" id="id2">
 <caption><span class="caption-text">Blur node blur modes using 20% of image size as XY, no Bokeh/Gamma.</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>

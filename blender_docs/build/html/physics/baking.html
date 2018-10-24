@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
-    <link rel="next" title="Force Fields" href="force_fields/index.html" />
-    <link rel="prev" title="Gravity" href="gravity.html" /> 
+    <link rel="next" title="Trường Lực -- Force Fields" href="force_fields/index.html" />
+    <link rel="prev" title="Trọng Lực -- Gravity" href="gravity.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -97,10 +97,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Lắp Ráp -- Rigging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Vật Lý -- Physics</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gravity.html">Gravity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gravity.html">Trọng Lực -- Gravity</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Baking Physics Simulations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Tùy Chọn -- Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#baking">Baking</a></li>
 </ul>
 </li>
@@ -216,36 +216,36 @@ Renaming a cache can be done by either double-clicking or pressing <kbd class="k
 </dd>
 </dl>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Disk Cache</dt>
+<dt>Bộ Nhớ Đệm trên Đĩa -- Disk Cache</dt>
 <dd><p class="first">The cache of a baked simulation will be stored inside the blend-file when you save it.
 When <em>Disk Cache</em> is checked, Blender will save the Cache separately to the drive
 in a folder named <code class="docutils literal notranslate"><span class="pre">blendcache_[filename]</span></code> alongside the blend-file.
 (The blend-file must be saved first.)</p>
 <dl class="last docutils">
-<dt>Use Lib Path</dt>
+<dt>Dùng Đường Dẫn Thư Viện -- Use Lib Path</dt>
 <dd><p class="first">Share the disk cache when the physics object is
 <a class="reference internal" href="../data_system/linked_libraries.html"><span class="doc">linked</span></a> into another blend-file.</p>
 <p class="last">When this option is enabled, linked versions of the object will reference the same disk cache.
 Otherwise linked versions of the object will use independent caches.</p>
 </dd>
-<dt>Compression</dt>
+<dt>Nén -- Compression</dt>
 <dd><p class="first">The compression level for cache files. Some physics caches can be very large (such as smoke).
 Blender can compress these caches in order to save space.</p>
 <dl class="last docutils">
-<dt>None</dt>
+<dt>Không Có -- None</dt>
 <dd>Do not compress the cache.</dd>
-<dt>Light</dt>
+<dt>Nhẹ -- Light</dt>
 <dd>Compression will optimize the speed of compressing/decompressing operations over file size.</dd>
-<dt>Heavy</dt>
+<dt>Nặng -- Heavy</dt>
 <dd>Compression will result in smaller cache files more than <em>Light</em>,
 however, requires more CPU time to compress/decompress.</dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt>External</dt>
+<dt>Bên Ngoài -- External</dt>
 <dd><p class="first">Allows you to read the cache from a drive using a user-specified file path.</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
@@ -256,11 +256,11 @@ The cache files name format is <code class="docutils literal notranslate"><span 
 <dl class="last docutils">
 <dt>Index Number</dt>
 <dd>The index number of cache files. (The last two digits of the files name.)</dd>
-<dt>File Path</dt>
+<dt>Tập Tin -- File Path</dt>
 <dd>Select the directory path to the cache files.</dd>
 </dl>
 </dd>
-<dt>Start</dt>
+<dt>Bắt Đầu -- Start</dt>
 <dd>Frame on which to start the simulation.</dd>
 <dt>End</dt>
 <dd><p class="first">Frame on which to stop the simulation.</p>
@@ -271,7 +271,7 @@ in between the <em>Start</em> and <em>End</em> frames of the <em>Cache</em> pane
 So if you want a simulation that is longer than the default frame range you have to change the <em>End</em> frame.</p>
 </div>
 </dd>
-<dt>Cache Step</dt>
+<dt>Bước Bộ Nhớ Đệm -- Cache Step</dt>
 <dd><p class="first">Interval for storing simulation data.</p>
 <div class="last admonition note">
 <p class="first admonition-title">Ghi chú</p>
@@ -287,37 +287,37 @@ but the result may differ from the original simulation.</p>
 <div class="section" id="baking">
 <span id="physics-bake"></span><h2>Baking<a class="headerlink" href="#baking" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Bake</dt>
+<dt>Nướng -- Bake</dt>
 <dd>Start baking.
 Blender will become unresponsive during most baking operations.
 The cursor will display as a number representing the progress of the baking.
 You need to be in Object Mode to bake.</dd>
 </dl>
 <dl class="docutils" id="free-physics-bake">
-<dt>Free Bake</dt>
+<dt>Phóng Thích Nướng -- Free Bake</dt>
 <dd>Mark the baked cache as temporary. The data will still exist,
 but will be removed with the next object modification and frame change.
 This button is only available when the physics system has been baked.</dd>
 </dl>
 <dl class="docutils" id="calc-physics-bake-to-frame">
-<dt>Calculate To Frame</dt>
+<dt>Tính đến Khung Hình -- Calculate To Frame</dt>
 <dd>Bake only up to the current frame. Limited by <em>End</em> frame set in the cache settings.</dd>
-<dt>Current Cache to Bake</dt>
+<dt>Bộ Nhớ Đệm Hiện Tại thành Nướng -- Current Cache to Bake</dt>
 <dd>Store any temporarily cached simulation data as a bake.
 Note that playing the animation will try to simulate any visible physics simulations.
 Depending on the physics type, this data may be temporarily cached.
 Normally such temporary caches are cleared when an object or setting is
 modified, but converting it to a bake will &quot;save&quot; it.</dd>
-<dt>Bake All Dynamics</dt>
+<dt>Nướng Tất Cả các Động Năng -- Bake All Dynamics</dt>
 <dd><p class="first">Bake all physics systems in the scene, even those of different types.
 Useful for baking complex setups involving interactions between different physics types.</p>
 <p class="last">See <a class="reference internal" href="#physics-bake"><span class="std std-ref">Bake</span></a>.</p>
 </dd>
-<dt>Free All Bakes</dt>
+<dt>Phóng Thích Tất Cả các Nướng -- Free All Bakes</dt>
 <dd><p class="first">Free bakes of all physics systems in the scene, even those of different types.</p>
 <p class="last">See <a class="reference internal" href="#free-physics-bake"><span class="std std-ref">Free Bake</span></a>.</p>
 </dd>
-<dt>Update All To Frame</dt>
+<dt>Cập Nhật Tất Cả vào Khung Hình -- Update All To Frame</dt>
 <dd><p class="first">Bake all physics systems in the scene to the current frame.</p>
 <p class="last">See <a class="reference internal" href="#calc-physics-bake-to-frame"><span class="std std-ref">Calculate To Frame</span></a>.</p>
 </dd>
@@ -333,10 +333,10 @@ Useful for baking complex setups involving interactions between different physic
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="force_fields/index.html" class="btn btn-neutral float-right" title="Force Fields" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="force_fields/index.html" class="btn btn-neutral float-right" title="Trường Lực -- Force Fields" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gravity.html" class="btn btn-neutral" title="Gravity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gravity.html" class="btn btn-neutral" title="Trọng Lực -- Gravity" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

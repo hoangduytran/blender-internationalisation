@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Troubleshooting &mdash; Blender Manual</title>
+  <title>Xử Lý Sự Cố -- Troubleshooting &mdash; Blender Manual</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
-    <link rel="next" title="Markers" href="../markers.html" />
+    <link rel="next" title="Các Dấu Mốc -- Markers" href="../markers.html" />
     <link rel="prev" title="Workflow &amp; Examples" href="workflow_examples.html" /> 
 
   
@@ -96,24 +96,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../../sculpt_paint/index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../rigging/index.html">Lắp Ráp -- Rigging</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Hoạt Họa -- Animation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Keyframes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../actions.html">Actions</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Drivers</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="drivers_panel.html">Drivers Panel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../keyframes/index.html">Khung Khóa -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actions.html">Hành Động -- Actions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Bộ Điều Vận -- Drivers</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="drivers_panel.html">Bảng các Bộ Điều Vận -- Drivers Panel</a></li>
 <li class="toctree-l3"><a class="reference internal" href="workflow_examples.html">Workflow &amp; Examples</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#scripted-expression">Scripted Expression</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Xử Lý Sự Cố -- Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scripted-expression">Biểu Thức Tập Lệnh -- Scripted Expression</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rotational-properties-are-radians">Rotational Properties are Radians</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#intra-armature-bone-drivers-can-misbehave">Intra-armature Bone Drivers can Misbehave</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../markers.html">Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Shape Keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../markers.html">Các Dấu Mốc -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../shape_keys/index.html">Hình Mẫu -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../motion_paths.html">Đường Chuyển Động -- Motion Paths</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
@@ -176,9 +176,9 @@
         
           <li><a href="../index.html">Hoạt Họa -- Animation</a> &raquo;</li>
         
-          <li><a href="index.html">Drivers</a> &raquo;</li>
+          <li><a href="index.html">Bộ Điều Vận -- Drivers</a> &raquo;</li>
         
-      <li>Troubleshooting</li>
+      <li>Xử Lý Sự Cố -- Troubleshooting</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,10 +198,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="troubleshooting">
-<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<h1>Xử Lý Sự Cố -- Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
 <p>Some common problems people may run into when using drivers.</p>
 <div class="section" id="scripted-expression">
-<h2>Scripted Expression<a class="headerlink" href="#scripted-expression" title="Permalink to this headline">¶</a></h2>
+<h2>Biểu Thức Tập Lệnh -- Scripted Expression<a class="headerlink" href="#scripted-expression" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id1">
 <img alt="../../_images/animation_drivers_troubleshooting_autorun-graph-editor.png" src="../../_images/animation_drivers_troubleshooting_autorun-graph-editor.png" />
 <p class="caption"><span class="caption-text">An Auto-execution warning in the Drivers panel.</span></p>
@@ -258,7 +258,7 @@ on a different frame number or because you are skipping already rendered frames)
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../markers.html" class="btn btn-neutral float-right" title="Markers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../markers.html" class="btn btn-neutral float-right" title="Các Dấu Mốc -- Markers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="workflow_examples.html" class="btn btn-neutral" title="Workflow &amp; Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Frame Node &mdash; Blender Manual</title>
+  <title>Nút Khung Hình -- Frame Node &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
     <link rel="next" title="Reroute Node" href="reroute.html" />
-    <link rel="prev" title="Node Groups" href="groups.html" /> 
+    <link rel="prev" title="Nhóm Nút -- Node Groups" href="groups.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -95,14 +95,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../index.html#animation">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Hình Ảnh/Phim Video -- Image/Video</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#nodes-logic">Nút/Lôgic -- Nodes/Logic</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../text_editor.html">Text Editor</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Node Editor</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../text_editor.html">Trình Biên Soạn Văn Bản -- Text Editor</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Trình Biên Soạn Nút -- Node Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../navigate.html">Navigating</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="index.html">Nodes</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Nút -- Nodes</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../logic_editor.html">Logic Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../logic_editor.html">Trình Biên Soạn Lôgic -- Logic Editor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../index.html#settings">Sắp Đặt -- Settings</a></li>
@@ -174,11 +174,11 @@
         
           <li><a href="../../index.html">Các Trình Biên Soạn -- Editors</a> &raquo;</li>
         
-          <li><a href="../index.html">Node Editor</a> &raquo;</li>
+          <li><a href="../index.html">Trình Biên Soạn Nút -- Node Editor</a> &raquo;</li>
         
-          <li><a href="index.html">Nodes</a> &raquo;</li>
+          <li><a href="index.html">Nút -- Nodes</a> &raquo;</li>
         
-      <li>Frame Node</li>
+      <li>Nút Khung Hình -- Frame Node</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,45 +198,47 @@
            <div itemprop="articleBody">
             
   <div class="section" id="frame-node">
-<span id="bpy-types-nodeframe"></span><h1>Frame Node<a class="headerlink" href="#frame-node" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-nodeframe"></span><h1>Nút Khung Hình -- Frame Node<a class="headerlink" href="#frame-node" title="Permalink to this headline">¶</a></h1>
 <p>The Frame node is a useful tool for organizing nodes by collecting related nodes together in a common area.
 Frames are useful when a node setup becomes large and confusing yet the re-usability of a Node Group is not required.</p>
 <div class="figure">
 <img alt="../../../_images/editors_node-editor_nodes_frame_example.png" src="../../../_images/editors_node-editor_nodes_frame_example.png" />
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-right">
 <img alt="../../../_images/editors_node-editor_nodes_frame_properties.png" src="../../../_images/editors_node-editor_nodes_frame_properties.png" />
 </div>
 <dl class="docutils">
 <dt>Label size</dt>
 <dd>Font size of the label. For example, for subordinate frames to have smaller titles.</dd>
-<dt>Shrink</dt>
+<dt>Co Lại -- Shrink</dt>
 <dd>Once a node is placed in the Frame, the Frame shrinks around it so as to remove wasted space.
 At this point it is no longer possible to grab the edge of the Frame to resize it, instead resizing occurs
 automatically when nodes within the Frame are rearranged.
 This behavior can be changed by disabling this option.</dd>
-<dt>Text</dt>
+<dt>Văn Bản -- Text</dt>
 <dd>When you need to display more comprehensive text, frame nodes can display the contents of a text data-block.
 This is read-only, so you will need to use the <em>Text Editor</em> to modify the contents.</dd>
 </dl>
 </div>
 <div class="section" id="editing">
-<h2>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<h2>Biên Soạn -- Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="join-in-new-frame">
-<h3>Join in New Frame<a class="headerlink" href="#join-in-new-frame" title="Permalink to this headline">¶</a></h3>
+<h3>Hội Nhập vào Khung Mới -- Join in New Frame<a class="headerlink" href="#join-in-new-frame" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Join in new Frame</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Node ‣ Join in new Frame</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-J</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-J</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -246,14 +248,15 @@ This is read-only, so you will need to use the <em>Text Editor</em> to modify th
 <div class="section" id="add-to-frame">
 <h3>Add to Frame<a class="headerlink" href="#add-to-frame" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-P</kbd></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-P</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -263,18 +266,20 @@ by selecting the node(s) then the frame and using <kbd class="kbd docutils liter
 This can be thought of as Parenting the selection to the frame.</p>
 </div>
 <div class="section" id="remove-from-frame">
-<h3>Remove from Frame<a class="headerlink" href="#remove-from-frame" title="Permalink to this headline">¶</a></h3>
+<h3>Xóa khỏi Khung -- Remove from Frame<a class="headerlink" href="#remove-from-frame" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Node ‣ Remove from Frame</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Node ‣ Remove from Frame</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-P</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Alt-P</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -296,7 +301,7 @@ This can be thought of as unparenting the selection from the frame.</p>
         <a href="reroute.html" class="btn btn-neutral float-right" title="Reroute Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="groups.html" class="btn btn-neutral" title="Node Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="groups.html" class="btn btn-neutral" title="Nhóm Nút -- Node Groups" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

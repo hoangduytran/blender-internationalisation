@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Actions &mdash; Blender Manual</title>
+  <title>Hành Động -- Actions &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
-    <link rel="next" title="Drivers" href="drivers/index.html" />
-    <link rel="prev" title="Keying Sets" href="keyframes/keying_sets.html" /> 
+    <link rel="next" title="Bộ Điều Vận -- Drivers" href="drivers/index.html" />
+    <link rel="prev" title="Bộ Khóa -- Keying Sets" href="keyframes/keying_sets.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -96,17 +96,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Lắp Ráp -- Rigging</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoạt Họa -- Animation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Keyframes</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Actions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Khung Khóa -- Keyframes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Hành Động -- Actions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#working-with-actions">Working with Actions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#bake-action">Bake Action</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bake-action">Nướng Hành Động -- Bake Action</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="markers.html">Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Shape Keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Bộ Điều Vận -- Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">Các Dấu Mốc -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Hình Mẫu -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Đường Chuyển Động -- Motion Paths</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Vật Lý -- Physics</a></li>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">Hoạt Họa -- Animation</a> &raquo;</li>
         
-      <li>Actions</li>
+      <li>Hành Động -- Actions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,7 +189,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="actions">
-<span id="bpy-ops-action"></span><span id="bpy-types-action"></span><h1>Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-ops-action"></span><span id="bpy-types-action"></span><h1>Hành Động -- Actions<a class="headerlink" href="#actions" title="Permalink to this headline">¶</a></h1>
 <p>When animating objects and properties in Blender, Actions record and contain the data.
 As everything else in Blender, Actions are data-blocks.</p>
 <div class="figure" id="id1">
@@ -207,16 +207,16 @@ if all objects have <em>X location</em> and <em>Y location</em> properties benea
 <p class="caption"><span class="caption-text">Graph Editor. Each Channel has an F-Curve represented by the lines between the keyframes.</span></p>
 </div>
 <dl class="docutils">
-<dt>Actions</dt>
+<dt>Hành Động -- Actions</dt>
 <dd>Record and contain animation data.</dd>
-<dt>Groups</dt>
+<dt>Nhóm -- Groups</dt>
 <dd>Are groups of channels.</dd>
-<dt>Channels</dt>
+<dt>Kênh -- Channels</dt>
 <dd>Record properties.</dd>
-<dt>F-Curves</dt>
+<dt>Đường Cong-F -- F-Curves</dt>
 <dd><a class="reference internal" href="../editors/graph_editor/fcurves/introduction.html"><span class="doc">F-Curves</span></a> are used to
 interpolate the difference between the keyframes.</dd>
-<dt>Keyframes</dt>
+<dt>Khung Khóa -- Keyframes</dt>
 <dd><a class="reference internal" href="keyframes/introduction.html"><span class="doc">Keyframes</span></a> are used to
 set the values of properties bound to a point in time.</dd>
 </dl>
@@ -238,20 +238,22 @@ this will give the actions a <em>Fake User</em> and will make Blender save the u
 The <a class="reference internal" href="../editors/nla/index.html"><span class="doc">NLA Editor</span></a> is used to blend multiple actions together.</p>
 </div>
 <div class="section" id="bake-action">
-<span id="bpy-ops-nla-bake"></span><h2>Bake Action<a class="headerlink" href="#bake-action" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-ops-nla-bake"></span><h2>Nướng Hành Động -- Bake Action<a class="headerlink" href="#bake-action" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Biên Soạn -- Editor:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Khung Nhìn 3D -- 3D View</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object and Pose Modes</td>
+<tr class="field-even field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Object and Pose Modes</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Action: Bake Action</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Action: Bake Action</span></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Object/Pose ‣ Animation ‣ Bake Action...</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Object/Pose ‣ Animation ‣ Bake Action...</span></td>
 </tr>
 </tbody>
 </table>
@@ -270,10 +272,10 @@ This can also useful for keyframe animations created from drivers or constraints
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="drivers/index.html" class="btn btn-neutral float-right" title="Drivers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="drivers/index.html" class="btn btn-neutral float-right" title="Bộ Điều Vận -- Drivers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="keyframes/keying_sets.html" class="btn btn-neutral" title="Keying Sets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="keyframes/keying_sets.html" class="btn btn-neutral" title="Bộ Khóa -- Keying Sets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

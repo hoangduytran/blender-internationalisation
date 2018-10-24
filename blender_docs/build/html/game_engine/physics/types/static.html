@@ -100,15 +100,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Kết Xuất -- Render</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Tổng Hợp -- Compositing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Bộ Máy Trò Chơi -- Game Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Game Logic Screen Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials.html">Game Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Thế Giới -- World</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Logic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Máy Quay Phim -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Vật Lý -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../world.html">World Physics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converting.html">Converting</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
@@ -128,7 +128,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../performance.html">Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Máy Chơi Độc Lập -- Standalone Player</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Licensing of Blender Games</a></li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
         
           <li><a href="../../index.html">Bộ Máy Trò Chơi -- Game Engine</a> &raquo;</li>
         
-          <li><a href="../index.html">Physics</a> &raquo;</li>
+          <li><a href="../index.html">Vật Lý -- Physics</a> &raquo;</li>
         
       <li>Static Physics</li>
     
@@ -226,26 +226,26 @@ is a Triangle Mesh, meaning it is higher in computational requirements but also 
 This in turn means the &quot;Radius&quot; option has no effect by default.</p>
 <p>For more documentation, see the general <a class="reference internal" href="../index.html"><span class="doc">physics page</span></a>.</p>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p>bpy Access</p>
+<p>Truy Cập bpy -- bpy Access</p>
 <p class="last">Note that, most of these properties are accessible through
 the non-BGE scripting API via <code class="docutils literal notranslate"><span class="pre">bpy.data.objects[&quot;ObjectName&quot;].game</span></code>,
 which is of type <code class="docutils literal notranslate"><span class="pre">bpy.types.GameObjectSetting</span></code>. This is useful,
 for example, to set a range of objects to have gradated values via a for-loop.</p>
 </div>
 <dl class="docutils">
-<dt>Actor</dt>
+<dt>Diễn Viên -- Actor</dt>
 <dd>Enables detection by Near and Radar Sensors.</dd>
-<dt>Ghost</dt>
+<dt>Ảo Ảnh -- Ghost</dt>
 <dd>Disables collisions completely, similar to No Collision.</dd>
-<dt>Invisible</dt>
+<dt>Vô Hình -- Invisible</dt>
 <dd>Does not display, the same as setting the object to unrendered
 (such as unchecking the camera icon in the Outliner).</dd>
-<dt>Radius</dt>
+<dt>Bán Kính -- Radius</dt>
 <dd>See <a class="reference internal" href="rigid_body.html#game-engine-physics-collision-bounds-radius"><span class="std std-ref">rigid body</span></a>.</dd>
-<dt>Anisotropic Friction</dt>
+<dt>Ma Sát Dị Hướng -- Anisotropic Friction</dt>
 <dd>Isotropic friction is identical at all angles. Anisotropic is directionally-dependent.
 Here you can vary the coefficients for the three axes individually, or disable friction entirely.
 Python properties: <code class="docutils literal notranslate"><span class="pre">obj.game.use_anisotropic_friction</span></code>
@@ -253,13 +253,13 @@ Python properties: <code class="docutils literal notranslate"><span class="pre">
 </dl>
 </div>
 <div class="section" id="collision-bounds">
-<h2>Collision Bounds<a class="headerlink" href="#collision-bounds" title="Permalink to this headline">¶</a></h2>
+<h2>Ranh Giới Va Đập -- Collision Bounds<a class="headerlink" href="#collision-bounds" title="Permalink to this headline">¶</a></h2>
 <p>The Static type differs from the others in that it defaults to a Triangle Mesh bounds,
 instead of a simple sphere.
 See <a class="reference internal" href="rigid_body.html#game-engine-physics-object-collision-bounds"><span class="std std-ref">rigid body</span></a>.</p>
 </div>
 <div class="section" id="create-obstacle">
-<h2>Create Obstacle<a class="headerlink" href="#create-obstacle" title="Permalink to this headline">¶</a></h2>
+<h2>Tạo Trướng Ngại Vật -- Create Obstacle<a class="headerlink" href="#create-obstacle" title="Permalink to this headline">¶</a></h2>
 <p>Todo</p>
 </div>
 </div>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Passes &mdash; Blender Manual</title>
+  <title>Các Lượt -- Passes &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
-    <link rel="next" title="Denoising" href="denoising.html" />
-    <link rel="prev" title="Layers" href="layers.html" /> 
+    <link rel="next" title="Lọc Nhiễu -- Denoising" href="denoising.html" />
+    <link rel="prev" title="Các Tầng Lớp -- Layers" href="layers.html" /> 
 
   
   <script src="../../../../../_static/js/modernizr.min.js"></script>
@@ -98,17 +98,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Lamps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../world.html">World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Nguyên Liệu -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Đèn -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">Thế Giới -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../nodes/index.html">Nút -- Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Máy Quay Phim -- Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../features.html">Render Features</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Cycles Settings</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Sắp Đặt Cycles -- Cycles Settings</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">Scene Settings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../objects/index.html">Object Settings</a></li>
 </ul>
@@ -119,10 +119,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -186,13 +186,13 @@
         
           <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
         
-          <li><a href="../../index.html">Cycles Settings</a> &raquo;</li>
+          <li><a href="../../index.html">Sắp Đặt Cycles -- Cycles Settings</a> &raquo;</li>
         
           <li><a href="../index.html">Scene Settings</a> &raquo;</li>
         
           <li><a href="index.html">Render Layer Settings</a> &raquo;</li>
         
-      <li>Passes</li>
+      <li>Các Lượt -- Passes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -212,14 +212,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="passes">
-<span id="render-cycles-passes"></span><h1>Passes<a class="headerlink" href="#passes" title="Permalink to this headline">¶</a></h1>
+<span id="render-cycles-passes"></span><h1>Các Lượt -- Passes<a class="headerlink" href="#passes" title="Permalink to this headline">¶</a></h1>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Render Layers ‣ Passes</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Render Layers ‣ Passes</span></td>
 </tr>
 </tbody>
 </table>
@@ -229,15 +229,15 @@ and also to extract data such as depth or normals.</p>
 <div class="section" id="lighting-passes">
 <h2>Lighting Passes<a class="headerlink" href="#lighting-passes" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Diffuse Direct</dt>
+<dt>Khuếch Tán Trực Tiếp -- Diffuse Direct</dt>
 <dd>Direct lighting from diffuse BSDFs. We define direct lighting as coming from lamps, emitting surfaces,
 the background, or ambient occlusion after a single reflection or transmission off a surface.
 BSDF color is not included in this pass.</dd>
-<dt>Diffuse Indirect</dt>
+<dt>Khuếch Tán Gián Tiếp -- Diffuse Indirect</dt>
 <dd>Indirect lighting from diffuse BSDFs. We define indirect lighting as coming from lamps,
 emitting surfaces or the background after more than one reflection or transmission off a surface.
 BSDF color is not included in this pass.</dd>
-<dt>Diffuse Color</dt>
+<dt>Màu Khuếch Tán -- Diffuse Color</dt>
 <dd>Color weights of diffuse BSDFs. These weights are the color input socket for BSDF nodes,
 modified by any Mix and Add Shader nodes.</dd>
 <dt>Glossy Direct, Indirect, Color</dt>
@@ -246,14 +246,14 @@ modified by any Mix and Add Shader nodes.</dd>
 <dd>Same as above, but for transmission BSDFs.</dd>
 <dt>Subsurface Direct, Indirect, Color</dt>
 <dd>Same as above, but for subsurface BSDFs.</dd>
-<dt>Emission</dt>
+<dt>Phát Xạ -- Emission</dt>
 <dd>Emission from directly visible surfaces.</dd>
-<dt>Environment</dt>
+<dt>Môi Trường -- Environment</dt>
 <dd>Emission from the directly visible background. When the film is set to transparent,
 this can be used to get the environment color and composite it back in.</dd>
-<dt>Shadow</dt>
+<dt>Bóng Tối -- Shadow</dt>
 <dd>Shadows from lamp objects. Mostly useful for compositing objects with shadow into existing footage.</dd>
-<dt>Ambient Occlusion</dt>
+<dt>Tính Hấp Thụ Quang Xạ Môi Trường -- Ambient Occlusion</dt>
 <dd>Ambient occlusion from directly visible surfaces. BSDF color or AO factor is not included; i.e.
 it gives a 'normalized' value between 0 and 1.</dd>
 </dl>
@@ -275,7 +275,7 @@ for that a glass BSDF with index of refraction 1.0 can be used.</p>
 <div class="section" id="data-passes">
 <h2>Data Passes<a class="headerlink" href="#data-passes" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Combined</dt>
+<dt>Tổng Hợp -- Combined</dt>
 <dd>The final combination of render passes with everything included.</dd>
 <dt>Z</dt>
 <dd><p class="first">Distance in <a class="reference internal" href="../../../../../glossary/index.html#term-bu"><span class="xref std std-term">BU</span></a> to any visible surfaces.</p>
@@ -285,21 +285,21 @@ for that a glass BSDF with index of refraction 1.0 can be used.</p>
 When depth values need to be blended in case of motion blur or <a class="reference internal" href="../../../../../glossary/index.html#term-dof"><span class="xref std std-term">DOF</span></a>, use the mist pass.</p>
 </div>
 </dd>
-<dt>Mist</dt>
+<dt>Sương Mù -- Mist</dt>
 <dd>Distance to visible surfaces, mapped to the 0.0-1.0 range.
 When enabled, settings are in <a class="reference internal" href="../../../world.html#render-cycles-integrator-world-mist"><span class="std std-ref">World tab</span></a>.
 This pass can be used in compositing to fade out objects that are farther away.</dd>
-<dt>Normal</dt>
+<dt>Pháp Tuyến/B.Thg -- Normal</dt>
 <dd>Surface normal used for shading.</dd>
-<dt>Vector</dt>
+<dt>Vectơ -- Vector</dt>
 <dd>Motion vectors for the vector blur node. The four components consist of 2D vectors
 giving the motion towards the next and previous frame position in pixel space.</dd>
 <dt>UV</dt>
 <dd>Default render UV coordinates.</dd>
-<dt>Object Index</dt>
+<dt>Chỉ Số Vật Thể -- Object Index</dt>
 <dd>Creates a mask of the object that can be later read by
 the <a class="reference internal" href="../../../../../compositing/types/converter/id_mask.html"><span class="doc">ID Mask Node</span></a> in the compositor.</dd>
-<dt>Material Index</dt>
+<dt>Chỉ Số Nguyên Liệu -- Material Index</dt>
 <dd>Creates a mask of the material that can be later read by
 the <a class="reference internal" href="../../../../../compositing/types/converter/id_mask.html"><span class="doc">ID Mask Node</span></a> in the compositor.</dd>
 </dl>
@@ -308,7 +308,7 @@ the <a class="reference internal" href="../../../../../compositing/types/convert
 <p class="last">The Z, Object Index and Material Index passes are not anti-aliased.</p>
 </div>
 <dl class="docutils">
-<dt>Alpha Threshold</dt>
+<dt>Giới Hạn Alpha -- Alpha Threshold</dt>
 <dd>Z, Index, normal, UV and vector passes are
 only affected by surfaces with alpha transparency equal to or higher than this threshold.
 With value 0.0 the first surface hit will always write to these passes, regardless of transparency.
@@ -325,10 +325,10 @@ With higher values surfaces that are mostly transparent can be skipped until an 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="denoising.html" class="btn btn-neutral float-right" title="Denoising" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="denoising.html" class="btn btn-neutral float-right" title="Lọc Nhiễu -- Denoising" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="layers.html" class="btn btn-neutral" title="Layers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="layers.html" class="btn btn-neutral" title="Các Tầng Lớp -- Layers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

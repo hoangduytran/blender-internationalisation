@@ -98,26 +98,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Freestyle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Phong Cách Tự Do -- Freestyle</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core.html">Core Options</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">View Maps</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#advanced-options">Advanced Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-options">Tùy Chọn Thâm Sâu -- Advanced Options</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="parameter_editor/index.html">Parameter Editor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python.html">Python Scripting Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line.html">Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python.html">Chế Độ Tập Lệnh Python -- Python Scripting Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line.html">Dòng -- Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="export_svg.html">Freestyle SVG Exporter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -179,7 +179,7 @@
         
           <li><a href="../index.html">Kết Xuất -- Render</a> &raquo;</li>
         
-          <li><a href="index.html">Freestyle</a> &raquo;</li>
+          <li><a href="index.html">Phong Cách Tự Do -- Freestyle</a> &raquo;</li>
         
       <li>View Maps</li>
     
@@ -203,12 +203,12 @@
   <div class="section" id="view-maps">
 <span id="bpy-types-freestylesettings"></span><h1>View Maps<a class="headerlink" href="#view-maps" title="Permalink to this headline">¶</a></h1>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Render Layer ‣ Freestyle</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Render Layer ‣ Freestyle</span></td>
 </tr>
 </tbody>
 </table>
@@ -219,16 +219,16 @@
 </div>
 <p>There is only one view map per render layer. It controls the edge detection parameters.</p>
 <dl class="docutils">
-<dt>Control Mode</dt>
+<dt>Chế Độ Điều Khiển -- Control Mode</dt>
 <dd><p class="first">Which detected edges are actually rendered, and how, can be controlled either through:</p>
 <dl class="last docutils">
-<dt>Parameter Editor Mode</dt>
+<dt>Chế Độ Biên Soạn Tham Số -- Parameter Editor Mode</dt>
 <dd>The user-friendly <a class="reference internal" href="parameter_editor/index.html"><span class="doc">parameter editor</span></a>.</dd>
-<dt>Python Scripting Mode</dt>
+<dt>Chế Độ Tập Lệnh Python -- Python Scripting Mode</dt>
 <dd>Powerful but complex <a class="reference internal" href="python.html"><span class="doc">Python scripting</span></a>.</dd>
 </dl>
 </dd>
-<dt>View Map Cache</dt>
+<dt>Bộ Đệm Nhớ Ánh Xạ Khung Nhìn -- View Map Cache</dt>
 <dd><p class="first">An option to reuse a previously computed view map for subsequent rendering.
 The cache is automatically updated when the mesh geometry of the input 3D scene has been changed.</p>
 <p>This functionality offers a major performance boost for Freestyle animation rendering
@@ -241,18 +241,18 @@ This means that if Freestyle is used for two or more render layers
 then the cached view map for one render layer is replaced by a new view map
 for another render layer and hence no performance gain is expected.</p>
 </dd>
-<dt>Face Smoothness</dt>
+<dt>Độ Mịn Mặt -- Face Smoothness</dt>
 <dd>When enabled, <em>Smooth Shading</em> will be taken into account for edges calculation.</dd>
-<dt>Crease Angle</dt>
+<dt>Góc Độ Nếp Gấp -- Crease Angle</dt>
 <dd>If two adjacent faces form an angle less than the defined <em>Crease Angle</em>,
 the edge between them will be rendered when using <em>Crease</em> edge type selection in a line set.
 The value also affects <em>Silhouette</em> edge type selection.</dd>
-<dt>Culling</dt>
+<dt>Loại Bỏ -- Culling</dt>
 <dd>Ignore the edges that are out of view.
 (Saves some processing time and memory, but may reduce the quality of the result in some cases).</dd>
 </dl>
 <div class="section" id="advanced-options">
-<h2>Advanced Options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn Thâm Sâu -- Advanced Options<a class="headerlink" href="#advanced-options" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id2">
 <img alt="../../_images/render_freestyle_view-map_freestyle-panel-advanced.png" src="../../_images/render_freestyle_view-map_freestyle-panel-advanced.png" />
 <p class="caption"><span class="caption-text">Advanced Options enabled.</span></p>
@@ -260,7 +260,7 @@ The value also affects <em>Silhouette</em> edge type selection.</dd>
 <p><em>Sphere Radius</em> affects the calculation of curvatures for <em>Ridge</em>,
 <em>Valley</em> and <em>Suggestive Contour</em> edge type selection in a line set.</p>
 <dl class="docutils">
-<dt>Kr Derivative Epsilon</dt>
+<dt>Đạo Hàm Kr Epsilon -- Kr Derivative Epsilon</dt>
 <dd>It provides you with control over the output of <em>Suggestive Contour</em> and <em>Silhouette</em>
 edge type selection (further information in
 <a class="reference external" href="https://wiki.blender.org/wiki/File:Manual-2.6-Render-Freestyle-PrincetownLinestyle.pdf">this pdf</a>).</dd>

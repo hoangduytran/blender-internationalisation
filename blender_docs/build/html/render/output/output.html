@@ -98,7 +98,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Render Output</a><ul class="current">
@@ -109,14 +109,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="video.html">Video Output</a></li>
-<li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="animation_player.html">Animation Player</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metadata.html">Siêu Dữ Liệu -- Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="animation_player.html">Máy Chơi Hoạt Họa -- Animation Player</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -210,18 +210,18 @@ This includes render size, frame rate, pixel aspect ratio, output location, and 
 <p class="caption"><span class="caption-text">Dimensions panel.</span></p>
 </div>
 <dl class="docutils">
-<dt>Render Presets</dt>
+<dt>Cấu Hình về Kết Xuất -- Render Presets</dt>
 <dd>Common format presets for TVs and screens.</dd>
-<dt>Resolution</dt>
+<dt>Độ Phân Giải -- Resolution</dt>
 <dd><dl class="first last docutils">
 <dt>X/Y</dt>
 <dd>The number of pixels horizontally and vertically in the image.</dd>
-<dt>Percentage</dt>
+<dt>Phần Trăm -- Percentage</dt>
 <dd>Slider to reduce or increase the size of the rendered image relative to the X/Y values above.
 This is useful for small test renders that have the same proportions as the final image.</dd>
 </dl>
 </dd>
-<dt>Aspect Ratio</dt>
+<dt>Tỷ Lệ Rộng Dài -- Aspect Ratio</dt>
 <dd><p class="first">Older televisions may have non-square pixels,
 so this can be used to control the shape of the pixels along the respective axis.
 This will <em>pre-distort</em> the images which will look stretched on a computer screen,
@@ -232,7 +232,7 @@ resulting in lowered image quality.</p>
 </dd>
 </dl>
 <dl class="docutils" id="render-output-dimensions-border">
-<dt>Border</dt>
+<dt>Đường Ranh Giới -- Border</dt>
 <dd><p class="first">Renders just a portion of the view instead of the entire frame.
 See the <a class="reference internal" href="../../editors/3dview/navigate/clip.html#editors-3dview-navigate-borders-render"><span class="std std-ref">Render Border</span></a>
 documentation to see how to define the size of the render border.</p>
@@ -242,12 +242,12 @@ documentation to see how to define the size of the render border.</p>
 and <em>Full Sample</em> option in <em>Anti-Aliasing</em>.</p>
 </div>
 <dl class="last docutils">
-<dt>Crop</dt>
+<dt>Cắt Xén -- Crop</dt>
 <dd>Crops the rendered image to the size of the render border,
 instead of rendering a transparent background around it.</dd>
 </dl>
 </dd>
-<dt>Frame Range</dt>
+<dt>Phạm Vi Khung Hình -- Frame Range</dt>
 <dd>Set the <em>Start</em> and <em>End</em> frames for <a class="reference internal" href="../workflows/animations.html"><span class="doc">Rendering Animations</span></a>.
 <em>Step</em> controls the number of frames to advance by for each frame in the timeline.</dd>
 <dt>Frame Rate</dt>
@@ -266,7 +266,7 @@ the frame rate is how many frames will be displayed per second.</dd>
 <p>This panel provides options for setting the location of rendered frames for animations,
 and the quality of the saved images.</p>
 <dl class="docutils">
-<dt>File Path</dt>
+<dt>Tập Tin -- File Path</dt>
 <dd><p class="first">Choose the location to save rendered frames.</p>
 <p>When rendering an animation,
 the frame number is appended at the end of the file name with four padded zeros (e.g. <code class="docutils literal notranslate"><span class="pre">image0001.png</span></code>).
@@ -275,13 +275,13 @@ You can set a custom padding size by adding the appropriate number of <code clas
 <p class="last">This setting expands <a class="reference internal" href="../../data_system/files/relative_paths.html"><span class="doc">relative paths</span></a>
 where a <code class="docutils literal notranslate"><span class="pre">//</span></code> prefix represents the directory of the current blend-file.</p>
 </dd>
-<dt>Overwrite</dt>
+<dt>Viết Đè Lên -- Overwrite</dt>
 <dd>Overwrite existing files when rendering.</dd>
-<dt>Placeholders</dt>
+<dt>Giữ Chỗ -- Placeholders</dt>
 <dd>Create empty placeholder frames while rendering.</dd>
-<dt>File Extensions</dt>
+<dt>Đuôi Tập Tin -- File Extensions</dt>
 <dd>Adds the correct file extensions per file type to the output files.</dd>
-<dt>Cache Result</dt>
+<dt>Lưu Kết Quả -- Cache Result</dt>
 <dd>Saves the rendered image and passes to a multi-layer EXR file in temporary location on your hard drive.
 This allows the compositor to read these to improve performance, especially for heavy compositing.</dd>
 <dt>Output Format</dt>
@@ -290,7 +290,7 @@ other options such as channels, bit depth and compression level are available.</
 <p class="last">For rendering out to images see: <a class="reference internal" href="../../data_system/files/media/image_formats.html#bpy-types-imageformatsettings"><span class="std std-ref">saving images</span></a>,
 for rendering to videos see <a class="reference internal" href="video.html"><span class="doc">rendering to videos</span></a>.</p>
 </dd>
-<dt>Color Mode</dt>
+<dt>Chế Độ Màu -- Color Mode</dt>
 <dd><p class="first">Choose the color format to save the image to.
 Note that <em>RGBA</em> will not be available for all image formats.</p>
 <p class="last">BW, RGB, RGBA</p>

@@ -105,8 +105,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Trình Bổ Sung -- Add-ons</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html#import-export">Nhập/Xuất Liệu -- Import Export</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Autodesk 3DS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Sử Dụng -- Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#properties">Tính Chất -- Properties</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="io_bvh.html">Biovision Hierarchy</a></li>
@@ -199,57 +199,61 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Name:</th><td class="field-body">Autodesk 3DS format</td>
+<tr class="field-odd field"><th class="field-name">Tên -- Name:</th><td class="field-body">Autodesk 3DS format</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Location:</th><td class="field-body"><span class="menuselection">File ‣ Import/Export ‣ 3D Studio (.3ds)</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Vị Trí -- Location:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">File ‣ Import/Export ‣ 3D Studio (.3ds)</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body">1.0.0</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phiên Bản -- Version:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">1.0.0</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Blender:</th><td class="field-body">2.74</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Category:</th><td class="field-body">Import-Export</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Hạng Mục -- Category:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Nhập-Xuất -- Import-Export</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body">Bob Holcomb, Campbell Barton</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Tác Giả -- Authors:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Bob Holcomb, Campbell Barton</td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Sử Dụng -- Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>This add-on can be used to import and export objects to/from the 3DS file format.
 This format is commonly used to exchange files from Autodesk<sup>®</sup> 3ds Max<sup>®</sup>.</p>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="import">
-<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<h3>Nhập -- Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Forward / Up Axis</dt>
+<dt>Trục Hướng Về Trước/Lên Trên -- Forward / Up Axis</dt>
 <dd><p class="first">Since many applications use a different axis for 'Up', there are axis conversion there settings,
 Forward and Up axis -- By mapping these to different axis you can convert rotations
 between applications default up and forward axis.</p>
 <p class="last">Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
 For example, its common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
 </dd>
-<dt>Size Constraint</dt>
+<dt>Kích Thước Ràng Buộc -- Size Constraint</dt>
 <dd>Scales the imported objects by 10 scene units until it reaches the size defined here.
 To disable set the <em>Size Constraint</em> to zero.</dd>
-<dt>Image Search</dt>
+<dt>Tìm Kiếm Hình Ảnh -- Image Search</dt>
 <dd>This enables a recursive file search if an image file can't be found.</dd>
-<dt>Apply Transform</dt>
+<dt>Áp Dụng Biến Hóa -- Apply Transform</dt>
 <dd>Applies object transformations after importing.</dd>
 </dl>
 </div>
 <div class="section" id="export">
-<h3>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h3>
+<h3>Xuất -- Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Forward / Up Axis</dt>
+<dt>Trục Hướng Về Trước/Lên Trên -- Forward / Up Axis</dt>
 <dd><p class="first">Since many applications use a different axis for 'Up', there are axis conversion there settings,
 Forward and Up axis -- By mapping these to different axis you can convert rotations
 between applications default up and forward axis.</p>
 <p class="last">Blender uses Y Forward, Z Up (since the front view looks along the +Y direction).
 For example, its common for applications to use Y as the up axis, in that case -Z Forward, Y Up is needed.</p>
 </dd>
-<dt>Selection Only</dt>
+<dt>Duy Lựa Chọn -- Selection Only</dt>
 <dd>Only export the selected objects. Otherwise export all objects in the scene.
 Note, this does not apply when batch exporting.</dd>
 </dl>

@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
-    <link rel="next" title="World" href="world.html" />
+    <link rel="next" title="Thế Giới -- World" href="world.html" />
     <link rel="prev" title="Object Settings" href="settings/object.html" /> 
 
   
@@ -100,22 +100,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../render/index.html">Kết Xuất -- Render</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../compositing/index.html">Tổng Hợp -- Compositing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Bộ Máy Trò Chơi -- Game Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="screen_layout.html">Game Logic Screen Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings/index.html">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Game Materials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#game-settings">Game Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#game-settings">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#face-orientation">Face Orientation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#material-physics">Material Physics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#material-physics">Vật Lý của Nguyên Liệu -- Material Physics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="world.html">Thế Giới -- World</a></li>
 <li class="toctree-l2"><a class="reference internal" href="logic/index.html">Logic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camera/index.html">Camera</a></li>
-<li class="toctree-l2"><a class="reference internal" href="physics/index.html">Physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera/index.html">Máy Quay Phim -- Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_api/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blender_player.html">Máy Chơi Độc Lập -- Standalone Player</a></li>
 <li class="toctree-l2"><a class="reference internal" href="licensing.html">Licensing of Blender Games</a></li>
 </ul>
 </li>
@@ -197,7 +197,7 @@
   <div class="section" id="game-materials">
 <h1>Game Materials<a class="headerlink" href="#game-materials" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="game-settings">
-<h2>Game Settings<a class="headerlink" href="#game-settings" title="Permalink to this headline">¶</a></h2>
+<h2>Sắp Đặt Trò Chơi -- Game Settings<a class="headerlink" href="#game-settings" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id1">
 <img alt="../_images/game-engine_materials_panel.png" src="../_images/game-engine_materials_panel.png" />
 <p class="caption"><span class="caption-text">Game Settings panel.</span></p>
@@ -211,21 +211,21 @@ If &quot;Off&quot;, both sides of the surface are visible (at the expense of low
 Note that this setting is applied per material and not per face; e.g.
 if the material is applied to a cube, only the back and front faces of the cube are visible,
 and not both sides of each face.</dd>
-<dt>Invisible</dt>
+<dt>Vô Hình -- Invisible</dt>
 <dd>Hide all faces of objects rendered with this material.</dd>
-<dt>Text</dt>
+<dt>Văn Bản -- Text</dt>
 <dd>Use material as <a class="reference internal" href="../modeling/texts/introduction.html"><span class="doc">Text object</span></a> in the Game Engine.</dd>
-<dt>Alpha Blend</dt>
+<dt>Hòa Trộn Alpha -- Alpha Blend</dt>
 <dd><p class="first">Controls how the alpha channel is used to create a transparent texture in the rendered image.</p>
 <dl class="last docutils">
-<dt>Alpha Sort</dt>
+<dt>Sắp Xếp Alpha -- Alpha Sort</dt>
 <dd>Orders the sequence in which transparent objects are drawn on top of each other,
 so that ones in front receive more light than ones behind.</dd>
-<dt>Alpha Blend</dt>
+<dt>Hòa Trộn Alpha -- Alpha Blend</dt>
 <dd>Uses the alpha values present in the bitmap image sourced in the Image slot.</dd>
-<dt>Alpha Clip</dt>
+<dt>Cắt Bằng Alpha -- Alpha Clip</dt>
 <dd>Uses the alpha channel as a simple mask.</dd>
-<dt>Add</dt>
+<dt>Cộng -- Add</dt>
 <dd>Render face transparent and add color of face.</dd>
 <dt>Opaque (default)</dt>
 <dd>All alpha values are ignored; the scene is completely non-transparent.</dd>
@@ -239,11 +239,11 @@ so that ones in front receive more light than ones behind.</dd>
 of faces to which the material is applied.</p>
 <blockquote>
 <div><dl class="docutils">
-<dt>Shadow</dt>
+<dt>Bóng Tối -- Shadow</dt>
 <dd>Faces are used for shadow.</dd>
-<dt>Billboard</dt>
+<dt>Bảng Yết Thị -- Billboard</dt>
 <dd>Billboard with Z-axis constraint.</dd>
-<dt>Halo</dt>
+<dt>Hào Quang -- Halo</dt>
 <dd>Screen-aligned billboard.</dd>
 <dt>Normal (default)</dt>
 <dd>No transformation.</dd>
@@ -251,7 +251,7 @@ of faces to which the material is applied.</p>
 </div></blockquote>
 </div>
 <div class="section" id="material-physics">
-<h2>Material Physics<a class="headerlink" href="#material-physics" title="Permalink to this headline">¶</a></h2>
+<h2>Vật Lý của Nguyên Liệu -- Material Physics<a class="headerlink" href="#material-physics" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id2">
 <img alt="../_images/game-engine_materials_physics-panel.png" src="../_images/game-engine_materials_physics-panel.png" />
 <p class="caption"><span class="caption-text">Panel Physics in Material context.</span></p>
@@ -261,9 +261,9 @@ that use the material are rendered in real-time by the Blender Game Engine.</p>
 <p>Physics settings are visible when using the Game Engine for rendering,
 and handled by the <a class="reference internal" href="physics/index.html"><span class="doc">Game Engine's physics engine</span></a>.</p>
 <dl class="docutils">
-<dt>Friction</dt>
+<dt>Ma Sát -- Friction</dt>
 <dd>Coulomb friction coefficient when inside the physics distance area.</dd>
-<dt>Elasticity</dt>
+<dt>Tính Đàn Hồi -- Elasticity</dt>
 <dd><p class="first">The elasticity of collisions determines how much of the kinetic
 energy is retained after the collision.
 A value of 1 will result in a collision where objects bounce off each other,
@@ -277,16 +277,16 @@ to heat, sound, etc. An elastic (elasticity=high) collision occurs
 when two metal balls collide. An inelastic (elasticity=low)
 collision is seen when two half-inflated beach balls collide.</p>
 </dd>
-<dt>Force Field</dt>
+<dt>Trường Lực -- Force Field</dt>
 <dd><p class="first">Controls force field settings.</p>
 <dl class="last docutils">
-<dt>Force</dt>
+<dt>Lực -- Force</dt>
 <dd>Upward spring force when inside the physics distance area.</dd>
-<dt>Distance</dt>
+<dt>Khoảng Cách -- Distance</dt>
 <dd>Distance of physics area.</dd>
-<dt>Damping</dt>
+<dt>Giảm Chấn -- Damping</dt>
 <dd>Damping of the spring force when inside the physics distance area.</dd>
-<dt>Align to Normal</dt>
+<dt>Sắp Hàng theo Pháp Tuyến -- Align to Normal</dt>
 <dd>Align dynamic game objects along the surface normal when inside the physics distance area.</dd>
 </dl>
 </dd>
@@ -302,7 +302,7 @@ collision is seen when two half-inflated beach balls collide.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="world.html" class="btn btn-neutral float-right" title="World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="world.html" class="btn btn-neutral float-right" title="Thế Giới -- World" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="settings/object.html" class="btn btn-neutral" title="Object Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

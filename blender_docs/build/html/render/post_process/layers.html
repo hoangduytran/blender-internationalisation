@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Render Layers &mdash; Blender Manual</title>
+  <title>Các Tầng Kết Xuất -- Render Layers &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
     <link rel="next" title="Post Processing Panel" href="panel.html" />
-    <link rel="prev" title="Post Processing" href="index.html" /> 
+    <link rel="prev" title="Xử Lý Hậu Kỳ -- Post Processing" href="index.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,24 +98,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Post Processing</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Render Layers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#layer-list">Layer List</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Xử Lý Hậu Kỳ -- Post Processing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Các Tầng Kết Xuất -- Render Layers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#layer-list">Danh Sách Tầng -- Layer List</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#layer-panel">Layer Panel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#usage">Sử Dụng -- Usage</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="panel.html">Post Processing Panel</a></li>
-<li class="toctree-l3"><a class="reference internal" href="color_management.html">Color Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_management.html">Quản Lý Màu Sắc -- Color Management</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -177,9 +177,9 @@
         
           <li><a href="../index.html">Kết Xuất -- Render</a> &raquo;</li>
         
-          <li><a href="index.html">Post Processing</a> &raquo;</li>
+          <li><a href="index.html">Xử Lý Hậu Kỳ -- Post Processing</a> &raquo;</li>
         
-      <li>Render Layers</li>
+      <li>Các Tầng Kết Xuất -- Render Layers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,7 +199,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="render-layers">
-<span id="bpy-types-renderlayer"></span><h1>Render Layers<a class="headerlink" href="#render-layers" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-renderlayer"></span><h1>Các Tầng Kết Xuất -- Render Layers<a class="headerlink" href="#render-layers" title="Permalink to this headline">¶</a></h1>
 <p>Render layers allow you to render your scene in separate layers,
 usually with the intension of compositing them back together afterwards.</p>
 <p>This can be useful for several purposes, such as color correcting certain elements differently,
@@ -208,14 +208,14 @@ or reducing the render quality for unimportant objects.</p>
 <p>Using Render Layers can also save you from having to re-render your entire image each time you change something,
 allowing you to instead re-render only the layer(s) that you need.</p>
 <div class="section" id="layer-list">
-<h2>Layer List<a class="headerlink" href="#layer-list" title="Permalink to this headline">¶</a></h2>
+<h2>Danh Sách Tầng -- Layer List<a class="headerlink" href="#layer-list" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Scene</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Scene</span></td>
 </tr>
 </tbody>
 </table>
@@ -233,12 +233,12 @@ and existing layers can be renamed by double-clicking on their name.</p>
 <div class="section" id="layer-panel">
 <h2>Layer Panel<a class="headerlink" href="#layer-panel" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Layer</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Layer</span></td>
 </tr>
 </tbody>
 </table>
@@ -250,18 +250,18 @@ and existing layers can be renamed by double-clicking on their name.</p>
 <p>The Layer Panel shows the settings of the active Render Layer from the list above.</p>
 <p>You can select multiple layers using <kbd class="kbd docutils literal notranslate">Shift-LMB</kbd>.</p>
 <dl class="docutils">
-<dt>Scene</dt>
+<dt>Cảnh -- Scene</dt>
 <dd>The Scene Layers, showing which are currently visible and will be rendered.</dd>
-<dt>Layer</dt>
+<dt>Đắp/Tầng Lớp -- Layer</dt>
 <dd>The Scene Layers which are associated with the active Render Layer.
 Objects in those Scene Layers will be rendered in that Render Layer.
 When an object is in the Scene Layers but not the Render Layer,
 it will still cast shadows and be visible in reflections, so it is still indirectly visible.</dd>
-<dt>Mask Layer</dt>
+<dt>Tầng Màn Chắn -- Mask Layer</dt>
 <dd>Objects on these will mask out other objects appearing behind them.
 This can be used for compositing objects into footage,
 to take into account objects in front of the virtual objects blocking the view from the camera.</dd>
-<dt>Material Override</dt>
+<dt>Thay Thế Nguyên Liệu -- Material Override</dt>
 <dd><p class="first">Overrides all material settings to use the Material chosen here.</p>
 <p>Examples of where this might be used:</p>
 <ul class="last simple">
@@ -281,7 +281,7 @@ to take into account objects in front of the virtual objects blocking the view f
 </div>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Sử Dụng -- Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Each Render Layer has an associated set of <a class="reference internal" href="../../editors/3dview/object/properties/relations/layers.html"><span class="doc">Scene Layers</span></a>.
 Objects which are on one of the associated Scene Layers are shown in that Render Layer,
 as long as that Scene Layer is also visible.</p>
@@ -305,7 +305,7 @@ nothing will be rendered.</p>
         <a href="panel.html" class="btn btn-neutral float-right" title="Post Processing Panel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Post Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Xử Lý Hậu Kỳ -- Post Processing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

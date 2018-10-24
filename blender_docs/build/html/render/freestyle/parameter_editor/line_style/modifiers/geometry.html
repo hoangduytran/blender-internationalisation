@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Geometry &mdash; Blender Manual</title>
+  <title>Hình Dạng -- Geometry &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
-    <link rel="next" title="Python Scripting Mode" href="../../../python.html" />
-    <link rel="prev" title="Properties" href="properties.html" /> 
+    <link rel="next" title="Chế Độ Tập Lệnh Python -- Python Scripting Mode" href="../../../python.html" />
+    <link rel="prev" title="Tính Chất -- Properties" href="properties.html" /> 
 
   
   <script src="../../../../../_static/js/modernizr.min.js"></script>
@@ -98,28 +98,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Freestyle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Phong Cách Tự Do -- Freestyle</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../core.html">Core Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../view_map.html">View Maps</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Parameter Editor</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../line_set.html">Line Set</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../index.html">Line Style &amp; Modifiers</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../python.html">Python Scripting Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../line.html">Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../python.html">Chế Độ Tập Lệnh Python -- Python Scripting Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../line.html">Dòng -- Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../export_svg.html">Freestyle SVG Exporter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -181,15 +181,15 @@
         
           <li><a href="../../../../index.html">Kết Xuất -- Render</a> &raquo;</li>
         
-          <li><a href="../../../index.html">Freestyle</a> &raquo;</li>
+          <li><a href="../../../index.html">Phong Cách Tự Do -- Freestyle</a> &raquo;</li>
         
           <li><a href="../../index.html">Parameter Editor</a> &raquo;</li>
         
           <li><a href="../index.html">Line Style &amp; Modifiers</a> &raquo;</li>
         
-          <li><a href="index.html">Modifiers</a> &raquo;</li>
+          <li><a href="index.html">Bộ Điều Chỉnh -- Modifiers</a> &raquo;</li>
         
-      <li>Geometry</li>
+      <li>Hình Dạng -- Geometry</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -209,14 +209,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="geometry">
-<h1>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h1>
+<h1>Hình Dạng -- Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h1>
 <p>These modifiers have no mix nor influence settings,
 as they always completely apply to the strokes' geometry (like object modifiers do). They take
 the resulting two-dimensional strokes from the Freestyle line set and displace or deform them
 in various ways.</p>
 <p>As with other modifier stacks in Blender, they are applied from top to bottom.</p>
 <div class="section" id="d-offset">
-<span id="bpy-types-linestylegeometrymodifier-2doffset"></span><h2>2D Offset<a class="headerlink" href="#d-offset" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-2doffset"></span><h2>Dịch Chuyển 2D -- 2D Offset<a class="headerlink" href="#d-offset" title="Permalink to this headline">¶</a></h2>
 <p>The <em>2D Offset</em> modifier adds some two-dimensional offsets to the stroke backbone geometry.
 It has two sets of independent options/effects:</p>
 <div class="figure">
@@ -233,7 +233,7 @@ the middle of the stroke, 25 pixels along its own normal, and the end point is n
 </dl>
 </div>
 <div class="section" id="d-transform">
-<span id="bpy-types-linestylegeometrymodifier-2dtransform"></span><h2>2D Transform<a class="headerlink" href="#d-transform" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-2dtransform"></span><h2>Biến Hóa 2D -- 2D Transform<a class="headerlink" href="#d-transform" title="Permalink to this headline">¶</a></h2>
 <p>The <em>2D Transform</em> modifier applies two-dimensional scaling and/or rotation to
 the stroke backbone geometry. Scale is applied before rotation.</p>
 <p>The center (pivot point) of these 2D transformations can be:</p>
@@ -241,16 +241,16 @@ the stroke backbone geometry. Scale is applied before rotation.</p>
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_2d-transform.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_2d-transform.png" />
 </div>
 <dl class="docutils">
-<dt>Stroke Center</dt>
+<dt>Trung Tâm Nét -- Stroke Center</dt>
 <dd>The median point of the stroke.</dd>
-<dt>Stroke Start</dt>
+<dt>Đầu Nét -- Stroke Start</dt>
 <dd>The beginning point of the stroke.</dd>
-<dt>Stroke End</dt>
+<dt>Cuối Nét -- Stroke End</dt>
 <dd>The end point of the stroke.</dd>
-<dt>Stroke Point Parameter</dt>
+<dt>Điểm Tham Số cho Nét Vẽ -- Stroke Point Parameter</dt>
 <dd>The <em>Stroke Point Parameter</em> factor controls where along the stroke the pivot point is
 (start point if set to 0.0; end point if set to 1.0).</dd>
-<dt>Absolute 2D Point</dt>
+<dt>Điểm 2D Tuyệt Đối -- Absolute 2D Point</dt>
 <dd><p class="first">The <em>Pivot X</em> and <em>Pivot Y</em> allows you to define the position of the pivot point in the final
 render (from the bottom left corner).</p>
 <div class="last admonition important">
@@ -261,7 +261,7 @@ i.e. resolution <strong>and</strong> resolution percentage.</p>
 </dd>
 <dt>Scale X and Scale Y</dt>
 <dd>The scaling factors, in their respective axes.</dd>
-<dt>Rotation Angle</dt>
+<dt>Góc Xoay -- Rotation Angle</dt>
 <dd>The rotation angle.</dd>
 </dl>
 <div class="figure" id="id1">
@@ -271,14 +271,14 @@ i.e. resolution <strong>and</strong> resolution percentage.</p>
 </div>
 </div>
 <div class="section" id="backbone-stretcher">
-<span id="bpy-types-linestylegeometrymodifier-backbonestretcher"></span><h2>Backbone Stretcher<a class="headerlink" href="#backbone-stretcher" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-backbonestretcher"></span><h2>Kéo Dài Nét Khung Cốt -- Backbone Stretcher<a class="headerlink" href="#backbone-stretcher" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_backbone-stretcher.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_backbone-stretcher.png" />
 </div>
 <p>The <em>Backbone Stretcher</em> modifier stretches (adds some length to)
 the beginning and end of the stroke.</p>
 <dl class="docutils">
-<dt>Backbone Length</dt>
+<dt>Độ Dài Nét Khung Cốt -- Backbone Length</dt>
 <dd>Length to add to the strokes' ends.</dd>
 </dl>
 </div>
@@ -289,7 +289,7 @@ the beginning and end of the stroke.</p>
 </div>
 <p>The <em>Bézier Curve</em> modifier replaces the stroke by a Bézier approximation of it.</p>
 <dl class="docutils">
-<dt>Error</dt>
+<dt>Lỗi/Sai Số -- Error</dt>
 <dd>The maximum distance allowed between the new Bézier curve and the original stroke.</dd>
 </dl>
 <div class="figure" id="id2">
@@ -299,7 +299,7 @@ the beginning and end of the stroke.</p>
 </div>
 </div>
 <div class="section" id="blueprint">
-<span id="bpy-types-linestylegeometrymodifier-blueprint"></span><h2>Blueprint<a class="headerlink" href="#blueprint" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-blueprint"></span><h2>Bản In Lam -- Blueprint<a class="headerlink" href="#blueprint" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Blueprint</em> modifier produces blueprint-like strokes using either circular,
 elliptical, or square contours. A blueprint here refers to those lines drawn at the beginning
 of free-hand drawing to capture the silhouette of objects with a simple shape such as circles,
@@ -308,9 +308,9 @@ ellipses and squares.</p>
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_blueprint.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_blueprint.png" />
 </div>
 <dl class="docutils">
-<dt>Shape</dt>
+<dt>Hình Dạng -- Shape</dt>
 <dd>Which base shapes to use for this blueprint: <em>Circles</em>, <em>Ellipses</em> or <em>Squares</em>.</dd>
-<dt>Rounds</dt>
+<dt>Số Lượt -- Rounds</dt>
 <dd>How many rounds are generated, as if the pen draws the same stroke several times
 (i.e. how many times the process is repeated).</dd>
 <dt>Random Radius and Random Center</dt>
@@ -326,14 +326,14 @@ The second adds some randomness to the squares.</dd>
 handy here, to avoid the noise generated by small strokes...</p>
 </div>
 <div class="section" id="guiding-lines">
-<span id="bpy-types-linestylegeometrymodifier-guidinglines"></span><h2>Guiding Lines<a class="headerlink" href="#guiding-lines" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-guidinglines"></span><h2>Nét Đánh Dấu -- Guiding Lines<a class="headerlink" href="#guiding-lines" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Guiding Lines</em> modifier replaces a stroke by a straight line connecting both of
 its ends.</p>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_guiding-lines.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_guiding-lines.png" />
 </div>
 <dl class="docutils">
-<dt>Offset</dt>
+<dt>Dịch Chuyển -- Offset</dt>
 <dd>Offset the start and end points along the original stroke, before generating the new straight one.</dd>
 </dl>
 <p>This modifier will produce reasonable results when strokes are short enough,
@@ -347,7 +347,7 @@ it is recommended to use this modifier together with one of the splitting option
 </div>
 </div>
 <div class="section" id="perlin-noise-1d">
-<span id="bpy-types-linestylegeometrymodifier-perlinnoise1d"></span><h2>Perlin Noise 1D<a class="headerlink" href="#perlin-noise-1d" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-perlinnoise1d"></span><h2>Nhiễu Perlin 1D -- Perlin Noise 1D<a class="headerlink" href="#perlin-noise-1d" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Perlin Noise 1D</em> modifier adds one-dimensional Perlin noise to the stroke.
 The curvilinear abscissa (value between 0 and 1 determined by a point's position
 relative to the first and last point of a stroke) is used as the input to
@@ -358,20 +358,20 @@ with the same length and sampling interval.</p>
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_perlin-noise-1d.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_perlin-noise-1d.png" />
 </div>
 <dl class="docutils">
-<dt>Frequency</dt>
+<dt>Tần Số -- Frequency</dt>
 <dd>How dense the noise is (kind of a scale factor along the stroke).</dd>
-<dt>Amplitude</dt>
+<dt>Biên Độ -- Amplitude</dt>
 <dd>How much the noise distorts the stroke in the <em>Angle</em> direction.</dd>
-<dt>Seed</dt>
+<dt>Mầm -- Seed</dt>
 <dd>The seed of the random generator (the same seed over a stroke will always give the same result).</dd>
-<dt>Octaves</dt>
+<dt>Quãng Tám -- Octaves</dt>
 <dd>The &quot;level of detail&quot; of the noise.</dd>
-<dt>Angle</dt>
+<dt>Góc Độ -- Angle</dt>
 <dd>In which direction the noise is applied (0.0 is fully horizontal).</dd>
 </dl>
 </div>
 <div class="section" id="perlin-noise-2d">
-<span id="bpy-types-linestylegeometrymodifier-perlinnoise2d"></span><h2>Perlin Noise 2D<a class="headerlink" href="#perlin-noise-2d" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-perlinnoise2d"></span><h2>Nhiễu Perlin 2D -- Perlin Noise 2D<a class="headerlink" href="#perlin-noise-2d" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_perlin-noise-2d.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_perlin-noise-2d.png" />
 </div>
@@ -380,40 +380,40 @@ displacements using 2D coordinates of stroke vertices as the input of the noise 
 <p>Its settings are exactly the same as the <em>Perlin Noise 1D</em> modifier.</p>
 </div>
 <div class="section" id="polygonization">
-<span id="bpy-types-linestylegeometrymodifier-polygonalization"></span><h2>Polygonization<a class="headerlink" href="#polygonization" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-polygonalization"></span><h2>Đa Giác Hóa -- Polygonization<a class="headerlink" href="#polygonization" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_polygonization.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_polygonization.png" />
 </div>
 <p>The <em>Polygonization</em> modifier simplifies strokes as much as possible
 (in other words, it transforms smooth strokes into jagged polylines).</p>
 <dl class="docutils">
-<dt>Error</dt>
+<dt>Lỗi/Sai Số -- Error</dt>
 <dd>The maximum distance allowed between the new simplified stroke and the original one
 (the larger this value is, the more jagged/approximated the resulting polylines are).</dd>
 </dl>
 </div>
 <div class="section" id="sampling">
-<span id="bpy-types-linestylegeometrymodifier-sampling"></span><h2>Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-sampling"></span><h2>Lấy Mẫu Vật -- Sampling<a class="headerlink" href="#sampling" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Sampling</em> modifier changes the definition, precision of the stroke,
 for the following modifiers.</p>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_sampling.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_sampling.png" />
 </div>
 <dl class="docutils">
-<dt>Sampling</dt>
+<dt>Lấy Mẫu Vật -- Sampling</dt>
 <dd>The smaller this value, the more precise are the strokes.
 Be careful; too small values will require a huge amount of time and memory during render!</dd>
 </dl>
 </div>
 <div class="section" id="simplification">
-<span id="bpy-types-linestylegeometrymodifier-simplification"></span><h2>Simplification<a class="headerlink" href="#simplification" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-simplification"></span><h2>Đơn Giản Hóa -- Simplification<a class="headerlink" href="#simplification" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Simplification</em> modifier merges stroke vertices that lie close to one another,
 like the <em>Decimate</em> modifier for meshes.</p>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_simplification.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_simplification.png" />
 </div>
 <dl class="docutils">
-<dt>Tolerance</dt>
+<dt>Sai Số -- Tolerance</dt>
 <dd>Measure for how close points have to be to each other to be merged.
 A higher tolerance means more vertices are merged.</dd>
 </dl>
@@ -422,17 +422,17 @@ A higher tolerance means more vertices are merged.</dd>
 </div>
 </div>
 <div class="section" id="sinus-displacement">
-<span id="bpy-types-linestylegeometrymodifier-sinusdisplacement"></span><h2>Sinus Displacement<a class="headerlink" href="#sinus-displacement" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-sinusdisplacement"></span><h2>Thuyên Chuyển Hình Sin -- Sinus Displacement<a class="headerlink" href="#sinus-displacement" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Sinus Displacement</em> modifier adds a sinusoidal displacement to the stroke.</p>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_sinus-displacement.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_sinus-displacement.png" />
 </div>
 <dl class="docutils">
-<dt>Wavelength</dt>
+<dt>Bước Sóng -- Wavelength</dt>
 <dd>How wide the undulations are along the stroke.</dd>
-<dt>Amplitude</dt>
+<dt>Biên Độ -- Amplitude</dt>
 <dd>How high the undulations are across the stroke.</dd>
-<dt>Phase</dt>
+<dt>Pha Sóng -- Phase</dt>
 <dd>Allows &quot;offsetting&quot; (&quot;moving&quot;) the undulations along the stroke.</dd>
 </dl>
 <div class="figure" id="id4">
@@ -442,7 +442,7 @@ A higher tolerance means more vertices are merged.</dd>
 </div>
 </div>
 <div class="section" id="spatial-noise">
-<span id="bpy-types-linestylegeometrymodifier-spatialnoise"></span><h2>Spatial Noise<a class="headerlink" href="#spatial-noise" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-spatialnoise"></span><h2>Nhiễu Không Gian -- Spatial Noise<a class="headerlink" href="#spatial-noise" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Spatial Noise</em> modifier adds some spatial noise to the stroke.
 Spatial noise displacements are added in the normal direction
 (i.e. the direction perpendicular to the tangent line) evaluated at each stroke vertex.</p>
@@ -450,27 +450,27 @@ Spatial noise displacements are added in the normal direction
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_spatial-noise.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_spatial-noise.png" />
 </div>
 <dl class="docutils">
-<dt>Amplitude</dt>
+<dt>Biên Độ -- Amplitude</dt>
 <dd>How much the noise distorts the stroke.</dd>
-<dt>Scale</dt>
+<dt>Tỷ Lệ -- Scale</dt>
 <dd>How wide the noise is along the stroke.</dd>
-<dt>Octaves</dt>
+<dt>Quãng Tám -- Octaves</dt>
 <dd>The level of detail of the noise.</dd>
-<dt>Smooth</dt>
+<dt>Mịn Màng -- Smooth</dt>
 <dd>When enabled, apply some smoothing over the generated noise.</dd>
-<dt>Pure Random</dt>
+<dt>Hoàn Toàn Ngẫu Nhiên -- Pure Random</dt>
 <dd>When disabled, the next generated random value depends on the previous one;
 otherwise they are completely independent. Disabling this setting gives a more &quot;consistent&quot; noise along a stroke.</dd>
 </dl>
 </div>
 <div class="section" id="tip-remover">
-<span id="bpy-types-linestylegeometrymodifier-tipremover"></span><h2>Tip Remover<a class="headerlink" href="#tip-remover" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-types-linestylegeometrymodifier-tipremover"></span><h2>Bỏ Phần Đầu/Cuối của Nét -- Tip Remover<a class="headerlink" href="#tip-remover" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Tip Remover</em> modifier removes a piece of the stroke at its beginning and end.</p>
 <div class="figure">
 <img alt="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_tip-remover.png" src="../../../../../_images/render_freestyle_parameter-editor_line-style_modifiers_geometry_tip-remover.png" />
 </div>
 <dl class="docutils">
-<dt>Tip Length</dt>
+<dt>Chiều Dài Đỉnh Đầu -- Tip Length</dt>
 <dd>Length of stroke to remove at both of its tips.</dd>
 </dl>
 </div>
@@ -484,10 +484,10 @@ otherwise they are completely independent. Disabling this setting gives a more &
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../../python.html" class="btn btn-neutral float-right" title="Python Scripting Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../../python.html" class="btn btn-neutral float-right" title="Chế Độ Tập Lệnh Python -- Python Scripting Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="properties.html" class="btn btn-neutral" title="Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="properties.html" class="btn btn-neutral" title="Tính Chất -- Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

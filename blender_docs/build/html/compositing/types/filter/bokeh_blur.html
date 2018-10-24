@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Nút Bộ Lọc -- Filter Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -222,17 +222,17 @@ the <a class="reference internal" href="../input/bokeh_image.html"><span class="
 <p>Several performance optimizations are also available such as OpenCL support,
 calculation area restriction and masking.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image input.</dd>
-<dt>Bokeh</dt>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu vào hình ảnh tiêu chuẩn.</dd>
+<dt>Nhòe Bokeh -- Bokeh</dt>
 <dd>This is an input for the <a class="reference internal" href="../input/bokeh_image.html"><span class="doc">Bokeh Image</span></a> node.</dd>
-<dt>Size</dt>
+<dt>Kích Thước -- Size</dt>
 <dd>Size controls the amount of blur. Size can either be a single value across the entire image or a variable value
 controlled by an input image. In order to use the latter, the Variable Size option must be selected.
 See the examples section below for more on how to use this.</dd>
-<dt>Bounding Box</dt>
+<dt>Khung Hộp Viền -- Bounding Box</dt>
 <dd>This can be used with a <a class="reference internal" href="../matte/box_mask.html"><span class="doc">Box Mask</span></a>
 matte node or with a <a class="reference internal" href="../input/mask.html"><span class="doc">Mask</span></a>
 input node to restrict the area of the image the blur is applied to. This could be helpful, for example,
@@ -241,9 +241,9 @@ thus saving composite time each time adjustments are made.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Variable Size</dt>
+<dt>Kích Thước Biến Thiên -- Variable Size</dt>
 <dd>Allows a variable blur radius, if the Size input is an image.</dd>
 <dt>Max blur</dt>
 <dd>Max blur is intended to act as an optimization tool by
@@ -251,14 +251,14 @@ limiting the number of pixels across which the blur is calculated.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image output.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu ra tiêu chuẩn của hình ảnh.</dd>
 </dl>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Các Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Three examples of how the size input may be used follow.</p>
 <p>An <a class="reference internal" href="../converter/id_mask.html"><span class="doc">ID masked</span></a>
 alpha image can be used so that a background is blurred while foreground objects remain in focus.

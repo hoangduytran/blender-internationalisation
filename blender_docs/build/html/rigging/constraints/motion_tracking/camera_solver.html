@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Camera Solver Constraint &mdash; Blender Manual</title>
+  <title>Ràng Buộc Giải Nghiệm Máy Quay Phim -- Camera Solver Constraint &mdash; Blender Manual</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
-    <link rel="next" title="Object Solver Constraint" href="object_solver.html" />
+    <link rel="next" title="Ràng Buộc Giải Nghiệm Vật Thể -- Object Solver Constraint" href="object_solver.html" />
     <link rel="prev" title="Stack" href="../interface/stack.html" /> 
 
   
@@ -95,23 +95,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../modeling/index.html">Kiến Tạo Mô Hình -- Modeling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../sculpt_paint/index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Lắp Ráp -- Rigging</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Constraints</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Interface</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html#motion-tracking">Motion Tracking</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Camera Solver Constraint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="object_solver.html">Object Solver Constraint</a></li>
-<li class="toctree-l4"><a class="reference internal" href="follow_track.html">Follow Track Constraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Ràng Buộc -- Constraints</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#interface">Giao Diện -- Interface</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#motion-tracking">Giám Sát Chuyển Động -- Motion Tracking</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Ràng Buộc Giải Nghiệm Máy Quay Phim -- Camera Solver Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="object_solver.html">Ràng Buộc Giải Nghiệm Vật Thể -- Object Solver Constraint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="follow_track.html">Ràng Buộc Giám Sát Chuyển Động -- Follow Track Constraint</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Transform</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Tracking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../index.html#relationship">Relationship</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#transform">Biến Hóa -- Transform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#tracking">Giám Sát -- Tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#relationship">Quan Hệ -- Relationship</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Armatures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Lattice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../armatures/index.html">Cốt -- Armatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../lattice.html">Giàn Lưới -- Lattice</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Hoạt Họa -- Animation</a></li>
@@ -175,9 +175,9 @@
         
           <li><a href="../../index.html">Lắp Ráp -- Rigging</a> &raquo;</li>
         
-          <li><a href="../index.html">Constraints</a> &raquo;</li>
+          <li><a href="../index.html">Ràng Buộc -- Constraints</a> &raquo;</li>
         
-      <li>Camera Solver Constraint</li>
+      <li>Ràng Buộc Giải Nghiệm Máy Quay Phim -- Camera Solver Constraint</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -197,7 +197,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="camera-solver-constraint">
-<span id="bpy-types-camerasolverconstraint"></span><h1>Camera Solver Constraint<a class="headerlink" href="#camera-solver-constraint" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-camerasolverconstraint"></span><h1>Ràng Buộc Giải Nghiệm Máy Quay Phim -- Camera Solver Constraint<a class="headerlink" href="#camera-solver-constraint" title="Permalink to this headline">¶</a></h1>
 <p>The <em>Camera Solver</em> constraint gives the owner of this constraint,
 the location and rotation of the &quot;solved camera motion&quot;.</p>
 <p>The &quot;solved camera motion&quot; is where Blender reconstructs the position of the physical, real-world camera,
@@ -209,16 +209,16 @@ when it filmed the video footage, relative to the thing being tracked.</p>
 (<span class="menuselection">Movie Clip Editor ‣ Tool Shelf ‣ Solve ‣ Solve Camera Motion</span>).</p>
 </div>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id1">
 <img alt="../../../_images/rigging_constraints_motion-tracking_camera-solver_panel.png" src="../../../_images/rigging_constraints_motion-tracking_camera-solver_panel.png" />
 <p class="caption"><span class="caption-text">Camera Solver Constraint panel.</span></p>
 </div>
 <dl class="docutils">
-<dt>Active Clip</dt>
+<dt>Đoạn Phim Đang Hoạt Động -- Active Clip</dt>
 <dd>Receive tracking data from the movie clip active in the Movie Clip editor.
 If unchecked, an option appears to choose from the other clips.</dd>
-<dt>Constraint to F-Curve</dt>
+<dt>Ràng Buộc thành Đường Cong-F -- Constraint to F-Curve</dt>
 <dd>Applies the constraint, creating Keyframes for the transforms.</dd>
 </dl>
 </div>
@@ -232,7 +232,7 @@ If unchecked, an option appears to choose from the other clips.</dd>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="object_solver.html" class="btn btn-neutral float-right" title="Object Solver Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="object_solver.html" class="btn btn-neutral float-right" title="Ràng Buộc Giải Nghiệm Vật Thể -- Object Solver Constraint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../interface/stack.html" class="btn btn-neutral" title="Stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

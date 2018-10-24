@@ -100,15 +100,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../render/index.html">Kết Xuất -- Render</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../compositing/index.html">Tổng Hợp -- Compositing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Bộ Máy Trò Chơi -- Game Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../screen_layout.html">Game Logic Screen Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../settings/index.html">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../materials.html">Game Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../world.html">Thế Giới -- World</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../logic/index.html">Logic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Camera</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Physics</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../camera/index.html">Máy Quay Phim -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Vật Lý -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../world.html">World Physics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converting.html">Converting</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="../index.html#physics-types">Physics Types</a><ul class="current">
@@ -128,7 +128,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../performance.html">Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../python_api/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../blender_player.html">Máy Chơi Độc Lập -- Standalone Player</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../licensing.html">Licensing of Blender Games</a></li>
 </ul>
 </li>
@@ -188,7 +188,7 @@
         
           <li><a href="../../index.html">Bộ Máy Trò Chơi -- Game Engine</a> &raquo;</li>
         
-          <li><a href="../index.html">Physics</a> &raquo;</li>
+          <li><a href="../index.html">Vật Lý -- Physics</a> &raquo;</li>
         
       <li>Soft Body Physics</li>
     
@@ -219,45 +219,45 @@ Do not despair, we are here to help you get some reasonable settings.</p>
 <p>Your setup will involve making sure you have sufficient geometry in the soft body's mesh to
 support the deformation, as well as tweaking the options.</p>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Actor</dt>
+<dt>Diễn Viên -- Actor</dt>
 <dd>Enables detection by Near and Radar Sensors.</dd>
-<dt>Ghost</dt>
+<dt>Ảo Ảnh -- Ghost</dt>
 <dd>Disables collisions completely, similar to No Collision.</dd>
-<dt>Invisible</dt>
+<dt>Vô Hình -- Invisible</dt>
 <dd>Does not display, the same as setting the object to unrendered
 (such as unchecking the camera icon in the Outliner).</dd>
-<dt>Mass</dt>
+<dt>Khối Lượng -- Mass</dt>
 <dd>Affects the reaction due to collision between objects --
 more massive objects have more inertia. Will also affect material force fields.
 Will also change behaviors if you are using the suspension and steering portions of Bullet physics.</dd>
-<dt>Shape Match</dt>
+<dt>So Sánh Hình Dạng -- Shape Match</dt>
 <dd>Upon starting the Game Engine this will record the starting shape of the mesh as the &quot;lowest energy&quot; state.
 This means that the edges will have tension whenever they are flexed to some other form.
 This is set to on by default,
 and in this configuration turns the object into more of a thin sheet of metal rather than a cloth.</dd>
-<dt>Threshold</dt>
+<dt>Giới Hạn -- Threshold</dt>
 <dd><p class="first"><a class="reference external" href="http://www.continuousphysics.com/Bullet/BulletFull/btSoftBody_8cpp_source.html#l01566">Linearly scales the pose match</a>.</p>
 <ul class="last simple">
 <li>A threshold of 1.0 makes it behave like <em>Shape Match</em> on with a <em>Linear Stiffness</em> of 1.0.</li>
 <li>A threshold of 0.0 makes it behave like <em>Shape Match</em> off with a <em>Linear Stiffness</em> of 0.0.</li>
 </ul>
 </dd>
-<dt>Welding</dt>
-<dd>TODO.</dd>
+<dt>Hàn Gắn -- Welding</dt>
+<dd>Nội dung cần viết thêm.</dd>
 <dt>Position Iteration</dt>
 <dd>Increase the accuracy at a linearly-increasing expense of time.
 The effect is visible especially with soft bodies that fall on sharp corners,
 though this can slow down even very simple scenes.</dd>
-<dt>Linear Stiffness</dt>
+<dt>Độ Cứng Tuyến Tính -- Linear Stiffness</dt>
 <dd>Linear stiffness of the soft body links.
 This is most evident when you have <em>Shape Match</em> off, but it is also evident with it on.</dd>
-<dt>Friction</dt>
+<dt>Ma Sát -- Friction</dt>
 <dd>Dynamic friction coefficient.</dd>
 </dl>
 <dl class="docutils">
-<dt>Margin</dt>
+<dt>Lề -- Margin</dt>
 <dd>Small value makes the algorithm unstable.</dd>
 </dl>
 <dl class="docutils">
@@ -268,18 +268,18 @@ This is most evident when you have <em>Shape Match</em> off, but it is also evid
 <dt>Cluster Collision</dt>
 <dd><p class="first">Affects Collision sensors as well as physics.</p>
 <dl class="last docutils">
-<dt>Rigid to Soft Body</dt>
+<dt>Thân Cứng đến Thân Mềm -- Rigid to Soft Body</dt>
 <dd>Enable cluster collisions between rigid and soft bodies.</dd>
-<dt>Soft to Soft Body</dt>
+<dt>Thân Mềm đến Thân Mềm -- Soft to Soft Body</dt>
 <dd>Enable cluster collisions among soft bodies.</dd>
-<dt>Iterations</dt>
+<dt>Số Lần Lặp Lại -- Iterations</dt>
 <dd>Number of cluster iterations.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="hints">
-<h2>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
+<h2>Gợi ý -- Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>A very important configurable in the case of soft body interactions is
 <a class="reference internal" href="../world.html"><span class="doc">World Properties</span></a>

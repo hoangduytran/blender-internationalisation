@@ -98,17 +98,17 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Cycles Renderer</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lamps.html">Lamps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../world.html">World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../nodes/index.html">Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Nguyên Liệu -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lamps.html">Đèn -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world.html">Thế Giới -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../nodes/index.html">Nút -- Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera.html">Máy Quay Phim -- Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../features.html">Render Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Sắp Đặt Cycles -- Cycles Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../gpu_rendering.html">GPU Rendering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../baking.html">Render Baking</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Optimizing Renders</a><ul class="current">
@@ -119,10 +119,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -214,7 +214,7 @@ Here we will discuss a number of tricks that, while breaking the laws of physics
 are particularly important when rendering animations within a reasonable time.
 Click to enlarge the example images to see the noise differences well.</p>
 <div class="section" id="path-tracing">
-<h2>Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h2>
+<h2>Dò Đường Đi -- Path Tracing<a class="headerlink" href="#path-tracing" title="Permalink to this headline">¶</a></h2>
 <p>Cycles uses path tracing with next event estimation,
 which is not good at rendering all types of light effects, like caustics,
 but has the advantage of being able to render more detailed and
@@ -313,7 +313,7 @@ and <a class="reference internal" href="../nodes/types/color/light_falloff.html"
 </table>
 </div>
 <div class="section" id="bounces">
-<h2>Bounces<a class="headerlink" href="#bounces" title="Permalink to this headline">¶</a></h2>
+<h2>Lượng Bật Nảy -- Bounces<a class="headerlink" href="#bounces" title="Permalink to this headline">¶</a></h2>
 <p>In reality light will bounce a huge number of times due to the speed of light being very high.
 In practice more bounces will introduce more noise, and it might be good to use something like
 the Limited Global Illumination preset in the <a class="reference internal" href="../settings/scene/render/integrator.html#render-cycles-integrator-light-paths"><span class="std std-ref">Light Paths</span></a>
@@ -395,7 +395,7 @@ This will blur the sharp glossy reflection to make it easier to find, by increas
 <p>The above images show default settings, no caustics, and filter glossy set to 1.0.</p>
 </div>
 <div class="section" id="light-falloff">
-<h2>Light Falloff<a class="headerlink" href="#light-falloff" title="Permalink to this headline">¶</a></h2>
+<h2>Suy Giảm của Ánh Sáng -- Light Falloff<a class="headerlink" href="#light-falloff" title="Permalink to this headline">¶</a></h2>
 <p>In reality light in a vacuum will always fall off at a rate of 1/(distance^2).
 However, as distance goes to zero,
 this value goes to infinity and we can get very bright spots in the image.
@@ -458,7 +458,7 @@ and the image renders with slightly less noise by disabling Multiple Importance 
 </tr>
 </tbody>
 </table>
-<p>The world background also has a <em>Multiple Importance</em> (<a class="reference internal" href="../world.html#render-cycles-integrator-world-settings"><span class="std std-ref">Settings</span></a>) option.
+<p>The world background also has a <em>Multiple Importance</em> (<a class="reference internal" href="../world.html#render-cycles-integrator-world-settings"><span class="std std-ref">Sắp Đặt -- Settings</span></a>) option.
 This is mostly useful for environment maps that have small bright spots in them, rather than being smooth.
 This option will then, in a preprocess, determine the bright spots, and send light rays directly towards them. Again,
 enabling this option may take samples away from more important light sources if it is not needed.</p>
@@ -514,7 +514,7 @@ You then will need to modify its shape to match that of the opening that you are
 </div>
 </div>
 <div class="section" id="denoising">
-<h2>Denoising<a class="headerlink" href="#denoising" title="Permalink to this headline">¶</a></h2>
+<h2>Lọc Nhiễu -- Denoising<a class="headerlink" href="#denoising" title="Permalink to this headline">¶</a></h2>
 <p>Even with all the settings described above there will always end
 up being some render noise no matter how many samples you use.
 To fix this there is a post-processing technique to cleanup the final bit of noise.

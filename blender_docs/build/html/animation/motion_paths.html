@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Motion Paths &mdash; Blender Manual</title>
+  <title>Đường Chuyển Động -- Motion Paths &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
     <link rel="next" title="Vật Lý -- Physics" href="../physics/index.html" />
-    <link rel="prev" title="Workflow" href="shape_keys/workflow.html" /> 
+    <link rel="prev" title="Quy Trình Làm Việc -- Workflow" href="shape_keys/workflow.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -96,18 +96,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Lắp Ráp -- Rigging</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoạt Họa -- Animation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Keyframes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="actions.html">Actions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Drivers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="markers.html">Markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Shape Keys</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Motion Paths</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#options">Options</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#show">Show</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Khung Khóa -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Hành Động -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Bộ Điều Vận -- Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="markers.html">Các Dấu Mốc -- Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Hình Mẫu -- Shape Keys</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Đường Chuyển Động -- Motion Paths</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#options">Tùy Chọn -- Options</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#show">Hiển Thị -- Show</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Ví Dụ -- Example</a></li>
 </ul>
 </li>
 </ul>
@@ -172,7 +172,7 @@
         
           <li><a href="index.html">Hoạt Họa -- Animation</a> &raquo;</li>
         
-      <li>Motion Paths</li>
+      <li>Đường Chuyển Động -- Motion Paths</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,39 +192,42 @@
            <div itemprop="articleBody">
             
   <div class="section" id="motion-paths">
-<span id="bpy-ops-object-paths-calculate"></span><span id="bpy-types-animviz"></span><h1>Motion Paths<a class="headerlink" href="#motion-paths" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-ops-object-paths-calculate"></span><span id="bpy-types-animviz"></span><h1>Đường Chuyển Động -- Motion Paths<a class="headerlink" href="#motion-paths" title="Permalink to this headline">¶</a></h1>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View, Properties editor</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Biên Soạn -- Editor:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">3D View, Properties editor</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Object Mode</td>
+<tr class="field-even field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Chế Độ Vật Thể -- Object Mode</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Motion Paths: Calculate</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Animation ‣ Animation ‣ Motion Paths: Calculate</span></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Object ‣ Motion Paths</span></td>
+<tr class="field-even field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Object ‣ Motion Paths</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">3D View, Properties editor</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Biên Soạn -- Editor:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">3D View, Properties editor</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Mode:</th><td class="field-body">Pose Mode</td>
+<tr class="field-even field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Chế Độ Tư Thế -- Pose Mode</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Pose Tools ‣ Motion Paths: Calculate</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Tool Shelf ‣ Tools ‣ Pose Tools ‣ Motion Paths: Calculate</span></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Armature ‣ Motion Paths</span></td>
+<tr class="field-even field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Armature ‣ Motion Paths</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Pose ‣ Motion Paths</span></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><span class="menuselection">Pose ‣ Motion Paths</span></td>
 </tr>
 </tbody>
 </table>
@@ -236,7 +239,7 @@
 <p>The Motion Paths tool allows you to visualize the motion of points as paths over a series of frames.
 These points can be object origins and bone joints.</p>
 <p>Before we look at its options, let us first see how to display/hide these paths.
-Unlike <a class="reference internal" href="../rigging/armatures/properties/ghost.html"><span class="doc">Ghost</span></a>, you have to do it manually
+Unlike <a class="reference internal" href="../rigging/armatures/properties/ghost.html"><span class="doc">Ảo Ảnh -- Ghost</span></a>, you have to do it manually
 and you have to first select the bones you want to show/hide the motion paths. Then:</p>
 <ol class="arabic simple">
 <li>To show the paths (or update them, if needed), click on the <em>Calculate Path</em> button.</li>
@@ -255,19 +258,19 @@ Each frame is displayed by a small white dot on the paths.</p>
 and they are also active during animation playback. <kbd class="kbd docutils literal notranslate">Alt-A</kbd> is
 only useful when the <em>Around Current Frame</em> option is enabled.</p>
 <div class="section" id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<h2>Tùy Chọn -- Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id2">
 <img alt="../_images/animation_motion-paths_panel.png" src="../_images/animation_motion-paths_panel.png" />
 <p class="caption"><span class="caption-text">The Motion Paths panel in the Armature tab.</span></p>
 </div>
 <dl class="docutils">
-<dt>Type</dt>
+<dt>Thể Loại -- Type</dt>
 <dd><dl class="first last docutils">
-<dt>Around Frame</dt>
+<dt>Quanh Khung Phim -- Around Frame</dt>
 <dd>Display paths of points within a fixed number of frames around the current frame.
 When you enable this button, you get paths for a given number of frames before and after the current one
 (again, as with ghosts).</dd>
-<dt>In Range</dt>
+<dt>Trong Phạm Vi -- In Range</dt>
 <dd>Display paths of points within specified range.</dd>
 </dl>
 </dd>
@@ -276,10 +279,10 @@ When you enable this button, you get paths for a given number of frames before a
 <dt>Before, After</dt>
 <dd>Number of frames to show before and after the current frame
 (only for <em>Around Current Frame</em> Onion-skinning method).</dd>
-<dt>Start, End</dt>
+<dt>Bắt Đầu, Kết Thúc (Đầu,Cuối) -- Start, End</dt>
 <dd>Starting and Ending frame of range of paths to display/calculate
 (not for <em>Around Current Frame</em> Onion-skinning method).</dd>
-<dt>Step</dt>
+<dt>Bước -- Step</dt>
 <dd>This is the same as the <em>Step</em> for ghosts.
 It allows you to only display on the path one frame for each <em>n</em> ones.
 Mostly useful when you enable the frame number display (see below), to avoid cluttering the 3D Views.</dd>
@@ -298,12 +301,12 @@ the options specified in the pop-up menu or Operator panel.</p>
 <p>If a path has already been calculated, Update Paths will update the path shape to the current animation.
 To change the frame range of the calculated path, you need to delete the path and calculate it again.</p>
 <dl class="last docutils">
-<dt>Start, End</dt>
+<dt>Bắt Đầu, Kết Thúc (Đầu,Cuối) -- Start, End</dt>
 <dd>These are the start/end frames of the range in which motion paths are drawn.
 You have to <em>Calculate Paths</em> again if you modify this setting, to update the paths in the 3D Views.
 Note that unlike with ghosts, the start frame is <em>inclusive</em>
 (i.e. if you set <em>Start</em> to 1, you will really see the frame 1 as starting point of the paths...).</dd>
-<dt>Bake Location</dt>
+<dt>Vị Trí Nướng -- Bake Location</dt>
 <dd>Bones only -- By default, you get the tips' paths.
 By changing this setting to Tails, you will get the paths of the bone's roots
 (remember that in Blender UI, bones' roots are called &quot;heads&quot;...).
@@ -315,32 +318,32 @@ to update the paths in the 3D Views.</dd>
 <dd>Clears paths on all objects/bones or just the selected ones when holding <kbd class="kbd docutils literal notranslate">Shift</kbd>.</dd>
 </dl>
 <div class="section" id="show">
-<h3>Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
+<h3>Hiển Thị -- Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Frame Numbers</dt>
+<dt>Số Khung Hình -- Frame Numbers</dt>
 <dd>When enabled, a small number appears next to each frame dot on the path,
 which is of course the number of the corresponding frame.</dd>
-<dt>Line</dt>
+<dt>Dòng -- Line</dt>
 <dd><p class="first">Toggles whether the lines between the points are drawn.</p>
 <dl class="last docutils">
 <dt>Thickness, Color (color wheel icon)</dt>
 <dd>Customizable thickness and color for the lines.</dd>
 </dl>
 </dd>
-<dt>Keyframes</dt>
+<dt>Khung Khóa -- Keyframes</dt>
 <dd>When enabled, big yellow square dots are drawn on motion paths, showing the keyframes of their bones
 (i.e. only the paths of keyed bones at a given frame get a yellow dot at this frame).</dd>
 <dt>+ Non-Grouped Keyframes</dt>
 <dd>For bone motion paths, it searches the whole Action for keyframes instead of
 in groups with matching name only (this is slower).</dd>
-<dt>Keyframe Numbers</dt>
+<dt>Số Khung Khóa -- Keyframe Numbers</dt>
 <dd>When enabled, you will see the numbers of the displayed keyframes,
 so this option is obviously only valid when <em>Show Keys</em> is enabled.</dd>
 </dl>
 </div>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id3">
 <img alt="../_images/animation_motion-paths_example-armature.png" src="../_images/animation_motion-paths_example-armature.png" />
 <p class="caption"><span class="caption-text">An example of a motion path of an armature.</span></p>
@@ -359,7 +362,7 @@ so this option is obviously only valid when <em>Show Keys</em> is enabled.</dd>
         <a href="../physics/index.html" class="btn btn-neutral float-right" title="Vật Lý -- Physics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="shape_keys/workflow.html" class="btn btn-neutral" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="shape_keys/workflow.html" class="btn btn-neutral" title="Quy Trình Làm Việc -- Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

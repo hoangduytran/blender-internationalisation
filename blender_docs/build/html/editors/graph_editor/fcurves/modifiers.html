@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>F-Curve Modifiers &mdash; Blender Manual</title>
+  <title>Bộ Điều Chỉnh Đường Cong-F -- F-Curve Modifiers &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
-    <link rel="next" title="Dope Sheet" href="../../dope_sheet/index.html" />
-    <link rel="prev" title="Properties" href="properties.html" /> 
+    <link rel="next" title="Bảng Hành Động -- Dope Sheet" href="../../dope_sheet/index.html" />
+    <link rel="prev" title="Tính Chất -- Properties" href="properties.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -94,14 +94,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../index.html#d">3D</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#animation">Hoạt Họa -- Animation</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../../timeline.html">Timeline Editor</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Graph Editor</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../channels.html">Channels</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="index.html">F-Curves</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">Trình Biên Soạn Đồ Thị -- Graph Editor</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../channels.html">Kênh -- Channels</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Đường Cong-F -- F-Curves</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Dope Sheet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">NLA Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../dope_sheet/index.html">Bảng Hành Động -- Dope Sheet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../nla/index.html">Soạn NLA -- NLA Editor</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../index.html#image-video">Hình Ảnh/Phim Video -- Image/Video</a></li>
@@ -175,11 +175,11 @@
         
           <li><a href="../../index.html">Các Trình Biên Soạn -- Editors</a> &raquo;</li>
         
-          <li><a href="../index.html">Graph Editor</a> &raquo;</li>
+          <li><a href="../index.html">Trình Biên Soạn Đồ Thị -- Graph Editor</a> &raquo;</li>
         
-          <li><a href="index.html">F-Curves</a> &raquo;</li>
+          <li><a href="index.html">Đường Cong-F -- F-Curves</a> &raquo;</li>
         
-      <li>F-Curve Modifiers</li>
+      <li>Bộ Điều Chỉnh Đường Cong-F -- F-Curve Modifiers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,14 +199,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="f-curve-modifiers">
-<span id="bpy-types-fmodifier"></span><span id="bpy-types-fcurvemodifiers"></span><h1>F-Curve Modifiers<a class="headerlink" href="#f-curve-modifiers" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-fmodifier"></span><span id="bpy-types-fcurvemodifiers"></span><h1>Bộ Điều Chỉnh Đường Cong-F -- F-Curve Modifiers<a class="headerlink" href="#f-curve-modifiers" title="Permalink to this headline">¶</a></h1>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Modifiers ‣ Modifiers</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties region ‣ Modifiers ‣ Modifiers</span></td>
 </tr>
 </tbody>
 </table>
@@ -226,14 +226,14 @@ Click on the <em>Add Modifier</em> menu to select a modifier.</p>
 <div class="section" id="types-of-modifiers">
 <h2>Types of Modifiers<a class="headerlink" href="#types-of-modifiers" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="generator">
-<span id="bpy-types-fmodifiergenerator"></span><h3>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifiergenerator"></span><h3>Hàm Sinh  -- Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h3>
 <p>Generator creates a Factorized or Expanded Polynomial function.
 These are basic mathematical formulas that represent lines, parabolas,
 and other more complex curves, depending on the values used.</p>
 <dl class="docutils">
-<dt>Additive</dt>
+<dt>Bổ Sung -- Additive</dt>
 <dd>This option causes the modifier to be added to the curve, instead of replacing it by default.</dd>
-<dt>Polynomial Order</dt>
+<dt>Bậc Phương Trình -- Polynomial Order</dt>
 <dd><p class="first">Specify the order of the polynomial, or the highest power of <code class="docutils literal notranslate"><span class="pre">X</span></code> for this polynomial.
 (number of coefficients: 1).</p>
 <p>Change the Coefficient values to change the shape of the curve.</p>
@@ -250,60 +250,60 @@ for more information on polynomials.</p>
 <p>These are additional formulas, each with the same options to control their shape.
 Consult mathematics reference for more detailed information on each function:</p>
 <ul class="simple">
-<li>Sine</li>
-<li>Cosine</li>
-<li>Tangent</li>
-<li>Square Root</li>
-<li>Natural Logarithm</li>
+<li>Sin -- Sine</li>
+<li>Cos -- Cosine</li>
+<li>Tiếp Tuyến -- Tangent</li>
+<li>Căn -- Square Root</li>
+<li>Lôgarit Tự Nhiên -- Natural Logarithm</li>
 <li>Normalized Sine (<code class="docutils literal notranslate"><span class="pre">sin(x)/x</span></code>)</li>
 </ul>
 <dl class="docutils">
-<dt>Amplitude</dt>
+<dt>Biên Độ -- Amplitude</dt>
 <dd>Adjusts the Y scaling.</dd>
-<dt>Phase Multiplier</dt>
+<dt>Hệ Số Khuếch Đại Pha -- Phase Multiplier</dt>
 <dd>Adjusts the X scaling.</dd>
-<dt>Phase Offset</dt>
+<dt>Dịch Chuyển Pha Sóng -- Phase Offset</dt>
 <dd>Adjusts the X offset.</dd>
-<dt>Value Offset</dt>
+<dt>Giá Trị Dịch Chuyển -- Value Offset</dt>
 <dd>Adjusts the Y offset.</dd>
 </dl>
 </div>
 <div class="section" id="envelope">
-<span id="bpy-types-fmodifierenvelopecontrolpoint"></span><span id="bpy-types-fmodifierenvelope"></span><h3>Envelope<a class="headerlink" href="#envelope" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifierenvelopecontrolpoint"></span><span id="bpy-types-fmodifierenvelope"></span><h3>Vỏ Bao -- Envelope<a class="headerlink" href="#envelope" title="Permalink to this headline">¶</a></h3>
 <p>Allows you to adjust the overall shape of a curve with control points.</p>
 <dl class="docutils">
-<dt>Reference Value</dt>
+<dt>Giá Trị Đối Chiếu -- Reference Value</dt>
 <dd>Set the Y value the envelope is centered around.</dd>
-<dt>Min</dt>
+<dt>Nhỏ Nhất -- Min</dt>
 <dd>Lower distance from Reference Value for <code class="docutils literal notranslate"><span class="pre">1:1</span></code> default influence.</dd>
-<dt>Max</dt>
+<dt>Lớn Nhất -- Max</dt>
 <dd>Upper distance from Reference Value for <code class="docutils literal notranslate"><span class="pre">1:1</span></code> default influence.</dd>
-<dt>Add Point</dt>
+<dt>Cộng Thêm Điểm -- Add Point</dt>
 <dd>Add a set of control points. They will be created at the current frame.</dd>
-<dt>Point</dt>
+<dt>Điểm -- Point</dt>
 <dd><dl class="first last docutils">
-<dt>Frame</dt>
+<dt>Khung Hình -- Frame</dt>
 <dd>Set the frame number for the control point.</dd>
-<dt>Min</dt>
+<dt>Nhỏ Nhất -- Min</dt>
 <dd>Specifies the lower control point's position.</dd>
-<dt>Max</dt>
+<dt>Lớn Nhất -- Max</dt>
 <dd>Specifies the upper control point's position.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="cycles">
-<span id="bpy-types-fmodifiercycles"></span><h3>Cycles<a class="headerlink" href="#cycles" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifiercycles"></span><h3>Tuần Hoàn -- Cycles<a class="headerlink" href="#cycles" title="Permalink to this headline">¶</a></h3>
 <p>Cycles allows you add cyclic motion to a curve that has two or more control points.
 The options can be set for before and after the curve.</p>
 <dl class="docutils">
 <dt>Cycle Mode</dt>
 <dd><dl class="first last docutils">
-<dt>Repeat Motion</dt>
+<dt>Nhắc Lại Chuyển Động -- Repeat Motion</dt>
 <dd>Repeats the curve data, while maintaining their values each cycle.</dd>
-<dt>Repeat with Offset</dt>
+<dt>Nhắc lại với dịch chuyển -- Repeat with Offset</dt>
 <dd>Repeats the curve data, but offsets the value of the first point to the value of the last point each cycle.</dd>
-<dt>Repeat Mirrored</dt>
+<dt>Nhắc Lại Đối Xứng -- Repeat Mirrored</dt>
 <dd>Each cycle the curve data is flipped across the X axis.</dd>
 </dl>
 </dd>
@@ -312,37 +312,37 @@ The options can be set for before and after the curve.</p>
 </dl>
 </div>
 <div class="section" id="noise">
-<span id="bpy-types-fmodifiernoise"></span><h3>Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifiernoise"></span><h3>Nhiễu -- Noise<a class="headerlink" href="#noise" title="Permalink to this headline">¶</a></h3>
 <p>Modifies the curve with a noise formula.
 This is useful for creating subtle or extreme randomness to animated movements,
 like camera shake.</p>
 <dl class="docutils">
-<dt>Blend Type</dt>
+<dt>Kiểu Hòa Trộn -- Blend Type</dt>
 <dd><dl class="first last docutils">
-<dt>Replace</dt>
+<dt>Thay Thế -- Replace</dt>
 <dd>Adds a -0.5 to 0.5 range noise function to the curve.</dd>
-<dt>Add</dt>
+<dt>Cộng -- Add</dt>
 <dd>Adds a 0 to 1 range noise function to the curve.</dd>
-<dt>Subtract</dt>
+<dt>Trừ Khấu -- Subtract</dt>
 <dd>Subtracts a 0 to 1 range noise function to the curve.</dd>
-<dt>Multiply</dt>
+<dt>Nhân -- Multiply</dt>
 <dd>Multiplies a 0 to 1 range noise function to the curve.</dd>
 </dl>
 </dd>
-<dt>Scale</dt>
+<dt>Tỷ Lệ -- Scale</dt>
 <dd>Adjust the overall size of the noise. Values further from 0 give less frequent noise.</dd>
-<dt>Strength</dt>
+<dt>Sức Mạnh/Cường Độ -- Strength</dt>
 <dd>Adjusts the Y scaling of the noise function.</dd>
-<dt>Offset</dt>
+<dt>Dịch Chuyển -- Offset</dt>
 <dd>Offsets the noise in time.</dd>
-<dt>Phase</dt>
+<dt>Pha Sóng -- Phase</dt>
 <dd>Adjusts the random seed of the noise.</dd>
-<dt>Depth</dt>
+<dt>Chiều/Độ Sâu -- Depth</dt>
 <dd>Adjusts how detailed the noise function is.</dd>
 </dl>
 </div>
 <div class="section" id="limits">
-<span id="bpy-types-fmodifierlimits"></span><h3>Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifierlimits"></span><h3>Giới Hạn -- Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h3>
 <p>Limit curve values to specified X and Y ranges.</p>
 <dl class="docutils">
 <dt>Minimum, Maximum X</dt>
@@ -352,17 +352,17 @@ like camera shake.</p>
 </dl>
 </div>
 <div class="section" id="stepped-interpolation">
-<span id="bpy-types-fmodifierstepped"></span><h3>Stepped Interpolation<a class="headerlink" href="#stepped-interpolation" title="Permalink to this headline">¶</a></h3>
+<span id="bpy-types-fmodifierstepped"></span><h3>Nội Suy Bậc Thang -- Stepped Interpolation<a class="headerlink" href="#stepped-interpolation" title="Permalink to this headline">¶</a></h3>
 <p>Gives the curve a stepped appearance by rounding values down within a certain range of frames.</p>
 <dl class="docutils">
-<dt>Step Size</dt>
+<dt>Kích Thước Bậc Thang -- Step Size</dt>
 <dd>Specify the number of frames to hold each frame.</dd>
-<dt>Offset</dt>
+<dt>Dịch Chuyển -- Offset</dt>
 <dd>Reference number of frames before frames get held.
 Use to get hold for (1-3) vs (5-7) holding patterns.</dd>
-<dt>Use Start Frame</dt>
+<dt>Dùng Khung Hình Đầu Tiên -- Use Start Frame</dt>
 <dd>Restrict modifier to only act before its &quot;end&quot; frame.</dd>
-<dt>Use End Frame</dt>
+<dt>Dùng Khung Hình Cuối Cùng -- Use End Frame</dt>
 <dd>Restrict modifier to only act after its &quot;start&quot; frame.</dd>
 </dl>
 </div>
@@ -377,10 +377,10 @@ Use to get hold for (1-3) vs (5-7) holding patterns.</dd>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../dope_sheet/index.html" class="btn btn-neutral float-right" title="Dope Sheet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../../dope_sheet/index.html" class="btn btn-neutral float-right" title="Bảng Hành Động -- Dope Sheet" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="properties.html" class="btn btn-neutral" title="Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="properties.html" class="btn btn-neutral" title="Tính Chất -- Properties" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

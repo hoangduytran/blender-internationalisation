@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Nút Bộ Lọc -- Filter Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -219,27 +219,27 @@
 <p>It is typically used to emulate depth of field (<a class="reference internal" href="../../../glossary/index.html#term-dof"><span class="xref std std-term">DOF</span></a>) using a post-processing method with a Z-buffer input.
 But also allows to blur images that are not based on Z depth too.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image input.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu vào hình ảnh tiêu chuẩn.</dd>
 <dt>Z</dt>
 <dd>Z-buffer input, but could also be a (grayscale) image used as a mask, or a single value input.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Bokeh Type</dt>
+<dt>Loại Bokeh -- Bokeh Type</dt>
 <dd><p class="first">The number of iris blades of the virtual camera's diaphragm.</p>
 <p class="last">Disk (to emulate a perfect circle) or Triangle (3 blades), Square (4 blades),
 Pentagon (5 blades), Hexagon (6 blades), Heptagon (7 blades) or Octagon (8 blades).</p>
 </dd>
-<dt>Angle</dt>
+<dt>Góc Độ -- Angle</dt>
 <dd>This button is deactivated, if the Bokeh Type is set to Disk.
 It can be used to add a rotation offset to the Bokeh shape.
 The value is the angle in degrees.</dd>
-<dt>Gamma Correction</dt>
+<dt>Chỉnh Sửa Gamma -- Gamma Correction</dt>
 <dd>Applies a gamma correction on the image before and after blurring it.</dd>
 <dt>F-Stop</dt>
 <dd>This option controls the amount of focal blur in the same way as a real camera.
@@ -247,11 +247,11 @@ It simulates the aperture <em>f</em> of a real lens' iris, without modifying the
 The default value 128 is assumed to be infinity:
 everything is in perfect focus. Half the value will double the amount of blur.
 This button is deactivated, if <em>No Z-buffer</em> is enabled.</dd>
-<dt>Max Blur</dt>
+<dt>Nhòe Tối Đa -- Max Blur</dt>
 <dd>This value limits the amount of blur by setting a maximum blur radius.
 Could be used to optimize the performance.
 The default value of 0 means no limit.</dd>
-<dt>Threshold</dt>
+<dt>Giới Hạn -- Threshold</dt>
 <dd><p class="first">Some artifacts, like edge bleed, may occur, if the blur difference between pixels is large.
 This value controls how large that blur difference considered to be safe.</p>
 <div class="last admonition tip">
@@ -259,30 +259,30 @@ This value controls how large that blur difference considered to be safe.</p>
 <p class="last">Only change this value, if there is an occurring problem with an in-focus object.</p>
 </div>
 </dd>
-<dt>Preview</dt>
+<dt>Duyệt Thảo -- Preview</dt>
 <dd>If enabled a limited amount of (quasi-)random samples are used to render the preview.
 This way of sampling introduces additional noise, which will not show up in the final render.</dd>
-<dt>Scene</dt>
+<dt>Cảnh -- Scene</dt>
 <dd>To select the linked scene.</dd>
 <dt>No Z-buffer</dt>
 <dd>Should be activate for a non Z-buffer in the Z input.
 No Z-buffer will be enabled automatically
 whenever a node that is not image based is connected to the Z input.</dd>
-<dt>Z Scale</dt>
+<dt>Tỷ Lệ Z -- Z Scale</dt>
 <dd>Only active when <em>No Z-buffer</em> is enabled. When <em>No Z-buffer</em> is used,
 the input is used directly to control the blur radius (similar to <em>f-Stop</em> when using the Z-buffer).
 This parameter can be used to scale the range of the Z input.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image output.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu ra tiêu chuẩn của hình ảnh.</dd>
 </dl>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Các Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
 <a class="reference internal image-reference" href="../../../_images/compositing_types_filter_defocus_example.jpg"><img alt="../../../_images/compositing_types_filter_defocus_example.jpg" src="../../../_images/compositing_types_filter_defocus_example.jpg" style="width: 300px;" /></a>
 </div>
@@ -326,9 +326,9 @@ the button is right below the <em>Depth of Field</em>.</p>
 the focal point is then visible as a yellow cross along the view direction of the camera.</p>
 </div>
 <div class="section" id="hints">
-<h3>Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h3>
+<h3>Gợi ý -- Hints<a class="headerlink" href="#hints" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Preview</dt>
+<dt>Duyệt Thảo -- Preview</dt>
 <dd>In general, use preview mode, change parameters to your liking,
 only then disable preview mode for the final render.
 This node is computationally intensive, so watch your console window,

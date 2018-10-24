@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Converter Nodes</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="alpha_convert.html">Alpha Convert Node</a></li>
@@ -120,7 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -212,25 +212,25 @@
 </div>
 <p>The <em>ID Mask Node</em> can be used to access an alpha mask per object or per material.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>ID value</dt>
+<dt>Giá trị ID -- ID value</dt>
 <dd>Input for the <em>Object Index</em> or <em>Material Index</em> render pass.
 Which is an output of the <a class="reference internal" href="../input/render_layers.html"><span class="doc">Render Layers node</span></a> or
 the <a class="reference internal" href="../input/render_layers.html"><span class="doc">Image node</span></a> with a multi-layer format.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Index</dt>
+<dt>Chỉ Số -- Index</dt>
 <dd>Selection of the previously specified index.</dd>
 <dt>Anti-Aliased</dt>
 <dd>This post-process function refines the mask. See <a class="reference internal" href="../../../glossary/index.html#term-anti-aliasing"><span class="xref std std-term">anti-aliasing</span></a>.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Alpha</dt>
 <dd>The mask is white where the object is and black where it is not.
@@ -243,7 +243,7 @@ the mask will not reflect partial visibility of the object behind.</p>
 </div>
 </div>
 <div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<h2>Sắp Đặt -- Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
 <p>An index can be specify for any object or material in the scene.
 The Object Index can be set in Properties Editor <span class="menuselection">Object ‣ Relations ‣ Pass Index</span>
 and <span class="menuselection">Material ‣ Options ‣ Pass Index</span> for the Material Index.
@@ -254,7 +254,7 @@ To be accessible after rendering, <em>Object Index</em> or <em>Material Index</e
 </div>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>In this example, the left rear red cube is assigned Pass Index 1, and the right cube Pass Index 2.
 Where the two cubes intersect, there is going to be noticeable pixelation because they come together
 at a sharp angle and are different colors. Using the mask from object 1,

@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../search.html" />
     <link rel="next" title="Inpaint Node" href="inpaint.html" />
-    <link rel="prev" title="Filter Node" href="filter_node.html" /> 
+    <link rel="prev" title="Nút Bộ Lọc -- Filter Node" href="filter_node.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Nút Bộ Lọc -- Filter Node</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Glare Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -218,82 +218,82 @@
 <p>The <em>Glare node</em> is used to add lens flares, fog,
 glows around exposed parts of an image and much more.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image input.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu vào hình ảnh tiêu chuẩn.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="glare-type">
-<h3>Glare Type<a class="headerlink" href="#glare-type" title="Permalink to this headline">¶</a></h3>
+<h3>Thể Loại Lóe Sáng -- Glare Type<a class="headerlink" href="#glare-type" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Ghosts</dt>
+<dt>Ảo Ảnh -- Ghosts</dt>
 <dd>Creates a haze over the image.</dd>
-<dt>Streaks</dt>
+<dt>Vệt Sáng -- Streaks</dt>
 <dd><p class="first">Creates bright streaks used to simulate lens flares.</p>
 <dl class="last docutils">
-<dt>Streaks</dt>
+<dt>Vệt Sáng -- Streaks</dt>
 <dd>Total number of streaks.</dd>
-<dt>Angle Offset</dt>
+<dt>Góc Độ Dịch Chuyển -- Angle Offset</dt>
 <dd>The rotation offset factor of the streaks.</dd>
-<dt>Fade</dt>
+<dt>Mờ Dần -- Fade</dt>
 <dd>Fade out factor for the streaks.</dd>
 </dl>
 </dd>
-<dt>Fog Glow</dt>
+<dt>Hừng Sáng trong Sương Mù -- Fog Glow</dt>
 <dd><p class="first">Looks similar to <em>Ghost</em>. However, it is much smaller in size
 and gives more of an atmospheric haze or &quot;glow&quot; around the image.</p>
 <dl class="last docutils">
-<dt>Size</dt>
+<dt>Kích Thước -- Size</dt>
 <dd>Scale of the glow relative to the size of the original bright pixels.</dd>
 </dl>
 </dd>
-<dt>Simple Star</dt>
+<dt>Ngôi Sao Đơn Giản -- Simple Star</dt>
 <dd><p class="first">Works similar to <em>Streaks</em> but gives a simpler shape looking like a star.</p>
 <dl class="last docutils">
-<dt>Fade</dt>
+<dt>Mờ Dần -- Fade</dt>
 <dd>Fade out factor for the streaks.</dd>
-<dt>Rotate 45</dt>
+<dt>Xoay Chiều 45° -- Rotate 45</dt>
 <dd>Rotate the streaks by 45°.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="common-options">
-<h3>Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h3>
+<h3>Các Tùy Chọn Phổ Thông -- Common Options<a class="headerlink" href="#common-options" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Quality</dt>
+<dt>Chất Lượng -- Quality</dt>
 <dd>If not set to something other the <em>High</em>,
 then the glare effect will only be applied to a low resolution copy of the image.
 This can be helpful to save render times while only doing preview renders.</dd>
-<dt>Iterations</dt>
+<dt>Số Lần Lặp Lại -- Iterations</dt>
 <dd>The number of times to run through the filter algorithm.
 Higher values will give more accurate results but will take longer to compute.
 Note, that this is not available for <em>Fog Glow</em> as it does not use an iterative-based algorithm.</dd>
-<dt>Color Modulation</dt>
+<dt>Chuyển Điệu Màu -- Color Modulation</dt>
 <dd><p class="first">Used for <em>Streaks</em> and <em>Ghosts</em> to create a special dispersion effect.</p>
 <p class="last">Johannes Itten describes this effect, Color Modulation, as subtle variations in tones and chroma.</p>
 </dd>
-<dt>Mix</dt>
+<dt>Hòa Trộn -- Mix</dt>
 <dd>Value to control how much of the effect is added on to the image.
 A value of -1 would give just the original image, 0 gives a 50/50 mix, and 1 gives just the effect.</dd>
-<dt>Threshold</dt>
+<dt>Giới Hạn -- Threshold</dt>
 <dd>Pixels brighter than this value will be affected by the glare filter.</dd>
 </dl>
 </div>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
-<dd>Standard image output.</dd>
+<dt>Hình Ảnh -- Image</dt>
+<dd>Đầu ra tiêu chuẩn của hình ảnh.</dd>
 </dl>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<p>TODO add.</p>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>Nội dung cần viết thêm.</p>
 </div>
 </div>
 
@@ -308,7 +308,7 @@ A value of -1 would give just the original image, 0 gives a 50/50 mix, and 1 giv
         <a href="inpaint.html" class="btn btn-neutral float-right" title="Inpaint Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="filter_node.html" class="btn btn-neutral" title="Filter Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="filter_node.html" class="btn btn-neutral" title="Nút Bộ Lọc -- Filter Node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

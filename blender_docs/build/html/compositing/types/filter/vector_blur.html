@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Filter Nodes</a><ul class="current">
@@ -114,7 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="despeckle.html">Despeckle Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="dilate_erode.html">Dilate/Erode Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="directional_blur.html">Directional Blur Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Filter Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filter_node.html">Nút Bộ Lọc -- Filter Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="glare.html">Glare Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="inpaint.html">Inpaint Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pixelate.html">Pixelate Node</a></li>
@@ -125,7 +125,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../vector/index.html">Vector Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../matte/index.html">Matte Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -218,26 +218,26 @@
 <p>The Vector Blur node is a fast method for simulating <a class="reference internal" href="../../../glossary/index.html#term-motion-blur"><span class="xref std std-term">Motion blur</span></a> in compositing.
 It uses the vector speed render pass to blur the image pixels in 2D.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
+<dt>Hình Ảnh -- Image</dt>
 <dd>Image input, to be linked to the &quot;Combined&quot; render pass.</dd>
 <dt>Z</dt>
 <dd>Z depth, to be linked to the &quot;Depth&quot; render pass.</dd>
-<dt>Speed</dt>
+<dt>Tốc Độ -- Speed</dt>
 <dd>Input for the &quot;Vector&quot; render pass.
 See <a class="reference internal" href="../../../render/cycles/settings/scene/render_layers/passes.html"><span class="doc">Cycles render passes</span></a> or
 <a class="reference internal" href="../../../render/blender_render/settings/passes.html"><span class="doc">Blender internal render passes</span></a>.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Samples</dt>
+<dt>Lượng Mẫu Vật -- Samples</dt>
 <dd>Quality factor.</dd>
-<dt>Blur</dt>
+<dt>Nhòe -- Blur</dt>
 <dd>Scaling factor for the motion vector (actually the &quot;shutter speed&quot; in frames).</dd>
-<dt>Speed</dt>
+<dt>Tốc Độ -- Speed</dt>
 <dd><p class="first">The vector blur could produce artifacts like streaks, lines and other.
 To tackle these problems, the filter applies clamping,
 which can be used to limit which pixels get blurred. The speed is set in pixel units.</p>
@@ -254,14 +254,14 @@ the vector mask can become the entire image.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Image</dt>
+<dt>Hình Ảnh -- Image</dt>
 <dd>Motion blurred image output.</dd>
 </dl>
 </div>
 <div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2>Sử Dụng -- Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>Even with a correct compositing setup with Image, Z and Speed nodes all linked to the appropriate passes,
 there may still be artifacts. The 2D render passes does not contain 3D information,
 and so the information what is behind a moving object or outside the camera view is lost.</p>
@@ -273,7 +273,7 @@ Especially if hair or transparency is involved this is important.</p>
 This helps to smoothen out the motion, but too much blurring leads to its own problems.</p>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The <em>speed vector</em> in this example was created by animating the patterned sphere horizontally and
 using a frame at the mid-point of the sequence.</p>
 <table border="1" class="docutils">

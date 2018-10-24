@@ -108,20 +108,20 @@
 <li class="toctree-l2"><a class="reference internal" href="alembic.html">Alembic</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Collada</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#collada-exporter">Collada Exporter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#operator-presets">Operator Presets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#operator-presets">Cấu Hình Sắp Đặt Sẵn -- Operator Presets</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#export-data-options">Export Data Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#texture-options">Texture Options</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#armature-options">Armature Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#armature-options">Tùy Chọn về Cốt -- Armature Options</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#collada-options">Collada Options</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#collada-importer">Collada Importer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#technical-details">Technical Details</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mesh">Mesh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#light">Light</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mesh">Khung Lưới -- Mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#light">Nhẹ -- Light</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#material-effect">Material &amp; Effect</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#animation">Animation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#animation">Hoạt Hình -- Animation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nodes">Nút -- Nodes</a></li>
 </ul>
 </li>
 </ul>
@@ -212,7 +212,7 @@ So it may be possible that your particular usage scenario is not yet supported.<
 <img alt="../_images/pipeline_collada_export.png" src="../_images/pipeline_collada_export.png" />
 </div>
 <div class="section" id="operator-presets">
-<h3>Operator Presets<a class="headerlink" href="#operator-presets" title="Permalink to this headline">¶</a></h3>
+<h3>Cấu Hình Sắp Đặt Sẵn -- Operator Presets<a class="headerlink" href="#operator-presets" title="Permalink to this headline">¶</a></h3>
 <p>There are two operator presets (see top of Operator panel) for Second Life (SL) users:</p>
 <ul class="simple">
 <li><em>Second Life Static</em> -- is good for exporting static meshes.</li>
@@ -228,7 +228,7 @@ So it may be possible that your particular usage scenario is not yet supported.<
 <div class="section" id="export-data-options">
 <h3>Export Data Options<a class="headerlink" href="#export-data-options" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Apply Modifiers</dt>
+<dt>Áp Dụng Bộ Điều Chỉnh -- Apply Modifiers</dt>
 <dd><p class="first">All active modifiers will be applied in a non-destructive way.
 That is, the modifiers will be applied to copies of the meshes.
 Thus you no longer need to apply your modifiers before exporting.
@@ -239,10 +239,10 @@ That is now done automatically in the background.</p>
 The module now support both modes when applying the modifiers.</p>
 </div>
 </dd>
-<dt>Selection Only</dt>
+<dt>Duy Lựa Chọn -- Selection Only</dt>
 <dd>When <em>Selection Only</em> is enabled, then only the selected objects will be exported.
 Otherwise the entire scene is exported with all visible and all invisible objects.</dd>
-<dt>Include Children</dt>
+<dt>Bao Gồm Con Cái -- Include Children</dt>
 <dd><p class="first">When this option is enabled then all children of the selected objects
 will also be exported regardless of their selection state.</p>
 <div class="last admonition hint">
@@ -251,7 +251,7 @@ will also be exported regardless of their selection state.</p>
 <em>Include Children</em> then all rigged meshes attached to the armature will also be exported.</p>
 </div>
 </dd>
-<dt>Include Armatures</dt>
+<dt>Bao Gồm Cốt -- Include Armatures</dt>
 <dd><p class="first">When this option is enabled, then all armatures related to the selected objects
 will also be exported regardless of their selection state.</p>
 <div class="last admonition hint">
@@ -268,7 +268,7 @@ So now you can export your meshes with the current shape key configuration baked
 <div class="section" id="texture-options">
 <h3>Texture Options<a class="headerlink" href="#texture-options" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Only Selected UV Map</dt>
+<dt>Duy Ánh Xạ UV Được Chọn -- Only Selected UV Map</dt>
 <dd>When your mesh contains multiple UV layers, then Blender exports all layers by default.
 This option allows you to only export the active (selected) UV layer.</dd>
 <dt>Include Textures</dt>
@@ -292,7 +292,7 @@ And finally when your object looks as you expect, just export it with <em>Includ
 See also the <em>Copy</em> option below.</p>
 </div>
 <dl class="docutils">
-<dt>Copy</dt>
+<dt>Sao Chép -- Copy</dt>
 <dd><p class="first">When you export images either material based image textures or surface textures,
 then the exporter creates absolute file references in the export file.</p>
 <p class="last">But if the <em>Copy</em> option is enabled, the exporter will create copies of the images instead and
@@ -301,7 +301,7 @@ place the copies besides the export file. In that case the file references are m
 </dl>
 </div>
 <div class="section" id="armature-options">
-<h3>Armature Options<a class="headerlink" href="#armature-options" title="Permalink to this headline">¶</a></h3>
+<h3>Tùy Chọn về Cốt -- Armature Options<a class="headerlink" href="#armature-options" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>Deform Bones Only</dt>
 <dd>When this option is enabled, then the exporter strips all non-deforming bones
@@ -309,7 +309,7 @@ from the exported armatures. This option is useful when your armatures contain c
 which are not actually part of the character skeleton. For example you can now export
 the Avastar rig with this option enabled. The resulting exported rig is compatible to Second Life.
 But please note the restrictions further below.</dd>
-<dt>Export to SL/OpenSim</dt>
+<dt>Xuất cho Sl/OpenSim -- Export to SL/OpenSim</dt>
 <dd><p class="first">This option is very special. In fact some issues with bone orientation are calculated
 differently when this option is enabled. This is only relevant for rigged meshes.
 This option might be replaced by something more meaningful in the future
@@ -322,21 +322,21 @@ For static meshes it just does nothing at all.</p>
 <div class="section" id="collada-options">
 <h3>Collada Options<a class="headerlink" href="#collada-options" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Triangulate</dt>
+<dt>Tam Giác Hóa -- Triangulate</dt>
 <dd>The mesh can be triangulated on-the-fly. The triangulation is based on the same function
 which is used in the <em>Triangulate Faces</em> tool for triangulating the current selection of faces.
 For full control over the triangulation you can do this manually before exporting.
 However this option allows to do the triangulation only for the exported data.
 The mesh itself is not affected.</dd>
-<dt>Use Object Instances</dt>
+<dt>Sử Dụng các Thực Thể của Vật Thể -- Use Object Instances</dt>
 <dd>In Blender you can reuse the same mesh for multiple objects.
 This is named &quot;object instantiation&quot;. When you enable this option,
 then Blender will propagate object instantiation to the Collada file.</dd>
-<dt>Use Blender Profile</dt>
+<dt>Dùng Hồ Sơ của Blender -- Use Blender Profile</dt>
 <dd>Collada can be extended with tool specific data (profiles) Blender has its own (not official) profile
 that allows to export rig information into the Collada file, that can later be used to reconstruct
 the rig should it ever be necessary to import a dae file back into Blender.</dd>
-<dt>Transformation Type</dt>
+<dt>Thể Loại Biến Hóa -- Transformation Type</dt>
 <dd>Collada supports two types of transformation matrix specifications.
 Either as <code class="docutils literal notranslate"><span class="pre">&lt;Matrix&gt;</span></code> or as a set of transformation decompositions (for translate, rotate and scale).
 Note that the exporter will not strictly follow this option setting,
@@ -347,7 +347,7 @@ This is ongoing development and a less ambiguous method may be provided in the f
 <dt>Sort by Object Name</dt>
 <dd>The export order of data is bound to internal object order and it can not be influenced in a reliable way.
 this option ensures that the Geometry nodes and the Object nodes are both exported in alphabetical order.</dd>
-<dt>Keep Bind Info</dt>
+<dt>Lưu Giữ Thông Tin Kết Buộc -- Keep Bind Info</dt>
 <dd><p class="first">When a rig is imported to Blender, then the rig's bind pose will be used as Blender's rest pose.
 So all Matrix information of the original rest pose is lost.
 But in some cases you may want to preserve the original rig information.
@@ -371,11 +371,11 @@ or they can be created manually, or by an add-on (script based).</p>
 <p>The Collada importer is mostly driven by the imported data.
 There is one option for controlling the import units:</p>
 <dl class="docutils">
-<dt>Import Units</dt>
+<dt>Nhập Đơn Vị -- Import Units</dt>
 <dd>If not enabled the imported data will be rescaled according to the currently used unit system.
 It is assumed that 1 Blender unit is 1 meter. if this option is enabled,
 then Blender will adjust itself to the unit system as provided by the Collada file.</dd>
-<dt>Fix Leaf Bones</dt>
+<dt>Sửa Xương Ngọn -- Fix Leaf Bones</dt>
 <dd><p class="first">Collada only records &quot;joints&quot; which is mostly similar to Blender's bone heads.
 But when you import a Collada file then the bone ends are not defined.
 This does not matter for connected bones where the bone parent only has one child.
@@ -385,7 +385,7 @@ But especially for unconnected bones and for bones with more than one child we g
 of unconnected bones would best be placed. If the option is disabled,
 then the bone ends are placed at an offset along the Y axis. That is why bones often point towards the Y axis.</p>
 </dd>
-<dt>Find Bone Chains</dt>
+<dt>Tìm các Dây Chuyền Xương -- Find Bone Chains</dt>
 <dd><p class="first">When a bone has multiple children, then it is not defined which (if any)
 of the children should be connected to the bone. When the <em>Find Bone Chains</em> option is enabled,
 then Blender determines the longest bone chain (of children) for each bone.
@@ -393,10 +393,10 @@ All bones along this chain will then be auto connected.</p>
 <p class="last">If the option is disabled, then children will only be connected to parents,
 if the parent has only one child. But see the <em>Auto Connect</em> option below.</p>
 </dd>
-<dt>Auto Connect</dt>
+<dt>Tự Động Kết Nối -- Auto Connect</dt>
 <dd>When this option is enabled, then children will automatically
 be connected to their parents, if the parent has only one child.</dd>
-<dt>Keep Bind Info</dt>
+<dt>Lưu Giữ Thông Tin Kết Buộc -- Keep Bind Info</dt>
 <dd><p class="first">When this option is enabled, then the importer creates two custom properties for each bone:</p>
 <ul class="simple">
 <li><code class="docutils literal notranslate"><span class="pre">rest_mat</span></code> -- an array of 16 floats which represent the bone's original rest-pose matrix.</li>
@@ -410,34 +410,34 @@ again and be sure the original rest pose/bind pose combination must be used.</p>
 <div class="section" id="technical-details">
 <h2>Technical Details<a class="headerlink" href="#technical-details" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="mesh">
-<h3>Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
+<h3>Khung Lưới -- Mesh<a class="headerlink" href="#mesh" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="import">
-<h4>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h4>
+<h4>Nhập -- Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h4>
 <p>Supported geometry types are:</p>
 <ul class="simple">
 <li>Tris (not tested)</li>
 <li>Polylist</li>
-<li>Polygons</li>
+<li>Đa Giác -- Polygons</li>
 <li>N-gons</li>
 <li>Tri-fans (not tested)</li>
-<li>Lines</li>
+<li>(Số) Đường Kẻ/Thẳng/Dòng -- Lines</li>
 </ul>
 </div>
 <div class="section" id="export">
-<h4>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h4>
+<h4>Xuất -- Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h4>
 <p>Mesh data is exported as <code class="docutils literal notranslate"><span class="pre">&lt;polylist&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;lines&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;vertices&gt;</span></code>.</p>
 </div>
 </div>
 <div class="section" id="light">
-<h3>Light<a class="headerlink" href="#light" title="Permalink to this headline">¶</a></h3>
+<h3>Nhẹ -- Light<a class="headerlink" href="#light" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
-<h4>Import<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4>Nhập -- Import<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>Blender does a best effort on importing lights from a .dae.
 If a Blender profile is detected for lights, all values from these will be used instead.
 This ensures full re-import from a Blender exported .dae. <code class="docutils literal notranslate"><span class="pre">&lt;extra&gt;</span></code> support has been added in Blender 2.57.</p>
 </div>
 <div class="section" id="id2">
-<h4>Export<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h4>Xuất -- Export<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>A Blender profile for lights has been added through the <code class="docutils literal notranslate"><span class="pre">&lt;extra&gt;</span></code> tag.
 The entire Lamp struct from Blender will be exported through this profile, with the exception of light curve falloff.</p>
 </div>
@@ -445,13 +445,13 @@ The entire Lamp struct from Blender will be exported through this profile, with 
 <div class="section" id="material-effect">
 <h3>Material &amp; Effect<a class="headerlink" href="#material-effect" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id3">
-<h4>Export<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h4>Xuất -- Export<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>Since Blender 2.57 some changes to export of effects have been made.
 Most notably <code class="docutils literal notranslate"><span class="pre">&lt;lambert&gt;</span></code> is exported if and only if specularity is 0.</p>
 </div>
 </div>
 <div class="section" id="animation">
-<h3>Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h3>
+<h3>Hoạt Hình -- Animation<a class="headerlink" href="#animation" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="export-import">
 <h4>Export &amp; Import<a class="headerlink" href="#export-import" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -459,8 +459,8 @@ Most notably <code class="docutils literal notranslate"><span class="pre">&lt;la
 which is the default option for Objects, can be exported for now.
 For armature bone animations Euler and quaternion rotation types are supported.</li>
 <li>Import and export of animations for the following parameters are supported:<ul>
-<li>Light</li>
-<li>Camera</li>
+<li>Nhẹ -- Light</li>
+<li>Máy Quay Phim -- Camera</li>
 <li>Material effects</li>
 </ul>
 </li>
@@ -483,7 +483,7 @@ Selecting and export only selected will give smaller dae.)</li>
 </div>
 </div>
 <div class="section" id="nodes">
-<h3>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h3>
+<h3>Nút -- Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h3>
 <p>On import parent transformations for <code class="docutils literal notranslate"><span class="pre">&lt;instance_node&gt;</span></code>s is properly propagated to child node instances.
 Blender materials are exported with the following mapping:</p>
 <ul class="simple">

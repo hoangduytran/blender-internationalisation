@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
     <link rel="next" title="Converting" href="converting.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="prev" title="Giới Thiệu -- Introduction" href="introduction.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -100,19 +100,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../render/index.html">Kết Xuất -- Render</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../compositing/index.html">Tổng Hợp -- Compositing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Bộ Máy Trò Chơi -- Game Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../screen_layout.html">Game Logic Screen Layout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Game Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../settings/index.html">Sắp Đặt Trò Chơi -- Game Settings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../materials.html">Game Materials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../world.html">World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../world.html">Thế Giới -- World</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logic/index.html">Logic</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Camera</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Physics</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera/index.html">Máy Quay Phim -- Camera</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Vật Lý -- Physics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">World Physics</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#physics-panel">Physics Panel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#navigation-mesh">Navigation Mesh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#obstacle-simulation">Obstacle Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#navigation-mesh">Khung Lưới Điều Hướng -- Navigation Mesh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#obstacle-simulation">Mô Phỏng Trở Ngại -- Obstacle Simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="converting.html">Converting</a></li>
@@ -121,7 +121,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../performance.html">Performance Considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_api/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Standalone Player</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../blender_player.html">Máy Chơi Độc Lập -- Standalone Player</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../licensing.html">Licensing of Blender Games</a></li>
 </ul>
 </li>
@@ -181,7 +181,7 @@
         
           <li><a href="../index.html">Bộ Máy Trò Chơi -- Game Engine</a> &raquo;</li>
         
-          <li><a href="index.html">Physics</a> &raquo;</li>
+          <li><a href="index.html">Vật Lý -- Physics</a> &raquo;</li>
         
       <li>World Physics</li>
     
@@ -218,19 +218,19 @@ After you arrange the actors and they move as you wish,
 you can then bake this computed motion into keyframes
 (see <a class="reference internal" href="introduction.html#game-engine-physics-bake-keyframes"><span class="std std-ref">Digging Deeper</span></a> for more info).</p>
 <dl class="docutils">
-<dt>Physics Engine</dt>
+<dt>Động Cơ Vật Lý -- Physics Engine</dt>
 <dd><p class="first">Set the type of physics engine to use.</p>
 <dl class="last docutils">
-<dt>Bullet</dt>
+<dt>Đạn -- Bullet</dt>
 <dd>The default physics engine, in active development.
 It handles movement and collision detection.
 The things that collide transfer momentum to the collided object.</dd>
-<dt>None</dt>
+<dt>Không Có -- None</dt>
 <dd>No physics in use. Things are not affected by gravity and can fly about in a virtual space.
 Objects in motion stay in that motion.</dd>
 </dl>
 </dd>
-<dt>Gravity</dt>
+<dt>Trọng Lực -- Gravity</dt>
 <dd>The gravitational acceleration, m.s<sup>-2</sup> (in units of meters per squared second),
 of this world. Each object that is an actor has a mass and size slider.
 In conjunction with the frame rate (see <a class="reference internal" href="../../render/index.html"><span class="doc">Render</span></a> section),
@@ -240,12 +240,12 @@ Blender uses this info to calculate how fast the object should accelerate downwa
 The optimized Bullet DBVT for view frustum and occlusion culling is activated internally by default.</dd>
 <dt>Physics Steps</dt>
 <dd><dl class="first last docutils">
-<dt>Max</dt>
+<dt>Lớn Nhất -- Max</dt>
 <dd>Sets the maximum number of physics steps per game frame if graphics slow down the game.
 higher value allows physics to keep up with real-time.</dd>
-<dt>Substeps</dt>
+<dt>Số Bước Phụ -- Substeps</dt>
 <dd>Sets the number of simulation sub-steps per physics time step. Higher value give better physics precision.</dd>
-<dt>FPS</dt>
+<dt>Khung Hình/Giây -- FPS</dt>
 <dd>Set the nominal number of game frames per second.
 Physics fixed timestep = 1/fps, independently of actual frame rate.</dd>
 </dl>
@@ -257,13 +257,13 @@ higher value allows better synchronization with physics.</dd>
 <dd><p class="first">These settings control the threshold at which physics is deactivated.
 These settings help reducing the processing spent on Physics simulation during the game.</p>
 <dl class="last docutils">
-<dt>Linear Threshold</dt>
+<dt>Giới Hạn Tuyến Tính -- Linear Threshold</dt>
 <dd>The speed limit under which a rigid body will go to sleep (stop moving)
 if it stays below the limits for a time equal or longer than the deactivation time
 (sleeping is disabled when deactivation time is set to 0).</dd>
-<dt>Angular Threshold</dt>
+<dt>Giới Hạn Góc Quay -- Angular Threshold</dt>
 <dd>Same as linear threshold, but for rotation limit (in rad/s)</dd>
-<dt>Time</dt>
+<dt>Thời Gian -- Time</dt>
 <dd>The amount of time in which the object must have motion below the thresholds
 for physics to be disabled (0.0 disables physics deactivation).</dd>
 </dl>
@@ -271,7 +271,7 @@ for physics to be disabled (0.0 disables physics deactivation).</dd>
 </dl>
 </div>
 <div class="section" id="navigation-mesh">
-<h2>Navigation Mesh<a class="headerlink" href="#navigation-mesh" title="Permalink to this headline">¶</a></h2>
+<h2>Khung Lưới Điều Hướng -- Navigation Mesh<a class="headerlink" href="#navigation-mesh" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Rasterization</dt>
 <dd><dl class="first last docutils">
@@ -283,9 +283,9 @@ for physics to be disabled (0.0 disables physics deactivation).</dd>
 </dd>
 <dt>Agent</dt>
 <dd><dl class="first last docutils">
-<dt>Height</dt>
+<dt>Chiều Cao -- Height</dt>
 <dd>Minimum height where the agent can still walk.</dd>
-<dt>Radius</dt>
+<dt>Bán Kính -- Radius</dt>
 <dd>Radius of the agent.</dd>
 <dt>Max climb</dt>
 <dd>Maximum height between grid cells the agent can climb.</dd>
@@ -293,29 +293,29 @@ for physics to be disabled (0.0 disables physics deactivation).</dd>
 <dd>Maximum walkable slope angle in degrees.</dd>
 </dl>
 </dd>
-<dt>Region</dt>
+<dt>Khu Vực -- Region</dt>
 <dd><dl class="first last docutils">
-<dt>Min Region Size</dt>
+<dt>Kích Thước Khu Vực Tối Thiểu -- Min Region Size</dt>
 <dd>Minimum regions size. Smaller regions will be deleted.</dd>
-<dt>Merged Region Size</dt>
+<dt>Kích Thước Khu Vực Hội Nhập -- Merged Region Size</dt>
 <dd>Minimum regions size. Smaller regions will be merged.</dd>
 </dl>
 </dd>
-<dt>Partitioning</dt>
+<dt>Phân vùng -- Partitioning</dt>
 <dd><dl class="first last docutils">
-<dt>Watershed</dt>
+<dt>Đường phân thủy -- Watershed</dt>
 <dd>Classic Recast partitioning method generating the nicest tessellation.</dd>
-<dt>Monotone</dt>
+<dt>Đơn Điệu -- Monotone</dt>
 <dd>The fastest navmesh generation method, but may cause long thin polygons.</dd>
-<dt>Layers</dt>
+<dt>Các Tầng Lớp -- Layers</dt>
 <dd>A reasonably fast method that produces better triangles than monotone partitioning.</dd>
 </dl>
 </dd>
-<dt>Polygonization</dt>
+<dt>Đa Giác Hóa -- Polygonization</dt>
 <dd><dl class="first last docutils">
-<dt>Max Edge Length</dt>
+<dt>Chiều Dài Cạnh Tối Đa -- Max Edge Length</dt>
 <dd>Maximum contour edge length.</dd>
-<dt>Max Edge Error</dt>
+<dt>Sai Số Cạnh Tối Đa -- Max Edge Error</dt>
 <dd>Maximum distance error from contour to cells.</dd>
 <dt>Vertices Per Poly</dt>
 <dd>Max number of vertices per polygon.</dd>
@@ -323,37 +323,37 @@ for physics to be disabled (0.0 disables physics deactivation).</dd>
 </dd>
 <dt>Detail Mesh</dt>
 <dd><dl class="first last docutils">
-<dt>Sample Distance</dt>
+<dt>Khoảng Cách Mẫu Vật -- Sample Distance</dt>
 <dd>Detail mesh sample spacing.</dd>
-<dt>Max Sample Error</dt>
+<dt>Sai Số Mẫu Vật Tối Đa -- Max Sample Error</dt>
 <dd>Detail mesh simplification max sample error.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="obstacle-simulation">
-<h2>Obstacle Simulation<a class="headerlink" href="#obstacle-simulation" title="Permalink to this headline">¶</a></h2>
+<h2>Mô Phỏng Trở Ngại -- Obstacle Simulation<a class="headerlink" href="#obstacle-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Simulation used for obstacle avoidance in the Game Engine,
 based on the RVO (Reciprocal Velocity Obstacles) principle.
 The aim is to prevent one or more actors colliding with obstacles.</p>
 <p>See <a class="reference external" href="https://wiki.blender.org/index.php/User:Nicks/Gsoc2010/Docs">Pathfinding and steering behaviors</a>
 for more details.</p>
 <dl class="docutils">
-<dt>Type</dt>
+<dt>Thể Loại -- Type</dt>
 <dd><dl class="first last docutils">
-<dt>None</dt>
+<dt>Không Có -- None</dt>
 <dd>Obstacle simulation is disabled, actors are not able to avoid obstacles.</dd>
-<dt>RVO (cells)</dt>
+<dt>RVO (ô) -- RVO (cells)</dt>
 <dd>Obstacle simulation is based on the <a class="reference external" href="http://gamma.cs.unc.edu/RVO/">RVO method</a> with cell sampling.</dd>
-<dt>RVO (rays)</dt>
+<dt>RVO (tia) -- RVO (rays)</dt>
 <dd>Obstacle simulation is based on the <a class="reference external" href="http://gamma.cs.unc.edu/RVO">RVO method</a> with ray sampling.</dd>
 </dl>
 </dd>
-<dt>Level height</dt>
+<dt>Chiều cao ngang bằng -- Level height</dt>
 <dd>Max difference in heights of obstacles to enable their interaction.
 Used to define minimum margin between obstacles by height,
 when they are treated as those which are situated one above the other i.e. they does not influence to each other.</dd>
-<dt>Visualization</dt>
+<dt>Hình Dung -- Visualization</dt>
 <dd>Enable debug visualization for obstacle simulation.</dd>
 </dl>
 </div>
@@ -370,7 +370,7 @@ when they are treated as those which are situated one above the other i.e. they 
         <a href="converting.html" class="btn btn-neutral float-right" title="Converting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="introduction.html" class="btn btn-neutral" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="introduction.html" class="btn btn-neutral" title="Giới Thiệu -- Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

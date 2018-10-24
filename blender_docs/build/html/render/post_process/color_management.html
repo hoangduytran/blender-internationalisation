@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Color Management &mdash; Blender Manual</title>
+  <title>Quản Lý Màu Sắc -- Color Management &mdash; Blender Manual</title>
   
 
   
@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
-    <link rel="next" title="Freestyle" href="../freestyle/index.html" />
+    <link rel="next" title="Phong Cách Tự Do -- Freestyle" href="../freestyle/index.html" />
     <link rel="prev" title="Post Processing Panel" href="panel.html" /> 
 
   
@@ -98,25 +98,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Post Processing</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="layers.html">Render Layers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Xử Lý Hậu Kỳ -- Post Processing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="layers.html">Các Tầng Kết Xuất -- Render Layers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="panel.html">Post Processing Panel</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Color Management</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Quản Lý Màu Sắc -- Color Management</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#scene-linear-color-space">Scene Linear Color Space</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#settings">Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#settings">Sắp Đặt -- Settings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#image-files">Image Files</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#opencolorio-configuration">OpenColorIO Configuration</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -178,9 +178,9 @@
         
           <li><a href="../index.html">Kết Xuất -- Render</a> &raquo;</li>
         
-          <li><a href="index.html">Post Processing</a> &raquo;</li>
+          <li><a href="index.html">Xử Lý Hậu Kỳ -- Post Processing</a> &raquo;</li>
         
-      <li>Color Management</li>
+      <li>Quản Lý Màu Sắc -- Color Management</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -200,7 +200,7 @@
            <div itemprop="articleBody">
             
   <span class="target" id="bpy-types-colormanaged"></span><div class="section" id="color-management">
-<h1>Color Management<a class="headerlink" href="#color-management" title="Permalink to this headline">¶</a></h1>
+<h1>Quản Lý Màu Sắc -- Color Management<a class="headerlink" href="#color-management" title="Permalink to this headline">¶</a></h1>
 <p>Color management is one of the most important tools that an artist can use.
 It allows an artist to make sure that an image stays the same from rendering, to saving, to post-processing.
 Color management also allows an artist to tweak things like exposure, gamma, or the overall color grade.</p>
@@ -231,14 +231,14 @@ work and image files are often stored in different color spaces,
 so we have to take care to do the right conversion into and out of this linear color space.</p>
 </div>
 <div class="section" id="settings">
-<span id="render-post-color-management"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<span id="render-post-color-management"></span><h2>Sắp Đặt -- Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Color Management</span></td>
+<tr class="field-odd field"><th class="field-name">Bảng -- Panel:</th><td class="field-body"><span class="menuselection">Properties editor ‣ Scene ‣ Color Management</span></td>
 </tr>
 </tbody>
 </table>
@@ -248,11 +248,11 @@ so we have to take care to do the right conversion into and out of this linear c
 <p class="caption"><span class="caption-text">Scene settings for color management.</span></p>
 </div>
 <div class="section" id="display">
-<h3>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
+<h3>Hiển Thị -- Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h3>
 <p>Correct display of renders requires a conversion to the display device color space, which can be configured here.
 A computer monitor works differently from a digital cinema projector HDTV. The scene properties have these settings:</p>
 <dl class="docutils">
-<dt>Display Device</dt>
+<dt>Thiết bị Hiển Thị -- Display Device</dt>
 <dd><p class="first">The device that the image is being viewed on.</p>
 <p>Most computer monitors are configured for the sRGB color space,
 and so when working on a computer usually this option should just be left to the default.
@@ -267,7 +267,7 @@ or when writing out image files intended to be displayed on another device.</p>
 </div>
 </div>
 <div class="section" id="render">
-<h3>Render<a class="headerlink" href="#render" title="Permalink to this headline">¶</a></h3>
+<h3>Kết Xuất -- Render<a class="headerlink" href="#render" title="Permalink to this headline">¶</a></h3>
 <p>There is also an artistic choice to be made for renders. Partially that is
 because display devices cannot display the full spectrum of colors and only have limited
 brightness, so we can squeeze the colors to fit in the gamut of the device.
@@ -277,49 +277,49 @@ as if they have been printed on real film.</p>
 to see details in dark shadows or bright highlights, or identify render errors.
 Such settings would be only used temporarily and not get used for final renders.</p>
 <dl class="docutils">
-<dt>View</dt>
+<dt>Góc Nhìn -- View</dt>
 <dd><p class="first">These are different ways to view the image on the same display device.</p>
 <dl class="last docutils">
-<dt>Default</dt>
+<dt>Mặc Định -- Default</dt>
 <dd>Does no extra conversion besides the conversion for the display device.</dd>
 <dt>Filmic</dt>
 <dd>For more photorealistic results and better handling of high dynamic range.
 The contrast can be adjusted by changing the <em>Look</em> option for the Filmic view transform.</dd>
 <dt>RRT</dt>
 <dd>Uses the ACES Reference Rendering Transform, to simulate a film-like look.</dd>
-<dt>Film</dt>
+<dt>Phim -- Film</dt>
 <dd>Uses a technique known as film emulation to give renders a look
 similar to what might be expected from a film-based camera.
 This is usually done by crushing the blacks and decreasing the contrast of the image.</dd>
 <dt>Raw</dt>
 <dd>Intended for inspecting the image but not for final export.
 Raw gives the image without any color space conversion.</dd>
-<dt>Log</dt>
+<dt>Loga -- Log</dt>
 <dd>Intended for inspecting the image but not for final export.
 Log works similar to Raw but gives a more &quot;flat&quot; view of the image without very dark or light areas.</dd>
 <dt>False Color</dt>
 <dd>Shows a heat map of image intensities, to visualize the dynamic range.</dd>
 </dl>
 </dd>
-<dt>Exposure</dt>
+<dt>Độ Phơi Sáng -- Exposure</dt>
 <dd>Used to control the image brightness (in stops) applied before color space conversion.
 It is calculated as follows: <span class="math notranslate nohighlight">\(output\_value = render\_value × 2^{(exposure)}\)</span></dd>
 <dt>Gamma</dt>
 <dd>Extra gamma correction applied after color space conversion. Note that the default sRGB or Rec709 color space
 conversions already include a gamma correction of approximately 2.2 (except the <em>Raw</em> and <em>Log</em> views),
 so this would be applied in addition to that.</dd>
-<dt>Look</dt>
+<dt>Nhìn/Dáng Vẻ -- Look</dt>
 <dd>Choose an artistic effect from a set of measured film response data which
 roughly emulates the look of certain film types. Applied before color space conversion.</dd>
-<dt>Use Curves</dt>
+<dt>Dùng Đường Cong -- Use Curves</dt>
 <dd>Adjust RGB Curves to control image colors before color space conversion.
 Read more about using the <a class="reference internal" href="../../interface/controls/templates/curve.html#ui-curve-widget"><span class="std std-ref">Curve Widget</span></a>.</dd>
 </dl>
 </div>
 <div class="section" id="sequencer">
-<h3>Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
+<h3>Bộ Phối Hình -- Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Color Space</dt>
+<dt>Không Gian Màu Sắc -- Color Space</dt>
 <dd>The color space that the Sequencer operates in. By default, the Sequencer operates in sRGB space,
 but it can also be set to work in Linear space like the Compositing nodes, or another color space.
 Different color spaces will give different results for color correction, crossfades, and other operations.</dd>
@@ -343,7 +343,7 @@ In such cases, they should be marked as <em>Non-Color Data</em>.</p>
 <p>Image data-blocks will always store float buffers in memory in the scene linear color space,
 while a byte buffer in memory and files in a drive are stored in the color space specified with this setting:</p>
 <dl class="docutils">
-<dt>Color Space</dt>
+<dt>Không Gian Màu Sắc -- Color Space</dt>
 <dd>The color space of the image file on a drive. This depends on the file format,
 for example, PNG or JPEG images are often stored in sRGB, while OpenEXR images are stored in a linear color space.
 Some images such as normal, bump or stencil maps do not strictly contain 'colors',
@@ -363,7 +363,7 @@ Blender cannot detect automatically that this is a render
 We need to specify that this is a render and that we want the transformations applied,
 with these two settings:</p>
 <dl class="docutils">
-<dt>View as Render</dt>
+<dt>Hiển Thị như Bản Kết Xuất -- View as Render</dt>
 <dd>Display the image data-block (not only renders) with view transform, exposure, gamma, RGB curves applied.
 Useful for viewing rendered frames in linear OpenEXR files the same as when rendering them directly.</dd>
 <dt>Save as Render</dt>
@@ -415,7 +415,7 @@ though it may need a few more tweaks to be usable in production.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../freestyle/index.html" class="btn btn-neutral float-right" title="Freestyle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../freestyle/index.html" class="btn btn-neutral float-right" title="Phong Cách Tự Do -- Freestyle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="panel.html" class="btn btn-neutral" title="Post Processing Panel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

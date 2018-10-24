@@ -98,32 +98,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Lamps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../world.html">World</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nodes</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../osl.html">Open Shading Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Nguyên Liệu -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Đèn -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">Thế Giới -- World</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nút -- Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../osl.html">Ngôn Ngữ Tô Bóng Mở -- Open Shading Language</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Máy Quay Phim -- Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../features.html">Render Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Sắp Đặt Cycles -- Cycles Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">GPU Rendering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Render Baking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -187,7 +187,7 @@
         
           <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
         
-          <li><a href="../../index.html">Nodes</a> &raquo;</li>
+          <li><a href="../../index.html">Nút -- Nodes</a> &raquo;</li>
         
           <li><a href="index.html">Texture Nodes</a> &raquo;</li>
         
@@ -218,48 +218,47 @@
 </div>
 <p>The <em>Wave Texture</em> node adds procedural bands or rings with noise distortion.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Vector</dt>
-<dd>Texture coordinate to sample texture at;
-defaults to Generated texture coordinates if the socket is left unconnected.</dd>
-<dt>Scale</dt>
+<dt>Vectơ -- Vector</dt>
+<dd>Tọa độ chất liệu để lấy mẫu vật chất liệu tại đó; Trong trường hợp ổ cắm không có kết nối nào thì sử dụng tọa độ của chất liệu sinh tạo (Generated).</dd>
+<dt>Tỷ Lệ -- Scale</dt>
 <dd>Overall texture scale.</dd>
-<dt>Distortion</dt>
+<dt>Sự Bóp Méo -- Distortion</dt>
 <dd>Amount of distortion of the wave (similar to the Marble texture in Blender Internal).</dd>
-<dt>Detail</dt>
+<dt>Chi Tiết -- Detail</dt>
 <dd>Amount of distortion noise detail.</dd>
-<dt>Detail Scale</dt>
+<dt>Tỷ Lệ Chi Tiết -- Detail Scale</dt>
 <dd>Scale of distortion noise.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Type</dt>
+<dt>Thể Loại -- Type</dt>
 <dd><em>Bands</em> or <em>Rings</em> shaped waves.</dd>
-<dt>Wave Profile</dt>
+<dt>Mặt Cắt của Sóng -- Wave Profile</dt>
 <dd><p class="first">Controls the look of the wave type.</p>
 <dl class="last docutils">
-<dt>Saw</dt>
+<dt>Hình Răng Cưa -- Saw</dt>
 <dd>Uses a sawtooth profile.</dd>
-<dt>Sine</dt>
+<dt>Sin -- Sine</dt>
 <dd>Uses the standard sine profile.</dd>
 </dl>
 </dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Color</dt>
-<dd>Texture color output.</dd>
-<dt>Factor</dt>
-<dd>Texture intensity output.</dd>
+<dt>Màu -- Color</dt>
+<dd>Đầu ra của màu chất liệu.</dd>
+<dt>Hệ Số -- Factor</dt>
+<dd>Cường độ xuất của chất liệu.</dd>
 </dl>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Các Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../../../../../_images/render_cycles_nodes_types_textures_wave_default.jpg"><img alt="../../../../../_images/render_cycles_nodes_types_textures_wave_default.jpg" src="../../../../../_images/render_cycles_nodes_types_textures_wave_default.jpg" style="width: 200px;" /></a>
 <p class="caption"><span class="caption-text">Default wave texture.</span></p>

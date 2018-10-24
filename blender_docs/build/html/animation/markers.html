@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Markers &mdash; Blender Manual</title>
+  <title>Các Dấu Mốc -- Markers &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
-    <link rel="next" title="Shape Keys" href="shape_keys/index.html" />
-    <link rel="prev" title="Troubleshooting" href="drivers/troubleshooting.html" /> 
+    <link rel="next" title="Hình Mẫu -- Shape Keys" href="shape_keys/index.html" />
+    <link rel="prev" title="Xử Lý Sự Cố -- Troubleshooting" href="drivers/troubleshooting.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -96,43 +96,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../sculpt_paint/index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rigging/index.html">Lắp Ráp -- Rigging</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Hoạt Họa -- Animation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Keyframes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="actions.html">Actions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Drivers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Markers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyframes/index.html">Khung Khóa -- Keyframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actions.html">Hành Động -- Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers/index.html">Bộ Điều Vận -- Drivers</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Các Dấu Mốc -- Markers</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#types">Types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#standard">Standard</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sequencer">Sequencer</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#d-view">3D View</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pose-markers">Pose Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization">Hình Dung -- Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#standard">Chuẩn -- Standard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sequencer">Bộ Phối Hình -- Sequencer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-view">Khung Nhìn 3D -- 3D View</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pose-markers">Dấu Mốc Tư Thế -- Pose Markers</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#add-marker">Add Marker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#marker-pose-add">Pose Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-marker">Thêm Dấu Mốc -- Add Marker</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#marker-pose-add">Dấu Mốc Tư Thế -- Pose Markers</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#selecting">Selecting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#editing">Editing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker">Duplicate Marker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker-to-scene">Duplicate Marker to Scene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting">Chọn Lựa -- Selecting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing">Biên Soạn -- Editing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker">Sao Chép Dấu Mốc -- Duplicate Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duplicate-marker-to-scene">Sao Chép Dấu Mốc Sang Cảnh -- Duplicate Marker to Scene</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#deleting-markers">Deleting Markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#rename-marker">Rename Marker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#grab-move-marker">Grab/Move Marker</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#show-pose-markers">Show Pose Markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#make-markers-local">Make Markers Local</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rename-marker">Đổi Tên Dấu Mốc -- Rename Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grab-move-marker">Tóm Bắt/Di Chuyển Dấu Mốc -- Grab/Move Marker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#show-pose-markers">Hiển Thị Dấu Mốc Tư Thế -- Show Pose Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#make-markers-local">Biến Thành Dấu Mốc Địa Phương -- Make Markers Local</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#jump-to-next-previous-marker">Jump to Next/Previous Marker</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#bind-camera-to-marker">Bind Camera to Marker</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workflow">Quy Trình Làm Việc -- Workflow</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Shape Keys</a></li>
-<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Motion Paths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shape_keys/index.html">Hình Mẫu -- Shape Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="motion_paths.html">Đường Chuyển Động -- Motion Paths</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Vật Lý -- Physics</a></li>
@@ -195,7 +195,7 @@
         
           <li><a href="index.html">Hoạt Họa -- Animation</a> &raquo;</li>
         
-      <li>Markers</li>
+      <li>Các Dấu Mốc -- Markers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -215,7 +215,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="markers">
-<span id="bpy-ops-marker"></span><span id="bpy-types-timelinemarker"></span><h1>Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-ops-marker"></span><span id="bpy-types-timelinemarker"></span><h1>Các Dấu Mốc -- Markers<a class="headerlink" href="#markers" title="Permalink to this headline">¶</a></h1>
 <p>Markers are used to denote frames with key points or significant events within an animation.
 E.g. it could be that a character's animation starts, the camera changes position, or a door opens.
 Markers can be given names to make them more meaningful at a quick glance.
@@ -243,9 +243,9 @@ which are specific to armatures and shape keys.
 They are used to denote poses in the Action Editor mode and Shape Keys Editor of Dope Sheet.</p>
 </div>
 <div class="section" id="visualization">
-<h2>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
+<h2>Hình Dung -- Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="standard">
-<h3>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
+<h3>Chuẩn -- Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-right" id="id2">
 <img alt="../_images/animation_markers_standard.png" src="../_images/animation_markers_standard.png" />
 <p class="caption"><span class="caption-text">Markers: small but useful.</span></p>
@@ -257,7 +257,7 @@ white if unselected or yellow if selected.</p>
 </div>
 </div>
 <div class="section" id="sequencer">
-<h3>Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
+<h3>Bộ Phối Hình -- Sequencer<a class="headerlink" href="#sequencer" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-right" id="id3">
 <img alt="../_images/animation_markers_sequencer.png" src="../_images/animation_markers_sequencer.png" />
 <p class="caption"><span class="caption-text">Markers in the Sequencer.</span></p>
@@ -268,7 +268,7 @@ white if unselected or yellow if selected.</p>
 </div>
 </div>
 <div class="section" id="d-view">
-<h3>3D View<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h3>
+<h3>Khung Nhìn 3D -- 3D View<a class="headerlink" href="#d-view" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-right" id="id4">
 <img alt="../_images/animation_markers_3d-view.png" src="../_images/animation_markers_3d-view.png" />
 <p class="caption"><span class="caption-text">Marker in a 3D View.</span></p>
@@ -280,7 +280,7 @@ when on their frame (see Marker in a 3D View).</p>
 </div>
 </div>
 <div class="section" id="pose-markers">
-<h3>Pose Markers<a class="headerlink" href="#pose-markers" title="Permalink to this headline">¶</a></h3>
+<h3>Dấu Mốc Tư Thế -- Pose Markers<a class="headerlink" href="#pose-markers" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-right" id="id5">
 <img alt="../_images/animation_markers_pose.png" src="../_images/animation_markers_pose.png" />
 <p class="caption"><span class="caption-text">Pose markers in the Action editor.</span></p>
@@ -292,18 +292,20 @@ In the NLA editor the pose markers are shown as a red dashed line.</p>
 </div>
 </div>
 <div class="section" id="add-marker">
-<h2>Add Marker<a class="headerlink" href="#add-marker" title="Permalink to this headline">¶</a></h2>
+<h2>Thêm Dấu Mốc -- Add Marker<a class="headerlink" href="#add-marker" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Add Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Add Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">M</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl-Alt-M</kbd> in the VSE editor</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">M</kbd> or <kbd class="kbd docutils literal notranslate">Ctrl-Alt-M</kbd> in the VSE editor</td>
 </tr>
 </tbody>
 </table>
@@ -315,22 +317,23 @@ and press <kbd class="kbd docutils literal notranslate">M</kbd>.</p>
 <p class="last">Markers can also be added while playback.</p>
 </div>
 <div class="section" id="marker-pose-add">
-<span id="id1"></span><h3>Pose Markers<a class="headerlink" href="#marker-pose-add" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Dấu Mốc Tư Thế -- Pose Markers<a class="headerlink" href="#marker-pose-add" title="Permalink to this headline">¶</a></h3>
 <p>If <em>Show Pose Markers</em> is checked a pose marker and
 a new pose in the <a class="reference internal" href="../rigging/armatures/properties/pose_library.html"><span class="doc">Pose Library</span></a> are added.</p>
 </div>
 </div>
 <div class="section" id="selecting">
-<h2>Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h2>
+<h2>Chọn Lựa -- Selecting<a class="headerlink" href="#selecting" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">RMB</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -344,20 +347,22 @@ The corresponding options are found in the Select menu of these editors.</p>
 <p>In the Timeline, you can select all markers with <kbd class="kbd docutils literal notranslate">A</kbd>, and border select with <kbd class="kbd docutils literal notranslate">B</kbd>.</p>
 </div>
 <div class="section" id="editing">
-<span id="animation-markers-editing"></span><h2>Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
+<span id="animation-markers-editing"></span><h2>Biên Soạn -- Editing<a class="headerlink" href="#editing" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="duplicate-marker">
-<h3>Duplicate Marker<a class="headerlink" href="#duplicate-marker" title="Permalink to this headline">¶</a></h3>
+<h3>Sao Chép Dấu Mốc -- Duplicate Marker<a class="headerlink" href="#duplicate-marker" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Shift-D</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -372,16 +377,17 @@ the names of the duplicated markers are not altered at all
 </div>
 </div>
 <div class="section" id="duplicate-marker-to-scene">
-<h3>Duplicate Marker to Scene<a class="headerlink" href="#duplicate-marker-to-scene" title="Permalink to this headline">¶</a></h3>
+<h3>Sao Chép Dấu Mốc Sang Cảnh -- Duplicate Marker to Scene<a class="headerlink" href="#duplicate-marker-to-scene" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker to Scene...</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Duplicate Marker to Scene...</span></td>
 </tr>
 </tbody>
 </table>
@@ -391,16 +397,18 @@ the names of the duplicated markers are not altered at all
 <div class="section" id="deleting-markers">
 <h3>Deleting Markers<a class="headerlink" href="#deleting-markers" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Delete Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Delete Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">X</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -409,18 +417,20 @@ the names of the duplicated markers are not altered at all
 and confirm the pop-up message with <kbd class="kbd docutils literal notranslate">LMB</kbd>.</p>
 </div>
 <div class="section" id="rename-marker">
-<h3>Rename Marker<a class="headerlink" href="#rename-marker" title="Permalink to this headline">¶</a></h3>
+<h3>Đổi Tên Dấu Mốc -- Rename Marker<a class="headerlink" href="#rename-marker" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Rename Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Rename Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-M</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -430,18 +440,20 @@ know what they stand for. You can name a marker by selecting it, pressing <kbd c
 typing the name, and pressing the OK button.</p>
 </div>
 <div class="section" id="grab-move-marker">
-<h3>Grab/Move Marker<a class="headerlink" href="#grab-move-marker" title="Permalink to this headline">¶</a></h3>
+<h3>Tóm Bắt/Di Chuyển Dấu Mốc -- Grab/Move Marker<a class="headerlink" href="#grab-move-marker" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Grab/Move Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Grab/Move Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">G</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -455,16 +467,17 @@ Or drag them with the <kbd class="kbd docutils literal notranslate">RMB</kbd>.</
 the markers will move in steps corresponding to one second (according to the scene's <em>FPS</em>).</p>
 </div>
 <div class="section" id="show-pose-markers">
-<h3>Show Pose Markers<a class="headerlink" href="#show-pose-markers" title="Permalink to this headline">¶</a></h3>
+<h3>Hiển Thị Dấu Mốc Tư Thế -- Show Pose Markers<a class="headerlink" href="#show-pose-markers" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">Action Editor and Shape Keys Editor</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Action Editor and Shape Keys Editor</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Show Pose Markers</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Show Pose Markers</span></td>
 </tr>
 </tbody>
 </table>
@@ -473,16 +486,17 @@ the markers will move in steps corresponding to one second (according to the sce
 the <span class="menuselection">Marker ‣ Show Pose Markers</span> checkbox.</p>
 </div>
 <div class="section" id="make-markers-local">
-<h3>Make Markers Local<a class="headerlink" href="#make-markers-local" title="Permalink to this headline">¶</a></h3>
+<h3>Biến Thành Dấu Mốc Địa Phương -- Make Markers Local<a class="headerlink" href="#make-markers-local" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Make Markers Local</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Make Markers Local</span></td>
 </tr>
 </tbody>
 </table>
@@ -493,14 +507,15 @@ Note that the original marker will be gone. If you want to keep it, make a dupli
 <div class="section" id="jump-to-next-previous-marker">
 <h3>Jump to Next/Previous Marker<a class="headerlink" href="#jump-to-next-previous-marker" title="Permalink to this headline">¶</a></h3>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">Marker ‣ Jump to Next/Previous Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">Marker ‣ Jump to Next/Previous Marker</span></td>
 </tr>
 </tbody>
 </table>
@@ -511,16 +526,19 @@ Note that the original marker will be gone. If you want to keep it, make a dupli
 <div class="section" id="bind-camera-to-marker">
 <span id="marker-bind-camera"></span><h2>Bind Camera to Marker<a class="headerlink" href="#bind-camera-to-marker" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Editor:</th><td class="field-body">Timeline Editor</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Trình Biên Soạn -- Editor:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Timeline Editor</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body"><span class="menuselection">View ‣ Bind Camera to Marker</span></td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><span class="menuselection">View ‣ Bind Camera to Marker</span></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-B</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-B</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -529,7 +547,7 @@ Note that the original marker will be gone. If you want to keep it, make a dupli
 having both the camera and marker selected.</p>
 <p>The triangle above the camera will become shaded when active.</p>
 <div class="section" id="workflow">
-<h3>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
+<h3>Quy Trình Làm Việc -- Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h3>
 <div class="figure">
 <img alt="../_images/animation_markers_camera-switch.png" src="../_images/animation_markers_camera-switch.png" />
 </div>
@@ -553,10 +571,10 @@ duplicated markers should retain the same name.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="shape_keys/index.html" class="btn btn-neutral float-right" title="Shape Keys" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="shape_keys/index.html" class="btn btn-neutral float-right" title="Hình Mẫu -- Shape Keys" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="drivers/troubleshooting.html" class="btn btn-neutral" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="drivers/troubleshooting.html" class="btn btn-neutral" title="Xử Lý Sự Cố -- Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

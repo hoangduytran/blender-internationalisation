@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Operators &mdash; Blender Manual</title>
+  <title>Phép Thuật -- Operators &mdash; Blender Manual</title>
   
 
   
@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
     <link rel="next" title="Trình Bổ Sung -- Add-ons" href="../addons/index.html" />
-    <link rel="prev" title="Working Limits" href="limits.html" /> 
+    <link rel="prev" title="Giới Hạn Làm Việc -- Working Limits" href="limits.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -102,15 +102,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../game_engine/index.html">Bộ Máy Trò Chơi -- Game Engine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preferences/index.html">Tùy Chọn Người Dùng -- User Preferences</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Cao Cấp -- Advanced</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="command_line/index.html">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="command_line/index.html">Dòng Lệnh -- Command Line</a></li>
 <li class="toctree-l2"><a class="reference internal" href="scripting/index.html">Scripting &amp; Extending Blender</a></li>
-<li class="toctree-l2"><a class="reference internal" href="app_templates.html">Application Templates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="limits.html">Working Limits</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Operators</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#debug-menu">Debug Menu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#redraw-timer">Redraw Timer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#memory-statistics">Memory Statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dependency-relations">Dependency Relations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="app_templates.html">Khuôn Mẫu của Trình Ứng Dụng -- Application Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="limits.html">Giới Hạn Làm Việc -- Working Limits</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Phép Thuật -- Operators</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#debug-menu">Trình Đơn Hiệu Chỉnh Lỗi -- Debug Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redraw-timer">Vẽ Lại Đồng Hồ -- Redraw Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-statistics">Thống Kê về Bộ Nhớ -- Memory Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependency-relations">Quan Hệ Phụ Thuộc -- Dependency Relations</a></li>
 </ul>
 </li>
 </ul>
@@ -169,7 +169,7 @@
         
           <li><a href="index.html">Cao Cấp -- Advanced</a> &raquo;</li>
         
-      <li>Operators</li>
+      <li>Phép Thuật -- Operators</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,20 +189,22 @@
            <div itemprop="articleBody">
             
   <div class="section" id="operators">
-<h1>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h1>
+<h1>Phép Thuật -- Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="debug-menu">
-<span id="bpy-ops-wm-debug-menu"></span><h2>Debug Menu<a class="headerlink" href="#debug-menu" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-ops-wm-debug-menu"></span><h2>Trình Đơn Hiệu Chỉnh Lỗi -- Debug Menu<a class="headerlink" href="#debug-menu" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-D</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-D</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -221,18 +223,20 @@ special kernels and other special debugging features.</p>
 </div>
 </div>
 <div class="section" id="redraw-timer">
-<span id="bpy-ops-wm-redraw-timer"></span><h2>Redraw Timer<a class="headerlink" href="#redraw-timer" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-ops-wm-redraw-timer"></span><h2>Vẽ Lại Đồng Hồ -- Redraw Timer<a class="headerlink" href="#redraw-timer" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body">All Modes</td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body">Toàn Bộ các Chế Độ -- All Modes</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-T</kbd></td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><kbd class="kbd docutils literal notranslate">Ctrl-Alt-T</kbd></td>
 </tr>
 </tbody>
 </table>
@@ -240,18 +244,20 @@ special kernels and other special debugging features.</p>
 <p>This operator brings up a menu with a list of tests to benchmark UI drawing along with undo/redo functions.</p>
 </div>
 <div class="section" id="memory-statistics">
-<span id="bpy-ops-wm-memory-statistics"></span><h2>Memory Statistics<a class="headerlink" href="#memory-statistics" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-ops-wm-memory-statistics"></span><h2>Thống Kê về Bộ Nhớ -- Memory Statistics<a class="headerlink" href="#memory-statistics" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">--debug-memory</span></code></td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">--debug-memory</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
 </tbody>
 </table>
@@ -265,18 +271,20 @@ will print useful information about memory objects, their size and user count.</
 </div>
 </div>
 <div class="section" id="dependency-relations">
-<span id="bpy-ops-wm-dependency-relations"></span><h2>Dependency Relations<a class="headerlink" href="#dependency-relations" title="Permalink to this headline">¶</a></h2>
+<span id="bpy-ops-wm-dependency-relations"></span><h2>Quan Hệ Phụ Thuộc -- Dependency Relations<a class="headerlink" href="#dependency-relations" title="Permalink to this headline">¶</a></h2>
 <div class="refbox admonition">
-<p class="first admonition-title">Reference</p>
+<p class="first admonition-title">Tham Chiếu -- Reference</p>
 <table class="last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Mode:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">--debug-depsgraph</span></code></td>
+<tr class="field-odd field"><th class="field-name">Chế Độ -- Mode:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">--debug-depsgraph</span></code></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Menu:</th><td class="field-body">None</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Trình Đơn -- Menu:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Hotkey:</th><td class="field-body">None</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Phím Tắt -- Hotkey:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Không Có -- None</td>
 </tr>
 </tbody>
 </table>
@@ -302,7 +310,7 @@ will print the relations for every scene and object in the blend-file.</p>
         <a href="../addons/index.html" class="btn btn-neutral float-right" title="Trình Bổ Sung -- Add-ons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="limits.html" class="btn btn-neutral" title="Working Limits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="limits.html" class="btn btn-neutral" title="Giới Hạn Làm Việc -- Working Limits" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

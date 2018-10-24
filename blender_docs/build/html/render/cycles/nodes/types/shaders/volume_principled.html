@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../../../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../../../../search.html" />
-    <link rel="next" title="Refraction BSDF" href="refraction.html" />
+    <link rel="next" title="BSDF Khúc Xạ -- Refraction BSDF" href="refraction.html" />
     <link rel="prev" title="Principled Hair BSDF" href="hair_principled.html" /> 
 
   
@@ -98,32 +98,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../index.html">Cycles Renderer</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Lamps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../world.html">World</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nodes</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../osl.html">Open Shading Language</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../materials/index.html">Nguyên Liệu -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../lamps.html">Đèn -- Lamps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../world.html">Thế Giới -- World</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../../index.html">Nút -- Nodes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../osl.html">Ngôn Ngữ Tô Bóng Mở -- Open Shading Language</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="../../index.html#node-types">Node Types</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../camera.html">Máy Quay Phim -- Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../features.html">Render Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Cycles Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../settings/index.html">Sắp Đặt Cycles -- Cycles Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../gpu_rendering.html">GPU Rendering</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../baking.html">Render Baking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../optimizations/index.html">Optimizing Renders</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -187,7 +187,7 @@
         
           <li><a href="../../../index.html">Cycles Renderer</a> &raquo;</li>
         
-          <li><a href="../../index.html">Nodes</a> &raquo;</li>
+          <li><a href="../../index.html">Nút -- Nodes</a> &raquo;</li>
         
           <li><a href="index.html">Shader Nodes</a> &raquo;</li>
         
@@ -220,43 +220,43 @@
 a single easy to use node. Volumes like smoke and fire can be rendered with
 a single shader node, which includes scattering, absorption and blackbody emission.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Color</dt>
+<dt>Màu -- Color</dt>
 <dd>Volume scattering color.</dd>
 <dt>Color Attribute</dt>
 <dd>Volume grid for coloring the volume. Use &quot;color&quot; for smoke simulations.</dd>
-<dt>Density</dt>
+<dt>Tỷ Trọng -- Density</dt>
 <dd>Density of the volume.</dd>
 <dt>Density Attribute</dt>
 <dd>Volume grid to define the density, typically &quot;density&quot;.</dd>
-<dt>Anisotropy</dt>
+<dt>Dị Hướng -- Anisotropy</dt>
 <dd>Backward or forward scattering direction.</dd>
 <dt>Absorption Color</dt>
 <dd>Volume shadow color tint.</dd>
 <dt>Emission Strength</dt>
 <dd>Amount of light to emit.</dd>
-<dt>Emission Color</dt>
+<dt>Màu Phát Sáng -- Emission Color</dt>
 <dd>Emission color tint.</dd>
 <dt>Blackbody Intensity</dt>
 <dd>Blackbody emission for fire. Set to 1 for physically accurate intensity.</dd>
 <dt>Blackbody Tint</dt>
 <dd>Color tint for blackbody emission.</dd>
-<dt>Temperature</dt>
+<dt>Nhiệt Độ -- Temperature</dt>
 <dd>Temperature in kelvin for blackbody emission, higher values emit more.</dd>
 <dt>Temperature Attribute</dt>
 <dd>Volume grid to define the temperature, typically &quot;temperature&quot;.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Volume</dt>
+<dt>Âm Lượng -- Volume</dt>
 <dd>Standard shader output.</dd>
 </dl>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Các Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <div class="figure">
 <img alt="../../../../../_images/render_cycles_materials_volume_principled.jpg" src="../../../../../_images/render_cycles_materials_volume_principled.jpg" />
 </div>
@@ -271,7 +271,7 @@ a single shader node, which includes scattering, absorption and blackbody emissi
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="refraction.html" class="btn btn-neutral float-right" title="Refraction BSDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="refraction.html" class="btn btn-neutral float-right" title="BSDF Khúc Xạ -- Refraction BSDF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hair_principled.html" class="btn btn-neutral" title="Principled Hair BSDF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -103,7 +103,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../properties.html">Các Tính Chất -- Properties</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../index.html#node-types">Các Thể Loại Nút -- Node Types</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../input/index.html">Các Nút Đầu Vào -- Input Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Output Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../output/index.html">Các Nút Đầu Ra -- Output Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../color/index.html">Color Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../converter/index.html">Converter Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../filter/index.html">Filter Nodes</a></li>
@@ -124,7 +124,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../distort/index.html">Distort Nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../groups.html">Node Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../groups.html">Nhóm Nút -- Node Groups</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../layout/index.html">Layout Nodes</a></li>
 </ul>
 </li>
@@ -216,40 +216,40 @@
 </div>
 <p>The <em>Box Mask</em> node creates an image suitable for use as a simple matte.</p>
 <div class="section" id="inputs">
-<h2>Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Mask</dt>
+<dt>Màn Chắn -- Mask</dt>
 <dd>An optional mask to use as the base for mask operations.</dd>
-<dt>Value</dt>
+<dt>Giá Trị -- Value</dt>
 <dd>Intensity of the generated mask.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
-<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
+<h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>X, Y</dt>
 <dd>Position of the center of the box as a fraction of the total width or height.
 (0.5, 0.5 creates a centered box; 0.0, 0.0 creates a box in the lower left).</dd>
-<dt>Width</dt>
+<dt>Chiều Rộng -- Width</dt>
 <dd>Width of the box as a fraction of the total image width.</dd>
-<dt>Height</dt>
+<dt>Chiều Cao -- Height</dt>
 <dd>Height of the box as a fraction of the total image <em>width</em>, not height.</dd>
-<dt>Rotation</dt>
+<dt>Xoay Chiều -- Rotation</dt>
 <dd>Rotation of the box around its center point.</dd>
 <dt>Mask Type</dt>
 <dd><p class="first">Operation to use against the input mask.</p>
 <dl class="last docutils">
-<dt>Add</dt>
+<dt>Cộng -- Add</dt>
 <dd>This yields the <em>union</em> of the input mask and the generated mask:
 Areas covered by the generated mask are set to the specified <em>Value</em>.
 Other parts of the input masked are passed through unchanged, or set to black if there is no input mask.</dd>
-<dt>Subtract</dt>
+<dt>Trừ Khấu -- Subtract</dt>
 <dd>Values of the input mask have the specified <em>Value</em> subtracted from them.</dd>
-<dt>Multiply</dt>
+<dt>Nhân -- Multiply</dt>
 <dd>This yields the <em>intersection</em> of this generated mask and the input mask:
 Values of the input mask are multiplied by the specified <em>Value</em> for the area covered by the generated mask.
 All other areas become black.</dd>
-<dt>Not</dt>
+<dt>Đảo Nghịch -- Not</dt>
 <dd>Any area covered by both the input mask and the generated mask becomes black.
 Areas covered by the generated mask that are black on the input mask become the specified <em>Value</em>.
 Areas uncovered by the generated mask remain unchanged.</dd>
@@ -258,9 +258,9 @@ Areas uncovered by the generated mask remain unchanged.</dd>
 </dl>
 </div>
 <div class="section" id="outputs">
-<h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<h2>Đầu Ra -- Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Mask</dt>
+<dt>Màn Chắn -- Mask</dt>
 <dd>A generated rectangular mask merged with the input mask.
 The created mask is the size of the current scene render dimensions.</dd>
 </dl>

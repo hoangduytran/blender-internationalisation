@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../search.html" />
     <link rel="next" title="Stroke &amp; Curve" href="stroke_curve.html" />
-    <link rel="prev" title="Brush" href="brush.html" /> 
+    <link rel="prev" title="Bút Lông -- Brush" href="brush.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -94,11 +94,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../data_system/index.html">Hệ Thống Dữ Liệu -- Data System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modeling/index.html">Kiến Tạo Mô Hình -- Modeling</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Sơn &amp; Điêu Khắc -- Painting &amp; Sculpting</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="brush.html">Brush</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="brush.html">Bút Lông -- Brush</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Texture &amp; Texture Mask</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#texture">Texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#texture-mask">Texture Mask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#texture">Hoa Văn -- Texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#texture-mask">Chất Liệu Màn Chắn -- Texture Mask</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="stroke_curve.html">Stroke &amp; Curve</a></li>
@@ -189,7 +189,7 @@
   <div class="section" id="texture-texture-mask">
 <h1>Texture &amp; Texture Mask<a class="headerlink" href="#texture-texture-mask" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="texture">
-<h2>Texture<a class="headerlink" href="#texture" title="Permalink to this headline">¶</a></h2>
+<h2>Hoa Văn -- Texture<a class="headerlink" href="#texture" title="Permalink to this headline">¶</a></h2>
 <div class="figure" id="id1">
 <a class="reference internal image-reference" href="../_images/sculpt-paint_texture-tex-mask_brush-texture.jpg"><img alt="../_images/sculpt-paint_texture-tex-mask_brush-texture.jpg" src="../_images/sculpt-paint_texture-tex-mask_brush-texture.jpg" style="width: 580px;" /></a>
 <p class="caption"><span class="caption-text">Texture options and example.</span></p>
@@ -204,30 +204,30 @@ it must only be defined.</p>
 (banded) wood texture.
 Switching the texture to Rings makes a target/flower type of brush painting pattern.</p>
 <dl class="docutils">
-<dt>Texture</dt>
+<dt>Hoa Văn -- Texture</dt>
 <dd>In paint modes the texture is used as a color source,
 while for sculpting it is used to determine the strength of the brush.</dd>
 <dt>Brush Mapping</dt>
 <dd><p class="first">Sets the way the texture is applied to the brush stroke.</p>
 <dl class="last docutils">
-<dt>View Plane</dt>
+<dt>Góc Nhìn -- View Plane</dt>
 <dd>If <em>View Plane</em> is enabled, the current view angle is used to project the brush texture onto the model.
 I.e. the texture follows the mouse, so it appears that the texture is being dragged across the model.
 In 2D painting, the texture moves with the brush.</dd>
-<dt>Area Plane</dt>
+<dt>Bình Diện -- Area Plane</dt>
 <dd>Projects the brush texture along the local surface normal,
 which keeps the texture from stretching when sculpting on a portion of the mesh
 that is at an extreme angle to the viewpoint.</dd>
-<dt>Tiled</dt>
+<dt>Xếp Ô -- Tiled</dt>
 <dd>The <em>Tile</em> option tiles the texture across the screen,
 so moving the brush appears to move separately from the texture.
 The <em>Tile</em> option is most useful with tileable images, rather than procedural textures.</dd>
 <dt>3D</dt>
 <dd>The <em>3D</em> option allows the brush to take full advantage of procedural textures.
 This mode uses vertex coordinates rather than the brush location to determine what area of the texture to use.</dd>
-<dt>Random</dt>
+<dt>Ngẫu Nhiên -- Random</dt>
 <dd>Picks a random texture coordinate to sample from for each dab.</dd>
-<dt>Stencil</dt>
+<dt>Khuôn In -- Stencil</dt>
 <dd><p class="first">Stencil mapping works by projecting the paint from the camera space on the mesh or canvas.
 Painting is applied only inside the boundaries of the stencil.
 The stencil is displayed as a screen space overlay on the viewport.
@@ -240,11 +240,11 @@ To the transform the stencil texture and the stencil mask with additional <kbd c
 <p>When using stencil scaling, <kbd class="kbd docutils literal notranslate">X</kbd> and <kbd class="kbd docutils literal notranslate">Y</kbd> are used to constrain the scaling to one axis.
 Pressing one of the buttons twice reverts to unconstrained scaling.</p>
 <dl class="last docutils">
-<dt>Image Aspect</dt>
+<dt>Tỷ Lệ Tương Quan của Hình Ảnh -- Image Aspect</dt>
 <dd>Restore the aspect ratio of the original image to reset stretching introduce by scaling,
 (image textures only). This operator can use the tiling and scale values of the brush texture
 if the relevant are enabled in Operator panel.</dd>
-<dt>Reset Transform</dt>
+<dt>Hoàn Lại Biến Hóa -- Reset Transform</dt>
 <dd>Restores the position of the stencil.</dd>
 </dl>
 </dd>
@@ -261,35 +261,35 @@ While in the interactive rotation you can enter a value numerically as well.</p>
 <dt>Random <kbd class="kbd docutils literal notranslate">R</kbd></dt>
 <dd><p class="first">Angle is randomized per dab.</p>
 <dl class="last docutils">
-<dt>Random Angle</dt>
+<dt>Góc Ngẫu Nhiên -- Random Angle</dt>
 <dd>Constraints the random deviation to a range.</dd>
 </dl>
 </dd>
 </dl>
 </dd>
-<dt>Offset</dt>
+<dt>Dịch Chuyển -- Offset</dt>
 <dd>Offset the texture map placement in X, Y, and Z axes.</dd>
-<dt>Size</dt>
+<dt>Kích Thước -- Size</dt>
 <dd>Set the scale of the texture in each axis. Not available for <em>Drag</em> sculpting textures.</dd>
 <dt>Sample Bias</dt>
 <dd>Value added to texture samples (sculpting only).</dd>
 </dl>
 </div>
 <div class="section" id="texture-mask">
-<h2>Texture Mask<a class="headerlink" href="#texture-mask" title="Permalink to this headline">¶</a></h2>
+<h2>Chất Liệu Màn Chắn -- Texture Mask<a class="headerlink" href="#texture-mask" title="Permalink to this headline">¶</a></h2>
 <p>Brush strength is masked with a texture.</p>
-<p>ToDo add.</p>
+<p>Nội dung cần viết thêm.</p>
 <dl class="docutils">
 <dt>Pressure Masking</dt>
 <dd><p class="first">A mask cut-off function. It allows to clip the mask result based on pressure,
 creating areas of no paint when low pressure is applied to the brush,
 similar to how a real brush would behave.</p>
 <dl class="last docutils">
-<dt>Off</dt>
+<dt>Tắt -- Off</dt>
 <dd>Deactivated.</dd>
-<dt>Cutoff</dt>
+<dt>Cắt Bỏ -- Cutoff</dt>
 <dd>Simply selects between zero and one based on stylus pressure.</dd>
-<dt>Ramp</dt>
+<dt>Dốc Màu -- Ramp</dt>
 <dd>Distributes the mask effect above the pressure value.</dd>
 </dl>
 </dd>
@@ -308,7 +308,7 @@ similar to how a real brush would behave.</p>
         <a href="stroke_curve.html" class="btn btn-neutral float-right" title="Stroke &amp; Curve" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="brush.html" class="btn btn-neutral" title="Brush" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="brush.html" class="btn btn-neutral" title="Bút Lông -- Brush" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

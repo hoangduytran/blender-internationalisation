@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Render Quality &mdash; Blender Manual</title>
+  <title>Chất Lượng Kết Xuất -- Render Quality &mdash; Blender Manual</title>
   
 
   
@@ -98,19 +98,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Blender Renderer</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Textures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Lighting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../world/index.html">World</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../materials/index.html">Nguyên Liệu -- Materials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../textures/index.html">Chất Liệu -- Textures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../lighting/index.html">Bố Trí Ánh Sáng -- Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../world/index.html">Thế Giới -- World</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../camera/index.html">Máy Quay Phim -- Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../settings/index.html">Render Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../bake.html">Render Baking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Post Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../post_processing/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="index.html">Optimizing Renders</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Render Quality</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Chất Lượng Kết Xuất -- Render Quality</a></li>
 <li class="toctree-l4"><a class="reference internal" href="performance.html">Performance Considerations</a></li>
 </ul>
 </li>
@@ -118,10 +118,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Freestyle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../freestyle/index.html">Phong Cách Tự Do -- Freestyle</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -187,7 +187,7 @@
         
           <li><a href="index.html">Optimizing Renders</a> &raquo;</li>
         
-      <li>Render Quality</li>
+      <li>Chất Lượng Kết Xuất -- Render Quality</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,7 +207,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="render-quality">
-<h1>Render Quality<a class="headerlink" href="#render-quality" title="Permalink to this headline">¶</a></h1>
+<h1>Chất Lượng Kết Xuất -- Render Quality<a class="headerlink" href="#render-quality" title="Permalink to this headline">¶</a></h1>
 <p>Many factors go into the quality of the rendered image. Rendering a scene without changing any
 of the render settings is probably going to produce a rather unpleasant image.
 In previous chapters, you have learned how to model, shade, texture, and light scenes.
@@ -231,7 +231,7 @@ but it is important to know how the color space of a rendered image factors into
 </div>
 </div>
 <div class="section" id="anti-aliasing">
-<h2>Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h2>
+<h2>Chống Răng Cưa -- Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="Permalink to this headline">¶</a></h2>
 <p>Anti-Aliasing removes jagged edges that appear in contrasting areas of color.
 This is a very important aspect of render quality. Without this render setting,
 images usually appear particularly CG and amateur.</p>
@@ -253,7 +253,7 @@ This can be achieved through lighting settings, or better, through
 </div>
 </div>
 <div class="section" id="motion-blur">
-<h2>Motion Blur<a class="headerlink" href="#motion-blur" title="Permalink to this headline">¶</a></h2>
+<h2>Làm Nhòe Chuyển Động -- Motion Blur<a class="headerlink" href="#motion-blur" title="Permalink to this headline">¶</a></h2>
 <p>Cameras have a certain shutter speed (the length of time the film is exposed to the lights of the scene).
 Things that are in motion while the picture is taken will have some degree of blurring.
 Faster-moving objects will appear more blurred than slower objects.

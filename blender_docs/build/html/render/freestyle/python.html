@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python Scripting Mode &mdash; Blender Manual</title>
+  <title>Chế Độ Tập Lệnh Python -- Python Scripting Mode &mdash; Blender Manual</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/css/theme_overrides.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Tìm Kiếm" href="../../search.html" />
-    <link rel="next" title="Line" href="line.html" />
-    <link rel="prev" title="Geometry" href="parameter_editor/line_style/modifiers/geometry.html" /> 
+    <link rel="next" title="Dòng -- Line" href="line.html" />
+    <link rel="prev" title="Hình Dạng -- Geometry" href="parameter_editor/line_style/modifiers/geometry.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -98,26 +98,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../../animation/index.html">Hoạt Họa -- Animation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Vật Lý -- Physics</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kết Xuất -- Render</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../introduction.html">Giới Thiệu -- Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blender_render/index.html">Blender Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cycles/index.html">Cycles Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../output/index.html">Render Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Post Processing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Freestyle</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../post_process/index.html">Xử Lý Hậu Kỳ -- Post Processing</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Phong Cách Tự Do -- Freestyle</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core.html">Core Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="view_map.html">View Maps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="parameter_editor/index.html">Parameter Editor</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Python Scripting Mode</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Chế Độ Tập Lệnh Python -- Python Scripting Mode</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#writing-style-modules">Writing Style Modules</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="line.html">Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="line.html">Dòng -- Line</a></li>
 <li class="toctree-l3"><a class="reference internal" href="export_svg.html">Freestyle SVG Exporter</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workflows/index.html">Workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../opengl.html">OpenGL Render</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../opengl.html">Kết Xuất OpenGL -- OpenGL Render</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../audio/index.html">Audio Rendering</a></li>
 </ul>
 </li>
@@ -179,9 +179,9 @@
         
           <li><a href="../index.html">Kết Xuất -- Render</a> &raquo;</li>
         
-          <li><a href="index.html">Freestyle</a> &raquo;</li>
+          <li><a href="index.html">Phong Cách Tự Do -- Freestyle</a> &raquo;</li>
         
-      <li>Python Scripting Mode</li>
+      <li>Chế Độ Tập Lệnh Python -- Python Scripting Mode</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,7 +201,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="python-scripting-mode">
-<span id="bpy-types-freestylemodulesettings"></span><h1>Python Scripting Mode<a class="headerlink" href="#python-scripting-mode" title="Permalink to this headline">¶</a></h1>
+<span id="bpy-types-freestylemodulesettings"></span><h1>Chế Độ Tập Lệnh Python -- Python Scripting Mode<a class="headerlink" href="#python-scripting-mode" title="Permalink to this headline">¶</a></h1>
 <p>The Python Scripting mode offers full programmable line stylizes.
 In this control mode, all styling operations are written as Python scripts referred to as
 style modules in the Freestyle terminology. The input to a style module is a view map
@@ -281,7 +281,7 @@ Vertices of 1D elements are called 0D elements in general.</p>
 The initial active set is the set of ViewEdges in the input view map.
 The active set is updated by the operators.</p>
 <div class="section" id="selection">
-<h3>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
+<h3>Lựa Chọn -- Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h3>
 <p>The selection operator goes through every element of the active set and keeps only the ones
 satisfying a certain predicate. The <code class="docutils literal notranslate"><span class="pre">Operators.select()</span></code> method takes as the argument a unary
 predicate that works on any <code class="docutils literal notranslate"><span class="pre">Interface1D</span></code> that represents a 1D element. For example:</p>
@@ -299,7 +299,7 @@ method takes as argument a functor which in turn takes an <code class="docutils 
 The Freestyle Python API employs functors extensively to implement predicates, as well as functions.</p>
 </div>
 <div class="section" id="chaining">
-<h3>Chaining<a class="headerlink" href="#chaining" title="Permalink to this headline">¶</a></h3>
+<h3>Tạo Dây Chuyền -- Chaining<a class="headerlink" href="#chaining" title="Permalink to this headline">¶</a></h3>
 <p>The chaining operators act on the set of active <code class="docutils literal notranslate"><span class="pre">ViewEdge</span></code> objects and determine the topology
 of the future strokes.
 The idea is to implement an iterator to traverse the ViewMap graph by marching along ViewEdges.
@@ -367,7 +367,7 @@ The curvature is evaluated at points along the Chain at a resolution of 5 units.
 Chains shorter than 5 units will not be split anymore.</p>
 </div>
 <div class="section" id="sorting">
-<h3>Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
+<h3>Sắp Thứ Tự -- Sorting<a class="headerlink" href="#sorting" title="Permalink to this headline">¶</a></h3>
 <p>The sorting operator <code class="docutils literal notranslate"><span class="pre">Operators.sort()</span></code> arranges the stacking order of active 1D elements.
 It takes as argument a binary predicate used as a &quot;smaller than&quot; operator to order two 1D elements.</p>
 <div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">Operators</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">Length2DBP1D</span><span class="p">())</span>
@@ -431,10 +431,10 @@ base classes and overriding appropriate methods. See <a class="reference externa
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="line.html" class="btn btn-neutral float-right" title="Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="line.html" class="btn btn-neutral float-right" title="Dòng -- Line" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="parameter_editor/line_style/modifiers/geometry.html" class="btn btn-neutral" title="Geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="parameter_editor/line_style/modifiers/geometry.html" class="btn btn-neutral" title="Hình Dạng -- Geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
