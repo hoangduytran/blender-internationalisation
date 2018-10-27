@@ -212,38 +212,33 @@
 <span id="bpy-types-compositornodealphaover"></span><h1>Nút Alpha Chồng Lên -- Alpha Over Node<a class="headerlink" href="#alpha-over-node" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../../../_images/compositing_types_color_alpha-over_node.png" src="../../../_images/compositing_types_color_alpha-over_node.png" />
-<p class="caption"><span class="caption-text">Nút Alpha Chồng Lên</span></p>
+<p class="caption"><span class="caption-text">Nút Alpha Chồng Lên.</span></p>
 </div>
-<p>The <em>Alpha Over</em> node is used to layer images on top of one another.</p>
-<p>Where the foreground image pixels have an alpha greater than 0, the background image will be overlaid.</p>
+<p>Nút <em>Alpha Chồng Lên</em> được sử dụng để chồng tầng các lớp hình ảnh lên trên nhau.</p>
+<p>Trong đó nếu điểm ảnh của hình ảnh nằm trước có alpha lớn hơn 0 thì hình ảnh nền sẽ được phủ lên.</p>
 <div class="section" id="inputs">
 <h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Hệ Số -- Factor</dt>
-<dd>Controls the amount of foreground image.
-A factor less than 1 will make the foreground more transparent.</dd>
+<dd>Khống chế lượng của hình ảnh ở lớp trước. Hệ số nhỏ hơn 1 sẽ làm cho nền trước trong suốt hơn.</dd>
 <dt>Hình Ảnh -- Image</dt>
-<dd>Input for the <em>background</em> image.</dd>
+<dd>Đầu vào cho hình ảnh <em>nền sau</em>.</dd>
 <dt>Hình Ảnh -- Image</dt>
-<dd>Input for the <em>foreground</em> image.</dd>
+<dd>Đầu vào cho hình ảnh <em>nền trước</em>.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
 <h2>Tính Chất -- Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
-<dt>Convert Premultiplied</dt>
-<dd><p class="first">Converts foreground image to <em>premultiplied alpha</em> format.</p>
-<p>The <em>Alpha Over</em> node is designed to work with <em>premultiplied</em> alpha color format.
-Use <em>Convert Premul</em> when you know that your image has <em>straight</em> alpha color values,
-to perform the correct over operation. Result will be still premultiplied alpha.</p>
-<p class="last">See <a class="reference internal" href="../../../glossary/index.html#term-alpha-channel"><span class="xref std std-term">Alpha Channel</span></a>.</p>
+<dt>Chuyển Đổi Nhân Trước -- Convert Premultiplied</dt>
+<dd><p class="first">Đổi hình ảnh nền trước sang định dạng <em>alpha nhân trước</em> (<em>premultiplied alpha</em>)</p>
+<p>Nút <em>Alpha Chồng Lên</em> được thiết kế để hoạt động với định dạng màu alpha <em>nhân trước</em> (<em>premultiplied</em>). Sử dụng <em>Chuyển đổi Alpha Nhân Trước</em> khi bạn biết rằng hình ảnh của bạn có các giá trị màu alpha <em>thẳng</em> (<em>straight</em>), để thực hiện thao tác chồng lên chính xác. Kết quả sẽ vẫn là alpha nhân trước.</p>
+<p class="last">Xin xem thêm về <a class="reference internal" href="../../../glossary/index.html#term-alpha-channel"><span class="xref std std-term">Alpha Channel</span></a>.</p>
 </dd>
-<dt>Premultiply</dt>
-<dd><p class="first">The <em>Premul</em> slider allows to mix between the using <em>premultiplied</em> or <em>non premultiplied</em> alpha.</p>
-<p>When set to 1, the foreground color values will be multiplied by alpha, i.e. premultiplied.
-This is equivalent to enabling the <em>Convert Premul</em> option.
-When set to 0, color values does not change.</p>
-<p class="last">If <em>Premultiply</em> is not zero, <em>Convert Premul</em> will be ignored.</p>
+<dt>Nhân Trước -- Premultiply</dt>
+<dd><p class="first">Thanh trượt <em>Nhân Trước*(*Premul</em>) cho phép kết hợp giữa sử dụng  alpha <em>Nhân Trước</em> (<em>premultiplied</em>) hoặc  alpha <em>không nhân trước</em> (<em>non premultiplied</em>).</p>
+<p>Khi được đặt thành 1, giá trị màu nền đằng trước sẽ được nhân với alpha, tức là được nhân trước. Điều này tương đương với việc kích hoạt tùy chọn <em>Chuyển Đổi Nhân Trước</em> (<em>Convert Premul</em>) vậy. Khi được đặt thành 0, giá trị màu sẽ không thay đổi.</p>
+<p class="last">Nếu <em>Nhân Trước</em> không phải là số không thì <em>Chuyển Đổi Nhân Trước</em> sẽ bị bỏ qua.</p>
 </dd>
 </dl>
 </div>
@@ -256,22 +251,17 @@ When set to 0, color values does not change.</p>
 </div>
 <div class="section" id="examples">
 <h2>Các Ví Dụ -- Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<p>In the map below, <em>Color Ramp</em> node is used to add an alpha channel to the black-and-white swirl image.
-Then <em>Alpha Over</em> node is used to overlay it on top of another image.</p>
+<p>Trong bản đồ dưới đây, nút <em>Dốc Màu</em> (<em>Color Ramp</em>) được sử dụng để cho thêm kênh alpha vào hình ảnh luồng xoáy đen trắng. Sau đó, nút <em>Alpha chồng lên</em> (<em>Alpha Over</em>) được sử dụng để phủ chồng lên trên một hình ảnh khác.</p>
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../../../_images/compositing_types_converter_color-ramp_create-alpha-mask.png"><img alt="../../../_images/compositing_types_converter_color-ramp_create-alpha-mask.png" src="../../../_images/compositing_types_converter_color-ramp_create-alpha-mask.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Assembling a composite image using Alpha Over.</span></p>
+<p class="caption"><span class="caption-text">Lắp ráp một hình ảnh tổng hợp bằng cách sử dụng Alpha Chồng Lên (<em>Alpha Over</em>).</span></p>
 </div>
-<p>In next example, we use the <em>Factor</em> control to make a &quot;Fade In&quot; effect.
-This effect can be animated by adding a <em>Time</em> node to feed the <em>Factor</em> socket as shown below.
-In this example, over the course of 30 frames, the <em>Time</em> node makes the <em>Alpha Over</em> node produce
-a picture that starts with the pure background image, and title slowly bleeds through the background.</p>
+<p>Trong ví dụ tiếp theo, chúng ta sử dụng điều khiển <em>Hệ Số</em> (<em>Factor</em>) để tạo hiệu ứng &quot;Mờ Dần Vào&quot; (<em>Fade In</em>). Hiệu ứng này có thể được hoạt họa bằng cách thêm nút <em>Thời Gian</em> (<em>Time</em>) để cung cấp thông tin vào ổ cắm <em>Hệ Số</em> (<em>Factor</em>), như hình bên dưới. Trong ví dụ này, trong khoảng thời gian -10 khung hình, nút <em>Thời Gian</em> làm nút <em>Alpha Chồng Lên</em> tạo ra hình ảnh khởi đầu bằng hình nền tinh khiết, và tiêu đề dần dần lách qua phông nền.</p>
 <div class="figure" id="id3">
 <a class="reference internal image-reference" href="../../../_images/compositing_types_color_alpha-over_example.png"><img alt="../../../_images/compositing_types_color_alpha-over_example.png" src="../../../_images/compositing_types_color_alpha-over_example.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Animated fade in effect using Alpha Over.</span></p>
+<p class="caption"><span class="caption-text">Hoạt họa hiệu ứng mờ dần vào có tác động khi sử dụng với Alpha Chồng Lên.</span></p>
 </div>
-<p>Note the <em>Convert Premul</em> checkbox is enabled,
-since as the foreground used a PNG image that has <em>straight</em> alpha.</p>
+<p>Lưu ý hộp kiểm <em>Chuyển Đổi Nhân Trước</em> (<em>Convert Premul</em>) được kích hoạt, vì tiền cảnh sử dụng hình ảnh PNG có alpha <em>thẳng</em> (<em>straight</em>) .</p>
 </div>
 </div>
 
