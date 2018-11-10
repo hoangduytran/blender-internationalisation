@@ -109,9 +109,9 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Nút Độ Sáng/Tương Phản -- Bright/Contrast Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="color_balance.html">Nút Cân Bằng Màu -- Color Balance Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="color_correction.html">Nút Chỉnh Sửa Màu -- Color Correction Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gamma.html">Gamma Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hue_correct.html">Nút Chỉnh Màu -- Hue Correct Node</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hue_saturation.html">Nút Giá Trị Độ Tươi của Màu Sắc -- Hue Saturation Value Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="gamma.html">Nút Gamma -- Gamma Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hue_correct.html">Nút Hiệu Chỉnh Màu -- Hue Correct Node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hue_saturation.html">Nút Giá Trị, Độ Tươi, Màu Sắc -- Hue Saturation Value Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="invert.html">Invert Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="mix.html">Mix Node</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rgb_curves.html">Nút Đường Cong RGB -- RGB Curves Node</a></li>
@@ -212,7 +212,7 @@
 <h1>Nút Độ Sáng/Tương Phản -- Bright/Contrast Node<a class="headerlink" href="#bright-contrast-node" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-right" id="id1">
 <img alt="../../../_images/compositing_types_color_bright-contrast_node.png" src="../../../_images/compositing_types_color_bright-contrast_node.png" />
-<p class="caption"><span class="caption-text">Brightness/Contrast Node.</span></p>
+<p class="caption"><span class="caption-text">Nút Độ Sáng/Tương Phản.</span></p>
 </div>
 <div class="section" id="inputs">
 <h2>Đầu Vào -- Inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
@@ -220,11 +220,9 @@
 <dt>Hình Ảnh -- Image</dt>
 <dd>Đầu vào hình ảnh tiêu chuẩn.</dd>
 <dt>Độ Sáng Tối -- Brightness</dt>
-<dd>A multiplier-type factor by which to increase the overall brightness
-of the image. Use a negative number to darken an image.</dd>
+<dd>Một hệ số nhân dùng để tăng độ sáng tổng thể của hình ảnh lên. Sử dụng số âm để làm hình ảnh tối đi.</dd>
 <dt>Độ Tương Phản -- Contrast</dt>
-<dd>A scaling type factor by which to make brighter pixels brighter, but keeping the darker pixels dark.
-Higher values make details stand out. Use a negative number to decrease the overall contrast in the image.</dd>
+<dd>Một loại hệ số phóng đại dùng để làm cho các điểm ảnh sáng sáng rực hơn, song giữ cho các điểm ảnh đã tối vẫn ở mức độ tối. Giá trị cao sẽ làm cho chi tiết nổi bật lên. Sử dụng số âm hòng để giảm độ tương phản tổng thể trong hình ảnh.</dd>
 </dl>
 </div>
 <div class="section" id="properties">
@@ -246,21 +244,12 @@ If the <em>Convert Premul</em> checkbox is not enabled, it is supposed to work i
 </div>
 <div class="section" id="notes">
 <h2>Ghi Chú -- Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>It is possible that this node will put out a value set that has values beyond the normal range,
-i.e. values greater than one and less than zero.
-If you will be using the output to mix with other images in the normal range,
-you should clamp the values using the Map Value node (with the Min and Max enabled),
-or put through a Color Ramp node (with all normal defaults).</p>
+<p>Có thể nút này sẽ xuất ra một tập hợp các giá trị có độ lớn vượt quá phạm vi bình thường, tức là các giá trị lớn hơn 1 và nhỏ hơn 0. Nếu bạn sử dụng giá trị đầu ra để trộn với các ảnh khác trong phạm vi bình thường thì bạn nên hạn định các giá trị bằng cách sử dụng nút Ánh Xạ Giá Trị (<em>Map Value</em>) (với Tối Thiểu (Min) và Tối Đa (Max) được bật), hoặc chuyển qua nút Dốc Màu (<em>Color Ramp</em>) (với tất cả các giá trị mặc định thông thường).</p>
 <div class="figure" id="id2">
 <a class="reference internal image-reference" href="../../../_images/compositing_types_color_bright-contrast_clamp-values.png"><img alt="../../../_images/compositing_types_color_bright-contrast_clamp-values.png" src="../../../_images/compositing_types_color_bright-contrast_clamp-values.png" style="width: 600px;" /></a>
-<p class="caption"><span class="caption-text">Clamp the values to normal range.</span></p>
+<p class="caption"><span class="caption-text">Hạn định các giá trị trong phạm vi bình thường.</span></p>
 </div>
-<p>Either of these nodes will scale the values back to normal range.
-In the example image, we want to amp up the specular pass.
-The bottom thread shows what happens if we do not clamp the values;
-the specular pass has valued much less than one in the dark areas;
-when added to the medium gray, it makes black. Passing the brightened image through either
-the Map Value or the Color Ramp node produces the desired effect.</p>
+<p>Một trong các nút này sẽ tỷ lệ hóa các giá trị để chúng trở lại trong phạm vi bình thường. Trong hình ảnh ví dụ, chúng tôi muốn phóng đại lượt giải quyết về độ lóng lánh (<em>specular pass</em>). Luồng dưới cùng cho thấy nếu chúng ta không hạn định các giá trị lại thì điều gì sẽ xảy ra; Lượt giải quyết về độ lóng lánh (<em>specular pass</em>) có giá trị ít hơn 1 trong những vùng tối; khi cộng thêm vào màu xám trung bình, nó làm thành màu đen. Việc truyền hình ảnh đã được làm sáng lên qua một trong hai cái, Ánh Xạ Giá Trị (<em>Map Value</em>) hoặc Dốc Màu (<em>Color Ramp</em>) tạo ra được hiệu ứng mình mong muốn.</p>
 </div>
 <div class="section" id="example">
 <h2>Ví Dụ -- Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
